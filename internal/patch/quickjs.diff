@@ -1,0 +1,28 @@
+diff --git a/quickjs.c b/quickjs.c
+index ebf45a9..b69e671 100644
+--- a/quickjs.c
++++ b/quickjs.c
+@@ -51,7 +51,7 @@
+ #if defined(EMSCRIPTEN)
+ #define DIRECT_DISPATCH  0
+ #else
+-#define DIRECT_DISPATCH  1
++#define DIRECT_DISPATCH  0
+ #endif
+ 
+ #if defined(__APPLE__)
+@@ -68,12 +68,12 @@
+ /* define to include Atomics.* operations which depend on the OS
+    threads */
+ #if !defined(EMSCRIPTEN)
+-#define CONFIG_ATOMICS
++// #define CONFIG_ATOMICS
+ #endif
+ 
+ #if !defined(EMSCRIPTEN)
+ /* enable stack limitation */
+-#define CONFIG_STACK_CHECK
++// #define CONFIG_STACK_CHECK
+ #endif
+ 
+ 

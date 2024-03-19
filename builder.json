@@ -1,0 +1,9 @@
+{
+	"autogen": "linux/amd64",
+	"autoupdate": "linux/amd64",
+	"autotag": "linux/amd64",
+	"download": [
+		{"re": "linux/amd64", "files": ["https://github.com/bellard/quickjs/archive/6a89d7c27099be84e5312a7ec73205d6a7abe1b4.zip"]}
+	],
+	"test": "linux/amd64"
+}
