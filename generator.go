@@ -7,6 +7,9 @@
 
 package main
 
+//TODO float rounding mode
+//TODO pthreads
+
 import (
 	"fmt"
 	"os"
@@ -93,6 +96,7 @@ func main() {
 	util.MustShell(true, nil, "unzip", archivePath, "-d", tempDir)
 	util.MustCopyFile(true, "LICENSE-LIBQUICKJS", filepath.Join(makeRoot, "LICENSE"), nil)
 	result := filepath.Join("ccgo.go")
+	ilibc := filepath.Join(util.MustAbsCwd(true), "..", "libc", "include", goos, goarch)
 	patch := filepath.Join(util.MustAbsCwd(true), "internal", "patch", "quickjs.diff")
 	util.MustInDir(true, makeRoot, func() (err error) {
 		util.MustShell(true, nil, "git", "apply", patch)
@@ -125,6 +129,7 @@ func main() {
 			"--prefix-typename=T",
 			"--prefix-undefined=_",
 			"-DNDEBUG",
+			"-I", ilibc,
 			"-U__SIZEOF_INT128__",
 			"-extended-errors",
 		)

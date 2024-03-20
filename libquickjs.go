@@ -19,3 +19,8 @@ import (
 func ___atomic_fetch_add(tls *libc.TLS, p uintptr, n, _ int32) int32 {
 	return atomic.AddInt32((*int32)(unsafe.Pointer(p)), n)
 }
+
+// int fesetround(int rounding_mode);
+func _fesetround(tls *libc.TLS, rounding_mode int32) int32 {
+	return 0 //TODO
+}
