@@ -117,10 +117,10 @@ func main() {
 			)
 		}
 		args = append(args,
-			"--prefix-enumerator=_",
+			"--prefix-enumerator=E",
 			"--prefix-external=x_",
 			"--prefix-field=F",
-			"--prefix-macro=m_",
+			"--prefix-macro=M",
 			"--prefix-static-internal=_",
 			"--prefix-static-none=_",
 			"--prefix-tagged-enum=_",
@@ -131,6 +131,7 @@ func main() {
 			"-DNDEBUG",
 			"-I", ilibc,
 			"-U__SIZEOF_INT128__",
+			"-eval-all-macros",
 			"-extended-errors",
 		)
 		if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
