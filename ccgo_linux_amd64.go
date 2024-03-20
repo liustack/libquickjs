@@ -1,4 +1,4 @@
-// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=_ --prefix-external=x_ --prefix-field=F --prefix-macro=m_ --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
+// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=_ --prefix-external=x_ --prefix-field=F --prefix-macro=m_ --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/builder/.exclude/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
 
 //go:build linux && amd64
 // +build linux,amd64
