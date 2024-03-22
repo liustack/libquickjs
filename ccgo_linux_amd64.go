@@ -1,4 +1,4 @@
-// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/builder/.exclude/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
+// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
 
 //go:build linux && amd64
 // +build linux,amd64
@@ -19916,11 +19916,9 @@ func _js_ecvt1(tls *libc.TLS, d float64, n_digits int32, decpt uintptr, sign uin
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
 	if rounding_mode != MFE_TONEAREST {
-		_fesetround(tls, rounding_mode)
-	}
-	libc.X__builtin_snprintf(tls, buf1, uint64(buf1_size), __ccgo_ts+2333, libc.VaList(bp+8, n_digits-int32(1), d))
-	if rounding_mode != MFE_TONEAREST {
-		_fesetround(tls, MFE_TONEAREST)
+		_snprintf_with_rounding_mode(tls, rounding_mode, buf1, uint64(buf1_size), 0, n_digits-int32(1), d)
+	} else {
+		libc.X__builtin_snprintf(tls, buf1, uint64(buf1_size), __ccgo_ts+2333, libc.VaList(bp+8, n_digits-int32(1), d))
 	}
 	*(*int32)(unsafe.Pointer(sign)) = libc.BoolInt32(int32(*(*int8)(unsafe.Pointer(buf1))) == int32('-'))
 	/* mantissa */
@@ -20002,11 +20000,9 @@ func _js_fcvt1(tls *libc.TLS, buf uintptr, d float64, n_digits int32, rounding_m
 	var n int32
 	_ = n
 	if rounding_mode != MFE_TONEAREST {
-		_fesetround(tls, rounding_mode)
-	}
-	n = libc.X__builtin_snprintf(tls, buf, uint64(128), __ccgo_ts+2339, libc.VaList(bp+8, n_digits, d))
-	if rounding_mode != MFE_TONEAREST {
-		_fesetround(tls, MFE_TONEAREST)
+		n = _snprintf_with_rounding_mode(tls, rounding_mode, buf, uint64(128), int32(1), n_digits, d)
+	} else {
+		n = libc.X__builtin_snprintf(tls, buf, uint64(128), __ccgo_ts+2339, libc.VaList(bp+8, n_digits, d))
 	}
 	return n
 }
@@ -118097,6 +118093,39 @@ _5:
 	XJS_SetPropertyFunctionList(tls, ctx, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_DATAVIEW)*16)), uintptr(unsafe.Pointer(&_js_dataview_proto_funcs)), int32(libc.Uint64FromInt64(768)/libc.Uint64FromInt64(32)))
 	_JS_NewGlobalCConstructorOnly(tls, ctx, __ccgo_ts+15044, __ccgo_fp(_js_dataview_constructor), int32(1), *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_DATAVIEW)*16)))
 	/* Atomics */
+}
+
+func XDupValue(tls *libc.TLS, ctx uintptr, v TJSValue) (r TJSValue) {
+	var p uintptr
+	var v1, v2 TJSValue
+	_, _, _ = p, v1, v2
+	_ = ctx
+	v1 = v
+	if uint32(int32(v1.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v1))))
+		(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
+	}
+	v2 = v1
+	goto _3
+_3:
+	return v2
+}
+
+func XFreeValue(tls *libc.TLS, ctx uintptr, v TJSValue) {
+	var p, v3 uintptr
+	var v1 TJSValue
+	var v2 int32
+	_, _, _, _ = p, v1, v2, v3
+	v1 = v
+	if uint32(int32(v1.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v1))))
+		v3 = p
+		*(*int32)(unsafe.Pointer(v3))--
+		v2 = *(*int32)(unsafe.Pointer(v3))
+		if v2 <= libc.Int32FromInt32(0) {
+			X__JS_FreeValue(tls, ctx, v1)
+		}
+	}
 }
 
 type TJSAsyncFunctionState1 = struct {

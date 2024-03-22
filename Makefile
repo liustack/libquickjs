@@ -2,11 +2,13 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-.PHONY:	all clean dev download edit editor generate work test
+.PHONY:	all clean dev download edit editor generate work test diff
 
 DIR = /tmp/libquickjs
-TAR = 6a89d7c27099be84e5312a7ec73205d6a7abe1b4.zip
+TAR0 = 6a89d7c27099be84e5312a7ec73205d6a7abe1b4
+TAR = $(TAR0).zip
 URL = https://github.com/bellard/quickjs/archive/$(TAR)
+TMP = /tmp/libquickjs/quickjs-$(TAR0)/
 
 all: editor
 	golint 2>&1
@@ -73,3 +75,10 @@ work:
 	go work use .
 	go work use ../ccgo/v4
 	go work use ../libc
+
+diff:
+	make -C $(TMP) clean
+	find $(TMP) -name \*.ago -delete
+	find $(TMP) -name \*.go -delete
+	find $(TMP) -name go.\* -delete
+	git diff quickjs-$(TAR0) $(TMP)

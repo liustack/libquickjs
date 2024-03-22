@@ -154,7 +154,9 @@ func main() {
 	})
 
 	fn := fmt.Sprintf("ccgo_%s_%s.go", goos, goarch)
-	util.MustCopyFile(false, fn, filepath.Join(makeRoot, result), nil)
+	util.MustCopyFile(true, fn, filepath.Join(makeRoot, result), nil)
+	util.MustCopyFile(true, filepath.Join("internal", "qjs", fn), filepath.Join(makeRoot, "qjs.go"), nil)
+	util.MustCopyDir(true, filepath.Join("internal", "tests"), filepath.Join(makeRoot, "tests"), nil)
 	util.Shell(nil, "sh", "-c", "./unconvert.sh")
 	util.MustShell(true, nil, "gofmt", "-l", "-s", "-w", ".")
 	util.MustShell(true, nil, "go", "test", "-run", "@")
