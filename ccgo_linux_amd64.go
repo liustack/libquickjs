@@ -1,4 +1,4 @@
-// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
+// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/builder/.exclude/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
 
 //go:build linux && amd64
 // +build linux,amd64
@@ -102,7 +102,6 @@ const MDEFAULT = 0
 const MDEFINE_GLOBAL_FUNC_VAR = 64
 const MDEFINE_GLOBAL_LEX_VAR = 128
 const MDIRECT_DISPATCH = 0
-const MEOF = -1
 const MEXIT_FAILURE = 1
 const MEXIT_SUCCESS = 0
 const MFD_SETSIZE = 1024
@@ -433,9 +432,6 @@ const MSCNxFAST8 = "hhx"
 const MSCNxLEAST16 = "hx"
 const MSCNxLEAST32 = "x"
 const MSCNxLEAST8 = "hhx"
-const MSEEK_CUR = 1
-const MSEEK_END = 2
-const MSEEK_SET = 0
 const MSHORT_OPCODES = 1
 const MSIG_ATOMIC_MAX = 2147483647
 const MSIG_ATOMIC_MIN = -2147483648
@@ -153606,7 +153602,7 @@ func Xjs_load_file(tls *libc.TLS, ctx uintptr, pbuf_len uintptr, filename uintpt
 	if !(f != 0) {
 		return libc.UintptrFromInt32(0)
 	}
-	if libc.Xfseek(tls, f, 0, int32(MSEEK_END)) < 0 {
+	if libc.Xfseek(tls, f, 0, int32(2)) < 0 {
 		goto fail
 	}
 	lret = libc.Xftell(tls, f)
@@ -153619,7 +153615,7 @@ func Xjs_load_file(tls *libc.TLS, ctx uintptr, pbuf_len uintptr, filename uintpt
 		goto fail
 	}
 	buf_len = uint64(lret)
-	if libc.Xfseek(tls, f, 0, MSEEK_SET) < 0 {
+	if libc.Xfseek(tls, f, 0, 0) < 0 {
 		goto fail
 	}
 	if ctx != 0 {
@@ -156338,7 +156334,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})(unsafe.Pointer(&struct {
 			f Tint32_t
 			_ [12]byte
-		}{f: int32(MSEEK_CUR)})),
+		}{f: int32(1)})),
 	},
 	21: {
 		Fname:       __ccgo_ts + 16963,
@@ -156369,7 +156365,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})(unsafe.Pointer(&struct {
 			f Tint32_t
 			_ [12]byte
-		}{f: int32(MSEEK_END)})),
+		}{f: int32(2)})),
 	},
 	22: {
 		Fname:       __ccgo_ts + 9652,
