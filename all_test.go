@@ -5,15 +5,17 @@
 package libquickjs // import "modernc.org/libquickjs"
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
 	"testing"
+	"unsafe"
 
 	_ "modernc.org/ccgo/v4/lib"
 	util "modernc.org/fileutil/ccgo"
-	_ "modernc.org/libc"
+	"modernc.org/libc"
 )
 
 var (
@@ -23,6 +25,199 @@ var (
 
 func TestMain(m *testing.M) {
 	os.Exit(m.Run())
+}
+
+var str [128]byte
+
+func TestSnprintfWithRoundingMode(t *testing.T) {
+	// $ cat main.c
+	// #include <stdio.h>
+	// #include <fenv.h>
+	//
+	// char str[128];
+	//
+	// int main() {
+	// 	char *names[] = {"FE_DOWNWARD", "FE_UPWARD"};
+	// 	int modes[] = {FE_DOWNWARD, FE_UPWARD};
+	// 	double ds[] = {1234.5678, 25};
+	// 	double signs[] = {-1, 1};
+	// 	for (int i = 0; i < 2; i++) {
+	// 		int mode = modes[i];
+	//              fesetround(mode);
+	// 		char *name = names[i];
+	// 		for (int j = 0; j < 2; j++) {
+	// 			double d0 = ds[j];
+	// 			for (int k = 0; k < 2; k++) {
+	// 				double d = d0*signs[k];
+	// 				for (int prec = 0; prec < 8; prec++) {
+	// 					snprintf(str, 128, "%+.*e", prec, d);
+	// 					printf("mode=%s d=%f prec=%d s=`%s`\n", name, d, prec, str);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// $ gcc main.c && ./a.out
+	// mode=FE_DOWNWARD d=-1234.567801 prec=0 s=`-2e+03`
+	// mode=FE_DOWNWARD d=-1234.567801 prec=1 s=`-1.3e+03`
+	// mode=FE_DOWNWARD d=-1234.567801 prec=2 s=`-1.24e+03`
+	// mode=FE_DOWNWARD d=-1234.567801 prec=3 s=`-1.235e+03`
+	// mode=FE_DOWNWARD d=-1234.567801 prec=4 s=`-1.2346e+03`
+	// mode=FE_DOWNWARD d=-1234.567801 prec=5 s=`-1.23457e+03`
+	// mode=FE_DOWNWARD d=-1234.567801 prec=6 s=`-1.234568e+03`
+	// mode=FE_DOWNWARD d=-1234.567801 prec=7 s=`-1.2345679e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=0 s=`+1e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=1 s=`+1.2e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=2 s=`+1.23e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=3 s=`+1.234e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=4 s=`+1.2345e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=5 s=`+1.23456e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=6 s=`+1.234567e+03`
+	// mode=FE_DOWNWARD d=1234.567800 prec=7 s=`+1.2345678e+03`
+	// mode=FE_DOWNWARD d=-25.000000 prec=0 s=`-3e+01`
+	// mode=FE_DOWNWARD d=-25.000000 prec=1 s=`-2.5e+01`
+	// mode=FE_DOWNWARD d=-25.000000 prec=2 s=`-2.50e+01`
+	// mode=FE_DOWNWARD d=-25.000000 prec=3 s=`-2.500e+01`
+	// mode=FE_DOWNWARD d=-25.000000 prec=4 s=`-2.5000e+01`
+	// mode=FE_DOWNWARD d=-25.000000 prec=5 s=`-2.50000e+01`
+	// mode=FE_DOWNWARD d=-25.000000 prec=6 s=`-2.500000e+01`
+	// mode=FE_DOWNWARD d=-25.000000 prec=7 s=`-2.5000000e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=0 s=`+2e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=1 s=`+2.5e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=2 s=`+2.50e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=3 s=`+2.500e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=4 s=`+2.5000e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=5 s=`+2.50000e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=6 s=`+2.500000e+01`
+	// mode=FE_DOWNWARD d=25.000000 prec=7 s=`+2.5000000e+01`
+	// mode=FE_UPWARD d=-1234.567800 prec=0 s=`-1e+03`
+	// mode=FE_UPWARD d=-1234.567800 prec=1 s=`-1.2e+03`
+	// mode=FE_UPWARD d=-1234.567800 prec=2 s=`-1.23e+03`
+	// mode=FE_UPWARD d=-1234.567800 prec=3 s=`-1.234e+03`
+	// mode=FE_UPWARD d=-1234.567800 prec=4 s=`-1.2345e+03`
+	// mode=FE_UPWARD d=-1234.567800 prec=5 s=`-1.23456e+03`
+	// mode=FE_UPWARD d=-1234.567800 prec=6 s=`-1.234567e+03`
+	// mode=FE_UPWARD d=-1234.567800 prec=7 s=`-1.2345678e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=0 s=`+2e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=1 s=`+1.3e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=2 s=`+1.24e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=3 s=`+1.235e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=4 s=`+1.2346e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=5 s=`+1.23457e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=6 s=`+1.234568e+03`
+	// mode=FE_UPWARD d=1234.567801 prec=7 s=`+1.2345679e+03`
+	// mode=FE_UPWARD d=-25.000000 prec=0 s=`-2e+01`
+	// mode=FE_UPWARD d=-25.000000 prec=1 s=`-2.5e+01`
+	// mode=FE_UPWARD d=-25.000000 prec=2 s=`-2.50e+01`
+	// mode=FE_UPWARD d=-25.000000 prec=3 s=`-2.500e+01`
+	// mode=FE_UPWARD d=-25.000000 prec=4 s=`-2.5000e+01`
+	// mode=FE_UPWARD d=-25.000000 prec=5 s=`-2.50000e+01`
+	// mode=FE_UPWARD d=-25.000000 prec=6 s=`-2.500000e+01`
+	// mode=FE_UPWARD d=-25.000000 prec=7 s=`-2.5000000e+01`
+	// mode=FE_UPWARD d=25.000000 prec=0 s=`+3e+01`
+	// mode=FE_UPWARD d=25.000000 prec=1 s=`+2.5e+01`
+	// mode=FE_UPWARD d=25.000000 prec=2 s=`+2.50e+01`
+	// mode=FE_UPWARD d=25.000000 prec=3 s=`+2.500e+01`
+	// mode=FE_UPWARD d=25.000000 prec=4 s=`+2.5000e+01`
+	// mode=FE_UPWARD d=25.000000 prec=5 s=`+2.50000e+01`
+	// mode=FE_UPWARD d=25.000000 prec=6 s=`+2.500000e+01`
+	// mode=FE_UPWARD d=25.000000 prec=7 s=`+2.5000000e+01`
+	// $
+	tls := libc.NewTLS()
+
+	defer tls.Close()
+
+	sp := uintptr(unsafe.Pointer(&str))
+	var fails []string
+	ok := 0
+	for itest, test := range []struct {
+		mode int32
+		d    float64
+		prec int32
+		s    string
+	}{
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 0, s: `-2e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 1, s: `-1.3e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 2, s: `-1.24e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 3, s: `-1.235e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 4, s: `-1.2346e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 5, s: `-1.23457e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 6, s: `-1.234568e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 7, s: `-1.2345679e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 0, s: `+1e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 1, s: `+1.2e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 2, s: `+1.23e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 3, s: `+1.234e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 4, s: `+1.2345e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 5, s: `+1.23456e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 6, s: `+1.234567e+03`},
+		// {mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 7, s: `+1.2345678e+03`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 0, s: `-3e+01`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 1, s: `-2.5e+01`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 2, s: `-2.50e+01`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 3, s: `-2.500e+01`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 4, s: `-2.5000e+01`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 5, s: `-2.50000e+01`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 6, s: `-2.500000e+01`},
+		// {mode: libc.FE_DOWNWARD, d: -25.000000, prec: 7, s: `-2.5000000e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 0, s: `+2e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 1, s: `+2.5e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 2, s: `+2.50e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 3, s: `+2.500e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 4, s: `+2.5000e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 5, s: `+2.50000e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 6, s: `+2.500000e+01`},
+		// {mode: libc.FE_DOWNWARD, d: 25.000000, prec: 7, s: `+2.5000000e+01`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 0, s: `-1e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 1, s: `-1.2e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 2, s: `-1.23e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 3, s: `-1.234e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 4, s: `-1.2345e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 5, s: `-1.23456e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 6, s: `-1.234567e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 7, s: `-1.2345678e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 0, s: `+2e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 1, s: `+1.3e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 2, s: `+1.24e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 3, s: `+1.235e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 4, s: `+1.2346e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 5, s: `+1.23457e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 6, s: `+1.234568e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 7, s: `+1.2345679e+03`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 0, s: `-2e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 1, s: `-2.5e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 2, s: `-2.50e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 3, s: `-2.500e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 4, s: `-2.5000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 5, s: `-2.50000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 6, s: `-2.500000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000, prec: 7, s: `-2.5000000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 0, s: `+3e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 1, s: `+2.5e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 2, s: `+2.50e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 3, s: `+2.500e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 4, s: `+2.5000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 5, s: `+2.50000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 6, s: `+2.500000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000, prec: 7, s: `+2.5000000e+01`},
+	} {
+		_snprintf_with_rounding_mode(tls, test.mode, sp, 128, 0, test.prec, test.d)
+		s := libc.GoString(sp)
+		t.Logf("%2d: test.mode=%v test.prec=%v test.d=%v test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s)
+		switch {
+		case s != test.s:
+			t.Logf("FAIL")
+			fails = append(fails, fmt.Sprintf("FAIL %2d: test.mode=%v test.prec=%v test.d=%v test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s))
+		default:
+			ok++
+		}
+	}
+	if len(fails) != 0 {
+		for _, v := range fails {
+			t.Error(v)
+		}
+	}
+	t.Logf("tests=%v ok=%v fails=%v", ok+len(fails), ok, len(fails))
 }
 
 func Test(t *testing.T) {
