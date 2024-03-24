@@ -29,8 +29,7 @@ func TestMain(m *testing.M) {
 
 var str [128]byte
 
-func TestSnprintfWithRoundingMode(t *testing.T) {
-	// $ cat main.c
+func TestSnprintfWithRoundingMode0(t *testing.T) {
 	// #include <stdio.h>
 	// #include <fenv.h>
 	//
@@ -39,7 +38,7 @@ func TestSnprintfWithRoundingMode(t *testing.T) {
 	// int main() {
 	// 	char *names[] = {"FE_DOWNWARD", "FE_UPWARD"};
 	// 	int modes[] = {FE_DOWNWARD, FE_UPWARD};
-	// 	double ds[] = {1234.5678, 25};
+	// 	double ds[] = {1234.5678901234567, 25};
 	// 	double signs[] = {-1, 1};
 	// 	for (int i = 0; i < 2; i++) {
 	// 		int mode = modes[i];
@@ -49,80 +48,14 @@ func TestSnprintfWithRoundingMode(t *testing.T) {
 	// 			double d0 = ds[j];
 	// 			for (int k = 0; k < 2; k++) {
 	// 				double d = d0*signs[k];
-	// 				for (int prec = 0; prec < 8; prec++) {
+	// 				for (int prec = 0; prec < 10; prec++) {
 	// 					snprintf(str, 128, "%+.*e", prec, d);
-	// 					printf("mode=%s d=%f prec=%d s=`%s`\n", name, d, prec, str);
+	// 					printf("mode=%s d=%.15f prec=%d s=`%s`\n", name, d, prec, str);
 	// 				}
 	// 			}
 	// 		}
 	// 	}
 	// }
-	// $ gcc main.c && ./a.out
-	// mode=FE_DOWNWARD d=-1234.567801 prec=0 s=`-2e+03`
-	// mode=FE_DOWNWARD d=-1234.567801 prec=1 s=`-1.3e+03`
-	// mode=FE_DOWNWARD d=-1234.567801 prec=2 s=`-1.24e+03`
-	// mode=FE_DOWNWARD d=-1234.567801 prec=3 s=`-1.235e+03`
-	// mode=FE_DOWNWARD d=-1234.567801 prec=4 s=`-1.2346e+03`
-	// mode=FE_DOWNWARD d=-1234.567801 prec=5 s=`-1.23457e+03`
-	// mode=FE_DOWNWARD d=-1234.567801 prec=6 s=`-1.234568e+03`
-	// mode=FE_DOWNWARD d=-1234.567801 prec=7 s=`-1.2345679e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=0 s=`+1e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=1 s=`+1.2e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=2 s=`+1.23e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=3 s=`+1.234e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=4 s=`+1.2345e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=5 s=`+1.23456e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=6 s=`+1.234567e+03`
-	// mode=FE_DOWNWARD d=1234.567800 prec=7 s=`+1.2345678e+03`
-	// mode=FE_DOWNWARD d=-25.000000 prec=0 s=`-3e+01`
-	// mode=FE_DOWNWARD d=-25.000000 prec=1 s=`-2.5e+01`
-	// mode=FE_DOWNWARD d=-25.000000 prec=2 s=`-2.50e+01`
-	// mode=FE_DOWNWARD d=-25.000000 prec=3 s=`-2.500e+01`
-	// mode=FE_DOWNWARD d=-25.000000 prec=4 s=`-2.5000e+01`
-	// mode=FE_DOWNWARD d=-25.000000 prec=5 s=`-2.50000e+01`
-	// mode=FE_DOWNWARD d=-25.000000 prec=6 s=`-2.500000e+01`
-	// mode=FE_DOWNWARD d=-25.000000 prec=7 s=`-2.5000000e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=0 s=`+2e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=1 s=`+2.5e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=2 s=`+2.50e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=3 s=`+2.500e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=4 s=`+2.5000e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=5 s=`+2.50000e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=6 s=`+2.500000e+01`
-	// mode=FE_DOWNWARD d=25.000000 prec=7 s=`+2.5000000e+01`
-	// mode=FE_UPWARD d=-1234.567800 prec=0 s=`-1e+03`
-	// mode=FE_UPWARD d=-1234.567800 prec=1 s=`-1.2e+03`
-	// mode=FE_UPWARD d=-1234.567800 prec=2 s=`-1.23e+03`
-	// mode=FE_UPWARD d=-1234.567800 prec=3 s=`-1.234e+03`
-	// mode=FE_UPWARD d=-1234.567800 prec=4 s=`-1.2345e+03`
-	// mode=FE_UPWARD d=-1234.567800 prec=5 s=`-1.23456e+03`
-	// mode=FE_UPWARD d=-1234.567800 prec=6 s=`-1.234567e+03`
-	// mode=FE_UPWARD d=-1234.567800 prec=7 s=`-1.2345678e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=0 s=`+2e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=1 s=`+1.3e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=2 s=`+1.24e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=3 s=`+1.235e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=4 s=`+1.2346e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=5 s=`+1.23457e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=6 s=`+1.234568e+03`
-	// mode=FE_UPWARD d=1234.567801 prec=7 s=`+1.2345679e+03`
-	// mode=FE_UPWARD d=-25.000000 prec=0 s=`-2e+01`
-	// mode=FE_UPWARD d=-25.000000 prec=1 s=`-2.5e+01`
-	// mode=FE_UPWARD d=-25.000000 prec=2 s=`-2.50e+01`
-	// mode=FE_UPWARD d=-25.000000 prec=3 s=`-2.500e+01`
-	// mode=FE_UPWARD d=-25.000000 prec=4 s=`-2.5000e+01`
-	// mode=FE_UPWARD d=-25.000000 prec=5 s=`-2.50000e+01`
-	// mode=FE_UPWARD d=-25.000000 prec=6 s=`-2.500000e+01`
-	// mode=FE_UPWARD d=-25.000000 prec=7 s=`-2.5000000e+01`
-	// mode=FE_UPWARD d=25.000000 prec=0 s=`+3e+01`
-	// mode=FE_UPWARD d=25.000000 prec=1 s=`+2.5e+01`
-	// mode=FE_UPWARD d=25.000000 prec=2 s=`+2.50e+01`
-	// mode=FE_UPWARD d=25.000000 prec=3 s=`+2.500e+01`
-	// mode=FE_UPWARD d=25.000000 prec=4 s=`+2.5000e+01`
-	// mode=FE_UPWARD d=25.000000 prec=5 s=`+2.50000e+01`
-	// mode=FE_UPWARD d=25.000000 prec=6 s=`+2.500000e+01`
-	// mode=FE_UPWARD d=25.000000 prec=7 s=`+2.5000000e+01`
-	// $
 	tls := libc.NewTLS()
 
 	defer tls.Close()
@@ -136,72 +69,228 @@ func TestSnprintfWithRoundingMode(t *testing.T) {
 		prec int32
 		s    string
 	}{
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 0, s: `-2e+03`},
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 1, s: `-1.3e+03`},
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 2, s: `-1.24e+03`},
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 3, s: `-1.235e+03`},
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 4, s: `-1.2346e+03`},
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 5, s: `-1.23457e+03`},
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 6, s: `-1.234568e+03`},
-		{mode: libc.FE_DOWNWARD, d: -1234.567801, prec: 7, s: `-1.2345679e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 0, s: `+1e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 1, s: `+1.2e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 2, s: `+1.23e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 3, s: `+1.234e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 4, s: `+1.2345e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 5, s: `+1.23456e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 6, s: `+1.234567e+03`},
-		{mode: libc.FE_DOWNWARD, d: 1234.567800, prec: 7, s: `+1.2345678e+03`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 0, s: `-3e+01`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 1, s: `-2.5e+01`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 2, s: `-2.50e+01`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 3, s: `-2.500e+01`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 4, s: `-2.5000e+01`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 5, s: `-2.50000e+01`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 6, s: `-2.500000e+01`},
-		{mode: libc.FE_DOWNWARD, d: -25.000000, prec: 7, s: `-2.5000000e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 0, s: `+2e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 1, s: `+2.5e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 2, s: `+2.50e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 3, s: `+2.500e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 4, s: `+2.5000e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 5, s: `+2.50000e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 6, s: `+2.500000e+01`},
-		{mode: libc.FE_DOWNWARD, d: 25.000000, prec: 7, s: `+2.5000000e+01`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 0, s: `-1e+03`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 1, s: `-1.2e+03`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 2, s: `-1.23e+03`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 3, s: `-1.234e+03`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 4, s: `-1.2345e+03`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 5, s: `-1.23456e+03`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 6, s: `-1.234567e+03`},
-		{mode: libc.FE_UPWARD, d: -1234.567800, prec: 7, s: `-1.2345678e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 0, s: `+2e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 1, s: `+1.3e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 2, s: `+1.24e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 3, s: `+1.235e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 4, s: `+1.2346e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 5, s: `+1.23457e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 6, s: `+1.234568e+03`},
-		{mode: libc.FE_UPWARD, d: 1234.567801, prec: 7, s: `+1.2345679e+03`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 0, s: `-2e+01`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 1, s: `-2.5e+01`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 2, s: `-2.50e+01`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 3, s: `-2.500e+01`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 4, s: `-2.5000e+01`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 5, s: `-2.50000e+01`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 6, s: `-2.500000e+01`},
-		{mode: libc.FE_UPWARD, d: -25.000000, prec: 7, s: `-2.5000000e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 0, s: `+3e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 1, s: `+2.5e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 2, s: `+2.50e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 3, s: `+2.500e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 4, s: `+2.5000e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 5, s: `+2.50000e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 6, s: `+2.500000e+01`},
-		{mode: libc.FE_UPWARD, d: 25.000000, prec: 7, s: `+2.5000000e+01`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 0, s: `-2e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 1, s: `-1.3e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 2, s: `-1.24e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 3, s: `-1.235e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 4, s: `-1.2346e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 5, s: `-1.23457e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 6, s: `-1.234568e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 7, s: `-1.2345679e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 8, s: `-1.23456790e+03`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 9, s: `-1.234567891e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 0, s: `+1e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 1, s: `+1.2e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 2, s: `+1.23e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 3, s: `+1.234e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 4, s: `+1.2345e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 5, s: `+1.23456e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 6, s: `+1.234567e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 7, s: `+1.2345678e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 8, s: `+1.23456789e+03`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 9, s: `+1.234567890e+03`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 0, s: `-3e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 1, s: `-2.5e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 2, s: `-2.50e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 3, s: `-2.500e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 4, s: `-2.5000e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 5, s: `-2.50000e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 6, s: `-2.500000e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 7, s: `-2.5000000e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 8, s: `-2.50000000e+01`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 9, s: `-2.500000000e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 0, s: `+2e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 1, s: `+2.5e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 2, s: `+2.50e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 3, s: `+2.500e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 4, s: `+2.5000e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 5, s: `+2.50000e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 6, s: `+2.500000e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 7, s: `+2.5000000e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 8, s: `+2.50000000e+01`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 9, s: `+2.500000000e+01`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 0, s: `-1e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 1, s: `-1.2e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 2, s: `-1.23e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 3, s: `-1.234e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 4, s: `-1.2345e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 5, s: `-1.23456e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 6, s: `-1.234567e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 7, s: `-1.2345678e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 8, s: `-1.23456789e+03`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 9, s: `-1.234567890e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 0, s: `+2e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 1, s: `+1.3e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 2, s: `+1.24e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 3, s: `+1.235e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 4, s: `+1.2346e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 5, s: `+1.23457e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 6, s: `+1.234568e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 7, s: `+1.2345679e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 8, s: `+1.23456790e+03`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 9, s: `+1.234567891e+03`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 0, s: `-2e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 1, s: `-2.5e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 2, s: `-2.50e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 3, s: `-2.500e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 4, s: `-2.5000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 5, s: `-2.50000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 6, s: `-2.500000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 7, s: `-2.5000000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 8, s: `-2.50000000e+01`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 9, s: `-2.500000000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 0, s: `+3e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 1, s: `+2.5e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 2, s: `+2.50e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 3, s: `+2.500e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 4, s: `+2.5000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 5, s: `+2.50000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 6, s: `+2.500000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 7, s: `+2.5000000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 8, s: `+2.50000000e+01`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 9, s: `+2.500000000e+01`},
 	} {
 		_snprintf_with_rounding_mode(tls, test.mode, sp, 128, 0, test.prec, test.d)
+		s := libc.GoString(sp)
+		t.Logf("%2d: test.mode=%v test.prec=%v test.d=%.15f test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s)
+		switch {
+		case s != test.s:
+			t.Logf("FAIL")
+			fails = append(fails, fmt.Sprintf("FAIL %2d: test.mode=%v test.prec=%v test.d=%.15f test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s))
+		default:
+			ok++
+		}
+	}
+	if len(fails) != 0 {
+		for _, v := range fails {
+			t.Error(v)
+		}
+	}
+	t.Logf("tests=%v ok=%v fails=%v", ok+len(fails), ok, len(fails))
+}
+
+func TestSnprintfWithRoundingMode1(t *testing.T) {
+	// #include <stdio.h>
+	// #include <fenv.h>
+	//
+	// char str[128];
+	//
+	// int main() {
+	// 	char *names[] = {"FE_DOWNWARD", "FE_UPWARD"};
+	// 	int modes[] = {FE_DOWNWARD, FE_UPWARD};
+	// 	double ds[] = {1234.5678901234567, 25};
+	// 	double signs[] = {-1, 1};
+	// 	for (int i = 0; i < 2; i++) {
+	// 		int mode = modes[i];
+	// 		fesetround(mode);
+	// 		char *name = names[i];
+	// 		for (int j = 0; j < 2; j++) {
+	// 			double d0 = ds[j];
+	// 			for (int k = 0; k < 2; k++) {
+	// 				double d = d0*signs[k];
+	// 				for (int prec = 0; prec < 10; prec++) {
+	// 					snprintf(str, 128, "%.*f", prec, d);
+	// 					printf("mode=%s d=%f prec=%d s=`%s`\n", name, d, prec, str);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	tls := libc.NewTLS()
+
+	defer tls.Close()
+
+	sp := uintptr(unsafe.Pointer(&str))
+	var fails []string
+	ok := 0
+	for itest, test := range []struct {
+		mode int32
+		d    float64
+		prec int32
+		s    string
+	}{
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 0, s: `-1235`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 1, s: `-1234.6`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 2, s: `-1234.57`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 3, s: `-1234.568`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 4, s: `-1234.5679`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 5, s: `-1234.56790`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 6, s: `-1234.567891`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 7, s: `-1234.5678902`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 8, s: `-1234.56789013`},
+		{mode: libc.FE_DOWNWARD, d: -1234.567890123456664, prec: 9, s: `-1234.567890124`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 0, s: `1234`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 1, s: `1234.5`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 2, s: `1234.56`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 3, s: `1234.567`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 4, s: `1234.5678`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 5, s: `1234.56789`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 6, s: `1234.567890`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 7, s: `1234.5678901`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 8, s: `1234.56789012`},
+		{mode: libc.FE_DOWNWARD, d: 1234.567890123456663, prec: 9, s: `1234.567890123`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 0, s: `-25`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 1, s: `-25.0`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 2, s: `-25.00`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 3, s: `-25.000`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 4, s: `-25.0000`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 5, s: `-25.00000`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 6, s: `-25.000000`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 7, s: `-25.0000000`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 8, s: `-25.00000000`},
+		{mode: libc.FE_DOWNWARD, d: -25.000000000000000, prec: 9, s: `-25.000000000`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 0, s: `25`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 1, s: `25.0`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 2, s: `25.00`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 3, s: `25.000`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 4, s: `25.0000`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 5, s: `25.00000`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 6, s: `25.000000`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 7, s: `25.0000000`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 8, s: `25.00000000`},
+		{mode: libc.FE_DOWNWARD, d: 25.000000000000000, prec: 9, s: `25.000000000`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 0, s: `-1234`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 1, s: `-1234.5`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 2, s: `-1234.56`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 3, s: `-1234.567`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 4, s: `-1234.5678`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 5, s: `-1234.56789`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 6, s: `-1234.567890`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 7, s: `-1234.5678901`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 8, s: `-1234.56789012`},
+		{mode: libc.FE_UPWARD, d: -1234.567890123456663, prec: 9, s: `-1234.567890123`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 0, s: `1235`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 1, s: `1234.6`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 2, s: `1234.57`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 3, s: `1234.568`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 4, s: `1234.5679`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 5, s: `1234.56790`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 6, s: `1234.567891`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 7, s: `1234.5678902`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 8, s: `1234.56789013`},
+		{mode: libc.FE_UPWARD, d: 1234.567890123456664, prec: 9, s: `1234.567890124`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 0, s: `-25`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 1, s: `-25.0`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 2, s: `-25.00`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 3, s: `-25.000`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 4, s: `-25.0000`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 5, s: `-25.00000`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 6, s: `-25.000000`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 7, s: `-25.0000000`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 8, s: `-25.00000000`},
+		{mode: libc.FE_UPWARD, d: -25.000000000000000, prec: 9, s: `-25.000000000`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 0, s: `25`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 1, s: `25.0`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 2, s: `25.00`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 3, s: `25.000`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 4, s: `25.0000`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 5, s: `25.00000`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 6, s: `25.000000`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 7, s: `25.0000000`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 8, s: `25.00000000`},
+		{mode: libc.FE_UPWARD, d: 25.000000000000000, prec: 9, s: `25.000000000`},
+	} {
+		_snprintf_with_rounding_mode(tls, test.mode, sp, 128, 1, test.prec, test.d)
 		s := libc.GoString(sp)
 		t.Logf("%2d: test.mode=%v test.prec=%v test.d=%v test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s)
 		switch {
