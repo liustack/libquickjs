@@ -1,4 +1,4 @@
-// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/builder/.exclude/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
+// Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -I /home/jnml/src/modernc.org/libc/include/linux/amd64 -U__SIZEOF_INT128__ -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
 
 //go:build linux && amd64
 // +build linux,amd64
@@ -64638,12 +64638,11 @@ var _js_object_proto_funcs = [11]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_object_get___proto__)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_object_set___proto__)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_object_get___proto__)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_object_set___proto__)})),
 		})),
 	},
 	7: {
@@ -65729,11 +65728,10 @@ var _js_function_proto_funcs = [7]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_function_proto_fileName)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_function_proto_fileName)})),
 		})),
 	},
 	6: {
@@ -65763,11 +65761,10 @@ var _js_function_proto_funcs = [7]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_function_proto_lineNumber)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_function_proto_lineNumber)})),
 		})),
 	},
 }
@@ -67290,11 +67287,10 @@ var _js_array_funcs = [4]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_get_this)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_get_this)})),
 		})),
 	},
 }
@@ -85723,11 +85719,10 @@ var _js_regexp_funcs = [1]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_get_this)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_get_this)})),
 		})),
 	},
 }
@@ -85760,11 +85755,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flags)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flags)})),
 		})),
 	},
 	1: {
@@ -85794,11 +85788,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_source)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_source)})),
 		})),
 	},
 	2: {
@@ -85829,11 +85822,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flag)})),
 		})),
 	},
 	3: {
@@ -85864,11 +85856,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flag)})),
 		})),
 	},
 	4: {
@@ -85899,11 +85890,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flag)})),
 		})),
 	},
 	5: {
@@ -85934,11 +85924,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flag)})),
 		})),
 	},
 	6: {
@@ -85969,11 +85958,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flag)})),
 		})),
 	},
 	7: {
@@ -86004,11 +85992,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flag)})),
 		})),
 	},
 	8: {
@@ -86039,11 +86026,10 @@ var _js_regexp_proto_funcs = [18]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_regexp_get_flag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_regexp_get_flag)})),
 		})),
 	},
 	9: {
@@ -91218,11 +91204,10 @@ var _js_symbol_proto_funcs = [5]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_symbol_get_description)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_symbol_get_description)})),
 		})),
 	},
 }
@@ -93216,11 +93201,10 @@ var _js_map_funcs = [2]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_get_this)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_get_this)})),
 		})),
 	},
 }
@@ -93427,11 +93411,10 @@ var _js_map_proto_funcs = [12]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_map_get_size)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_map_get_size)})),
 		})),
 	},
 	6: {
@@ -93880,11 +93863,10 @@ var _js_set_proto_funcs = [11]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_map_get_size)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_map_get_size)})),
 		})),
 	},
 	5: {
@@ -97528,11 +97510,10 @@ var _js_promise_funcs = [8]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_get_this)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_get_this)})),
 		})),
 	},
 }
@@ -106629,11 +106610,10 @@ var _js_bigfloat_funcs = [32]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_bigfloat_get_const)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_bigfloat_get_const)})),
 		})),
 	},
 	1: {
@@ -106664,11 +106644,10 @@ var _js_bigfloat_funcs = [32]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_bigfloat_get_const)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_bigfloat_get_const)})),
 		})),
 	},
 	2: {
@@ -106699,11 +106678,10 @@ var _js_bigfloat_funcs = [32]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_bigfloat_get_const)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_bigfloat_get_const)})),
 		})),
 	},
 	3: {
@@ -106734,11 +106712,10 @@ var _js_bigfloat_funcs = [32]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_bigfloat_get_const)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_bigfloat_get_const)})),
 		})),
 	},
 	4: {
@@ -106769,11 +106746,10 @@ var _js_bigfloat_funcs = [32]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_bigfloat_get_const)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_bigfloat_get_const)})),
 		})),
 	},
 	5: {
@@ -108155,11 +108131,10 @@ var _js_float_env_funcs = [14]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_get_prec)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_get_prec)})),
 		})),
 	},
 	1: {
@@ -108189,11 +108164,10 @@ var _js_float_env_funcs = [14]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_get_expBits)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_get_expBits)})),
 		})),
 	},
 	2: {
@@ -108565,12 +108539,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	1: {
@@ -108601,12 +108574,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	2: {
@@ -108637,12 +108609,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	3: {
@@ -108673,12 +108644,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	4: {
@@ -108709,12 +108679,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	5: {
@@ -108745,12 +108714,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	6: {
@@ -108781,12 +108749,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	7: {
@@ -108817,12 +108784,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	8: {
@@ -108853,12 +108819,11 @@ var _js_float_env_proto_funcs = [10]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_float_env_proto_get_status)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_get_status)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_float_env_proto_set_status)})),
 		})),
 	},
 	9: {
@@ -110891,11 +110856,10 @@ var _js_array_buffer_funcs = [2]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_get_this)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_get_this)})),
 		})),
 	},
 }
@@ -111244,11 +111208,10 @@ var _js_array_buffer_proto_funcs = [3]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_array_buffer_get_byteLength)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_array_buffer_get_byteLength)})),
 		})),
 	},
 	1: {
@@ -111350,11 +111313,10 @@ var _js_shared_array_buffer_funcs = [1]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_get_this)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_get_this)})),
 		})),
 	},
 }
@@ -111388,11 +111350,10 @@ var _js_shared_array_buffer_proto_funcs = [3]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_array_buffer_get_byteLength)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_array_buffer_get_byteLength)})),
 		})),
 	},
 	1: {
@@ -114719,11 +114680,10 @@ var _js_typed_array_base_funcs = [3]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_get_this)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_get_this)})),
 		})),
 	},
 }
@@ -114756,11 +114716,10 @@ var _js_typed_array_base_proto_funcs = [36]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_length)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_length)})),
 		})),
 	},
 	1: {
@@ -114858,11 +114817,10 @@ var _js_typed_array_base_proto_funcs = [36]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_buffer)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_buffer)})),
 		})),
 	},
 	4: {
@@ -114892,11 +114850,10 @@ var _js_typed_array_base_proto_funcs = [36]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_byteLength)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_byteLength)})),
 		})),
 	},
 	5: {
@@ -114926,11 +114883,10 @@ var _js_typed_array_base_proto_funcs = [36]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_byteOffset)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_byteOffset)})),
 		})),
 	},
 	6: {
@@ -115132,11 +115088,10 @@ var _js_typed_array_base_proto_funcs = [36]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_toStringTag)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_toStringTag)})),
 		})),
 	},
 	12: {
@@ -117170,11 +117125,10 @@ var _js_dataview_proto_funcs = [24]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_buffer)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_buffer)})),
 		})),
 	},
 	1: {
@@ -117205,11 +117159,10 @@ var _js_dataview_proto_funcs = [24]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_byteLength)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_byteLength)})),
 		})),
 	},
 	2: {
@@ -117240,11 +117193,10 @@ var _js_dataview_proto_funcs = [24]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_typed_array_get_byteOffset)),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_typed_array_get_byteOffset)})),
 		})),
 	},
 	3: {
@@ -160822,12 +160774,11 @@ var _js_worker_proto_funcs = [2]TJSCFunctionListEntry{
 				Fcfunc  TJSCFunctionType
 			}
 		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
+			Fget TJSCFunctionType
+			Fset TJSCFunctionType
 		}{
-			Flength: uint8(__ccgo_fp(_js_worker_get_onmessage)),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_worker_set_onmessage)})),
+			Fget: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_worker_get_onmessage)})),
+			Fset: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_worker_set_onmessage)})),
 		})),
 	},
 }

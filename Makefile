@@ -81,4 +81,4 @@ diff:
 	find $(TMP) -name \*.ago -delete
 	find $(TMP) -name \*.go -delete
 	find $(TMP) -name go.\* -delete
-	git diff quickjs-$(TAR0) $(TMP)
+	git diff quickjs-$(TAR0) $(TMP) | sed -e 's|/quickjs-$(TAR0)||g' -e 's|/tmp/libquickjs||g'

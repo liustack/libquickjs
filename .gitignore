@@ -1,3 +1,4 @@
 *.gz
 *.zip
 tmp/
+tmp_file.txt

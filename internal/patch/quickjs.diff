@@ -85,22 +85,3 @@ index ebf45a9..b69e671 100644
 +void FreeValue(JSContext *ctx, JSValue v) {
 +       JS_FreeValue(ctx, v);
 +}
-diff --git a/tests/test_builtin.js b/tests/test_builtin.js
-index 03a56ac..2b66387 100644
---- a/tests/test_builtin.js
-+++ b/tests/test_builtin.js
-@@ -846,11 +846,11 @@ test_string();
- test_math();
- test_number();
- test_eval();
--test_typed_array();
-+//TODO test_typed_array();
- test_json();
- test_date();
--test_regexp();
-+//TODO test_regexp();
- test_symbol();
--test_map();
-+//TODO test_map();
- test_weak_map();
- test_generator();

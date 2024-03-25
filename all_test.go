@@ -152,7 +152,7 @@ func TestSnprintfWithRoundingMode0(t *testing.T) {
 	} {
 		_snprintf_with_rounding_mode(tls, test.mode, sp, 128, 0, test.prec, test.d)
 		s := libc.GoString(sp)
-		t.Logf("%2d: test.mode=%v test.prec=%v test.d=%.15f test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s)
+		// t.Logf("%2d: test.mode=%v test.prec=%v test.d=%.15f test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s)
 		switch {
 		case s != test.s:
 			t.Logf("FAIL")
@@ -292,7 +292,7 @@ func TestSnprintfWithRoundingMode1(t *testing.T) {
 	} {
 		_snprintf_with_rounding_mode(tls, test.mode, sp, 128, 1, test.prec, test.d)
 		s := libc.GoString(sp)
-		t.Logf("%2d: test.mode=%v test.prec=%v test.d=%v test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s)
+		// t.Logf("%2d: test.mode=%v test.prec=%v test.d=%v test.s=%q s=%q", itest, test.mode, test.prec, test.d, test.s, s)
 		switch {
 		case s != test.s:
 			t.Logf("FAIL")
@@ -316,42 +316,20 @@ func Test(t *testing.T) {
 		t.Fatalf("FAIL err=%v out=%s", err, out)
 	}
 
-	root := filepath.Join("internal", "tests")
+	tests := filepath.Join("internal", "tests")
 	for _, test := range [][]string{
-		// test: qjs
-		// 	./qjs tests/test_closure.js
-		// 	./qjs tests/test_language.js
-		// 	./qjs --std tests/test_builtin.js
-		// 	./qjs tests/test_loop.js
-		// 	./qjs tests/test_bignum.js
-		// 	./qjs tests/test_std.js
-		// 	./qjs tests/test_worker.js
-		// ifdef CONFIG_SHARED_LIBS
-		// ifdef CONFIG_BIGNUM
-		// 	./qjs --bignum tests/test_bjson.js
-		// else
-		// 	./qjs tests/test_bjson.js
-		// endif
-		// 	./qjs examples/test_point.js
-		// endif
-		// ifdef CONFIG_BIGNUM
-		// 	./qjs --bignum tests/test_op_overloading.js
-		// 	./qjs --bignum tests/test_bigfloat.js
-		// 	./qjs --qjscalc tests/test_qjscalc.js
-		// endif
-		{filepath.Join(root, "test_closure.js")},
-		{filepath.Join(root, "test_language.js")},
-		{"--std", filepath.Join(root, "test_builtin.js")}, //TODO
-		{filepath.Join(root, "test_loop.js")},
-		{filepath.Join(root, "test_bignum.js")},
-		//TODO {filepath.Join(root, "test_std.js")},
-		//TODO {filepath.Join(root, "test_worker.js")},
-		//TODO {"--bignum", filepath.Join(root, "test_bjson.js")}, // could not load module filename 'internal/tests/bjson.so' as shared library
-		//TODO {filepath.Join(root, "test_bjson.js")}, // // could not load module filename 'internal/tests/bjson.so' as shared library
-		//TODO examples
-		{"--bignum", filepath.Join(root, "test_op_overloading.js")},
-		//TODO {"--bignum", filepath.Join(root, "test_bigfloat.js")},
-		//TODO {"--qjscalc", filepath.Join(root, "test_qjscalc.js")},
+		{filepath.Join(tests, "test_closure.js")},
+		{filepath.Join(tests, "test_language.js")},
+		{"--std", filepath.Join(tests, "test_builtin.js")},
+		{filepath.Join(tests, "test_loop.js")},
+		{filepath.Join(tests, "test_bignum.js")},
+		//TODO libc popen {filepath.Join(tests, "test_std.js")},
+		{filepath.Join(tests, "test_worker.js")},
+		//TODO {"--bignum", filepath.Join(tests, "test_bjson.js")}, // could not load module filename 'internal/tests/bjson.so' as shared library
+		//TODO {filepath.Join(tests, "test_bjson.js")}, // // could not load module filename 'internal/tests/bjson.so' as shared library
+		{"--bignum", filepath.Join(tests, "test_op_overloading.js")},
+		{"--bignum", filepath.Join(tests, "test_bigfloat.js")},
+		{"--qjscalc", filepath.Join(tests, "test_qjscalc.js")},
 	} {
 		out, err := util.Shell(nil, bin, test...)
 		if err != nil {
