@@ -76,9 +76,12 @@ work:
 	go work use ../ccgo/v4
 	go work use ../libc
 
-diff:
+diff0:
 	make -C $(TMP) clean
 	find $(TMP) -name \*.ago -delete
 	find $(TMP) -name \*.go -delete
 	find $(TMP) -name go.\* -delete
 	git diff quickjs-$(TAR0) $(TMP) | sed -e 's|/quickjs-$(TAR0)||g' -e 's|/tmp/libquickjs||g'
+
+diff:
+	@make diff0 | tail -n +16 | head -n -1 > internal/patch/quickjs.diff

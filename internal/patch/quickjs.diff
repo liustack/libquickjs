@@ -1,5 +1,5 @@
 diff --git a/quickjs.c b/quickjs.c
-index ebf45a9..b69e671 100644
+index ebf45a9..55b8ee0 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -51,7 +51,7 @@
@@ -73,7 +73,7 @@ index ebf45a9..b69e671 100644
      assert(n < sizeof(*buf));
      return n;
  }
-@@ -55867,3 +55886,11 @@ void JS_AddIntrinsicTypedArrays(JSContext *ctx)
+@@ -55867,3 +55886,16 @@ void JS_AddIntrinsicTypedArrays(JSContext *ctx)
      JS_AddIntrinsicAtomics(ctx);
  #endif
  }
@@ -85,3 +85,84 @@ index ebf45a9..b69e671 100644
 +void FreeValue(JSContext *ctx, JSValue v) {
 +       JS_FreeValue(ctx, v);
 +}
++
++char *ToCString(JSContext *ctx, JSValueConst val1)
++{
++    return JS_ToCStringLen2(ctx, NULL, val1, 0);
++}
+diff --git a/run-test262.c b/run-test262.c
+index 4afb3f8..6b9d290 100644
+--- a/run-test262.c
++++ b/run-test262.c
+@@ -446,11 +446,27 @@ static void add_helpers(JSContext *ctx);
+ static pthread_mutex_t agent_mutex = PTHREAD_MUTEX_INITIALIZER;
+ static pthread_cond_t agent_cond = PTHREAD_COND_INITIALIZER;
+ /* list of Test262Agent.link */
++#ifndef __CCGO__
+ static struct list_head agent_list = LIST_HEAD_INIT(agent_list);
++#else
++static struct list_head agent_list;
++
++static void init_agent_list() {
++	agent_list = (struct list_head)LIST_HEAD_INIT(agent_list);
++}
++#endif
+ 
+ static pthread_mutex_t report_mutex = PTHREAD_MUTEX_INITIALIZER;
+ /* list of AgentReport.link */
++#ifndef __CCGO__
+ static struct list_head report_list = LIST_HEAD_INIT(report_list);
++#else
++static struct list_head report_list;
++
++static void init_report_list() {
++	report_list = (struct list_head)LIST_HEAD_INIT(report_list);
++}
++#endif
+ 
+ static void *agent_start(void *arg)
+ {
+@@ -712,6 +728,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
+     return JS_UNDEFINED;
+ }
+ 
++#ifndef __CCGO__
+ static const JSCFunctionListEntry js_agent_funcs[] = {
+     /* only in main */
+     JS_CFUNC_DEF("start", 1, js_agent_start ),
+@@ -725,6 +742,23 @@ static const JSCFunctionListEntry js_agent_funcs[] = {
+     JS_CFUNC_DEF("sleep", 1, js_agent_sleep ),
+     JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow ),
+ };
++#else
++static const JSCFunctionListEntry js_agent_funcs[8];
++
++static void init_js_agent_funcs() {
++	/* only in main */
++	js_agent_funcs[0] = (JSCFunctionListEntry)JS_CFUNC_DEF("start", 1, js_agent_start );
++	js_agent_funcs[1] = (JSCFunctionListEntry)JS_CFUNC_DEF("getReport", 0, js_agent_getReport );
++	js_agent_funcs[2] = (JSCFunctionListEntry)JS_CFUNC_DEF("broadcast", 2, js_agent_broadcast );
++	/* only in agent */
++	js_agent_funcs[3] = (JSCFunctionListEntry)JS_CFUNC_DEF("report", 1, js_agent_report );
++	js_agent_funcs[4] = (JSCFunctionListEntry)JS_CFUNC_DEF("leaving", 0, js_agent_leaving );
++	js_agent_funcs[5] = (JSCFunctionListEntry)JS_CFUNC_DEF("receiveBroadcast", 1, js_agent_receiveBroadcast );
++	/* in both */
++	js_agent_funcs[6] = (JSCFunctionListEntry)JS_CFUNC_DEF("sleep", 1, js_agent_sleep );
++	js_agent_funcs[7] = (JSCFunctionListEntry)JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow );
++}
++#endif
+ 
+ static JSValue js_new_agent(JSContext *ctx)
+ {
+@@ -2020,6 +2054,11 @@ char *get_opt_arg(const char *option, char *arg)
+ 
+ int main(int argc, char **argv)
+ {
++#ifdef __CCGO__
++	init_agent_list();
++	init_report_list();
++	init_js_agent_funcs();
++#endif
+     int optind, start_index, stop_index;
+     BOOL is_dir_list;
+     BOOL only_check_errors = FALSE;
