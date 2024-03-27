@@ -9573,7 +9573,8 @@ func _js_c_function_data_call(tls *libc.TLS, ctx uintptr, func_obj TJSValue, thi
 	var arg_buf, s uintptr
 	var i int32
 	_, _, _ = arg_buf, i, s
-	defer tls.FreeAlloca()()
+	tls.AllocaEntry()
+	defer tls.AllocaExit()
 	s = x_JS_GetOpaque(tls, func_obj, uint32(EJS_CLASS_C_FUNCTION_DATA))
 	/* XXX: could add the function on the stack for debug */
 	if libc.X__builtin_expect(tls, libc.BoolInt64(!!(argc < int32((*TJSCFunctionDataRecord)(unsafe.Pointer(s)).Flength))), 0) != 0 {
@@ -30066,7 +30067,8 @@ func _js_call_c_function(tls *libc.TLS, ctx uintptr, _func_obj TJSValue, this_ob
 	}
 	var _ /* v at bp+0 */ TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = arg_buf, arg_count, cproto, func1, i, p, prev_sf, ret_val, rt, sf, val, v21, v22, v24, v26, v27, v29, v31
-	defer tls.FreeAlloca()()
+	tls.AllocaEntry()
+	defer tls.AllocaExit()
 	rt = (*TJSContext)(unsafe.Pointer(ctx)).Frt
 	sf = bp + 48
 	p = *(*uintptr)(unsafe.Pointer(bp + 32))
@@ -30372,7 +30374,8 @@ func _js_call_bound_function(tls *libc.TLS, ctx uintptr, _func_obj TJSValue, thi
 	var arg_count, i int32
 	var new_target TJSValue
 	_, _, _, _, _, _ = arg_buf, arg_count, bf, i, new_target, p
-	defer tls.FreeAlloca()()
+	tls.AllocaEntry()
+	defer tls.AllocaExit()
 	p = *(*uintptr)(unsafe.Pointer(bp))
 	bf = *(*uintptr)(unsafe.Pointer(&(*TJSObject)(unsafe.Pointer(p)).Fu))
 	arg_count = (*TJSBoundFunction)(unsafe.Pointer(bf)).Fargc + argc
@@ -30510,7 +30513,8 @@ func _JS_CallInternal(tls *libc.TLS, caller_ctx uintptr, _func_obj TJSValue, thi
 	var _ /* v at bp+0 */ TJSValue
 	var _ /* val at bp+984 */ TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = alloca_size, arg, arg_allocated_size, arg_buf, atom, atom1, atom10, atom11, atom12, atom13, atom14, atom15, atom16, atom17, atom18, atom19, atom2, atom20, atom21, atom22, atom23, atom24, atom3, atom4, atom5, atom6, atom7, atom8, atom9, b, bfunc, call_argc, call_argv, call_func, class_flags, ctx, d, d1, diff, diff1, diff2, first, flags1, flags2, flags3, flags4, flags5, flags6, getter, i, i1, idx, idx1, idx10, idx11, idx12, idx13, idx14, idx15, idx16, idx17, idx18, idx19, idx2, idx20, idx21, idx3, idx4, idx5, idx6, idx7, idx8, idx9, is_computed, is_with, local_buf, magic, mask, method, n, obj, obj1, obj2, obj3, offset, op111, op132, op_flags, opcode, p, p1, p11, p2, pc, pos, pos1, pr, proto, proto1, pv, pval, r, r1, r2, r3, r4, r5, res, res1, res2, res3, res4, ret, ret1, ret10, ret11, ret12, ret13, ret14, ret15, ret16, ret17, ret18, ret19, ret2, ret3, ret4, ret5, ret6, ret7, ret8, ret9, ret_flag, ret_val, ret_val1, rt, s, scope_idx, scope_idx1, setter, sf, sp, stack_buf, tab, tag, tag1, tag2, tmp, tmp1, tmp11, tmp2, tmp21, tmp3, tmp4, tmp5, tmp6, tmp7, type1, v1, v11, v12, v13, v14, v2, v21, v22, v23, v24, v25, val, val1, val10, val11, val12, val13, val14, val15, val16, val17, val18, val19, val2, val20, val3, val4, val5, val6, val7, val8, val9, value, var_buf, var_ref, var_refs, v15, v10, v1003, v1005, v1006, v1008, v1012, v1014, v1015, v1016, v1018, v1020, v1024, v1026, v1028, v1030, v1032, v1034, v1036, v1038, v1040, v1042, v1044, v1046, v1048, v1049, v1050, v1051, v1053, v1054, v1056, v1058, v1059, v1060, v1061, v1063, v1064, v1065, v1066, v1068, v1070, v1071, v1073, v1074, v1075, v1076, v1078, v1082, v1083, v1085, v1087, v1088, v1089, v1090, v1091, v1092, v1093, v1095, v1096, v1097, v1099, v111, v1101, v1102, v1103, v1105, v1107, v1108, v1109, v1110, v1111, v1112, v1113, v1114, v1116, v1118, v1120, v1122, v1123, v1124, v1125, v1126, v1127, v1128, v1129, v1130, v1131, v1132, v1133, v1134, v1135, v1138, v1139, v1142, v1143, v1144, v16, v17, v268, v269, v271, v273, v274, v276, v277, v279, v280, v282, v283, v285, v287, v288, v290, v292, v293, v294, v295, v297, v298, v299, v300, v302, v304, v305, v306, v308, v310, v311, v312, v313, v314, v316, v317, v320, v321, v323, v325, v326, v328, v329, v330, v331, v332, v334, v335, v336, v338, v339, v340, v341, v343, v345, v346, v347, v349, v350, v351, v353, v354, v355, v356, v358, v359, v361, v362, v364, v366, v367, v369, v370, v371, v372, v373, v374, v375, v376, v377, v378, v379, v381, v382, v384, v385, v387, v388, v390, v391, v393, v394, v396, v397, v399, v4, v400, v402, v403, v405, v406, v408, v410, v411, v413, v414, v416, v418, v421, v422, v423, v424, v425, v427, v430, v431, v432, v433, v434, v436, v439, v440, v441, v442, v443, v445, v448, v449, v450, v451, v452, v454, v456, v457, v458, v459, v460, v461, v462, v463, v464, v465, v466, v467, v469, v471, v473, v474, v475, v476, v477, v478, v479, v480, v482, v484, v486, v489, v490, v491, v492, v493, v495, v497, v498, v499, v5, v500, v501, v502, v503, v504, v506, v507, v508, v509, v511, v512, v513, v514, v516, v517, v519, v521, v523, v524, v526, v528, v530, v532, v534, v535, v536, v537, v539, v540, v542, v544, v546, v547, v549, v551, v552, v554, v556, v558, v559, v561, v562, v563, v564, v566, v567, v568, v569, v570, v572, v573, v574, v576, v577, v578, v580, v581, v582, v584, v585, v586, v588, v589, v590, v591, v592, v593, v595, v596, v598, v599, v6, v601, v602, v604, v605, v606, v608, v609, v610, v612, v613, v614, v616, v617, v618, v620, v621, v622, v623, v624, v625, v627, v628, v630, v631, v633, v634, v636, v637, v638, v640, v641, v642, v644, v645, v646, v648, v649, v650, v652, v653, v654, v655, v656, v657, v659, v660, v662, v663, v665, v666, v668, v670, v671, v673, v675, v677, v678, v680, v682, v684, v685, v687, v689, v691, v693, v695, v697, v699, v7, v701, v702, v704, v706, v708, v709, v711, v713, v715, v717, v719, v721, v723, v725, v726, v728, v729, v731, v733, v735, v737, v739, v741, v743, v745, v748, v749, v751, v752, v754, v756, v757, v758, v759, v761, v762, v763, v764, v765, v766, v767, v768, v769, v770, v771, v772, v774, v775, v776, v777, v778, v779, v780, v782, v784, v786, v788, v789, v791, v792, v793, v794, v796, v798, v800, v801, v803, v805, v806, v807, v808, v810, v811, v813, v815, v816, v818, v819, v820, v821, v823, v825, v826, v827, v828, v829, v830, v831, v832, v834, v835, v836, v837, v838, v839, v840, v841, v842, v843, v845, v847, v849, v851, v852, v853, v854, v855, v857, v858, v859, v860, v861, v862, v863, v864, v866, v867, v868, v869, v871, v873, v875, v876, v878, v880, v882, v883, v884, v885, v886, v887, v888, v889, v890, v891, v892, v893, v894, v896, v897, v899, v900, v901, v902, v903, v904, v905, v906, v907, v908, v909, v910, v911, v912, v914, v915, v916, v917, v918, v921, v925, v929, v931, v933, v934, v938, v942, v946, v948, v949, v950, v951, v952, v954, v956, v957, v959, v961, v965, v969, v971, v972, v974, v976, v980, v984, v988, v992, v996, v998, v999
-	defer tls.FreeAlloca()()
+	tls.AllocaEntry()
+	defer tls.AllocaExit()
 	rt = (*TJSContext)(unsafe.Pointer(caller_ctx)).Frt
 	sf = bp + 48
 	if _js_poll_interrupts(tls, caller_ctx) != 0 {
@@ -122948,7 +122952,8 @@ func x_lre_exec(tls *libc.TLS, capture uintptr, bc_buf uintptr, cbuf uintptr, ci
 	var s, stack_buf uintptr
 	var _ /* s_s at bp+0 */ TREExecContext
 	_, _, _, _, _, _ = alloca_size, i, re_flags, ret, s, stack_buf
-	defer tls.FreeAlloca()()
+	tls.AllocaEntry()
+	defer tls.AllocaExit()
 	s = bp
 	re_flags = x_lre_get_flags(tls, bc_buf)
 	(*TREExecContext)(unsafe.Pointer(s)).Fmulti_line = libc.BoolInt32(re_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) != 0)
