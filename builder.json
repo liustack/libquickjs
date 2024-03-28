@@ -3,7 +3,7 @@
 	"autoupdate": "linux/amd64",
 	"autotag": "linux/amd64",
 	"download": [
-		{"re": "linux/amd64", "files": ["https://github.com/bellard/quickjs/archive/6a89d7c27099be84e5312a7ec73205d6a7abe1b4.zip"]}
+		{"re": "linux/amd64", "files": ["https://github.com/bellard/quickjs/archive/3b45d155c77bbdfe9177b1e03db830d2aff0b2a8.zip"]},
 		{"re": "linux/amd64", "files": ["https://github.com/tc39/test262/archive/837def66ac1700ce398df4a3b4eaeea915aa1df5.zip"]}
 	],
 	"test": "linux/amd64"
