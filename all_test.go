@@ -18,6 +18,10 @@ import (
 	"modernc.org/libc"
 )
 
+const (
+	zip262 = "837def66ac1700ce398df4a3b4eaeea915aa1df5.zip"
+)
+
 var (
 	goos   = runtime.GOOS
 	goarch = runtime.GOARCH
@@ -311,11 +315,11 @@ func TestSnprintfWithRoundingMode1(t *testing.T) {
 
 func Test(t *testing.T) {
 	tmpdir := t.TempDir()
-	bin := "./" + filepath.Join(tmpdir, "qjs")
-	if out, err := util.Shell(nil, "go", "build", "-o", bin, "./"+filepath.Join("internal", "qjs")); err != nil {
-		t.Fatalf("FAIL err=%v out=%s", err, out)
+	bin := filepath.Join(tmpdir, "qjs")
+	if !filepath.IsAbs(bin) {
+		bin = "./" + bin
 	}
-
+	shell(t, "go", "build", "-o", bin, "./"+filepath.Join("internal", "qjs"))
 	tests := filepath.Join("internal", "tests")
 	for _, test := range [][]string{
 		{filepath.Join(tests, "test_closure.js")},
@@ -323,7 +327,7 @@ func Test(t *testing.T) {
 		{"--std", filepath.Join(tests, "test_builtin.js")},
 		{filepath.Join(tests, "test_loop.js")},
 		{filepath.Join(tests, "test_bignum.js")},
-		//TODO libc popen {filepath.Join(tests, "test_std.js")},
+		{filepath.Join(tests, "test_std.js")}, //TODO popen, os.exec
 		{filepath.Join(tests, "test_worker.js")},
 		//TODO {"--bignum", filepath.Join(tests, "test_bjson.js")}, // could not load module filename 'internal/tests/bjson.so' as shared library
 		//TODO {filepath.Join(tests, "test_bjson.js")}, // // could not load module filename 'internal/tests/bjson.so' as shared library
@@ -343,4 +347,48 @@ func Test(t *testing.T) {
 			t.Errorf("%v: err=%v out=%s", test, err, s)
 		}
 	}
+}
+
+func shell(t *testing.T, cmd string, args ...string) {
+	if out, err := util.Shell(nil, cmd, args...); err != nil {
+		t.Fatalf("FAIL err=%v\n%s", err, out)
+	}
+}
+
+func copyFile(t *testing.T, dest, src string) {
+	if _, err := util.CopyFile(dest, src, nil); err != nil {
+		t.Fatalf("FAIL err=%v", err)
+	}
+}
+
+func inDir(t *testing.T, dir string, f func() error) {
+	if err := util.InDir(dir, f); err != nil {
+		t.Fatalf("FAIL err=%v", err)
+	}
+}
+
+func Test262(t *testing.T) {
+	if _, err := os.Stat(zip262); err != nil {
+		t.Fatalf("%s: to download the archive issue '$ make download'", err)
+	}
+
+	tempdir := t.TempDir()
+	shell(t, "unzip", "-q", "-d", tempdir, zip262)
+	testdir := filepath.Join(tempdir, "test262")
+	bin := filepath.Join(tempdir, "run-test262")
+	if !filepath.IsAbs(bin) {
+		bin = "./" + bin
+	}
+	shell(t, "go", "build", "-o", bin, "./"+filepath.Join("internal", "run-test262"))
+	copyFile(t, filepath.Join(tempdir, "test262.conf"), filepath.Join("internal", "tests", "test262.conf"))
+	copyFile(t, filepath.Join(tempdir, "test262_errors.txt"), filepath.Join("internal", "tests", "test262_errors.txt"))
+	shell(t, "mv", filepath.Join(tempdir, "test262-"+zip262[:len(zip262)-len(".zip")]), testdir)
+	inDir(t, tempdir, func() error {
+		//TODO Enable the full test suite
+		// shell(t, bin, "-t", "-m", "-c", "test262.conf", "-a")
+
+		// For now, run only the first failing test.
+		shell(t, bin, "-c", "test262.conf", "-f", "test262/test/annexB/language/comments/single-line-html-close-first-line-1.js")
+		return nil
+	})
 }

@@ -157,6 +157,8 @@ func main() {
 	util.MustCopyDir(true, filepath.Join("internal", "tests"), filepath.Join(makeRoot, "tests"), nil)
 	util.MustCopyFile(true, filepath.Join("internal", "qjs", fn), filepath.Join(makeRoot, "qjs.go"), nil)
 	util.MustCopyFile(true, filepath.Join("internal", "run-test262", fn), filepath.Join(makeRoot, "run-test262.go"), nil)
+	util.MustCopyFile(true, filepath.Join("internal", "tests", "test262.conf"), filepath.Join(makeRoot, "test262.conf"), nil)
+	util.MustCopyFile(true, filepath.Join("internal", "tests", "test262_errors.txt"), filepath.Join(makeRoot, "test262_errors.txt"), nil)
 	util.MustCopyFile(true, fn, filepath.Join(makeRoot, result), nil)
 	util.Shell(nil, "sh", "-c", "./unconvert.sh")
 	util.MustShell(true, nil, "gofmt", "-l", "-s", "-w", ".")

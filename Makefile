@@ -8,6 +8,8 @@ DIR = /tmp/libquickjs
 TAR0 = 6a89d7c27099be84e5312a7ec73205d6a7abe1b4
 TAR = $(TAR0).zip
 URL = https://github.com/bellard/quickjs/archive/$(TAR)
+ZIP = 837def66ac1700ce398df4a3b4eaeea915aa1df5.zip
+URL2 = https://github.com/tc39/test262/archive/$(ZIP)
 TMP = /tmp/libquickjs/quickjs-$(TAR0)/
 
 all: editor
@@ -34,6 +36,7 @@ editor:
 
 download:
 	@if [ ! -f $(TAR) ]; then wget $(URL) ; fi
+	@if [ ! -f $(ZIP) ]; then wget $(URL2) ; fi
 
 
 generate: download
