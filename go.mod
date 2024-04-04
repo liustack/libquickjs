@@ -3,9 +3,9 @@ module modernc.org/libquickjs
 go 1.20
 
 require (
-	modernc.org/ccgo/v4 v4.15.0
+	modernc.org/ccgo/v4 v4.16.0
 	modernc.org/fileutil v1.3.0
-	modernc.org/libc v1.49.0
+	modernc.org/libc v1.49.1
 )
 
 require (
@@ -24,7 +24,7 @@ require (
 	modernc.org/ccgo/v3 v3.17.0 // indirect
 	modernc.org/gc/v2 v2.4.1 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
-	modernc.org/memory v1.7.2 // indirect
+	modernc.org/memory v1.8.0 // indirect
 	modernc.org/opt v0.1.3 // indirect
 	modernc.org/sortutil v1.2.0 // indirect
 	modernc.org/strutil v1.2.0 // indirect
