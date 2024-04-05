@@ -349,10 +349,12 @@ func Test(t *testing.T) {
 	}
 }
 
-func shell(t *testing.T, cmd string, args ...string) {
-	if out, err := util.Shell(nil, cmd, args...); err != nil {
+func shell(t *testing.T, cmd string, args ...string) (out []byte, err error) {
+	if out, err = util.Shell(nil, cmd, args...); err != nil && t != nil {
 		t.Fatalf("FAIL err=%v\n%s", err, out)
 	}
+
+	return out, err
 }
 
 func copyFile(t *testing.T, dest, src string) {
@@ -368,12 +370,6 @@ func inDir(t *testing.T, dir string, f func() error) {
 }
 
 func Test262(t *testing.T) {
-	// Turns out quickjs.c@3b45d155c77bbdfe9177b1e03db830d2aff0b2a8 has 36 failing
-	// tests.  single-line-html-close-first-line-1.js is the first of them.
-
-	//TODO Run the C tests during generate, capture and use the failure list accordingly.
-	t.Skip("TODO")
-
 	if _, err := os.Stat(zip262); err != nil {
 		t.Fatalf("%s: to download the archive issue '$ make download'", err)
 	}
@@ -389,8 +385,45 @@ func Test262(t *testing.T) {
 	copyFile(t, filepath.Join(tempdir, "test262.conf"), filepath.Join("internal", "tests", "test262.conf"))
 	copyFile(t, filepath.Join(tempdir, "test262_errors.txt"), filepath.Join("internal", "tests", "test262_errors.txt"))
 	shell(t, "mv", filepath.Join(tempdir, "test262-"+zip262[:len(zip262)-len(".zip")]), testdir)
+	b, err := os.ReadFile(filepath.Join("internal", "run-test262", "exclude"))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for _, v := range strings.Split(strings.TrimSpace(string(b)), "\n") {
+		if v = strings.TrimSpace(v); v != "" && !strings.HasPrefix(v, "#") {
+			shell(t, "sh", "-c", fmt.Sprintf("rm -rfv %s", filepath.Join(tempdir, v)))
+		}
+	}
+	var resultLine string
 	inDir(t, tempdir, func() error {
-		shell(t, bin, "-t", "-m", "-c", "test262.conf", "-a")
+		out, err := shell(t, bin, "-c", "test262.conf", "-a")
+		if err != nil {
+			t.Logf("run-test262 FAIL err=%v", err)
+		}
+
+		s := strings.TrimSpace(string(out))
+		x := strings.Index(s, "\nResult: ")
+		if x < 0 {
+			t.Fatal("cannot find test results")
+		}
+
+		s = s[x+1:]
+		if x = strings.IndexByte(s, '\n'); x > 0 {
+			s = s[:x]
+		}
+		resultLine = strings.TrimSpace(s) + "\n"
 		return nil
 	})
+	if b, err = os.ReadFile(filepath.Join("internal", "run-test262", "results")); err != nil {
+		t.Fatal(err)
+	}
+
+	if g, e := resultLine, string(b); g != e {
+		b, _ = os.ReadFile(filepath.Join(testdir, "test262_report.txt"))
+		t.Logf("\n%s", b)
+		t.Fatalf("got %q expected %q", g, e)
+	} else {
+		t.Logf("OK, got %q expected %q", g, e)
+	}
 }

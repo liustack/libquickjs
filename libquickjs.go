@@ -6,6 +6,9 @@
 
 // Package libquickjs is a ccgo/v4 version of libquickjs.a, a library
 // implementing an embeddable Javascript engine.
+//
+// For a list of know errors, if any, please see the file
+// internal/run-test262/exclude.
 package libquickjs // import "modernc.org/libquickjs"
 
 import (

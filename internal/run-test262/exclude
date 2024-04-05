@@ -1,0 +1,13 @@
+# Hangs in C
+test262/test/built-ins/Atomics/notify/*
+test262/test/built-ins/Atomics/sub/*
+test262/test/built-ins/Atomics/store/*
+test262/test/built-ins/Atomics/wait/*
+
+# Known errors (C: pass, Go: fail)
+
+# unexpected error: Test262Error: Expected SameValue(«1.23456000000000003e+0e+0», «1.23456000000000003070e+2») to be true
+test262/test/built-ins/Number/prototype/toExponential/return-values.js
+
+# unexpected error: Test262Error: Expected SameValue(«9.99999999999999908e-2», «9.99999999999999907537e-22») to be true
+test262/test/built-ins/Number/prototype/toPrecision/exponential.js

@@ -50,7 +50,6 @@ generate: download
 	go build -v ./...
 	# go install github.com/mdempsky/unconvert@latest
 	go build -v ./...  | tee -a log-generate
-	go test -v -count=1 ./... 2>&1 | tee -a log-generate
 	git status
 	grep 'PASS\|TRC\|TODO\|ERRORF\|FAIL' log-generate || true
 	grep 'PASS\|TRC\|TODO\|ERRORF\|FAIL' log-generate-errors || true
@@ -63,7 +62,6 @@ dev: download
 	echo -n > log-generate-errors
 	GO_GENERATE_DIR=$(DIR) GO_GENERATE_DEV=1 go run -tags=ccgo.dmesg,ccgo.assert generator*.go 2>&1 | tee log-generate
 	go build -v ./...  | tee -a log-generate
-	go test -v -count=1 ./... 2>&1 | tee -a log-generate
 	git status
 	grep 'PASS\|TRC\|TODO\|ERRORF\|FAIL' log-generate || true
 	grep 'PASS\|TRC\|TODO\|ERRORF\|FAIL' log-generate-errors || true

@@ -1,4 +1,319 @@
+test262/test/annexB/language/comments/single-line-html-close-first-line-1.js:1: unexpected error type: SyntaxError: unexpected token in expression: '>'
+test262/test/annexB/language/comments/single-line-html-close-first-line-2.js:1: unexpected error type: SyntaxError: unexpected token in expression: '>'
+test262/test/annexB/language/comments/single-line-html-close-first-line-3.js:1: unexpected error type: SyntaxError: unexpected token in expression: '>'
 test262/test/annexB/language/eval-code/direct/script-decl-lex-collision-in-sloppy-mode.js:13: Test262Error: Expected a SyntaxError to be thrown but no exception was thrown at all
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/iterator-result-poisoned-wrapper.js:64: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/iterator-result-poisoned-wrapper.js:64: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/next-result-poisoned-wrapper.js:69: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/next-result-poisoned-wrapper.js:69: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/yield-iterator-next-rejected-promise-close.js:59: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/yield-iterator-next-rejected-promise-close.js:59: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/yield-next-rejected-promise-close.js:64: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/next/yield-next-rejected-promise-close.js:64: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/iterator-result-rejected-promise-close.js:74: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/iterator-result-rejected-promise-close.js:74: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-null.js:52: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-null.js:52: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-result-poisoned-wrapper.js:81: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-result-poisoned-wrapper.js:81: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-get-return-undefined.js:64: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-get-return-undefined.js:64: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-poisoned-return.js:68: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-poisoned-return.js:68: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-return-not-object.js:72: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-return-not-object.js:72: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-return-object.js:66: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-return-object.js:66: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined.js:41: TypeError: $DONE() not called
+test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined.js:41: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/Atomics/Symbol.toStringTag.js:18: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/Symbol.toStringTag.js:18: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/add/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/add/bigint/bad-range.js:10: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/add/bigint/bad-range.js:10: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/add/bigint/good-views.js:16: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/add/bigint/good-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/add/bigint/non-shared-bufferdata.js:13: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/add/bigint/non-shared-bufferdata.js:13: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/add/descriptor.js:11: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/descriptor.js:11: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/expected-return-value.js:35: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/expected-return-value.js:35: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/good-views.js:23: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/add/good-views.js:23: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/add/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/non-shared-bufferdata.js:16: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/add/non-shared-bufferdata.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/add/non-shared-int-views-throws.js:11: Test262Error: Atomics.add(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/add/non-shared-int-views-throws.js:11: strict mode: Test262Error: Atomics.add(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/add/non-views.js:16: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/non-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/not-a-constructor.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/not-a-constructor.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/add/validate-arraytype-before-index-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/add/validate-arraytype-before-index-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/add/validate-arraytype-before-value-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/add/validate-arraytype-before-value-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/and/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/and/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/and/bigint/bad-range.js:10: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/and/bigint/bad-range.js:10: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/and/bigint/good-views.js:19: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/and/bigint/good-views.js:19: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/and/bigint/non-shared-bufferdata.js:13: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/and/bigint/non-shared-bufferdata.js:13: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/and/descriptor.js:11: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/descriptor.js:11: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/expected-return-value.js:40: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/expected-return-value.js:40: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/good-views.js:23: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/and/good-views.js:23: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/and/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/non-shared-bufferdata.js:16: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/and/non-shared-bufferdata.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/and/non-shared-int-views-throws.js:11: Test262Error: Atomics.and(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/and/non-shared-int-views-throws.js:11: strict mode: Test262Error: Atomics.and(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/and/non-views.js:16: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/non-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/not-a-constructor.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/not-a-constructor.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/and/validate-arraytype-before-index-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/and/validate-arraytype-before-index-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/and/validate-arraytype-before-value-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/and/validate-arraytype-before-value-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/compareExchange/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/compareExchange/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/compareExchange/bigint/bad-range.js:10: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/compareExchange/bigint/bad-range.js:10: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/compareExchange/bigint/good-views.js:18: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/compareExchange/bigint/good-views.js:18: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/compareExchange/bigint/non-shared-bufferdata.js:13: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/compareExchange/bigint/non-shared-bufferdata.js:13: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/compareExchange/descriptor.js:11: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/descriptor.js:11: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/expected-return-value.js:36: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/expected-return-value.js:36: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/good-views.js:24: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/compareExchange/good-views.js:24: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/compareExchange/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/non-shared-bufferdata.js:16: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/compareExchange/non-shared-bufferdata.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/compareExchange/non-shared-int-views-throws.js:11: Test262Error: Atomics.compareExchange(new Float64Array(buffer), 0, 0, 0) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/compareExchange/non-shared-int-views-throws.js:11: strict mode: Test262Error: Atomics.compareExchange(new Float64Array(buffer), 0, 0, 0) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/compareExchange/non-views.js:16: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/non-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/not-a-constructor.js:25: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/not-a-constructor.js:25: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/compareExchange/validate-arraytype-before-expectedValue-coercion.js:28: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/compareExchange/validate-arraytype-before-expectedValue-coercion.js:28: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/compareExchange/validate-arraytype-before-index-coercion.js:28: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/compareExchange/validate-arraytype-before-index-coercion.js:28: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/compareExchange/validate-arraytype-before-replacementValue-coercion.js:28: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/compareExchange/validate-arraytype-before-replacementValue-coercion.js:28: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/exchange/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/exchange/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/exchange/bigint/bad-range.js:10: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/exchange/bigint/bad-range.js:10: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/exchange/bigint/good-views.js:16: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/exchange/bigint/good-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/exchange/bigint/non-shared-bufferdata.js:13: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/exchange/bigint/non-shared-bufferdata.js:13: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/exchange/descriptor.js:11: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/descriptor.js:11: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/expected-return-value.js:36: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/expected-return-value.js:36: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/good-views.js:22: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/exchange/good-views.js:22: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/exchange/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/non-shared-bufferdata.js:16: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/exchange/non-shared-bufferdata.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/exchange/non-shared-int-views-throws.js:11: Test262Error: Atomics.add(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/exchange/non-shared-int-views-throws.js:11: strict mode: Test262Error: Atomics.add(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/exchange/non-views.js:16: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/non-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/nonshared-int-views.js:12: Test262Error: Atomics.exchange(new Float64Array(buffer), 0, 0) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/exchange/nonshared-int-views.js:12: strict mode: Test262Error: Atomics.exchange(new Float64Array(buffer), 0, 0) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/exchange/not-a-constructor.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/not-a-constructor.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/exchange/validate-arraytype-before-index-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/exchange/validate-arraytype-before-index-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/exchange/validate-arraytype-before-value-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/exchange/validate-arraytype-before-value-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/isLockFree/bigint/expected-return-value.js:26: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/isLockFree/bigint/expected-return-value.js:26: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/isLockFree/corner-cases.js:12: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/corner-cases.js:12: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/descriptor.js:11: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/descriptor.js:11: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/expected-return-value.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/expected-return-value.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/not-a-constructor.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/isLockFree/not-a-constructor.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/load/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/load/bigint/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/load/bigint/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/load/bigint/good-views.js:19: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/load/bigint/good-views.js:19: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/load/bigint/non-shared-bufferdata.js:13: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/load/bigint/non-shared-bufferdata.js:13: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/load/descriptor.js:11: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/descriptor.js:11: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/expected-return-value.js:36: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/expected-return-value.js:36: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/good-views.js:24: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/load/good-views.js:24: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/load/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/non-shared-bufferdata.js:16: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/load/non-shared-bufferdata.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/load/non-shared-int-views-throws.js:11: Test262Error: Atomics.load(new Float64Array(buffer), 0) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/load/non-shared-int-views-throws.js:11: strict mode: Test262Error: Atomics.load(new Float64Array(buffer), 0) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/load/non-views.js:16: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/non-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/not-a-constructor.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/not-a-constructor.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/load/validate-arraytype-before-index-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/load/validate-arraytype-before-index-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/or/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/or/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/or/bigint/bad-range.js:10: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/or/bigint/bad-range.js:10: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/or/bigint/good-views.js:19: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/or/bigint/good-views.js:19: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/or/bigint/non-shared-bufferdata.js:13: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/or/bigint/non-shared-bufferdata.js:13: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/or/descriptor.js:10: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/descriptor.js:10: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/expected-return-value.js:40: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/expected-return-value.js:40: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/good-views.js:23: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/or/good-views.js:23: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/or/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/non-shared-bufferdata.js:16: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/or/non-shared-bufferdata.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/or/non-shared-int-views-throws.js:11: Test262Error: Atomics.and(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/or/non-shared-int-views-throws.js:11: strict mode: Test262Error: Atomics.and(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/or/non-views.js:16: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/non-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/not-a-constructor.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/not-a-constructor.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/or/validate-arraytype-before-index-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/or/validate-arraytype-before-index-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/or/validate-arraytype-before-value-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/or/validate-arraytype-before-value-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/prop-desc.js:27: Test262Error: The value of `typeof Atomics` is "object" Expected SameValue(«undefined», «object») to be true
+test262/test/built-ins/Atomics/prop-desc.js:27: strict mode: Test262Error: The value of `typeof Atomics` is "object" Expected SameValue(«undefined», «object») to be true
+test262/test/built-ins/Atomics/proto.js:17: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/proto.js:17: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/xor/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with Int32Array.)
+test262/test/built-ins/Atomics/xor/bigint/bad-range.js:12: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/xor/bigint/bad-range.js:12: strict mode: Test262Error: Expected a RangeError but got a ReferenceError (Testing with index gen function () {
+    [native code]
+}.) (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/xor/bigint/good-views.js:24: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/xor/bigint/good-views.js:24: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/xor/bigint/non-shared-bufferdata.js:13: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/xor/bigint/non-shared-bufferdata.js:13: strict mode: ReferenceError: 'Atomics' is not defined (Testing with BigInt64Array.)
+test262/test/built-ins/Atomics/xor/descriptor.js:11: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/descriptor.js:11: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/expected-return-value.js:41: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/expected-return-value.js:41: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/good-views.js:23: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/xor/good-views.js:23: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/xor/length.js:27: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/length.js:27: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/name.js:13: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/name.js:13: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/non-shared-bufferdata.js:16: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/xor/non-shared-bufferdata.js:16: strict mode: ReferenceError: 'Atomics' is not defined (Testing with Int32Array.)
+test262/test/built-ins/Atomics/xor/non-shared-int-views-throws.js:11: Test262Error: Atomics.and(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/xor/non-shared-int-views-throws.js:11: strict mode: Test262Error: Atomics.and(new Float64Array(buffer), 0, 1) throws TypeError Expected a TypeError but got a ReferenceError (Testing with Float64Array.)
+test262/test/built-ins/Atomics/xor/non-views.js:16: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/non-views.js:16: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/not-a-constructor.js:24: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/not-a-constructor.js:24: strict mode: ReferenceError: 'Atomics' is not defined
+test262/test/built-ins/Atomics/xor/validate-arraytype-before-index-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/xor/validate-arraytype-before-index-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/xor/validate-arraytype-before-value-coercion.js:31: Test262Error: Expected a TypeError but got a ReferenceError
+test262/test/built-ins/Atomics/xor/validate-arraytype-before-value-coercion.js:31: strict mode: Test262Error: Expected a TypeError but got a ReferenceError
 test262/test/language/expressions/assignment/target-member-computed-reference-null.js:32: Test262Error: Expected a DummyError but got a TypeError
 test262/test/language/expressions/assignment/target-member-computed-reference-null.js:32: strict mode: Test262Error: Expected a DummyError but got a TypeError
 test262/test/language/expressions/assignment/target-member-computed-reference-undefined.js:32: Test262Error: Expected a DummyError but got a TypeError
@@ -6,3 +321,4 @@ test262/test/language/expressions/assignment/target-member-computed-reference-un
 test262/test/language/expressions/in/private-field-invalid-assignment-target.js:23: unexpected error type: Test262: This statement should not be evaluated.
 test262/test/language/expressions/in/private-field-invalid-assignment-target.js:23: strict mode: unexpected error type: Test262: This statement should not be evaluated.
 test262/test/language/global-code/script-decl-lex-var-declared-via-eval-sloppy.js:13: Test262Error: variable Expected a SyntaxError to be thrown but no exception was thrown at all
+test262/test/language/module-code/top-level-await/async-module-does-not-block-sibling-modules.js:13: SyntaxError: Could not find export 'check' in module 'test262/test/language/module-code/top-level-await/async-module-sync_FIXTURE.js'
