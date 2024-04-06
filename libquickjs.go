@@ -11,10 +11,10 @@
 //
 // These combinations of GOOS and GOARCH are currently supported
 //
-//	OS      Arch    SQLite version
-//	------------------------------
-//	linux	amd64   3.45.1
-//	linux	loong64 3.45.1
+//	OS      Arch
+//	---------------
+//	linux	amd64
+//	linux	loong64
 //
 // # Builders
 //
