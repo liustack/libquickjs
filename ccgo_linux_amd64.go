@@ -118223,6 +118223,21 @@ func XToCString(tls *libc.TLS, ctx uintptr, val1 TJSValue) (r uintptr) {
 	return XJS_ToCStringLen2(tls, ctx, libc.UintptrFromInt32(0), val1, 0)
 }
 
+func XNewInt32(tls *libc.TLS, ctx uintptr, val Tint32_t) (r TJSValue) {
+	var v1 TJSValue
+	_ = v1
+	_ = ctx
+	v1 = TJSValue{
+		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+			f Tint32_t
+			_ [4]byte
+		}{f: val})),
+	}
+	goto _2
+_2:
+	return v1
+}
+
 type TJSAsyncFunctionState1 = struct {
 	Fheader          TJSGCObjectHeader
 	Fthis_val        TJSValue

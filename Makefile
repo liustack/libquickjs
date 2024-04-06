@@ -86,4 +86,7 @@ diff0:
 	git diff quickjs-$(TAR0) $(TMP) | sed -e 's|/quickjs-$(TAR0)||g' -e 's|/tmp/libquickjs||g'
 
 diff:
+	rm -rf /tmp/libquickjs/quickjs-$(TAR0)/test262
+	rm -rf /tmp/libquickjs/quickjs-$(TAR0)/test262_report.txt
+	cp quickjs-$(TAR0)/test262_errors.txt /tmp/libquickjs/quickjs-$(TAR0)/test262_errors.txt
 	@make diff0 | tail -n +16 | head -n -1 > internal/patch/quickjs.diff

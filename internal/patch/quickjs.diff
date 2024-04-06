@@ -1,5 +1,5 @@
 diff --git a/quickjs.c b/quickjs.c
-index ebf45a9..55b8ee0 100644
+index e8fdd8a..28a47bf 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -51,7 +51,7 @@
@@ -26,7 +26,7 @@ index ebf45a9..55b8ee0 100644
  #endif
  
  
-@@ -11362,15 +11362,26 @@ static char *i64toa(char *buf_end, int64_t n, unsigned int base)
+@@ -11363,15 +11363,26 @@ static char *i64toa(char *buf_end, int64_t n, unsigned int base)
      return q;
  }
  
@@ -53,7 +53,7 @@ index ebf45a9..55b8ee0 100644
      *sign = (buf1[0] == '-');
      /* mantissa */
      buf[0] = buf1[1];
-@@ -11450,11 +11461,19 @@ static int js_fcvt1(char (*buf)[JS_DTOA_BUF_SIZE], double d, int n_digits,
+@@ -11451,11 +11462,19 @@ static int js_fcvt1(char (*buf)[JS_DTOA_BUF_SIZE], double d, int n_digits,
                      int rounding_mode)
  {
      int n;
@@ -73,7 +73,7 @@ index ebf45a9..55b8ee0 100644
      assert(n < sizeof(*buf));
      return n;
  }
-@@ -55867,3 +55886,16 @@ void JS_AddIntrinsicTypedArrays(JSContext *ctx)
+@@ -55901,3 +55920,21 @@ void JS_AddIntrinsicTypedArrays(JSContext *ctx)
      JS_AddIntrinsicAtomics(ctx);
  #endif
  }
@@ -89,6 +89,11 @@ index ebf45a9..55b8ee0 100644
 +char *ToCString(JSContext *ctx, JSValueConst val1)
 +{
 +    return JS_ToCStringLen2(ctx, NULL, val1, 0);
++}
++
++JSValue NewInt32(JSContext *ctx, int32_t val)
++{
++    return JS_NewInt32(ctx, val);
 +}
 diff --git a/run-test262.c b/run-test262.c
 index 4afb3f8..6b9d290 100644
