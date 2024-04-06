@@ -7,8 +7,25 @@
 // Package libquickjs is a ccgo/v4 version of libquickjs.a, a library
 // implementing an embeddable Javascript engine.
 //
-// For a list of know errors, if any, please see the file
-// internal/run-test262/exclude.
+// # Supported platforms and architectures
+//
+// These combinations of GOOS and GOARCH are currently supported
+//
+//	OS      Arch    SQLite version
+//	------------------------------
+//	linux	amd64   3.45.1
+//	linux	loong64 3.45.1
+//
+// # Builders
+//
+// Builder results available at:
+//
+// https://modern-c.appspot.com/-/builder/?importpath=modernc.org%2flibquickjs
+//
+// # Known errors
+//
+// A list of test cases passing in C but not in Go is available in the
+// internal/run-test262/exclude file.
 package libquickjs // import "modernc.org/libquickjs"
 
 import (

@@ -80,23 +80,12 @@ func main() {
 	}
 	libRoot := filepath.Join(tempDir, extractedArchivePath)
 	makeRoot := libRoot
-	tests := filepath.Join("internal", goos, goarch)
-	os.MkdirAll(tests, 0770)
-	if tests, err = filepath.Abs(tests); err != nil {
-		fail(1, "%s\n", err)
-	}
-
-	if err := os.RemoveAll(tests); err != nil {
-		fail(1, "%s\n", err)
-	}
-
 	fmt.Fprintf(os.Stderr, "archivePath %s\n", archivePath)
 	fmt.Fprintf(os.Stderr, "extractedArchivePath %s\n", extractedArchivePath)
 	fmt.Fprintf(os.Stderr, "extractedTest262Path %s\n", extractedTest262Path)
 	fmt.Fprintf(os.Stderr, "tempDir %s\n", tempDir)
 	fmt.Fprintf(os.Stderr, "libRoot %s\n", libRoot)
 	fmt.Fprintf(os.Stderr, "makeRoot %s\n", makeRoot)
-	fmt.Fprintf(os.Stderr, "tests %s\n", tests)
 	util.MustShell(true, nil, "unzip", archivePath, "-d", tempDir)
 	util.MustShell(true, nil, "unzip", test262Path, "-d", makeRoot)
 	util.MustShell(true, nil, "mv", filepath.Join(makeRoot, extractedTest262Path), filepath.Join(makeRoot, "test262"))
@@ -112,7 +101,6 @@ func main() {
 	}
 	util.MustCopyFile(true, "LICENSE-LIBQUICKJS", filepath.Join(makeRoot, "LICENSE"), nil)
 	result := filepath.Join("ccgo.go")
-	ilibc := filepath.Join(util.MustAbsCwd(true), "..", "libc", "include", goos, goarch)
 	patch := filepath.Join(util.MustAbsCwd(true), "internal", "patch", "quickjs.diff")
 	var resultLine string
 	util.MustInDir(true, makeRoot, func() (err error) {
@@ -146,7 +134,6 @@ func main() {
 			"--prefix-typename=T",
 			"--prefix-undefined=_",
 			"-DNDEBUG",
-			"-I", ilibc,
 			"-U__SIZEOF_INT128__",
 			"-eval-all-macros",
 			"-extended-errors",
