@@ -21,10 +21,10 @@ func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n 
 		switch {
 		case prec < 0:
 			prec = 0
-		case prec > 17:
-			prec = 17
+		case prec > 20:
+			prec = 20
 		}
-		s = fmt.Sprintf("%+.17e", d)
+		s = fmt.Sprintf("%+.20e", d)
 		// fmt.Printf("s=%q\n", s)
 		sgn := s[:1]
 		s = s[1:]
@@ -93,10 +93,10 @@ func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n 
 		switch {
 		case prec < 0:
 			prec = 0
-		case prec > 17:
-			prec = 17
+		case prec > 20:
+			prec = 20
 		}
-		s = fmt.Sprintf("%.17f", d)
+		s = fmt.Sprintf("%.20f", d)
 		// fmt.Printf("s=%q\n", s)
 		var sgn string
 		if s[0] == '-' {
