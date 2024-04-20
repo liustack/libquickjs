@@ -26,6 +26,8 @@ test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-retu
 test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-return-object.js:66: strict mode: TypeError: $DONE() not called
 test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined.js:41: TypeError: $DONE() not called
 test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined.js:41: strict mode: TypeError: $DONE() not called
+test262/test/built-ins/Atomics/compareExchange/good-views.js:15: Test262Error: The value of view[3] is 0 Expected SameValue(«-5», «0») to be true (Testing with Int32Array.)
+test262/test/built-ins/Atomics/compareExchange/good-views.js:15: strict mode: Test262Error: The value of view[3] is 0 Expected SameValue(«-5», «0») to be true (Testing with Int32Array.)
 test262/test/language/expressions/assignment/target-member-computed-reference-null.js:32: Test262Error: Expected a DummyError but got a TypeError
 test262/test/language/expressions/assignment/target-member-computed-reference-null.js:32: strict mode: Test262Error: Expected a DummyError but got a TypeError
 test262/test/language/expressions/assignment/target-member-computed-reference-undefined.js:32: Test262Error: Expected a DummyError but got a TypeError

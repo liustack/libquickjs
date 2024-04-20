@@ -32,6 +32,16 @@ const MATOD_TYPE_BIG_FLOAT = 256
 const MATOD_TYPE_BIG_INT = 128
 const MATOD_TYPE_FLOAT64 = 0
 const MATOD_TYPE_MASK = 384
+const MATOMIC_BOOL_LOCK_FREE = 2
+const MATOMIC_CHAR16_T_LOCK_FREE = 2
+const MATOMIC_CHAR32_T_LOCK_FREE = 2
+const MATOMIC_CHAR_LOCK_FREE = 2
+const MATOMIC_INT_LOCK_FREE = 2
+const MATOMIC_LLONG_LOCK_FREE = 2
+const MATOMIC_LONG_LOCK_FREE = 2
+const MATOMIC_POINTER_LOCK_FREE = 2
+const MATOMIC_SHORT_LOCK_FREE = 2
+const MATOMIC_WCHAR_T_LOCK_FREE = 2
 const MATOM_GET_STR_BUF_SIZE = 64
 const MBC_VERSION = 67
 const MBF_ATOF_BIN_OCT = 131072
@@ -88,12 +98,39 @@ const MCLOCK_REALTIME_COARSE = 5
 const MCLOCK_SGI_CYCLE = 10
 const MCLOCK_TAI = 11
 const MCLOCK_THREAD_CPUTIME_ID = 3
+const MCLONE_CHILD_CLEARTID = 2097152
+const MCLONE_CHILD_SETTID = 16777216
+const MCLONE_DETACHED = 4194304
+const MCLONE_FILES = 1024
+const MCLONE_FS = 512
+const MCLONE_IO = 2147483648
+const MCLONE_NEWCGROUP = 33554432
+const MCLONE_NEWIPC = 134217728
+const MCLONE_NEWNET = 1073741824
+const MCLONE_NEWNS = 131072
+const MCLONE_NEWPID = 536870912
+const MCLONE_NEWTIME = 128
+const MCLONE_NEWUSER = 268435456
+const MCLONE_NEWUTS = 67108864
+const MCLONE_PARENT = 32768
+const MCLONE_PARENT_SETTID = 1048576
+const MCLONE_PIDFD = 4096
+const MCLONE_PTRACE = 8192
+const MCLONE_SETTLS = 524288
+const MCLONE_SIGHAND = 2048
+const MCLONE_SYSVSEM = 262144
+const MCLONE_THREAD = 65536
+const MCLONE_UNTRACED = 8388608
+const MCLONE_VFORK = 16384
+const MCLONE_VM = 256
 const MCONFIG_BIGNUM = 1
 const MCONFIG_VERSION = "2024-02-14"
+const MCPU_SETSIZE = 1024
 const MCP_BOM = 65279
 const MCP_LS = 8232
 const MCP_NBSP = 160
 const MCP_PS = 8233
+const MCSIGNAL = 255
 const MDECL_MASK_ALL = 7
 const MDECL_MASK_FUNC = 1
 const MDECL_MASK_FUNC_WITH_LABEL = 2
@@ -102,6 +139,140 @@ const MDEFAULT = 0
 const MDEFINE_GLOBAL_FUNC_VAR = 64
 const MDEFINE_GLOBAL_LEX_VAR = 128
 const MDIRECT_DISPATCH = 0
+const ME2BIG = 7
+const MEACCES = 13
+const MEADDRINUSE = 98
+const MEADDRNOTAVAIL = 99
+const MEADV = 68
+const MEAFNOSUPPORT = 97
+const MEAGAIN = 11
+const MEALREADY = 114
+const MEBADE = 52
+const MEBADF = 9
+const MEBADFD = 77
+const MEBADMSG = 74
+const MEBADR = 53
+const MEBADRQC = 56
+const MEBADSLT = 57
+const MEBFONT = 59
+const MEBUSY = 16
+const MECANCELED = 125
+const MECHILD = 10
+const MECHRNG = 44
+const MECOMM = 70
+const MECONNABORTED = 103
+const MECONNREFUSED = 111
+const MECONNRESET = 104
+const MEDEADLK = 35
+const MEDEADLOCK = 35
+const MEDESTADDRREQ = 89
+const MEDOM = 33
+const MEDOTDOT = 73
+const MEDQUOT = 122
+const MEEXIST = 17
+const MEFAULT = 14
+const MEFBIG = 27
+const MEHOSTDOWN = 112
+const MEHOSTUNREACH = 113
+const MEHWPOISON = 133
+const MEIDRM = 43
+const MEILSEQ = 84
+const MEINPROGRESS = 115
+const MEINTR = 4
+const MEINVAL = 22
+const MEIO = 5
+const MEISCONN = 106
+const MEISDIR = 21
+const MEISNAM = 120
+const MEKEYEXPIRED = 127
+const MEKEYREJECTED = 129
+const MEKEYREVOKED = 128
+const MEL2HLT = 51
+const MEL2NSYNC = 45
+const MEL3HLT = 46
+const MEL3RST = 47
+const MELIBACC = 79
+const MELIBBAD = 80
+const MELIBEXEC = 83
+const MELIBMAX = 82
+const MELIBSCN = 81
+const MELNRNG = 48
+const MELOOP = 40
+const MEMEDIUMTYPE = 124
+const MEMFILE = 24
+const MEMLINK = 31
+const MEMSGSIZE = 90
+const MEMULTIHOP = 72
+const MENAMETOOLONG = 36
+const MENAVAIL = 119
+const MENETDOWN = 100
+const MENETRESET = 102
+const MENETUNREACH = 101
+const MENFILE = 23
+const MENOANO = 55
+const MENOBUFS = 105
+const MENOCSI = 50
+const MENODATA = 61
+const MENODEV = 19
+const MENOENT = 2
+const MENOEXEC = 8
+const MENOKEY = 126
+const MENOLCK = 37
+const MENOLINK = 67
+const MENOMEDIUM = 123
+const MENOMEM = 12
+const MENOMSG = 42
+const MENONET = 64
+const MENOPKG = 65
+const MENOPROTOOPT = 92
+const MENOSPC = 28
+const MENOSR = 63
+const MENOSTR = 60
+const MENOSYS = 38
+const MENOTBLK = 15
+const MENOTCONN = 107
+const MENOTDIR = 20
+const MENOTEMPTY = 39
+const MENOTNAM = 118
+const MENOTRECOVERABLE = 131
+const MENOTSOCK = 88
+const MENOTSUP = 95
+const MENOTTY = 25
+const MENOTUNIQ = 76
+const MENXIO = 6
+const MEOPNOTSUPP = 95
+const MEOVERFLOW = 75
+const MEOWNERDEAD = 130
+const MEPERM = 1
+const MEPFNOSUPPORT = 96
+const MEPIPE = 32
+const MEPROTO = 71
+const MEPROTONOSUPPORT = 93
+const MEPROTOTYPE = 91
+const MERANGE = 34
+const MEREMCHG = 78
+const MEREMOTE = 66
+const MEREMOTEIO = 121
+const MERESTART = 85
+const MERFKILL = 132
+const MEROFS = 30
+const MESHUTDOWN = 108
+const MESOCKTNOSUPPORT = 94
+const MESPIPE = 29
+const MESRCH = 3
+const MESRMNT = 69
+const MESTALE = 116
+const MESTRPIPE = 86
+const METIME = 62
+const METIMEDOUT = 110
+const METOOMANYREFS = 109
+const METXTBSY = 26
+const MEUCLEAN = 117
+const MEUNATCH = 49
+const MEUSERS = 87
+const MEWOULDBLOCK = 11
+const MEXDEV = 18
+const MEXFULL = 54
 const MEXIT_FAILURE = 1
 const MEXIT_SUCCESS = 0
 const MFD_SETSIZE = 1024
@@ -385,10 +556,42 @@ const MPROP_TYPE_PRIVATE = 16
 const MPROP_TYPE_SET = 3
 const MPROP_TYPE_STAR = 4
 const MPROP_TYPE_VAR = 1
+const MPTHREAD_BARRIER_SERIAL_THREAD = -1
+const MPTHREAD_CANCELED = -1
+const MPTHREAD_CANCEL_ASYNCHRONOUS = 1
+const MPTHREAD_CANCEL_DEFERRED = 0
+const MPTHREAD_CANCEL_DISABLE = 1
+const MPTHREAD_CANCEL_ENABLE = 0
+const MPTHREAD_CANCEL_MASKED = 2
+const MPTHREAD_CREATE_DETACHED = 1
+const MPTHREAD_CREATE_JOINABLE = 0
+const MPTHREAD_EXPLICIT_SCHED = 1
+const MPTHREAD_INHERIT_SCHED = 0
+const MPTHREAD_MUTEX_DEFAULT = 0
+const MPTHREAD_MUTEX_ERRORCHECK = 2
+const MPTHREAD_MUTEX_NORMAL = 0
+const MPTHREAD_MUTEX_RECURSIVE = 1
+const MPTHREAD_MUTEX_ROBUST = 1
+const MPTHREAD_MUTEX_STALLED = 0
+const MPTHREAD_ONCE_INIT = 0
+const MPTHREAD_PRIO_INHERIT = 1
+const MPTHREAD_PRIO_NONE = 0
+const MPTHREAD_PRIO_PROTECT = 2
+const MPTHREAD_PROCESS_PRIVATE = 0
+const MPTHREAD_PROCESS_SHARED = 1
+const MPTHREAD_SCOPE_PROCESS = 1
+const MPTHREAD_SCOPE_SYSTEM = 0
 const MPTRDIFF_MAX = 9223372036854775807
 const MPTRDIFF_MIN = -9223372036854775808
 const MP_tmpdir = "/tmp"
 const MRAND_MAX = 2147483647
+const MSCHED_BATCH = 3
+const MSCHED_DEADLINE = 6
+const MSCHED_FIFO = 1
+const MSCHED_IDLE = 5
+const MSCHED_OTHER = 0
+const MSCHED_RESET_ON_FORK = 1073741824
+const MSCHED_RR = 2
 const MSCNd16 = "hd"
 const MSCNd32 = "d"
 const MSCNd8 = "hhd"
@@ -906,6 +1109,7 @@ const M__tm_zone = 0
 const M__unix = 1
 const M__unix__ = 1
 const Malloca = 0
+const Merrno = 0
 const Mlinux = 1
 const Mmath_errhandling = 2
 const Mspecial_TA = 8
@@ -1628,6 +1832,181 @@ type Tbf_context_t = struct {
 	Flog2_cache     TBFConstCache
 	Fpi_cache       TBFConstCache
 	Fntt_state      uintptr
+}
+
+type Tpthread_t = uintptr
+
+type Tpthread_once_t = int32
+
+type Tpthread_key_t = uint32
+
+type Tpthread_spinlock_t = int32
+
+type Tpthread_mutexattr_t = struct {
+	F__attr uint32
+}
+
+type Tpthread_condattr_t = struct {
+	F__attr uint32
+}
+
+type Tpthread_barrierattr_t = struct {
+	F__attr uint32
+}
+
+type Tpthread_rwlockattr_t = struct {
+	F__attr [2]uint32
+}
+
+type Tpthread_attr_t = struct {
+	F__u struct {
+		F__vi [0][14]int32
+		F__s  [0][7]uint64
+		F__i  [14]int32
+	}
+}
+
+type Tpthread_mutex_t = struct {
+	F__u struct {
+		F__vi [0][10]int32
+		F__p  [0][5]uintptr
+		F__i  [10]int32
+	}
+}
+
+type Tpthread_cond_t = struct {
+	F__u struct {
+		F__vi [0][12]int32
+		F__p  [0][6]uintptr
+		F__i  [12]int32
+	}
+}
+
+type Tpthread_rwlock_t = struct {
+	F__u struct {
+		F__vi [0][14]int32
+		F__p  [0][7]uintptr
+		F__i  [14]int32
+	}
+}
+
+type Tpthread_barrier_t = struct {
+	F__u struct {
+		F__vi [0][8]int32
+		F__p  [0][4]uintptr
+		F__i  [8]int32
+	}
+}
+
+type Tsched_param = struct {
+	Fsched_priority int32
+	F__reserved1    int32
+	F__reserved2    [2]struct {
+		F__reserved1 Ttime_t
+		F__reserved2 int64
+	}
+	F__reserved3 int32
+}
+
+type Tcpu_set_t = struct {
+	F__bits [16]uint64
+}
+
+type t__ptcb = struct {
+	F__f    uintptr
+	F__x    uintptr
+	F__next uintptr
+}
+
+type Tcpu_set_t1 = struct {
+	F__bits [16]uint64
+}
+
+type Tmemory_order = int32
+
+const Ememory_order_relaxed = 0
+const Ememory_order_consume = 1
+const Ememory_order_acquire = 2
+const Ememory_order_release = 3
+const Ememory_order_acq_rel = 4
+const Ememory_order_seq_cst = 5
+
+type Tatomic_bool = uint8
+
+type Tatomic_char = int8
+
+type Tatomic_schar = int8
+
+type Tatomic_uchar = uint8
+
+type Tatomic_short = int16
+
+type Tatomic_ushort = uint16
+
+type Tatomic_int = int32
+
+type Tatomic_uint = uint32
+
+type Tatomic_long = int64
+
+type Tatomic_ulong = uint64
+
+type Tatomic_llong = int64
+
+type Tatomic_ullong = uint64
+
+type Tatomic_char16_t = uint16
+
+type Tatomic_char32_t = uint32
+
+type Tatomic_wchar_t = int32
+
+type Tatomic_int_least8_t = int8
+
+type Tatomic_uint_least8_t = uint8
+
+type Tatomic_int_least16_t = int16
+
+type Tatomic_uint_least16_t = uint16
+
+type Tatomic_int_least32_t = int32
+
+type Tatomic_uint_least32_t = uint32
+
+type Tatomic_int_least64_t = int64
+
+type Tatomic_uint_least64_t = uint64
+
+type Tatomic_int_fast8_t = int8
+
+type Tatomic_uint_fast8_t = uint8
+
+type Tatomic_int_fast16_t = int64
+
+type Tatomic_uint_fast16_t = uint64
+
+type Tatomic_int_fast32_t = int64
+
+type Tatomic_uint_fast32_t = uint64
+
+type Tatomic_int_fast64_t = int64
+
+type Tatomic_uint_fast64_t = uint64
+
+type Tatomic_intptr_t = int64
+
+type Tatomic_uintptr_t = uint64
+
+type Tatomic_size_t = uint64
+
+type Tatomic_ptrdiff_t = int64
+
+type Tatomic_intmax_t = int64
+
+type Tatomic_uintmax_t = uint64
+
+type Tatomic_flag = struct {
+	F__val uint8
 }
 
 const
@@ -5791,12 +6170,15 @@ func _JS_IsEmptyString(tls *libc.TLS, _v TJSValue) (r TBOOL) {
 
 /* JSClass support */
 
+var _js_class_id_mutex = Tpthread_mutex_t{}
+
 // C documentation
 //
 //	/* a new class ID is allocated if *pclass_id != 0 */
 func XJS_NewClassID(tls *libc.TLS, pclass_id uintptr) (r TJSClassID) {
 	var class_id, v1 TJSClassID
 	_, _ = class_id, v1
+	libc.Xpthread_mutex_lock(tls, uintptr(unsafe.Pointer(&_js_class_id_mutex)))
 	class_id = *(*TJSClassID)(unsafe.Pointer(pclass_id))
 	if class_id == uint32(0) {
 		v1 = _js_class_id_alloc
@@ -5804,6 +6186,7 @@ func XJS_NewClassID(tls *libc.TLS, pclass_id uintptr) (r TJSClassID) {
 		class_id = v1
 		*(*TJSClassID)(unsafe.Pointer(pclass_id)) = class_id
 	}
+	libc.Xpthread_mutex_unlock(tls, uintptr(unsafe.Pointer(&_js_class_id_mutex)))
 	return class_id
 }
 
@@ -118162,6 +118545,1330 @@ var _js_dataview_proto_funcs = [24]TJSCFunctionListEntry{
 
 /* Atomics */
 
+type TAtomicsOpEnum = int32
+
+/* Atomics */
+
+type _AtomicsOpEnum = int32
+
+const EATOMICS_OP_ADD = 0
+const EATOMICS_OP_AND = 1
+const EATOMICS_OP_OR = 2
+const EATOMICS_OP_SUB = 3
+const EATOMICS_OP_XOR = 4
+const EATOMICS_OP_EXCHANGE = 5
+const EATOMICS_OP_COMPARE_EXCHANGE = 6
+const EATOMICS_OP_LOAD = 7
+
+func _js_atomics_get_ptr(tls *libc.TLS, ctx uintptr, pabuf uintptr, psize_log2 uintptr, pclass_id uintptr, _obj TJSValue, idx_val TJSValue, is_waitable int32) (r uintptr) {
+	bp := tls.Alloc(32)
+	defer tls.Free(32)
+	*(*TJSValue)(unsafe.Pointer(bp)) = _obj
+	var abuf, p, ptr, ta uintptr
+	var err TBOOL
+	var size_log2 int32
+	var _ /* idx at bp+16 */ Tuint64_t
+	_, _, _, _, _, _ = abuf, err, p, ptr, size_log2, ta
+	if int32((*(*TJSValue)(unsafe.Pointer(bp))).Ftag) != int32(EJS_TAG_OBJECT) {
+		goto fail
+	}
+	p = *(*uintptr)(unsafe.Pointer(bp))
+	if is_waitable != 0 {
+		err = libc.BoolInt32(int32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) != int32(EJS_CLASS_INT32_ARRAY) && int32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) != int32(EJS_CLASS_BIG_INT64_ARRAY))
+	} else {
+		err = libc.BoolInt32(!(int32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) >= int32(EJS_CLASS_INT8_ARRAY) && int32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) <= int32(EJS_CLASS_BIG_UINT64_ARRAY)))
+	}
+	if !(err != 0) {
+		goto _1
+	}
+fail:
+	;
+	XJS_ThrowTypeError(tls, ctx, __ccgo_ts+15512, 0)
+	return libc.UintptrFromInt32(0)
+_1:
+	;
+	ta = *(*uintptr)(unsafe.Pointer(&(*TJSObject)(unsafe.Pointer(p)).Fu))
+	abuf = *(*uintptr)(unsafe.Pointer(&(*TJSObject)(unsafe.Pointer((*TJSTypedArray)(unsafe.Pointer(ta)).Fbuffer)).Fu))
+	if !((*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fshared != 0) {
+		if is_waitable == int32(2) {
+			XJS_ThrowTypeError(tls, ctx, __ccgo_ts+15540, 0)
+			return libc.UintptrFromInt32(0)
+		}
+		if (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdetached != 0 {
+			_JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx)
+			return libc.UintptrFromInt32(0)
+		}
+	}
+	if XJS_ToIndex(tls, ctx, bp+16, idx_val) != 0 {
+		return libc.UintptrFromInt32(0)
+	}
+	/* if the array buffer is detached, p->u.array.count = 0 */
+	if *(*Tuint64_t)(unsafe.Pointer(bp + 16)) >= uint64((*(*struct {
+		Fu1 struct {
+			Ftyped_array [0]uintptr
+			Fsize        Tuint32_t
+			F__ccgo_pad2 [4]byte
+		}
+		Fu struct {
+			Fptr        [0]uintptr
+			Fint8_ptr   [0]uintptr
+			Fuint8_ptr  [0]uintptr
+			Fint16_ptr  [0]uintptr
+			Fuint16_ptr [0]uintptr
+			Fint32_ptr  [0]uintptr
+			Fuint32_ptr [0]uintptr
+			Fint64_ptr  [0]uintptr
+			Fuint64_ptr [0]uintptr
+			Ffloat_ptr  [0]uintptr
+			Fdouble_ptr [0]uintptr
+			Fvalues     uintptr
+		}
+		Fcount Tuint32_t
+	})(unsafe.Pointer(p + 48))).Fcount) {
+		XJS_ThrowRangeError(tls, ctx, __ccgo_ts+15575, 0)
+		return libc.UintptrFromInt32(0)
+	}
+	size_log2 = int32(_typed_array_size_log2[int32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))-int32(EJS_CLASS_UINT8C_ARRAY)])
+	ptr = *(*uintptr)(unsafe.Pointer(p + 48 + 8)) + uintptr(*(*Tuint64_t)(unsafe.Pointer(bp + 16))<<size_log2)
+	if pabuf != 0 {
+		*(*uintptr)(unsafe.Pointer(pabuf)) = abuf
+	}
+	if psize_log2 != 0 {
+		*(*int32)(unsafe.Pointer(psize_log2)) = size_log2
+	}
+	if pclass_id != 0 {
+		*(*TJSClassID)(unsafe.Pointer(pclass_id)) = uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))
+	}
+	return ptr
+}
+
+func _js_atomics_op(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr, op int32) (r TJSValue) {
+	bp := tls.Alloc(128)
+	defer tls.Free(128)
+	var __atomic_compare_exchange_ptr, __atomic_compare_exchange_ptr1, __atomic_compare_exchange_ptr2, __atomic_compare_exchange_ptr3, __atomic_exchange_ptr, __atomic_exchange_ptr1, __atomic_exchange_ptr2, __atomic_exchange_ptr3, __atomic_load_ptr, __atomic_load_ptr1, __atomic_load_ptr2, __atomic_load_ptr3, ptr, v29 uintptr
+	var a, rep_val, v2, v12, v8 Tuint64_t
+	var ret, v1, v27, v31, v33, v35 TJSValue
+	var v11, v13, v14, v15, v16, v3 int32
+	var v10, v6 Tuint16_t
+	var v111, v30, v7 Tuint32_t
+	var v5, v9 Tuint8_t
+	var _ /* __atomic_compare_exchange_tmp at bp+100 */ Tuint16_t
+	var _ /* __atomic_compare_exchange_tmp at bp+108 */ Tuint32_t
+	var _ /* __atomic_compare_exchange_tmp at bp+120 */ Tuint64_t
+	var _ /* __atomic_compare_exchange_tmp at bp+97 */ Tuint8_t
+	var _ /* __atomic_exchange_tmp at bp+45 */ Tuint8_t
+	var _ /* __atomic_exchange_tmp at bp+48 */ Tuint16_t
+	var _ /* __atomic_exchange_tmp at bp+56 */ Tuint32_t
+	var _ /* __atomic_exchange_tmp at bp+72 */ Tuint64_t
+	var _ /* __atomic_exchange_val at bp+44 */ Tuint8_t
+	var _ /* __atomic_exchange_val at bp+46 */ Tuint16_t
+	var _ /* __atomic_exchange_val at bp+52 */ Tuint32_t
+	var _ /* __atomic_exchange_val at bp+64 */ Tuint64_t
+	var _ /* __atomic_load_tmp at bp+80 */ Tuint8_t
+	var _ /* __atomic_load_tmp at bp+82 */ Tuint16_t
+	var _ /* __atomic_load_tmp at bp+84 */ Tuint32_t
+	var _ /* __atomic_load_tmp at bp+88 */ Tuint64_t
+	var _ /* abuf at bp+24 */ uintptr
+	var _ /* class_id at bp+20 */ TJSClassID
+	var _ /* size_log2 at bp+16 */ int32
+	var _ /* v at bp+0 */ TJSValue
+	var _ /* v1 at bp+104 */ Tuint32_t
+	var _ /* v1 at bp+112 */ Tuint64_t
+	var _ /* v1 at bp+96 */ Tuint8_t
+	var _ /* v1 at bp+98 */ Tuint16_t
+	var _ /* v32 at bp+40 */ Tuint32_t
+	var _ /* v64 at bp+32 */ Tint64_t
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __atomic_compare_exchange_ptr, __atomic_compare_exchange_ptr1, __atomic_compare_exchange_ptr2, __atomic_compare_exchange_ptr3, __atomic_exchange_ptr, __atomic_exchange_ptr1, __atomic_exchange_ptr2, __atomic_exchange_ptr3, __atomic_load_ptr, __atomic_load_ptr1, __atomic_load_ptr2, __atomic_load_ptr3, a, ptr, rep_val, ret, v1, v2, v11, v10, v111, v12, v13, v14, v15, v16, v27, v29, v3, v30, v31, v33, v35, v5, v6, v7, v8, v9
+	ptr = _js_atomics_get_ptr(tls, ctx, bp+24, bp+16, bp+20, *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), 0)
+	if !(ptr != 0) {
+		return TJSValue{
+			Fu:   TJSValueUnion{},
+			Ftag: int64(EJS_TAG_EXCEPTION),
+		}
+	}
+	rep_val = uint64(0)
+	if op == int32(EATOMICS_OP_LOAD) {
+		v2 = uint64(0)
+	} else {
+		if *(*int32)(unsafe.Pointer(bp + 16)) == int32(3) {
+			if XJS_ToBigInt64(tls, ctx, bp+32, *(*TJSValue)(unsafe.Pointer(argv + 2*16))) != 0 {
+				return TJSValue{
+					Fu:   TJSValueUnion{},
+					Ftag: int64(EJS_TAG_EXCEPTION),
+				}
+			}
+			v2 = uint64(*(*Tint64_t)(unsafe.Pointer(bp + 32)))
+			if op == int32(EATOMICS_OP_COMPARE_EXCHANGE) {
+				if XJS_ToBigInt64(tls, ctx, bp+32, *(*TJSValue)(unsafe.Pointer(argv + 3*16))) != 0 {
+					return TJSValue{
+						Fu:   TJSValueUnion{},
+						Ftag: int64(EJS_TAG_EXCEPTION),
+					}
+				}
+				rep_val = uint64(*(*Tint64_t)(unsafe.Pointer(bp + 32)))
+			}
+		} else {
+			v11 = XJS_ToInt32(tls, ctx, bp+40, *(*TJSValue)(unsafe.Pointer(argv + 2*16)))
+			goto _2
+		_2:
+			if v11 != 0 {
+				return TJSValue{
+					Fu:   TJSValueUnion{},
+					Ftag: int64(EJS_TAG_EXCEPTION),
+				}
+			}
+			v2 = uint64(*(*Tuint32_t)(unsafe.Pointer(bp + 40)))
+			if op == int32(EATOMICS_OP_COMPARE_EXCHANGE) {
+				v3 = XJS_ToInt32(tls, ctx, bp+40, *(*TJSValue)(unsafe.Pointer(argv + 3*16)))
+				goto _4
+			_4:
+				if v3 != 0 {
+					return TJSValue{
+						Fu:   TJSValueUnion{},
+						Ftag: int64(EJS_TAG_EXCEPTION),
+					}
+				}
+				rep_val = uint64(*(*Tuint32_t)(unsafe.Pointer(bp + 40)))
+			}
+		}
+		if (*TJSArrayBuffer)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 24)))).Fdetached != 0 {
+			return _JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx)
+		}
+	}
+	switch op | *(*int32)(unsafe.Pointer(bp + 16))<<libc.Int32FromInt32(3) {
+	case int32(EATOMICS_OP_ADD) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_addUint8(tls, ptr, uint8(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_ADD) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_addUint16(tls, ptr, uint16(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_ADD) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_addUint32(tls, ptr, uint32(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_ADD) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		a = libc.X__atomic_fetch_addUint64(tls, ptr, v2, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+	case int32(EATOMICS_OP_AND) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_andUint8(tls, ptr, uint8(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_AND) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_andUint16(tls, ptr, uint16(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_AND) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_andUint32(tls, ptr, uint32(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_AND) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		a = libc.X__atomic_fetch_andUint64(tls, ptr, v2, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+	case int32(EATOMICS_OP_OR) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_orUint8(tls, ptr, uint8(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_OR) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_orUint16(tls, ptr, uint16(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_OR) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_orUint32(tls, ptr, uint32(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_OR) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		a = libc.X__atomic_fetch_orUint64(tls, ptr, v2, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+	case int32(EATOMICS_OP_SUB) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_subUint8(tls, ptr, uint8(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_SUB) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_subUint16(tls, ptr, uint16(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_SUB) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_subUint32(tls, ptr, uint32(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_SUB) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		a = libc.X__atomic_fetch_subUint64(tls, ptr, v2, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+	case int32(EATOMICS_OP_XOR) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_xorUint8(tls, ptr, uint8(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_XOR) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_xorUint16(tls, ptr, uint16(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_XOR) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		a = uint64(libc.X__atomic_fetch_xorUint32(tls, ptr, uint32(v2), libc.Int32FromInt32(M__ATOMIC_SEQ_CST)))
+	case int32(EATOMICS_OP_XOR) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		a = libc.X__atomic_fetch_xorUint64(tls, ptr, v2, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+	case int32(EATOMICS_OP_EXCHANGE) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		{
+			__atomic_exchange_ptr = ptr
+			*(*Tuint8_t)(unsafe.Pointer(bp + 44)) = uint8(v2)
+			libc.X__atomic_exchangeUint8(tls, __atomic_exchange_ptr, bp+44, bp+45, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v5 = *(*Tuint8_t)(unsafe.Pointer(bp + 45))
+		}
+		a = uint64(v5)
+	case int32(EATOMICS_OP_EXCHANGE) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		{
+			__atomic_exchange_ptr1 = ptr
+			*(*Tuint16_t)(unsafe.Pointer(bp + 46)) = uint16(v2)
+			libc.X__atomic_exchangeUint16(tls, __atomic_exchange_ptr1, bp+46, bp+48, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v6 = *(*Tuint16_t)(unsafe.Pointer(bp + 48))
+		}
+		a = uint64(v6)
+	case int32(EATOMICS_OP_EXCHANGE) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		{
+			__atomic_exchange_ptr2 = ptr
+			*(*Tuint32_t)(unsafe.Pointer(bp + 52)) = uint32(v2)
+			libc.X__atomic_exchangeUint32(tls, __atomic_exchange_ptr2, bp+52, bp+56, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v7 = *(*Tuint32_t)(unsafe.Pointer(bp + 56))
+		}
+		a = uint64(v7)
+	case int32(EATOMICS_OP_EXCHANGE) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		{
+			__atomic_exchange_ptr3 = ptr
+			*(*Tuint64_t)(unsafe.Pointer(bp + 64)) = v2
+			libc.X__atomic_exchangeUint64(tls, __atomic_exchange_ptr3, bp+64, bp+72, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v8 = *(*Tuint64_t)(unsafe.Pointer(bp + 72))
+		}
+		a = v8
+	case int32(EATOMICS_OP_LOAD) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		{
+			__atomic_load_ptr = ptr
+			libc.X__atomic_loadUint8(tls, __atomic_load_ptr, bp+80, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v9 = *(*Tuint8_t)(unsafe.Pointer(bp + 80))
+		}
+		a = uint64(v9)
+	case int32(EATOMICS_OP_LOAD) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		{
+			__atomic_load_ptr1 = ptr
+			libc.X__atomic_loadUint16(tls, __atomic_load_ptr1, bp+82, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v10 = *(*Tuint16_t)(unsafe.Pointer(bp + 82))
+		}
+		a = uint64(v10)
+	case int32(EATOMICS_OP_LOAD) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		{
+			__atomic_load_ptr2 = ptr
+			libc.X__atomic_loadUint32(tls, __atomic_load_ptr2, bp+84, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v111 = *(*Tuint32_t)(unsafe.Pointer(bp + 84))
+		}
+		a = uint64(v111)
+	case int32(EATOMICS_OP_LOAD) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		{
+			__atomic_load_ptr3 = ptr
+			libc.X__atomic_loadUint64(tls, __atomic_load_ptr3, bp+88, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			v12 = *(*Tuint64_t)(unsafe.Pointer(bp + 88))
+		}
+		a = v12
+	case int32(EATOMICS_OP_COMPARE_EXCHANGE) | libc.Int32FromInt32(0)<<libc.Int32FromInt32(3):
+		*(*Tuint8_t)(unsafe.Pointer(bp + 96)) = uint8(v2)
+		{
+			__atomic_compare_exchange_ptr = ptr
+			*(*Tuint8_t)(unsafe.Pointer(bp + 97)) = uint8(rep_val)
+			v13 = libc.X__atomic_compare_exchangeUint8(tls, __atomic_compare_exchange_ptr, bp+96, bp+97, libc.Int32FromInt32(0), libc.Int32FromInt32(M__ATOMIC_SEQ_CST), libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+		}
+		_ = v13
+		a = uint64(*(*Tuint8_t)(unsafe.Pointer(bp + 96)))
+	case int32(EATOMICS_OP_COMPARE_EXCHANGE) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(3):
+		*(*Tuint16_t)(unsafe.Pointer(bp + 98)) = uint16(v2)
+		{
+			__atomic_compare_exchange_ptr1 = ptr
+			*(*Tuint16_t)(unsafe.Pointer(bp + 100)) = uint16(rep_val)
+			v14 = libc.X__atomic_compare_exchangeUint16(tls, __atomic_compare_exchange_ptr1, bp+98, bp+100, libc.Int32FromInt32(0), libc.Int32FromInt32(M__ATOMIC_SEQ_CST), libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+		}
+		_ = v14
+		a = uint64(*(*Tuint16_t)(unsafe.Pointer(bp + 98)))
+	case int32(EATOMICS_OP_COMPARE_EXCHANGE) | libc.Int32FromInt32(2)<<libc.Int32FromInt32(3):
+		*(*Tuint32_t)(unsafe.Pointer(bp + 104)) = uint32(v2)
+		{
+			__atomic_compare_exchange_ptr2 = ptr
+			*(*Tuint32_t)(unsafe.Pointer(bp + 108)) = uint32(rep_val)
+			v15 = libc.X__atomic_compare_exchangeUint32(tls, __atomic_compare_exchange_ptr2, bp+104, bp+108, libc.Int32FromInt32(0), libc.Int32FromInt32(M__ATOMIC_SEQ_CST), libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+		}
+		_ = v15
+		a = uint64(*(*Tuint32_t)(unsafe.Pointer(bp + 104)))
+	case int32(EATOMICS_OP_COMPARE_EXCHANGE) | libc.Int32FromInt32(3)<<libc.Int32FromInt32(3):
+		*(*Tuint64_t)(unsafe.Pointer(bp + 112)) = v2
+		{
+			__atomic_compare_exchange_ptr3 = ptr
+			*(*Tuint64_t)(unsafe.Pointer(bp + 120)) = rep_val
+			v16 = libc.X__atomic_compare_exchangeUint64(tls, __atomic_compare_exchange_ptr3, bp+112, bp+120, libc.Int32FromInt32(0), libc.Int32FromInt32(M__ATOMIC_SEQ_CST), libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+		}
+		_ = v16
+		a = *(*Tuint64_t)(unsafe.Pointer(bp + 112))
+	default:
+		libc.Xabort(tls)
+	}
+	switch *(*TJSClassID)(unsafe.Pointer(bp + 20)) {
+	case uint32(EJS_CLASS_INT8_ARRAY):
+		goto _17
+	case uint32(EJS_CLASS_UINT8_ARRAY):
+		goto _18
+	case uint32(EJS_CLASS_INT16_ARRAY):
+		goto _19
+	case uint32(EJS_CLASS_UINT16_ARRAY):
+		goto _20
+	case uint32(EJS_CLASS_INT32_ARRAY):
+		goto _21
+	case uint32(EJS_CLASS_UINT32_ARRAY):
+		goto _22
+	case uint32(EJS_CLASS_BIG_INT64_ARRAY):
+		goto _23
+	case uint32(EJS_CLASS_BIG_UINT64_ARRAY):
+		goto _24
+	default:
+		goto _25
+	}
+	goto _26
+_17:
+	;
+	a = uint64(int8(a))
+	goto done
+_18:
+	;
+	a = uint64(uint8(a))
+	goto done
+_19:
+	;
+	a = uint64(int16(a))
+	goto done
+_20:
+	;
+	a = uint64(uint16(a))
+	goto done
+_21:
+	;
+done:
+	;
+	_ = ctx
+	v27 = TJSValue{
+		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+			f Tint32_t
+			_ [4]byte
+		}{f: int32(a)})),
+	}
+	goto _28
+_28:
+	ret = v27
+	goto _26
+_22:
+	;
+	v29 = ctx
+	v30 = uint32(a)
+	if v30 <= libc.Uint32FromInt32(0x7fffffff) {
+		_ = v29
+		v31 = TJSValue{
+			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+				f Tint32_t
+				_ [4]byte
+			}{f: int32(v30)})),
+		}
+		goto _32
+	_32:
+		v1 = v31
+	} else {
+		_ = v29
+		(*(*TJSValue)(unsafe.Pointer(bp))).Ftag = int64(EJS_TAG_FLOAT64)
+		*(*float64)(unsafe.Pointer(bp)) = float64(v30)
+		v33 = *(*TJSValue)(unsafe.Pointer(bp))
+		goto _34
+	_34:
+		v1 = v33
+	}
+	v35 = v1
+	goto _36
+_36:
+	ret = v35
+	goto _26
+_23:
+	;
+	ret = XJS_NewBigInt64(tls, ctx, int64(a))
+	goto _26
+_24:
+	;
+	ret = XJS_NewBigUint64(tls, ctx, a)
+	goto _26
+_25:
+	;
+	libc.Xabort(tls)
+_26:
+	;
+	return ret
+}
+
+func _js_atomics_store(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __atomic_store_ptr, __atomic_store_ptr1, __atomic_store_ptr2, __atomic_store_ptr3, p, p1, ptr, v18, v8 uintptr
+	var ret, v1, v10, v16, v2, v6, v9 TJSValue
+	var v12, v14, v17, v4, v7 int32
+	var _ /* __atomic_store_tmp at bp+24 */ Tuint64_t
+	var _ /* __atomic_store_tmp at bp+36 */ Tuint8_t
+	var _ /* __atomic_store_tmp at bp+38 */ Tuint16_t
+	var _ /* __atomic_store_tmp at bp+40 */ Tuint32_t
+	var _ /* abuf at bp+8 */ uintptr
+	var _ /* size_log2 at bp+0 */ int32
+	var _ /* v at bp+32 */ Tuint32_t
+	var _ /* v64 at bp+16 */ Tint64_t
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __atomic_store_ptr, __atomic_store_ptr1, __atomic_store_ptr2, __atomic_store_ptr3, p, p1, ptr, ret, v1, v10, v12, v14, v16, v17, v18, v2, v4, v6, v7, v8, v9
+	ptr = _js_atomics_get_ptr(tls, ctx, bp+8, bp, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), 0)
+	if !(ptr != 0) {
+		return TJSValue{
+			Fu:   TJSValueUnion{},
+			Ftag: int64(EJS_TAG_EXCEPTION),
+		}
+	}
+	if *(*int32)(unsafe.Pointer(bp)) == int32(3) {
+		_ = ctx
+		v1 = *(*TJSValue)(unsafe.Pointer(argv + 2*16))
+		if uint32(int32(v1.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+			p1 = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v1))))
+			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count++
+		}
+		v2 = v1
+		goto _3
+	_3:
+		ret = _JS_ToBigIntValueFree(tls, ctx, v2)
+		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(ret.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
+		goto _5
+	_5:
+		if v4 != 0 {
+			return ret
+		}
+		if XJS_ToBigInt64(tls, ctx, bp+16, ret) != 0 {
+			v6 = ret
+			if uint32(int32(v6.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v6))))
+				v8 = p
+				*(*int32)(unsafe.Pointer(v8))--
+				v7 = *(*int32)(unsafe.Pointer(v8))
+				if v7 <= libc.Int32FromInt32(0) {
+					X__JS_FreeValue(tls, ctx, v6)
+				}
+			}
+			return TJSValue{
+				Fu:   TJSValueUnion{},
+				Ftag: int64(EJS_TAG_EXCEPTION),
+			}
+		}
+		if (*TJSArrayBuffer)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)))).Fdetached != 0 {
+			return _JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx)
+		}
+		{
+			__atomic_store_ptr = ptr
+			*(*Tuint64_t)(unsafe.Pointer(bp + 24)) = uint64(*(*Tint64_t)(unsafe.Pointer(bp + 16)))
+			libc.X__atomic_storeUint64(tls, __atomic_store_ptr, bp+24, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+		}
+	} else {
+		/* XXX: spec, would be simpler to return the written value */
+		_ = ctx
+		v9 = *(*TJSValue)(unsafe.Pointer(argv + 2*16))
+		if uint32(int32(v9.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+			p1 = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v9))))
+			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count++
+		}
+		v10 = v9
+		goto _11
+	_11:
+		ret = _JS_ToIntegerFree(tls, ctx, v10)
+		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(ret.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
+		goto _13
+	_13:
+		if v12 != 0 {
+			return ret
+		}
+		v14 = XJS_ToInt32(tls, ctx, bp+32, ret)
+		goto _15
+	_15:
+		if v14 != 0 {
+			v16 = ret
+			if uint32(int32(v16.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v16))))
+				v18 = p
+				*(*int32)(unsafe.Pointer(v18))--
+				v17 = *(*int32)(unsafe.Pointer(v18))
+				if v17 <= libc.Int32FromInt32(0) {
+					X__JS_FreeValue(tls, ctx, v16)
+				}
+			}
+			return TJSValue{
+				Fu:   TJSValueUnion{},
+				Ftag: int64(EJS_TAG_EXCEPTION),
+			}
+		}
+		if (*TJSArrayBuffer)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)))).Fdetached != 0 {
+			return _JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx)
+		}
+		switch *(*int32)(unsafe.Pointer(bp)) {
+		case 0:
+			{
+				__atomic_store_ptr1 = ptr
+				*(*Tuint8_t)(unsafe.Pointer(bp + 36)) = uint8(*(*Tuint32_t)(unsafe.Pointer(bp + 32)))
+				libc.X__atomic_storeUint8(tls, __atomic_store_ptr1, bp+36, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			}
+		case int32(1):
+			{
+				__atomic_store_ptr2 = ptr
+				*(*Tuint16_t)(unsafe.Pointer(bp + 38)) = uint16(*(*Tuint32_t)(unsafe.Pointer(bp + 32)))
+				libc.X__atomic_storeUint16(tls, __atomic_store_ptr2, bp+38, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			}
+		case int32(2):
+			{
+				__atomic_store_ptr3 = ptr
+				*(*Tuint32_t)(unsafe.Pointer(bp + 40)) = *(*Tuint32_t)(unsafe.Pointer(bp + 32))
+				libc.X__atomic_storeUint32(tls, __atomic_store_ptr3, bp+40, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
+			}
+		default:
+			libc.Xabort(tls)
+		}
+	}
+	return ret
+}
+
+func _js_atomics_isLockFree(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
+	bp := tls.Alloc(16)
+	defer tls.Free(16)
+	var ret int32
+	var v1 TJSValue
+	var _ /* v at bp+0 */ int32
+	_, _ = ret, v1
+	if XJS_ToInt32Sat(tls, ctx, bp, *(*TJSValue)(unsafe.Pointer(argv))) != 0 {
+		return TJSValue{
+			Fu:   TJSValueUnion{},
+			Ftag: int64(EJS_TAG_EXCEPTION),
+		}
+	}
+	ret = libc.BoolInt32(*(*int32)(unsafe.Pointer(bp)) == int32(1) || *(*int32)(unsafe.Pointer(bp)) == int32(2) || *(*int32)(unsafe.Pointer(bp)) == int32(4) || *(*int32)(unsafe.Pointer(bp)) == int32(8))
+	_ = ctx
+	v1 = TJSValue{
+		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+			f Tint32_t
+			_ [4]byte
+		}{f: libc.BoolInt32(ret != libc.Int32FromInt32(0))})),
+		Ftag: int64(EJS_TAG_BOOL),
+	}
+	goto _2
+_2:
+	return v1
+}
+
+type TJSAtomicsWaiter = struct {
+	Flink   Tlist_head
+	Flinked TBOOL
+	Fcond   Tpthread_cond_t
+	Fptr    uintptr
+}
+
+var _js_atomics_mutex = Tpthread_mutex_t{}
+var _js_atomics_waiter_list Tlist_head
+var _js_atomics_waiter_list0 = Tlist_head{
+	Fprev: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
+	Fnext: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
+}
+
+func Xinit_quickjs(tls *libc.TLS) {
+	_js_atomics_waiter_list = _js_atomics_waiter_list0
+}
+
+func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
+	bp := tls.Alloc(144)
+	defer tls.Free(144)
+	var next, prev, ptr, waiter, v3, v4, v5, v6, v7 uintptr
+	var res, ret int32
+	var timeout Tint64_t
+	var v1 uint64
+	var _ /* __u at bp+0 */ struct {
+		F__i [0]uint64
+		F__f float64
+	}
+	var _ /* d at bp+128 */ float64
+	var _ /* size_log2 at bp+120 */ int32
+	var _ /* ts at bp+24 */ Ttimespec
+	var _ /* v at bp+8 */ Tint64_t
+	var _ /* v32 at bp+16 */ Tint32_t
+	var _ /* waiter_s at bp+40 */ TJSAtomicsWaiter
+	_, _, _, _, _, _, _, _, _, _, _, _, _ = next, prev, ptr, res, ret, timeout, waiter, v1, v3, v4, v5, v6, v7
+	ptr = _js_atomics_get_ptr(tls, ctx, libc.UintptrFromInt32(0), bp+120, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), int32(2))
+	if !(ptr != 0) {
+		return TJSValue{
+			Fu:   TJSValueUnion{},
+			Ftag: int64(EJS_TAG_EXCEPTION),
+		}
+	}
+	if *(*int32)(unsafe.Pointer(bp + 120)) == int32(3) {
+		if XJS_ToBigInt64(tls, ctx, bp+8, *(*TJSValue)(unsafe.Pointer(argv + 2*16))) != 0 {
+			return TJSValue{
+				Fu:   TJSValueUnion{},
+				Ftag: int64(EJS_TAG_EXCEPTION),
+			}
+		}
+	} else {
+		if XJS_ToInt32(tls, ctx, bp+16, *(*TJSValue)(unsafe.Pointer(argv + 2*16))) != 0 {
+			return TJSValue{
+				Fu:   TJSValueUnion{},
+				Ftag: int64(EJS_TAG_EXCEPTION),
+			}
+		}
+		*(*Tint64_t)(unsafe.Pointer(bp + 8)) = int64(*(*Tint32_t)(unsafe.Pointer(bp + 16)))
+	}
+	if XJS_ToFloat64(tls, ctx, bp+128, *(*TJSValue)(unsafe.Pointer(argv + 3*16))) != 0 {
+		return TJSValue{
+			Fu:   TJSValueUnion{},
+			Ftag: int64(EJS_TAG_EXCEPTION),
+		}
+	}
+	/* must use INT64_MAX + 1 because INT64_MAX cannot be exactly represented as a double */
+	*(*float64)(unsafe.Pointer(bp)) = *(*float64)(unsafe.Pointer(bp + 128))
+	v1 = *(*uint64)(unsafe.Pointer(bp))
+	goto _2
+_2:
+	;
+	if libc.BoolInt32(v1&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) > libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0 || *(*float64)(unsafe.Pointer(bp + 128)) >= float64(9.223372036854776e+18) {
+		timeout = libc.Int64FromInt64(MINT64_MAX)
+	} else {
+		if *(*float64)(unsafe.Pointer(bp + 128)) < libc.Float64FromInt32(0) {
+			timeout = 0
+		} else {
+			timeout = int64(*(*float64)(unsafe.Pointer(bp + 128)))
+		}
+	}
+	if !(TBOOL(*(*uint8)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Frt + 336))&0xff>>0)<<24>>24 != 0) {
+		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+15595, 0)
+	}
+	/* XXX: inefficient if large number of waiters, should hash on
+	   'ptr' value */
+	/* XXX: use Linux futexes when available ? */
+	libc.Xpthread_mutex_lock(tls, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
+	if *(*int32)(unsafe.Pointer(bp + 120)) == int32(3) {
+		res = libc.BoolInt32(*(*Tint64_t)(unsafe.Pointer(ptr)) != *(*Tint64_t)(unsafe.Pointer(bp + 8)))
+	} else {
+		res = libc.BoolInt32(int64(*(*Tint32_t)(unsafe.Pointer(ptr))) != *(*Tint64_t)(unsafe.Pointer(bp + 8)))
+	}
+	if res != 0 {
+		libc.Xpthread_mutex_unlock(tls, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
+		return XJS_AtomToString(tls, ctx, uint32(EJS_ATOM_not_equal))
+	}
+	waiter = bp + 40
+	(*TJSAtomicsWaiter)(unsafe.Pointer(waiter)).Fptr = ptr
+	libc.Xpthread_cond_init(tls, waiter+24, libc.UintptrFromInt32(0))
+	(*TJSAtomicsWaiter)(unsafe.Pointer(waiter)).Flinked = int32(ETRUE)
+	v3 = uintptr(unsafe.Pointer(&_js_atomics_waiter_list))
+	v4 = waiter
+	v5 = (*Tlist_head)(unsafe.Pointer(v3)).Fprev
+	v6 = v3
+	(*Tlist_head)(unsafe.Pointer(v5)).Fnext = v4
+	(*Tlist_head)(unsafe.Pointer(v4)).Fprev = v5
+	(*Tlist_head)(unsafe.Pointer(v4)).Fnext = v6
+	(*Tlist_head)(unsafe.Pointer(v6)).Fprev = v4
+	if timeout == int64(MINT64_MAX) {
+		libc.Xpthread_cond_wait(tls, waiter+24, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
+		ret = 0
+	} else {
+		/* XXX: use clock monotonic */
+		libc.Xclock_gettime(tls, MCLOCK_REALTIME, bp+24)
+		(*(*Ttimespec)(unsafe.Pointer(bp + 24))).Ftv_sec += timeout / int64(1000)
+		(*(*Ttimespec)(unsafe.Pointer(bp + 24))).Ftv_nsec += timeout % int64(1000) * int64(1000000)
+		if (*(*Ttimespec)(unsafe.Pointer(bp + 24))).Ftv_nsec >= int64(1000000000) {
+			(*(*Ttimespec)(unsafe.Pointer(bp + 24))).Ftv_nsec -= int64(1000000000)
+			(*(*Ttimespec)(unsafe.Pointer(bp + 24))).Ftv_sec++
+		}
+		ret = libc.Xpthread_cond_timedwait(tls, waiter+24, uintptr(unsafe.Pointer(&_js_atomics_mutex)), bp+24)
+	}
+	if (*TJSAtomicsWaiter)(unsafe.Pointer(waiter)).Flinked != 0 {
+		v7 = waiter
+		prev = (*Tlist_head)(unsafe.Pointer(v7)).Fprev
+		next = (*Tlist_head)(unsafe.Pointer(v7)).Fnext
+		(*Tlist_head)(unsafe.Pointer(prev)).Fnext = next
+		(*Tlist_head)(unsafe.Pointer(next)).Fprev = prev
+		(*Tlist_head)(unsafe.Pointer(v7)).Fprev = libc.UintptrFromInt32(0)
+		(*Tlist_head)(unsafe.Pointer(v7)).Fnext = libc.UintptrFromInt32(0)
+	}
+	libc.Xpthread_mutex_unlock(tls, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
+	libc.Xpthread_cond_destroy(tls, waiter+24)
+	if ret == int32(METIMEDOUT) {
+		return XJS_AtomToString(tls, ctx, uint32(EJS_ATOM_timed_out))
+	} else {
+		return XJS_AtomToString(tls, ctx, uint32(EJS_ATOM_ok))
+	}
+	return r
+}
+
+func _js_atomics_notify(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
+	bp := tls.Alloc(32)
+	defer tls.Free(32)
+	var el, el1, next, prev, ptr, waiter, v3, v5, v6, v7, v8, v9 uintptr
+	var n Tint32_t
+	var v1 int32
+	var v11 TJSValue
+	var _ /* abuf at bp+24 */ uintptr
+	var _ /* count at bp+16 */ Tint32_t
+	var _ /* waiter_list at bp+0 */ Tlist_head
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = el, el1, n, next, prev, ptr, waiter, v1, v11, v3, v5, v6, v7, v8, v9
+	ptr = _js_atomics_get_ptr(tls, ctx, bp+24, libc.UintptrFromInt32(0), libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), int32(1))
+	if !(ptr != 0) {
+		return TJSValue{
+			Fu:   TJSValueUnion{},
+			Ftag: int64(EJS_TAG_EXCEPTION),
+		}
+	}
+	v1 = libc.BoolInt32(int32((*(*TJSValue)(unsafe.Pointer(argv + 2*16))).Ftag) == int32(EJS_TAG_UNDEFINED))
+	goto _2
+_2:
+	if v1 != 0 {
+		*(*Tint32_t)(unsafe.Pointer(bp + 16)) = libc.Int32FromInt32(MINT32_MAX)
+	} else {
+		if XJS_ToInt32Clamp(tls, ctx, bp+16, *(*TJSValue)(unsafe.Pointer(argv + 2*16)), 0, int32(MINT32_MAX), 0) != 0 {
+			return TJSValue{
+				Fu:   TJSValueUnion{},
+				Ftag: int64(EJS_TAG_EXCEPTION),
+			}
+		}
+	}
+	if (*TJSArrayBuffer)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 24)))).Fdetached != 0 {
+		return _JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx)
+	}
+	n = 0
+	if (*TJSArrayBuffer)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 24)))).Fshared != 0 && *(*Tint32_t)(unsafe.Pointer(bp + 16)) > 0 {
+		libc.Xpthread_mutex_lock(tls, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
+		v3 = bp
+		(*Tlist_head)(unsafe.Pointer(v3)).Fprev = v3
+		(*Tlist_head)(unsafe.Pointer(v3)).Fnext = v3
+		el = (*Tlist_head)(unsafe.Pointer(uintptr(unsafe.Pointer(&_js_atomics_waiter_list)))).Fnext
+		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
+		for {
+			if !(el != uintptr(unsafe.Pointer(&_js_atomics_waiter_list))) {
+				break
+			}
+			waiter = el - uintptr(uint64(libc.UintptrFromInt32(0)))
+			if (*TJSAtomicsWaiter)(unsafe.Pointer(waiter)).Fptr == ptr {
+				v5 = waiter
+				prev = (*Tlist_head)(unsafe.Pointer(v5)).Fprev
+				next = (*Tlist_head)(unsafe.Pointer(v5)).Fnext
+				(*Tlist_head)(unsafe.Pointer(prev)).Fnext = next
+				(*Tlist_head)(unsafe.Pointer(next)).Fprev = prev
+				(*Tlist_head)(unsafe.Pointer(v5)).Fprev = libc.UintptrFromInt32(0)
+				(*Tlist_head)(unsafe.Pointer(v5)).Fnext = libc.UintptrFromInt32(0)
+				(*TJSAtomicsWaiter)(unsafe.Pointer(waiter)).Flinked = int32(EFALSE)
+				v6 = bp
+				v7 = waiter
+				v8 = (*Tlist_head)(unsafe.Pointer(v6)).Fprev
+				v9 = v6
+				(*Tlist_head)(unsafe.Pointer(v8)).Fnext = v7
+				(*Tlist_head)(unsafe.Pointer(v7)).Fprev = v8
+				(*Tlist_head)(unsafe.Pointer(v7)).Fnext = v9
+				(*Tlist_head)(unsafe.Pointer(v9)).Fprev = v7
+				n++
+				if n >= *(*Tint32_t)(unsafe.Pointer(bp + 16)) {
+					break
+				}
+			}
+			goto _4
+		_4:
+			;
+			el = el1
+			el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
+		}
+		el = (*Tlist_head)(unsafe.Pointer(bp)).Fnext
+		for {
+			if !(el != bp) {
+				break
+			}
+			waiter = el - uintptr(uint64(libc.UintptrFromInt32(0)))
+			libc.Xpthread_cond_signal(tls, waiter+24)
+			goto _10
+		_10:
+			;
+			el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
+		}
+		libc.Xpthread_mutex_unlock(tls, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
+	}
+	_ = ctx
+	v11 = TJSValue{
+		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+			f Tint32_t
+			_ [4]byte
+		}{f: n})),
+	}
+	goto _12
+_12:
+	return v11
+}
+
+var _js_atomics_funcs = [13]TJSCFunctionListEntry{
+	0: {
+		Fname:       __ccgo_ts + 12562,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	1: {
+		Fname:       __ccgo_ts + 15623,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:      int16(EATOMICS_OP_AND),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	2: {
+		Fname:       __ccgo_ts + 15627,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:      int16(EATOMICS_OP_OR),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	3: {
+		Fname:       __ccgo_ts + 10608,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:      int16(EATOMICS_OP_SUB),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	4: {
+		Fname:       __ccgo_ts + 15630,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:      int16(EATOMICS_OP_XOR),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	5: {
+		Fname:       __ccgo_ts + 15634,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:      int16(EATOMICS_OP_EXCHANGE),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	6: {
+		Fname:       __ccgo_ts + 15643,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:      int16(EATOMICS_OP_COMPARE_EXCHANGE),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(4),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	7: {
+		Fname:       __ccgo_ts + 15659,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:      int16(EATOMICS_OP_LOAD),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(2),
+			Fcproto: uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_op)})),
+		})),
+	},
+	8: {
+		Fname:       __ccgo_ts + 15664,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_store)})),
+		})),
+	},
+	9: {
+		Fname:       __ccgo_ts + 15670,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(1),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_isLockFree)})),
+		})),
+	},
+	10: {
+		Fname:       __ccgo_ts + 15681,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(4),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_wait)})),
+		})),
+	},
+	11: {
+		Fname:       __ccgo_ts + 15686,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Flength Tuint8_t
+			Fcproto Tuint8_t
+			Fcfunc  TJSCFunctionType
+		}{
+			Flength: uint8(3),
+			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_atomics_notify)})),
+		})),
+	},
+	12: {
+		Fname:       __ccgo_ts + 10084,
+		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:   uint8(MJS_DEF_PROP_STRING),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			f uintptr
+			_ [8]byte
+		}{f: __ccgo_ts + 15693})),
+	},
+}
+
+var _js_atomics_obj = [1]TJSCFunctionListEntry{
+	0: {
+		Fname:       __ccgo_ts + 15693,
+		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fdef_type:   uint8(MJS_DEF_OBJECT),
+		Fu: *(*struct {
+			Fgetset [0]struct {
+				Fget TJSCFunctionType
+				Fset TJSCFunctionType
+			}
+			Falias [0]struct {
+				Fname uintptr
+				Fbase int32
+			}
+			Fprop_list [0]struct {
+				Ftab  uintptr
+				Flen1 int32
+			}
+			Fstr   [0]uintptr
+			Fi32   [0]Tint32_t
+			Fi64   [0]Tint64_t
+			Ff64   [0]float64
+			Ffunc1 struct {
+				Flength Tuint8_t
+				Fcproto Tuint8_t
+				Fcfunc  TJSCFunctionType
+			}
+		})(unsafe.Pointer(&struct {
+			Ftab  uintptr
+			Flen1 int32
+		}{
+			Ftab:  uintptr(unsafe.Pointer(&_js_atomics_funcs)),
+			Flen1: int32(libc.Uint64FromInt64(416) / libc.Uint64FromInt64(32)),
+		})),
+	},
+}
+
+func XJS_AddIntrinsicAtomics(tls *libc.TLS, ctx uintptr) {
+	/* add Atomics as autoinit object */
+	XJS_SetPropertyFunctionList(tls, ctx, (*TJSContext)(unsafe.Pointer(ctx)).Fglobal_obj, uintptr(unsafe.Pointer(&_js_atomics_obj)), int32(libc.Uint64FromInt64(32)/libc.Uint64FromInt64(32)))
+}
+
 func XJS_AddIntrinsicTypedArrays(tls *libc.TLS, ctx uintptr) {
 	bp := tls.Alloc(80)
 	defer tls.Free(80)
@@ -118214,7 +119921,7 @@ _5:
 		}
 		goto _8
 	_8:
-		XJS_DefinePropertyValueStr(tls, ctx, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(i)*16)), __ccgo_ts+15512, v7, 0)
+		XJS_DefinePropertyValueStr(tls, ctx, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(i)*16)), __ccgo_ts+15701, v7, 0)
 		name = _JS_AtomGetStr(tls, ctx, bp+8, int32(64), uint32(int32(EJS_ATOM_Uint8ClampedArray)+i-int32(EJS_CLASS_UINT8C_ARRAY)))
 		func_obj = _JS_NewCFunction3(tls, ctx, *(*uintptr)(unsafe.Pointer(bp)), name, int32(3), EJS_CFUNC_constructor_magic, i, typed_array_base_func)
 		_JS_NewGlobalCConstructor2(tls, ctx, func_obj, name, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(i)*16)))
@@ -118227,7 +119934,7 @@ _5:
 		}
 		goto _10
 	_10:
-		XJS_DefinePropertyValueStr(tls, ctx, func_obj, __ccgo_ts+15512, v9, 0)
+		XJS_DefinePropertyValueStr(tls, ctx, func_obj, __ccgo_ts+15701, v9, 0)
 		goto _6
 	_6:
 		;
@@ -118258,6 +119965,7 @@ _5:
 	XJS_SetPropertyFunctionList(tls, ctx, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_DATAVIEW)*16)), uintptr(unsafe.Pointer(&_js_dataview_proto_funcs)), int32(libc.Uint64FromInt64(768)/libc.Uint64FromInt64(32)))
 	_JS_NewGlobalCConstructorOnly(tls, ctx, __ccgo_ts+15123, __ccgo_fp(_js_dataview_constructor), int32(1), *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_DATAVIEW)*16)))
 	/* Atomics */
+	XJS_AddIntrinsicAtomics(tls, ctx)
 }
 
 func XDupValue(tls *libc.TLS, ctx uintptr, v TJSValue) (r TJSValue) {
@@ -119110,7 +120818,7 @@ func _parse_unicode_property(tls *libc.TLS, s uintptr, cr uintptr, pp uintptr, i
 	_, _, _, _, _, _, _, _ = p, q, ret, script_ext, v1, v2, v3, v4
 	p = *(*uintptr)(unsafe.Pointer(pp))
 	if int32(*(*Tuint8_t)(unsafe.Pointer(p))) != int32('{') {
-		return _re_parse_error(tls, s, __ccgo_ts+15530, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+15719, 0)
 	}
 	p++
 	q = bp
@@ -119130,7 +120838,7 @@ func _parse_unicode_property(tls *libc.TLS, s uintptr, cr uintptr, pp uintptr, i
 		p++
 		for _is_unicode_char(tls, int32(*(*Tuint8_t)(unsafe.Pointer(p)))) != 0 {
 			if uint64(int64(q)-t__predefined_ptrdiff_t(bp+64)) >= libc.Uint64FromInt64(64)-libc.Uint64FromInt32(1) {
-				return _re_parse_error(tls, s, __ccgo_ts+15553, 0)
+				return _re_parse_error(tls, s, __ccgo_ts+15742, 0)
 			}
 			v3 = q
 			q++
@@ -119141,11 +120849,11 @@ func _parse_unicode_property(tls *libc.TLS, s uintptr, cr uintptr, pp uintptr, i
 	}
 	*(*int8)(unsafe.Pointer(q)) = int8('\000')
 	if int32(*(*Tuint8_t)(unsafe.Pointer(p))) != int32('}') {
-		return _re_parse_error(tls, s, __ccgo_ts+15584, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+15773, 0)
 	}
 	p++
 	//    printf("name=%s value=%s\n", name, value);
-	if !(!(libc.Xstrcmp(tls, bp, __ccgo_ts+15598) != 0) || !(libc.Xstrcmp(tls, bp, __ccgo_ts+15605) != 0)) {
+	if !(!(libc.Xstrcmp(tls, bp, __ccgo_ts+15787) != 0) || !(libc.Xstrcmp(tls, bp, __ccgo_ts+15794) != 0)) {
 		goto _5
 	}
 	script_ext = int32(EFALSE)
@@ -119153,7 +120861,7 @@ func _parse_unicode_property(tls *libc.TLS, s uintptr, cr uintptr, pp uintptr, i
 	goto _6
 _5:
 	;
-	if !(!(libc.Xstrcmp(tls, bp, __ccgo_ts+15608) != 0) || !(libc.Xstrcmp(tls, bp, __ccgo_ts+15626) != 0)) {
+	if !(!(libc.Xstrcmp(tls, bp, __ccgo_ts+15797) != 0) || !(libc.Xstrcmp(tls, bp, __ccgo_ts+15815) != 0)) {
 		goto _7
 	}
 	script_ext = int32(ETRUE)
@@ -119164,7 +120872,7 @@ do_script:
 	if ret != 0 {
 		Xcr_free(tls, cr)
 		if ret == -int32(2) {
-			return _re_parse_error(tls, s, __ccgo_ts+15630, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+15819, 0)
 		} else {
 			goto out_of_memory
 		}
@@ -119172,7 +120880,7 @@ do_script:
 	goto _8
 _7:
 	;
-	if !(!(libc.Xstrcmp(tls, bp, __ccgo_ts+15653) != 0) || !(libc.Xstrcmp(tls, bp, __ccgo_ts+15670) != 0)) {
+	if !(!(libc.Xstrcmp(tls, bp, __ccgo_ts+15842) != 0) || !(libc.Xstrcmp(tls, bp, __ccgo_ts+15859) != 0)) {
 		goto _9
 	}
 	Xcr_init(tls, cr, (*TREParseState)(unsafe.Pointer(s)).Fopaque, __ccgo_fp(Xlre_realloc))
@@ -119180,7 +120888,7 @@ _7:
 	if ret != 0 {
 		Xcr_free(tls, cr)
 		if ret == -int32(2) {
-			return _re_parse_error(tls, s, __ccgo_ts+15673, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+15862, 0)
 		} else {
 			goto out_of_memory
 		}
@@ -119213,7 +120921,7 @@ _11:
 	;
 unknown_property_name:
 	;
-	return _re_parse_error(tls, s, __ccgo_ts+15706, 0)
+	return _re_parse_error(tls, s, __ccgo_ts+15895, 0)
 _12:
 	;
 _10:
@@ -119361,7 +121069,7 @@ _15:
 	goto _18
 _17:
 	;
-	if !(ret == -int32(2) && int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) != int32('\000') && libc.Xstrchr(tls, __ccgo_ts+15736, int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))))) != 0) {
+	if !(ret == -int32(2) && int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) != int32('\000') && libc.Xstrchr(tls, __ccgo_ts+15925, int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))))) != 0) {
 		goto _19
 	}
 	/* always valid to escape these characters */
@@ -119374,7 +121082,7 @@ _19:
 	}
 invalid_escape:
 	;
-	return _re_parse_error(tls, s, __ccgo_ts+15752, 0)
+	return _re_parse_error(tls, s, __ccgo_ts+15941, 0)
 	goto _22
 _21:
 	;
@@ -119397,7 +121105,7 @@ _2:
 	}
 unexpected_end:
 	;
-	return _re_parse_error(tls, s, __ccgo_ts+15798, 0)
+	return _re_parse_error(tls, s, __ccgo_ts+15987, 0)
 _23:
 	;
 	/* fall thru */
@@ -119410,7 +121118,7 @@ normal_char:
 		c = uint32(Xunicode_from_utf8(tls, *(*uintptr)(unsafe.Pointer(bp)), int32(MUTF8_CHAR_LEN_MAX), bp))
 		if c > uint32(0xffff) && !((*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0) {
 			/* XXX: should handle non BMP-1 code points */
-			return _re_parse_error(tls, s, __ccgo_ts+15813, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+16002, 0)
 		}
 	} else {
 		*(*uintptr)(unsafe.Pointer(bp))++
@@ -119429,7 +121137,7 @@ func _re_emit_range(tls *libc.TLS, s uintptr, cr uintptr) (r int32) {
 	_, _, _, _, _, _, _ = high, i, len1, v2, v4, v7, v9
 	len1 = int32(uint32((*TCharRange)(unsafe.Pointer(cr)).Flen1) / uint32(2))
 	if len1 >= int32(65535) {
-		return _re_parse_error(tls, s, __ccgo_ts+15836, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+16025, 0)
 	}
 	if len1 == 0 {
 		/* not sure it can really happen. Emit a match that is always
@@ -119556,7 +121264,7 @@ func _re_parse_char_class(tls *libc.TLS, s uintptr, pp uintptr) (r int32) {
 		}
 	invalid_class_range:
 		;
-		_re_parse_error(tls, s, __ccgo_ts+15852, 0)
+		_re_parse_error(tls, s, __ccgo_ts+16041, 0)
 		goto fail
 	_4:
 		;
@@ -120143,7 +121851,7 @@ _3:
 _4:
 	;
 	if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 {
-		return _re_parse_error(tls, s, __ccgo_ts+15872, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+16061, 0)
 	} else {
 		if !(_is_digit1(tls, int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 1)))) != 0) {
 			/* Annex B: we accept '{' not followed by digits as a
@@ -120171,7 +121879,7 @@ _6:
 	;
 _5:
 	;
-	return _re_parse_error(tls, s, __ccgo_ts+15885, 0)
+	return _re_parse_error(tls, s, __ccgo_ts+16074, 0)
 _8:
 	;
 	if !(int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 1))) == int32('?')) {
@@ -120239,17 +121947,17 @@ _8:
 		if int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 2))) == int32('<') {
 			*(*uintptr)(unsafe.Pointer(bp)) += uintptr(3)
 			if _re_parse_group_name(tls, s+160, int32(128), bp) != 0 {
-				return _re_parse_error(tls, s, __ccgo_ts+15903, 0)
+				return _re_parse_error(tls, s, __ccgo_ts+16092, 0)
 			}
 			if _find_group_name(tls, s, s+160) > 0 {
-				return _re_parse_error(tls, s, __ccgo_ts+15922, 0)
+				return _re_parse_error(tls, s, __ccgo_ts+16111, 0)
 			}
 			/* group name with a trailing zero */
 			Xdbuf_put(tls, s+112, s+160, libc.Xstrlen(tls, s+160)+uint64(1))
 			(*TREParseState)(unsafe.Pointer(s)).Fhas_named_captures = int32(1)
 			goto parse_capture
 		} else {
-			return _re_parse_error(tls, s, __ccgo_ts+15943, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+16132, 0)
 		}
 	_21:
 		;
@@ -120264,7 +121972,7 @@ _16:
 parse_capture:
 	;
 	if (*TREParseState)(unsafe.Pointer(s)).Fcapture_count >= int32(MCAPTURE_COUNT_MAX) {
-		return _re_parse_error(tls, s, __ccgo_ts+15957, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+16146, 0)
 	}
 	last_atom_start = int32((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fsize)
 	last_capture_count = (*TREParseState)(unsafe.Pointer(s)).Fcapture_count
@@ -120333,7 +122041,7 @@ _28:
 		   unicode mode if there is no named capture
 		   definition */
 		if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 || _re_has_named_captures(tls, s) != 0 {
-			return _re_parse_error(tls, s, __ccgo_ts+15975, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+16164, 0)
 		} else {
 			goto parse_class_atom
 		}
@@ -120341,7 +122049,7 @@ _28:
 	*(*uintptr)(unsafe.Pointer(bp + 48)) += uintptr(3)
 	if _re_parse_group_name(tls, s+160, int32(128), bp+48) != 0 {
 		if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 || _re_has_named_captures(tls, s) != 0 {
-			return _re_parse_error(tls, s, __ccgo_ts+15903, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+16092, 0)
 		} else {
 			goto parse_class_atom
 		}
@@ -120353,7 +122061,7 @@ _28:
 		c = _re_parse_captures(tls, s, bp+56, s+160)
 		if c < 0 {
 			if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 || _re_has_named_captures(tls, s) != 0 {
-				return _re_parse_error(tls, s, __ccgo_ts+15996, 0)
+				return _re_parse_error(tls, s, __ccgo_ts+16185, 0)
 			} else {
 				goto parse_class_atom
 			}
@@ -120367,7 +122075,7 @@ _29:
 	c = 0
 	if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 {
 		if _is_digit1(tls, int32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))))) != 0 {
-			return _re_parse_error(tls, s, __ccgo_ts+16019, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+16208, 0)
 		}
 	} else {
 		/* Annex B.1.4: accept legacy octal */
@@ -120433,7 +122141,7 @@ _30:
 			}
 			goto normal_char
 		}
-		return _re_parse_error(tls, s, __ccgo_ts+16064, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+16253, 0)
 	}
 emit_back_reference:
 	;
@@ -120466,7 +122174,7 @@ _12:
 _11:
 	;
 	if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 {
-		return _re_parse_error(tls, s, __ccgo_ts+15872, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+16061, 0)
 	}
 	goto parse_class_atom
 _13:
@@ -120568,7 +122276,7 @@ _14:
 		}
 	invalid_quant_count:
 		;
-		return _re_parse_error(tls, s, __ccgo_ts+16114, 0)
+		return _re_parse_error(tls, s, __ccgo_ts+16303, 0)
 	_57:
 		;
 		goto _56
@@ -120595,7 +122303,7 @@ _14:
 			greedy = int32(EFALSE)
 		}
 		if last_atom_start < 0 {
-			return _re_parse_error(tls, s, __ccgo_ts+15885, 0)
+			return _re_parse_error(tls, s, __ccgo_ts+16074, 0)
 		}
 		if greedy != 0 {
 			if quant_max > 0 {
@@ -120944,7 +122652,7 @@ _3:
 	_re_emit_op_u8(tls, s, int32(EREOP_save_end), uint32(0))
 	_re_emit_op(tls, s, int32(EREOP_match))
 	if int32(*(*Tuint8_t)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s)).Fbuf_ptr))) != int32('\000') {
-		_re_parse_error(tls, s, __ccgo_ts+16139, 0)
+		_re_parse_error(tls, s, __ccgo_ts+16328, 0)
 		goto error
 	}
 	v4 = (*TDynBuf)(unsafe.Pointer(s)).Ferror1
@@ -120956,7 +122664,7 @@ _5:
 	}
 	stack_size = _compute_stack_size1(tls, (*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fbuf, int32((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fsize))
 	if stack_size < 0 {
-		_re_parse_error(tls, s, __ccgo_ts+16172, 0)
+		_re_parse_error(tls, s, __ccgo_ts+16361, 0)
 		goto error
 	}
 	*(*Tuint8_t)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fbuf + 1)) = uint8((*TREParseState)(unsafe.Pointer(s)).Fcapture_count)
@@ -148560,7 +150268,7 @@ func _cr_dump(tls *libc.TLS, cr uintptr) {
 		if !(i < (*TCharRange)(unsafe.Pointer(cr)).Flen1) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+16204, libc.VaList(bp+8, i, *(*Tuint32_t)(unsafe.Pointer((*TCharRange)(unsafe.Pointer(cr)).Fpoints + uintptr(i)*4))))
+		libc.Xprintf(tls, __ccgo_ts+16393, libc.VaList(bp+8, i, *(*Tuint32_t)(unsafe.Pointer((*TCharRange)(unsafe.Pointer(cr)).Fpoints + uintptr(i)*4))))
 		goto _1
 	_1:
 		;
@@ -151611,16 +153319,6 @@ func Xrqsort(tls *libc.TLS, base uintptr, nmemb Tsize_t, size Tsize_t, cmp Tcmp_
 }
 
 const MARG_MAX = 131072
-const MATOMIC_BOOL_LOCK_FREE = 2
-const MATOMIC_CHAR16_T_LOCK_FREE = 2
-const MATOMIC_CHAR32_T_LOCK_FREE = 2
-const MATOMIC_CHAR_LOCK_FREE = 2
-const MATOMIC_INT_LOCK_FREE = 2
-const MATOMIC_LLONG_LOCK_FREE = 2
-const MATOMIC_LONG_LOCK_FREE = 2
-const MATOMIC_POINTER_LOCK_FREE = 2
-const MATOMIC_SHORT_LOCK_FREE = 2
-const MATOMIC_WCHAR_T_LOCK_FREE = 2
 const MAT_EACCESS = 512
 const MAT_EMPTY_PATH = 4096
 const MAT_FDCWD = -100
@@ -151691,34 +153389,8 @@ const MCLD_KILLED = 2
 const MCLD_STOPPED = 5
 const MCLD_TRAPPED = 4
 const MCLOCAL = 2048
-const MCLONE_CHILD_CLEARTID = 2097152
-const MCLONE_CHILD_SETTID = 16777216
-const MCLONE_DETACHED = 4194304
-const MCLONE_FILES = 1024
-const MCLONE_FS = 512
-const MCLONE_IO = 2147483648
-const MCLONE_NEWCGROUP = 33554432
-const MCLONE_NEWIPC = 134217728
-const MCLONE_NEWNET = 1073741824
-const MCLONE_NEWNS = 131072
-const MCLONE_NEWPID = 536870912
-const MCLONE_NEWTIME = 128
-const MCLONE_NEWUSER = 268435456
-const MCLONE_NEWUTS = 67108864
-const MCLONE_PARENT = 32768
-const MCLONE_PARENT_SETTID = 1048576
-const MCLONE_PIDFD = 4096
-const MCLONE_PTRACE = 8192
-const MCLONE_SETTLS = 524288
-const MCLONE_SIGHAND = 2048
-const MCLONE_SYSVSEM = 262144
-const MCLONE_THREAD = 65536
-const MCLONE_UNTRACED = 8388608
-const MCLONE_VFORK = 16384
-const MCLONE_VM = 256
 const MCMSPAR = 1073741824
 const MCOLL_WEIGHTS_MAX = 2
-const MCPU_SETSIZE = 1024
 const MCR0 = 0
 const MCR1 = 512
 const MCR2 = 1024
@@ -151730,7 +153402,6 @@ const MCS5 = 0
 const MCS6 = 16
 const MCS7 = 32
 const MCS8 = 48
-const MCSIGNAL = 255
 const MCSIZE = 48
 const MCSTOPB = 64
 const MDELAYTIMER_MAX = 2147483647
@@ -151750,25 +153421,6 @@ const MDT_REG = 8
 const MDT_SOCK = 12
 const MDT_UNKNOWN = 0
 const MDT_WHT = 14
-const ME2BIG = 7
-const MEACCES = 13
-const MEADDRINUSE = 98
-const MEADDRNOTAVAIL = 99
-const MEADV = 68
-const MEAFNOSUPPORT = 97
-const MEAGAIN = 11
-const MEALREADY = 114
-const MEBADE = 52
-const MEBADF = 9
-const MEBADFD = 77
-const MEBADMSG = 74
-const MEBADR = 53
-const MEBADRQC = 56
-const MEBADSLT = 57
-const MEBFONT = 59
-const MEBUSY = 16
-const MECANCELED = 125
-const MECHILD = 10
 const MECHO = 8
 const MECHOCTL = 512
 const MECHOE = 16
@@ -151776,121 +153428,6 @@ const MECHOK = 32
 const MECHOKE = 2048
 const MECHONL = 64
 const MECHOPRT = 1024
-const MECHRNG = 44
-const MECOMM = 70
-const MECONNABORTED = 103
-const MECONNREFUSED = 111
-const MECONNRESET = 104
-const MEDEADLK = 35
-const MEDEADLOCK = 35
-const MEDESTADDRREQ = 89
-const MEDOM = 33
-const MEDOTDOT = 73
-const MEDQUOT = 122
-const MEEXIST = 17
-const MEFAULT = 14
-const MEFBIG = 27
-const MEHOSTDOWN = 112
-const MEHOSTUNREACH = 113
-const MEHWPOISON = 133
-const MEIDRM = 43
-const MEILSEQ = 84
-const MEINPROGRESS = 115
-const MEINTR = 4
-const MEINVAL = 22
-const MEIO = 5
-const MEISCONN = 106
-const MEISDIR = 21
-const MEISNAM = 120
-const MEKEYEXPIRED = 127
-const MEKEYREJECTED = 129
-const MEKEYREVOKED = 128
-const MEL2HLT = 51
-const MEL2NSYNC = 45
-const MEL3HLT = 46
-const MEL3RST = 47
-const MELIBACC = 79
-const MELIBBAD = 80
-const MELIBEXEC = 83
-const MELIBMAX = 82
-const MELIBSCN = 81
-const MELNRNG = 48
-const MELOOP = 40
-const MEMEDIUMTYPE = 124
-const MEMFILE = 24
-const MEMLINK = 31
-const MEMSGSIZE = 90
-const MEMULTIHOP = 72
-const MENAMETOOLONG = 36
-const MENAVAIL = 119
-const MENETDOWN = 100
-const MENETRESET = 102
-const MENETUNREACH = 101
-const MENFILE = 23
-const MENOANO = 55
-const MENOBUFS = 105
-const MENOCSI = 50
-const MENODATA = 61
-const MENODEV = 19
-const MENOENT = 2
-const MENOEXEC = 8
-const MENOKEY = 126
-const MENOLCK = 37
-const MENOLINK = 67
-const MENOMEDIUM = 123
-const MENOMEM = 12
-const MENOMSG = 42
-const MENONET = 64
-const MENOPKG = 65
-const MENOPROTOOPT = 92
-const MENOSPC = 28
-const MENOSR = 63
-const MENOSTR = 60
-const MENOSYS = 38
-const MENOTBLK = 15
-const MENOTCONN = 107
-const MENOTDIR = 20
-const MENOTEMPTY = 39
-const MENOTNAM = 118
-const MENOTRECOVERABLE = 131
-const MENOTSOCK = 88
-const MENOTSUP = 95
-const MENOTTY = 25
-const MENOTUNIQ = 76
-const MENXIO = 6
-const MEOPNOTSUPP = 95
-const MEOVERFLOW = 75
-const MEOWNERDEAD = 130
-const MEPERM = 1
-const MEPFNOSUPPORT = 96
-const MEPIPE = 32
-const MEPROTO = 71
-const MEPROTONOSUPPORT = 93
-const MEPROTOTYPE = 91
-const MERANGE = 34
-const MEREMCHG = 78
-const MEREMOTE = 66
-const MEREMOTEIO = 121
-const MERESTART = 85
-const MERFKILL = 132
-const MEROFS = 30
-const MESHUTDOWN = 108
-const MESOCKTNOSUPPORT = 94
-const MESPIPE = 29
-const MESRCH = 3
-const MESRMNT = 69
-const MESTALE = 116
-const MESTRPIPE = 86
-const METIME = 62
-const METIMEDOUT = 110
-const METOOMANYREFS = 109
-const METXTBSY = 26
-const MEUCLEAN = 117
-const MEUNATCH = 49
-const MEUSERS = 87
-const MEWOULDBLOCK = 11
-const MEXDEV = 18
-const MEXFULL = 54
 const MEXPR_NEST_MAX = 32
 const MEXTA = 14
 const MEXTB = 15
@@ -152125,33 +153662,8 @@ const MPRIO_MIN = -20
 const MPRIO_PGRP = 1
 const MPRIO_PROCESS = 0
 const MPRIO_USER = 2
-const MPTHREAD_BARRIER_SERIAL_THREAD = -1
-const MPTHREAD_CANCELED = -1
-const MPTHREAD_CANCEL_ASYNCHRONOUS = 1
-const MPTHREAD_CANCEL_DEFERRED = 0
-const MPTHREAD_CANCEL_DISABLE = 1
-const MPTHREAD_CANCEL_ENABLE = 0
-const MPTHREAD_CANCEL_MASKED = 2
-const MPTHREAD_CREATE_DETACHED = 1
-const MPTHREAD_CREATE_JOINABLE = 0
 const MPTHREAD_DESTRUCTOR_ITERATIONS = 4
-const MPTHREAD_EXPLICIT_SCHED = 1
-const MPTHREAD_INHERIT_SCHED = 0
 const MPTHREAD_KEYS_MAX = 128
-const MPTHREAD_MUTEX_DEFAULT = 0
-const MPTHREAD_MUTEX_ERRORCHECK = 2
-const MPTHREAD_MUTEX_NORMAL = 0
-const MPTHREAD_MUTEX_RECURSIVE = 1
-const MPTHREAD_MUTEX_ROBUST = 1
-const MPTHREAD_MUTEX_STALLED = 0
-const MPTHREAD_ONCE_INIT = 0
-const MPTHREAD_PRIO_INHERIT = 1
-const MPTHREAD_PRIO_NONE = 0
-const MPTHREAD_PRIO_PROTECT = 2
-const MPTHREAD_PROCESS_PRIVATE = 0
-const MPTHREAD_PROCESS_SHARED = 1
-const MPTHREAD_SCOPE_PROCESS = 1
-const MPTHREAD_SCOPE_SYSTEM = 0
 const MPTHREAD_STACK_MIN = 2048
 const MRE_DUP_MAX = 255
 const MRLIMIT_AS = 9
@@ -152206,13 +153718,6 @@ const MSA_SIGINFO = 4
 const MSA_UNSUPPORTED = 1024
 const MSCHAR_MAX = 127
 const MSCHAR_MIN = -128
-const MSCHED_BATCH = 3
-const MSCHED_DEADLINE = 6
-const MSCHED_FIFO = 1
-const MSCHED_IDLE = 5
-const MSCHED_OTHER = 0
-const MSCHED_RESET_ON_FORK = 1073741824
-const MSCHED_RR = 2
 const MSEEK_DATA = 3
 const MSEEK_HOLE = 4
 const MSEGV_ACCERR = 2
@@ -152856,7 +154361,6 @@ const M__WNOTHREAD = 536870912
 const M__uc_flags = 0
 const M__ucontext = 0
 const Md_fileno = 0
-const Merrno = 0
 const Mloff_t = 0
 const Mprlimit64 = 0
 
@@ -152902,16 +154406,6 @@ type Tsigevent = struct {
 			Fsigev_notify_attributes uintptr
 		}
 		F__pad [48]int8
-	}
-}
-
-type Tpthread_t = uintptr
-
-type Tpthread_attr_t = struct {
-	F__u struct {
-		F__vi [0][14]int32
-		F__s  [0][7]uint64
-		F__i  [14]int32
 	}
 }
 
@@ -153154,171 +154648,6 @@ type Trusage = struct {
 	Fru_nvcsw    int64
 	Fru_nivcsw   int64
 	F__reserved  [16]int64
-}
-
-type Tpthread_once_t = int32
-
-type Tpthread_key_t = uint32
-
-type Tpthread_spinlock_t = int32
-
-type Tpthread_mutexattr_t = struct {
-	F__attr uint32
-}
-
-type Tpthread_condattr_t = struct {
-	F__attr uint32
-}
-
-type Tpthread_barrierattr_t = struct {
-	F__attr uint32
-}
-
-type Tpthread_rwlockattr_t = struct {
-	F__attr [2]uint32
-}
-
-type Tpthread_mutex_t = struct {
-	F__u struct {
-		F__vi [0][10]int32
-		F__p  [0][5]uintptr
-		F__i  [10]int32
-	}
-}
-
-type Tpthread_cond_t = struct {
-	F__u struct {
-		F__vi [0][12]int32
-		F__p  [0][6]uintptr
-		F__i  [12]int32
-	}
-}
-
-type Tpthread_rwlock_t = struct {
-	F__u struct {
-		F__vi [0][14]int32
-		F__p  [0][7]uintptr
-		F__i  [14]int32
-	}
-}
-
-type Tpthread_barrier_t = struct {
-	F__u struct {
-		F__vi [0][8]int32
-		F__p  [0][4]uintptr
-		F__i  [8]int32
-	}
-}
-
-type Tsched_param = struct {
-	Fsched_priority int32
-	F__reserved1    int32
-	F__reserved2    [2]struct {
-		F__reserved1 Ttime_t
-		F__reserved2 int64
-	}
-	F__reserved3 int32
-}
-
-type Tcpu_set_t = struct {
-	F__bits [16]uint64
-}
-
-type t__ptcb = struct {
-	F__f    uintptr
-	F__x    uintptr
-	F__next uintptr
-}
-
-type Tcpu_set_t1 = struct {
-	F__bits [16]uint64
-}
-
-type Tmemory_order = int32
-
-const Ememory_order_relaxed = 0
-const Ememory_order_consume = 1
-const Ememory_order_acquire = 2
-const Ememory_order_release = 3
-const Ememory_order_acq_rel = 4
-const Ememory_order_seq_cst = 5
-
-type Tatomic_bool = uint8
-
-type Tatomic_char = int8
-
-type Tatomic_schar = int8
-
-type Tatomic_uchar = uint8
-
-type Tatomic_short = int16
-
-type Tatomic_ushort = uint16
-
-type Tatomic_int = int32
-
-type Tatomic_uint = uint32
-
-type Tatomic_long = int64
-
-type Tatomic_ulong = uint64
-
-type Tatomic_llong = int64
-
-type Tatomic_ullong = uint64
-
-type Tatomic_char16_t = uint16
-
-type Tatomic_char32_t = uint32
-
-type Tatomic_wchar_t = int32
-
-type Tatomic_int_least8_t = int8
-
-type Tatomic_uint_least8_t = uint8
-
-type Tatomic_int_least16_t = int16
-
-type Tatomic_uint_least16_t = uint16
-
-type Tatomic_int_least32_t = int32
-
-type Tatomic_uint_least32_t = uint32
-
-type Tatomic_int_least64_t = int64
-
-type Tatomic_uint_least64_t = uint64
-
-type Tatomic_int_fast8_t = int8
-
-type Tatomic_uint_fast8_t = uint8
-
-type Tatomic_int_fast16_t = int64
-
-type Tatomic_uint_fast16_t = uint64
-
-type Tatomic_int_fast32_t = int64
-
-type Tatomic_uint_fast32_t = uint64
-
-type Tatomic_int_fast64_t = int64
-
-type Tatomic_uint_fast64_t = uint64
-
-type Tatomic_intptr_t = int64
-
-type Tatomic_uintptr_t = uint64
-
-type Tatomic_size_t = uint64
-
-type Tatomic_ptrdiff_t = int64
-
-type Tatomic_intmax_t = int64
-
-type Tatomic_uintmax_t = uint64
-
-type Tatomic_flag = struct {
-	F__val uint8
 }
 
 /* TODO:
@@ -153699,11 +155028,11 @@ func _js_printf_internal(tls *libc.TLS, ctx uintptr, argc int32, argv uintptr, f
 		/* XXX: should support an extension mechanism */
 	invalid:
 		;
-		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16216, 0)
+		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16405, 0)
 		goto fail
 	missing:
 		;
-		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16262, 0)
+		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16451, 0)
 		goto fail
 	_39:
 		;
@@ -153748,7 +155077,7 @@ func Xjs_load_file(tls *libc.TLS, ctx uintptr, pbuf_len uintptr, filename uintpt
 	var buf_len Tsize_t
 	var lret int64
 	_, _, _, _ = buf, buf_len, f, lret
-	f = libc.Xfopen(tls, filename, __ccgo_ts+16304)
+	f = libc.Xfopen(tls, filename, __ccgo_ts+16493)
 	if !(f != 0) {
 		return libc.UintptrFromInt32(0)
 	}
@@ -153819,7 +155148,7 @@ _2:
 	}
 	buf = Xjs_load_file(tls, ctx, bp, filename)
 	if !(buf != 0) {
-		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16307, libc.VaList(bp+16, filename))
+		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16496, libc.VaList(bp+16, filename))
 		XJS_FreeCString(tls, ctx, filename)
 		return TJSValue{
 			Fu:   TJSValueUnion{},
@@ -153877,7 +155206,7 @@ func _js_module_loader_so(tls *libc.TLS, ctx uintptr, module_name uintptr) (r ui
 		if !(filename != 0) {
 			return libc.UintptrFromInt32(0)
 		}
-		libc.Xstrcpy(tls, filename, __ccgo_ts+16327)
+		libc.Xstrcpy(tls, filename, __ccgo_ts+16516)
 		libc.Xstrcpy(tls, filename+uintptr(2), module_name)
 	} else {
 		filename = module_name
@@ -153888,19 +155217,19 @@ func _js_module_loader_so(tls *libc.TLS, ctx uintptr, module_name uintptr) (r ui
 		Xjs_free(tls, ctx, filename)
 	}
 	if !(hd != 0) {
-		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16330, libc.VaList(bp+8, module_name))
+		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16519, libc.VaList(bp+8, module_name))
 		goto fail
 	}
-	init1 = libc.Xdlsym(tls, hd, __ccgo_ts+16384)
+	init1 = libc.Xdlsym(tls, hd, __ccgo_ts+16573)
 	if !(init1 != 0) {
-		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16399, libc.VaList(bp+8, module_name))
+		XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16588, libc.VaList(bp+8, module_name))
 		goto fail
 	}
 	m = (*(*func(*libc.TLS, uintptr, uintptr) uintptr)(unsafe.Pointer(&struct{ uintptr }{init1})))(tls, ctx, module_name)
 	if !!(m != 0) {
 		goto _1
 	}
-	XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16461, libc.VaList(bp+8, module_name))
+	XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16650, libc.VaList(bp+8, module_name))
 fail:
 	;
 	if hd != 0 {
@@ -153930,14 +155259,14 @@ func Xjs_module_set_import_meta(tls *libc.TLS, ctx uintptr, _func_val TJSValue, 
 		return -int32(1)
 	}
 	if !(libc.Xstrchr(tls, module_name, int32(':')) != 0) {
-		libc.Xstrcpy(tls, bp+16, __ccgo_ts+16519)
+		libc.Xstrcpy(tls, bp+16, __ccgo_ts+16708)
 		/* realpath() cannot be used with modules compiled with qjsc
 		   because the corresponding module source code is not
 		   necessarily present */
 		if use_realpath != 0 {
 			res = libc.Xrealpath(tls, module_name, bp+16+uintptr(libc.Xstrlen(tls, bp+16)))
 			if !(res != 0) {
-				XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16527, 0)
+				XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16716, 0)
 				XJS_FreeCString(tls, ctx, module_name)
 				return -int32(1)
 			}
@@ -153955,7 +155284,7 @@ _2:
 	if v1 != 0 {
 		return -int32(1)
 	}
-	XJS_DefinePropertyValueStr(tls, ctx, meta_obj, __ccgo_ts+16544, XJS_NewString(tls, ctx, bp+16), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+	XJS_DefinePropertyValueStr(tls, ctx, meta_obj, __ccgo_ts+16733, XJS_NewString(tls, ctx, bp+16), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 	_ = ctx
 	v3 = TJSValue{
 		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
@@ -153966,7 +155295,7 @@ _2:
 	}
 	goto _4
 _4:
-	XJS_DefinePropertyValueStr(tls, ctx, meta_obj, __ccgo_ts+16548, v3, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+	XJS_DefinePropertyValueStr(tls, ctx, meta_obj, __ccgo_ts+16737, v3, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 	v5 = meta_obj
 	if uint32(int32(v5.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
 		p = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v5))))
@@ -153989,12 +155318,12 @@ func Xjs_module_loader(tls *libc.TLS, ctx uintptr, module_name uintptr, opaque u
 	var _ /* buf_len at bp+0 */ Tsize_t
 	var _ /* func_val at bp+8 */ TJSValue
 	_, _, _, _, _, _, _ = buf, m, p, v1, v3, v4, v5
-	if Xhas_suffix(tls, module_name, __ccgo_ts+16553) != 0 {
+	if Xhas_suffix(tls, module_name, __ccgo_ts+16742) != 0 {
 		m = _js_module_loader_so(tls, ctx, module_name)
 	} else {
 		buf = Xjs_load_file(tls, ctx, bp, module_name)
 		if !(buf != 0) {
-			XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16557, libc.VaList(bp+32, module_name))
+			XJS_ThrowReferenceError(tls, ctx, __ccgo_ts+16746, libc.VaList(bp+32, module_name))
 			return libc.UintptrFromInt32(0)
 		}
 		/* compile the module */
@@ -154246,13 +155575,13 @@ func _js_evalScript(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, a
 	*(*TBOOL)(unsafe.Pointer(bp + 12)) = int32(EFALSE)
 	if argc >= int32(2) {
 		options_obj = *(*TJSValue)(unsafe.Pointer(argv + 1*16))
-		if _get_bool_option(tls, ctx, bp+8, options_obj, __ccgo_ts+16593) != 0 {
+		if _get_bool_option(tls, ctx, bp+8, options_obj, __ccgo_ts+16782) != 0 {
 			return TJSValue{
 				Fu:   TJSValueUnion{},
 				Ftag: int64(EJS_TAG_EXCEPTION),
 			}
 		}
-		if _get_bool_option(tls, ctx, bp+12, options_obj, __ccgo_ts+16611) != 0 {
+		if _get_bool_option(tls, ctx, bp+12, options_obj, __ccgo_ts+16800) != 0 {
 			return TJSValue{
 				Fu:   TJSValueUnion{},
 				Ftag: int64(EJS_TAG_EXCEPTION),
@@ -154285,7 +155614,7 @@ _2:
 	if *(*TBOOL)(unsafe.Pointer(bp + 12)) != 0 {
 		flags |= libc.Int32FromInt32(1) << libc.Int32FromInt32(7)
 	}
-	ret = XJS_Eval(tls, ctx, str, *(*Tsize_t)(unsafe.Pointer(bp)), __ccgo_ts+16617, flags)
+	ret = XJS_Eval(tls, ctx, str, *(*Tsize_t)(unsafe.Pointer(bp)), __ccgo_ts+16806, flags)
 	XJS_FreeCString(tls, ctx, str)
 	if v8 = !((*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe != 0); v8 {
 		v7 = ts + 64
@@ -154427,7 +155756,7 @@ _2:
 		}
 		goto _4
 	_4:
-		XJS_SetPropertyStr(tls, ctx, obj, __ccgo_ts+16630, v3)
+		XJS_SetPropertyStr(tls, ctx, obj, __ccgo_ts+16819, v3)
 	}
 }
 
@@ -154450,8 +155779,8 @@ _4:
 	if !(mode != 0) {
 		goto fail
 	}
-	if int32(*(*int8)(unsafe.Pointer(mode + uintptr(libc.Xstrspn(tls, mode, __ccgo_ts+16636))))) != int32('\000') {
-		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16642, 0)
+	if int32(*(*int8)(unsafe.Pointer(mode + uintptr(libc.Xstrspn(tls, mode, __ccgo_ts+16825))))) != int32('\000') {
+		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16831, 0)
 		goto fail
 	}
 	f = libc.Xfopen(tls, filename, mode)
@@ -154501,8 +155830,8 @@ _4:
 	if !(mode != 0) {
 		goto fail
 	}
-	if int32(*(*int8)(unsafe.Pointer(mode + uintptr(libc.Xstrspn(tls, mode, __ccgo_ts+16660))))) != int32('\000') {
-		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16642, 0)
+	if int32(*(*int8)(unsafe.Pointer(mode + uintptr(libc.Xstrspn(tls, mode, __ccgo_ts+16849))))) != int32('\000') {
+		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16831, 0)
 		goto fail
 	}
 	f = libc.Xpopen(tls, filename, mode)
@@ -154553,8 +155882,8 @@ _2:
 	if !(mode != 0) {
 		goto fail
 	}
-	if int32(*(*int8)(unsafe.Pointer(mode + uintptr(libc.Xstrspn(tls, mode, __ccgo_ts+16663))))) != int32('\000') {
-		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16642, 0)
+	if int32(*(*int8)(unsafe.Pointer(mode + uintptr(libc.Xstrspn(tls, mode, __ccgo_ts+16852))))) != int32('\000') {
+		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16831, 0)
 		goto fail
 	}
 	f = libc.Xfdopen(tls, *(*int32)(unsafe.Pointer(bp)), mode)
@@ -154621,7 +155950,7 @@ func _js_std_file_get(tls *libc.TLS, ctx uintptr, obj TJSValue) (r uintptr) {
 		return libc.UintptrFromInt32(0)
 	}
 	if !((*TJSSTDFile)(unsafe.Pointer(s)).Ff != 0) {
-		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16668, 0)
+		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16857, 0)
 		return libc.UintptrFromInt32(0)
 	}
 	return (*TJSSTDFile)(unsafe.Pointer(s)).Ff
@@ -154686,7 +156015,7 @@ func _js_std_file_close(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int3
 		}
 	}
 	if !((*TJSSTDFile)(unsafe.Pointer(s)).Ff != 0) {
-		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16668, 0)
+		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16857, 0)
 	}
 	if (*TJSSTDFile)(unsafe.Pointer(s)).Fis_popen != 0 {
 		err = int32(_js_get_errno(tls, int64(libc.Xpclose(tls, (*TJSSTDFile)(unsafe.Pointer(s)).Ff))))
@@ -154956,7 +156285,7 @@ func _js_std_file_read_write(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc
 		}
 	}
 	if *(*Tuint64_t)(unsafe.Pointer(bp + 16))+*(*Tuint64_t)(unsafe.Pointer(bp + 24)) > *(*Tsize_t)(unsafe.Pointer(bp + 32)) {
-		return XJS_ThrowRangeError(tls, ctx, __ccgo_ts+16688, 0)
+		return XJS_ThrowRangeError(tls, ctx, __ccgo_ts+16877, 0)
 	}
 	if magic != 0 {
 		ret = libc.Xfwrite(tls, buf+uintptr(*(*Tuint64_t)(unsafe.Pointer(bp + 16))), uint64(1), *(*Tuint64_t)(unsafe.Pointer(bp + 24)), f)
@@ -155241,10 +156570,10 @@ _2:
 		goto _3
 	}
 	options_obj = *(*TJSValue)(unsafe.Pointer(argv + 1*16))
-	if _get_bool_option(tls, ctx, bp+144, options_obj, __ccgo_ts+16721) != 0 {
+	if _get_bool_option(tls, ctx, bp+144, options_obj, __ccgo_ts+16910) != 0 {
 		goto fail_obj
 	}
-	if !(_get_bool_option(tls, ctx, bp+148, options_obj, __ccgo_ts+16728) != 0) {
+	if !(_get_bool_option(tls, ctx, bp+148, options_obj, __ccgo_ts+16917) != 0) {
 		goto _4
 	}
 fail_obj:
@@ -155259,7 +156588,7 @@ _4:
 _3:
 	;
 	_js_std_dbuf_init(tls, ctx, bp)
-	Xdbuf_printf(tls, bp, __ccgo_ts+16733, libc.VaList(bp+160, __ccgo_ts+16738))
+	Xdbuf_printf(tls, bp, __ccgo_ts+16922, libc.VaList(bp+160, __ccgo_ts+16927))
 	i = uint64(0)
 	for {
 		if !(int32(*(*int8)(unsafe.Pointer(url + uintptr(i)))) != int32('\000')) {
@@ -155269,7 +156598,7 @@ _3:
 		switch int32(c) {
 		case int32('\''):
 			/* shell single quoted string does not support \' */
-			Xdbuf_putstr(tls, bp, __ccgo_ts+16752)
+			Xdbuf_putstr(tls, bp, __ccgo_ts+16941)
 		case int32('['):
 			fallthrough
 		case int32(']'):
@@ -155293,7 +156622,7 @@ _3:
 		i++
 	}
 	XJS_FreeCString(tls, ctx, url)
-	Xdbuf_putstr(tls, bp, __ccgo_ts+16757)
+	Xdbuf_putstr(tls, bp, __ccgo_ts+16946)
 	Xdbuf_putc(tls, bp, uint8('\000'))
 	v6 = (*TDynBuf)(unsafe.Pointer(bp)).Ferror1
 	goto _7
@@ -155306,10 +156635,10 @@ _7:
 		}
 	}
 	//    printf("%s\n", (char *)cmd_buf.buf);
-	f = libc.Xpopen(tls, (*(*TDynBuf)(unsafe.Pointer(bp))).Fbuf, __ccgo_ts+16759)
+	f = libc.Xpopen(tls, (*(*TDynBuf)(unsafe.Pointer(bp))).Fbuf, __ccgo_ts+16948)
 	Xdbuf_free(tls, bp)
 	if !(f != 0) {
-		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16761, 0)
+		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+16950, 0)
 	}
 	_js_std_dbuf_init(tls, ctx, data_buf)
 	_js_std_dbuf_init(tls, ctx, header_buf)
@@ -155341,7 +156670,7 @@ bad_header:
 	goto done
 _11:
 	;
-	if !(libc.Xstrcmp(tls, buf, __ccgo_ts+16782) != 0) {
+	if !(libc.Xstrcmp(tls, buf, __ccgo_ts+16971) != 0) {
 		goto _8
 	}
 	goto _9
@@ -155401,12 +156730,12 @@ done:
 		if v19 != 0 {
 			goto fail
 		}
-		XJS_DefinePropertyValueStr(tls, ctx, ret_obj, __ccgo_ts+16785, response, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, ret_obj, __ccgo_ts+16974, response, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v21 = libc.BoolInt32(int32(response.Ftag) == int32(EJS_TAG_NULL))
 		goto _22
 	_22:
 		if !(v21 != 0) {
-			XJS_DefinePropertyValueStr(tls, ctx, ret_obj, __ccgo_ts+16794, XJS_NewStringLen(tls, ctx, (*TDynBuf)(unsafe.Pointer(header_buf)).Fbuf, (*TDynBuf)(unsafe.Pointer(header_buf)).Fsize), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+			XJS_DefinePropertyValueStr(tls, ctx, ret_obj, __ccgo_ts+16983, XJS_NewStringLen(tls, ctx, (*TDynBuf)(unsafe.Pointer(header_buf)).Fbuf, (*TDynBuf)(unsafe.Pointer(header_buf)).Fsize), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 			_ = ctx
 			v23 = TJSValue{
 				Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
@@ -155416,7 +156745,7 @@ done:
 			}
 			goto _24
 		_24:
-			XJS_DefinePropertyValueStr(tls, ctx, ret_obj, __ccgo_ts+16810, v23, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+			XJS_DefinePropertyValueStr(tls, ctx, ret_obj, __ccgo_ts+16999, v23, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		}
 	} else {
 		ret_obj = response
@@ -155452,7 +156781,7 @@ fail:
 }
 
 var _js_std_file_class = TJSClassDef{
-	Fclass_name: __ccgo_ts + 16817,
+	Fclass_name: __ccgo_ts + 17006,
 }
 
 func init() {
@@ -155462,7 +156791,7 @@ func init() {
 
 var _js_std_error_props = [11]TJSCFunctionListEntry{
 	0: {
-		Fname:       __ccgo_ts + 16822,
+		Fname:       __ccgo_ts + 17011,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155493,7 +156822,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MEINVAL)})),
 	},
 	1: {
-		Fname:       __ccgo_ts + 16829,
+		Fname:       __ccgo_ts + 17018,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155524,7 +156853,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MEIO)})),
 	},
 	2: {
-		Fname:       __ccgo_ts + 16833,
+		Fname:       __ccgo_ts + 17022,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155555,7 +156884,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MEACCES)})),
 	},
 	3: {
-		Fname:       __ccgo_ts + 16840,
+		Fname:       __ccgo_ts + 17029,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155586,7 +156915,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MEEXIST)})),
 	},
 	4: {
-		Fname:       __ccgo_ts + 16847,
+		Fname:       __ccgo_ts + 17036,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155617,7 +156946,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MENOSPC)})),
 	},
 	5: {
-		Fname:       __ccgo_ts + 16854,
+		Fname:       __ccgo_ts + 17043,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155648,7 +156977,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MENOSYS)})),
 	},
 	6: {
-		Fname:       __ccgo_ts + 16861,
+		Fname:       __ccgo_ts + 17050,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155679,7 +157008,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MEBUSY)})),
 	},
 	7: {
-		Fname:       __ccgo_ts + 16867,
+		Fname:       __ccgo_ts + 17056,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155710,7 +157039,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MENOENT)})),
 	},
 	8: {
-		Fname:       __ccgo_ts + 16874,
+		Fname:       __ccgo_ts + 17063,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155741,7 +157070,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MEPERM)})),
 	},
 	9: {
-		Fname:       __ccgo_ts + 16880,
+		Fname:       __ccgo_ts + 17069,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155772,7 +157101,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 		}{f: int32(MEPIPE)})),
 	},
 	10: {
-		Fname:       __ccgo_ts + 16886,
+		Fname:       __ccgo_ts + 17075,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -155806,7 +157135,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 
 var _js_std_funcs = [23]TJSCFunctionListEntry{
 	0: {
-		Fname:       __ccgo_ts + 16892,
+		Fname:       __ccgo_ts + 17081,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -155840,7 +157169,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	1: {
-		Fname:       __ccgo_ts + 15670,
+		Fname:       __ccgo_ts + 15859,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -155873,7 +157202,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	2: {
-		Fname:       __ccgo_ts + 16897,
+		Fname:       __ccgo_ts + 17086,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -155907,7 +157236,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	3: {
-		Fname:       __ccgo_ts + 16908,
+		Fname:       __ccgo_ts + 17097,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -155941,7 +157270,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	4: {
-		Fname:       __ccgo_ts + 16919,
+		Fname:       __ccgo_ts + 17108,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -155975,7 +157304,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	5: {
-		Fname:       __ccgo_ts + 16926,
+		Fname:       __ccgo_ts + 17115,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156009,7 +157338,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	6: {
-		Fname:       __ccgo_ts + 16933,
+		Fname:       __ccgo_ts + 17122,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156043,7 +157372,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	7: {
-		Fname:       __ccgo_ts + 16942,
+		Fname:       __ccgo_ts + 17131,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156077,7 +157406,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	8: {
-		Fname:       __ccgo_ts + 16953,
+		Fname:       __ccgo_ts + 17142,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156111,7 +157440,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	9: {
-		Fname:       __ccgo_ts + 16960,
+		Fname:       __ccgo_ts + 17149,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156145,7 +157474,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	10: {
-		Fname:       __ccgo_ts + 16969,
+		Fname:       __ccgo_ts + 17158,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156179,7 +157508,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	11: {
-		Fname:       __ccgo_ts + 16978,
+		Fname:       __ccgo_ts + 17167,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156213,7 +157542,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	12: {
-		Fname:       __ccgo_ts + 16991,
+		Fname:       __ccgo_ts + 17180,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156247,7 +157576,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	13: {
-		Fname:       __ccgo_ts + 16996,
+		Fname:       __ccgo_ts + 17185,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156281,7 +157610,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	14: {
-		Fname:       __ccgo_ts + 17002,
+		Fname:       __ccgo_ts + 17191,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156315,7 +157644,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	15: {
-		Fname:       __ccgo_ts + 17009,
+		Fname:       __ccgo_ts + 17198,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156348,7 +157677,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	16: {
-		Fname:       __ccgo_ts + 17017,
+		Fname:       __ccgo_ts + 17206,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156383,7 +157712,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	17: {
-		Fname:       __ccgo_ts + 17022,
+		Fname:       __ccgo_ts + 17211,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156417,7 +157746,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	18: {
-		Fname:       __ccgo_ts + 17029,
+		Fname:       __ccgo_ts + 17218,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156451,12 +157780,12 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		})),
 	},
 	19: {
-		Fname:       __ccgo_ts + 17037,
+		Fname:       __ccgo_ts + 17226,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 	},
 	20: {
-		Fname:       __ccgo_ts + 17046,
+		Fname:       __ccgo_ts + 17235,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -156487,7 +157816,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 		}{f: int32(1)})),
 	},
 	21: {
-		Fname:       __ccgo_ts + 17055,
+		Fname:       __ccgo_ts + 17244,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -156555,7 +157884,7 @@ var _js_std_funcs = [23]TJSCFunctionListEntry{
 
 var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 	0: {
-		Fname:       __ccgo_ts + 17064,
+		Fname:       __ccgo_ts + 17253,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156588,7 +157917,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	1: {
-		Fname:       __ccgo_ts + 17017,
+		Fname:       __ccgo_ts + 17206,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fmagic:      int16(1),
 		Fu: *(*struct {
@@ -156624,7 +157953,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	2: {
-		Fname:       __ccgo_ts + 17022,
+		Fname:       __ccgo_ts + 17211,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156658,7 +157987,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	3: {
-		Fname:       __ccgo_ts + 17070,
+		Fname:       __ccgo_ts + 17259,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156691,7 +158020,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	4: {
-		Fname:       __ccgo_ts + 17076,
+		Fname:       __ccgo_ts + 17265,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156725,7 +158054,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	5: {
-		Fname:       __ccgo_ts + 17081,
+		Fname:       __ccgo_ts + 17270,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fmagic:      int16(1),
 		Fu: *(*struct {
@@ -156760,7 +158089,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	6: {
-		Fname:       __ccgo_ts + 17087,
+		Fname:       __ccgo_ts + 17276,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156794,7 +158123,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	7: {
-		Fname:       __ccgo_ts + 17092,
+		Fname:       __ccgo_ts + 17281,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156827,7 +158156,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	8: {
-		Fname:       __ccgo_ts + 17096,
+		Fname:       __ccgo_ts + 17285,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156860,7 +158189,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	9: {
-		Fname:       __ccgo_ts + 17103,
+		Fname:       __ccgo_ts + 17292,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156893,7 +158222,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	10: {
-		Fname:       __ccgo_ts + 17109,
+		Fname:       __ccgo_ts + 17298,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156926,7 +158255,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	11: {
-		Fname:       __ccgo_ts + 17118,
+		Fname:       __ccgo_ts + 17307,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -156961,7 +158290,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	12: {
-		Fname:       __ccgo_ts + 17123,
+		Fname:       __ccgo_ts + 17312,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fmagic:      int16(1),
 		Fu: *(*struct {
@@ -156997,7 +158326,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	13: {
-		Fname:       __ccgo_ts + 17129,
+		Fname:       __ccgo_ts + 17318,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -157030,7 +158359,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	14: {
-		Fname:       __ccgo_ts + 17137,
+		Fname:       __ccgo_ts + 17326,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -157063,7 +158392,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	15: {
-		Fname:       __ccgo_ts + 17150,
+		Fname:       __ccgo_ts + 17339,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -157096,7 +158425,7 @@ var _js_std_file_proto_funcs = [17]TJSCFunctionListEntry{
 		})),
 	},
 	16: {
-		Fname:       __ccgo_ts + 17158,
+		Fname:       __ccgo_ts + 17347,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -157144,8 +158473,8 @@ func _js_std_init(tls *libc.TLS, ctx uintptr, m uintptr) (r int32) {
 	XJS_SetClassProto(tls, ctx, _js_std_file_class_id, proto)
 	XJS_SetModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_std_funcs)), int32(libc.Uint64FromInt64(736)/libc.Uint64FromInt64(32)))
 	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+6570, _js_new_std_file(tls, ctx, libc.Xstdin, int32(EFALSE), int32(EFALSE)))
-	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17166, _js_new_std_file(tls, ctx, libc.Xstdout, int32(EFALSE), int32(EFALSE)))
-	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17170, _js_new_std_file(tls, ctx, libc.Xstderr, int32(EFALSE), int32(EFALSE)))
+	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17355, _js_new_std_file(tls, ctx, libc.Xstdout, int32(EFALSE), int32(EFALSE)))
+	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17359, _js_new_std_file(tls, ctx, libc.Xstderr, int32(EFALSE), int32(EFALSE)))
 	return 0
 }
 
@@ -157158,8 +158487,8 @@ func Xjs_init_module_std(tls *libc.TLS, ctx uintptr, module_name uintptr) (r uin
 	}
 	XJS_AddModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_std_funcs)), int32(libc.Uint64FromInt64(736)/libc.Uint64FromInt64(32)))
 	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+6570)
-	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+17166)
-	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+17170)
+	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+17355)
+	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+17359)
 	return m
 }
 
@@ -157368,7 +158697,7 @@ func _js_os_read_write(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32
 		}
 	}
 	if *(*Tuint64_t)(unsafe.Pointer(bp + 24))+*(*Tuint64_t)(unsafe.Pointer(bp + 32)) > *(*Tsize_t)(unsafe.Pointer(bp + 40)) {
-		return XJS_ThrowRangeError(tls, ctx, __ccgo_ts+16688, 0)
+		return XJS_ThrowRangeError(tls, ctx, __ccgo_ts+16877, 0)
 	}
 	if magic != 0 {
 		ret = _js_get_errno(tls, libc.Xwrite(tls, *(*int32)(unsafe.Pointer(bp + 16)), buf+uintptr(*(*Tuint64_t)(unsafe.Pointer(bp + 24))), *(*Tuint64_t)(unsafe.Pointer(bp + 32))))
@@ -157823,7 +159152,7 @@ func _js_os_signal(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, ar
 	rt = XJS_GetRuntime(tls, ctx)
 	ts = XJS_GetRuntimeOpaque(tls, rt)
 	if !(_is_main_thread(tls, rt) != 0) {
-		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17174, 0)
+		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17363, 0)
 	}
 	v1 = XJS_ToInt32(tls, ctx, bp, *(*TJSValue)(unsafe.Pointer(argv)))
 	goto _2
@@ -157835,7 +159164,7 @@ _2:
 		}
 	}
 	if *(*Tuint32_t)(unsafe.Pointer(bp)) >= uint32(64) {
-		return XJS_ThrowRangeError(tls, ctx, __ccgo_ts+17224, 0)
+		return XJS_ThrowRangeError(tls, ctx, __ccgo_ts+17413, 0)
 	}
 	func1 = *(*TJSValue)(unsafe.Pointer(argv + 1*16))
 	/* func = null: SIG_DFL, func = undefined, SIG_IGN */
@@ -158344,7 +159673,7 @@ _14:
 		}
 		goto fail
 	}
-	XJS_DefinePropertyValueStr(tls, ctx, *(*TJSValue)(unsafe.Pointer(bp)), __ccgo_ts+17246, data_obj, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+	XJS_DefinePropertyValueStr(tls, ctx, *(*TJSValue)(unsafe.Pointer(bp)), __ccgo_ts+17435, data_obj, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 	/* 'func' might be destroyed when calling itself (if it frees the
 	   handler), so must take extra care */
 	_ = ctx
@@ -158940,7 +160269,7 @@ _2:
 		v111 = v1
 		goto _12
 	_12:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17251, v111, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17440, v111, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v13 = ctx
 		v14 = int64((*(*Tstat)(unsafe.Pointer(bp + 16))).Fst_ino)
 		if v14 == int64(int32(v14)) {
@@ -158966,7 +160295,7 @@ _2:
 		v19 = v1
 		goto _20
 	_20:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17255, v19, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17444, v19, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		_ = ctx
 		v21 = TJSValue{
 			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
@@ -158976,7 +160305,7 @@ _2:
 		}
 		goto _22
 	_22:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17259, v21, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17448, v21, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v23 = ctx
 		v24 = int64((*(*Tstat)(unsafe.Pointer(bp + 16))).Fst_nlink)
 		if v24 == int64(int32(v24)) {
@@ -159002,7 +160331,7 @@ _2:
 		v29 = v1
 		goto _30
 	_30:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17264, v29, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17453, v29, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v31 = ctx
 		v32 = int64((*(*Tstat)(unsafe.Pointer(bp + 16))).Fst_uid)
 		if v32 == int64(int32(v32)) {
@@ -159028,7 +160357,7 @@ _2:
 		v37 = v1
 		goto _38
 	_38:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17270, v37, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17459, v37, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v39 = ctx
 		v40 = int64((*(*Tstat)(unsafe.Pointer(bp + 16))).Fst_gid)
 		if v40 == int64(int32(v40)) {
@@ -159054,7 +160383,7 @@ _2:
 		v45 = v1
 		goto _46
 	_46:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17274, v45, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17463, v45, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v47 = ctx
 		v48 = int64((*(*Tstat)(unsafe.Pointer(bp + 16))).Fst_rdev)
 		if v48 == int64(int32(v48)) {
@@ -159080,7 +160409,7 @@ _2:
 		v53 = v1
 		goto _54
 	_54:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17278, v53, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17467, v53, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v55 = ctx
 		v56 = (*(*Tstat)(unsafe.Pointer(bp + 16))).Fst_size
 		if v56 == int64(int32(v56)) {
@@ -159132,7 +160461,7 @@ _2:
 		v69 = v1
 		goto _70
 	_70:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17283, v69, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17472, v69, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v71 = ctx
 		v72 = _timespec_to_ms(tls, bp+16+72)
 		if v72 == int64(int32(v72)) {
@@ -159158,7 +160487,7 @@ _2:
 		v77 = v1
 		goto _78
 	_78:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17290, v77, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17479, v77, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v79 = ctx
 		v80 = _timespec_to_ms(tls, bp+16+88)
 		if v80 == int64(int32(v80)) {
@@ -159184,7 +160513,7 @@ _2:
 		v85 = v1
 		goto _86
 	_86:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17296, v85, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17485, v85, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		v87 = ctx
 		v88 = _timespec_to_ms(tls, bp+16+104)
 		if v88 == int64(int32(v88)) {
@@ -159210,7 +160539,7 @@ _2:
 		v93 = v1
 		goto _94
 	_94:
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17302, v93, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+17491, v93, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 	}
 	return _make_obj_error(tls, ctx, obj, err)
 }
@@ -159539,9 +160868,9 @@ func _my_execvpe(tls *libc.TLS, filename uintptr, argv uintptr, envp uintptr) (r
 	if libc.Xstrchr(tls, filename, int32('/')) != 0 {
 		return libc.Xexecve(tls, filename, argv, envp)
 	}
-	path = libc.Xgetenv(tls, __ccgo_ts+17308)
+	path = libc.Xgetenv(tls, __ccgo_ts+17497)
 	if !(path != 0) {
-		path = __ccgo_ts + 17313
+		path = __ccgo_ts + 17502
 	}
 	eacces_error = int32(EFALSE)
 	p = path
@@ -159646,7 +160975,7 @@ _4:
 	}
 	/* arbitrary limit to avoid overflow */
 	if *(*Tuint32_t)(unsafe.Pointer(bp)) < uint32(1) || *(*Tuint32_t)(unsafe.Pointer(bp)) > uint32(65535) {
-		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17347, 0)
+		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17536, 0)
 	}
 	exec_argv = Xjs_mallocz(tls, ctx, uint64(8)*uint64(*(*Tuint32_t)(unsafe.Pointer(bp))+libc.Uint32FromInt32(1)))
 	if !(exec_argv != 0) {
@@ -159705,13 +161034,13 @@ _4:
 	/* get the options, if any */
 	if argc >= int32(2) {
 		options = *(*TJSValue)(unsafe.Pointer(argv + 1*16))
-		if _get_bool_option(tls, ctx, bp+8, options, __ccgo_ts+17375) != 0 {
+		if _get_bool_option(tls, ctx, bp+8, options, __ccgo_ts+17564) != 0 {
 			goto exception
 		}
-		if _get_bool_option(tls, ctx, bp+12, options, __ccgo_ts+17381) != 0 {
+		if _get_bool_option(tls, ctx, bp+12, options, __ccgo_ts+17570) != 0 {
 			goto exception
 		}
-		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17389)
+		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17578)
 		v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 		goto _18
 	_18:
@@ -159740,7 +161069,7 @@ _4:
 				goto exception
 			}
 		}
-		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17394)
+		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17583)
 		v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 		goto _27
 	_27:
@@ -159807,7 +161136,7 @@ _4:
 			;
 			i++
 		}
-		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17398)
+		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17587)
 		v43 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 		goto _44
 	_44:
@@ -159833,7 +161162,7 @@ _4:
 				goto exception
 			}
 		}
-		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17270)
+		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17459)
 		v50 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 		goto _51
 	_51:
@@ -159862,7 +161191,7 @@ _4:
 				goto exception
 			}
 		}
-		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17274)
+		val = XJS_GetPropertyStr(tls, ctx, options, __ccgo_ts+17463)
 		v59 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 		goto _60
 	_60:
@@ -159894,7 +161223,7 @@ _4:
 	}
 	pid = libc.Xfork(tls)
 	if pid < 0 {
-		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17402, 0)
+		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17591, 0)
 		goto exception
 	}
 	if pid == 0 {
@@ -160019,9 +161348,9 @@ exception:
 }
 
 var _std_name = [3]uintptr{
-	0: __ccgo_ts + 17327,
-	1: __ccgo_ts + 17333,
-	2: __ccgo_ts + 17340,
+	0: __ccgo_ts + 17516,
+	1: __ccgo_ts + 17522,
+	2: __ccgo_ts + 17529,
 }
 
 // C documentation
@@ -160273,7 +161602,7 @@ var _js_worker_class_id TJSClassID
 var _js_worker_new_context_func uintptr
 
 func _atomic_add_int(tls *libc.TLS, ptr uintptr, v int32) (r int32) {
-	return ___atomic_fetch_add(tls, ptr, v, int32(M__ATOMIC_SEQ_CST)) + v
+	return int32(libc.X__atomic_fetch_addUint32(tls, ptr, uint32(v), libc.Int32FromInt32(M__ATOMIC_SEQ_CST))) + v
 }
 
 // C documentation
@@ -160429,7 +161758,7 @@ func _js_worker_finalizer(tls *libc.TLS, rt uintptr, val TJSValue) {
 }
 
 var _js_worker_class = TJSClassDef{
-	Fclass_name: __ccgo_ts + 17413,
+	Fclass_name: __ccgo_ts + 17602,
 }
 
 func init() {
@@ -160445,7 +161774,7 @@ func _worker_func(tls *libc.TLS, opaque uintptr) (r uintptr) {
 	args = opaque
 	rt = XJS_NewRuntime(tls)
 	if rt == libc.UintptrFromInt32(0) {
-		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+17420, 0)
+		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+17609, 0)
 		libc.Xexit(tls, int32(1))
 	}
 	Xjs_std_init_handlers(tls, rt)
@@ -160458,7 +161787,7 @@ func _worker_func(tls *libc.TLS, opaque uintptr) (r uintptr) {
 	   not needed */
 	ctx = (*(*func(*libc.TLS, uintptr) uintptr)(unsafe.Pointer(&struct{ uintptr }{_js_worker_new_context_func})))(tls, rt)
 	if ctx == libc.UintptrFromInt32(0) {
-		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+17442, 0)
+		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+17631, 0)
 	}
 	XJS_SetCanBlock(tls, rt, int32(ETRUE))
 	Xjs_std_add_helpers(tls, ctx, -int32(1), libc.UintptrFromInt32(0))
@@ -160506,7 +161835,7 @@ _2:
 	if v1 != 0 {
 		proto = XJS_GetClassProto(tls, ctx, _js_worker_class_id)
 	} else {
-		proto = XJS_GetPropertyStr(tls, ctx, new_target, __ccgo_ts+17464)
+		proto = XJS_GetPropertyStr(tls, ctx, new_target, __ccgo_ts+17653)
 		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(proto.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 		goto _4
 	_4:
@@ -160577,13 +161906,13 @@ func _js_worker_ctor(tls *libc.TLS, ctx uintptr, new_target TJSValue, argc int32
 	/* XXX: in order to avoid problems with resource liberation, we
 	   don't support creating workers inside workers */
 	if !(_is_main_thread(tls, rt) != 0) {
-		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17474, 0)
+		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17663, 0)
 	}
 	/* base name, assuming the calling function is a normal JS
 	   function */
 	basename_atom = XJS_GetScriptOrModuleName(tls, ctx, int32(1))
 	if basename_atom == uint32(MJS_ATOM_NULL) {
-		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17513, 0)
+		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17702, 0)
 	}
 	basename = XJS_AtomToCString(tls, ctx, basename_atom)
 	XJS_FreeAtom(tls, ctx, basename_atom)
@@ -160627,7 +161956,7 @@ _4:
 	ret = libc.Xpthread_create(tls, bp, bp+8, __ccgo_fp(_worker_func), args)
 	libc.Xpthread_attr_destroy(tls, bp+8)
 	if ret != 0 {
-		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17563, 0)
+		XJS_ThrowTypeError(tls, ctx, __ccgo_ts+17752, 0)
 		goto fail
 	}
 	XJS_FreeCString(tls, ctx, basename)
@@ -160883,7 +162212,7 @@ func _js_worker_get_onmessage(tls *libc.TLS, ctx uintptr, this_val TJSValue) (r 
 
 var _js_worker_proto_funcs = [2]TJSCFunctionListEntry{
 	0: {
-		Fname:       __ccgo_ts + 17587,
+		Fname:       __ccgo_ts + 17776,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -160917,7 +162246,7 @@ var _js_worker_proto_funcs = [2]TJSCFunctionListEntry{
 		})),
 	},
 	1: {
-		Fname:       __ccgo_ts + 17599,
+		Fname:       __ccgo_ts + 17788,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_CGETSET),
 		Fu: *(*struct {
@@ -160958,7 +162287,7 @@ func Xjs_std_set_worker_new_context_func(tls *libc.TLS, func1 uintptr) {
 
 var _js_os_funcs = [71]TJSCFunctionListEntry{
 	0: {
-		Fname:       __ccgo_ts + 16991,
+		Fname:       __ccgo_ts + 17180,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -160992,12 +162321,12 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	1: {
-		Fname:       __ccgo_ts + 17609,
+		Fname:       __ccgo_ts + 17798,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 	},
 	2: {
-		Fname:       __ccgo_ts + 17618,
+		Fname:       __ccgo_ts + 17807,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161028,7 +162357,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MO_WRONLY)})),
 	},
 	3: {
-		Fname:       __ccgo_ts + 17627,
+		Fname:       __ccgo_ts + 17816,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161059,7 +162388,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MO_RDWR)})),
 	},
 	4: {
-		Fname:       __ccgo_ts + 17634,
+		Fname:       __ccgo_ts + 17823,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161090,7 +162419,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MO_APPEND)})),
 	},
 	5: {
-		Fname:       __ccgo_ts + 17643,
+		Fname:       __ccgo_ts + 17832,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161121,7 +162450,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MO_CREAT)})),
 	},
 	6: {
-		Fname:       __ccgo_ts + 17651,
+		Fname:       __ccgo_ts + 17840,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161152,7 +162481,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MO_EXCL)})),
 	},
 	7: {
-		Fname:       __ccgo_ts + 17658,
+		Fname:       __ccgo_ts + 17847,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161183,7 +162512,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MO_TRUNC)})),
 	},
 	8: {
-		Fname:       __ccgo_ts + 17064,
+		Fname:       __ccgo_ts + 17253,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161217,7 +162546,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	9: {
-		Fname:       __ccgo_ts + 17087,
+		Fname:       __ccgo_ts + 17276,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161251,7 +162580,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	10: {
-		Fname:       __ccgo_ts + 17118,
+		Fname:       __ccgo_ts + 17307,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161286,7 +162615,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	11: {
-		Fname:       __ccgo_ts + 17123,
+		Fname:       __ccgo_ts + 17312,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fmagic:      int16(1),
 		Fu: *(*struct {
@@ -161322,7 +162651,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	12: {
-		Fname:       __ccgo_ts + 17666,
+		Fname:       __ccgo_ts + 17855,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161356,7 +162685,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	13: {
-		Fname:       __ccgo_ts + 17673,
+		Fname:       __ccgo_ts + 17862,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161390,7 +162719,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	14: {
-		Fname:       __ccgo_ts + 17687,
+		Fname:       __ccgo_ts + 17876,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161424,7 +162753,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	15: {
-		Fname:       __ccgo_ts + 17697,
+		Fname:       __ccgo_ts + 17886,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161458,7 +162787,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	16: {
-		Fname:       __ccgo_ts + 17704,
+		Fname:       __ccgo_ts + 17893,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161492,7 +162821,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	17: {
-		Fname:       __ccgo_ts + 17711,
+		Fname:       __ccgo_ts + 17900,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161527,7 +162856,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	18: {
-		Fname:       __ccgo_ts + 17726,
+		Fname:       __ccgo_ts + 17915,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fmagic:      int16(1),
 		Fu: *(*struct {
@@ -161563,7 +162892,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	19: {
-		Fname:       __ccgo_ts + 17742,
+		Fname:       __ccgo_ts + 17931,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -161597,7 +162926,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	20: {
-		Fname:       __ccgo_ts + 17749,
+		Fname:       __ccgo_ts + 17938,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161628,7 +162957,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGINT)})),
 	},
 	21: {
-		Fname:       __ccgo_ts + 17756,
+		Fname:       __ccgo_ts + 17945,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161659,7 +162988,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGABRT)})),
 	},
 	22: {
-		Fname:       __ccgo_ts + 17764,
+		Fname:       __ccgo_ts + 17953,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161690,7 +163019,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGFPE)})),
 	},
 	23: {
-		Fname:       __ccgo_ts + 17771,
+		Fname:       __ccgo_ts + 17960,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161721,7 +163050,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGILL)})),
 	},
 	24: {
-		Fname:       __ccgo_ts + 17778,
+		Fname:       __ccgo_ts + 17967,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161752,7 +163081,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGSEGV)})),
 	},
 	25: {
-		Fname:       __ccgo_ts + 17786,
+		Fname:       __ccgo_ts + 17975,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161783,7 +163112,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGTERM)})),
 	},
 	26: {
-		Fname:       __ccgo_ts + 17794,
+		Fname:       __ccgo_ts + 17983,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161814,7 +163143,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGQUIT)})),
 	},
 	27: {
-		Fname:       __ccgo_ts + 17802,
+		Fname:       __ccgo_ts + 17991,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161845,7 +163174,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGPIPE)})),
 	},
 	28: {
-		Fname:       __ccgo_ts + 17810,
+		Fname:       __ccgo_ts + 17999,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161876,7 +163205,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGALRM)})),
 	},
 	29: {
-		Fname:       __ccgo_ts + 17818,
+		Fname:       __ccgo_ts + 18007,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161907,7 +163236,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGUSR1)})),
 	},
 	30: {
-		Fname:       __ccgo_ts + 17826,
+		Fname:       __ccgo_ts + 18015,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161938,7 +163267,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGUSR2)})),
 	},
 	31: {
-		Fname:       __ccgo_ts + 17834,
+		Fname:       __ccgo_ts + 18023,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -161969,7 +163298,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGCHLD)})),
 	},
 	32: {
-		Fname:       __ccgo_ts + 17842,
+		Fname:       __ccgo_ts + 18031,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162000,7 +163329,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGCONT)})),
 	},
 	33: {
-		Fname:       __ccgo_ts + 17850,
+		Fname:       __ccgo_ts + 18039,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162031,7 +163360,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGSTOP)})),
 	},
 	34: {
-		Fname:       __ccgo_ts + 17858,
+		Fname:       __ccgo_ts + 18047,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162062,7 +163391,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGTSTP)})),
 	},
 	35: {
-		Fname:       __ccgo_ts + 17866,
+		Fname:       __ccgo_ts + 18055,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162093,7 +163422,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MSIGTTIN)})),
 	},
 	36: {
-		Fname:       __ccgo_ts + 17874,
+		Fname:       __ccgo_ts + 18063,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162157,7 +163486,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	38: {
-		Fname:       __ccgo_ts + 17882,
+		Fname:       __ccgo_ts + 18071,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162191,7 +163520,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	39: {
-		Fname:       __ccgo_ts + 17893,
+		Fname:       __ccgo_ts + 18082,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162225,7 +163554,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	40: {
-		Fname:       __ccgo_ts + 17906,
+		Fname:       __ccgo_ts + 18095,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162259,7 +163588,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	41: {
-		Fname:     __ccgo_ts + 17917,
+		Fname:     __ccgo_ts + 18106,
 		Fdef_type: uint8(MJS_DEF_PROP_STRING),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162286,10 +163615,10 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})(unsafe.Pointer(&struct {
 			f uintptr
 			_ [8]byte
-		}{f: __ccgo_ts + 17926})),
+		}{f: __ccgo_ts + 18115})),
 	},
 	42: {
-		Fname:       __ccgo_ts + 17932,
+		Fname:       __ccgo_ts + 18121,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162322,7 +163651,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	43: {
-		Fname:       __ccgo_ts + 17939,
+		Fname:       __ccgo_ts + 18128,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162355,7 +163684,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	44: {
-		Fname:       __ccgo_ts + 17945,
+		Fname:       __ccgo_ts + 18134,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162389,7 +163718,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	45: {
-		Fname:       __ccgo_ts + 17951,
+		Fname:       __ccgo_ts + 18140,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162423,7 +163752,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	46: {
-		Fname:       __ccgo_ts + 17959,
+		Fname:       __ccgo_ts + 18148,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162454,7 +163783,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFMT)})),
 	},
 	47: {
-		Fname:       __ccgo_ts + 17966,
+		Fname:       __ccgo_ts + 18155,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162485,7 +163814,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFIFO)})),
 	},
 	48: {
-		Fname:       __ccgo_ts + 17974,
+		Fname:       __ccgo_ts + 18163,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162516,7 +163845,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFCHR)})),
 	},
 	49: {
-		Fname:       __ccgo_ts + 17982,
+		Fname:       __ccgo_ts + 18171,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162547,7 +163876,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFDIR)})),
 	},
 	50: {
-		Fname:       __ccgo_ts + 17990,
+		Fname:       __ccgo_ts + 18179,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162578,7 +163907,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFBLK)})),
 	},
 	51: {
-		Fname:       __ccgo_ts + 17998,
+		Fname:       __ccgo_ts + 18187,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162609,7 +163938,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFREG)})),
 	},
 	52: {
-		Fname:       __ccgo_ts + 18006,
+		Fname:       __ccgo_ts + 18195,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162640,7 +163969,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFSOCK)})),
 	},
 	53: {
-		Fname:       __ccgo_ts + 18015,
+		Fname:       __ccgo_ts + 18204,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162671,7 +164000,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_IFLNK)})),
 	},
 	54: {
-		Fname:       __ccgo_ts + 18023,
+		Fname:       __ccgo_ts + 18212,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162702,7 +164031,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_ISGID)})),
 	},
 	55: {
-		Fname:       __ccgo_ts + 18031,
+		Fname:       __ccgo_ts + 18220,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -162733,7 +164062,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MS_ISUID)})),
 	},
 	56: {
-		Fname:       __ccgo_ts + 18039,
+		Fname:       __ccgo_ts + 18228,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162768,7 +164097,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	57: {
-		Fname:       __ccgo_ts + 18044,
+		Fname:       __ccgo_ts + 18233,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162802,7 +164131,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	58: {
-		Fname:       __ccgo_ts + 18051,
+		Fname:       __ccgo_ts + 18240,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162836,7 +164165,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	59: {
-		Fname:       __ccgo_ts + 18057,
+		Fname:       __ccgo_ts + 18246,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162870,7 +164199,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	60: {
-		Fname:       __ccgo_ts + 18066,
+		Fname:       __ccgo_ts + 18255,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fmagic:      int16(1),
 		Fu: *(*struct {
@@ -162906,7 +164235,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	61: {
-		Fname:       __ccgo_ts + 18072,
+		Fname:       __ccgo_ts + 18261,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -162940,7 +164269,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	62: {
-		Fname:       __ccgo_ts + 18080,
+		Fname:       __ccgo_ts + 18269,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -163008,7 +164337,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	64: {
-		Fname:       __ccgo_ts + 18089,
+		Fname:       __ccgo_ts + 18278,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -163041,7 +164370,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	65: {
-		Fname:       __ccgo_ts + 18096,
+		Fname:       __ccgo_ts + 18285,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -163075,7 +164404,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	66: {
-		Fname:       __ccgo_ts + 18104,
+		Fname:       __ccgo_ts + 18293,
 		Fprop_flags: uint8(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
 		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
 		Fu: *(*struct {
@@ -163106,7 +164435,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		}{f: int32(MWNOHANG)})),
 	},
 	67: {
-		Fname:       __ccgo_ts + 18112,
+		Fname:       __ccgo_ts + 18301,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -163139,7 +164468,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	68: {
-		Fname:       __ccgo_ts + 18117,
+		Fname:       __ccgo_ts + 18306,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -163173,7 +164502,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	69: {
-		Fname:       __ccgo_ts + 18122,
+		Fname:       __ccgo_ts + 18311,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -163207,7 +164536,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 		})),
 	},
 	70: {
-		Fname:       __ccgo_ts + 18126,
+		Fname:       __ccgo_ts + 18315,
 		Fprop_flags: uint8(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
 			Fgetset [0]struct {
@@ -163254,17 +164583,17 @@ func _js_os_init(tls *libc.TLS, ctx uintptr, m uintptr) (r int32) {
 	XJS_NewClass(tls, XJS_GetRuntime(tls, ctx), _js_worker_class_id, uintptr(unsafe.Pointer(&_js_worker_class)))
 	proto = XJS_NewObject(tls, ctx)
 	XJS_SetPropertyFunctionList(tls, ctx, proto, uintptr(unsafe.Pointer(&_js_worker_proto_funcs)), int32(libc.Uint64FromInt64(64)/libc.Uint64FromInt64(32)))
-	obj = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_worker_ctor), __ccgo_ts+17413, int32(1), EJS_CFUNC_constructor, 0)
+	obj = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_worker_ctor), __ccgo_ts+17602, int32(1), EJS_CFUNC_constructor, 0)
 	XJS_SetConstructor(tls, ctx, obj, proto)
 	XJS_SetClassProto(tls, ctx, _js_worker_class_id, proto)
 	/* set 'Worker.parent' if necessary */
 	if (*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe != 0 && (*TJSThreadState)(unsafe.Pointer(ts)).Fsend_pipe != 0 {
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+18131, _js_worker_ctor_internal(tls, ctx, TJSValue{
+		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+18320, _js_worker_ctor_internal(tls, ctx, TJSValue{
 			Fu:   TJSValueUnion{},
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}, (*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe, (*TJSThreadState)(unsafe.Pointer(ts)).Fsend_pipe), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 	}
-	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17413, obj)
+	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17602, obj)
 	return XJS_SetModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_os_funcs)), int32(libc.Uint64FromInt64(2272)/libc.Uint64FromInt64(32)))
 }
 
@@ -163276,7 +164605,7 @@ func Xjs_init_module_os(tls *libc.TLS, ctx uintptr, module_name uintptr) (r uint
 		return libc.UintptrFromInt32(0)
 	}
 	XJS_AddModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_os_funcs)), int32(libc.Uint64FromInt64(2272)/libc.Uint64FromInt64(32)))
-	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+17413)
+	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+17602)
 	return m
 }
 
@@ -163333,7 +164662,7 @@ func Xjs_std_add_helpers(tls *libc.TLS, ctx uintptr, argc int32, argv uintptr) {
 	goto _2
 _2:
 	XJS_SetPropertyStr(tls, ctx, console, __ccgo_ts+11093, v1)
-	XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18138, console)
+	XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18327, console)
 	/* same methods as the mozilla JS shell */
 	if argc >= 0 {
 		args = XJS_NewArray(tls, ctx)
@@ -163348,16 +164677,16 @@ _2:
 			;
 			i++
 		}
-		XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18146, args)
+		XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18335, args)
 	}
-	v4 = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_print), __ccgo_ts+18157, int32(1), EJS_CFUNC_generic, 0)
+	v4 = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_print), __ccgo_ts+18346, int32(1), EJS_CFUNC_generic, 0)
 	goto _5
 _5:
-	XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18157, v4)
-	v6 = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_loadScript), __ccgo_ts+18163, int32(1), EJS_CFUNC_generic, 0)
+	XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18346, v4)
+	v6 = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_loadScript), __ccgo_ts+18352, int32(1), EJS_CFUNC_generic, 0)
 	goto _7
 _7:
-	XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18163, v6)
+	XJS_SetPropertyStr(tls, ctx, global_obj, __ccgo_ts+18352, v6)
 	v8 = global_obj
 	if uint32(int32(v8.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
 		p = *(*uintptr)(unsafe.Pointer(uintptr(unsafe.Pointer(&v8))))
@@ -163378,7 +164707,7 @@ func Xjs_std_init_handlers(tls *libc.TLS, rt uintptr) {
 	_, _, _, _, _ = ts, v1, v2, v3, v4
 	ts = libc.Xmalloc(tls, uint64(88))
 	if !(ts != 0) {
-		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+18176, 0)
+		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+18365, 0)
 		libc.Xexit(tls, int32(1))
 	}
 	libc.Xmemset(tls, ts, 0, uint64(88))
@@ -163467,10 +164796,10 @@ func _js_dump_obj(tls *libc.TLS, ctx uintptr, f uintptr, val TJSValue) {
 _2:
 	str = v1
 	if str != 0 {
-		libc.Xfprintf(tls, f, __ccgo_ts+18217, libc.VaList(bp+8, str))
+		libc.Xfprintf(tls, f, __ccgo_ts+18406, libc.VaList(bp+8, str))
 		XJS_FreeCString(tls, ctx, str)
 	} else {
-		libc.Xfprintf(tls, f, __ccgo_ts+18221, 0)
+		libc.Xfprintf(tls, f, __ccgo_ts+18410, 0)
 	}
 }
 
@@ -163483,7 +164812,7 @@ func _js_std_dump_error1(tls *libc.TLS, ctx uintptr, exception_val TJSValue) {
 	is_error = XJS_IsError(tls, ctx, exception_val)
 	_js_dump_obj(tls, ctx, libc.Xstderr, exception_val)
 	if is_error != 0 {
-		val = XJS_GetPropertyStr(tls, ctx, exception_val, __ccgo_ts+18234)
+		val = XJS_GetPropertyStr(tls, ctx, exception_val, __ccgo_ts+18423)
 		v1 = libc.BoolInt32(int32(val.Ftag) == int32(EJS_TAG_UNDEFINED))
 		goto _2
 	_2:
@@ -163524,7 +164853,7 @@ func Xjs_std_dump_error(tls *libc.TLS, ctx uintptr) {
 
 func Xjs_std_promise_rejection_tracker(tls *libc.TLS, ctx uintptr, promise TJSValue, reason TJSValue, is_handled TBOOL, opaque uintptr) {
 	if !(is_handled != 0) {
-		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+18240, 0)
+		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+18429, 0)
 		_js_std_dump_error1(tls, ctx, reason)
 	}
 }
@@ -164449,13 +165778,13 @@ func _dump_limbs(tls *libc.TLS, str uintptr, tab uintptr, n Tlimb_t) {
 	defer tls.Free(32)
 	var i Tlimb_t
 	_ = i
-	libc.Xprintf(tls, __ccgo_ts+18279, libc.VaList(bp+8, str, n))
+	libc.Xprintf(tls, __ccgo_ts+18468, libc.VaList(bp+8, str, n))
 	i = uint32(0)
 	for {
 		if !(i < n) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+18291, libc.VaList(bp+8, i, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
+		libc.Xprintf(tls, __ccgo_ts+18480, libc.VaList(bp+8, i, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
 		goto _1
 	_1:
 		;
@@ -164468,16 +165797,16 @@ func Xmp_print_str(tls *libc.TLS, str uintptr, tab uintptr, n Tlimb_t) {
 	defer tls.Free(16)
 	var i Tslimb_t
 	_ = i
-	libc.Xprintf(tls, __ccgo_ts+18301, libc.VaList(bp+8, str))
+	libc.Xprintf(tls, __ccgo_ts+18490, libc.VaList(bp+8, str))
 	i = int32(n - uint32(1))
 	for {
 		if !(i >= 0) {
 			break
 		}
 		if uint32(i) != n-uint32(1) {
-			libc.Xprintf(tls, __ccgo_ts+18308, 0)
+			libc.Xprintf(tls, __ccgo_ts+18497, 0)
 		}
-		libc.Xprintf(tls, __ccgo_ts+18310, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
+		libc.Xprintf(tls, __ccgo_ts+18499, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
 		goto _1
 	_1:
 		;
@@ -164491,15 +165820,15 @@ func _mp_print_str_h(tls *libc.TLS, str uintptr, tab uintptr, n Tlimb_t, high Tl
 	defer tls.Free(16)
 	var i Tslimb_t
 	_ = i
-	libc.Xprintf(tls, __ccgo_ts+18301, libc.VaList(bp+8, str))
-	libc.Xprintf(tls, __ccgo_ts+18310, libc.VaList(bp+8, high))
+	libc.Xprintf(tls, __ccgo_ts+18490, libc.VaList(bp+8, str))
+	libc.Xprintf(tls, __ccgo_ts+18499, libc.VaList(bp+8, high))
 	i = int32(n - uint32(1))
 	for {
 		if !(i >= 0) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+18308, 0)
-		libc.Xprintf(tls, __ccgo_ts+18310, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
+		libc.Xprintf(tls, __ccgo_ts+18497, 0)
+		libc.Xprintf(tls, __ccgo_ts+18499, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
 		goto _1
 	_1:
 		;
@@ -164527,21 +165856,21 @@ func Xbf_print_str(tls *libc.TLS, str uintptr, a uintptr) {
 			libc.Xputchar(tls, int32('0'))
 		} else {
 			if (*Tbf_t)(unsafe.Pointer(a)).Fexpn == libc.Int32FromInt32(MINT32_MAX)-libc.Int32FromInt32(1) {
-				libc.Xprintf(tls, __ccgo_ts+18315, 0)
+				libc.Xprintf(tls, __ccgo_ts+18504, 0)
 			} else {
-				libc.Xprintf(tls, __ccgo_ts+18319, 0)
+				libc.Xprintf(tls, __ccgo_ts+18508, 0)
 				i = int32((*Tbf_t)(unsafe.Pointer(a)).Flen1 - uint32(1))
 				for {
 					if !(i >= 0) {
 						break
 					}
-					libc.Xprintf(tls, __ccgo_ts+18310, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer((*Tbf_t)(unsafe.Pointer(a)).Ftab + uintptr(i)*4))))
+					libc.Xprintf(tls, __ccgo_ts+18499, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer((*Tbf_t)(unsafe.Pointer(a)).Ftab + uintptr(i)*4))))
 					goto _1
 				_1:
 					;
 					i--
 				}
-				libc.Xprintf(tls, __ccgo_ts+18324, libc.VaList(bp+8, (*Tbf_t)(unsafe.Pointer(a)).Fexpn))
+				libc.Xprintf(tls, __ccgo_ts+18513, libc.VaList(bp+8, (*Tbf_t)(unsafe.Pointer(a)).Fexpn))
 			}
 		}
 	}
@@ -167821,7 +169150,7 @@ func _bf_atof_internal(tls *libc.TLS, r uintptr, pexponent uintptr, str uintptr,
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = T, a, c, c1, cur_limb, digit_count, digits_per_limb, exp_is_neg, expn, has_decpt, int_len, is_bin_exp, is_neg, l, p_start, radix_bits, ret, s, shift, v1, v10, v11, v14, v15, v17, v18, v2, v3, v7, v8
 	*(*Tslimb_t)(unsafe.Pointer(pexponent)) = 0
 	*(*uintptr)(unsafe.Pointer(bp)) = str
-	if !(flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(18)) != 0) && radix <= int32(16) && _strcasestart(tls, *(*uintptr)(unsafe.Pointer(bp)), __ccgo_ts+18328, bp) != 0 {
+	if !(flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(18)) != 0) && radix <= int32(16) && _strcasestart(tls, *(*uintptr)(unsafe.Pointer(bp)), __ccgo_ts+18517, bp) != 0 {
 		Xbf_set_nan(tls, r)
 		ret = 0
 		goto done
@@ -167864,7 +169193,7 @@ func _bf_atof_internal(tls *libc.TLS, r uintptr, pexponent uintptr, str uintptr,
 		}
 	no_prefix:
 	} else {
-		if !(flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(18)) != 0) && radix <= int32(16) && _strcasestart(tls, *(*uintptr)(unsafe.Pointer(bp)), __ccgo_ts+18332, bp) != 0 {
+		if !(flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(18)) != 0) && radix <= int32(16) && _strcasestart(tls, *(*uintptr)(unsafe.Pointer(bp)), __ccgo_ts+18521, bp) != 0 {
 			Xbf_set_inf(tls, r, is_neg)
 			ret = 0
 			goto done
@@ -168869,7 +170198,7 @@ func _bf_ftoa_internal(tls *libc.TLS, plen uintptr, a2 uintptr, radix int32, pre
 			if flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(22)) != 0 {
 				Xdbuf_putstr(tls, s1, __ccgo_ts+2170)
 			} else {
-				Xdbuf_putstr(tls, s1, __ccgo_ts+18315)
+				Xdbuf_putstr(tls, s1, __ccgo_ts+18504)
 			}
 		} else {
 			a11 = bp + 56
@@ -168900,19 +170229,19 @@ func _bf_ftoa_internal(tls *libc.TLS, plen uintptr, a2 uintptr, radix int32, pre
 				}
 				if flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(21)) != 0 {
 					if radix == int32(16) {
-						Xdbuf_putstr(tls, s1, __ccgo_ts+18336)
+						Xdbuf_putstr(tls, s1, __ccgo_ts+18525)
 					} else {
 						if radix == int32(8) {
-							Xdbuf_putstr(tls, s1, __ccgo_ts+18339)
+							Xdbuf_putstr(tls, s1, __ccgo_ts+18528)
 						} else {
 							if radix == int32(2) {
-								Xdbuf_putstr(tls, s1, __ccgo_ts+18342)
+								Xdbuf_putstr(tls, s1, __ccgo_ts+18531)
 							}
 						}
 					}
 				}
 				if (*Tbf_t)(unsafe.Pointer(a11)).Fexpn == -libc.Int32FromInt32(1)-libc.Int32FromInt32(0x7fffffff) {
-					Xdbuf_putstr(tls, s1, __ccgo_ts+18345)
+					Xdbuf_putstr(tls, s1, __ccgo_ts+18534)
 					if prec > uint32(0) {
 						Xdbuf_putstr(tls, s1, __ccgo_ts+7189)
 						i = 0
@@ -168931,7 +170260,7 @@ func _bf_ftoa_internal(tls *libc.TLS, plen uintptr, a2 uintptr, radix int32, pre
 					n_digits = int32(prec + uint32(*(*Tslimb_t)(unsafe.Pointer(bp + 48))))
 					if *(*Tslimb_t)(unsafe.Pointer(bp + 48)) <= 0 {
 						/* 0.x */
-						Xdbuf_putstr(tls, s1, __ccgo_ts+18347)
+						Xdbuf_putstr(tls, s1, __ccgo_ts+18536)
 						i = 0
 						for {
 							if !(i < -*(*Tslimb_t)(unsafe.Pointer(bp + 48))) {
@@ -169134,17 +170463,17 @@ func _bf_ftoa_internal(tls *libc.TLS, plen uintptr, a2 uintptr, radix int32, pre
 			;
 			if (*Tbf_t)(unsafe.Pointer(a11)).Fexpn == -libc.Int32FromInt32(1)-libc.Int32FromInt32(0x7fffffff) && fmt != libc.Int32FromInt32(0)<<libc.Int32FromInt32(16) && !(flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(20)) != 0) {
 				/* just output zero */
-				Xdbuf_putstr(tls, s1, __ccgo_ts+18345)
+				Xdbuf_putstr(tls, s1, __ccgo_ts+18534)
 			} else {
 				if flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(21)) != 0 {
 					if radix == int32(16) {
-						Xdbuf_putstr(tls, s1, __ccgo_ts+18336)
+						Xdbuf_putstr(tls, s1, __ccgo_ts+18525)
 					} else {
 						if radix == int32(8) {
-							Xdbuf_putstr(tls, s1, __ccgo_ts+18339)
+							Xdbuf_putstr(tls, s1, __ccgo_ts+18528)
 						} else {
 							if radix == int32(2) {
-								Xdbuf_putstr(tls, s1, __ccgo_ts+18342)
+								Xdbuf_putstr(tls, s1, __ccgo_ts+18531)
 							}
 						}
 					}
@@ -169157,16 +170486,16 @@ func _bf_ftoa_internal(tls *libc.TLS, plen uintptr, a2 uintptr, radix int32, pre
 					_output_digits(tls, s1, a11, radix, uint32(n_digits), uint32(1), is_dec)
 					if radix_bits != 0 && radix <= int32(16) {
 						if flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(22)) != 0 {
-							fmt1 = __ccgo_ts + 18350
+							fmt1 = __ccgo_ts + 18539
 						} else {
-							fmt1 = __ccgo_ts + 18324
+							fmt1 = __ccgo_ts + 18513
 						}
 						Xdbuf_printf(tls, s1, fmt1, libc.VaList(bp+192, (*(*Tslimb_t)(unsafe.Pointer(bp + 48))-int32(1))*radix_bits))
 					} else {
 						if flags&uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(22)) != 0 {
-							fmt1 = __ccgo_ts + 18355
+							fmt1 = __ccgo_ts + 18544
 						} else {
-							fmt1 = __ccgo_ts + 18361
+							fmt1 = __ccgo_ts + 18550
 						}
 						if radix <= int32(10) {
 							v27 = int32('e')
@@ -169178,7 +170507,7 @@ func _bf_ftoa_internal(tls *libc.TLS, plen uintptr, a2 uintptr, radix int32, pre
 				} else {
 					if *(*Tslimb_t)(unsafe.Pointer(bp + 48)) <= 0 {
 						/* 0.x */
-						Xdbuf_putstr(tls, s1, __ccgo_ts+18347)
+						Xdbuf_putstr(tls, s1, __ccgo_ts+18536)
 						i = 0
 						for {
 							if !(i < -*(*Tslimb_t)(unsafe.Pointer(bp + 48))) {
@@ -171695,9 +173024,9 @@ func _mp_print_str_dec(tls *libc.TLS, str uintptr, tab uintptr, n Tslimb_t) {
 			break
 		}
 		if i != n-int32(1) {
-			libc.Xprintf(tls, __ccgo_ts+18308, 0)
+			libc.Xprintf(tls, __ccgo_ts+18497, 0)
 		}
-		libc.Xprintf(tls, __ccgo_ts+18366, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
+		libc.Xprintf(tls, __ccgo_ts+18555, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
 		goto _1
 	_1:
 		;
@@ -171712,14 +173041,14 @@ func _mp_print_str_h_dec(tls *libc.TLS, str uintptr, tab uintptr, n Tslimb_t, hi
 	var i Tslimb_t
 	_ = i
 	libc.Xprintf(tls, __ccgo_ts+2833, libc.VaList(bp+8, str))
-	libc.Xprintf(tls, __ccgo_ts+18366, libc.VaList(bp+8, int32(MLIMB_DIGITS), high))
+	libc.Xprintf(tls, __ccgo_ts+18555, libc.VaList(bp+8, int32(MLIMB_DIGITS), high))
 	i = n - int32(1)
 	for {
 		if !(i >= 0) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+18308, 0)
-		libc.Xprintf(tls, __ccgo_ts+18366, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
+		libc.Xprintf(tls, __ccgo_ts+18497, 0)
+		libc.Xprintf(tls, __ccgo_ts+18555, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
 		goto _1
 	_1:
 		;
@@ -172191,21 +173520,21 @@ func Xbfdec_print_str(tls *libc.TLS, str uintptr, a uintptr) {
 			libc.Xputchar(tls, int32('0'))
 		} else {
 			if (*Tbfdec_t)(unsafe.Pointer(a)).Fexpn == libc.Int32FromInt32(MINT32_MAX)-libc.Int32FromInt32(1) {
-				libc.Xprintf(tls, __ccgo_ts+18315, 0)
+				libc.Xprintf(tls, __ccgo_ts+18504, 0)
 			} else {
-				libc.Xprintf(tls, __ccgo_ts+18347, 0)
+				libc.Xprintf(tls, __ccgo_ts+18536, 0)
 				i = int32((*Tbfdec_t)(unsafe.Pointer(a)).Flen1 - uint32(1))
 				for {
 					if !(i >= 0) {
 						break
 					}
-					libc.Xprintf(tls, __ccgo_ts+18366, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer((*Tbfdec_t)(unsafe.Pointer(a)).Ftab + uintptr(i)*4))))
+					libc.Xprintf(tls, __ccgo_ts+18555, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer((*Tbfdec_t)(unsafe.Pointer(a)).Ftab + uintptr(i)*4))))
 					goto _1
 				_1:
 					;
 					i--
 				}
-				libc.Xprintf(tls, __ccgo_ts+18371, libc.VaList(bp+8, (*Tbfdec_t)(unsafe.Pointer(a)).Fexpn))
+				libc.Xprintf(tls, __ccgo_ts+18560, libc.VaList(bp+8, (*Tbfdec_t)(unsafe.Pointer(a)).Fexpn))
 			}
 		}
 	}
@@ -174618,4 +175947,4 @@ var Xmp_pow_dec = [10]Tlimb_t{
 
 var __ccgo_ts = (*reflect.StringHeader)(unsafe.Pointer(&__ccgo_ts1)).Data
 
-var __ccgo_ts1 = "unsupported operation\x00\x00\\u%04x\x00<null>\x00%d\x00JSAtom count=%d size=%d hash_size=%d:\n\x00JSAtom hash table: {\n\x00  %d:\x00 \x00\n\x00}\n\x00JSAtom table: {\n\x00  %d: { %d %08x \x00 %d }\n\x00%u\x00%ld\x00nfinity\x00%s\x00%.*s\x00string too long\x00%5d %3d%c %14p %5d %5d\x00 *\x00 %s\x00JSShapes: {\n\x00%5s %4s %14s %5s %5s %s\n\x00SLOT\x00REFS\x00PROTO\x00SIZE\x00COUNT\x00PROPS\x00invalid object type\x00[\x00]\x00get \x00set \x00__JS_FreeValue: unknown tag=%d\n\x00QuickJS memory usage -- BigNum 2024-02-14 version, %d-bit, malloc limit: %ld\n\n\x00JSRuntime\x00JSContext\x00JSObject\x00JSString\x00JSFunctionBytecode\x00  %3u + %-2u  %s\n\x00  malloc_usable_size unavailable\n\x00\nJSObject classes\n\x00  %5d  %2.0d %s\n\x00none\x00other\x00%-20s %8s %8s\n\x00NAME\x00%-20s %8ld %8ld  (%0.1f per block)\n\x00memory allocated\x00%-20s %8ld %8ld  (%d overhead, %0.1f average slack)\n\x00memory used\x00%-20s %8ld %8ld  (%0.1f per atom)\n\x00atoms\x00%-20s %8ld %8ld  (%0.1f per string)\n\x00strings\x00%-20s %8ld %8ld  (%0.1f per object)\n\x00objects\x00  properties\x00%-20s %8ld %8ld  (%0.1f per shape)\n\x00  shapes\x00%-20s %8ld %8ld\n\x00bytecode functions\x00%-20s %8ld %8ld  (%0.1f per function)\n\x00  bytecode\x00  pc2line\x00%-20s %8ld\n\x00C functions\x00arrays\x00  fast arrays\x00%-20s %8ld %8ld  (%0.1f per fast array)\n\x00  elements\x00binary objects\x00    at %s\x00:%d\x00<anonymous>\x00 (%s\x00 (native)\x00'%s' is read-only\x00out of memory\x00stack overflow\x00not an object\x00not a symbol\x00'%s' is not defined\x00lexical variable\x00%s is not initialized\x00%s object expected\x00interrupted\x00object is not extensible\x00circular prototype chain\x00operand 'prototype' property is not an object\x00invalid 'instanceof' right operand\x00cannot read property '%s' of null\x00cannot read property '%s' of undefined\x00private class field '%s' does not exist\x00private class field '%s' already exists\x00private method is already present\x00expecting <brand> private field\x00no setter for property\x00not configurable\x00invalid array length\x00cannot set property '%s' of null\x00cannot set property '%s' of undefined\x00setter is forbidden\x00cannot create numeric index in typed array\x00property is not configurable\x00module namespace properties have writable = false\x00non integer index in typed array\x00negative index in typed array\x00out-of-bound index in typed array\x00invalid descriptor flags\x00redeclaration of '%s'\x00cannot define variable '%s'\x00could not delete property\x00toPrimitive\x00Infinity\x00cannot convert bigint to number\x00cannot convert bigdecimal to number\x00cannot convert bigfloat to number\x00cannot convert symbol to number\x00invalid array index\x00%+.*e\x00%.*f\x00NaN\x00-Infinity\x00[function bytecode]\x00cannot convert symbol to string\x00[unsupported type]\x00null or undefined are forbidden\x00%14s %4s %4s %14s %10s %s\n\x00ADDRESS\x00SHRF\x00CLASS\x00%14p %4d \x00%3d%c %14p \x00%3s  %14s \x00-\x00%10s \x00[ \x00, \x00%02X\x00 ] \x00{ \x00%s: \x00[getset %p %p]\x00[varref %p]\x00[autoinit %p %d %p]\x00 }\x00 Closure:\x00 HomeObject: \x00[shape]\x00[var_ref]\x00[async_function]\x00[js_context]\x00[unknown %d]\x00true\x00false\x00null\x00exception\x00uninitialized\x00undefined\x00%.14g\x00%sn\x00%sl\x00%sm\x00[bytecode %s]\x00[%s %p]\x00Symbol(%s)\x00[module]\x00[unknown tag %d]\x00%s=\x00invalid bigint literal\x00cannot convert to bigint\x00division by zero\x00invalid operation\x00integer overflow\x00bigdecimal expected\x00operator %s: no function defined\x00no overloaded operator %s\x00bigfloat argument with unary +\x00bigdecimal argument with unary +\x00bigint argument with unary +\x00both operands must be bigint\x00bigint operands are forbidden for >>>\x00invalid 'in' operand\x00invalid property access\x00value is not iterable\x00iterator must return an object\x00invalid index for append\x00parent class must be constructor\x00parent prototype must be an object or null\x00must be called with new\x00not a function\x00derived class constructor must return an object or undefined\x00class constructors must be invoked with 'new'\x00invalid brand on object\x00unsupported reference to 'super'\x00iterator does not have a throw method\x00invalid throw var type %d\x00'this' can be initialized only once\x00invalid ret value\x00nip_catch\x00value has no property\x00invalid opcode: pc=%u opcode=0x%02x\x00not a constructor\x00not a generator\x00cannot invoke a running generator\x00not an AsyncGenerator object\x00number: %.14g\n\x00ident: '%s'\n\x00string: '%s'\n\x00template: `%s`\n\x00regexp: '%s' '%s'\n\x00eof\n\x00token: %d\n\x00token: '%c'\n\x00expecting '%c'\x00'%s' is a reserved identifier\x00invalid UTF-8 sequence\x00unexpected end of string\x00invalid character in a JSON string\x00octal escape sequences are not allowed in strict mode\x00malformed escape sequence in string literal\x00unexpected end of regexp\x00unexpected line terminator in regexp\x00unexpected end of comment\x00invalid first character of private name\x00octal literals are deprecated in strict mode\x00invalid number literal\x00unexpected character\x00too many local variables\x00too many arguments\x00invalid redefinition of lexical identifier\x00invalid redefinition of parameter name\x00invalid redefinition of a variable\x00invalid redefinition of global identifier\x00expected '}' after template expression\x00invalid property name\x00duplicate __proto__ property name\x00(){super(...arguments);}\x00(){}\x00<set>\x00class statement requires a name\x00invalid method name\x00invalid field name\x00property constructor appears more than once\x00private class field is already defined\x00invalid lvalue in strict mode\x00invalid for in/of left hand-side\x00invalid increment/decrement operand\x00invalid destructuring target\x00invalid assignment left-hand side\x00unsupported keyword: %s\x00yield is a reserved identifier\x00invalid variable name in strict mode\x00invalid lexical variable name\x00duplicate parameter names not allowed in this context\x00unexpected ellipsis token\x00assignment rest property must be last\x00missing binding pattern...\x00rest element cannot have a default value\x00rest element must be the last one\x00invalid assignment syntax\x00too complicated destructuring expression\x00RegExp are not supported\x00'arguments' identifier is not allowed in class field initializer\x00expecting target\x00new.target only allowed within functions\x00super() is only valid in a derived class constructor\x00'super' is only valid in a method\x00invalid use of 'super'\x00meta expected\x00import.meta only valid in module code\x00invalid use of 'import()'\x00unexpected token in expression: '%.*s'\x00template literal cannot appear in an optional chain\x00Too many call arguments\x00private class field forbidden after super\x00expecting field name\x00cannot delete a direct reference in strict mode\x00cannot delete a private class field\x00unexpected 'await' keyword\x00await in default expression\x00unparenthesized unary expression can't appear on the left-hand side of '**'\x00cannot mix ?? with && or ||\x00unexpected 'yield' keyword\x00yield in default expression\x00continue must be inside loop\x00break must be inside loop or switch\x00break/continue label not found\x00'let' is not a valid lexical identifier\x00missing initializer for const variable\x00variable name expected\x00'for of' expression cannot start with 'async'\x00'for await' loop should be used with 'of'\x00of\x00in\x00a declaration in the head of a for-%s loop can't have an initializer\x00expected 'of' or 'in' in for control expression\x00duplicate label name\x00return not in a function\x00return in a static initializer block\x00line terminator not allowed after throw\x00lexical declarations can't appear in single-statement context\x00for await is only valid in asynchronous functions\x00duplicate default\x00invalid switch statement\x00identifier expected\x00expecting catch or finally\x00invalid keyword: with\x00function declarations can't appear in single-statement context\x00class declarations can't appear in single-statement context\x00duplicate exported name '%s'\x00.\x00..\x00/\x00could not load module '%s'\x00Could not find export '%s' in module '%s'\x00circular reference when looking for export '%s' in module '%s'\x00export '%s' in module '%s' is ambiguous\x00import.meta not supported in this context\x00no function filename for import()\x00promise is pending\x00from clause expected\x00string expected\x00invalid export syntax\x00invalid import binding\x00duplicate import binding\x00expecting 'as'\x00too many closure variables\x00undefined private field '%s'\x00bytecode buffer overflow (op=%d, pc=%d)\x00stack overflow (op=%d, pc=%d)\x00inconsistent stack size: %d %d (pc=%d)\x00inconsistent catch position: %d %d (pc=%d)\x00invalid opcode (op=%d, pc=%d)\x00stack underflow (op=%d, pc=%d)\x00nip_catch: no catch op (pc=%d)\x00exported variable '%s' does not exist\x00use strict\x00use strip\x00use math\x00\"use strict\" not allowed in function with default or destructuring parameter\x00invalid function name in strict code\x00invalid argument name in strict code\x00duplicate argument names not allowed in this context\x00function name expected\x00invalid redefinition of global identifier in module code\x00missing formal parameter\x00invalid number of arguments for getter or setter\x00bytecode function expected\x00eval is not supported\x00<input>\x00bignum exponent is too large\x00bignum is too large\x00only value properties are supported\x00circular reference\x00unsupported object class\x00unsupported tag (%d)\x00read after the end of the buffer\x00invalid atom index (pos=%u)\x00invalid bignum length\x00invalid digit\x00invalid typed array\x00Number tag expected for date\x00object references are not allowed\x00invalid object reference (%u >= %u)\x00invalid tag (tag=%d pos=%u)\x00invalid version (%d expected=%d)\x00get %s\x00set %s\x00cannot convert to object\x00invalid getter\x00invalid setter\x00cannot have setter/getter and value or writable\x00not a prototype\x00proxy preventExtensions handler returned false\x00Null\x00Undefined\x00[object \x00create\x00getPrototypeOf\x00setPrototypeOf\x00defineProperty\x00defineProperties\x00getOwnPropertyNames\x00getOwnPropertySymbols\x00groupBy\x00keys\x00values\x00entries\x00isExtensible\x00preventExtensions\x00getOwnPropertyDescriptor\x00getOwnPropertyDescriptors\x00is\x00assign\x00seal\x00freeze\x00isSealed\x00isFrozen\x00__getClass\x00fromEntries\x00hasOwn\x00toString\x00toLocaleString\x00valueOf\x00hasOwnProperty\x00isPrototypeOf\x00propertyIsEnumerable\x00__proto__\x00__defineGetter__\x00__defineSetter__\x00__lookupGetter__\x00__lookupSetter__\x00async \x00function\x00 anonymous(\x00\n) {\n\x00\n})\x00not a object\x00too many arguments in function call (only %d allowed)\x00bound \x00function \x00function *\x00async function \x00async function *\x00() {\n    [native code]\n}\x00call\x00apply\x00bind\x00[Symbol.hasInstance]\x00fileName\x00lineNumber\x00: \x00name\x00Error\x00message\x00isArray\x00from\x00[Symbol.species]\x00invalid array index: %ld\x00Array loo long\x00empty array\x00Array too long\x00[Symbol.iterator]\x00at\x00with\x00concat\x00every\x00some\x00forEach\x00map\x00filter\x00reduce\x00reduceRight\x00fill\x00find\x00findIndex\x00findLast\x00findLastIndex\x00indexOf\x00lastIndexOf\x00includes\x00join\x00pop\x00push\x00shift\x00unshift\x00reverse\x00toReversed\x00sort\x00toSorted\x00slice\x00splice\x00toSpliced\x00copyWithin\x00flatMap\x00flat\x00next\x00[Symbol.toStringTag]\x00Array Iterator\x00parseInt\x00parseFloat\x00isNaN\x00isFinite\x00isInteger\x00isSafeInteger\x00MAX_VALUE\x00MIN_VALUE\x00NEGATIVE_INFINITY\x00POSITIVE_INFINITY\x00EPSILON\x00MAX_SAFE_INTEGER\x00MIN_SAFE_INTEGER\x00not a number\x00radix must be between 2 and 36\x00invalid number of digits\x00toExponential\x00toFixed\x00toPrecision\x00not a boolean\x00Symbol(\x00)\x00not a string\x00invalid code point\x00regexp not supported\x00regexp must have the 'g' flag\x00g\x00invalid string length\x00invalid repeat count\x00bad normalization form\x00a\x00big\x00blink\x00b\x00tt\x00font\x00color\x00size\x00i\x00href\x00small\x00strike\x00sub\x00sup\x00=\"\x00&quot;\x00</\x00fromCharCode\x00fromCodePoint\x00raw\x00length\x00charCodeAt\x00charAt\x00codePointAt\x00isWellFormed\x00toWellFormed\x00endsWith\x00startsWith\x00match\x00matchAll\x00search\x00split\x00substring\x00substr\x00repeat\x00replace\x00replaceAll\x00padEnd\x00padStart\x00trim\x00trimEnd\x00trimRight\x00trimStart\x00trimLeft\x00__quote\x00localeCompare\x00toLowerCase\x00toUpperCase\x00toLocaleLowerCase\x00toLocaleUpperCase\x00anchor\x00bold\x00fixed\x00fontcolor\x00fontsize\x00italics\x00link\x00String Iterator\x00normalize\x00min\x00max\x00abs\x00floor\x00ceil\x00round\x00sqrt\x00acos\x00asin\x00atan\x00atan2\x00cos\x00exp\x00log\x00pow\x00sin\x00tan\x00trunc\x00sign\x00cosh\x00sinh\x00tanh\x00acosh\x00asinh\x00atanh\x00expm1\x00log1p\x00log2\x00log10\x00cbrt\x00hypot\x00random\x00fround\x00imul\x00clz32\x00Math\x00E\x00LN10\x00LN2\x00LOG2E\x00LOG10E\x00PI\x00SQRT1_2\x00SQRT2\x00invalid regular expression flags\x00flags must be undefined\x00(?:)\x00hasIndices\x00ignoreCase\x00multiline\x00dotAll\x00sticky\x00out of memory in regexp execution\x00RegExp exec method must return an object or null\x00y\x00flags\x00source\x00global\x00unicode\x00exec\x00compile\x00test\x00[Symbol.replace]\x00[Symbol.match]\x00[Symbol.matchAll]\x00[Symbol.search]\x00[Symbol.split]\x00RegExp String Iterator\x00RegExp\x00expecting property name\x00Unexpected end of JSON input\x00unexpected token: '%.*s'\x00unexpected data at the end\x00Do not know how to serialize a BigInt\x00          \x00parse\x00stringify\x00JSON\x00construct\x00deleteProperty\x00get\x00has\x00ownKeys\x00set\x00Reflect\x00revoked proxy\x00proxy: inconsistent prototype\x00proxy: bad prototype\x00proxy: inconsistent isExtensible\x00proxy: inconsistent preventExtensions\x00proxy: inconsistent has\x00proxy: inconsistent get\x00proxy: inconsistent set\x00proxy: cannot set property\x00proxy: inconsistent getOwnPropertyDescriptor\x00proxy: defineProperty exception\x00proxy: inconsistent defineProperty\x00proxy: inconsistent deleteProperty\x00proxy: properties must be strings or symbols\x00proxy: duplicate property\x00proxy: target property must be present in proxy ownKeys\x00proxy: property not present in target were returned by non extensible proxy\x00revocable\x00Proxy\x00[Symbol.toPrimitive]\x00Symbol\x00description\x00for\x00keyFor\x00set/add is not a function\x00too many elements\x00delete\x00clear\x00Map\x00Map Iterator\x00add\x00Set\x00Set Iterator\x00WeakMap\x00WeakSet\x00GeneratorFunction\x00return\x00throw\x00Generator\x00promise self resolution\x00resolving function already set\x00rejected\x00fulfilled\x00resolve\x00reject\x00all\x00allSettled\x00any\x00race\x00withResolvers\x00then\x00catch\x00finally\x00Promise\x00AsyncFunction\x00[Symbol.asyncIterator]\x00not an Async-from-Sync Iterator\x00AsyncGeneratorFunction\x00AsyncGenerator\x00;/?:@&=+$,#\x00expecting %%\x00expecting hex digit\x00malformed UTF-8\x00-_.!~*'()\x000123456789ABCDEF\x00invalid character\x00expecting surrogate pair\x00decodeURI\x00decodeURIComponent\x00encodeURI\x00encodeURIComponent\x00escape\x00unescape\x00not a Date object\x00Date value is NaN\x00Invalid Date\x00%.3s, %02d %.3s %0*d \x00%.3s %.3s %02d %0*d\x00%04d\x00%+07d\x00-%02d-%02dT\x00%02d/%02d/%0*d\x00%02d:%02d:%02d GMT\x00%02d%02d\x00%02d:%02d:%02d.%03dZ\x00%02d:%02d:%02d %cM\x000123456789 -/(\x00PM\x00AM\x00 -/(\x00invalid hint\x00toISOString\x00object needs toISOString method\x00now\x00UTC\x00toUTCString\x00toGMTString\x00toDateString\x00toTimeString\x00toLocaleDateString\x00toLocaleTimeString\x00getTimezoneOffset\x00getTime\x00getYear\x00getFullYear\x00getUTCFullYear\x00getMonth\x00getUTCMonth\x00getDate\x00getUTCDate\x00getHours\x00getUTCHours\x00getMinutes\x00getUTCMinutes\x00getSeconds\x00getUTCSeconds\x00getMilliseconds\x00getUTCMilliseconds\x00getDay\x00getUTCDay\x00setTime\x00setMilliseconds\x00setUTCMilliseconds\x00setSeconds\x00setUTCSeconds\x00setMinutes\x00setUTCMinutes\x00setHours\x00setUTCHours\x00setDate\x00setUTCDate\x00setMonth\x00setUTCMonth\x00setYear\x00setFullYear\x00setUTCFullYear\x00toJSON\x00Date\x00too many operators\x00left\x00right\x00left or right property must be present\x00Operators\x00updateBigIntOperators\x00cannot convert NaN or Infinity to BigInt\x00cannot convert to BigInt: not an integer\x00cannot convert to BigInt\x00not a BigInt\x00asUintN\x00asIntN\x00tdiv\x00fdiv\x00cdiv\x00ediv\x00tdivrem\x00fdivrem\x00cdivrem\x00edivrem\x00sqrtrem\x00floorLog2\x00ctz\x00BigInt\x00not a bigfloat\x00invalid rounding mode\x00invalid bigfloat literal\x00cannot convert to bigfloat\x00fpRound\x00mul\x00div\x00fmod\x00remainder\x00invalid precision\x00invalid number of exponent bits\x00prec\x00expBits\x00setPrec\x00RNDN\x00RNDZ\x00RNDU\x00RNDD\x00RNDNA\x00RNDA\x00RNDF\x00precMin\x00precMax\x00expBitsMin\x00expBitsMax\x00rndMode\x00subnormal\x00invalidOperation\x00divideByZero\x00overflow\x00underflow\x00inexact\x00clearStatus\x00BigFloat\x00BigFloatEnv\x00invalid bigdecimal literal\x00cannot convert to bigdecimal\x00not a bigdecimal\x00ceiling\x00down\x00up\x00half-even\x00half-up\x00cannot provide both maximumSignificantDigits and maximumFractionDigits\x00precision must be present\x00mod\x00BigDecimal\x00EvalError\x00RangeError\x00ReferenceError\x00SyntaxError\x00TypeError\x00URIError\x00InternalError\x00AggregateError\x00Object\x00Function\x00Array\x00Number\x00Boolean\x00String\x00eval\x00invalid array buffer length\x00isView\x00ArrayBuffer is detached\x00cannot use identical ArrayBuffer\x00new ArrayBuffer is too small\x00byteLength\x00ArrayBuffer\x00SharedArrayBuffer\x00DataView\x00TypedArray\x00not a %s\x00TypedArray length is too small\x00buffer\x00byteOffset\x00subarray\x00cannot be called\x00invalid offset\x00invalid length\x00invalid byteOffset\x00invalid byteLength\x00out of bound\x00getInt8\x00getUint8\x00getInt16\x00getUint16\x00getInt32\x00getUint32\x00getBigInt64\x00getBigUint64\x00getFloat32\x00getFloat64\x00setInt8\x00setUint8\x00setInt16\x00setUint16\x00setInt32\x00setUint32\x00setBigInt64\x00setBigUint64\x00setFloat32\x00setFloat64\x00BYTES_PER_ELEMENT\x00expecting '{' after \\p\x00unknown unicode property value\x00expecting '}'\x00Script\x00sc\x00Script_Extensions\x00scx\x00unknown unicode script\x00General_Category\x00gc\x00unknown unicode general category\x00unknown unicode property name\x00^$\\.*+?()[]{}|/\x00invalid escape sequence in regular expression\x00unexpected end\x00malformed unicode char\x00too many ranges\x00invalid class range\x00syntax error\x00nothing to repeat\x00invalid group name\x00duplicate group name\x00invalid group\x00too many captures\x00expecting group name\x00group name not defined\x00invalid decimal escape in regular expression\x00back reference out of range in regular expression\x00invalid repetition count\x00extraneous characters at the end\x00too many imbricated quantifiers\x00%d: 0x%04x\n\x00invalid conversion specifier in format string\x00missing argument for conversion specifier\x00rb\x00could not load '%s'\x00./\x00could not load module filename '%s' as shared library\x00js_init_module\x00could not load module filename '%s': js_init_module not found\x00could not load module filename '%s': initialization error\x00file://\x00realpath failure\x00url\x00main\x00.so\x00could not load module filename '%s'\x00backtrace_barrier\x00async\x00<evalScript>\x00errno\x00rwa+b\x00invalid file mode\x00rw\x00rwa+\x00invalid file handle\x00read/write array buffer overflow\x00binary\x00full\x00%s '\x00curl -s -i --\x00'\\''\x00'\x00r\x00could not start curl\x00\r\n\x00response\x00responseHeaders\x00status\x00FILE\x00EINVAL\x00EIO\x00EACCES\x00EEXIST\x00ENOSPC\x00ENOSYS\x00EBUSY\x00ENOENT\x00EPERM\x00EPIPE\x00EBADF\x00exit\x00evalScript\x00loadScript\x00getenv\x00setenv\x00unsetenv\x00getenviron\x00urlGet\x00loadFile\x00strerror\x00parseExtJSON\x00open\x00popen\x00fdopen\x00tmpfile\x00puts\x00printf\x00sprintf\x00SEEK_SET\x00SEEK_CUR\x00SEEK_END\x00close\x00flush\x00tell\x00tello\x00seek\x00eof\x00fileno\x00error\x00clearerr\x00read\x00write\x00getline\x00readAsString\x00getByte\x00putByte\x00out\x00err\x00signal handler can only be set in the main thread\x00invalid signal number\x00data\x00dev\x00ino\x00mode\x00nlink\x00uid\x00gid\x00rdev\x00blocks\x00atime\x00mtime\x00ctime\x00PATH\x00/bin:/usr/bin\x00stdin\x00stdout\x00stderr\x00invalid number of arguments\x00block\x00usePath\x00file\x00cwd\x00env\x00fork error\x00Worker\x00JS_NewRuntime failure\x00JS_NewContext failure\x00prototype\x00cannot create a worker inside a worker\x00could not determine calling script or module name\x00could not create worker\x00postMessage\x00onmessage\x00O_RDONLY\x00O_WRONLY\x00O_RDWR\x00O_APPEND\x00O_CREAT\x00O_EXCL\x00O_TRUNC\x00isatty\x00ttyGetWinSize\x00ttySetRaw\x00remove\x00rename\x00setReadHandler\x00setWriteHandler\x00signal\x00SIGINT\x00SIGABRT\x00SIGFPE\x00SIGILL\x00SIGSEGV\x00SIGTERM\x00SIGQUIT\x00SIGPIPE\x00SIGALRM\x00SIGUSR1\x00SIGUSR2\x00SIGCHLD\x00SIGCONT\x00SIGSTOP\x00SIGTSTP\x00SIGTTIN\x00SIGTTOU\x00setTimeout\x00clearTimeout\x00sleepAsync\x00platform\x00linux\x00getcwd\x00chdir\x00mkdir\x00readdir\x00S_IFMT\x00S_IFIFO\x00S_IFCHR\x00S_IFDIR\x00S_IFBLK\x00S_IFREG\x00S_IFSOCK\x00S_IFLNK\x00S_ISGID\x00S_ISUID\x00stat\x00utimes\x00sleep\x00realpath\x00lstat\x00symlink\x00readlink\x00getpid\x00waitpid\x00WNOHANG\x00pipe\x00kill\x00dup\x00dup2\x00parent\x00console\x00scriptArgs\x00print\x00__loadScript\x00Could not allocate memory for the worker\x00%s\n\x00[exception]\n\x00stack\x00Possibly unhandled promise rejection: \x00%s: len=%d\n\x00%d: %08x\n\x00%s= 0x\x00_\x00%08x\x00Inf\x000x0.\x00p%d\x00nan\x00inf\x000x\x000o\x000b\x000\x000.\x00p%+d\x00%c%+d\x00%c%d\x00%0*u\x00e%d\x00"
+var __ccgo_ts1 = "unsupported operation\x00\x00\\u%04x\x00<null>\x00%d\x00JSAtom count=%d size=%d hash_size=%d:\n\x00JSAtom hash table: {\n\x00  %d:\x00 \x00\n\x00}\n\x00JSAtom table: {\n\x00  %d: { %d %08x \x00 %d }\n\x00%u\x00%ld\x00nfinity\x00%s\x00%.*s\x00string too long\x00%5d %3d%c %14p %5d %5d\x00 *\x00 %s\x00JSShapes: {\n\x00%5s %4s %14s %5s %5s %s\n\x00SLOT\x00REFS\x00PROTO\x00SIZE\x00COUNT\x00PROPS\x00invalid object type\x00[\x00]\x00get \x00set \x00__JS_FreeValue: unknown tag=%d\n\x00QuickJS memory usage -- BigNum 2024-02-14 version, %d-bit, malloc limit: %ld\n\n\x00JSRuntime\x00JSContext\x00JSObject\x00JSString\x00JSFunctionBytecode\x00  %3u + %-2u  %s\n\x00  malloc_usable_size unavailable\n\x00\nJSObject classes\n\x00  %5d  %2.0d %s\n\x00none\x00other\x00%-20s %8s %8s\n\x00NAME\x00%-20s %8ld %8ld  (%0.1f per block)\n\x00memory allocated\x00%-20s %8ld %8ld  (%d overhead, %0.1f average slack)\n\x00memory used\x00%-20s %8ld %8ld  (%0.1f per atom)\n\x00atoms\x00%-20s %8ld %8ld  (%0.1f per string)\n\x00strings\x00%-20s %8ld %8ld  (%0.1f per object)\n\x00objects\x00  properties\x00%-20s %8ld %8ld  (%0.1f per shape)\n\x00  shapes\x00%-20s %8ld %8ld\n\x00bytecode functions\x00%-20s %8ld %8ld  (%0.1f per function)\n\x00  bytecode\x00  pc2line\x00%-20s %8ld\n\x00C functions\x00arrays\x00  fast arrays\x00%-20s %8ld %8ld  (%0.1f per fast array)\n\x00  elements\x00binary objects\x00    at %s\x00:%d\x00<anonymous>\x00 (%s\x00 (native)\x00'%s' is read-only\x00out of memory\x00stack overflow\x00not an object\x00not a symbol\x00'%s' is not defined\x00lexical variable\x00%s is not initialized\x00%s object expected\x00interrupted\x00object is not extensible\x00circular prototype chain\x00operand 'prototype' property is not an object\x00invalid 'instanceof' right operand\x00cannot read property '%s' of null\x00cannot read property '%s' of undefined\x00private class field '%s' does not exist\x00private class field '%s' already exists\x00private method is already present\x00expecting <brand> private field\x00no setter for property\x00not configurable\x00invalid array length\x00cannot set property '%s' of null\x00cannot set property '%s' of undefined\x00setter is forbidden\x00cannot create numeric index in typed array\x00property is not configurable\x00module namespace properties have writable = false\x00non integer index in typed array\x00negative index in typed array\x00out-of-bound index in typed array\x00invalid descriptor flags\x00redeclaration of '%s'\x00cannot define variable '%s'\x00could not delete property\x00toPrimitive\x00Infinity\x00cannot convert bigint to number\x00cannot convert bigdecimal to number\x00cannot convert bigfloat to number\x00cannot convert symbol to number\x00invalid array index\x00%+.*e\x00%.*f\x00NaN\x00-Infinity\x00[function bytecode]\x00cannot convert symbol to string\x00[unsupported type]\x00null or undefined are forbidden\x00%14s %4s %4s %14s %10s %s\n\x00ADDRESS\x00SHRF\x00CLASS\x00%14p %4d \x00%3d%c %14p \x00%3s  %14s \x00-\x00%10s \x00[ \x00, \x00%02X\x00 ] \x00{ \x00%s: \x00[getset %p %p]\x00[varref %p]\x00[autoinit %p %d %p]\x00 }\x00 Closure:\x00 HomeObject: \x00[shape]\x00[var_ref]\x00[async_function]\x00[js_context]\x00[unknown %d]\x00true\x00false\x00null\x00exception\x00uninitialized\x00undefined\x00%.14g\x00%sn\x00%sl\x00%sm\x00[bytecode %s]\x00[%s %p]\x00Symbol(%s)\x00[module]\x00[unknown tag %d]\x00%s=\x00invalid bigint literal\x00cannot convert to bigint\x00division by zero\x00invalid operation\x00integer overflow\x00bigdecimal expected\x00operator %s: no function defined\x00no overloaded operator %s\x00bigfloat argument with unary +\x00bigdecimal argument with unary +\x00bigint argument with unary +\x00both operands must be bigint\x00bigint operands are forbidden for >>>\x00invalid 'in' operand\x00invalid property access\x00value is not iterable\x00iterator must return an object\x00invalid index for append\x00parent class must be constructor\x00parent prototype must be an object or null\x00must be called with new\x00not a function\x00derived class constructor must return an object or undefined\x00class constructors must be invoked with 'new'\x00invalid brand on object\x00unsupported reference to 'super'\x00iterator does not have a throw method\x00invalid throw var type %d\x00'this' can be initialized only once\x00invalid ret value\x00nip_catch\x00value has no property\x00invalid opcode: pc=%u opcode=0x%02x\x00not a constructor\x00not a generator\x00cannot invoke a running generator\x00not an AsyncGenerator object\x00number: %.14g\n\x00ident: '%s'\n\x00string: '%s'\n\x00template: `%s`\n\x00regexp: '%s' '%s'\n\x00eof\n\x00token: %d\n\x00token: '%c'\n\x00expecting '%c'\x00'%s' is a reserved identifier\x00invalid UTF-8 sequence\x00unexpected end of string\x00invalid character in a JSON string\x00octal escape sequences are not allowed in strict mode\x00malformed escape sequence in string literal\x00unexpected end of regexp\x00unexpected line terminator in regexp\x00unexpected end of comment\x00invalid first character of private name\x00octal literals are deprecated in strict mode\x00invalid number literal\x00unexpected character\x00too many local variables\x00too many arguments\x00invalid redefinition of lexical identifier\x00invalid redefinition of parameter name\x00invalid redefinition of a variable\x00invalid redefinition of global identifier\x00expected '}' after template expression\x00invalid property name\x00duplicate __proto__ property name\x00(){super(...arguments);}\x00(){}\x00<set>\x00class statement requires a name\x00invalid method name\x00invalid field name\x00property constructor appears more than once\x00private class field is already defined\x00invalid lvalue in strict mode\x00invalid for in/of left hand-side\x00invalid increment/decrement operand\x00invalid destructuring target\x00invalid assignment left-hand side\x00unsupported keyword: %s\x00yield is a reserved identifier\x00invalid variable name in strict mode\x00invalid lexical variable name\x00duplicate parameter names not allowed in this context\x00unexpected ellipsis token\x00assignment rest property must be last\x00missing binding pattern...\x00rest element cannot have a default value\x00rest element must be the last one\x00invalid assignment syntax\x00too complicated destructuring expression\x00RegExp are not supported\x00'arguments' identifier is not allowed in class field initializer\x00expecting target\x00new.target only allowed within functions\x00super() is only valid in a derived class constructor\x00'super' is only valid in a method\x00invalid use of 'super'\x00meta expected\x00import.meta only valid in module code\x00invalid use of 'import()'\x00unexpected token in expression: '%.*s'\x00template literal cannot appear in an optional chain\x00Too many call arguments\x00private class field forbidden after super\x00expecting field name\x00cannot delete a direct reference in strict mode\x00cannot delete a private class field\x00unexpected 'await' keyword\x00await in default expression\x00unparenthesized unary expression can't appear on the left-hand side of '**'\x00cannot mix ?? with && or ||\x00unexpected 'yield' keyword\x00yield in default expression\x00continue must be inside loop\x00break must be inside loop or switch\x00break/continue label not found\x00'let' is not a valid lexical identifier\x00missing initializer for const variable\x00variable name expected\x00'for of' expression cannot start with 'async'\x00'for await' loop should be used with 'of'\x00of\x00in\x00a declaration in the head of a for-%s loop can't have an initializer\x00expected 'of' or 'in' in for control expression\x00duplicate label name\x00return not in a function\x00return in a static initializer block\x00line terminator not allowed after throw\x00lexical declarations can't appear in single-statement context\x00for await is only valid in asynchronous functions\x00duplicate default\x00invalid switch statement\x00identifier expected\x00expecting catch or finally\x00invalid keyword: with\x00function declarations can't appear in single-statement context\x00class declarations can't appear in single-statement context\x00duplicate exported name '%s'\x00.\x00..\x00/\x00could not load module '%s'\x00Could not find export '%s' in module '%s'\x00circular reference when looking for export '%s' in module '%s'\x00export '%s' in module '%s' is ambiguous\x00import.meta not supported in this context\x00no function filename for import()\x00promise is pending\x00from clause expected\x00string expected\x00invalid export syntax\x00invalid import binding\x00duplicate import binding\x00expecting 'as'\x00too many closure variables\x00undefined private field '%s'\x00bytecode buffer overflow (op=%d, pc=%d)\x00stack overflow (op=%d, pc=%d)\x00inconsistent stack size: %d %d (pc=%d)\x00inconsistent catch position: %d %d (pc=%d)\x00invalid opcode (op=%d, pc=%d)\x00stack underflow (op=%d, pc=%d)\x00nip_catch: no catch op (pc=%d)\x00exported variable '%s' does not exist\x00use strict\x00use strip\x00use math\x00\"use strict\" not allowed in function with default or destructuring parameter\x00invalid function name in strict code\x00invalid argument name in strict code\x00duplicate argument names not allowed in this context\x00function name expected\x00invalid redefinition of global identifier in module code\x00missing formal parameter\x00invalid number of arguments for getter or setter\x00bytecode function expected\x00eval is not supported\x00<input>\x00bignum exponent is too large\x00bignum is too large\x00only value properties are supported\x00circular reference\x00unsupported object class\x00unsupported tag (%d)\x00read after the end of the buffer\x00invalid atom index (pos=%u)\x00invalid bignum length\x00invalid digit\x00invalid typed array\x00Number tag expected for date\x00object references are not allowed\x00invalid object reference (%u >= %u)\x00invalid tag (tag=%d pos=%u)\x00invalid version (%d expected=%d)\x00get %s\x00set %s\x00cannot convert to object\x00invalid getter\x00invalid setter\x00cannot have setter/getter and value or writable\x00not a prototype\x00proxy preventExtensions handler returned false\x00Null\x00Undefined\x00[object \x00create\x00getPrototypeOf\x00setPrototypeOf\x00defineProperty\x00defineProperties\x00getOwnPropertyNames\x00getOwnPropertySymbols\x00groupBy\x00keys\x00values\x00entries\x00isExtensible\x00preventExtensions\x00getOwnPropertyDescriptor\x00getOwnPropertyDescriptors\x00is\x00assign\x00seal\x00freeze\x00isSealed\x00isFrozen\x00__getClass\x00fromEntries\x00hasOwn\x00toString\x00toLocaleString\x00valueOf\x00hasOwnProperty\x00isPrototypeOf\x00propertyIsEnumerable\x00__proto__\x00__defineGetter__\x00__defineSetter__\x00__lookupGetter__\x00__lookupSetter__\x00async \x00function\x00 anonymous(\x00\n) {\n\x00\n})\x00not a object\x00too many arguments in function call (only %d allowed)\x00bound \x00function \x00function *\x00async function \x00async function *\x00() {\n    [native code]\n}\x00call\x00apply\x00bind\x00[Symbol.hasInstance]\x00fileName\x00lineNumber\x00: \x00name\x00Error\x00message\x00isArray\x00from\x00[Symbol.species]\x00invalid array index: %ld\x00Array loo long\x00empty array\x00Array too long\x00[Symbol.iterator]\x00at\x00with\x00concat\x00every\x00some\x00forEach\x00map\x00filter\x00reduce\x00reduceRight\x00fill\x00find\x00findIndex\x00findLast\x00findLastIndex\x00indexOf\x00lastIndexOf\x00includes\x00join\x00pop\x00push\x00shift\x00unshift\x00reverse\x00toReversed\x00sort\x00toSorted\x00slice\x00splice\x00toSpliced\x00copyWithin\x00flatMap\x00flat\x00next\x00[Symbol.toStringTag]\x00Array Iterator\x00parseInt\x00parseFloat\x00isNaN\x00isFinite\x00isInteger\x00isSafeInteger\x00MAX_VALUE\x00MIN_VALUE\x00NEGATIVE_INFINITY\x00POSITIVE_INFINITY\x00EPSILON\x00MAX_SAFE_INTEGER\x00MIN_SAFE_INTEGER\x00not a number\x00radix must be between 2 and 36\x00invalid number of digits\x00toExponential\x00toFixed\x00toPrecision\x00not a boolean\x00Symbol(\x00)\x00not a string\x00invalid code point\x00regexp not supported\x00regexp must have the 'g' flag\x00g\x00invalid string length\x00invalid repeat count\x00bad normalization form\x00a\x00big\x00blink\x00b\x00tt\x00font\x00color\x00size\x00i\x00href\x00small\x00strike\x00sub\x00sup\x00=\"\x00&quot;\x00</\x00fromCharCode\x00fromCodePoint\x00raw\x00length\x00charCodeAt\x00charAt\x00codePointAt\x00isWellFormed\x00toWellFormed\x00endsWith\x00startsWith\x00match\x00matchAll\x00search\x00split\x00substring\x00substr\x00repeat\x00replace\x00replaceAll\x00padEnd\x00padStart\x00trim\x00trimEnd\x00trimRight\x00trimStart\x00trimLeft\x00__quote\x00localeCompare\x00toLowerCase\x00toUpperCase\x00toLocaleLowerCase\x00toLocaleUpperCase\x00anchor\x00bold\x00fixed\x00fontcolor\x00fontsize\x00italics\x00link\x00String Iterator\x00normalize\x00min\x00max\x00abs\x00floor\x00ceil\x00round\x00sqrt\x00acos\x00asin\x00atan\x00atan2\x00cos\x00exp\x00log\x00pow\x00sin\x00tan\x00trunc\x00sign\x00cosh\x00sinh\x00tanh\x00acosh\x00asinh\x00atanh\x00expm1\x00log1p\x00log2\x00log10\x00cbrt\x00hypot\x00random\x00fround\x00imul\x00clz32\x00Math\x00E\x00LN10\x00LN2\x00LOG2E\x00LOG10E\x00PI\x00SQRT1_2\x00SQRT2\x00invalid regular expression flags\x00flags must be undefined\x00(?:)\x00hasIndices\x00ignoreCase\x00multiline\x00dotAll\x00sticky\x00out of memory in regexp execution\x00RegExp exec method must return an object or null\x00y\x00flags\x00source\x00global\x00unicode\x00exec\x00compile\x00test\x00[Symbol.replace]\x00[Symbol.match]\x00[Symbol.matchAll]\x00[Symbol.search]\x00[Symbol.split]\x00RegExp String Iterator\x00RegExp\x00expecting property name\x00Unexpected end of JSON input\x00unexpected token: '%.*s'\x00unexpected data at the end\x00Do not know how to serialize a BigInt\x00          \x00parse\x00stringify\x00JSON\x00construct\x00deleteProperty\x00get\x00has\x00ownKeys\x00set\x00Reflect\x00revoked proxy\x00proxy: inconsistent prototype\x00proxy: bad prototype\x00proxy: inconsistent isExtensible\x00proxy: inconsistent preventExtensions\x00proxy: inconsistent has\x00proxy: inconsistent get\x00proxy: inconsistent set\x00proxy: cannot set property\x00proxy: inconsistent getOwnPropertyDescriptor\x00proxy: defineProperty exception\x00proxy: inconsistent defineProperty\x00proxy: inconsistent deleteProperty\x00proxy: properties must be strings or symbols\x00proxy: duplicate property\x00proxy: target property must be present in proxy ownKeys\x00proxy: property not present in target were returned by non extensible proxy\x00revocable\x00Proxy\x00[Symbol.toPrimitive]\x00Symbol\x00description\x00for\x00keyFor\x00set/add is not a function\x00too many elements\x00delete\x00clear\x00Map\x00Map Iterator\x00add\x00Set\x00Set Iterator\x00WeakMap\x00WeakSet\x00GeneratorFunction\x00return\x00throw\x00Generator\x00promise self resolution\x00resolving function already set\x00rejected\x00fulfilled\x00resolve\x00reject\x00all\x00allSettled\x00any\x00race\x00withResolvers\x00then\x00catch\x00finally\x00Promise\x00AsyncFunction\x00[Symbol.asyncIterator]\x00not an Async-from-Sync Iterator\x00AsyncGeneratorFunction\x00AsyncGenerator\x00;/?:@&=+$,#\x00expecting %%\x00expecting hex digit\x00malformed UTF-8\x00-_.!~*'()\x000123456789ABCDEF\x00invalid character\x00expecting surrogate pair\x00decodeURI\x00decodeURIComponent\x00encodeURI\x00encodeURIComponent\x00escape\x00unescape\x00not a Date object\x00Date value is NaN\x00Invalid Date\x00%.3s, %02d %.3s %0*d \x00%.3s %.3s %02d %0*d\x00%04d\x00%+07d\x00-%02d-%02dT\x00%02d/%02d/%0*d\x00%02d:%02d:%02d GMT\x00%02d%02d\x00%02d:%02d:%02d.%03dZ\x00%02d:%02d:%02d %cM\x000123456789 -/(\x00PM\x00AM\x00 -/(\x00invalid hint\x00toISOString\x00object needs toISOString method\x00now\x00UTC\x00toUTCString\x00toGMTString\x00toDateString\x00toTimeString\x00toLocaleDateString\x00toLocaleTimeString\x00getTimezoneOffset\x00getTime\x00getYear\x00getFullYear\x00getUTCFullYear\x00getMonth\x00getUTCMonth\x00getDate\x00getUTCDate\x00getHours\x00getUTCHours\x00getMinutes\x00getUTCMinutes\x00getSeconds\x00getUTCSeconds\x00getMilliseconds\x00getUTCMilliseconds\x00getDay\x00getUTCDay\x00setTime\x00setMilliseconds\x00setUTCMilliseconds\x00setSeconds\x00setUTCSeconds\x00setMinutes\x00setUTCMinutes\x00setHours\x00setUTCHours\x00setDate\x00setUTCDate\x00setMonth\x00setUTCMonth\x00setYear\x00setFullYear\x00setUTCFullYear\x00toJSON\x00Date\x00too many operators\x00left\x00right\x00left or right property must be present\x00Operators\x00updateBigIntOperators\x00cannot convert NaN or Infinity to BigInt\x00cannot convert to BigInt: not an integer\x00cannot convert to BigInt\x00not a BigInt\x00asUintN\x00asIntN\x00tdiv\x00fdiv\x00cdiv\x00ediv\x00tdivrem\x00fdivrem\x00cdivrem\x00edivrem\x00sqrtrem\x00floorLog2\x00ctz\x00BigInt\x00not a bigfloat\x00invalid rounding mode\x00invalid bigfloat literal\x00cannot convert to bigfloat\x00fpRound\x00mul\x00div\x00fmod\x00remainder\x00invalid precision\x00invalid number of exponent bits\x00prec\x00expBits\x00setPrec\x00RNDN\x00RNDZ\x00RNDU\x00RNDD\x00RNDNA\x00RNDA\x00RNDF\x00precMin\x00precMax\x00expBitsMin\x00expBitsMax\x00rndMode\x00subnormal\x00invalidOperation\x00divideByZero\x00overflow\x00underflow\x00inexact\x00clearStatus\x00BigFloat\x00BigFloatEnv\x00invalid bigdecimal literal\x00cannot convert to bigdecimal\x00not a bigdecimal\x00ceiling\x00down\x00up\x00half-even\x00half-up\x00cannot provide both maximumSignificantDigits and maximumFractionDigits\x00precision must be present\x00mod\x00BigDecimal\x00EvalError\x00RangeError\x00ReferenceError\x00SyntaxError\x00TypeError\x00URIError\x00InternalError\x00AggregateError\x00Object\x00Function\x00Array\x00Number\x00Boolean\x00String\x00eval\x00invalid array buffer length\x00isView\x00ArrayBuffer is detached\x00cannot use identical ArrayBuffer\x00new ArrayBuffer is too small\x00byteLength\x00ArrayBuffer\x00SharedArrayBuffer\x00DataView\x00TypedArray\x00not a %s\x00TypedArray length is too small\x00buffer\x00byteOffset\x00subarray\x00cannot be called\x00invalid offset\x00invalid length\x00invalid byteOffset\x00invalid byteLength\x00out of bound\x00getInt8\x00getUint8\x00getInt16\x00getUint16\x00getInt32\x00getUint32\x00getBigInt64\x00getBigUint64\x00getFloat32\x00getFloat64\x00setInt8\x00setUint8\x00setInt16\x00setUint16\x00setInt32\x00setUint32\x00setBigInt64\x00setBigUint64\x00setFloat32\x00setFloat64\x00integer TypedArray expected\x00not a SharedArrayBuffer TypedArray\x00out-of-bound access\x00cannot block in this thread\x00and\x00or\x00xor\x00exchange\x00compareExchange\x00load\x00store\x00isLockFree\x00wait\x00notify\x00Atomics\x00BYTES_PER_ELEMENT\x00expecting '{' after \\p\x00unknown unicode property value\x00expecting '}'\x00Script\x00sc\x00Script_Extensions\x00scx\x00unknown unicode script\x00General_Category\x00gc\x00unknown unicode general category\x00unknown unicode property name\x00^$\\.*+?()[]{}|/\x00invalid escape sequence in regular expression\x00unexpected end\x00malformed unicode char\x00too many ranges\x00invalid class range\x00syntax error\x00nothing to repeat\x00invalid group name\x00duplicate group name\x00invalid group\x00too many captures\x00expecting group name\x00group name not defined\x00invalid decimal escape in regular expression\x00back reference out of range in regular expression\x00invalid repetition count\x00extraneous characters at the end\x00too many imbricated quantifiers\x00%d: 0x%04x\n\x00invalid conversion specifier in format string\x00missing argument for conversion specifier\x00rb\x00could not load '%s'\x00./\x00could not load module filename '%s' as shared library\x00js_init_module\x00could not load module filename '%s': js_init_module not found\x00could not load module filename '%s': initialization error\x00file://\x00realpath failure\x00url\x00main\x00.so\x00could not load module filename '%s'\x00backtrace_barrier\x00async\x00<evalScript>\x00errno\x00rwa+b\x00invalid file mode\x00rw\x00rwa+\x00invalid file handle\x00read/write array buffer overflow\x00binary\x00full\x00%s '\x00curl -s -i --\x00'\\''\x00'\x00r\x00could not start curl\x00\r\n\x00response\x00responseHeaders\x00status\x00FILE\x00EINVAL\x00EIO\x00EACCES\x00EEXIST\x00ENOSPC\x00ENOSYS\x00EBUSY\x00ENOENT\x00EPERM\x00EPIPE\x00EBADF\x00exit\x00evalScript\x00loadScript\x00getenv\x00setenv\x00unsetenv\x00getenviron\x00urlGet\x00loadFile\x00strerror\x00parseExtJSON\x00open\x00popen\x00fdopen\x00tmpfile\x00puts\x00printf\x00sprintf\x00SEEK_SET\x00SEEK_CUR\x00SEEK_END\x00close\x00flush\x00tell\x00tello\x00seek\x00eof\x00fileno\x00error\x00clearerr\x00read\x00write\x00getline\x00readAsString\x00getByte\x00putByte\x00out\x00err\x00signal handler can only be set in the main thread\x00invalid signal number\x00data\x00dev\x00ino\x00mode\x00nlink\x00uid\x00gid\x00rdev\x00blocks\x00atime\x00mtime\x00ctime\x00PATH\x00/bin:/usr/bin\x00stdin\x00stdout\x00stderr\x00invalid number of arguments\x00block\x00usePath\x00file\x00cwd\x00env\x00fork error\x00Worker\x00JS_NewRuntime failure\x00JS_NewContext failure\x00prototype\x00cannot create a worker inside a worker\x00could not determine calling script or module name\x00could not create worker\x00postMessage\x00onmessage\x00O_RDONLY\x00O_WRONLY\x00O_RDWR\x00O_APPEND\x00O_CREAT\x00O_EXCL\x00O_TRUNC\x00isatty\x00ttyGetWinSize\x00ttySetRaw\x00remove\x00rename\x00setReadHandler\x00setWriteHandler\x00signal\x00SIGINT\x00SIGABRT\x00SIGFPE\x00SIGILL\x00SIGSEGV\x00SIGTERM\x00SIGQUIT\x00SIGPIPE\x00SIGALRM\x00SIGUSR1\x00SIGUSR2\x00SIGCHLD\x00SIGCONT\x00SIGSTOP\x00SIGTSTP\x00SIGTTIN\x00SIGTTOU\x00setTimeout\x00clearTimeout\x00sleepAsync\x00platform\x00linux\x00getcwd\x00chdir\x00mkdir\x00readdir\x00S_IFMT\x00S_IFIFO\x00S_IFCHR\x00S_IFDIR\x00S_IFBLK\x00S_IFREG\x00S_IFSOCK\x00S_IFLNK\x00S_ISGID\x00S_ISUID\x00stat\x00utimes\x00sleep\x00realpath\x00lstat\x00symlink\x00readlink\x00getpid\x00waitpid\x00WNOHANG\x00pipe\x00kill\x00dup\x00dup2\x00parent\x00console\x00scriptArgs\x00print\x00__loadScript\x00Could not allocate memory for the worker\x00%s\n\x00[exception]\n\x00stack\x00Possibly unhandled promise rejection: \x00%s: len=%d\n\x00%d: %08x\n\x00%s= 0x\x00_\x00%08x\x00Inf\x000x0.\x00p%d\x00nan\x00inf\x000x\x000o\x000b\x000\x000.\x00p%+d\x00%c%+d\x00%c%d\x00%0*u\x00e%d\x00"
