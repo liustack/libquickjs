@@ -75,6 +75,7 @@ work:
 	rm -f go.work*
 	go work init
 	go work use .
+	go work use ../cc/v4
 	go work use ../ccgo/v4
 	go work use ../libc
 

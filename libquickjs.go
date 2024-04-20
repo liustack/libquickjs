@@ -29,16 +29,23 @@
 package libquickjs // import "modernc.org/libquickjs"
 
 import (
-	"sync/atomic"
-	"unsafe"
+	"sync"
 
 	"modernc.org/libc"
 	"modernc.org/libquickjs/internal/snprintf"
 )
 
-// type __atomic_fetch_add (type *ptr, type val, int memorder)
-func ___atomic_fetch_add(tls *libc.TLS, p uintptr, n, _ int32) int32 {
-	return atomic.AddInt32((*int32)(unsafe.Pointer(p)), n)
+var initOnce sync.Once
+
+// Init initializes this package. Init can be safely called multiple times.
+func Init() {
+	initOnce.Do(func() {
+		tls := libc.NewTLS()
+
+		defer tls.Close()
+
+		Xinit_quickjs(tls)
+	})
 }
 
 func _snprintf_with_rounding_mode(tls *libc.TLS, rounding_mode int32, s uintptr, n Tsize_t, nfmt, width int32, d float64) (r int32) {
