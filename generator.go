@@ -171,7 +171,8 @@ func main() {
 		return nil
 	})
 
-	if err := os.WriteFile(filepath.Join("internal", "run-test262", "results"), []byte(resultLine), 0660); err != nil {
+	results := fmt.Sprintf("results_%s_%s", goos, goarch)
+	if err := os.WriteFile(filepath.Join("internal", "run-test262", results), []byte(resultLine), 0660); err != nil {
 		fail(1, "cannot save results: %v", err)
 	}
 

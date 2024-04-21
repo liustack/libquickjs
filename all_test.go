@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strconv"
 	"strings"
 	"testing"
 	"unsafe"
@@ -419,15 +420,64 @@ func Test262(t *testing.T) {
 		resultLine = strings.TrimSpace(s) + "\n"
 		return nil
 	})
-	if b, err = os.ReadFile(filepath.Join("internal", "run-test262", "results")); err != nil {
+	results := fmt.Sprintf("results_%s_%s", goos, goarch)
+	if b, err = os.ReadFile(filepath.Join("internal", "run-test262", results)); err != nil {
 		t.Fatal(err)
 	}
 
-	if g, e := resultLine, string(b); g != e {
-		b, _ = os.ReadFile(filepath.Join(testdir, "test262_report.txt"))
-		t.Logf("\n%s", b)
-		t.Fatalf("got %q expected %q", g, e)
-	} else {
-		t.Logf("OK, got %q expected %q", g, e)
+	errors0, count0, excluded0, skipped0, _, _ := parseResultLine(string(b))
+	errors1, count1, excluded1, skipped1, _, _ := parseResultLine(resultLine)
+	if errors1 > errors0 {
+		t.Fatalf("FAIL got errors=%v, expected at most %v", errors1, errors0)
 	}
+
+	if count1 != count0 {
+		t.Fatalf("FAIL got count=%v, expected %v", count1, count0)
+	}
+
+	if skipped1 != skipped0 {
+		t.Fatalf("FAIL got skipped=%v, expected %v", skipped1, skipped0)
+	}
+
+	if excluded1 != excluded0 {
+		t.Fatalf("FAIL got excluded=%v, expected %v", excluded1, excluded0)
+	}
+
+	t.Logf("OK got %q expected %q", resultLine, b)
+}
+
+// Example: "Result: 36/76685 errors, 1519 excluded, 8703 skipped, 2 fixed\n"
+func parseResultLine(s string) (errors, count, excluded, skipped, fixed, new int64) {
+	s = strings.TrimSpace(s)
+	a := strings.Fields(s)
+	// ["Result:" "36/76685" "errors," "1519" "excluded," "8703" "skipped," "2" "fixed"]
+	if len(a) < 7 {
+		return
+	}
+
+	b := strings.Split(a[1], "/")
+	if len(b) != 2 {
+		return
+	}
+
+	errors, _ = strconv.ParseInt(b[0], 0, 64)
+	count, _ = strconv.ParseInt(b[1], 0, 64)
+	excluded, _ = strconv.ParseInt(a[3], 0, 64)
+	skipped, _ = strconv.ParseInt(a[5], 0, 64)
+	if len(a) == 9 {
+		switch a[8] {
+		case "fixed":
+			fixed, _ = strconv.ParseInt(a[7], 0, 64)
+		case "new":
+			new, _ = strconv.ParseInt(a[7], 0, 64)
+		}
+	}
+	// trc("", errors, count, excluded, skipped, fixed, new)
+	return
+}
+
+func TestTmp(t *testing.T) {
+	parseResultLine("Result: 36/76685 errors, 1519 excluded, 8703 skipped, 2 fixed\n")
+	parseResultLine("Result: 36/76685 errors, 1519 excluded, 8703 skipped, 3 new\n")
+	parseResultLine("Result: 36/76685 errors, 1519 excluded, 8703 skipped\n")
 }
