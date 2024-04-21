@@ -16,10 +16,10 @@
 //
 // These combinations of GOOS and GOARCH are currently supported
 //
-//    OS      Arch
-//    ---------------
-//    linux	amd64
-//    linux	loong64
+//	OS      Arch
+//	---------------
+//	linux	amd64
+//	linux	loong64
 //
 // # Builders
 //
