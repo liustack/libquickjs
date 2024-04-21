@@ -29,23 +29,16 @@
 package libquickjs // import "modernc.org/libquickjs"
 
 import (
-	"sync"
-
 	"modernc.org/libc"
 	"modernc.org/libquickjs/internal/snprintf"
 )
 
-var initOnce sync.Once
+func init() {
+	tls := libc.NewTLS()
 
-// Init initializes this package. Init can be safely called multiple times.
-func Init() {
-	initOnce.Do(func() {
-		tls := libc.NewTLS()
+	defer tls.Close()
 
-		defer tls.Close()
-
-		Xinit_quickjs(tls)
-	})
+	Xinit_quickjs(tls)
 }
 
 func _snprintf_with_rounding_mode(tls *libc.TLS, rounding_mode int32, s uintptr, n Tsize_t, nfmt, width int32, d float64) (r int32) {

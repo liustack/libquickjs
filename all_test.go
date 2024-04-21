@@ -28,7 +28,6 @@ var (
 )
 
 func TestMain(m *testing.M) {
-	Init()
 	os.Exit(m.Run())
 }
 
@@ -375,7 +374,11 @@ func Test262(t *testing.T) {
 		t.Fatalf("%s: to download the archive issue '$ make download'", err)
 	}
 
-	tempdir := t.TempDir()
+	tempdir := os.Getenv("TEST_DIR")
+	if tempdir == "" {
+		tempdir = t.TempDir()
+	}
+	t.Logf("tempdir=%s", tempdir)
 	shell(t, "unzip", "-q", "-d", tempdir, zip262)
 	testdir := filepath.Join(tempdir, "test262")
 	bin := filepath.Join(tempdir, "run-test262")
@@ -398,7 +401,7 @@ func Test262(t *testing.T) {
 	}
 	var resultLine string
 	inDir(t, tempdir, func() error {
-		out, err := shell(t, bin, "-c", "test262.conf", "-a")
+		out, err := shell(nil, bin, "-c", "test262.conf", "-a")
 		if err != nil {
 			t.Logf("run-test262 FAIL err=%v", err)
 		}
