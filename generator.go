@@ -7,20 +7,21 @@
 
 package main
 
-//TODO float rounding mode
-//TODO pthreads
-
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"runtime"
+	"slices"
 	"strconv"
 	"strings"
 
 	"modernc.org/cc/v4"
 	ccgo "modernc.org/ccgo/v4/lib"
 	util "modernc.org/fileutil/ccgo"
+	"modernc.org/gc/v3"
 )
 
 const (
@@ -126,8 +127,8 @@ func main() {
 			"--prefix-external=x_",
 			"--prefix-field=F",
 			"--prefix-macro=M",
-			"--prefix-static-internal=_",
-			"--prefix-static-none=_",
+			"--prefix-static-internal=g_",
+			"--prefix-static-none=g_",
 			"--prefix-tagged-enum=_",
 			"--prefix-tagged-struct=T",
 			"--prefix-tagged-union=T",
@@ -151,6 +152,11 @@ func main() {
 			return err
 		}
 
+		if err := toMethods(result); err != nil {
+			return err
+		}
+
+		util.MustShell(true, nil, "sed", "-i", `s/(\*(\*func(\*libc\.TLS/(*(*func(*libc.TLS, *Library/g`, result)
 		util.MustShell(true, nil, "sed", "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
 		util.MustShell(true, nil, "sed", "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
 
@@ -187,4 +193,264 @@ func main() {
 	util.MustShell(true, nil, "gofmt", "-l", "-s", "-w", ".")
 	util.MustShell(true, nil, "go", "test", "-run", "@")
 	util.Shell(nil, "git", "status")
+}
+
+func toMethods(fn string) (err error) {
+	b, err := os.ReadFile(fn)
+	if err != nil {
+		return err
+	}
+
+	ast, err := gc.ParseFile(fn, b)
+	if err != nil {
+		return err
+	}
+
+	buf := bytes.NewBuffer(nil)
+	w := func(s string, args ...interface{}) {
+		fmt.Fprintf(buf, s, args...)
+	}
+
+	src := ast.SourceFile
+	w("%s\n", src.PackageClause.Source(true))
+	if src.ImportDeclList != nil {
+		w("%s\n", src.ImportDeclList.Source(true))
+	}
+
+	vars := map[*gc.VarDeclNode]string{}
+	xvars := map[string]*gc.VarDeclNode{}
+	funcs := map[string]struct{}{}
+	initFuncs := map[string]*gc.FunctionDeclNode{}
+	initNum := 0
+	for l := src.TopLevelDeclList; l != nil; l = l.List {
+		switch x := l.TopLevelDecl.(type) {
+		case *gc.FunctionDeclNode:
+			switch nm := x.FunctionName.IDENT.Src(); {
+			case nm == "__ccgo_fp":
+				// nop
+			case nm == "main":
+				// nop
+			case nm == "init":
+				// nop
+			default:
+				funcs[nm] = struct{}{}
+			}
+		}
+	}
+	var a []string
+	// for k := range funcs {
+	// 	a = append(a, k)
+	// }
+	// slices.Sort(a)
+	// for _, k := range a {
+	// 	trc("FUNC %s", k)
+	// }
+	for l := src.TopLevelDeclList; l != nil; l = l.List {
+		switch x := l.TopLevelDecl.(type) {
+		case *gc.VarDeclNode:
+			if x.LPAREN.IsValid() {
+				w("%s\n\n", x.Source(true))
+				break
+			}
+
+			switch y := x.VarSpec.(type) {
+			case *gc.VarSpecNode:
+				nm := y.IDENT.Src()
+				if !strings.HasPrefix(nm, "x_") && !strings.HasPrefix(nm, "g_") {
+					w("%s\n\n", x.Source(true))
+					break
+				}
+
+				vars[x] = nm
+				xvars[nm] = x
+			default:
+				w("%s\n\n", x.Source(true))
+			}
+		case *gc.ConstDeclNode:
+			w("%s\n\n", x.Source(true))
+		case *gc.TypeDeclNode:
+			w("%s\n\n", x.Source(true))
+		case *gc.FunctionDeclNode:
+			switch nm := x.FunctionName.IDENT.Src(); {
+			case skip[nm]:
+				w("%s\n\n", x.Source(true))
+				continue
+			case nm == "main":
+				// nop
+			case nm == "init":
+				s := x.Source(true)
+				initNum++
+				nm := fmt.Sprintf("%s%v", nm, initNum)
+				initFuncs[nm] = x
+				ix := strings.Index(s, "func init")
+				// func init
+				head := s[:ix]
+				tail := s[ix+9:]
+				tail = rename(tail, funcs)
+				w("%sfunc (qjs *Library) init%v%s\n\n", head, initNum, tail)
+			default:
+				s := x.Source(true)
+				ix := strings.Index(s, "{\n")
+				// func foo(tls *libc.TLS... {
+				head := s[:ix]
+				head = strings.Replace(head, "(tls *libc.TLS", "(tls *libc.TLS, qjs *Library", 1)
+				tail := s[ix:]
+				tail = rename(tail, funcs)
+				w("%s%s\n\n", head, tail)
+
+			}
+		default:
+			panic(todo("%T", x))
+		}
+	}
+
+	w("\n// Library represents an instance of the quickjs library")
+	w("\n\ntype Library struct{\n")
+	a = a[:0]
+	for k := range xvars {
+		a = append(a, k)
+	}
+	slices.Sort(a)
+	initializers := map[string]gc.Node{}
+	for _, nm := range a {
+		vd := xvars[nm]
+		vs := vd.VarSpec.(*gc.VarSpecNode)
+		switch {
+		case vs.TypeNode != nil:
+			w("%s %s\n", nm, vs.TypeNode.Source(true))
+			if vs.ExpressionList != nil {
+				panic(todo(""))
+			}
+		default:
+			switch x := vs.ExpressionList.Expression.(type) {
+			case *gc.CompositeLitNode:
+				initializers[nm] = x
+				w("%s %s\n", nm, x.LiteralType.Source(true))
+			case *gc.PrimaryExprNode:
+				initializers[nm] = x
+				w("%s %s\n", nm, primaryExprType(x))
+			case *gc.OperandNode:
+				if x.OperandName != nil {
+					initializers[nm] = x
+					w("%s %s\n", nm, x.OperandName.Source(true))
+					break
+				}
+
+				if x.TypeArgs != nil {
+					panic(todo("%T\n%s", x, x.Source(true)))
+				}
+
+				if x.LiteralValue != nil {
+					panic(todo("%T\n%s", x, x.Source(true)))
+				}
+
+				panic(todo(""))
+			default:
+				panic(todo("%T\n%s", x, x.Source(true)))
+			}
+
+		}
+	}
+	w("}\n\n")
+	w("func (qjs *Library) initInstance() {\n")
+	a = a[:0]
+	for k := range initializers {
+		a = append(a, k)
+	}
+	slices.Sort(a)
+	for _, nm := range a {
+		w("qjs.%s = %s\n", nm, rename(initializers[nm].Source(true), funcs))
+	}
+	a = a[:0]
+	for k := range initFuncs {
+		a = append(a, k)
+	}
+	slices.Sort(a)
+	for _, nm := range a {
+		w("qjs.%s()\n", nm)
+	}
+	w("tls := libc.NewTLS()\n")
+	w("defer tls.Close()\n")
+	w("Xinit_quickjs(tls, qjs)\n")
+	w("}\n")
+
+	if err := os.WriteFile(fn, buf.Bytes(), 0660); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var (
+	skip = map[string]bool{
+		"__ccgo_fp": true,
+	}
+	re  = regexp.MustCompile(`\b[gx]_[a-zA-Z0-9_]+\b`)
+	re2 = regexp.MustCompile(`\b[gx]_[a-zA-Z0-9_]+\b\(tls`)
+	re3 = regexp.MustCompile(`}\)\)\)\(tls\b`)
+)
+
+func rename(s string, funcs map[string]struct{}) string {
+	s = re.ReplaceAllStringFunc(s, func(s string) string {
+		if _, ok := funcs[s]; !ok {
+			return "qjs." + s
+		}
+
+		return s
+	})
+	s = re2.ReplaceAllStringFunc(s, func(s string) string {
+		return s + ", qjs"
+	})
+	return re3.ReplaceAllStringFunc(s, func(s string) string {
+		return s + ", qjs"
+	})
+}
+
+func origin(skip int) string {
+	pc, fn, fl, _ := runtime.Caller(skip)
+	f := runtime.FuncForPC(pc)
+	var fns string
+	if f != nil {
+		fns = f.Name()
+		if x := strings.LastIndex(fns, "."); x > 0 {
+			fns = fns[x+1:]
+		}
+		if strings.HasPrefix(fns, "func") {
+			num := true
+			for _, c := range fns[len("func"):] {
+				if c < '0' || c > '9' {
+					num = false
+					break
+				}
+			}
+			if num {
+				return origin(skip + 2)
+			}
+		}
+	}
+	return fmt.Sprintf("%s:%d:%s", filepath.Base(fn), fl, fns)
+}
+
+func todo(s string, args ...interface{}) string {
+	switch {
+	case s == "":
+		s = fmt.Sprintf(strings.Repeat("%v ", len(args)), args...)
+	default:
+		s = fmt.Sprintf(s, args...)
+	}
+	r := fmt.Sprintf("%s\n\tTODO %s", origin(2), s)
+	// fmt.Fprintf(os.Stderr, "%s\n", r)
+	// os.Stdout.Sync()
+	return r
+}
+
+func primaryExprType(n *gc.PrimaryExprNode) string {
+	if n.Postfix != nil {
+		return n.PrimaryExpr.Source(true)
+	}
+
+	switch x := n.PrimaryExpr.(type) {
+	default:
+		panic(todo("%T", x))
+	}
 }

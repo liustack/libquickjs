@@ -93,7 +93,7 @@ index e8fdd8a..5318ca4 100644
 +void init_quickjs() {
 +	js_atomics_waiter_list = js_atomics_waiter_list0;
 +}
-+#endif  
++#endif
  
  static JSValue js_atomics_wait(JSContext *ctx,
                                 JSValueConst this_obj,

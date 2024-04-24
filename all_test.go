@@ -475,9 +475,3 @@ func parseResultLine(s string) (errors, count, excluded, skipped, fixed, new int
 	// trc("", errors, count, excluded, skipped, fixed, new)
 	return
 }
-
-func TestTmp(t *testing.T) {
-	parseResultLine("Result: 36/76685 errors, 1519 excluded, 8703 skipped, 2 fixed\n")
-	parseResultLine("Result: 36/76685 errors, 1519 excluded, 8703 skipped, 3 new\n")
-	parseResultLine("Result: 36/76685 errors, 1519 excluded, 8703 skipped\n")
-}
