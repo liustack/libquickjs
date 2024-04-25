@@ -34,46 +34,23 @@
 package libquickjs // import "modernc.org/libquickjs"
 
 import (
-	"runtime"
-	"sync"
-
 	"modernc.org/libc"
 	"modernc.org/libquickjs/internal/snprintf"
 )
 
-var (
-	pinnersMu sync.Mutex
-	pinners   = map[*Library]*runtime.Pinner{}
-)
+func init() {
+	tls := libc.NewTLS()
+
+	defer tls.Close()
+
+	Xinit_quickjs(tls)
+}
 
 func _snprintf_with_rounding_mode(tls *libc.TLS, rounding_mode int32, s uintptr, n Tsize_t, nfmt, width int32, d float64) (r int32) {
 	return snprintf.SnprintfWithRoundingMode(tls, rounding_mode, s, n, nfmt, width, d)
 }
 
 // ArrayOf returns a new Javascript array from a vector if TJSValues.
-func (qjs *Library) ArrayOf(tls *libc.TLS, ctx uintptr, argc int32, argv uintptr) (r TJSValue) {
-	return g_js_array_of(tls, qjs, ctx, TJSValue{Ftag: EJS_TAG_UNDEFINED}, argc, argv)
-}
-
-// NewLibrary returns a newly created Library instance.
-func NewLibrary() (r *Library, err error) {
-	r = &Library{}
-	p := &runtime.Pinner{}
-	p.Pin(r)
-	pinnersMu.Lock()
-	pinners[r] = p
-	pinnersMu.Unlock()
-	r.initInstance()
-	return r, nil
-}
-
-// Close releases the resouces held by 'qjs'.
-func (qjs *Library) Close() error {
-	pinnersMu.Lock()
-	p := pinners[qjs]
-	delete(pinners, qjs)
-	pinnersMu.Unlock()
-	p.Unpin()
-	*qjs = Library{}
-	return nil
+func ArrayOf(tls *libc.TLS, ctx uintptr, argc int32, argv uintptr) (r TJSValue) {
+	return _js_array_of(tls, ctx, TJSValue{Ftag: EJS_TAG_UNDEFINED}, argc, argv)
 }

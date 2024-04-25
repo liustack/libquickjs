@@ -127,8 +127,11 @@ func main() {
 			"--prefix-external=x_",
 			"--prefix-field=F",
 			"--prefix-macro=M",
-			"--prefix-static-internal=g_",
-			"--prefix-static-none=g_",
+			// methods: disabled
+			// "--prefix-static-internal=g_",
+			// "--prefix-static-none=g_",
+			"--prefix-static-internal=_",
+			"--prefix-static-none=_",
 			"--prefix-tagged-enum=_",
 			"--prefix-tagged-struct=T",
 			"--prefix-tagged-union=T",
@@ -152,11 +155,14 @@ func main() {
 			return err
 		}
 
-		if err := toMethods(result); err != nil {
-			return err
-		}
+		// methods: disabled
+		//
+		// if err := toMethods(result); err != nil {
+		// 	return err
+		// }
+		//
+		// util.MustShell(true, nil, "sed", "-i", `s/(\*(\*func(\*libc\.TLS/(*(*func(*libc.TLS, *Library/g`, result)
 
-		util.MustShell(true, nil, "sed", "-i", `s/(\*(\*func(\*libc\.TLS/(*(*func(*libc.TLS, *Library/g`, result)
 		util.MustShell(true, nil, "sed", "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
 		util.MustShell(true, nil, "sed", "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
 
