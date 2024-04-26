@@ -16,6 +16,7 @@ import (
 
 	_ "modernc.org/ccgo/v4/lib"
 	util "modernc.org/fileutil/ccgo"
+	_ "modernc.org/gc/v3"
 	"modernc.org/libc"
 )
 
