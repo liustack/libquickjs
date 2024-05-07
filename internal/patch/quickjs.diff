@@ -1,8 +1,8 @@
 diff --git a/quickjs.c b/quickjs.c
-index e8fdd8a..5318ca4 100644
+index 3c1c326..485ebc6 100644
 --- a/quickjs.c
 +++ b/quickjs.c
-@@ -51,7 +51,7 @@
+@@ -52,7 +52,7 @@
  #if defined(EMSCRIPTEN)
  #define DIRECT_DISPATCH  0
  #else
@@ -11,7 +11,7 @@ index e8fdd8a..5318ca4 100644
  #endif
  
  #if defined(__APPLE__)
-@@ -73,7 +73,7 @@
+@@ -74,7 +74,7 @@
  
  #if !defined(EMSCRIPTEN)
  /* enable stack limitation */
@@ -20,7 +20,7 @@ index e8fdd8a..5318ca4 100644
  #endif
  
  
-@@ -11363,15 +11363,26 @@ static char *i64toa(char *buf_end, int64_t n, unsigned int base)
+@@ -11364,15 +11364,26 @@ static char *i64toa(char *buf_end, int64_t n, unsigned int base)
      return q;
  }
  
@@ -47,7 +47,7 @@ index e8fdd8a..5318ca4 100644
      *sign = (buf1[0] == '-');
      /* mantissa */
      buf[0] = buf1[1];
-@@ -11451,11 +11462,19 @@ static int js_fcvt1(char (*buf)[JS_DTOA_BUF_SIZE], double d, int n_digits,
+@@ -11452,11 +11463,19 @@ static int js_fcvt1(char (*buf)[JS_DTOA_BUF_SIZE], double d, int n_digits,
                      int rounding_mode)
  {
      int n;
@@ -67,7 +67,7 @@ index e8fdd8a..5318ca4 100644
      assert(n < sizeof(*buf));
      return n;
  }
-@@ -55362,6 +55381,10 @@ static const JSCFunctionListEntry js_dataview_proto_funcs[] = {
+@@ -55391,6 +55410,10 @@ static const JSCFunctionListEntry js_dataview_proto_funcs[] = {
      JS_PROP_STRING_DEF("[Symbol.toStringTag]", "DataView", JS_PROP_CONFIGURABLE ),
  };
  
@@ -78,7 +78,7 @@ index e8fdd8a..5318ca4 100644
  /* Atomics */
  #ifdef CONFIG_ATOMICS
  
-@@ -55653,8 +55676,16 @@ typedef struct JSAtomicsWaiter {
+@@ -55682,8 +55705,16 @@ typedef struct JSAtomicsWaiter {
  } JSAtomicsWaiter;
  
  static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -97,7 +97,7 @@ index e8fdd8a..5318ca4 100644
  
  static JSValue js_atomics_wait(JSContext *ctx,
                                 JSValueConst this_obj,
-@@ -55901,3 +55932,21 @@ void JS_AddIntrinsicTypedArrays(JSContext *ctx)
+@@ -55930,3 +55961,29 @@ void JS_AddIntrinsicTypedArrays(JSContext *ctx)
      JS_AddIntrinsicAtomics(ctx);
  #endif
  }
@@ -118,6 +118,14 @@ index e8fdd8a..5318ca4 100644
 +JSValue NewInt32(JSContext *ctx, int32_t val)
 +{
 +    return JS_NewInt32(ctx, val);
++}
++
++int SetProperty(JSContext *ctx, JSValueConst this_obj, JSAtom prop, JSValue val) {
++	return JS_SetProperty(ctx, this_obj, prop, val);
++}
++
++JSValue GetProperty(JSContext *ctx, JSValueConst this_obj, JSAtom prop) {
++	return JS_GetProperty(ctx, this_obj, prop);
 +}
 diff --git a/run-test262.c b/run-test262.c
 index 4afb3f8..c271479 100644
