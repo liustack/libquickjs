@@ -3,7 +3,7 @@ module modernc.org/libquickjs
 go 1.20
 
 require (
-	modernc.org/ccgo/v4 v4.17.8
+	modernc.org/ccgo/v4 v4.17.9
 	modernc.org/fileutil v1.3.0
 	modernc.org/gc/v3 v3.0.0-20240304020402-f0dba7c97c2b
 	modernc.org/libc v1.51.0
