@@ -25,7 +25,7 @@ import (
 )
 
 const (
-	archivePath = "d378a9f3a583cb787c390456e27276d0ee377d23.zip"
+	archivePath = "36911f0d3ab1a4c190a4d5cbe7c2db225a455389.zip"
 	test262Path = "837def66ac1700ce398df4a3b4eaeea915aa1df5.zip"
 )
 
