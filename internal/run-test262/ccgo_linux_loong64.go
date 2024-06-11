@@ -128926,14 +128926,12 @@ _14:
 			if v61 != 0 {
 				goto out_of_memory
 			}
-			/* the spec tells that if there is no advance when
-			   running the atom after the first quant_min times,
-			   then there is no match. We remove this test when we
-			   are sure the atom always advances the position. */
-			add_zero_advance_check = _re_need_check_advance(tls, (*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fbuf+uintptr(last_atom_start), int32((*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fsize-uint64(last_atom_start)))
-		} else {
-			add_zero_advance_check = int32(EFALSE)
 		}
+		/* the spec tells that if there is no advance when
+		   running the atom after the first quant_min times,
+		   then there is no match. We remove this test when we
+		   are sure the atom always advances the position. */
+		add_zero_advance_check = _re_need_check_advance(tls, (*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fbuf+uintptr(last_atom_start), int32((*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fsize-uint64(last_atom_start)))
 		len11 = int32((*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fsize - uint64(last_atom_start))
 		if quant_min == 0 {
 			/* need to reset the capture in case the atom is
