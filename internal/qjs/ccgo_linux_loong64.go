@@ -1,7 +1,6 @@
 // Code generated for linux/loong64 by 'gcc --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -U__SIZEOF_INT128__ -UHAVE_CLOSEFROM -eval-all-macros -extended-errors -rdynamic -o qjs.go .obj/qjs.o.go .obj/repl.o.go .obj/quickjs.o.go .obj/libregexp.o.go .obj/libunicode.o.go .obj/cutils.o.go .obj/quickjs-libc.o.go .obj/libbf.o.go .obj/qjscalc.o.go -lm -ldl -lpthread', DO NOT EDIT.
 
 //go:build linux && loong64
-// +build linux,loong64
 
 package main
 
