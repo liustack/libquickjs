@@ -1,7 +1,6 @@
 // Code generated for linux/amd64 by 'generator -mlong-double-64 --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -U__SIZEOF_INT128__ -UHAVE_CLOSEFROM -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
 
 //go:build linux && amd64
-// +build linux,amd64
 
 package libquickjs
 
