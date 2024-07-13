@@ -6,7 +6,7 @@ require (
 	modernc.org/ccgo/v4 v4.19.2
 	modernc.org/fileutil v1.3.0
 	modernc.org/gc/v3 v3.0.0-20240304020402-f0dba7c97c2b
-	modernc.org/libc v1.54.5
+	modernc.org/libc v1.55.0
 )
 
 require (
@@ -18,7 +18,7 @@ require (
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	golang.org/x/mod v0.16.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
+	golang.org/x/sys v0.22.0 // indirect
 	golang.org/x/tools v0.19.0 // indirect
 	lukechampine.com/uint128 v1.2.0 // indirect
 	modernc.org/cc/v3 v3.41.0 // indirect
