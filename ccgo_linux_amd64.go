@@ -4339,7 +4339,7 @@ func XJS_NewContextRaw(tls *libc.TLS, rt uintptr) (r uintptr) {
 		return libc.UintptrFromInt32(0)
 	}
 	(*TJSContext)(unsafe.Pointer(ctx)).Fheader.Fref_count = int32(1)
-	_add_gc_object(tls, rt, ctx, EJS_GC_OBJ_TYPE_JS_CONTEXT)
+	_add_gc_object(tls, rt, ctx, int32(EJS_GC_OBJ_TYPE_JS_CONTEXT))
 	(*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto = Xjs_malloc_rt(tls, rt, uint64(16)*uint64((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_count))
 	if !((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto != 0) {
 		Xjs_free_rt(tls, rt, ctx)
@@ -4585,7 +4585,7 @@ func XJS_FreeContext(tls *libc.TLS, ctx1 uintptr) {
 	if v1 > 0 {
 		return
 	}
-	_js_free_modules(tls, ctx1, EJS_FREE_MODULE_ALL)
+	_js_free_modules(tls, ctx1, int32(EJS_FREE_MODULE_ALL))
 	v3 = (*TJSContext)(unsafe.Pointer(ctx1)).Fglobal_obj
 	*(*TJSValue)(unsafe.Pointer(bp)) = v3
 	if uint32(int32(v3.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -7765,7 +7765,7 @@ func _js_new_shape2(tls *libc.TLS, ctx1 uintptr, proto uintptr, hash_size int32,
 	}
 	sh = _get_shape_from_alloc(tls, sh_alloc, uint64(hash_size))
 	(*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count = int32(1)
-	_add_gc_object(tls, rt, sh, EJS_GC_OBJ_TYPE_SHAPE)
+	_add_gc_object(tls, rt, sh, int32(EJS_GC_OBJ_TYPE_SHAPE))
 	if proto != 0 {
 		_ = ctx1
 		v1 = TJSValue{
@@ -7821,7 +7821,7 @@ func _js_clone_shape(tls *libc.TLS, ctx1 uintptr, sh1 uintptr) (r uintptr) {
 	libc.Xmemcpy(tls, sh_alloc, sh_alloc1, size)
 	sh = _get_shape_from_alloc(tls, sh_alloc, uint64(hash_size))
 	(*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count = int32(1)
-	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, sh, EJS_GC_OBJ_TYPE_SHAPE)
+	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, sh, int32(EJS_GC_OBJ_TYPE_SHAPE))
 	(*TJSShape)(unsafe.Pointer(sh)).Fis_hashed = uint8(EFALSE)
 	if (*TJSShape)(unsafe.Pointer(sh)).Fproto != 0 {
 		_ = ctx1
@@ -8584,7 +8584,7 @@ set_exotic:
 _28:
 	;
 	(*TJSObject)(unsafe.Pointer(p)).F__ccgo0_0.Fheader.Fref_count = int32(1)
-	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, p, EJS_GC_OBJ_TYPE_JS_OBJECT)
+	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, p, int32(EJS_GC_OBJ_TYPE_JS_OBJECT))
 	return TJSValue{
 		Fu:   *(*TJSValueUnion)(unsafe.Pointer(&struct{ f uintptr }{f: p})),
 		Ftag: int64(EJS_TAG_OBJECT),
@@ -11422,7 +11422,7 @@ func XJS_ThrowSyntaxError(tls *libc.TLS, ctx uintptr, fmt uintptr, va uintptr) (
 	var val TJSValue
 	_, _ = ap, val
 	ap = va
-	val = _JS_ThrowError(tls, ctx, EJS_SYNTAX_ERROR, fmt, ap)
+	val = _JS_ThrowError(tls, ctx, int32(EJS_SYNTAX_ERROR), fmt, ap)
 	_ = ap
 	return val
 }
@@ -11432,7 +11432,7 @@ func XJS_ThrowTypeError(tls *libc.TLS, ctx uintptr, fmt uintptr, va uintptr) (r 
 	var val TJSValue
 	_, _ = ap, val
 	ap = va
-	val = _JS_ThrowError(tls, ctx, EJS_TYPE_ERROR, fmt, ap)
+	val = _JS_ThrowError(tls, ctx, int32(EJS_TYPE_ERROR), fmt, ap)
 	_ = ap
 	return val
 }
@@ -11442,7 +11442,7 @@ func _JS_ThrowTypeErrorOrFalse(tls *libc.TLS, ctx uintptr, flags int32, fmt uint
 	_ = ap
 	if flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(14)) != 0 || flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(15)) != 0 && _is_strict_mode(tls, ctx) != 0 {
 		ap = va
-		_JS_ThrowError(tls, ctx, EJS_TYPE_ERROR, fmt, ap)
+		_JS_ThrowError(tls, ctx, int32(EJS_TYPE_ERROR), fmt, ap)
 		_ = ap
 		return -int32(1)
 	} else {
@@ -11491,7 +11491,7 @@ func XJS_ThrowReferenceError(tls *libc.TLS, ctx uintptr, fmt uintptr, va uintptr
 	var val TJSValue
 	_, _ = ap, val
 	ap = va
-	val = _JS_ThrowError(tls, ctx, EJS_REFERENCE_ERROR, fmt, ap)
+	val = _JS_ThrowError(tls, ctx, int32(EJS_REFERENCE_ERROR), fmt, ap)
 	_ = ap
 	return val
 }
@@ -11501,7 +11501,7 @@ func XJS_ThrowRangeError(tls *libc.TLS, ctx uintptr, fmt uintptr, va uintptr) (r
 	var val TJSValue
 	_, _ = ap, val
 	ap = va
-	val = _JS_ThrowError(tls, ctx, EJS_RANGE_ERROR, fmt, ap)
+	val = _JS_ThrowError(tls, ctx, int32(EJS_RANGE_ERROR), fmt, ap)
 	_ = ap
 	return val
 }
@@ -11511,7 +11511,7 @@ func XJS_ThrowInternalError(tls *libc.TLS, ctx uintptr, fmt uintptr, va uintptr)
 	var val TJSValue
 	_, _ = ap, val
 	ap = va
-	val = _JS_ThrowError(tls, ctx, EJS_INTERNAL_ERROR, fmt, ap)
+	val = _JS_ThrowError(tls, ctx, int32(EJS_INTERNAL_ERROR), fmt, ap)
 	_ = ap
 	return val
 }
@@ -19223,11 +19223,11 @@ redo:
 }
 
 func _JS_ToNumberFree(tls *libc.TLS, ctx uintptr, val TJSValue) (r TJSValue) {
-	return _JS_ToNumberHintFree(tls, ctx, val, ETON_FLAG_NUMBER)
+	return _JS_ToNumberHintFree(tls, ctx, val, int32(ETON_FLAG_NUMBER))
 }
 
 func _JS_ToNumericFree(tls *libc.TLS, ctx uintptr, val TJSValue) (r TJSValue) {
-	return _JS_ToNumberHintFree(tls, ctx, val, ETON_FLAG_NUMERIC)
+	return _JS_ToNumberHintFree(tls, ctx, val, int32(ETON_FLAG_NUMERIC))
 }
 
 func _JS_ToNumeric(tls *libc.TLS, ctx1 uintptr, val TJSValue) (r TJSValue) {
@@ -19280,7 +19280,7 @@ _2:
 		/* XXX: there can be a double rounding issue with some
 		   primitives (such as JS_ToUint8ClampFree()), but it is
 		   not critical to fix it. */
-		Xbf_get_float64(tls, p1+8, bp+32, EBF_RNDN)
+		Xbf_get_float64(tls, p1+8, bp+32, int32(EBF_RNDN))
 		v3 = *(*TJSValue)(unsafe.Pointer(bp + 16))
 		*(*TJSValue)(unsafe.Pointer(bp)) = v3
 		if uint32(int32(v3.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -24058,7 +24058,7 @@ func _js_not_slow(tls *libc.TLS, ctx2 uintptr, sp uintptr) (r int32) {
 	goto _2
 _2:
 	if v1 != 0 {
-		ret = _js_call_unary_op_fallback(tls, ctx2, bp+16, op1, EOP_not)
+		ret = _js_call_unary_op_fallback(tls, ctx2, bp+16, op1, int32(EOP_not))
 		if ret < 0 {
 			return -int32(1)
 		}
@@ -24086,7 +24086,7 @@ _7:
 		goto exception
 	}
 	if _is_math_mode(tls, ctx2) != 0 || int32(op1.Ftag) == int32(EJS_TAG_BIG_INT) {
-		if (*(*func(*libc.TLS, uintptr, uintptr, TOPCodeEnum, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Frt)).Fbigint_ops.Funary_arith})))(tls, ctx2, sp-uintptr(1)*16, EOP_not, op1) != 0 {
+		if (*(*func(*libc.TLS, uintptr, uintptr, TOPCodeEnum, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Frt)).Fbigint_ops.Funary_arith})))(tls, ctx2, sp-uintptr(1)*16, int32(EOP_not), op1) != 0 {
 			goto exception
 		}
 	} else {
@@ -25186,7 +25186,7 @@ func _js_add_slow(tls *libc.TLS, ctx4 uintptr, sp uintptr) (r int32) {
 	if tag1 == libc.Uint32FromInt32(EJS_TAG_OBJECT) || tag2 == libc.Uint32FromInt32(EJS_TAG_OBJECT) {
 		/* try to call an overloaded operator */
 		if tag1 == libc.Uint32FromInt32(EJS_TAG_OBJECT) && (tag2 != uint32(EJS_TAG_NULL) && tag2 != uint32(EJS_TAG_UNDEFINED) && tag2 != libc.Uint32FromInt32(EJS_TAG_STRING)) || tag2 == libc.Uint32FromInt32(EJS_TAG_OBJECT) && (tag1 != uint32(EJS_TAG_NULL) && tag1 != uint32(EJS_TAG_UNDEFINED) && tag1 != libc.Uint32FromInt32(EJS_TAG_STRING)) {
-			ret = _js_call_binary_op_fallback(tls, ctx4, bp+64, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48)), EOP_add, int32(EFALSE), int32(MHINT_NONE))
+			ret = _js_call_binary_op_fallback(tls, ctx4, bp+64, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48)), int32(EOP_add), int32(EFALSE), int32(MHINT_NONE))
 			if ret != 0 {
 				v3 = *(*TJSValue)(unsafe.Pointer(bp + 32))
 				*(*TJSValue)(unsafe.Pointer(bp + 16)) = v3
@@ -25337,12 +25337,12 @@ _27:
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)) = v37
 	} else {
 		if tag1 == libc.Uint32FromInt32(EJS_TAG_BIG_DECIMAL) || tag2 == libc.Uint32FromInt32(EJS_TAG_BIG_DECIMAL) {
-			if (*(*func(*libc.TLS, uintptr, TOPCodeEnum, uintptr, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Frt)).Fbigdecimal_ops.Fbinary_arith})))(tls, ctx4, EOP_add, sp-uintptr(2)*16, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48))) != 0 {
+			if (*(*func(*libc.TLS, uintptr, TOPCodeEnum, uintptr, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Frt)).Fbigdecimal_ops.Fbinary_arith})))(tls, ctx4, int32(EOP_add), sp-uintptr(2)*16, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48))) != 0 {
 				goto exception
 			}
 		} else {
 			if tag1 == libc.Uint32FromInt32(EJS_TAG_BIG_FLOAT) || tag2 == libc.Uint32FromInt32(EJS_TAG_BIG_FLOAT) {
-				if (*(*func(*libc.TLS, uintptr, TOPCodeEnum, uintptr, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Frt)).Fbigfloat_ops.Fbinary_arith})))(tls, ctx4, EOP_add, sp-uintptr(2)*16, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48))) != 0 {
+				if (*(*func(*libc.TLS, uintptr, TOPCodeEnum, uintptr, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Frt)).Fbigfloat_ops.Fbinary_arith})))(tls, ctx4, int32(EOP_add), sp-uintptr(2)*16, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48))) != 0 {
 					goto exception
 				}
 			} else {
@@ -25352,7 +25352,7 @@ _27:
 				goto handle_bigint
 			handle_bigint:
 				;
-				if (*(*func(*libc.TLS, uintptr, TOPCodeEnum, uintptr, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Frt)).Fbigint_ops.Fbinary_arith})))(tls, ctx4, EOP_add, sp-uintptr(2)*16, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48))) != 0 {
+				if (*(*func(*libc.TLS, uintptr, TOPCodeEnum, uintptr, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Frt)).Fbigint_ops.Fbinary_arith})))(tls, ctx4, int32(EOP_add), sp-uintptr(2)*16, *(*TJSValue)(unsafe.Pointer(bp + 32)), *(*TJSValue)(unsafe.Pointer(bp + 48))) != 0 {
 					goto exception
 				}
 				goto _40
@@ -26201,18 +26201,18 @@ redo:
 				res = libc.BoolInt32(d1 == d2)
 			} else {
 				if tag1 == libc.Uint32FromInt32(EJS_TAG_BIG_DECIMAL) || tag2 == libc.Uint32FromInt32(EJS_TAG_BIG_DECIMAL) {
-					res = (*(*func(*libc.TLS, uintptr, TOPCodeEnum, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Frt)).Fbigdecimal_ops.Fcompare})))(tls, ctx3, EOP_eq, *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)))
+					res = (*(*func(*libc.TLS, uintptr, TOPCodeEnum, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Frt)).Fbigdecimal_ops.Fcompare})))(tls, ctx3, int32(EOP_eq), *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)))
 					if res < 0 {
 						goto exception
 					}
 				} else {
 					if tag1 == libc.Uint32FromInt32(EJS_TAG_BIG_FLOAT) || tag2 == libc.Uint32FromInt32(EJS_TAG_BIG_FLOAT) {
-						res = (*(*func(*libc.TLS, uintptr, TOPCodeEnum, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Frt)).Fbigfloat_ops.Fcompare})))(tls, ctx3, EOP_eq, *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)))
+						res = (*(*func(*libc.TLS, uintptr, TOPCodeEnum, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Frt)).Fbigfloat_ops.Fcompare})))(tls, ctx3, int32(EOP_eq), *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)))
 						if res < 0 {
 							goto exception
 						}
 					} else {
-						res = (*(*func(*libc.TLS, uintptr, TOPCodeEnum, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Frt)).Fbigint_ops.Fcompare})))(tls, ctx3, EOP_eq, *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)))
+						res = (*(*func(*libc.TLS, uintptr, TOPCodeEnum, TJSValue, TJSValue) int32)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Frt)).Fbigint_ops.Fcompare})))(tls, ctx3, int32(EOP_eq), *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)))
 						if res < 0 {
 							goto exception
 						}
@@ -26261,7 +26261,7 @@ redo:
 					}
 				}
 			}
-			res = _js_strict_eq2(tls, ctx3, *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)), EJS_EQ_STRICT)
+			res = _js_strict_eq2(tls, ctx3, *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)), int32(EJS_EQ_STRICT))
 		} else {
 			if tag1 == uint32(EJS_TAG_NULL) && tag2 == uint32(EJS_TAG_UNDEFINED) || tag2 == uint32(EJS_TAG_NULL) && tag1 == uint32(EJS_TAG_UNDEFINED) {
 				res = int32(ETRUE)
@@ -26355,7 +26355,7 @@ redo:
 					}
 				_9:
 					;
-					res = _js_strict_eq2(tls, ctx3, *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)), EJS_EQ_STRICT)
+					res = _js_strict_eq2(tls, ctx3, *(*TJSValue)(unsafe.Pointer(bp + 16)), *(*TJSValue)(unsafe.Pointer(bp + 32)), int32(EJS_EQ_STRICT))
 				} else {
 					if tag1 == uint32(EJS_TAG_BOOL) {
 						_ = ctx3
@@ -26662,7 +26662,7 @@ func _js_mul_pow10_to_float64(tls *libc.TLS, ctx1 uintptr, a uintptr, exponent T
 	goto _2
 _2:
 	ret = Xbf_mul_pow_radix(tls, r1, a, uint32(10), int32(exponent), uint32(53), v1|uint32(EBF_RNDN)|uint32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)))
-	Xbf_get_float64(tls, r1, bp+48, EBF_RNDN)
+	Xbf_get_float64(tls, r1, bp+48, int32(EBF_RNDN))
 	v3 = r1
 	s1 = (*Tbf_t)(unsafe.Pointer(v3)).Fctx
 	if s1 != 0 && (*Tbf_t)(unsafe.Pointer(v3)).Ftab != 0 {
@@ -27088,7 +27088,7 @@ _3:
 	v5 = v4
 	goto _6
 _6:
-	return _js_strict_eq2(tls, ctx1, v2, v5, EJS_EQ_STRICT)
+	return _js_strict_eq2(tls, ctx1, v2, v5, int32(EJS_EQ_STRICT))
 }
 
 func XJS_StrictEq(tls *libc.TLS, ctx uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
@@ -27121,7 +27121,7 @@ _3:
 	v5 = v4
 	goto _6
 _6:
-	return _js_strict_eq2(tls, ctx1, v2, v5, EJS_EQ_SAME_VALUE)
+	return _js_strict_eq2(tls, ctx1, v2, v5, int32(EJS_EQ_SAME_VALUE))
 }
 
 func XJS_SameValue(tls *libc.TLS, ctx uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
@@ -27154,7 +27154,7 @@ _3:
 	v5 = v4
 	goto _6
 _6:
-	return _js_strict_eq2(tls, ctx1, v2, v5, EJS_EQ_SAME_VALUE_ZERO)
+	return _js_strict_eq2(tls, ctx1, v2, v5, int32(EJS_EQ_SAME_VALUE_ZERO))
 }
 
 func XJS_SameValueZero(tls *libc.TLS, ctx uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
@@ -27165,7 +27165,7 @@ func _js_strict_eq_slow(tls *libc.TLS, ctx1 uintptr, sp uintptr, is_neq TBOOL) (
 	var res TBOOL
 	var v1 TJSValue
 	_, _ = res, v1
-	res = _js_strict_eq2(tls, ctx1, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), EJS_EQ_STRICT)
+	res = _js_strict_eq2(tls, ctx1, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), int32(EJS_EQ_STRICT))
 	_ = ctx1
 	v1 = TJSValue{
 		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
@@ -29463,7 +29463,7 @@ func _get_var_ref(tls *libc.TLS, ctx uintptr, sf uintptr, var_idx int32, is_arg 
 		return libc.UintptrFromInt32(0)
 	}
 	(*TJSVarRef)(unsafe.Pointer(var_ref)).F__ccgo0_0.Fheader.Fref_count = int32(1)
-	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, var_ref, EJS_GC_OBJ_TYPE_VAR_REF)
+	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, var_ref, int32(EJS_GC_OBJ_TYPE_VAR_REF))
 	libc.SetBitFieldPtr8Uint8(var_ref+5, uint8(EFALSE), 0, 0x1)
 	libc.SetBitFieldPtr8Uint8(var_ref+5, uint8(is_arg), 1, 0x2)
 	*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(var_ref), 6)) = uint16(var_idx)
@@ -29703,7 +29703,7 @@ _7:
 			   creating cycles for every javascript function. The prototype
 			   object is created on the fly when first accessed */
 			XJS_SetConstructorBit(tls, ctx1, func_obj, int32(ETRUE))
-			_JS_DefineAutoInitProperty(tls, ctx1, func_obj, uint32(EJS_ATOM_prototype), EJS_AUTOINIT_ID_PROTOTYPE, libc.UintptrFromInt32(0), libc.Int32FromInt32(1)<<libc.Int32FromInt32(1))
+			_JS_DefineAutoInitProperty(tls, ctx1, func_obj, uint32(EJS_ATOM_prototype), int32(EJS_AUTOINIT_ID_PROTOTYPE), libc.UintptrFromInt32(0), libc.Int32FromInt32(1)<<libc.Int32FromInt32(1))
 		}
 	}
 	return func_obj
@@ -35128,7 +35128,7 @@ restart:
 		goto _1000
 	_1000:
 		*(*TJSValue)(unsafe.Pointer(bp + 520)) = v999
-		if _js_unary_arith_slow(tls, ctx9, bp+520+uintptr(1)*16, EOP_inc) != 0 {
+		if _js_unary_arith_slow(tls, ctx9, bp+520+uintptr(1)*16, int32(EOP_inc)) != 0 {
 			goto exception
 		}
 		_set_value(tls, ctx9, var_buf+uintptr(idx20)*16, *(*TJSValue)(unsafe.Pointer(bp + 520)))
@@ -35176,7 +35176,7 @@ restart:
 		goto _1007
 	_1007:
 		*(*TJSValue)(unsafe.Pointer(bp + 536)) = v1006
-		if _js_unary_arith_slow(tls, ctx9, bp+536+uintptr(1)*16, EOP_dec) != 0 {
+		if _js_unary_arith_slow(tls, ctx9, bp+536+uintptr(1)*16, int32(EOP_dec)) != 0 {
 			goto exception
 		}
 		_set_value(tls, ctx9, var_buf+uintptr(idx21)*16, *(*TJSValue)(unsafe.Pointer(bp + 536)))
@@ -36550,7 +36550,7 @@ func _async_func_init(tls *libc.TLS, ctx1 uintptr, _func_obj TJSValue, this_obj 
 		return libc.UintptrFromInt32(0)
 	}
 	(*TJSAsyncFunctionState)(unsafe.Pointer(s)).Fheader.Fref_count = int32(1)
-	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, s, EJS_GC_OBJ_TYPE_ASYNC_FUNCTION)
+	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, s, int32(EJS_GC_OBJ_TYPE_ASYNC_FUNCTION))
 	sf = s + 88
 	v1 = sf + 40
 	(*Tlist_head)(unsafe.Pointer(v1)).Fprev = v1
@@ -40296,7 +40296,7 @@ func Xjs_parse_error(tls *libc.TLS, s uintptr, fmt uintptr, va uintptr) (r int32
 	_, _, _ = ap, backtrace_flags, ctx
 	ctx = (*TJSParseState)(unsafe.Pointer(s)).Fctx
 	ap = va
-	_JS_ThrowError2(tls, ctx, EJS_SYNTAX_ERROR, fmt, ap, int32(EFALSE))
+	_JS_ThrowError2(tls, ctx, int32(EJS_SYNTAX_ERROR), fmt, ap, int32(EFALSE))
 	_ = ap
 	backtrace_flags = 0
 	if (*TJSParseState)(unsafe.Pointer(s)).Fcur_func != 0 && (*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fbacktrace_barrier != 0 {
@@ -43430,7 +43430,7 @@ func _define_var(tls *libc.TLS, s uintptr, fd uintptr, name TJSAtom, var_def_typ
 	goto _9
 _1:
 	;
-	idx = _add_scope_var(tls, ctx, fd, name, EJS_VAR_NORMAL)
+	idx = _add_scope_var(tls, ctx, fd, name, int32(EJS_VAR_NORMAL))
 	goto _9
 _5:
 	;
@@ -43512,7 +43512,7 @@ _2:
 	goto _9
 _6:
 	;
-	idx = _add_scope_var(tls, ctx, fd, name, EJS_VAR_CATCH)
+	idx = _add_scope_var(tls, ctx, fd, name, int32(EJS_VAR_CATCH))
 	goto _9
 _7:
 	;
@@ -44434,7 +44434,7 @@ func _js_parse_class_default_ctor(tls *libc.TLS, s uintptr, has_super TBOOL, pfd
 	(*TJSParseState)(unsafe.Pointer(s)).Fbuf_end = str + uintptr(libc.Xstrlen(tls, str))
 	ret = _next_token(tls, s)
 	if !(ret != 0) {
-		ret = _js_parse_function_decl2(tls, s, func_type, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), str, line_num, EJS_PARSE_EXPORT_NONE, pfd)
+		ret = _js_parse_function_decl2(tls, s, func_type, int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), str, line_num, int32(EJS_PARSE_EXPORT_NONE), pfd)
 	}
 	(*TJSParseState)(unsafe.Pointer(s)).Fbuf_end = saved_buf_end
 	ret |= _js_parse_seek_token(tls, s, bp)
@@ -44611,7 +44611,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 	}
 	/* add a 'const' definition for the class name */
 	if class_name != uint32(MJS_ATOM_NULL) {
-		class_name_var_idx = _define_var(tls, s, fd, class_name, EJS_VAR_DEF_CONST)
+		class_name_var_idx = _define_var(tls, s, fd, class_name, int32(EJS_VAR_DEF_CONST))
 		if class_name_var_idx < 0 {
 			goto fail
 		}
@@ -44684,7 +44684,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 				   reuse 'fields_init_fd' with a specific 'var'
 				   scope */
 				// stack is now: <empty>
-				if _js_parse_function_decl2(tls, s, EJS_PARSE_FUNC_CLASS_STATIC_INIT, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, EJS_PARSE_EXPORT_NONE, bp+72) < 0 {
+				if _js_parse_function_decl2(tls, s, int32(EJS_PARSE_FUNC_CLASS_STATIC_INIT), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, int32(EJS_PARSE_EXPORT_NONE), bp+72) < 0 {
 					goto fail
 				}
 				// stack is now: fclosure
@@ -44747,7 +44747,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 			}
 			(*(*[2]TClassFieldsDef)(unsafe.Pointer(bp + 24)))[is_static].Fneed_brand = int32(ETRUE)
 		}
-		if _js_parse_function_decl2(tls, s, int32(EJS_PARSE_FUNC_GETTER)+is_set, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), start_ptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, EJS_PARSE_EXPORT_NONE, bp+80) != 0 {
+		if _js_parse_function_decl2(tls, s, int32(EJS_PARSE_FUNC_GETTER)+is_set, int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), start_ptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, int32(EJS_PARSE_EXPORT_NONE), bp+80) != 0 {
 			goto fail
 		}
 		if is_private != 0 {
@@ -44761,7 +44761,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 					goto fail
 				}
 				_emit_atom(tls, s, setter_name)
-				ret = _add_private_class_field(tls, s, fd, setter_name, EJS_VAR_PRIVATE_SETTER, is_static)
+				ret = _add_private_class_field(tls, s, fd, setter_name, int32(EJS_VAR_PRIVATE_SETTER), is_static)
 				XJS_FreeAtom(tls, ctx, setter_name)
 				if ret < 0 {
 					goto fail
@@ -44797,7 +44797,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 			if _find_private_class_field(tls, ctx, fd, *(*TJSAtom)(unsafe.Pointer(bp)), (*TJSFunctionDef)(unsafe.Pointer(fd)).Fscope_level) >= 0 {
 				goto private_field_already_defined
 			}
-			if _add_private_class_field(tls, s, fd, *(*TJSAtom)(unsafe.Pointer(bp)), EJS_VAR_PRIVATE_FIELD, is_static) < 0 {
+			if _add_private_class_field(tls, s, fd, *(*TJSAtom)(unsafe.Pointer(bp)), int32(EJS_VAR_PRIVATE_FIELD), is_static) < 0 {
 				goto fail
 			}
 			_emit_op(tls, s, uint8(EOP_private_symbol))
@@ -44817,7 +44817,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 			if field_var_name == uint32(MJS_ATOM_NULL) {
 				goto fail
 			}
-			if _define_var(tls, s, fd, field_var_name, EJS_VAR_DEF_CONST) < 0 {
+			if _define_var(tls, s, fd, field_var_name, int32(EJS_VAR_DEF_CONST)) < 0 {
 				XJS_FreeAtom(tls, ctx, field_var_name)
 				goto fail
 			}
@@ -44902,7 +44902,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 		if is_private != 0 {
 			(*(*[2]TClassFieldsDef)(unsafe.Pointer(bp + 24)))[is_static].Fneed_brand = int32(ETRUE)
 		}
-		if _js_parse_function_decl2(tls, s, func_type, func_kind, uint32(MJS_ATOM_NULL), start_ptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, EJS_PARSE_EXPORT_NONE, bp+8) != 0 {
+		if _js_parse_function_decl2(tls, s, func_type, func_kind, uint32(MJS_ATOM_NULL), start_ptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, int32(EJS_PARSE_EXPORT_NONE), bp+8) != 0 {
 			goto fail
 		}
 		if !(func_type == int32(EJS_PARSE_FUNC_DERIVED_CLASS_CONSTRUCTOR) || func_type == int32(EJS_PARSE_FUNC_CLASS_CONSTRUCTOR)) {
@@ -44926,7 +44926,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 		goto fail
 	_11:
 		;
-		if _add_private_class_field(tls, s, fd, *(*TJSAtom)(unsafe.Pointer(bp)), EJS_VAR_PRIVATE_METHOD, is_static) < 0 {
+		if _add_private_class_field(tls, s, fd, *(*TJSAtom)(unsafe.Pointer(bp)), int32(EJS_VAR_PRIVATE_METHOD), is_static) < 0 {
 			goto fail
 		}
 		_emit_op(tls, s, uint8(EOP_set_home_object))
@@ -45002,7 +45002,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 	}
 	/* store the function to initialize the fields to that it can be
 	   referenced by the constructor */
-	var_idx = _define_var(tls, s, fd, uint32(EJS_ATOM_class_fields_init), EJS_VAR_DEF_CONST)
+	var_idx = _define_var(tls, s, fd, uint32(EJS_ATOM_class_fields_init), int32(EJS_VAR_DEF_CONST))
 	if var_idx < 0 {
 		goto fail
 	}
@@ -45044,7 +45044,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 	_pop_scope(tls, s)
 	/* the class statements have a block level scope */
 	if class_var_name != uint32(MJS_ATOM_NULL) {
-		if _define_var(tls, s, fd, class_var_name, EJS_VAR_DEF_LET) < 0 {
+		if _define_var(tls, s, fd, class_var_name, int32(EJS_VAR_DEF_LET)) < 0 {
 			goto fail
 		}
 		_emit_op(tls, s, uint8(EOP_scope_put_var_init))
@@ -45065,7 +45065,7 @@ func _js_parse_class(tls *libc.TLS, s uintptr, is_class_expr TBOOL, export_flag 
 		} else {
 			v12 = uint32(EJS_ATOM_default)
 		}
-		if !(_add_export_entry(tls, s, (*TJSFunctionDef)(unsafe.Pointer(fd)).Fmodule, class_var_name, v12, EJS_EXPORT_TYPE_LOCAL) != 0) {
+		if !(_add_export_entry(tls, s, (*TJSFunctionDef)(unsafe.Pointer(fd)).Fmodule, class_var_name, v12, int32(EJS_EXPORT_TYPE_LOCAL)) != 0) {
 			goto fail
 		}
 	}
@@ -45916,7 +45916,7 @@ func _js_parse_destructuring_element(tls *libc.TLS, s uintptr, tok int32, is_arg
 				_emit_label(tls, s, label_hasval)
 			}
 			/* store value into lvalue object */
-			_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 16)), *(*int32)(unsafe.Pointer(bp + 20)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp)), EPUT_LVALUE_NOKEEP_DEPTH, libc.BoolInt32(tok == int32(ETOK_CONST) || tok == int32(ETOK_LET)))
+			_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 16)), *(*int32)(unsafe.Pointer(bp + 20)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp)), int32(EPUT_LVALUE_NOKEEP_DEPTH), libc.BoolInt32(tok == int32(ETOK_CONST) || tok == int32(ETOK_LET)))
 			if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32('}') {
 				break
 			}
@@ -46026,7 +46026,7 @@ func _js_parse_destructuring_element(tls *libc.TLS, s uintptr, tok int32, is_arg
 							_emit_label(tls, s, label_hasval1)
 						}
 						/* store value into lvalue object */
-						_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 16)), *(*int32)(unsafe.Pointer(bp + 20)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp)), EPUT_LVALUE_NOKEEP_DEPTH, libc.BoolInt32(tok == int32(ETOK_CONST) || tok == int32(ETOK_LET)))
+						_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 16)), *(*int32)(unsafe.Pointer(bp + 20)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp)), int32(EPUT_LVALUE_NOKEEP_DEPTH), libc.BoolInt32(tok == int32(ETOK_CONST) || tok == int32(ETOK_LET)))
 					}
 				}
 				if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(']') {
@@ -46318,13 +46318,13 @@ _6:
 	goto _20
 _7:
 	;
-	if _js_parse_function_decl(tls, s, EJS_PARSE_FUNC_EXPR, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num) != 0 {
+	if _js_parse_function_decl(tls, s, int32(EJS_PARSE_FUNC_EXPR), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num) != 0 {
 		return -int32(1)
 	}
 	goto _20
 _8:
 	;
-	if _js_parse_class(tls, s, int32(ETRUE), EJS_PARSE_EXPORT_NONE) != 0 {
+	if _js_parse_class(tls, s, int32(ETRUE), int32(EJS_PARSE_EXPORT_NONE)) != 0 {
 		return -int32(1)
 	}
 	goto _20
@@ -46372,7 +46372,7 @@ _13:
 		return -int32(1)
 	}
 	if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_FUNCTION) {
-		if _js_parse_function_decl(tls, s, EJS_PARSE_FUNC_EXPR, EJS_FUNC_ASYNC, uint32(MJS_ATOM_NULL), source_ptr, source_line_num) != 0 {
+		if _js_parse_function_decl(tls, s, int32(EJS_PARSE_FUNC_EXPR), int32(EJS_FUNC_ASYNC), uint32(MJS_ATOM_NULL), source_ptr, source_line_num) != 0 {
 			return -int32(1)
 		}
 	} else {
@@ -47169,7 +47169,7 @@ func _js_parse_unary(tls *libc.TLS, s uintptr, parse_flags int32) (r int32) {
 			return -int32(1)
 		}
 		_emit_op(tls, s, uint8(int32(EOP_dec)+op1-int32(ETOK_DEC)))
-		_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp + 8)), EPUT_LVALUE_KEEP_TOP, int32(EFALSE))
+		_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp + 8)), int32(EPUT_LVALUE_KEEP_TOP), int32(EFALSE))
 	case int32(ETOK_TYPEOF):
 		if _next_token(tls, s) != 0 {
 			return -int32(1)
@@ -47216,7 +47216,7 @@ func _js_parse_unary(tls *libc.TLS, s uintptr, parse_flags int32) (r int32) {
 				return -int32(1)
 			}
 			_emit_op(tls, s, uint8(int32(EOP_post_dec)+op2-int32(ETOK_DEC)))
-			_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 16)), *(*int32)(unsafe.Pointer(bp + 20)), *(*TJSAtom)(unsafe.Pointer(bp + 28)), *(*int32)(unsafe.Pointer(bp + 24)), EPUT_LVALUE_KEEP_SECOND, int32(EFALSE))
+			_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 16)), *(*int32)(unsafe.Pointer(bp + 20)), *(*TJSAtom)(unsafe.Pointer(bp + 28)), *(*int32)(unsafe.Pointer(bp + 24)), int32(EPUT_LVALUE_KEEP_SECOND), int32(EFALSE))
 			if _next_token(tls, s) != 0 {
 				return -int32(1)
 			}
@@ -47666,7 +47666,7 @@ func _js_parse_assign_expr2(tls *libc.TLS, s uintptr, parse_flags int32) (r int3
 		return 0
 	} else {
 		if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32('(') && _js_parse_skip_parens_token(tls, s, libc.UintptrFromInt32(0), int32(ETRUE)) == int32(ETOK_ARROW) {
-			return _js_parse_function_decl(tls, s, EJS_PARSE_FUNC_ARROW, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num)
+			return _js_parse_function_decl(tls, s, int32(EJS_PARSE_FUNC_ARROW), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num)
 		} else {
 			if _token_is_pseudo_keyword(tls, s, uint32(EJS_ATOM_async)) != 0 {
 				/* fast test */
@@ -47681,7 +47681,7 @@ func _js_parse_assign_expr2(tls *libc.TLS, s uintptr, parse_flags int32) (r int3
 					return -int32(1)
 				}
 				if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32('(') && _js_parse_skip_parens_token(tls, s, libc.UintptrFromInt32(0), int32(ETRUE)) == int32(ETOK_ARROW) || (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_IDENT) && !(*(*TBOOL)(unsafe.Pointer(s + 24 + 16 + 8)) != 0) && _peek_token(tls, s, int32(ETRUE)) == int32(ETOK_ARROW) {
-					return _js_parse_function_decl(tls, s, EJS_PARSE_FUNC_ARROW, EJS_FUNC_ASYNC, uint32(MJS_ATOM_NULL), source_ptr, source_line_num)
+					return _js_parse_function_decl(tls, s, int32(EJS_PARSE_FUNC_ARROW), int32(EJS_FUNC_ASYNC), uint32(MJS_ATOM_NULL), source_ptr, source_line_num)
 				} else {
 					/* undo the token parsing */
 					if _js_parse_seek_token(tls, s, bp+16) != 0 {
@@ -47690,7 +47690,7 @@ func _js_parse_assign_expr2(tls *libc.TLS, s uintptr, parse_flags int32) (r int3
 				}
 			} else {
 				if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_IDENT) && _peek_token(tls, s, int32(ETRUE)) == int32(ETOK_ARROW) {
-					return _js_parse_function_decl(tls, s, EJS_PARSE_FUNC_ARROW, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num)
+					return _js_parse_function_decl(tls, s, int32(EJS_PARSE_FUNC_ARROW), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num)
 				}
 			}
 		}
@@ -47730,7 +47730,7 @@ next:
 			}
 			_emit_op(tls, s, uint8(op))
 		}
-		_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 8)), *(*int32)(unsafe.Pointer(bp + 40)), EPUT_LVALUE_KEEP_TOP, int32(EFALSE))
+		_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 8)), *(*int32)(unsafe.Pointer(bp + 40)), int32(EPUT_LVALUE_KEEP_TOP), int32(EFALSE))
 	} else {
 		if op >= int32(ETOK_LAND_ASSIGN) && op <= int32(ETOK_DOUBLE_QUESTION_MARK_ASSIGN) {
 			if _next_token(tls, s) != 0 {
@@ -47769,7 +47769,7 @@ next:
 			}
 			/* XXX: we disable the OP_put_ref_value optimization by not
 			   using put_lvalue() otherwise depth_lvalue is not correct */
-			_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 8)), *(*int32)(unsafe.Pointer(bp + 44)), EPUT_LVALUE_NOKEEP_DEPTH, int32(EFALSE))
+			_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 8)), *(*int32)(unsafe.Pointer(bp + 44)), int32(EPUT_LVALUE_NOKEEP_DEPTH), int32(EFALSE))
 			label2 = _emit_goto(tls, s, int32(EOP_goto), -int32(1))
 			_emit_label(tls, s, label11)
 			/* remove the lvalue stack entries */
@@ -48070,7 +48070,7 @@ func _js_parse_var(tls *libc.TLS, s uintptr, parse_flags int32, tok int32, expor
 				goto var_error
 			}
 			if export_flag != 0 {
-				if !(_add_export_entry(tls, s, (*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fmodule, name, name, EJS_EXPORT_TYPE_LOCAL) != 0) {
+				if !(_add_export_entry(tls, s, (*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fmodule, name, name, int32(EJS_EXPORT_TYPE_LOCAL)) != 0) {
 					goto var_error
 				}
 			}
@@ -48090,7 +48090,7 @@ func _js_parse_var(tls *libc.TLS, s uintptr, parse_flags int32, tok int32, expor
 						goto var_error
 					}
 					_set_object_name(tls, s, name)
-					_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp + 8)), EPUT_LVALUE_NOKEEP, int32(EFALSE))
+					_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 4)), *(*TJSAtom)(unsafe.Pointer(bp + 12)), *(*int32)(unsafe.Pointer(bp + 8)), int32(EPUT_LVALUE_NOKEEP), int32(EFALSE))
 				} else {
 					if _js_parse_assign_expr2(tls, s, parse_flags) != 0 {
 						goto var_error
@@ -48296,7 +48296,7 @@ func _js_parse_for_in_of(tls *libc.TLS, s uintptr, label_name int32, is_async TB
 				if _get_lvalue(tls, s, bp+4, bp+8, bp, bp+60, libc.UintptrFromInt32(0), int32(EFALSE), int32(ETOK_FOR)) != 0 {
 					return -int32(1)
 				}
-				_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 4)), *(*int32)(unsafe.Pointer(bp + 8)), *(*TJSAtom)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 60)), EPUT_LVALUE_NOKEEP_BOTTOM, int32(EFALSE))
+				_put_lvalue(tls, s, *(*int32)(unsafe.Pointer(bp + 4)), *(*int32)(unsafe.Pointer(bp + 8)), *(*TJSAtom)(unsafe.Pointer(bp)), *(*int32)(unsafe.Pointer(bp + 60)), int32(EPUT_LVALUE_NOKEEP_BOTTOM), int32(EFALSE))
 			}
 			*(*TJSAtom)(unsafe.Pointer(bp)) = uint32(MJS_ATOM_NULL)
 		}
@@ -49166,7 +49166,7 @@ _18:
 			goto fail
 		}
 		_push_scope(tls, s)
-		with_idx = _define_var(tls, s, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, uint32(EJS_ATOM__with_), EJS_VAR_DEF_WITH)
+		with_idx = _define_var(tls, s, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, uint32(EJS_ATOM__with_), int32(EJS_VAR_DEF_WITH))
 		if with_idx < 0 {
 			goto fail
 		}
@@ -49222,7 +49222,7 @@ _32:
 	goto parse_func_var
 parse_func_var:
 	;
-	if _js_parse_function_decl(tls, s, EJS_PARSE_FUNC_VAR, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num) != 0 {
+	if _js_parse_function_decl(tls, s, int32(EJS_PARSE_FUNC_VAR), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num) != 0 {
 		goto fail
 	}
 	goto _27
@@ -49235,7 +49235,7 @@ _21:
 		Xjs_parse_error(tls, s, __ccgo_ts+7124, 0)
 		goto fail
 	}
-	if _js_parse_class(tls, s, int32(EFALSE), EJS_PARSE_EXPORT_NONE) != 0 {
+	if _js_parse_class(tls, s, int32(EFALSE), int32(EJS_PARSE_EXPORT_NONE)) != 0 {
 		return -int32(1)
 	}
 	goto _27
@@ -49643,7 +49643,7 @@ func XJS_AddModuleExport(tls *libc.TLS, ctx uintptr, m uintptr, export_name uint
 	if name == uint32(MJS_ATOM_NULL) {
 		return -int32(1)
 	}
-	me = _add_export_entry2(tls, ctx, libc.UintptrFromInt32(0), m, uint32(MJS_ATOM_NULL), name, EJS_EXPORT_TYPE_LOCAL)
+	me = _add_export_entry2(tls, ctx, libc.UintptrFromInt32(0), m, uint32(MJS_ATOM_NULL), name, int32(EJS_EXPORT_TYPE_LOCAL))
 	XJS_FreeAtom(tls, ctx, name)
 	if !(me != 0) {
 		return -int32(1)
@@ -50331,7 +50331,7 @@ _2:
 			*(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(pr)).Fu)) = var_ref
 		case int32(EEXPORTED_NAME_NS):
 			/* the exported namespace must be created on demand */
-			if _JS_DefineAutoInitProperty(tls, ctx1, *(*TJSValue)(unsafe.Pointer(bp + 16)), (*TExportedNameEntry)(unsafe.Pointer(en1)).Fexport_name, EJS_AUTOINIT_ID_MODULE_NS, *(*uintptr)(unsafe.Pointer(en1 + 8)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)) < 0 {
+			if _JS_DefineAutoInitProperty(tls, ctx1, *(*TJSValue)(unsafe.Pointer(bp + 16)), (*TExportedNameEntry)(unsafe.Pointer(en1)).Fexport_name, int32(EJS_AUTOINIT_ID_MODULE_NS), *(*uintptr)(unsafe.Pointer(en1 + 8)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)) < 0 {
 				goto fail
 			}
 		default:
@@ -50460,7 +50460,7 @@ func _js_create_module_var(tls *libc.TLS, ctx uintptr, is_lexical TBOOL) (r uint
 	}
 	(*TJSVarRef)(unsafe.Pointer(var_ref)).Fpvalue = var_ref + 32
 	libc.SetBitFieldPtr8Uint8(var_ref+5, uint8(ETRUE), 0, 0x1)
-	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, var_ref, EJS_GC_OBJ_TYPE_VAR_REF)
+	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, var_ref, int32(EJS_GC_OBJ_TYPE_VAR_REF))
 	return var_ref
 }
 
@@ -51144,7 +51144,7 @@ func _JS_LoadModuleInternal(tls *libc.TLS, ctx1 uintptr, basename uintptr, filen
 		goto fail
 	}
 	if _js_resolve_module(tls, ctx1, m) < 0 {
-		_js_free_modules(tls, ctx1, EJS_FREE_MODULE_NOT_RESOLVED)
+		_js_free_modules(tls, ctx1, int32(EJS_FREE_MODULE_NOT_RESOLVED))
 		goto fail
 	}
 	/* Evaluate the module code */
@@ -52250,10 +52250,10 @@ func _js_parse_export(tls *libc.TLS, s uintptr) (r int32) {
 	}
 	tok = (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval
 	if tok == int32(ETOK_CLASS) {
-		return _js_parse_class(tls, s, int32(EFALSE), EJS_PARSE_EXPORT_NAMED)
+		return _js_parse_class(tls, s, int32(EFALSE), int32(EJS_PARSE_EXPORT_NAMED))
 	} else {
 		if tok == int32(ETOK_FUNCTION) || _token_is_pseudo_keyword(tls, s, uint32(EJS_ATOM_async)) != 0 && _peek_token(tls, s, int32(ETRUE)) == int32(ETOK_FUNCTION) {
-			return _js_parse_function_decl2(tls, s, EJS_PARSE_FUNC_STATEMENT, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, EJS_PARSE_EXPORT_NAMED, libc.UintptrFromInt32(0))
+			return _js_parse_function_decl2(tls, s, int32(EJS_PARSE_FUNC_STATEMENT), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, int32(EJS_PARSE_EXPORT_NAMED), libc.UintptrFromInt32(0))
 		}
 	}
 	if _next_token(tls, s) != 0 {
@@ -52324,7 +52324,7 @@ _11:
 	export_name = XJS_DupAtom(tls, ctx, local_name)
 _12:
 	;
-	me = _add_export_entry(tls, s, m, local_name, export_name, EJS_EXPORT_TYPE_LOCAL)
+	me = _add_export_entry(tls, s, m, local_name, export_name, int32(EJS_EXPORT_TYPE_LOCAL))
 	XJS_FreeAtom(tls, ctx, local_name)
 	XJS_FreeAtom(tls, ctx, export_name)
 	if !(me != 0) {
@@ -52391,7 +52391,7 @@ _2:
 		if idx < 0 {
 			goto fail1
 		}
-		me = _add_export_entry(tls, s, m, uint32(EJS_ATOM__star_), export_name, EJS_EXPORT_TYPE_INDIRECT)
+		me = _add_export_entry(tls, s, m, uint32(EJS_ATOM__star_), export_name, int32(EJS_EXPORT_TYPE_INDIRECT))
 		XJS_FreeAtom(tls, ctx, export_name)
 		if !(me != 0) {
 			return -int32(1)
@@ -52415,10 +52415,10 @@ _2:
 _3:
 	;
 	if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_CLASS) {
-		return _js_parse_class(tls, s, int32(EFALSE), EJS_PARSE_EXPORT_DEFAULT)
+		return _js_parse_class(tls, s, int32(EFALSE), int32(EJS_PARSE_EXPORT_DEFAULT))
 	} else {
 		if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_FUNCTION) || _token_is_pseudo_keyword(tls, s, uint32(EJS_ATOM_async)) != 0 && _peek_token(tls, s, int32(ETRUE)) == int32(ETOK_FUNCTION) {
-			return _js_parse_function_decl2(tls, s, EJS_PARSE_FUNC_STATEMENT, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, EJS_PARSE_EXPORT_DEFAULT, libc.UintptrFromInt32(0))
+			return _js_parse_function_decl2(tls, s, int32(EJS_PARSE_FUNC_STATEMENT), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num, int32(EJS_PARSE_EXPORT_DEFAULT), libc.UintptrFromInt32(0))
 		} else {
 			if _js_parse_assign_expr(tls, s) != 0 {
 				return -int32(1)
@@ -52430,13 +52430,13 @@ _3:
 	/* store the value in the _default_ global variable and export
 	   it */
 	local_name = uint32(EJS_ATOM__default_)
-	if _define_var(tls, s, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, local_name, EJS_VAR_DEF_LET) < 0 {
+	if _define_var(tls, s, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, local_name, int32(EJS_VAR_DEF_LET)) < 0 {
 		return -int32(1)
 	}
 	_emit_op(tls, s, uint8(EOP_scope_put_var_init))
 	_emit_atom(tls, s, local_name)
 	_emit_u16(tls, s, uint16(0))
-	if !(_add_export_entry(tls, s, m, local_name, uint32(EJS_ATOM_default), EJS_EXPORT_TYPE_LOCAL) != 0) {
+	if !(_add_export_entry(tls, s, m, local_name, uint32(EJS_ATOM_default), int32(EJS_EXPORT_TYPE_LOCAL)) != 0) {
 		return -int32(1)
 	}
 	goto _8
@@ -52480,7 +52480,7 @@ func _add_import(tls *libc.TLS, s uintptr, m uintptr, local_name TJSAtom, import
 		}
 	}
 	is_local = libc.BoolInt32(import_name == uint32(EJS_ATOM__star_))
-	var_idx = _add_closure_var(tls, ctx, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, is_local, int32(EFALSE), (*TJSModuleDef)(unsafe.Pointer(m)).Fimport_entries_count, local_name, int32(ETRUE), int32(ETRUE), EFALSE)
+	var_idx = _add_closure_var(tls, ctx, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, is_local, int32(EFALSE), (*TJSModuleDef)(unsafe.Pointer(m)).Fimport_entries_count, local_name, int32(ETRUE), int32(ETRUE), int32(EFALSE))
 	if var_idx < 0 {
 		return -int32(1)
 	}
@@ -52670,7 +52670,7 @@ func _js_parse_source_element(tls *libc.TLS, s uintptr) (r int32) {
 	_, _, _, _ = fd, tok, v1, v2
 	fd = (*TJSParseState)(unsafe.Pointer(s)).Fcur_func
 	if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_FUNCTION) || _token_is_pseudo_keyword(tls, s, uint32(EJS_ATOM_async)) != 0 && _peek_token(tls, s, int32(ETRUE)) == int32(ETOK_FUNCTION) {
-		if _js_parse_function_decl(tls, s, EJS_PARSE_FUNC_STATEMENT, EJS_FUNC_NORMAL, uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num) != 0 {
+		if _js_parse_function_decl(tls, s, int32(EJS_PARSE_FUNC_STATEMENT), int32(EJS_FUNC_NORMAL), uint32(MJS_ATOM_NULL), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr, (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fline_num) != 0 {
 			return -int32(1)
 		}
 	} else {
@@ -53518,7 +53518,7 @@ func _resolve_scope_var(tls *libc.TLS, ctx uintptr, s2 uintptr, var_name TJSAtom
 			} else {
 				if (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name == uint32(EJS_ATOM__with_) && !(is_pseudo_var != 0) {
 					libc.SetBitFieldPtr8Uint8(vd+12, libc.Uint8FromInt32(1), 2, 0x4)
-					idx = _get_closure_var(tls, ctx, s2, fd, int32(EFALSE), idx, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(EFALSE), EJS_VAR_NORMAL)
+					idx = _get_closure_var(tls, ctx, s2, fd, int32(EFALSE), idx, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(EFALSE), int32(EJS_VAR_NORMAL))
 					if idx >= 0 {
 						Xdbuf_putc(tls, bc, uint8(EOP_get_var_ref))
 						v34 = uint16(idx)
@@ -53564,7 +53564,7 @@ func _resolve_scope_var(tls *libc.TLS, ctx uintptr, s2 uintptr, var_name TJSAtom
 		if !(is_arg_scope != 0) && (*TJSFunctionDef)(unsafe.Pointer(fd)).Fvar_object_idx >= 0 && !(is_pseudo_var != 0) {
 			vd = (*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr((*TJSFunctionDef)(unsafe.Pointer(fd)).Fvar_object_idx)*20
 			libc.SetBitFieldPtr8Uint8(vd+12, libc.Uint8FromInt32(1), 2, 0x4)
-			idx = _get_closure_var(tls, ctx, s2, fd, int32(EFALSE), (*TJSFunctionDef)(unsafe.Pointer(fd)).Fvar_object_idx, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(EFALSE), EJS_VAR_NORMAL)
+			idx = _get_closure_var(tls, ctx, s2, fd, int32(EFALSE), (*TJSFunctionDef)(unsafe.Pointer(fd)).Fvar_object_idx, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(EFALSE), int32(EJS_VAR_NORMAL))
 			Xdbuf_putc(tls, bc, uint8(EOP_get_var_ref))
 			v36 = uint16(idx)
 			*(*Tuint16_t)(unsafe.Pointer(bp)) = v36
@@ -53578,7 +53578,7 @@ func _resolve_scope_var(tls *libc.TLS, ctx uintptr, s2 uintptr, var_name TJSAtom
 		if (*TJSFunctionDef)(unsafe.Pointer(fd)).Farg_var_object_idx >= 0 && !(is_pseudo_var != 0) {
 			vd = (*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr((*TJSFunctionDef)(unsafe.Pointer(fd)).Farg_var_object_idx)*20
 			libc.SetBitFieldPtr8Uint8(vd+12, libc.Uint8FromInt32(1), 2, 0x4)
-			idx = _get_closure_var(tls, ctx, s2, fd, int32(EFALSE), (*TJSFunctionDef)(unsafe.Pointer(fd)).Farg_var_object_idx, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(EFALSE), EJS_VAR_NORMAL)
+			idx = _get_closure_var(tls, ctx, s2, fd, int32(EFALSE), (*TJSFunctionDef)(unsafe.Pointer(fd)).Farg_var_object_idx, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(EFALSE), int32(EJS_VAR_NORMAL))
 			Xdbuf_putc(tls, bc, uint8(EOP_get_var_ref))
 			v38 = uint16(idx)
 			*(*Tuint16_t)(unsafe.Pointer(bp)) = v38
@@ -53617,7 +53617,7 @@ func _resolve_scope_var(tls *libc.TLS, ctx uintptr, s2 uintptr, var_name TJSAtom
 				if ((*TJSClosureVar)(unsafe.Pointer(cv)).Fvar_name == uint32(EJS_ATOM__var_) || (*TJSClosureVar)(unsafe.Pointer(cv)).Fvar_name == uint32(EJS_ATOM__arg_var_) || (*TJSClosureVar)(unsafe.Pointer(cv)).Fvar_name == uint32(EJS_ATOM__with_)) && !(is_pseudo_var != 0) {
 					is_with = libc.BoolInt32((*TJSClosureVar)(unsafe.Pointer(cv)).Fvar_name == uint32(EJS_ATOM__with_))
 					if fd != s2 {
-						idx = _get_closure_var2(tls, ctx, s2, fd, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(cv + 0))&0x2>>1), idx1, (*TJSClosureVar)(unsafe.Pointer(cv)).Fvar_name, int32(EFALSE), int32(EFALSE), EJS_VAR_NORMAL)
+						idx = _get_closure_var2(tls, ctx, s2, fd, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(cv + 0))&0x2>>1), idx1, (*TJSClosureVar)(unsafe.Pointer(cv)).Fvar_name, int32(EFALSE), int32(EFALSE), int32(EJS_VAR_NORMAL))
 					} else {
 						idx = idx1
 					}
@@ -53643,7 +53643,7 @@ func _resolve_scope_var(tls *libc.TLS, ctx uintptr, s2 uintptr, var_name TJSAtom
 	/* find the corresponding closure variable */
 	if var_idx&int32(MARGUMENT_VAR_OFFSET) != 0 {
 		libc.SetBitFieldPtr8Uint8((*TJSFunctionDef)(unsafe.Pointer(fd)).Fargs+uintptr(var_idx-int32(MARGUMENT_VAR_OFFSET))*20+12, libc.Uint8FromInt32(1), 2, 0x4)
-		idx = _get_closure_var(tls, ctx, s2, fd, int32(ETRUE), var_idx-int32(MARGUMENT_VAR_OFFSET), var_name, int32(EFALSE), int32(EFALSE), EJS_VAR_NORMAL)
+		idx = _get_closure_var(tls, ctx, s2, fd, int32(ETRUE), var_idx-int32(MARGUMENT_VAR_OFFSET), var_name, int32(EFALSE), int32(EFALSE), int32(EJS_VAR_NORMAL))
 	} else {
 		libc.SetBitFieldPtr8Uint8((*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars+uintptr(var_idx)*20+12, libc.Uint8FromInt32(1), 2, 0x4)
 		idx = _get_closure_var(tls, ctx, s2, fd, int32(EFALSE), var_idx, var_name, int32(*(*uint8)(unsafe.Pointer((*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr(var_idx)*20 + 12))&0x1>>0), int32(*(*uint8)(unsafe.Pointer((*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr(var_idx)*20 + 12))&0x2>>1), int32(*(*uint8)(unsafe.Pointer((*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr(var_idx)*20 + 12))&0xf0>>4))
@@ -53885,7 +53885,7 @@ func _resolve_scope_private_field1(tls *libc.TLS, ctx uintptr, pis_ref uintptr, 
 		if idx >= 0 {
 			var_kind = int32(*(*uint8)(unsafe.Pointer((*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr(idx)*20 + 12)) & 0xf0 >> 4)
 			if is_ref != 0 {
-				idx = _get_closure_var(tls, ctx, s, fd, int32(EFALSE), idx, var_name, int32(ETRUE), int32(ETRUE), EJS_VAR_NORMAL)
+				idx = _get_closure_var(tls, ctx, s, fd, int32(EFALSE), idx, var_name, int32(ETRUE), int32(ETRUE), int32(EJS_VAR_NORMAL))
 				if idx < 0 {
 					return -int32(1)
 				}
@@ -54180,7 +54180,7 @@ func _add_eval_variables(tls *libc.TLS, ctx uintptr, s uintptr) {
 				}
 				vd = (*TJSFunctionDef)(unsafe.Pointer(fd)).Fargs + uintptr(i)*20
 				if (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name != uint32(MJS_ATOM_NULL) {
-					_get_closure_var(tls, ctx, s, fd, int32(ETRUE), i, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(vd + 12))&0x2>>1), EJS_VAR_NORMAL)
+					_get_closure_var(tls, ctx, s, fd, int32(ETRUE), i, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(vd + 12))&0x2>>1), int32(EJS_VAR_NORMAL))
 				}
 				goto _2
 			_2:
@@ -54195,7 +54195,7 @@ func _add_eval_variables(tls *libc.TLS, ctx uintptr, s uintptr) {
 				vd = (*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr(i)*20
 				/* do not close top level last result */
 				if (*TJSVarDef)(unsafe.Pointer(vd)).Fscope_level == 0 && (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name != uint32(EJS_ATOM__ret_) && (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name != uint32(MJS_ATOM_NULL) {
-					_get_closure_var(tls, ctx, s, fd, int32(EFALSE), i, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(vd + 12))&0x2>>1), EJS_VAR_NORMAL)
+					_get_closure_var(tls, ctx, s, fd, int32(EFALSE), i, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(vd + 12))&0x2>>1), int32(EJS_VAR_NORMAL))
 				}
 				goto _3
 			_3:
@@ -54211,7 +54211,7 @@ func _add_eval_variables(tls *libc.TLS, ctx uintptr, s uintptr) {
 				vd = (*TJSFunctionDef)(unsafe.Pointer(fd)).Fvars + uintptr(i)*20
 				/* do not close top level last result */
 				if (*TJSVarDef)(unsafe.Pointer(vd)).Fscope_level == 0 && _is_var_in_arg_scope(tls, vd) != 0 {
-					_get_closure_var(tls, ctx, s, fd, int32(EFALSE), i, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(vd + 12))&0x2>>1), EJS_VAR_NORMAL)
+					_get_closure_var(tls, ctx, s, fd, int32(EFALSE), i, (*TJSVarDef)(unsafe.Pointer(vd)).Fvar_name, int32(EFALSE), int32(*(*uint8)(unsafe.Pointer(vd + 12))&0x2>>1), int32(EJS_VAR_NORMAL))
 				}
 				goto _4
 			_4:
@@ -57449,7 +57449,7 @@ func _add_module_variables(tls *libc.TLS, ctx uintptr, fd uintptr) (r int32) {
 			break
 		}
 		hf = (*TJSFunctionDef)(unsafe.Pointer(fd)).Fglobal_vars + uintptr(i)*16
-		if _add_closure_var(tls, ctx, fd, int32(ETRUE), int32(EFALSE), i, (*TJSGlobalVar)(unsafe.Pointer(hf)).Fvar_name, int32(*(*uint8)(unsafe.Pointer(hf + 4))&0x4>>2), int32(*(*uint8)(unsafe.Pointer(hf + 4))&0x2>>1), EFALSE) < 0 {
+		if _add_closure_var(tls, ctx, fd, int32(ETRUE), int32(EFALSE), i, (*TJSGlobalVar)(unsafe.Pointer(hf)).Fvar_name, int32(*(*uint8)(unsafe.Pointer(hf + 4))&0x4>>2), int32(*(*uint8)(unsafe.Pointer(hf + 4))&0x2>>1), int32(EFALSE)) < 0 {
 			return -int32(1)
 		}
 		goto _1
@@ -57732,7 +57732,7 @@ func _js_create_function(tls *libc.TLS, ctx uintptr, fd uintptr) (r TJSValue) {
 	libc.SetBitFieldPtr8Uint8(b+26, uint8((*TJSFunctionDef)(unsafe.Pointer(fd)).Fbacktrace_barrier), 3, 0x8)
 	libc.SetBitFieldPtr8Uint8(b+26, libc.BoolUint8((*TJSFunctionDef)(unsafe.Pointer(fd)).Feval_type == libc.Int32FromInt32(2)<<libc.Int32FromInt32(0) || (*TJSFunctionDef)(unsafe.Pointer(fd)).Feval_type == libc.Int32FromInt32(3)<<libc.Int32FromInt32(0)), 5, 0x20)
 	(*TJSFunctionBytecode)(unsafe.Pointer(b)).Frealm = XJS_DupContext(tls, ctx)
-	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, b, EJS_GC_OBJ_TYPE_FUNCTION_BYTECODE)
+	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, b, int32(EJS_GC_OBJ_TYPE_FUNCTION_BYTECODE))
 	if (*TJSFunctionDef)(unsafe.Pointer(fd)).Fparent != 0 {
 		/* remove from parent list */
 		v13 = fd + 40
@@ -58307,7 +58307,7 @@ func _js_parse_function_decl2(tls *libc.TLS, s uintptr, func_type TJSParseFuncti
 							if _js_parse_check_duplicate_parameter(tls, s, name1) != 0 {
 								goto fail
 							}
-							if _define_var(tls, s, fd, name1, EJS_VAR_DEF_LET) < 0 {
+							if _define_var(tls, s, fd, name1, int32(EJS_VAR_DEF_LET)) < 0 {
 								goto fail
 							}
 						}
@@ -58580,7 +58580,7 @@ done:
 			}
 		} else {
 			if !((*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fis_global_var != 0) {
-				var_idx = _define_var(tls, s, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, func_name1, EJS_VAR_DEF_VAR)
+				var_idx = _define_var(tls, s, (*TJSParseState)(unsafe.Pointer(s)).Fcur_func, func_name1, int32(EJS_VAR_DEF_VAR))
 				if var_idx < 0 {
 					goto fail
 				}
@@ -58608,7 +58608,7 @@ done:
 					} else {
 						v5 = uint32(EJS_ATOM_default)
 					}
-					if !(_add_export_entry(tls, s, (*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fmodule, func_var_name, v5, EJS_EXPORT_TYPE_LOCAL) != 0) {
+					if !(_add_export_entry(tls, s, (*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fmodule, func_var_name, v5, int32(EJS_EXPORT_TYPE_LOCAL)) != 0) {
 						goto fail
 					}
 				}
@@ -58628,7 +58628,7 @@ fail:
 }
 
 func _js_parse_function_decl(tls *libc.TLS, s uintptr, func_type TJSParseFunctionEnum, func_kind TJSFunctionKindEnum, func_name TJSAtom, ptr uintptr, function_line_num int32) (r int32) {
-	return _js_parse_function_decl2(tls, s, func_type, func_kind, func_name, ptr, function_line_num, EJS_PARSE_EXPORT_NONE, libc.UintptrFromInt32(0))
+	return _js_parse_function_decl2(tls, s, func_type, func_kind, func_name, ptr, function_line_num, int32(EJS_PARSE_EXPORT_NONE), libc.UintptrFromInt32(0))
 }
 
 func _js_parse_program(tls *libc.TLS, s uintptr) (r int32) {
@@ -58982,7 +58982,7 @@ func XJS_ResolveModule(tls *libc.TLS, ctx uintptr, _obj TJSValue) (r int32) {
 	if int32((*(*TJSValue)(unsafe.Pointer(bp))).Ftag) == int32(EJS_TAG_MODULE) {
 		m = *(*uintptr)(unsafe.Pointer(bp))
 		if _js_resolve_module(tls, ctx, m) < 0 {
-			_js_free_modules(tls, ctx, EJS_FREE_MODULE_NOT_RESOLVED)
+			_js_free_modules(tls, ctx, int32(EJS_FREE_MODULE_NOT_RESOLVED))
 			return -int32(1)
 		}
 	}
@@ -61074,7 +61074,7 @@ func _JS_ReadFunctionTag(tls *libc.TLS, s uintptr) (r TJSValue) {
 	if (*TJSFunctionBytecode)(unsafe.Pointer(b)).Fcpool_count != 0 {
 		(*TJSFunctionBytecode)(unsafe.Pointer(b)).Fcpool = b + uintptr(cpool_offset)
 	}
-	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, b, EJS_GC_OBJ_TYPE_FUNCTION_BYTECODE)
+	_add_gc_object(tls, (*TJSContext)(unsafe.Pointer(ctx1)).Frt, b, int32(EJS_GC_OBJ_TYPE_FUNCTION_BYTECODE))
 	obj = TJSValue{
 		Fu:   *(*TJSValueUnion)(unsafe.Pointer(&struct{ f uintptr }{f: b})),
 		Ftag: int64(EJS_TAG_FUNCTION_BYTECODE),
@@ -62475,7 +62475,7 @@ func _JS_InstantiateFunctionListItem(tls *libc.TLS, ctx4 uintptr, obj TJSValue, 
 				prop_flags = 0
 			}
 		}
-		_JS_DefineAutoInitProperty(tls, ctx4, obj, atom, EJS_AUTOINIT_ID_PROP, e, prop_flags)
+		_JS_DefineAutoInitProperty(tls, ctx4, obj, atom, int32(EJS_AUTOINIT_ID_PROP), e, prop_flags)
 		return 0
 	case int32(MJS_DEF_CGETSET): /* XXX: use autoinit again ? */
 		fallthrough
@@ -62562,7 +62562,7 @@ func _JS_InstantiateFunctionListItem(tls *libc.TLS, ctx4 uintptr, obj TJSValue, 
 	case int32(MJS_DEF_PROP_STRING):
 		fallthrough
 	case int32(MJS_DEF_OBJECT):
-		_JS_DefineAutoInitProperty(tls, ctx4, obj, atom, EJS_AUTOINIT_ID_PROP, e, prop_flags)
+		_JS_DefineAutoInitProperty(tls, ctx4, obj, atom, int32(EJS_AUTOINIT_ID_PROP), e, prop_flags)
 		return 0
 	default:
 		libc.Xabort(tls)
@@ -62782,7 +62782,7 @@ _3:
 func _JS_NewGlobalCConstructor(tls *libc.TLS, ctx uintptr, name uintptr, func1 uintptr, length int32, proto TJSValue) (r TJSValue) {
 	var func_obj TJSValue
 	_ = func_obj
-	func_obj = XJS_NewCFunction2(tls, ctx, func1, name, length, EJS_CFUNC_constructor_or_func, 0)
+	func_obj = XJS_NewCFunction2(tls, ctx, func1, name, length, int32(EJS_CFUNC_constructor_or_func), 0)
 	_JS_NewGlobalCConstructor2(tls, ctx, func_obj, name, proto)
 	return func_obj
 }
@@ -62790,7 +62790,7 @@ func _JS_NewGlobalCConstructor(tls *libc.TLS, ctx uintptr, name uintptr, func1 u
 func _JS_NewGlobalCConstructorOnly(tls *libc.TLS, ctx uintptr, name uintptr, func1 uintptr, length int32, proto TJSValue) (r TJSValue) {
 	var func_obj TJSValue
 	_ = func_obj
-	func_obj = XJS_NewCFunction2(tls, ctx, func1, name, length, EJS_CFUNC_constructor, 0)
+	func_obj = XJS_NewCFunction2(tls, ctx, func1, name, length, int32(EJS_CFUNC_constructor), 0)
 	_JS_NewGlobalCConstructor2(tls, ctx, func_obj, name, proto)
 	return func_obj
 }
@@ -70691,7 +70691,7 @@ func _js_array_includes(tls *libc.TLS, ctx3 uintptr, this_val TJSValue, argc int
 				v6 = v5
 				goto _7
 			_7:
-				if _js_strict_eq2(tls, ctx3, v3, v6, EJS_EQ_SAME_VALUE_ZERO) != 0 {
+				if _js_strict_eq2(tls, ctx3, v3, v6, int32(EJS_EQ_SAME_VALUE_ZERO)) != 0 {
 					res = int32(ETRUE)
 					goto done
 				}
@@ -70722,7 +70722,7 @@ func _js_array_includes(tls *libc.TLS, ctx3 uintptr, this_val TJSValue, argc int
 			v12 = v11
 			goto _13
 		_13:
-			if _js_strict_eq2(tls, ctx3, v12, val1, EJS_EQ_SAME_VALUE_ZERO) != 0 {
+			if _js_strict_eq2(tls, ctx3, v12, val1, int32(EJS_EQ_SAME_VALUE_ZERO)) != 0 {
 				res = int32(ETRUE)
 				break
 			}
@@ -70828,7 +70828,7 @@ func _js_array_indexOf(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int3
 				v6 = v5
 				goto _7
 			_7:
-				if _js_strict_eq2(tls, ctx5, v3, v6, EJS_EQ_STRICT) != 0 {
+				if _js_strict_eq2(tls, ctx5, v3, v6, int32(EJS_EQ_STRICT)) != 0 {
 					res = *(*Tint64_t)(unsafe.Pointer(bp + 72))
 					goto done
 				}
@@ -70857,7 +70857,7 @@ func _js_array_indexOf(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int3
 				v10 = v9
 				goto _11
 			_11:
-				if _js_strict_eq2(tls, ctx5, v10, *(*TJSValue)(unsafe.Pointer(bp + 48)), EJS_EQ_STRICT) != 0 {
+				if _js_strict_eq2(tls, ctx5, v10, *(*TJSValue)(unsafe.Pointer(bp + 48)), int32(EJS_EQ_STRICT)) != 0 {
 					res = *(*Tint64_t)(unsafe.Pointer(bp + 72))
 					break
 				}
@@ -70972,7 +70972,7 @@ func _js_array_lastIndexOf(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc 
 				v3 = v2
 				goto _4
 			_4:
-				if _js_strict_eq2(tls, ctx5, v3, *(*TJSValue)(unsafe.Pointer(bp + 48)), EJS_EQ_STRICT) != 0 {
+				if _js_strict_eq2(tls, ctx5, v3, *(*TJSValue)(unsafe.Pointer(bp + 48)), int32(EJS_EQ_STRICT)) != 0 {
 					res = *(*Tint64_t)(unsafe.Pointer(bp + 72))
 					break
 				}
@@ -75420,7 +75420,7 @@ func _js_number_constructor(tls *libc.TLS, ctx3 uintptr, new_target TJSValue, ar
 			fallthrough
 		case int32(EJS_TAG_BIG_FLOAT):
 			p1 = *(*uintptr)(unsafe.Pointer(bp + 32))
-			Xbf_get_float64(tls, p1+8, bp+48, EBF_RNDN)
+			Xbf_get_float64(tls, p1+8, bp+48, int32(EBF_RNDN))
 			v5 = *(*TJSValue)(unsafe.Pointer(bp + 32))
 			*(*TJSValue)(unsafe.Pointer(bp + 16)) = v5
 			if uint32(int32(v5.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -80129,7 +80129,7 @@ _4:
 			Ftag: int64(EJS_TAG_EXCEPTION),
 		}
 	}
-	a_len = _js_string_normalize1(tls, ctx2, bp+16, a, EUNICODE_NFC)
+	a_len = _js_string_normalize1(tls, ctx2, bp+16, a, int32(EUNICODE_NFC))
 	v8 = a
 	*(*TJSValue)(unsafe.Pointer(bp)) = v8
 	if uint32(int32(v8.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -80158,7 +80158,7 @@ _4:
 			Ftag: int64(EJS_TAG_EXCEPTION),
 		}
 	}
-	b_len = _js_string_normalize1(tls, ctx2, bp+24, b, EUNICODE_NFC)
+	b_len = _js_string_normalize1(tls, ctx2, bp+24, b, int32(EUNICODE_NFC))
 	v14 = b
 	*(*TJSValue)(unsafe.Pointer(bp)) = v14
 	if uint32(int32(v14.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -93532,7 +93532,7 @@ func XJS_AddIntrinsicProxy(tls *libc.TLS, ctx uintptr) {
 		(*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(EJS_CLASS_PROXY)*40))).Fexotic = uintptr(unsafe.Pointer(&_js_proxy_exotic_methods))
 		(*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(EJS_CLASS_PROXY)*40))).Fcall = __ccgo_fp(_js_proxy_call)
 	}
-	obj1 = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_proxy_constructor), __ccgo_ts+12455, int32(2), EJS_CFUNC_constructor, 0)
+	obj1 = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_proxy_constructor), __ccgo_ts+12455, int32(2), int32(EJS_CFUNC_constructor), 0)
 	XJS_SetConstructorBit(tls, ctx, obj1, int32(ETRUE))
 	XJS_SetPropertyFunctionList(tls, ctx, obj1, uintptr(unsafe.Pointer(&_js_proxy_funcs)), int32(libc.Uint64FromInt64(32)/libc.Uint64FromInt64(32)))
 	XJS_DefinePropertyValueStr(tls, ctx, (*TJSContext)(unsafe.Pointer(ctx)).Fglobal_obj, __ccgo_ts+12455, obj1, libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
@@ -97219,7 +97219,7 @@ func XJS_AddIntrinsicMapSet(tls *libc.TLS, ctx1 uintptr) {
 		name1 = _JS_AtomGetStr(tls, ctx1, bp, int32(64), uint32(int32(EJS_ATOM_Map)+i))
 		*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx1)).Fclass_proto + uintptr(int32(EJS_CLASS_MAP)+i)*16)) = XJS_NewObject(tls, ctx1)
 		XJS_SetPropertyFunctionList(tls, ctx1, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx1)).Fclass_proto + uintptr(int32(EJS_CLASS_MAP)+i)*16)), _js_map_proto_funcs_ptr[i], int32(_js_map_proto_funcs_count[i]))
-		v2 = XJS_NewCFunction2(tls, ctx1, __ccgo_fp(_js_map_constructor), name1, 0, EJS_CFUNC_constructor_magic, i)
+		v2 = XJS_NewCFunction2(tls, ctx1, __ccgo_fp(_js_map_constructor), name1, 0, int32(EJS_CFUNC_constructor_magic), i)
 		goto _3
 	_3:
 		obj1 = v2
@@ -101480,7 +101480,7 @@ func XJS_AddIntrinsicPromise(tls *libc.TLS, ctx2 uintptr) {
 	/* Promise */
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_PROMISE)*16)) = XJS_NewObject(tls, ctx2)
 	XJS_SetPropertyFunctionList(tls, ctx2, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_PROMISE)*16)), uintptr(unsafe.Pointer(&_js_promise_proto_funcs)), int32(libc.Uint64FromInt64(128)/libc.Uint64FromInt64(32)))
-	obj1 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_promise_constructor), __ccgo_ts+12810, int32(1), EJS_CFUNC_constructor, 0)
+	obj1 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_promise_constructor), __ccgo_ts+12810, int32(1), int32(EJS_CFUNC_constructor), 0)
 	_ = ctx2
 	v1 = obj1
 	*(*TJSValue)(unsafe.Pointer(bp + 16)) = v1
@@ -101496,7 +101496,7 @@ _3:
 	_JS_NewGlobalCConstructor2(tls, ctx2, obj1, __ccgo_ts+12810, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_PROMISE)*16)))
 	/* AsyncFunction */
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_FUNCTION)*16)) = XJS_NewObjectProto(tls, ctx2, (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_proto)
-	obj1 = _JS_NewCFunction3(tls, ctx2, __ccgo_fp(_js_function_constructor), __ccgo_ts+12818, int32(1), EJS_CFUNC_constructor_or_func_magic, int32(EJS_FUNC_ASYNC), (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_ctor)
+	obj1 = _JS_NewCFunction3(tls, ctx2, __ccgo_fp(_js_function_constructor), __ccgo_ts+12818, int32(1), int32(EJS_CFUNC_constructor_or_func_magic), int32(EJS_FUNC_ASYNC), (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_ctor)
 	XJS_SetPropertyFunctionList(tls, ctx2, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_FUNCTION)*16)), uintptr(unsafe.Pointer(&_js_async_function_proto_funcs)), int32(libc.Uint64FromInt64(32)/libc.Uint64FromInt64(32)))
 	_JS_SetConstructor2(tls, ctx2, obj1, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_FUNCTION)*16)), 0, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
 	v4 = obj1
@@ -101521,7 +101521,7 @@ _3:
 	XJS_SetPropertyFunctionList(tls, ctx2, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_GENERATOR)*16)), uintptr(unsafe.Pointer(&_js_async_generator_proto_funcs)), int32(libc.Uint64FromInt64(128)/libc.Uint64FromInt64(32)))
 	/* AsyncGeneratorFunction */
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_GENERATOR_FUNCTION)*16)) = XJS_NewObjectProto(tls, ctx2, (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_proto)
-	obj1 = _JS_NewCFunction3(tls, ctx2, __ccgo_fp(_js_function_constructor), __ccgo_ts+12887, int32(1), EJS_CFUNC_constructor_or_func_magic, int32(EJS_FUNC_ASYNC_GENERATOR), (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_ctor)
+	obj1 = _JS_NewCFunction3(tls, ctx2, __ccgo_fp(_js_function_constructor), __ccgo_ts+12887, int32(1), int32(EJS_CFUNC_constructor_or_func_magic), int32(EJS_FUNC_ASYNC_GENERATOR), (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_ctor)
 	XJS_SetPropertyFunctionList(tls, ctx2, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_GENERATOR_FUNCTION)*16)), uintptr(unsafe.Pointer(&_js_async_generator_function_proto_funcs)), int32(libc.Uint64FromInt64(32)/libc.Uint64FromInt64(32)))
 	_JS_SetConstructor2(tls, ctx2, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_GENERATOR_FUNCTION)*16)), *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_GENERATOR)*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
 	_JS_SetConstructor2(tls, ctx2, obj1, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx2)).Fclass_proto + uintptr(EJS_CLASS_ASYNC_GENERATOR_FUNCTION)*16)), 0, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
@@ -101589,7 +101589,7 @@ func _js_throw_URIError(tls *libc.TLS, ctx uintptr, fmt uintptr, va uintptr) (r 
 	var ap Tva_list
 	_ = ap
 	ap = va
-	_JS_ThrowError(tls, ctx, EJS_URI_ERROR, fmt, ap)
+	_JS_ThrowError(tls, ctx, int32(EJS_URI_ERROR), fmt, ap)
 	_ = ap
 	return -int32(1)
 }
@@ -106920,7 +106920,7 @@ _4:
 		goto fail
 	}
 	XJS_DefinePropertyValue(tls, ctx1, proto, uint32(EJS_ATOM_Symbol_operatorSet), opset_obj, libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
-	func_obj = XJS_NewCFunction2(tls, ctx1, __ccgo_fp(_js_dummy_operators_ctor), __ccgo_ts+14000, 0, EJS_CFUNC_constructor, 0)
+	func_obj = XJS_NewCFunction2(tls, ctx1, __ccgo_fp(_js_dummy_operators_ctor), __ccgo_ts+14000, 0, int32(EJS_CFUNC_constructor), 0)
 	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt64(!!(int32(func_obj.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 	goto _6
 _6:
@@ -107049,7 +107049,7 @@ func XJS_AddIntrinsicOperators(tls *libc.TLS, ctx1 uintptr) {
 	var obj, v1 TJSValue
 	_, _ = obj, v1
 	libc.SetBitFieldPtr16Int32(ctx1+420, int32(ETRUE), 8, 0xff00)
-	v1 = XJS_NewCFunction2(tls, ctx1, __ccgo_fp(_js_global_operators), __ccgo_ts+14000, int32(1), EJS_CFUNC_generic, 0)
+	v1 = XJS_NewCFunction2(tls, ctx1, __ccgo_fp(_js_global_operators), __ccgo_ts+14000, int32(1), int32(EJS_CFUNC_generic), 0)
 	goto _2
 _2:
 	obj = v1
@@ -113377,7 +113377,7 @@ func _JS_AddIntrinsicBasicObjects(tls *libc.TLS, ctx1 uintptr) {
 		Fu:   TJSValueUnion{},
 		Ftag: int64(EJS_TAG_NULL),
 	})
-	(*TJSContext)(unsafe.Pointer(ctx1)).Ffunction_proto = _JS_NewCFunction3(tls, ctx1, __ccgo_fp(_js_function_proto), __ccgo_ts+22, 0, EJS_CFUNC_generic, 0, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx1)).Fclass_proto + uintptr(EJS_CLASS_OBJECT)*16)))
+	(*TJSContext)(unsafe.Pointer(ctx1)).Ffunction_proto = _JS_NewCFunction3(tls, ctx1, __ccgo_fp(_js_function_proto), __ccgo_ts+22, 0, int32(EJS_CFUNC_generic), 0, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx1)).Fclass_proto + uintptr(EJS_CLASS_OBJECT)*16)))
 	_ = ctx1
 	v1 = (*TJSContext)(unsafe.Pointer(ctx1)).Ffunction_proto
 	*(*TJSValue)(unsafe.Pointer(bp)) = v1
@@ -113426,12 +113426,12 @@ func XJS_AddIntrinsicBaseObjects(tls *libc.TLS, ctx7 uintptr) {
 	var _ /* buf at bp+40 */ [64]int8
 	var _ /* ft at bp+32 */ TJSCFunctionType
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = func_obj, i, n_args, number_obj, obj, obj1, p, p1, p2, p3, str, v1, v10, v11, v13, v14, v16, v19, v20, v23, v24, v26, v28, v3, v31, v33, v34, v35, v36, v38, v39, v41, v42, v5, v6, v7, v8, v9
-	v1 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_throw_type_error), libc.UintptrFromInt32(0), 0, EJS_CFUNC_generic, 0)
+	v1 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_throw_type_error), libc.UintptrFromInt32(0), 0, int32(EJS_CFUNC_generic), 0)
 	goto _2
 _2:
 	(*TJSContext)(unsafe.Pointer(ctx7)).Fthrow_type_error = v1
 	/* add caller and arguments properties to throw a TypeError */
-	v3 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_function_proto_caller), libc.UintptrFromInt32(0), 0, EJS_CFUNC_generic, 0)
+	v3 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_function_proto_caller), libc.UintptrFromInt32(0), 0, int32(EJS_CFUNC_generic), 0)
 	goto _4
 _4:
 	obj1 = v3
@@ -113479,7 +113479,7 @@ _4:
 	XJS_SetPropertyFunctionList(tls, ctx7, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx7)).Fclass_proto + uintptr(EJS_CLASS_OBJECT)*16)), uintptr(unsafe.Pointer(&_js_object_proto_funcs)), int32(libc.Uint64FromInt64(352)/libc.Uint64FromInt64(32)))
 	/* Function */
 	XJS_SetPropertyFunctionList(tls, ctx7, (*TJSContext)(unsafe.Pointer(ctx7)).Ffunction_proto, uintptr(unsafe.Pointer(&_js_function_proto_funcs)), int32(libc.Uint64FromInt64(224)/libc.Uint64FromInt64(32)))
-	v11 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_function_constructor), __ccgo_ts+14943, int32(1), EJS_CFUNC_constructor_or_func_magic, int32(EJS_FUNC_NORMAL))
+	v11 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_function_constructor), __ccgo_ts+14943, int32(1), int32(EJS_CFUNC_constructor_or_func_magic), int32(EJS_FUNC_NORMAL))
 	goto _12
 _12:
 	(*TJSContext)(unsafe.Pointer(ctx7)).Ffunction_ctor = v11
@@ -113495,7 +113495,7 @@ _12:
 _15:
 	_JS_NewGlobalCConstructor2(tls, ctx7, v14, __ccgo_ts+14943, (*TJSContext)(unsafe.Pointer(ctx7)).Ffunction_proto)
 	/* Error */
-	v16 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_error_constructor), __ccgo_ts+9730, int32(1), EJS_CFUNC_constructor_or_func_magic, -int32(1))
+	v16 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_error_constructor), __ccgo_ts+9730, int32(1), int32(EJS_CFUNC_constructor_or_func_magic), -int32(1))
 	goto _17
 _17:
 	obj1 = v16
@@ -113510,7 +113510,7 @@ _17:
 			break
 		}
 		n_args = int32(1) + libc.BoolInt32(i == int32(EJS_AGGREGATE_ERROR))
-		func_obj = _JS_NewCFunction3(tls, ctx7, *(*uintptr)(unsafe.Pointer(bp + 32)), _native_error_name[i], n_args, EJS_CFUNC_constructor_or_func_magic, i, obj1)
+		func_obj = _JS_NewCFunction3(tls, ctx7, *(*uintptr)(unsafe.Pointer(bp + 32)), _native_error_name[i], n_args, int32(EJS_CFUNC_constructor_or_func_magic), i, obj1)
 		_JS_NewGlobalCConstructor2(tls, ctx7, func_obj, _native_error_name[i], *(*TJSValue)(unsafe.Pointer(ctx7 + 152 + uintptr(i)*16)))
 		goto _18
 	_18:
@@ -113639,7 +113639,7 @@ _29:
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx7)).Fclass_proto + uintptr(EJS_CLASS_GENERATOR)*16)) = XJS_NewObjectProto(tls, ctx7, (*TJSContext)(unsafe.Pointer(ctx7)).Fiterator_proto)
 	XJS_SetPropertyFunctionList(tls, ctx7, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx7)).Fclass_proto + uintptr(EJS_CLASS_GENERATOR)*16)), uintptr(unsafe.Pointer(&_js_generator_proto_funcs)), int32(libc.Uint64FromInt64(128)/libc.Uint64FromInt64(32)))
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx7)).Fclass_proto + uintptr(EJS_CLASS_GENERATOR_FUNCTION)*16)) = XJS_NewObjectProto(tls, ctx7, (*TJSContext)(unsafe.Pointer(ctx7)).Ffunction_proto)
-	v31 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_function_constructor), __ccgo_ts+12623, int32(1), EJS_CFUNC_constructor_or_func_magic, int32(EJS_FUNC_GENERATOR))
+	v31 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_function_constructor), __ccgo_ts+12623, int32(1), int32(EJS_CFUNC_constructor_or_func_magic), int32(EJS_FUNC_GENERATOR))
 	goto _32
 _32:
 	obj1 = v31
@@ -113658,7 +113658,7 @@ _32:
 		}
 	}
 	/* global properties */
-	v36 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_global_eval), __ccgo_ts+14980, int32(1), EJS_CFUNC_generic, 0)
+	v36 = XJS_NewCFunction2(tls, ctx7, __ccgo_fp(_js_global_eval), __ccgo_ts+14980, int32(1), int32(EJS_CFUNC_generic), 0)
 	goto _37
 _37:
 	(*TJSContext)(unsafe.Pointer(ctx7)).Feval_obj = v36
@@ -122581,7 +122581,7 @@ _3:
 	obj = v2
 	/* XXX: should use alias method in JSCFunctionListEntry */ //@@@
 	XJS_DefinePropertyValue(tls, ctx4, typed_array_base_proto, uint32(EJS_ATOM_toString), obj, libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
-	v4 = XJS_NewCFunction2(tls, ctx4, __ccgo_fp(_js_typed_array_base_constructor), __ccgo_ts+15156, 0, EJS_CFUNC_generic, 0)
+	v4 = XJS_NewCFunction2(tls, ctx4, __ccgo_fp(_js_typed_array_base_constructor), __ccgo_ts+15156, 0, int32(EJS_CFUNC_generic), 0)
 	goto _5
 _5:
 	typed_array_base_func = v4
@@ -122608,7 +122608,7 @@ _5:
 	_8:
 		XJS_DefinePropertyValueStr(tls, ctx4, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Fclass_proto + uintptr(i)*16)), __ccgo_ts+15750, v7, 0)
 		name1 = _JS_AtomGetStr(tls, ctx4, bp+24, int32(64), uint32(int32(EJS_ATOM_Uint8ClampedArray)+i-int32(EJS_CLASS_UINT8C_ARRAY)))
-		func_obj = _JS_NewCFunction3(tls, ctx4, *(*uintptr)(unsafe.Pointer(bp + 16)), name1, int32(3), EJS_CFUNC_constructor_magic, i, typed_array_base_func)
+		func_obj = _JS_NewCFunction3(tls, ctx4, *(*uintptr)(unsafe.Pointer(bp + 16)), name1, int32(3), int32(EJS_CFUNC_constructor_magic), i, typed_array_base_func)
 		_JS_NewGlobalCConstructor2(tls, ctx4, func_obj, name1, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx4)).Fclass_proto + uintptr(i)*16)))
 		_ = ctx4
 		v9 = TJSValue{
@@ -125785,7 +125785,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 			pc1 = pc
 			pc = pc + uintptr(int32(val))
 		}
-		ret = _push_state(tls, s, capture, stack, uint64(stack_len), pc1, cptr, ERE_EXEC_STATE_SPLIT, uint64(0))
+		ret = _push_state(tls, s, capture, stack, uint64(stack_len), pc1, cptr, int32(ERE_EXEC_STATE_SPLIT), uint64(0))
 		if ret < 0 {
 			return int64(-int32(1))
 		}
@@ -126506,7 +126506,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 		}
 		if q > uint64(quant_min) {
 			/* will examine all matches down to quant_min */
-			ret = _push_state(tls, s, capture, stack, uint64(stack_len), pc11-uintptr(16), cptr, ERE_EXEC_STATE_GREEDY_QUANT, q-uint64(quant_min))
+			ret = _push_state(tls, s, capture, stack, uint64(stack_len), pc11-uintptr(16), cptr, int32(ERE_EXEC_STATE_GREEDY_QUANT), q-uint64(quant_min))
 			if ret < 0 {
 				return int64(-int32(1))
 			}
@@ -167607,7 +167607,7 @@ func _js_os_init(tls *libc.TLS, ctx uintptr, m uintptr) (r int32) {
 	XJS_NewClass(tls, XJS_GetRuntime(tls, ctx), _js_worker_class_id, uintptr(unsafe.Pointer(&_js_worker_class)))
 	proto = XJS_NewObject(tls, ctx)
 	XJS_SetPropertyFunctionList(tls, ctx, proto, uintptr(unsafe.Pointer(&_js_worker_proto_funcs)), int32(libc.Uint64FromInt64(64)/libc.Uint64FromInt64(32)))
-	obj = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_worker_ctor), __ccgo_ts+17651, int32(1), EJS_CFUNC_constructor, 0)
+	obj = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_worker_ctor), __ccgo_ts+17651, int32(1), int32(EJS_CFUNC_constructor), 0)
 	XJS_SetConstructor(tls, ctx, obj, proto)
 	XJS_SetClassProto(tls, ctx, _js_worker_class_id, proto)
 	/* set 'Worker.parent' if necessary */
@@ -167684,7 +167684,7 @@ func Xjs_std_add_helpers(tls *libc.TLS, ctx2 uintptr, argc int32, argv uintptr) 
 	/* XXX: should these global definitions be enumerable? */
 	global_obj = XJS_GetGlobalObject(tls, ctx2)
 	console = XJS_NewObject(tls, ctx2)
-	v1 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_print), __ccgo_ts+11117, int32(1), EJS_CFUNC_generic, 0)
+	v1 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_print), __ccgo_ts+11117, int32(1), int32(EJS_CFUNC_generic), 0)
 	goto _2
 _2:
 	XJS_SetPropertyStr(tls, ctx2, console, __ccgo_ts+11117, v1)
@@ -167705,11 +167705,11 @@ _2:
 		}
 		XJS_SetPropertyStr(tls, ctx2, global_obj, __ccgo_ts+18384, args)
 	}
-	v4 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_print), __ccgo_ts+18395, int32(1), EJS_CFUNC_generic, 0)
+	v4 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_print), __ccgo_ts+18395, int32(1), int32(EJS_CFUNC_generic), 0)
 	goto _5
 _5:
 	XJS_SetPropertyStr(tls, ctx2, global_obj, __ccgo_ts+18395, v4)
-	v6 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_loadScript), __ccgo_ts+18401, int32(1), EJS_CFUNC_generic, 0)
+	v6 = XJS_NewCFunction2(tls, ctx2, __ccgo_fp(_js_loadScript), __ccgo_ts+18401, int32(1), int32(EJS_CFUNC_generic), 0)
 	goto _7
 _7:
 	XJS_SetPropertyStr(tls, ctx2, global_obj, __ccgo_ts+18401, v6)
