@@ -1,10 +1,10 @@
 {
-	"autogen": "linux/(amd64|loong64)",
-	"autoupdate": "linux/(amd64|loong64)",
-	"autotag": "linux/(amd64|loong64)",
+	"autogen": "linux/(amd64|arm64|loong64|ppc64le|s390x)",
+	"autoupdate": "linux/(amd64|arm64|loong64|ppc64le|s390x)",
+	"autotag": "linux/(amd64|arm64|loong64|ppc64le|s390x)",
 	"download": [
-		{"re": "linux/(amd64|loong64)", "files": ["https://github.com/bellard/quickjs/archive/36911f0d3ab1a4c190a4d5cbe7c2db225a455389.zip"]},
-		{"re": "linux/(amd64|loong64)", "files": ["https://github.com/tc39/test262/archive/837def66ac1700ce398df4a3b4eaeea915aa1df5.zip"]}
+		{"re": "linux/(amd64|arm64|loong64|ppc64le|s390x)", "files": ["https://github.com/bellard/quickjs/archive/36911f0d3ab1a4c190a4d5cbe7c2db225a455389.zip"]},
+		{"re": "linux/(amd64|arm64|loong64|ppc64le|s390x)", "files": ["https://github.com/tc39/test262/archive/837def66ac1700ce398df4a3b4eaeea915aa1df5.zip"]}
 	],
-	"test": "linux/(amd64|loong64)"
+	"test": "linux/(amd64|arm64|loong64|ppc64le|s390x)"
 }
