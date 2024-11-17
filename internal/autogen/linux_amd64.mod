@@ -1,9 +1,11 @@
 module modernc.org/libquickjs
 
-go 1.20
+go 1.21
+
+toolchain go1.23.3
 
 require (
-	modernc.org/ccgo/v4 v4.22.2
+	modernc.org/ccgo/v4 v4.22.3
 	modernc.org/fileutil v1.3.0
 	modernc.org/gc/v3 v3.0.0-20240304020402-f0dba7c97c2b
 	modernc.org/libc v1.61.0
@@ -24,7 +26,7 @@ require (
 	golang.org/x/tools v0.23.0 // indirect
 	lukechampine.com/uint128 v1.2.0 // indirect
 	modernc.org/cc/v3 v3.41.0 // indirect
-	modernc.org/cc/v4 v4.21.4 // indirect
+	modernc.org/cc/v4 v4.23.1 // indirect
 	modernc.org/ccgo/v3 v3.17.0 // indirect
 	modernc.org/gc/v2 v2.5.0 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
