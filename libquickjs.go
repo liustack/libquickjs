@@ -49,8 +49,3 @@ func init() {
 func _snprintf_with_rounding_mode(tls *libc.TLS, rounding_mode int32, s uintptr, n Tsize_t, nfmt, width int32, d float64) (r int32) {
 	return snprintf.SnprintfWithRoundingMode(tls, rounding_mode, s, n, nfmt, width, d)
 }
-
-// ArrayOf returns a new Javascript array from a vector if TJSValues.
-func ArrayOf(tls *libc.TLS, ctx uintptr, argc int32, argv uintptr) (r TJSValue) {
-	return _js_array_of(tls, ctx, TJSValue{Ftag: EJS_TAG_UNDEFINED}, argc, argv)
-}
