@@ -6,6 +6,8 @@
 
 package libquickjs // import "modernc.org/libquickjs"
 
+import "modernc.org/libc"
+
 // ArrayOf returns a new Javascript array from a vector if TJSValues.
 func ArrayOf(tls *libc.TLS, ctx uintptr, argc int32, argv uintptr) (r TJSValue) {
 	return _js_array_of(tls, ctx, TJSValue{Ftag: EJS_TAG_UNDEFINED}, argc, argv)
