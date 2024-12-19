@@ -11,10 +11,8 @@ import (
 	"modernc.org/libc"
 )
 
-var (
-	_ reflect.Type
-	_ unsafe.Pointer
-)
+var _ reflect.Type
+var _ unsafe.Pointer
 
 const MARGUMENT_VAR_OFFSET = 536870912
 const MARG_SCOPE_END = -2
