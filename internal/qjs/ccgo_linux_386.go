@@ -11,273 +11,30 @@ import (
 	"modernc.org/libc"
 )
 
-var (
-	_ reflect.Type
-	_ unsafe.Pointer
-)
+var _ reflect.Type
+var _ unsafe.Pointer
 
-const MAT_EACCESS = 512
-const MAT_EMPTY_PATH = 4096
-const MAT_FDCWD = -100
-const MAT_NO_AUTOMOUNT = 2048
-const MAT_RECURSIVE = 32768
-const MAT_REMOVEDIR = 512
-const MAT_STATX_DONT_SYNC = 16384
-const MAT_STATX_FORCE_SYNC = 8192
-const MAT_STATX_SYNC_AS_STAT = 0
-const MAT_STATX_SYNC_TYPE = 24576
-const MAT_SYMLINK_FOLLOW = 1024
-const MAT_SYMLINK_NOFOLLOW = 256
-const MBUFSIZ = 1024
-const MCLOCKS_PER_SEC = 1000000
-const MCLOCK_BOOTTIME = 7
-const MCLOCK_BOOTTIME_ALARM = 9
 const MCLOCK_MONOTONIC = 1
-const MCLOCK_MONOTONIC_COARSE = 6
-const MCLOCK_MONOTONIC_RAW = 4
-const MCLOCK_PROCESS_CPUTIME_ID = 2
 const MCLOCK_REALTIME = 0
-const MCLOCK_REALTIME_ALARM = 8
-const MCLOCK_REALTIME_COARSE = 5
-const MCLOCK_SGI_CYCLE = 10
-const MCLOCK_TAI = 11
-const MCLOCK_THREAD_CPUTIME_ID = 3
-const MCONFIG_BIGNUM = 1
-const MCONFIG_VERSION = "2024-02-14"
-const MDN_ACCESS = 1
-const MDN_ATTRIB = 32
-const MDN_CREATE = 4
-const MDN_DELETE = 8
-const MDN_MODIFY = 2
-const MDN_MULTISHOT = 2147483648
-const MDN_RENAME = 16
-const ME2BIG = 7
 const MEACCES = 13
-const MEADDRINUSE = 98
-const MEADDRNOTAVAIL = 99
-const MEADV = 68
-const MEAFNOSUPPORT = 97
 const MEAGAIN = 11
-const MEALREADY = 114
-const MEBADE = 52
 const MEBADF = 9
-const MEBADFD = 77
-const MEBADMSG = 74
-const MEBADR = 53
-const MEBADRQC = 56
-const MEBADSLT = 57
-const MEBFONT = 59
 const MEBUSY = 16
-const MECANCELED = 125
-const MECHILD = 10
-const MECHRNG = 44
-const MECOMM = 70
-const MECONNABORTED = 103
-const MECONNREFUSED = 111
-const MECONNRESET = 104
-const MEDEADLK = 35
-const MEDEADLOCK = 35
-const MEDESTADDRREQ = 89
-const MEDOM = 33
-const MEDOTDOT = 73
-const MEDQUOT = 122
 const MEEXIST = 17
-const MEFAULT = 14
-const MEFBIG = 27
-const MEHOSTDOWN = 112
-const MEHOSTUNREACH = 113
-const MEHWPOISON = 133
-const MEIDRM = 43
-const MEILSEQ = 84
-const MEINPROGRESS = 115
 const MEINTR = 4
 const MEINVAL = 22
 const MEIO = 5
-const MEISCONN = 106
 const MEISDIR = 21
-const MEISNAM = 120
-const MEKEYEXPIRED = 127
-const MEKEYREJECTED = 129
-const MEKEYREVOKED = 128
-const MEL2HLT = 51
-const MEL2NSYNC = 45
-const MEL3HLT = 46
-const MEL3RST = 47
-const MELIBACC = 79
-const MELIBBAD = 80
-const MELIBEXEC = 83
-const MELIBMAX = 82
-const MELIBSCN = 81
-const MELNRNG = 48
-const MELOOP = 40
-const MEMEDIUMTYPE = 124
-const MEMFILE = 24
-const MEMLINK = 31
-const MEMSGSIZE = 90
-const MEMULTIHOP = 72
-const MENAMETOOLONG = 36
-const MENAVAIL = 119
-const MENETDOWN = 100
-const MENETRESET = 102
-const MENETUNREACH = 101
-const MENFILE = 23
-const MENOANO = 55
-const MENOBUFS = 105
-const MENOCSI = 50
-const MENODATA = 61
-const MENODEV = 19
 const MENOENT = 2
-const MENOEXEC = 8
-const MENOKEY = 126
-const MENOLCK = 37
-const MENOLINK = 67
-const MENOMEDIUM = 123
-const MENOMEM = 12
-const MENOMSG = 42
-const MENONET = 64
-const MENOPKG = 65
-const MENOPROTOOPT = 92
 const MENOSPC = 28
-const MENOSR = 63
-const MENOSTR = 60
 const MENOSYS = 38
-const MENOTBLK = 15
-const MENOTCONN = 107
 const MENOTDIR = 20
-const MENOTEMPTY = 39
-const MENOTNAM = 118
-const MENOTRECOVERABLE = 131
-const MENOTSOCK = 88
-const MENOTSUP = 95
-const MENOTTY = 25
-const MENOTUNIQ = 76
-const MENXIO = 6
-const MEOPNOTSUPP = 95
-const MEOVERFLOW = 75
-const MEOWNERDEAD = 130
 const MEPERM = 1
-const MEPFNOSUPPORT = 96
 const MEPIPE = 32
-const MEPROTO = 71
-const MEPROTONOSUPPORT = 93
-const MEPROTOTYPE = 91
-const MERANGE = 34
-const MEREMCHG = 78
-const MEREMOTE = 66
-const MEREMOTEIO = 121
-const MERESTART = 85
-const MERFKILL = 132
-const MEROFS = 30
-const MESHUTDOWN = 108
-const MESOCKTNOSUPPORT = 94
-const MESPIPE = 29
-const MESRCH = 3
-const MESRMNT = 69
-const MESTALE = 116
-const MESTRPIPE = 86
-const METIME = 62
 const METIMEDOUT = 110
-const METOOMANYREFS = 109
-const METXTBSY = 26
-const MEUCLEAN = 117
-const MEUNATCH = 49
-const MEUSERS = 87
-const MEWOULDBLOCK = 11
-const MEXDEV = 18
-const MEXFULL = 54
-const MEXIT_FAILURE = 1
-const MEXIT_SUCCESS = 0
-const MFALLOC_FL_KEEP_SIZE = 1
-const MFALLOC_FL_PUNCH_HOLE = 2
-const MFAPPEND = 1024
-const MFASYNC = 8192
-const MFD_CLOEXEC = 1
-const MFFSYNC = 1052672
-const MFILENAME_MAX = 4096
-const MFNDELAY = 2048
-const MFNONBLOCK = 2048
-const MFOPEN_MAX = 1000
-const MF_ADD_SEALS = 1033
-const MF_CANCELLK = 1029
-const MF_DUPFD = 0
-const MF_DUPFD_CLOEXEC = 1030
-const MF_GETFD = 1
-const MF_GETFL = 3
-const MF_GETLEASE = 1025
-const MF_GETLK = 12
-const MF_GETOWN = 9
-const MF_GETOWNER_UIDS = 17
-const MF_GETOWN_EX = 16
-const MF_GETPIPE_SZ = 1032
-const MF_GETSIG = 11
-const MF_GET_FILE_RW_HINT = 1037
-const MF_GET_RW_HINT = 1035
-const MF_GET_SEALS = 1034
-const MF_LOCK = 1
-const MF_NOTIFY = 1026
-const MF_OFD_GETLK = 36
-const MF_OFD_SETLK = 37
-const MF_OFD_SETLKW = 38
-const MF_OK = 0
-const MF_OWNER_GID = 2
-const MF_OWNER_PGRP = 2
-const MF_OWNER_PID = 1
-const MF_OWNER_TID = 0
-const MF_RDLCK = 0
-const MF_SEAL_FUTURE_WRITE = 16
-const MF_SEAL_GROW = 4
-const MF_SEAL_SEAL = 1
-const MF_SEAL_SHRINK = 2
-const MF_SEAL_WRITE = 8
-const MF_SETFD = 2
-const MF_SETFL = 4
-const MF_SETLEASE = 1024
-const MF_SETLK = 13
-const MF_SETLKW = 14
-const MF_SETOWN = 8
-const MF_SETOWN_EX = 15
-const MF_SETPIPE_SZ = 1031
-const MF_SETSIG = 10
-const MF_SET_FILE_RW_HINT = 1038
-const MF_SET_RW_HINT = 1036
-const MF_TEST = 3
-const MF_TLOCK = 2
-const MF_ULOCK = 0
-const MF_UNLCK = 2
-const MF_WRLCK = 1
-const MINT16_MAX = 32767
-const MINT16_MIN = -32768
 const MINT32_MAX = 2147483647
-const MINT32_MIN = -2147483648
 const MINT64_MAX = 9223372036854775807
-const MINT64_MIN = -9223372036854775808
-const MINT8_MAX = 127
-const MINT8_MIN = -128
-const MINTMAX_MAX = 9223372036854775807
-const MINTMAX_MIN = -9223372036854775808
-const MINTPTR_MAX = 2147483647
-const MINTPTR_MIN = -2147483648
-const MINT_FAST16_MAX = 2147483647
-const MINT_FAST16_MIN = -2147483648
-const MINT_FAST32_MAX = 2147483647
-const MINT_FAST32_MIN = -2147483648
-const MINT_FAST64_MAX = 9223372036854775807
-const MINT_FAST64_MIN = -9223372036854775808
-const MINT_FAST8_MAX = 127
-const MINT_FAST8_MIN = -128
-const MINT_LEAST16_MAX = 32767
-const MINT_LEAST16_MIN = -32768
-const MINT_LEAST32_MAX = 2147483647
-const MINT_LEAST32_MIN = -2147483648
-const MINT_LEAST64_MAX = 9223372036854775807
-const MINT_LEAST64_MIN = -9223372036854775808
-const MINT_LEAST8_MAX = 127
-const MINT_LEAST8_MIN = -128
-const MJSValueConst = 0
 const MJS_ATOM_NULL = 0
-const MJS_BOOL = 0
-const MJS_CALL_FLAG_CONSTRUCTOR = 1
-const MJS_DEFAULT_STACK_SIZE = 262144
 const MJS_DEF_ALIAS = 9
 const MJS_DEF_CFUNC = 0
 const MJS_DEF_CGETSET = 1
@@ -288,908 +45,30 @@ const MJS_DEF_PROP_INT32 = 4
 const MJS_DEF_PROP_INT64 = 5
 const MJS_DEF_PROP_STRING = 3
 const MJS_DEF_PROP_UNDEFINED = 7
-const MJS_EVAL_FLAG_ASYNC = 128
-const MJS_EVAL_FLAG_BACKTRACE_BARRIER = 64
-const MJS_EVAL_FLAG_COMPILE_ONLY = 32
-const MJS_EVAL_FLAG_STRICT = 8
-const MJS_EVAL_FLAG_STRIP = 16
-const MJS_EVAL_TYPE_DIRECT = 2
-const MJS_EVAL_TYPE_GLOBAL = 0
-const MJS_EVAL_TYPE_INDIRECT = 3
-const MJS_EVAL_TYPE_MASK = 3
-const MJS_EVAL_TYPE_MODULE = 1
-const MJS_FLOAT64_NAN = 0
-const MJS_FLOAT64_TAG_ADDEND = 2146959361
-const MJS_GPN_ENUM_ONLY = 16
-const MJS_GPN_PRIVATE_MASK = 4
-const MJS_GPN_SET_ENUM = 32
-const MJS_GPN_STRING_MASK = 1
-const MJS_GPN_SYMBOL_MASK = 2
-const MJS_INVALID_CLASS_ID = 0
-const MJS_PARSE_JSON_EXT = 1
-const MJS_PROP_AUTOINIT = 48
-const MJS_PROP_CONFIGURABLE = 1
-const MJS_PROP_C_W_E = 7
-const MJS_PROP_ENUMERABLE = 4
-const MJS_PROP_GETSET = 16
-const MJS_PROP_HAS_CONFIGURABLE = 256
-const MJS_PROP_HAS_ENUMERABLE = 1024
-const MJS_PROP_HAS_GET = 2048
-const MJS_PROP_HAS_SET = 4096
 const MJS_PROP_HAS_SHIFT = 8
-const MJS_PROP_HAS_VALUE = 8192
-const MJS_PROP_HAS_WRITABLE = 512
-const MJS_PROP_LENGTH = 8
-const MJS_PROP_NORMAL = 0
-const MJS_PROP_NO_ADD = 65536
-const MJS_PROP_NO_EXOTIC = 131072
-const MJS_PROP_THROW = 16384
-const MJS_PROP_THROW_STRICT = 32768
-const MJS_PROP_TMASK = 48
-const MJS_PROP_VARREF = 32
-const MJS_PROP_WRITABLE = 2
-const MJS_READ_OBJ_BYTECODE = 1
-const MJS_READ_OBJ_REFERENCE = 8
-const MJS_READ_OBJ_ROM_DATA = 2
-const MJS_READ_OBJ_SAB = 4
-const MJS_WRITE_OBJ_BSWAP = 2
-const MJS_WRITE_OBJ_BYTECODE = 1
-const MJS_WRITE_OBJ_REFERENCE = 8
-const MJS_WRITE_OBJ_SAB = 4
-const ML_INCR = 1
-const ML_SET = 0
-const ML_XTND = 2
-const ML_ctermid = 20
-const ML_cuserid = 20
-const ML_tmpnam = 20
 const MMALLOC_OVERHEAD = 8
-const MMAX_HANDLE_SZ = 128
-const MMB_CUR_MAX = 0
-const MNDEBUG = 1
-const MO_ACCMODE = 2097155
 const MO_APPEND = 1024
-const MO_ASYNC = 8192
-const MO_CLOEXEC = 524288
 const MO_CREAT = 64
-const MO_DIRECT = 16384
-const MO_DIRECTORY = 65536
-const MO_DSYNC = 4096
 const MO_EXCL = 128
-const MO_EXEC = 2097152
-const MO_LARGEFILE = 32768
-const MO_NDELAY = 2048
-const MO_NOATIME = 262144
-const MO_NOCTTY = 256
-const MO_NOFOLLOW = 131072
-const MO_NONBLOCK = 2048
-const MO_PATH = 2097152
-const MO_RDONLY = 0
 const MO_RDWR = 2
-const MO_RSYNC = 1052672
-const MO_SEARCH = 2097152
-const MO_SYNC = 1052672
-const MO_TMPFILE = 4259840
 const MO_TRUNC = 512
-const MO_TTY_INIT = 0
 const MO_WRONLY = 1
-const MPOSIX_CLOSE_RESTART = 0
-const MPOSIX_FADV_DONTNEED = 4
-const MPOSIX_FADV_NOREUSE = 5
-const MPOSIX_FADV_NORMAL = 0
-const MPOSIX_FADV_RANDOM = 1
-const MPOSIX_FADV_SEQUENTIAL = 2
-const MPOSIX_FADV_WILLNEED = 3
-const MPRIX16 = "X"
-const MPRIX32 = "X"
-const MPRIX8 = "X"
-const MPRIXFAST16 = "X"
-const MPRIXFAST32 = "X"
-const MPRIXFAST8 = "X"
-const MPRIXLEAST16 = "X"
-const MPRIXLEAST32 = "X"
-const MPRIXLEAST8 = "X"
-const MPRId16 = "d"
-const MPRId32 = "d"
-const MPRId8 = "d"
-const MPRIdFAST16 = "d"
-const MPRIdFAST32 = "d"
-const MPRIdFAST8 = "d"
-const MPRIdLEAST16 = "d"
-const MPRIdLEAST32 = "d"
-const MPRIdLEAST8 = "d"
-const MPRIi16 = "i"
-const MPRIi32 = "i"
-const MPRIi8 = "i"
-const MPRIiFAST16 = "i"
-const MPRIiFAST32 = "i"
-const MPRIiFAST8 = "i"
-const MPRIiLEAST16 = "i"
-const MPRIiLEAST32 = "i"
-const MPRIiLEAST8 = "i"
-const MPRIo16 = "o"
-const MPRIo32 = "o"
-const MPRIo8 = "o"
-const MPRIoFAST16 = "o"
-const MPRIoFAST32 = "o"
-const MPRIoFAST8 = "o"
-const MPRIoLEAST16 = "o"
-const MPRIoLEAST32 = "o"
-const MPRIoLEAST8 = "o"
-const MPRIu16 = "u"
-const MPRIu32 = "u"
-const MPRIu8 = "u"
-const MPRIuFAST16 = "u"
-const MPRIuFAST32 = "u"
-const MPRIuFAST8 = "u"
-const MPRIuLEAST16 = "u"
-const MPRIuLEAST32 = "u"
-const MPRIuLEAST8 = "u"
-const MPRIx16 = "x"
-const MPRIx32 = "x"
-const MPRIx8 = "x"
-const MPRIxFAST16 = "x"
-const MPRIxFAST32 = "x"
-const MPRIxFAST8 = "x"
-const MPRIxLEAST16 = "x"
-const MPRIxLEAST32 = "x"
-const MPRIxLEAST8 = "x"
-const MPROG_NAME = "qjs"
-const MPTRDIFF_MAX = 2147483647
-const MPTRDIFF_MIN = -2147483648
-const MP_tmpdir = "/tmp"
-const MRAND_MAX = 2147483647
-const MRWF_WRITE_LIFE_NOT_SET = 0
-const MRWH_WRITE_LIFE_EXTREME = 5
-const MRWH_WRITE_LIFE_LONG = 4
-const MRWH_WRITE_LIFE_MEDIUM = 3
-const MRWH_WRITE_LIFE_NONE = 1
-const MRWH_WRITE_LIFE_SHORT = 2
-const MR_OK = 4
-const MSCNd16 = "hd"
-const MSCNd32 = "d"
-const MSCNd8 = "hhd"
-const MSCNdFAST16 = "d"
-const MSCNdFAST32 = "d"
-const MSCNdFAST8 = "hhd"
-const MSCNdLEAST16 = "hd"
-const MSCNdLEAST32 = "d"
-const MSCNdLEAST8 = "hhd"
-const MSCNi16 = "hi"
-const MSCNi32 = "i"
-const MSCNi8 = "hhi"
-const MSCNiFAST16 = "i"
-const MSCNiFAST32 = "i"
-const MSCNiFAST8 = "hhi"
-const MSCNiLEAST16 = "hi"
-const MSCNiLEAST32 = "i"
-const MSCNiLEAST8 = "hhi"
-const MSCNo16 = "ho"
-const MSCNo32 = "o"
-const MSCNo8 = "hho"
-const MSCNoFAST16 = "o"
-const MSCNoFAST32 = "o"
-const MSCNoFAST8 = "hho"
-const MSCNoLEAST16 = "ho"
-const MSCNoLEAST32 = "o"
-const MSCNoLEAST8 = "hho"
-const MSCNu16 = "hu"
-const MSCNu32 = "u"
-const MSCNu8 = "hhu"
-const MSCNuFAST16 = "u"
-const MSCNuFAST32 = "u"
-const MSCNuFAST8 = "hhu"
-const MSCNuLEAST16 = "hu"
-const MSCNuLEAST32 = "u"
-const MSCNuLEAST8 = "hhu"
-const MSCNx16 = "hx"
-const MSCNx32 = "x"
-const MSCNx8 = "hhx"
-const MSCNxFAST16 = "x"
-const MSCNxFAST32 = "x"
-const MSCNxFAST8 = "hhx"
-const MSCNxLEAST16 = "hx"
-const MSCNxLEAST32 = "x"
-const MSCNxLEAST8 = "hhx"
-const MSEEK_DATA = 3
-const MSEEK_HOLE = 4
-const MSIG_ATOMIC_MAX = 2147483647
-const MSIG_ATOMIC_MIN = -2147483648
-const MSIZE_MAX = 4294967295
-const MSPLICE_F_GIFT = 8
-const MSPLICE_F_MORE = 4
-const MSPLICE_F_MOVE = 1
-const MSPLICE_F_NONBLOCK = 2
-const MSTDERR_FILENO = 2
-const MSTDIN_FILENO = 0
-const MSTDOUT_FILENO = 1
-const MSYNC_FILE_RANGE_WAIT_AFTER = 4
-const MSYNC_FILE_RANGE_WAIT_BEFORE = 1
-const MSYNC_FILE_RANGE_WRITE = 2
-const MS_IRGRP = 32
-const MS_IROTH = 4
-const MS_IRUSR = 256
-const MS_IRWXG = 56
-const MS_IRWXO = 7
-const MS_IRWXU = 448
 const MS_ISGID = 1024
 const MS_ISUID = 2048
-const MS_ISVTX = 512
-const MS_IWGRP = 16
-const MS_IWOTH = 2
-const MS_IWUSR = 128
-const MS_IXGRP = 8
-const MS_IXOTH = 1
-const MS_IXUSR = 64
-const MTIMER_ABSTIME = 1
-const MTIME_UTC = 1
-const MTMP_MAX = 10000
-const MUINT16_MAX = 65535
-const MUINT32_MAX = 4294967295
-const MUINT64_MAX = 18446744073709551615
-const MUINT8_MAX = 255
-const MUINTMAX_MAX = 18446744073709551615
-const MUINTPTR_MAX = 4294967295
-const MUINT_FAST16_MAX = 4294967295
-const MUINT_FAST32_MAX = 4294967295
-const MUINT_FAST64_MAX = 18446744073709551615
-const MUINT_FAST8_MAX = 255
-const MUINT_LEAST16_MAX = 65535
-const MUINT_LEAST32_MAX = 4294967295
-const MUINT_LEAST64_MAX = 18446744073709551615
-const MUINT_LEAST8_MAX = 255
 const MUTF8_CHAR_LEN_MAX = 6
-const MWCHAR_MAX = 2147483647
-const MWCHAR_MIN = -2147483648
-const MWINT_MAX = 4294967295
-const MWINT_MIN = 0
 const MWNOHANG = 1
-const MWUNTRACED = 2
-const MW_OK = 2
-const MX_OK = 1
-const M_CS_GNU_LIBC_VERSION = 2
-const M_CS_GNU_LIBPTHREAD_VERSION = 3
-const M_CS_PATH = 0
-const M_CS_POSIX_V5_WIDTH_RESTRICTED_ENVS = 4
-const M_CS_POSIX_V6_ILP32_OFF32_CFLAGS = 1116
-const M_CS_POSIX_V6_ILP32_OFF32_LDFLAGS = 1117
-const M_CS_POSIX_V6_ILP32_OFF32_LIBS = 1118
-const M_CS_POSIX_V6_ILP32_OFF32_LINTFLAGS = 1119
-const M_CS_POSIX_V6_ILP32_OFFBIG_CFLAGS = 1120
-const M_CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS = 1121
-const M_CS_POSIX_V6_ILP32_OFFBIG_LIBS = 1122
-const M_CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS = 1123
-const M_CS_POSIX_V6_LP64_OFF64_CFLAGS = 1124
-const M_CS_POSIX_V6_LP64_OFF64_LDFLAGS = 1125
-const M_CS_POSIX_V6_LP64_OFF64_LIBS = 1126
-const M_CS_POSIX_V6_LP64_OFF64_LINTFLAGS = 1127
-const M_CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS = 1128
-const M_CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS = 1129
-const M_CS_POSIX_V6_LPBIG_OFFBIG_LIBS = 1130
-const M_CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS = 1131
-const M_CS_POSIX_V6_WIDTH_RESTRICTED_ENVS = 1
-const M_CS_POSIX_V7_ILP32_OFF32_CFLAGS = 1132
-const M_CS_POSIX_V7_ILP32_OFF32_LDFLAGS = 1133
-const M_CS_POSIX_V7_ILP32_OFF32_LIBS = 1134
-const M_CS_POSIX_V7_ILP32_OFF32_LINTFLAGS = 1135
-const M_CS_POSIX_V7_ILP32_OFFBIG_CFLAGS = 1136
-const M_CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS = 1137
-const M_CS_POSIX_V7_ILP32_OFFBIG_LIBS = 1138
-const M_CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS = 1139
-const M_CS_POSIX_V7_LP64_OFF64_CFLAGS = 1140
-const M_CS_POSIX_V7_LP64_OFF64_LDFLAGS = 1141
-const M_CS_POSIX_V7_LP64_OFF64_LIBS = 1142
-const M_CS_POSIX_V7_LP64_OFF64_LINTFLAGS = 1143
-const M_CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS = 1144
-const M_CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS = 1145
-const M_CS_POSIX_V7_LPBIG_OFFBIG_LIBS = 1146
-const M_CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS = 1147
-const M_CS_POSIX_V7_THREADS_CFLAGS = 1150
-const M_CS_POSIX_V7_THREADS_LDFLAGS = 1151
-const M_CS_POSIX_V7_WIDTH_RESTRICTED_ENVS = 5
-const M_CS_V6_ENV = 1148
-const M_CS_V7_ENV = 1149
-const M_FILE_OFFSET_BITS = 64
-const M_GNU_SOURCE = 1
-const M_ILP32 = 1
-const M_IOFBF = 0
-const M_IOLBF = 1
-const M_IONBF = 2
-const M_PC_2_SYMLINKS = 20
-const M_PC_ALLOC_SIZE_MIN = 18
-const M_PC_ASYNC_IO = 10
-const M_PC_CHOWN_RESTRICTED = 6
-const M_PC_FILESIZEBITS = 13
-const M_PC_LINK_MAX = 0
-const M_PC_MAX_CANON = 1
-const M_PC_MAX_INPUT = 2
-const M_PC_NAME_MAX = 3
-const M_PC_NO_TRUNC = 7
-const M_PC_PATH_MAX = 4
-const M_PC_PIPE_BUF = 5
-const M_PC_PRIO_IO = 11
-const M_PC_REC_INCR_XFER_SIZE = 14
-const M_PC_REC_MAX_XFER_SIZE = 15
-const M_PC_REC_MIN_XFER_SIZE = 16
-const M_PC_REC_XFER_ALIGN = 17
-const M_PC_SOCK_MAXBUF = 12
-const M_PC_SYMLINK_MAX = 19
-const M_PC_SYNC_IO = 9
-const M_PC_VDISABLE = 8
-const M_POSIX2_C_BIND = 200809
-const M_POSIX2_VERSION = 200809
-const M_POSIX_ADVISORY_INFO = 200809
-const M_POSIX_ASYNCHRONOUS_IO = 200809
-const M_POSIX_BARRIERS = 200809
-const M_POSIX_CHOWN_RESTRICTED = 1
-const M_POSIX_CLOCK_SELECTION = 200809
-const M_POSIX_CPUTIME = 200809
-const M_POSIX_FSYNC = 200809
-const M_POSIX_IPV6 = 200809
-const M_POSIX_JOB_CONTROL = 1
-const M_POSIX_MAPPED_FILES = 200809
-const M_POSIX_MEMLOCK = 200809
-const M_POSIX_MEMLOCK_RANGE = 200809
-const M_POSIX_MEMORY_PROTECTION = 200809
-const M_POSIX_MESSAGE_PASSING = 200809
-const M_POSIX_MONOTONIC_CLOCK = 200809
-const M_POSIX_NO_TRUNC = 1
-const M_POSIX_RAW_SOCKETS = 200809
-const M_POSIX_READER_WRITER_LOCKS = 200809
-const M_POSIX_REALTIME_SIGNALS = 200809
-const M_POSIX_REGEXP = 1
-const M_POSIX_SAVED_IDS = 1
-const M_POSIX_SEMAPHORES = 200809
-const M_POSIX_SHARED_MEMORY_OBJECTS = 200809
-const M_POSIX_SHELL = 1
-const M_POSIX_SPAWN = 200809
-const M_POSIX_SPIN_LOCKS = 200809
-const M_POSIX_THREADS = 200809
-const M_POSIX_THREAD_ATTR_STACKADDR = 200809
-const M_POSIX_THREAD_ATTR_STACKSIZE = 200809
-const M_POSIX_THREAD_CPUTIME = 200809
-const M_POSIX_THREAD_PRIORITY_SCHEDULING = 200809
-const M_POSIX_THREAD_PROCESS_SHARED = 200809
-const M_POSIX_THREAD_SAFE_FUNCTIONS = 200809
-const M_POSIX_TIMEOUTS = 200809
-const M_POSIX_TIMERS = 200809
-const M_POSIX_V6_ILP32_OFFBIG = 1
-const M_POSIX_V7_ILP32_OFFBIG = 1
-const M_POSIX_VDISABLE = 0
-const M_POSIX_VERSION = 200809
-const M_REDIR_TIME64 = 1
-const M_SC_2_CHAR_TERM = 95
-const M_SC_2_C_BIND = 47
-const M_SC_2_C_DEV = 48
-const M_SC_2_FORT_DEV = 49
-const M_SC_2_FORT_RUN = 50
-const M_SC_2_LOCALEDEF = 52
-const M_SC_2_PBS = 168
-const M_SC_2_PBS_ACCOUNTING = 169
-const M_SC_2_PBS_CHECKPOINT = 175
-const M_SC_2_PBS_LOCATE = 170
-const M_SC_2_PBS_MESSAGE = 171
-const M_SC_2_PBS_TRACK = 172
-const M_SC_2_SW_DEV = 51
-const M_SC_2_UPE = 97
-const M_SC_2_VERSION = 46
-const M_SC_ADVISORY_INFO = 132
-const M_SC_AIO_LISTIO_MAX = 23
-const M_SC_AIO_MAX = 24
-const M_SC_AIO_PRIO_DELTA_MAX = 25
-const M_SC_ARG_MAX = 0
-const M_SC_ASYNCHRONOUS_IO = 12
-const M_SC_ATEXIT_MAX = 87
-const M_SC_AVPHYS_PAGES = 86
-const M_SC_BARRIERS = 133
-const M_SC_BC_BASE_MAX = 36
-const M_SC_BC_DIM_MAX = 37
-const M_SC_BC_SCALE_MAX = 38
-const M_SC_BC_STRING_MAX = 39
-const M_SC_CHILD_MAX = 1
-const M_SC_CLK_TCK = 2
-const M_SC_CLOCK_SELECTION = 137
-const M_SC_COLL_WEIGHTS_MAX = 40
-const M_SC_CPUTIME = 138
-const M_SC_DELAYTIMER_MAX = 26
-const M_SC_EXPR_NEST_MAX = 42
-const M_SC_FSYNC = 15
-const M_SC_GETGR_R_SIZE_MAX = 69
-const M_SC_GETPW_R_SIZE_MAX = 70
-const M_SC_HOST_NAME_MAX = 180
-const M_SC_IOV_MAX = 60
-const M_SC_IPV6 = 235
-const M_SC_JOB_CONTROL = 7
-const M_SC_LINE_MAX = 43
-const M_SC_LOGIN_NAME_MAX = 71
-const M_SC_MAPPED_FILES = 16
-const M_SC_MEMLOCK = 17
-const M_SC_MEMLOCK_RANGE = 18
-const M_SC_MEMORY_PROTECTION = 19
-const M_SC_MESSAGE_PASSING = 20
-const M_SC_MINSIGSTKSZ = 249
-const M_SC_MONOTONIC_CLOCK = 149
-const M_SC_MQ_OPEN_MAX = 27
-const M_SC_MQ_PRIO_MAX = 28
-const M_SC_NGROUPS_MAX = 3
-const M_SC_NPROCESSORS_CONF = 83
-const M_SC_NPROCESSORS_ONLN = 84
-const M_SC_NZERO = 109
 const M_SC_OPEN_MAX = 4
-const M_SC_PAGESIZE = 30
-const M_SC_PAGE_SIZE = 30
-const M_SC_PASS_MAX = 88
-const M_SC_PHYS_PAGES = 85
-const M_SC_PRIORITIZED_IO = 13
-const M_SC_PRIORITY_SCHEDULING = 10
-const M_SC_RAW_SOCKETS = 236
-const M_SC_READER_WRITER_LOCKS = 153
-const M_SC_REALTIME_SIGNALS = 9
-const M_SC_REGEXP = 155
-const M_SC_RE_DUP_MAX = 44
-const M_SC_RTSIG_MAX = 31
-const M_SC_SAVED_IDS = 8
-const M_SC_SEMAPHORES = 21
-const M_SC_SEM_NSEMS_MAX = 32
-const M_SC_SEM_VALUE_MAX = 33
-const M_SC_SHARED_MEMORY_OBJECTS = 22
-const M_SC_SHELL = 157
-const M_SC_SIGQUEUE_MAX = 34
-const M_SC_SIGSTKSZ = 250
-const M_SC_SPAWN = 159
-const M_SC_SPIN_LOCKS = 154
-const M_SC_SPORADIC_SERVER = 160
-const M_SC_SS_REPL_MAX = 241
-const M_SC_STREAMS = 174
-const M_SC_STREAM_MAX = 5
-const M_SC_SYMLOOP_MAX = 173
-const M_SC_SYNCHRONIZED_IO = 14
-const M_SC_THREADS = 67
-const M_SC_THREAD_ATTR_STACKADDR = 77
-const M_SC_THREAD_ATTR_STACKSIZE = 78
-const M_SC_THREAD_CPUTIME = 139
-const M_SC_THREAD_DESTRUCTOR_ITERATIONS = 73
-const M_SC_THREAD_KEYS_MAX = 74
-const M_SC_THREAD_PRIORITY_SCHEDULING = 79
-const M_SC_THREAD_PRIO_INHERIT = 80
-const M_SC_THREAD_PRIO_PROTECT = 81
-const M_SC_THREAD_PROCESS_SHARED = 82
-const M_SC_THREAD_ROBUST_PRIO_INHERIT = 247
-const M_SC_THREAD_ROBUST_PRIO_PROTECT = 248
-const M_SC_THREAD_SAFE_FUNCTIONS = 68
-const M_SC_THREAD_SPORADIC_SERVER = 161
-const M_SC_THREAD_STACK_MIN = 75
-const M_SC_THREAD_THREADS_MAX = 76
-const M_SC_TIMEOUTS = 164
-const M_SC_TIMERS = 11
-const M_SC_TIMER_MAX = 35
-const M_SC_TRACE = 181
-const M_SC_TRACE_EVENT_FILTER = 182
-const M_SC_TRACE_EVENT_NAME_MAX = 242
-const M_SC_TRACE_INHERIT = 183
-const M_SC_TRACE_LOG = 184
-const M_SC_TRACE_NAME_MAX = 243
-const M_SC_TRACE_SYS_MAX = 244
-const M_SC_TRACE_USER_EVENT_MAX = 245
-const M_SC_TTY_NAME_MAX = 72
-const M_SC_TYPED_MEMORY_OBJECTS = 165
-const M_SC_TZNAME_MAX = 6
-const M_SC_UIO_MAXIOV = 60
-const M_SC_V6_ILP32_OFF32 = 176
-const M_SC_V6_ILP32_OFFBIG = 177
-const M_SC_V6_LP64_OFF64 = 178
-const M_SC_V6_LPBIG_OFFBIG = 179
-const M_SC_V7_ILP32_OFF32 = 237
-const M_SC_V7_ILP32_OFFBIG = 238
-const M_SC_V7_LP64_OFF64 = 239
-const M_SC_V7_LPBIG_OFFBIG = 240
-const M_SC_VERSION = 29
-const M_SC_XBS5_ILP32_OFF32 = 125
-const M_SC_XBS5_ILP32_OFFBIG = 126
-const M_SC_XBS5_LP64_OFF64 = 127
-const M_SC_XBS5_LPBIG_OFFBIG = 128
-const M_SC_XOPEN_CRYPT = 92
-const M_SC_XOPEN_ENH_I18N = 93
-const M_SC_XOPEN_LEGACY = 129
-const M_SC_XOPEN_REALTIME = 130
-const M_SC_XOPEN_REALTIME_THREADS = 131
-const M_SC_XOPEN_SHM = 94
-const M_SC_XOPEN_STREAMS = 246
-const M_SC_XOPEN_UNIX = 91
-const M_SC_XOPEN_VERSION = 89
-const M_SC_XOPEN_XCU_VERSION = 90
-const M_SC_XOPEN_XPG2 = 98
-const M_SC_XOPEN_XPG3 = 99
-const M_SC_XOPEN_XPG4 = 100
-const M_STDC_PREDEF_H = 1
-const M_XOPEN_ENH_I18N = 1
-const M_XOPEN_UNIX = 1
-const M_XOPEN_VERSION = 700
-const M__ATOMIC_ACQUIRE = 2
-const M__ATOMIC_ACQ_REL = 4
-const M__ATOMIC_CONSUME = 1
-const M__ATOMIC_HLE_ACQUIRE = 65536
-const M__ATOMIC_HLE_RELEASE = 131072
-const M__ATOMIC_RELAXED = 0
-const M__ATOMIC_RELEASE = 3
 const M__ATOMIC_SEQ_CST = 5
-const M__BIGGEST_ALIGNMENT__ = 16
-const M__BIG_ENDIAN = 4321
-const M__BYTE_ORDER = 1234
-const M__BYTE_ORDER__ = 1234
-const M__CCGO__ = 1
-const M__CHAR_BIT__ = 8
-const M__DBL_DECIMAL_DIG__ = 17
-const M__DBL_DIG__ = 15
-const M__DBL_HAS_DENORM__ = 1
-const M__DBL_HAS_INFINITY__ = 1
-const M__DBL_HAS_QUIET_NAN__ = 1
-const M__DBL_IS_IEC_60559__ = 2
-const M__DBL_MANT_DIG__ = 53
-const M__DBL_MAX_10_EXP__ = 308
-const M__DBL_MAX_EXP__ = 1024
-const M__DBL_MIN_10_EXP__ = -307
-const M__DBL_MIN_EXP__ = -1021
-const M__DEC128_EPSILON__ = 0
-const M__DEC128_MANT_DIG__ = 34
-const M__DEC128_MAX_EXP__ = 6145
-const M__DEC128_MAX__ = 0
-const M__DEC128_MIN_EXP__ = -6142
-const M__DEC128_MIN__ = 0
-const M__DEC128_SUBNORMAL_MIN__ = 0
-const M__DEC32_EPSILON__ = 0
-const M__DEC32_MANT_DIG__ = 7
-const M__DEC32_MAX_EXP__ = 97
-const M__DEC32_MAX__ = 0
-const M__DEC32_MIN_EXP__ = -94
-const M__DEC32_MIN__ = 0
-const M__DEC32_SUBNORMAL_MIN__ = 0
-const M__DEC64_EPSILON__ = 0
-const M__DEC64_MANT_DIG__ = 16
-const M__DEC64_MAX_EXP__ = 385
-const M__DEC64_MAX__ = 0
-const M__DEC64_MIN_EXP__ = -382
-const M__DEC64_MIN__ = 0
-const M__DEC64_SUBNORMAL_MIN__ = 0
-const M__DECIMAL_BID_FORMAT__ = 1
-const M__DECIMAL_DIG__ = 17
-const M__DEC_EVAL_METHOD__ = 2
-const M__ELF__ = 1
-const M__FINITE_MATH_ONLY__ = 0
-const M__FLOAT_WORD_ORDER__ = 1234
-const M__FLT128_DECIMAL_DIG__ = 36
-const M__FLT128_DENORM_MIN__ = 0
-const M__FLT128_DIG__ = 33
-const M__FLT128_EPSILON__ = 0
-const M__FLT128_HAS_DENORM__ = 1
-const M__FLT128_HAS_INFINITY__ = 1
-const M__FLT128_HAS_QUIET_NAN__ = 1
-const M__FLT128_IS_IEC_60559__ = 2
-const M__FLT128_MANT_DIG__ = 113
-const M__FLT128_MAX_10_EXP__ = 4932
-const M__FLT128_MAX_EXP__ = 16384
-const M__FLT128_MAX__ = 0
-const M__FLT128_MIN_10_EXP__ = -4931
-const M__FLT128_MIN_EXP__ = -16381
-const M__FLT128_MIN__ = 0
-const M__FLT128_NORM_MAX__ = 0
-const M__FLT32X_DECIMAL_DIG__ = 17
-const M__FLT32X_DENORM_MIN__ = 0
-const M__FLT32X_DIG__ = 15
-const M__FLT32X_EPSILON__ = 0
-const M__FLT32X_HAS_DENORM__ = 1
-const M__FLT32X_HAS_INFINITY__ = 1
-const M__FLT32X_HAS_QUIET_NAN__ = 1
-const M__FLT32X_IS_IEC_60559__ = 2
-const M__FLT32X_MANT_DIG__ = 53
-const M__FLT32X_MAX_10_EXP__ = 308
-const M__FLT32X_MAX_EXP__ = 1024
-const M__FLT32X_MAX__ = 0
-const M__FLT32X_MIN_10_EXP__ = -307
-const M__FLT32X_MIN_EXP__ = -1021
-const M__FLT32X_MIN__ = 0
-const M__FLT32X_NORM_MAX__ = 0
-const M__FLT32_DECIMAL_DIG__ = 9
-const M__FLT32_DENORM_MIN__ = 0
-const M__FLT32_DIG__ = 6
-const M__FLT32_EPSILON__ = 0
-const M__FLT32_HAS_DENORM__ = 1
-const M__FLT32_HAS_INFINITY__ = 1
-const M__FLT32_HAS_QUIET_NAN__ = 1
-const M__FLT32_IS_IEC_60559__ = 2
-const M__FLT32_MANT_DIG__ = 24
-const M__FLT32_MAX_10_EXP__ = 38
-const M__FLT32_MAX_EXP__ = 128
-const M__FLT32_MAX__ = 0
-const M__FLT32_MIN_10_EXP__ = -37
-const M__FLT32_MIN_EXP__ = -125
-const M__FLT32_MIN__ = 0
-const M__FLT32_NORM_MAX__ = 0
-const M__FLT64X_DECIMAL_DIG__ = 36
-const M__FLT64X_DENORM_MIN__ = 0
-const M__FLT64X_DIG__ = 33
-const M__FLT64X_EPSILON__ = 0
-const M__FLT64X_HAS_DENORM__ = 1
-const M__FLT64X_HAS_INFINITY__ = 1
-const M__FLT64X_HAS_QUIET_NAN__ = 1
-const M__FLT64X_IS_IEC_60559__ = 2
-const M__FLT64X_MANT_DIG__ = 113
-const M__FLT64X_MAX_10_EXP__ = 4932
-const M__FLT64X_MAX_EXP__ = 16384
-const M__FLT64X_MAX__ = 0
-const M__FLT64X_MIN_10_EXP__ = -4931
-const M__FLT64X_MIN_EXP__ = -16381
-const M__FLT64X_MIN__ = 0
-const M__FLT64X_NORM_MAX__ = 0
-const M__FLT64_DECIMAL_DIG__ = 17
-const M__FLT64_DENORM_MIN__ = 0
-const M__FLT64_DIG__ = 15
-const M__FLT64_EPSILON__ = 0
-const M__FLT64_HAS_DENORM__ = 1
-const M__FLT64_HAS_INFINITY__ = 1
-const M__FLT64_HAS_QUIET_NAN__ = 1
-const M__FLT64_IS_IEC_60559__ = 2
-const M__FLT64_MANT_DIG__ = 53
-const M__FLT64_MAX_10_EXP__ = 308
-const M__FLT64_MAX_EXP__ = 1024
-const M__FLT64_MAX__ = 0
-const M__FLT64_MIN_10_EXP__ = -307
-const M__FLT64_MIN_EXP__ = -1021
-const M__FLT64_MIN__ = 0
-const M__FLT64_NORM_MAX__ = 0
-const M__FLT_DECIMAL_DIG__ = 9
-const M__FLT_DENORM_MIN__ = 0
-const M__FLT_DIG__ = 6
-const M__FLT_EPSILON__ = 0
-const M__FLT_EVAL_METHOD_TS_18661_3__ = 2
-const M__FLT_EVAL_METHOD__ = 2
-const M__FLT_HAS_DENORM__ = 1
-const M__FLT_HAS_INFINITY__ = 1
-const M__FLT_HAS_QUIET_NAN__ = 1
-const M__FLT_IS_IEC_60559__ = 2
-const M__FLT_MANT_DIG__ = 24
-const M__FLT_MAX_10_EXP__ = 38
-const M__FLT_MAX_EXP__ = 128
-const M__FLT_MAX__ = 0
-const M__FLT_MIN_10_EXP__ = -37
-const M__FLT_MIN_EXP__ = -125
-const M__FLT_MIN__ = 0
-const M__FLT_NORM_MAX__ = 0
-const M__FLT_RADIX__ = 2
-const M__FUNCTION__ = 0
-const M__GCC_ASM_FLAG_OUTPUTS__ = 1
-const M__GCC_ATOMIC_BOOL_LOCK_FREE = 2
-const M__GCC_ATOMIC_CHAR16_T_LOCK_FREE = 2
-const M__GCC_ATOMIC_CHAR32_T_LOCK_FREE = 2
-const M__GCC_ATOMIC_CHAR_LOCK_FREE = 2
-const M__GCC_ATOMIC_INT_LOCK_FREE = 2
-const M__GCC_ATOMIC_LLONG_LOCK_FREE = 2
-const M__GCC_ATOMIC_LONG_LOCK_FREE = 2
-const M__GCC_ATOMIC_POINTER_LOCK_FREE = 2
-const M__GCC_ATOMIC_SHORT_LOCK_FREE = 2
-const M__GCC_ATOMIC_TEST_AND_SET_TRUEVAL = 1
-const M__GCC_ATOMIC_WCHAR_T_LOCK_FREE = 2
-const M__GCC_CONSTRUCTIVE_SIZE = 64
-const M__GCC_DESTRUCTIVE_SIZE = 64
-const M__GCC_HAVE_DWARF2_CFI_ASM = 1
-const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 = 1
-const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 = 1
-const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 = 1
-const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8 = 1
-const M__GCC_IEC_559 = 2
-const M__GCC_IEC_559_COMPLEX = 2
-const M__GNUC_EXECUTION_CHARSET_NAME = "UTF-8"
-const M__GNUC_MINOR__ = 2
-const M__GNUC_PATCHLEVEL__ = 0
-const M__GNUC_STDC_INLINE__ = 1
-const M__GNUC_WIDE_EXECUTION_CHARSET_NAME = "UTF-32LE"
-const M__GNUC__ = 12
-const M__GXX_ABI_VERSION = 1017
-const M__HAVE_SPECULATION_SAFE_VALUE = 1
-const M__ILP32__ = 1
-const M__INT16_MAX__ = 32767
-const M__INT32_MAX__ = 2147483647
-const M__INT32_TYPE__ = 0
-const M__INT64_MAX__ = 9223372036854775807
-const M__INT8_MAX__ = 127
-const M__INTMAX_MAX__ = 9223372036854775807
-const M__INTMAX_WIDTH__ = 64
-const M__INTPTR_MAX__ = 2147483647
-const M__INTPTR_TYPE__ = 0
-const M__INTPTR_WIDTH__ = 32
-const M__INT_FAST16_MAX__ = 2147483647
-const M__INT_FAST16_TYPE__ = 0
-const M__INT_FAST16_WIDTH__ = 32
-const M__INT_FAST32_MAX__ = 2147483647
-const M__INT_FAST32_TYPE__ = 0
-const M__INT_FAST32_WIDTH__ = 32
-const M__INT_FAST64_MAX__ = 9223372036854775807
-const M__INT_FAST64_WIDTH__ = 64
-const M__INT_FAST8_MAX__ = 127
-const M__INT_FAST8_WIDTH__ = 8
-const M__INT_LEAST16_MAX__ = 32767
-const M__INT_LEAST16_WIDTH__ = 16
-const M__INT_LEAST32_MAX__ = 2147483647
-const M__INT_LEAST32_TYPE__ = 0
-const M__INT_LEAST32_WIDTH__ = 32
-const M__INT_LEAST64_MAX__ = 9223372036854775807
-const M__INT_LEAST64_WIDTH__ = 64
-const M__INT_LEAST8_MAX__ = 127
-const M__INT_LEAST8_WIDTH__ = 8
-const M__INT_MAX__ = 2147483647
-const M__INT_WIDTH__ = 32
-const M__LAHF_SAHF__ = 1
-const M__LDBL_DECIMAL_DIG__ = 17
-const M__LDBL_DENORM_MIN__ = 0
-const M__LDBL_DIG__ = 15
-const M__LDBL_EPSILON__ = 0
-const M__LDBL_HAS_DENORM__ = 1
-const M__LDBL_HAS_INFINITY__ = 1
-const M__LDBL_HAS_QUIET_NAN__ = 1
-const M__LDBL_IS_IEC_60559__ = 2
-const M__LDBL_MANT_DIG__ = 53
-const M__LDBL_MAX_10_EXP__ = 308
-const M__LDBL_MAX_EXP__ = 1024
-const M__LDBL_MAX__ = 0
-const M__LDBL_MIN_10_EXP__ = -307
-const M__LDBL_MIN_EXP__ = -1021
-const M__LDBL_MIN__ = 0
-const M__LDBL_NORM_MAX__ = 0
-const M__LITTLE_ENDIAN = 1234
-const M__LONG_DOUBLE_64__ = 1
-const M__LONG_LONG_MAX__ = 9223372036854775807
-const M__LONG_LONG_WIDTH__ = 64
-const M__LONG_MAX = 2147483647
-const M__LONG_MAX__ = 2147483647
-const M__LONG_WIDTH__ = 32
-const M__OPTIMIZE__ = 1
-const M__ORDER_BIG_ENDIAN__ = 4321
-const M__ORDER_LITTLE_ENDIAN__ = 1234
-const M__ORDER_PDP_ENDIAN__ = 3412
-const M__PIC__ = 2
-const M__PIE__ = 2
-const M__PRAGMA_REDEFINE_EXTNAME = 1
-const M__PRETTY_FUNCTION__ = 0
-const M__PRI64 = "ll"
-const M__PRIPTR = ""
-const M__PTRDIFF_MAX__ = 2147483647
-const M__PTRDIFF_TYPE__ = 0
-const M__PTRDIFF_WIDTH__ = 32
-const M__SCHAR_MAX__ = 127
-const M__SCHAR_WIDTH__ = 8
-const M__SEG_FS = 1
-const M__SEG_GS = 1
-const M__SHRT_MAX__ = 32767
-const M__SHRT_WIDTH__ = 16
-const M__SIG_ATOMIC_MAX__ = 2147483647
-const M__SIG_ATOMIC_MIN__ = -2147483648
-const M__SIG_ATOMIC_TYPE__ = 0
-const M__SIG_ATOMIC_WIDTH__ = 32
-const M__SIZEOF_DOUBLE__ = 8
-const M__SIZEOF_FLOAT128__ = 16
-const M__SIZEOF_FLOAT80__ = 12
-const M__SIZEOF_FLOAT__ = 4
-const M__SIZEOF_INT__ = 4
-const M__SIZEOF_LONG_DOUBLE__ = 8
-const M__SIZEOF_LONG_LONG__ = 8
-const M__SIZEOF_LONG__ = 4
-const M__SIZEOF_POINTER__ = 4
-const M__SIZEOF_PTRDIFF_T__ = 4
-const M__SIZEOF_SHORT__ = 2
-const M__SIZEOF_SIZE_T__ = 4
-const M__SIZEOF_WCHAR_T__ = 4
-const M__SIZEOF_WINT_T__ = 4
-const M__SIZE_MAX__ = 4294967295
-const M__SIZE_WIDTH__ = 32
-const M__STDC_HOSTED__ = 1
-const M__STDC_IEC_559_COMPLEX__ = 1
-const M__STDC_IEC_559__ = 1
-const M__STDC_IEC_60559_BFP__ = 201404
-const M__STDC_IEC_60559_COMPLEX__ = 201404
-const M__STDC_ISO_10646__ = 201706
-const M__STDC_UTF_16__ = 1
-const M__STDC_UTF_32__ = 1
-const M__STDC_VERSION__ = 201710
-const M__STDC__ = 1
-const M__UINT16_MAX__ = 65535
-const M__UINT32_MAX__ = 4294967295
-const M__UINT64_MAX__ = 18446744073709551615
-const M__UINT8_MAX__ = 255
-const M__UINTMAX_MAX__ = 18446744073709551615
-const M__UINTPTR_MAX__ = 4294967295
-const M__UINT_FAST16_MAX__ = 4294967295
-const M__UINT_FAST32_MAX__ = 4294967295
-const M__UINT_FAST64_MAX__ = 18446744073709551615
-const M__UINT_FAST8_MAX__ = 255
-const M__UINT_LEAST16_MAX__ = 65535
-const M__UINT_LEAST32_MAX__ = 4294967295
-const M__UINT_LEAST64_MAX__ = 18446744073709551615
-const M__UINT_LEAST8_MAX__ = 255
-const M__USE_TIME_BITS64 = 1
-const M__VERSION__ = "12.2.0"
-const M__WCHAR_MAX__ = 2147483647
-const M__WCHAR_MIN__ = -2147483648
-const M__WCHAR_WIDTH__ = 32
-const M__WINT_MAX__ = 4294967295
-const M__WINT_MIN__ = 0
-const M__WINT_WIDTH__ = 32
-const M__code_model_32__ = 1
-const M__gnu_linux__ = 1
-const M__i386 = 1
-const M__i386__ = 1
-const M__i686 = 1
-const M__i686__ = 1
-const M__inline = 0
-const M__linux = 1
-const M__linux__ = 1
-const M__pentiumpro = 1
-const M__pentiumpro__ = 1
-const M__pic__ = 2
-const M__pie__ = 2
-const M__restrict = 0
-const M__restrict_arr = 0
-const M__tm_gmtoff = 0
-const M__tm_zone = 0
-const M__unix = 1
-const M__unix__ = 1
-const Malloca = 0
-const Merrno = 0
-const Mi386 = 1
-const Mlinux = 1
-const Mloff_t = 0
-const Mstatic_assert = 0
-const Munix = 1
-
-type T__builtin_va_list = uintptr
-
-type T__predefined_size_t = uint32
-
-type T__predefined_wchar_t = int32
 
 type T__predefined_ptrdiff_t = int32
 
-type Twchar_t = int32
-
 type Tsize_t = uint32
-
-type Tdiv_t = struct {
-	Fquot int32
-	Frem  int32
-}
-
-type Tldiv_t = struct {
-	Fquot int32
-	Frem  int32
-}
-
-type Tlldiv_t = struct {
-	Fquot int64
-	Frem  int64
-}
 
 type Tssize_t = int32
 
 type Toff_t = int64
 
 type Tva_list = uintptr
-
-type T__isoc_va_list = uintptr
-
-type Tfpos_t = struct {
-	F__lldata [0]int64
-	F__align  [0]float64
-	F__opaque [16]int8
-}
-
-type T_G_fpos64_t = Tfpos_t
-
-type Tcookie_io_functions_t = struct {
-	Fread   uintptr
-	Fwrite  uintptr
-	Fseek   uintptr
-	Fclose1 uintptr
-}
-
-type T_IO_cookie_io_functions_t = Tcookie_io_functions_t
 
 type Tuintptr_t = uint32
 
@@ -1203,8 +82,6 @@ type Tint32_t = int32
 
 type Tint64_t = int64
 
-type Tintmax_t = int64
-
 type Tuint8_t = uint8
 
 type Tuint16_t = uint16
@@ -1213,85 +90,13 @@ type Tuint32_t = uint32
 
 type Tuint64_t = uint64
 
-type Tuintmax_t = uint64
-
-type Tint_fast8_t = int8
-
-type Tint_fast64_t = int64
-
-type Tint_least8_t = int8
-
-type Tint_least16_t = int16
-
-type Tint_least32_t = int32
-
-type Tint_least64_t = int64
-
-type Tuint_fast8_t = uint8
-
-type Tuint_fast64_t = uint64
-
-type Tuint_least8_t = uint8
-
-type Tuint_least16_t = uint16
-
-type Tuint_least32_t = uint32
-
-type Tuint_least64_t = uint64
-
-type Tint_fast16_t = int32
-
-type Tint_fast32_t = int32
-
-type Tuint_fast16_t = uint32
-
-type Tuint_fast32_t = uint32
-
-type Timaxdiv_t = struct {
-	Fquot Tintmax_t
-	Frem  Tintmax_t
-}
-
-type Tlocale_t = uintptr
-
-type Tpid_t = int32
-
 type Tuid_t = uint32
 
 type Tgid_t = uint32
 
-type Tuseconds_t = uint32
-
 type Tmode_t = uint32
 
-type Tiovec = struct {
-	Fiov_base uintptr
-	Fiov_len  Tsize_t
-}
-
-type Tflock = struct {
-	Fl_type   int16
-	Fl_whence int16
-	Fl_start  Toff_t
-	Fl_len    Toff_t
-	Fl_pid    Tpid_t
-}
-
-type Tfile_handle = struct {
-	Fhandle_bytes uint32
-	Fhandle_type  int32
-}
-
-type Tf_owner_ex = struct {
-	Ftype1 int32
-	Fpid   Tpid_t
-}
-
 type Ttime_t = int64
-
-type Ttimer_t = uintptr
-
-type Tclockid_t = int32
 
 type Tclock_t = int32
 
@@ -1313,11 +118,6 @@ type Ttm = struct {
 	Ftm_isdst  int32
 	Ftm_gmtoff int32
 	Ftm_zone   uintptr
-}
-
-type Titimerspec = struct {
-	Fit_interval Ttimespec
-	Fit_value    Ttimespec
 }
 
 type TBOOL = int32
@@ -1447,22 +247,6 @@ type TJSClassDef = struct {
 	Fexotic     uintptr
 }
 
-type TJSTypedArrayEnum = int32
-
-type _JSTypedArrayEnum = int32
-
-const EJS_TYPED_ARRAY_UINT8C = 0
-const EJS_TYPED_ARRAY_INT8 = 1
-const EJS_TYPED_ARRAY_UINT8 = 2
-const EJS_TYPED_ARRAY_INT16 = 3
-const EJS_TYPED_ARRAY_UINT16 = 4
-const EJS_TYPED_ARRAY_INT32 = 5
-const EJS_TYPED_ARRAY_UINT32 = 6
-const EJS_TYPED_ARRAY_BIG_INT64 = 7
-const EJS_TYPED_ARRAY_BIG_UINT64 = 8
-const EJS_TYPED_ARRAY_FLOAT32 = 9
-const EJS_TYPED_ARRAY_FLOAT64 = 10
-
 type TJSSharedArrayBufferFunctions = struct {
 	Fsab_alloc  uintptr
 	Fsab_free   uintptr
@@ -1472,15 +256,11 @@ type TJSSharedArrayBufferFunctions = struct {
 
 type TJSPromiseStateEnum = int32
 
-type _JSPromiseStateEnum = int32
-
 const EJS_PROMISE_PENDING = 0
 const EJS_PROMISE_FULFILLED = 1
 const EJS_PROMISE_REJECTED = 2
 
 type TJSCFunctionEnum = int32
-
-type _JSCFunctionEnum = int32
 
 const EJS_CFUNC_generic = 0
 const EJS_CFUNC_generic_magic = 1
@@ -2070,133 +850,19 @@ func main() {
 }
 
 const MARGUMENT_VAR_OFFSET = 536870912
-const MARG_SCOPE_END = -2
 const MARG_SCOPE_INDEX = 1
-const MATOD_ACCEPT_BIN_OCT = 4
-const MATOD_ACCEPT_LEGACY_OCTAL = 16
-const MATOD_ACCEPT_PREFIX_AFTER_SIGN = 1024
-const MATOD_ACCEPT_SUFFIX = 64
-const MATOD_ACCEPT_UNDERSCORES = 32
-const MATOD_INT_ONLY = 1
-const MATOD_MODE_BIGINT = 512
-const MATOD_TYPE_BIG_DECIMAL = 384
-const MATOD_TYPE_BIG_FLOAT = 256
-const MATOD_TYPE_BIG_INT = 128
-const MATOD_TYPE_FLOAT64 = 0
-const MATOD_TYPE_MASK = 384
-const MATOMIC_BOOL_LOCK_FREE = 2
-const MATOMIC_CHAR16_T_LOCK_FREE = 2
-const MATOMIC_CHAR32_T_LOCK_FREE = 2
-const MATOMIC_CHAR_LOCK_FREE = 2
-const MATOMIC_INT_LOCK_FREE = 2
-const MATOMIC_LLONG_LOCK_FREE = 2
-const MATOMIC_LONG_LOCK_FREE = 2
-const MATOMIC_POINTER_LOCK_FREE = 2
-const MATOMIC_SHORT_LOCK_FREE = 2
-const MATOMIC_WCHAR_T_LOCK_FREE = 2
-const MATOM_GET_STR_BUF_SIZE = 64
 const MBC_VERSION = 67
-const MBF_ATOF_BIN_OCT = 131072
-const MBF_ATOF_EXPONENT = 524288
-const MBF_ATOF_NO_HEX = 65536
-const MBF_ATOF_NO_NAN_INF = 262144
-const MBF_CHKSUM_MOD = 975620677
-const MBF_DEC_BASE = 1000000000
-const MBF_DIVREM_EUCLIDIAN = 6
 const MBF_EXP_BITS_MASK = 63
-const MBF_EXP_BITS_MAX = 29
 const MBF_EXP_BITS_MIN = 3
 const MBF_EXP_BITS_SHIFT = 5
-const MBF_EXP_INF = 2147483646
-const MBF_EXP_NAN = 2147483647
-const MBF_EXP_ZERO = -2147483648
-const MBF_EXT_EXP_BITS_MAX = 30
-const MBF_FLAG_EXT_EXP = 2016
-const MBF_FLAG_RADPNT_PREC = 16
-const MBF_FLAG_SUBNORMAL = 8
-const MBF_FTOA_ADD_PREFIX = 2097152
-const MBF_FTOA_FORCE_EXP = 1048576
-const MBF_FTOA_FORMAT_FIXED = 0
-const MBF_FTOA_FORMAT_FRAC = 65536
-const MBF_FTOA_FORMAT_FREE = 131072
-const MBF_FTOA_FORMAT_FREE_MIN = 196608
-const MBF_FTOA_FORMAT_MASK = 196608
-const MBF_FTOA_JS_QUIRKS = 4194304
-const MBF_GET_INT_MOD = 1
-const MBF_POW_JS_QUIRKS = 65536
 const MBF_PREC_MIN = 2
-const MBF_RADIX_MAX = 36
-const MBF_RAW_EXP_MAX = 2147483647
-const MBF_RAW_EXP_MIN = -2147483648
 const MBF_RND_MASK = 7
-const MBF_ST_DIVIDE_ZERO = 2
-const MBF_ST_INEXACT = 16
-const MBF_ST_INVALID_OP = 1
-const MBF_ST_MEM_ERROR = 32
-const MBF_ST_OVERFLOW = 4
-const MBF_ST_UNDERFLOW = 8
-const MBREAK = 0
-const MCLONE_CHILD_CLEARTID = 2097152
-const MCLONE_CHILD_SETTID = 16777216
-const MCLONE_DETACHED = 4194304
-const MCLONE_FILES = 1024
-const MCLONE_FS = 512
-const MCLONE_IO = 2147483648
-const MCLONE_NEWCGROUP = 33554432
-const MCLONE_NEWIPC = 134217728
-const MCLONE_NEWNET = 1073741824
-const MCLONE_NEWNS = 131072
-const MCLONE_NEWPID = 536870912
-const MCLONE_NEWTIME = 128
-const MCLONE_NEWUSER = 268435456
-const MCLONE_NEWUTS = 67108864
-const MCLONE_PARENT = 32768
-const MCLONE_PARENT_SETTID = 1048576
-const MCLONE_PIDFD = 4096
-const MCLONE_PTRACE = 8192
-const MCLONE_SETTLS = 524288
-const MCLONE_SIGHAND = 2048
-const MCLONE_SYSVSEM = 262144
-const MCLONE_THREAD = 65536
-const MCLONE_UNTRACED = 8388608
-const MCLONE_VFORK = 16384
-const MCLONE_VM = 256
-const MCPU_SETSIZE = 1024
-const MCP_BOM = 65279
 const MCP_LS = 8232
-const MCP_NBSP = 160
 const MCP_PS = 8233
-const MCSIGNAL = 255
-const MDECL_MASK_ALL = 7
-const MDECL_MASK_FUNC = 1
-const MDECL_MASK_FUNC_WITH_LABEL = 2
-const MDECL_MASK_OTHER = 4
-const MDEFAULT = 0
-const MDEFINE_GLOBAL_FUNC_VAR = 64
-const MDEFINE_GLOBAL_LEX_VAR = 128
-const MDIRECT_DISPATCH = 0
-const MFD_SETSIZE = 1024
-const MFE_ALL_EXCEPT = 63
-const MFE_DIVBYZERO = 4
 const MFE_DOWNWARD = 1024
-const MFE_EXP = -2
-const MFE_INEXACT = 32
-const MFE_INVALID = 1
-const MFE_OVERFLOW = 8
-const MFE_PREC = -1
-const MFE_RNDMODE = -3
-const MFE_SUBNORMAL = -4
 const MFE_TONEAREST = 0
-const MFE_TOWARDZERO = 3072
-const MFE_UNDERFLOW = 16
 const MFE_UPWARD = 2048
-const MFP_ILOGB0 = -2147483648
-const MFP_ILOGBNAN = -2147483648
 const MFP_INFINITE = 1
-const MFP_NAN = 0
-const MFP_NORMAL = 4
-const MFP_SUBNORMAL = 3
-const MFP_ZERO = 2
 const MFUNC_RET_AWAIT = 0
 const MFUNC_RET_INITIAL_YIELD = 3
 const MFUNC_RET_YIELD = 1
@@ -2205,149 +871,41 @@ const MGEN_MAGIC_NEXT = 0
 const MGEN_MAGIC_RETURN = 1
 const MGEN_MAGIC_THROW = 2
 const MGLOBAL_VAR_OFFSET = 1073741824
-const MHINT_FORCE_ORDINARY = 16
 const MHINT_NONE = 2
 const MHINT_NUMBER = 1
 const MHINT_STRING = 0
-const MHUGE = 0
-const MHUGE_VALF = 0
-const MINFINITY = 0
-const MITIMER_PROF = 2
-const MITIMER_REAL = 0
-const MITIMER_VIRTUAL = 1
-const MJS_ARRAY_INITIAL_SIZE = 2
-const MJS_ATOM_HASH_MASK = 1073741823
-const MJS_ATOM_LAST_KEYWORD = 36
-const MJS_ATOM_LAST_STRICT_KEYWORD = 45
-const MJS_ATOM_MAX = 1073741823
-const MJS_ATOM_MAX_INT = 2147483647
-const MJS_ATOM_TAG_INT = 2147483648
-const MJS_BACKTRACE_FLAG_SINGLE_LEVEL = 2
-const MJS_BACKTRACE_FLAG_SKIP_FIRST_LEVEL = 1
-const MJS_CALL_FLAG_COPY_ARGV = 2
-const MJS_CALL_FLAG_GENERATOR = 4
-const MJS_DEFINE_CLASS_HAS_HERITAGE = 1
-const MJS_DTOA_BUF_SIZE = 128
-const MJS_DTOA_FIXED_FORMAT = 1
-const MJS_DTOA_FORCE_EXP = 4
-const MJS_DTOA_FRAC_FORMAT = 2
-const MJS_DTOA_VAR_FORMAT = 0
 const MJS_INTERRUPT_COUNTER_INIT = 10000
 const MJS_MAX_LOCAL_VARS = 65535
-const MJS_MODE_ASYNC = 8
-const MJS_MODE_MATH = 4
-const MJS_MODE_STRICT = 1
-const MJS_MODE_STRIP = 2
 const MJS_PROP_INITIAL_HASH_SIZE = 4
 const MJS_PROP_INITIAL_SIZE = 2
 const MJS_STACK_SIZE_MAX = 65534
-const MJS_STRING_LEN_MAX = 1073741823
 const MJS_THROW_ERROR_DELETE_SUPER = 3
 const MJS_THROW_ERROR_ITERATOR_THROW = 4
 const MJS_THROW_VAR_REDECL = 1
 const MJS_THROW_VAR_RO = 0
 const MJS_THROW_VAR_UNINITIALIZED = 2
-const MJS_TYPED_ARRAY_COUNT = 1
-const MLIMB_BITS = 32
 const MLIMB_DIGITS = 9
 const MLIMB_LOG2_BITS = 5
-const MLRE_CC_RES_LEN_MAX = 3
-const MLRE_FLAG_DOTALL = 8
-const MLRE_FLAG_GLOBAL = 1
-const MLRE_FLAG_IGNORECASE = 2
-const MLRE_FLAG_INDICES = 64
-const MLRE_FLAG_MULTILINE = 4
-const MLRE_FLAG_NAMED_GROUPS = 128
-const MLRE_FLAG_STICKY = 32
-const MLRE_FLAG_UNICODE = 16
-const MMAGIC_SET = 1
-const MMAGIC_WEAK = 2
-const MMATH_ERREXCEPT = 2
-const MMATH_ERRNO = 1
-const MM_1_PI = 0
-const MM_2_PI = 0
-const MM_2_SQRTPI = 0
-const MM_E = 0
-const MM_LN10 = 0
-const MM_LN2 = 0
-const MM_LOG10E = 0
-const MM_LOG2E = 0
-const MM_PI = 0
-const MM_PI_2 = 0
-const MM_PI_4 = 0
-const MM_SQRT1_2 = 0
-const MM_SQRT2 = 0
-const MNAN = 0
 const MOPTIMIZE = 1
 const MOP_DEFINE_METHOD_ENUMERABLE = 4
 const MOP_DEFINE_METHOD_GETTER = 1
 const MOP_DEFINE_METHOD_METHOD = 0
-const MOP_DEFINE_METHOD_SETTER = 2
-const MPC2LINE_BASE = -1
-const MPC2LINE_DIFF_PC_MAX = 50
 const MPC2LINE_OP_FIRST = 1
 const MPC2LINE_RANGE = 5
-const MPF_IN_ACCEPTED = 1
-const MPF_POSTFIX_CALL = 2
-const MPF_POW_ALLOWED = 4
-const MPF_POW_FORBIDDEN = 8
-const MPROMISE_MAGIC_all = 0
 const MPROMISE_MAGIC_allSettled = 1
 const MPROMISE_MAGIC_any = 2
 const MPROP_TYPE_ASYNC = 5
 const MPROP_TYPE_ASYNC_STAR = 6
 const MPROP_TYPE_GET = 2
 const MPROP_TYPE_IDENT = 0
-const MPROP_TYPE_PRIVATE = 16
 const MPROP_TYPE_SET = 3
 const MPROP_TYPE_STAR = 4
 const MPROP_TYPE_VAR = 1
-const MPTHREAD_BARRIER_SERIAL_THREAD = -1
-const MPTHREAD_CANCELED = -1
-const MPTHREAD_CANCEL_ASYNCHRONOUS = 1
-const MPTHREAD_CANCEL_DEFERRED = 0
-const MPTHREAD_CANCEL_DISABLE = 1
-const MPTHREAD_CANCEL_ENABLE = 0
-const MPTHREAD_CANCEL_MASKED = 2
 const MPTHREAD_CREATE_DETACHED = 1
-const MPTHREAD_CREATE_JOINABLE = 0
-const MPTHREAD_EXPLICIT_SCHED = 1
-const MPTHREAD_INHERIT_SCHED = 0
-const MPTHREAD_MUTEX_DEFAULT = 0
-const MPTHREAD_MUTEX_ERRORCHECK = 2
-const MPTHREAD_MUTEX_NORMAL = 0
-const MPTHREAD_MUTEX_RECURSIVE = 1
-const MPTHREAD_MUTEX_ROBUST = 1
-const MPTHREAD_MUTEX_STALLED = 0
-const MPTHREAD_ONCE_INIT = 0
-const MPTHREAD_PRIO_INHERIT = 1
-const MPTHREAD_PRIO_NONE = 0
-const MPTHREAD_PRIO_PROTECT = 2
-const MPTHREAD_PROCESS_PRIVATE = 0
-const MPTHREAD_PROCESS_SHARED = 1
-const MPTHREAD_SCOPE_PROCESS = 1
-const MPTHREAD_SCOPE_SYSTEM = 0
-const MSCHED_BATCH = 3
-const MSCHED_DEADLINE = 6
-const MSCHED_FIFO = 1
-const MSCHED_IDLE = 5
-const MSCHED_OTHER = 0
-const MSCHED_RESET_ON_FORK = 1073741824
-const MSCHED_RR = 2
-const MSHORT_OPCODES = 1
-const MSKIP_HAS_ASSIGNMENT = 4
-const MSKIP_HAS_ELLIPSIS = 2
-const MSKIP_HAS_SEMI = 1
-const MTOK_FIRST_KEYWORD = -83
-const MTOK_LAST_KEYWORD = -38
-const M__FE_DENORM = 2
-const Mmath_errhandling = 2
 const Mspecial_TA = 8
 const Mspecial_every = 0
 const Mspecial_filter = 4
 const Mspecial_forEach = 2
-const Mspecial_includes = -1
-const Mspecial_indexOf = 0
 const Mspecial_lastIndexOf = 1
 const Mspecial_map = 3
 const Mspecial_reduce = 0
@@ -2361,49 +919,9 @@ type Ttimeval = struct {
 	Ftv_usec Tsuseconds_t
 }
 
-type Tsigset_t = struct {
-	F__bits [32]uint32
-}
-
-type T__sigset_t = Tsigset_t
-
-type Tfd_mask = uint32
-
 type Tfd_set = struct {
 	Ffds_bits [32]uint32
 }
-
-type Titimerval = struct {
-	Fit_interval Ttimeval
-	Fit_value    Ttimeval
-}
-
-type Ttimezone = struct {
-	Ftz_minuteswest int32
-	Ftz_dsttime     int32
-}
-
-type Tfexcept_t = uint16
-
-type Tfenv_t = struct {
-	F__control_word  uint16
-	F__unused1       uint16
-	F__status_word   uint16
-	F__unused2       uint16
-	F__tags          uint16
-	F__unused3       uint16
-	F__eip           uint32
-	F__cs_selector   uint16
-	F__ccgo_align8   [2]byte
-	F__ccgo20        uint16
-	F__data_offset   uint32
-	F__data_selector uint16
-	F__unused5       uint16
-}
-
-type Tfloat_t = float64
-
-type Tdouble_t = float64
 
 type Tlist_head = struct {
 	Fprev uintptr
@@ -2634,13 +1152,6 @@ const EJS_MODULE_STATUS_EVALUATING = 3
 const EJS_MODULE_STATUS_EVALUATING_ASYNC = 4
 const EJS_MODULE_STATUS_EVALUATED = 5
 
-type Tmax_align_t = struct {
-	F__ll int64
-	F__ld float64
-}
-
-type Tptrdiff_t = int32
-
 type TCharRange = struct {
 	Flen1         int32
 	Fsize         int32
@@ -2649,8 +1160,6 @@ type TCharRange = struct {
 	Frealloc_func uintptr
 }
 
-type TCharRangeOpEnum = int32
-
 const ECR_OP_UNION = 0
 const ECR_OP_INTER = 1
 const ECR_OP_XOR = 2
@@ -2658,9 +1167,6 @@ const ECR_OP_XOR = 2
 type TUnicodeNormalizationEnum = int32
 
 const EUNICODE_NFC = 0
-const EUNICODE_NFD = 1
-const EUNICODE_NFKC = 2
-const EUNICODE_NFKD = 3
 const EUNICODE_C_SPACE = 1
 const EUNICODE_C_DIGIT = 2
 const EUNICODE_C_UPPER = 4
@@ -2718,28 +1224,6 @@ type Tbf_context_t = struct {
 
 type Tpthread_t = uintptr
 
-type Tpthread_once_t = int32
-
-type Tpthread_key_t = uint32
-
-type Tpthread_spinlock_t = int32
-
-type Tpthread_mutexattr_t = struct {
-	F__attr uint32
-}
-
-type Tpthread_condattr_t = struct {
-	F__attr uint32
-}
-
-type Tpthread_barrierattr_t = struct {
-	F__attr uint32
-}
-
-type Tpthread_rwlockattr_t = struct {
-	F__attr [2]uint32
-}
-
 type Tpthread_attr_t = struct {
 	F__u struct {
 		F__vi [0][9]int32
@@ -2763,130 +1247,6 @@ type Tpthread_cond_t = struct {
 		F__p  [0][12]uintptr
 		F__i  [12]int32
 	}
-}
-
-type Tpthread_rwlock_t = struct {
-	F__u struct {
-		F__vi [0][8]int32
-		F__p  [0][8]uintptr
-		F__i  [8]int32
-	}
-}
-
-type Tpthread_barrier_t = struct {
-	F__u struct {
-		F__vi [0][5]int32
-		F__p  [0][5]uintptr
-		F__i  [5]int32
-	}
-}
-
-type Tsched_param = struct {
-	Fsched_priority int32
-	F__reserved1    int32
-	F__reserved2    [4]int32
-	F__reserved3    int32
-}
-
-type Tcpu_set_t = struct {
-	F__bits [32]uint32
-}
-
-type T__ptcb = struct {
-	F__f    uintptr
-	F__x    uintptr
-	F__next uintptr
-}
-
-type Tcpu_set_t1 = struct {
-	F__bits [32]uint32
-}
-
-type Tmemory_order = int32
-
-const Ememory_order_relaxed = 0
-const Ememory_order_consume = 1
-const Ememory_order_acquire = 2
-const Ememory_order_release = 3
-const Ememory_order_acq_rel = 4
-const Ememory_order_seq_cst = 5
-
-type Tatomic_bool = uint8
-
-type Tatomic_char = int8
-
-type Tatomic_schar = int8
-
-type Tatomic_uchar = uint8
-
-type Tatomic_short = int16
-
-type Tatomic_ushort = uint16
-
-type Tatomic_int = int32
-
-type Tatomic_uint = uint32
-
-type Tatomic_long = int32
-
-type Tatomic_ulong = uint32
-
-type Tatomic_llong = int64
-
-type Tatomic_ullong = uint64
-
-type Tatomic_char16_t = uint16
-
-type Tatomic_char32_t = uint32
-
-type Tatomic_wchar_t = int32
-
-type Tatomic_int_least8_t = int8
-
-type Tatomic_uint_least8_t = uint8
-
-type Tatomic_int_least16_t = int16
-
-type Tatomic_uint_least16_t = uint16
-
-type Tatomic_int_least32_t = int32
-
-type Tatomic_uint_least32_t = uint32
-
-type Tatomic_int_least64_t = int64
-
-type Tatomic_uint_least64_t = uint64
-
-type Tatomic_int_fast8_t = int8
-
-type Tatomic_uint_fast8_t = uint8
-
-type Tatomic_int_fast16_t = int32
-
-type Tatomic_uint_fast16_t = uint32
-
-type Tatomic_int_fast32_t = int32
-
-type Tatomic_uint_fast32_t = uint32
-
-type Tatomic_int_fast64_t = int64
-
-type Tatomic_uint_fast64_t = uint64
-
-type Tatomic_intptr_t = int32
-
-type Tatomic_uintptr_t = uint32
-
-type Tatomic_size_t = uint32
-
-type Tatomic_ptrdiff_t = int32
-
-type Tatomic_intmax_t = int64
-
-type Tatomic_uintmax_t = uint64
-
-type Tatomic_flag = struct {
-	F__val uint8
 }
 
 const
@@ -3008,9 +1368,6 @@ EJS_CLASS_INIT_COUNT = 58
 
 type TJSErrorEnum = int32
 
-type _JSErrorEnum = int32
-
-const EJS_EVAL_ERROR = 0
 const EJS_RANGE_ERROR = 1
 const EJS_REFERENCE_ERROR = 2
 const EJS_SYNTAX_ERROR = 3
@@ -3047,13 +1404,9 @@ type TJSAtomStruct = struct {
 	Fhash_next Tuint32_t
 }
 
-type TJSString1 = TJSAtomStruct
-
 type TJSGCPhaseEnum = int32
 
 type TOPCodeEnum = int32
-
-type _OPCodeEnum = int32
 
 const EOP_invalid = 0
 const EOP_push_i32 = 1
@@ -3307,7 +1660,6 @@ const EOP_COUNT = 248
 const /* excluding temporary opcodes */
 /* temporary opcodes : overlap with the short opcodes */
 EOP_TEMP_START = 182
-const EOP___dummy = 181
 const EOP_enter_scope = 182
 const EOP_leave_scope = 183
 const EOP_label = 184
@@ -3350,63 +1702,6 @@ type TJSNumericOperations = struct {
 	Fmul_pow10            uintptr
 }
 
-type TJSRuntime1 = struct {
-	Fmf                                     TJSMallocFunctions
-	Fmalloc_state                           TJSMallocState
-	Frt_info                                uintptr
-	Fatom_hash_size                         int32
-	Fatom_count                             int32
-	Fatom_size                              int32
-	Fatom_count_resize                      int32
-	Fatom_hash                              uintptr
-	Fatom_array                             uintptr
-	Fatom_free_index                        int32
-	Fclass_count                            int32
-	Fclass_array                            uintptr
-	Fcontext_list                           Tlist_head
-	Fgc_obj_list                            Tlist_head
-	Fgc_zero_ref_count_list                 Tlist_head
-	Ftmp_obj_list                           Tlist_head
-	F__ccgo104                              uint8
-	Fmalloc_gc_threshold                    Tsize_t
-	Fstack_size                             Tuintptr_t
-	Fstack_top                              Tuintptr_t
-	Fstack_limit                            Tuintptr_t
-	Fcurrent_exception                      TJSValue
-	F__ccgo132                              uint8
-	Fcurrent_stack_frame                    uintptr
-	Finterrupt_handler                      uintptr
-	Finterrupt_opaque                       uintptr
-	Fhost_promise_rejection_tracker         uintptr
-	Fhost_promise_rejection_tracker_opaque  uintptr
-	Fjob_list                               Tlist_head
-	Fmodule_normalize_func                  uintptr
-	Fmodule_loader_func                     uintptr
-	Fmodule_loader_opaque                   uintptr
-	Fmodule_async_evaluation_next_timestamp Tint64_t
-	F__ccgo184                              uint8
-	Fsab_funcs                              TJSSharedArrayBufferFunctions
-	Fshape_hash_bits                        int32
-	Fshape_hash_size                        int32
-	Fshape_hash_count                       int32
-	Fshape_hash                             uintptr
-	Fbf_ctx                                 Tbf_context_t
-	Fbigint_ops                             TJSNumericOperations
-	Fbigfloat_ops                           TJSNumericOperations
-	Fbigdecimal_ops                         TJSNumericOperations
-	Foperator_count                         Tuint32_t
-	Fuser_opaque                            uintptr
-}
-
-type TJSClass1 = struct {
-	Fclass_id   Tuint32_t
-	Fclass_name TJSAtom
-	Ffinalizer  uintptr
-	Fgc_mark    uintptr
-	Fcall       uintptr
-	Fexotic     uintptr
-}
-
 type TJSStackFrame = struct {
 	Fprev_frame   uintptr
 	Fcur_func     TJSValue
@@ -3420,20 +1715,6 @@ type TJSStackFrame = struct {
 }
 
 type TJSGCObjectTypeEnum = int32
-
-/*
-header for GC objects. GC objects are C data structures with a
-
-	reference count that can reference other GC objects. JS Objects are
-	a particular type of GC object.
-*/
-type TJSGCObjectHeader1 = struct {
-	Fref_count int32
-	F__ccgo4   uint8
-	Fdummy1    Tuint8_t
-	Fdummy2    Tuint16_t
-	Flink      Tlist_head
-}
 
 type TJSVarRef = struct {
 	F__ccgo0_0 struct {
@@ -3481,41 +1762,6 @@ type TJSAutoInitIDEnum = int32
 const EJS_AUTOINIT_ID_PROTOTYPE = 0
 const EJS_AUTOINIT_ID_MODULE_NS = 1
 const EJS_AUTOINIT_ID_PROP = 2
-
-/* must be large enough to have a negligible runtime cost and small
-   enough to call the interrupt callback often. */
-
-type TJSContext1 = struct {
-	Fheader               TJSGCObjectHeader
-	Frt                   uintptr
-	Flink                 Tlist_head
-	Fbinary_object_count  Tuint16_t
-	Fbinary_object_size   int32
-	Farray_shape          uintptr
-	Fclass_proto          uintptr
-	Ffunction_proto       TJSValue
-	Ffunction_ctor        TJSValue
-	Farray_ctor           TJSValue
-	Fregexp_ctor          TJSValue
-	Fpromise_ctor         TJSValue
-	Fnative_error_proto   [8]TJSValue
-	Fiterator_proto       TJSValue
-	Fasync_iterator_proto TJSValue
-	Farray_proto_values   TJSValue
-	Fthrow_type_error     TJSValue
-	Feval_obj             TJSValue
-	Fglobal_obj           TJSValue
-	Fglobal_var_obj       TJSValue
-	Frandom_state         Tuint64_t
-	Fbf_ctx               uintptr
-	Ffp_env               TJSFloatEnv
-	F__ccgo228            uint16
-	Finterrupt_counter    int32
-	Floaded_modules       Tlist_head
-	Fcompile_regexp       uintptr
-	Feval_internal        uintptr
-	Fuser_opaque          uintptr
-}
 
 type TJSFloat64Union = struct {
 	Fu64 [0]Tuint64_t
@@ -3583,10 +1829,6 @@ type TJSVarDef = struct {
 
 type TJSFunctionKindEnum = int32
 
-/* for the encoding of the pc2line table */
-
-type _JSFunctionKindEnum = int32
-
 const EJS_FUNC_NORMAL = 0
 const EJS_FUNC_GENERATOR = 1
 const EJS_FUNC_ASYNC = 2
@@ -3627,8 +1869,6 @@ type TJSBoundFunction = struct {
 }
 
 type TJSIteratorKindEnum = int32
-
-type _JSIteratorKindEnum = int32
 
 const EJS_ITERATOR_KIND_KEY = 0
 const EJS_ITERATOR_KIND_VALUE = 1
@@ -3708,7 +1948,6 @@ EJS_OVOP_POS = 14
 const EJS_OVOP_NEG = 15
 const EJS_OVOP_INC = 16
 const EJS_OVOP_DEC = 17
-const EJS_OVOP_NOT = 18
 const EJS_OVOP_COUNT = 19
 
 type TJSBinaryOperatorDefEntry = struct {
@@ -3735,8 +1974,6 @@ type TJSReqModuleEntry = struct {
 }
 
 type TJSExportTypeEnum = int32
-
-type _JSExportTypeEnum = int32
 
 const EJS_EXPORT_TYPE_LOCAL = 0
 const EJS_EXPORT_TYPE_INDIRECT = 1
@@ -3766,43 +2003,6 @@ type TJSImportEntry = struct {
 
 type TJSModuleStatus = int32
 
-type TJSModuleDef1 = struct {
-	Fheader                     TJSRefCountHeader
-	Fmodule_name                TJSAtom
-	Flink                       Tlist_head
-	Freq_module_entries         uintptr
-	Freq_module_entries_count   int32
-	Freq_module_entries_size    int32
-	Fexport_entries             uintptr
-	Fexport_entries_count       int32
-	Fexport_entries_size        int32
-	Fstar_export_entries        uintptr
-	Fstar_export_entries_count  int32
-	Fstar_export_entries_size   int32
-	Fimport_entries             uintptr
-	Fimport_entries_count       int32
-	Fimport_entries_size        int32
-	Fmodule_ns                  TJSValue
-	Ffunc_obj                   TJSValue
-	Finit_func                  uintptr
-	F__ccgo84                   uint32
-	Fdfs_index                  int32
-	Fdfs_ancestor_index         int32
-	Fstack_prev                 uintptr
-	Fasync_parent_modules       uintptr
-	Fasync_parent_modules_count int32
-	Fasync_parent_modules_size  int32
-	Fpending_async_dependencies int32
-	Fasync_evaluation           TBOOL
-	Fasync_evaluation_timestamp Tint64_t
-	Fcycle_root                 uintptr
-	Fpromise                    TJSValue
-	Fresolving_funcs            [2]TJSValue
-	F__ccgo156                  uint8
-	Feval_exception             TJSValue
-	Fmeta_obj                   TJSValue
-}
-
 type TJSJobEntry = struct {
 	Flink     Tlist_head
 	Fctx      uintptr
@@ -3830,135 +2030,16 @@ type TJSShapeProperty = struct {
 	Fatom    TJSAtom
 }
 
-type TJSShape1 = struct {
-	Fheader                TJSGCObjectHeader
-	Fis_hashed             Tuint8_t
-	Fhas_small_array_index Tuint8_t
-	Fhash                  Tuint32_t
-	Fprop_hash_mask        Tuint32_t
-	Fprop_size             int32
-	Fprop_count            int32
-	Fdeleted_prop_count    int32
-	Fshape_hash_next       uintptr
-	Fproto                 uintptr
-}
-
-type TJSObject1 = struct {
-	F__ccgo0_0 struct {
-		F__ccgo1_0 [0]struct {
-			F__gc_ref_count int32
-			F__gc_mark      Tuint8_t
-			F__ccgo5        uint8
-			Fclass_id       Tuint16_t
-		}
-		Fheader TJSGCObjectHeader
-	}
-	Fshape          uintptr
-	Fprop           uintptr
-	Ffirst_weak_ref uintptr
-	Fu              struct {
-		Fbound_function                [0]uintptr
-		Fc_function_data_record        [0]uintptr
-		Ffor_in_iterator               [0]uintptr
-		Farray_buffer                  [0]uintptr
-		Ftyped_array                   [0]uintptr
-		Ffloat_env                     [0]uintptr
-		Foperator_set                  [0]uintptr
-		Fmap_state                     [0]uintptr
-		Fmap_iterator_data             [0]uintptr
-		Farray_iterator_data           [0]uintptr
-		Fregexp_string_iterator_data   [0]uintptr
-		Fgenerator_data                [0]uintptr
-		Fproxy_data                    [0]uintptr
-		Fpromise_data                  [0]uintptr
-		Fpromise_function_data         [0]uintptr
-		Fasync_function_data           [0]uintptr
-		Fasync_from_sync_iterator_data [0]uintptr
-		Fasync_generator_data          [0]uintptr
-		Ffunc1                         [0]struct {
-			Ffunction_bytecode uintptr
-			Fvar_refs          uintptr
-			Fhome_object       uintptr
-		}
-		Fcfunc [0]struct {
-			Frealm      uintptr
-			Fc_function TJSCFunctionType
-			Flength     Tuint8_t
-			Fcproto     Tuint8_t
-			Fmagic      Tint16_t
-		}
-		Farray [0]struct {
-			Fu1 struct {
-				Ftyped_array [0]uintptr
-				Fsize        Tuint32_t
-			}
-			Fu struct {
-				Fptr        [0]uintptr
-				Fint8_ptr   [0]uintptr
-				Fuint8_ptr  [0]uintptr
-				Fint16_ptr  [0]uintptr
-				Fuint16_ptr [0]uintptr
-				Fint32_ptr  [0]uintptr
-				Fuint32_ptr [0]uintptr
-				Fint64_ptr  [0]uintptr
-				Fuint64_ptr [0]uintptr
-				Ffloat_ptr  [0]uintptr
-				Fdouble_ptr [0]uintptr
-				Fvalues     uintptr
-			}
-			Fcount Tuint32_t
-		}
-		Fregexp       [0]TJSRegExp
-		Fobject_data  [0]TJSValue
-		Fopaque       uintptr
-		F__ccgo_pad24 [8]byte
-	}
-}
-
-const E__JS_ATOM_NULL = 0
 const EJS_ATOM_null = 1
 const EJS_ATOM_false = 2
 const EJS_ATOM_true = 3
-const EJS_ATOM_if = 4
-const EJS_ATOM_else = 5
 const EJS_ATOM_return = 6
-const EJS_ATOM_var = 7
 const EJS_ATOM_this = 8
-const EJS_ATOM_delete = 9
-const EJS_ATOM_void = 10
-const EJS_ATOM_typeof = 11
-const EJS_ATOM_new = 12
-const EJS_ATOM_in = 13
-const EJS_ATOM_instanceof = 14
-const EJS_ATOM_do = 15
-const EJS_ATOM_while = 16
-const EJS_ATOM_for = 17
-const EJS_ATOM_break = 18
-const EJS_ATOM_continue = 19
-const EJS_ATOM_switch = 20
-const EJS_ATOM_case = 21
 const EJS_ATOM_default = 22
 const EJS_ATOM_throw = 23
-const EJS_ATOM_try = 24
-const EJS_ATOM_catch = 25
-const EJS_ATOM_finally = 26
 const EJS_ATOM_function = 27
-const EJS_ATOM_debugger = 28
-const EJS_ATOM_with = 29
-const EJS_ATOM_class = 30
-const EJS_ATOM_const = 31
-const EJS_ATOM_enum = 32
-const EJS_ATOM_export = 33
-const EJS_ATOM_extends = 34
-const EJS_ATOM_import = 35
 const EJS_ATOM_super = 36
-const EJS_ATOM_implements = 37
-const EJS_ATOM_interface = 38
 const EJS_ATOM_let = 39
-const EJS_ATOM_package = 40
-const EJS_ATOM_private = 41
-const EJS_ATOM_protected = 42
-const EJS_ATOM_public = 43
 const EJS_ATOM_static = 44
 const EJS_ATOM_yield = 45
 const EJS_ATOM_await = 46
@@ -4005,11 +2086,9 @@ const EJS_ATOM_lastIndex = 86
 const EJS_ATOM_target = 87
 const EJS_ATOM_index = 88
 const EJS_ATOM_input = 89
-const EJS_ATOM_defineProperties = 90
 const EJS_ATOM_apply = 91
 const EJS_ATOM_join = 92
 const EJS_ATOM_concat = 93
-const EJS_ATOM_split = 94
 const EJS_ATOM_construct = 95
 const EJS_ATOM_getPrototypeOf = 96
 const EJS_ATOM_setPrototypeOf = 97
@@ -4033,7 +2112,6 @@ const EJS_ATOM_new_target = 114
 const EJS_ATOM_this_active_func = 115
 const EJS_ATOM_home_object = 116
 const EJS_ATOM_computed_field = 117
-const EJS_ATOM_static_computed_field = 118
 const EJS_ATOM_class_fields_init = 119
 const EJS_ATOM_brand = 120
 const EJS_ATOM_hash_constructor = 121
@@ -4074,8 +2152,6 @@ const EJS_ATOM_String = 155
 const EJS_ATOM_Boolean = 156
 const EJS_ATOM_Symbol = 157
 const EJS_ATOM_Arguments = 158
-const EJS_ATOM_Math = 159
-const EJS_ATOM_JSON = 160
 const EJS_ATOM_Date = 161
 const EJS_ATOM_Function = 162
 const EJS_ATOM_GeneratorFunction = 163
@@ -4111,7 +2187,6 @@ const EJS_ATOM_Array_Iterator = 192
 const EJS_ATOM_String_Iterator = 193
 const EJS_ATOM_RegExp_String_Iterator = 194
 const EJS_ATOM_Generator = 195
-const EJS_ATOM_Proxy = 196
 const EJS_ATOM_Promise = 197
 const EJS_ATOM_PromiseResolveFunction = 198
 const EJS_ATOM_PromiseRejectFunction = 199
@@ -4120,13 +2195,6 @@ const EJS_ATOM_AsyncFunctionResolve = 201
 const EJS_ATOM_AsyncFunctionReject = 202
 const EJS_ATOM_AsyncGeneratorFunction = 203
 const EJS_ATOM_AsyncGenerator = 204
-const EJS_ATOM_EvalError = 205
-const EJS_ATOM_RangeError = 206
-const EJS_ATOM_ReferenceError = 207
-const EJS_ATOM_SyntaxError = 208
-const EJS_ATOM_TypeError = 209
-const EJS_ATOM_URIError = 210
-const EJS_ATOM_InternalError = 211
 const EJS_ATOM_Private_brand = 212
 const EJS_ATOM_Symbol_toPrimitive = 213
 const EJS_ATOM_Symbol_iterator = 214
@@ -4146,11 +2214,6 @@ const EJS_ATOM_END = 227
 
 var _js_atom_init = [2182]int8{'n', 'u', 'l', 'l', 0, 'f', 'a', 'l', 's', 'e', 0, 't', 'r', 'u', 'e', 0, 'i', 'f', 0, 'e', 'l', 's', 'e', 0, 'r', 'e', 't', 'u', 'r', 'n', 0, 'v', 'a', 'r', 0, 't', 'h', 'i', 's', 0, 'd', 'e', 'l', 'e', 't', 'e', 0, 'v', 'o', 'i', 'd', 0, 't', 'y', 'p', 'e', 'o', 'f', 0, 'n', 'e', 'w', 0, 'i', 'n', 0, 'i', 'n', 's', 't', 'a', 'n', 'c', 'e', 'o', 'f', 0, 'd', 'o', 0, 'w', 'h', 'i', 'l', 'e', 0, 'f', 'o', 'r', 0, 'b', 'r', 'e', 'a', 'k', 0, 'c', 'o', 'n', 't', 'i', 'n', 'u', 'e', 0, 's', 'w', 'i', 't', 'c', 'h', 0, 'c', 'a', 's', 'e', 0, 'd', 'e', 'f', 'a', 'u', 'l', 't', 0, 't', 'h', 'r', 'o', 'w', 0, 't', 'r', 'y', 0, 'c', 'a', 't', 'c', 'h', 0, 'f', 'i', 'n', 'a', 'l', 'l', 'y', 0, 'f', 'u', 'n', 'c', 't', 'i', 'o', 'n', 0, 'd', 'e', 'b', 'u', 'g', 'g', 'e', 'r', 0, 'w', 'i', 't', 'h', 0, 'c', 'l', 'a', 's', 's', 0, 'c', 'o', 'n', 's', 't', 0, 'e', 'n', 'u', 'm', 0, 'e', 'x', 'p', 'o', 'r', 't', 0, 'e', 'x', 't', 'e', 'n', 'd', 's', 0, 'i', 'm', 'p', 'o', 'r', 't', 0, 's', 'u', 'p', 'e', 'r', 0, 'i', 'm', 'p', 'l', 'e', 'm', 'e', 'n', 't', 's', 0, 'i', 'n', 't', 'e', 'r', 'f', 'a', 'c', 'e', 0, 'l', 'e', 't', 0, 'p', 'a', 'c', 'k', 'a', 'g', 'e', 0, 'p', 'r', 'i', 'v', 'a', 't', 'e', 0, 'p', 'r', 'o', 't', 'e', 'c', 't', 'e', 'd', 0, 'p', 'u', 'b', 'l', 'i', 'c', 0, 's', 't', 'a', 't', 'i', 'c', 0, 'y', 'i', 'e', 'l', 'd', 0, 'a', 'w', 'a', 'i', 't', 0, 0, 'l', 'e', 'n', 'g', 't', 'h', 0, 'f', 'i', 'l', 'e', 'N', 'a', 'm', 'e', 0, 'l', 'i', 'n', 'e', 'N', 'u', 'm', 'b', 'e', 'r', 0, 'm', 'e', 's', 's', 'a', 'g', 'e', 0, 'c', 'a', 'u', 's', 'e', 0, 'e', 'r', 'r', 'o', 'r', 's', 0, 's', 't', 'a', 'c', 'k', 0, 'n', 'a', 'm', 'e', 0, 't', 'o', 'S', 't', 'r', 'i', 'n', 'g', 0, 't', 'o', 'L', 'o', 'c', 'a', 'l', 'e', 'S', 't', 'r', 'i', 'n', 'g', 0, 'v', 'a', 'l', 'u', 'e', 'O', 'f', 0, 'e', 'v', 'a', 'l', 0, 'p', 'r', 'o', 't', 'o', 't', 'y', 'p', 'e', 0, 'c', 'o', 'n', 's', 't', 'r', 'u', 'c', 't', 'o', 'r', 0, 'c', 'o', 'n', 'f', 'i', 'g', 'u', 'r', 'a', 'b', 'l', 'e', 0, 'w', 'r', 'i', 't', 'a', 'b', 'l', 'e', 0, 'e', 'n', 'u', 'm', 'e', 'r', 'a', 'b', 'l', 'e', 0, 'v', 'a', 'l', 'u', 'e', 0, 'g', 'e', 't', 0, 's', 'e', 't', 0, 'o', 'f', 0, '_', '_', 'p', 'r', 'o', 't', 'o', '_', '_', 0, 'u', 'n', 'd', 'e', 'f', 'i', 'n', 'e', 'd', 0, 'n', 'u', 'm', 'b', 'e', 'r', 0, 'b', 'o', 'o', 'l', 'e', 'a', 'n', 0, 's', 't', 'r', 'i', 'n', 'g', 0, 'o', 'b', 'j', 'e', 'c', 't', 0, 's', 'y', 'm', 'b', 'o', 'l', 0, 'i', 'n', 't', 'e', 'g', 'e', 'r', 0, 'u', 'n', 'k', 'n', 'o', 'w', 'n', 0, 'a', 'r', 'g', 'u', 'm', 'e', 'n', 't', 's', 0, 'c', 'a', 'l', 'l', 'e', 'e', 0, 'c', 'a', 'l', 'l', 'e', 'r', 0, '<', 'e', 'v', 'a', 'l', '>', 0, '<', 'r', 'e', 't', '>', 0, '<', 'v', 'a', 'r', '>', 0, '<', 'a', 'r', 'g', '_', 'v', 'a', 'r', '>', 0, '<', 'w', 'i', 't', 'h', '>', 0, 'l', 'a', 's', 't', 'I', 'n', 'd', 'e', 'x', 0, 't', 'a', 'r', 'g', 'e', 't', 0, 'i', 'n', 'd', 'e', 'x', 0, 'i', 'n', 'p', 'u', 't', 0, 'd', 'e', 'f', 'i', 'n', 'e', 'P', 'r', 'o', 'p', 'e', 'r', 't', 'i', 'e', 's', 0, 'a', 'p', 'p', 'l', 'y', 0, 'j', 'o', 'i', 'n', 0, 'c', 'o', 'n', 'c', 'a', 't', 0, 's', 'p', 'l', 'i', 't', 0, 'c', 'o', 'n', 's', 't', 'r', 'u', 'c', 't', 0, 'g', 'e', 't', 'P', 'r', 'o', 't', 'o', 't', 'y', 'p', 'e', 'O', 'f', 0, 's', 'e', 't', 'P', 'r', 'o', 't', 'o', 't', 'y', 'p', 'e', 'O', 'f', 0, 'i', 's', 'E', 'x', 't', 'e', 'n', 's', 'i', 'b', 'l', 'e', 0, 'p', 'r', 'e', 'v', 'e', 'n', 't', 'E', 'x', 't', 'e', 'n', 's', 'i', 'o', 'n', 's', 0, 'h', 'a', 's', 0, 'd', 'e', 'l', 'e', 't', 'e', 'P', 'r', 'o', 'p', 'e', 'r', 't', 'y', 0, 'd', 'e', 'f', 'i', 'n', 'e', 'P', 'r', 'o', 'p', 'e', 'r', 't', 'y', 0, 'g', 'e', 't', 'O', 'w', 'n', 'P', 'r', 'o', 'p', 'e', 'r', 't', 'y', 'D', 'e', 's', 'c', 'r', 'i', 'p', 't', 'o', 'r', 0, 'o', 'w', 'n', 'K', 'e', 'y', 's', 0, 'a', 'd', 'd', 0, 'd', 'o', 'n', 'e', 0, 'n', 'e', 'x', 't', 0, 'v', 'a', 'l', 'u', 'e', 's', 0, 's', 'o', 'u', 'r', 'c', 'e', 0, 'f', 'l', 'a', 'g', 's', 0, 'g', 'l', 'o', 'b', 'a', 'l', 0, 'u', 'n', 'i', 'c', 'o', 'd', 'e', 0, 'r', 'a', 'w', 0, 'n', 'e', 'w', '.', 't', 'a', 'r', 'g', 'e', 't', 0, 't', 'h', 'i', 's', '.', 'a', 'c', 't', 'i', 'v', 'e', '_', 'f', 'u', 'n', 'c', 0, '<', 'h', 'o', 'm', 'e', '_', 'o', 'b', 'j', 'e', 'c', 't', '>', 0, '<', 'c', 'o', 'm', 'p', 'u', 't', 'e', 'd', '_', 'f', 'i', 'e', 'l', 'd', '>', 0, '<', 's', 't', 'a', 't', 'i', 'c', '_', 'c', 'o', 'm', 'p', 'u', 't', 'e', 'd', '_', 'f', 'i', 'e', 'l', 'd', '>', 0, '<', 'c', 'l', 'a', 's', 's', '_', 'f', 'i', 'e', 'l', 'd', 's', '_', 'i', 'n', 'i', 't', '>', 0, '<', 'b', 'r', 'a', 'n', 'd', '>', 0, '#', 'c', 'o', 'n', 's', 't', 'r', 'u', 'c', 't', 'o', 'r', 0, 'a', 's', 0, 'f', 'r', 'o', 'm', 0, 'm', 'e', 't', 'a', 0, '*', 'd', 'e', 'f', 'a', 'u', 'l', 't', '*', 0, '*', 0, 'M', 'o', 'd', 'u', 'l', 'e', 0, 't', 'h', 'e', 'n', 0, 'r', 'e', 's', 'o', 'l', 'v', 'e', 0, 'r', 'e', 'j', 'e', 'c', 't', 0, 'p', 'r', 'o', 'm', 'i', 's', 'e', 0, 'p', 'r', 'o', 'x', 'y', 0, 'r', 'e', 'v', 'o', 'k', 'e', 0, 'a', 's', 'y', 'n', 'c', 0, 'e', 'x', 'e', 'c', 0, 'g', 'r', 'o', 'u', 'p', 's', 0, 'i', 'n', 'd', 'i', 'c', 'e', 's', 0, 's', 't', 'a', 't', 'u', 's', 0, 'r', 'e', 'a', 's', 'o', 'n', 0, 'g', 'l', 'o', 'b', 'a', 'l', 'T', 'h', 'i', 's', 0, 'b', 'i', 'g', 'i', 'n', 't', 0, 'b', 'i', 'g', 'f', 'l', 'o', 'a', 't', 0, 'b', 'i', 'g', 'd', 'e', 'c', 'i', 'm', 'a', 'l', 0, 'r', 'o', 'u', 'n', 'd', 'i', 'n', 'g', 'M', 'o', 'd', 'e', 0, 'm', 'a', 'x', 'i', 'm', 'u', 'm', 'S', 'i', 'g', 'n', 'i', 'f', 'i', 'c', 'a', 'n', 't', 'D', 'i', 'g', 'i', 't', 's', 0, 'm', 'a', 'x', 'i', 'm', 'u', 'm', 'F', 'r', 'a', 'c', 't', 'i', 'o', 'n', 'D', 'i', 'g', 'i', 't', 's', 0, 'n', 'o', 't', '-', 'e', 'q', 'u', 'a', 'l', 0, 't', 'i', 'm', 'e', 'd', '-', 'o', 'u', 't', 0, 'o', 'k', 0, 't', 'o', 'J', 'S', 'O', 'N', 0, 'O', 'b', 'j', 'e', 'c', 't', 0, 'A', 'r', 'r', 'a', 'y', 0, 'E', 'r', 'r', 'o', 'r', 0, 'N', 'u', 'm', 'b', 'e', 'r', 0, 'S', 't', 'r', 'i', 'n', 'g', 0, 'B', 'o', 'o', 'l', 'e', 'a', 'n', 0, 'S', 'y', 'm', 'b', 'o', 'l', 0, 'A', 'r', 'g', 'u', 'm', 'e', 'n', 't', 's', 0, 'M', 'a', 't', 'h', 0, 'J', 'S', 'O', 'N', 0, 'D', 'a', 't', 'e', 0, 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 0, 'G', 'e', 'n', 'e', 'r', 'a', 't', 'o', 'r', 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 0, 'F', 'o', 'r', 'I', 'n', 'I', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'R', 'e', 'g', 'E', 'x', 'p', 0, 'A', 'r', 'r', 'a', 'y', 'B', 'u', 'f', 'f', 'e', 'r', 0, 'S', 'h', 'a', 'r', 'e', 'd', 'A', 'r', 'r', 'a', 'y', 'B', 'u', 'f', 'f', 'e', 'r', 0, 'U', 'i', 'n', 't', '8', 'C', 'l', 'a', 'm', 'p', 'e', 'd', 'A', 'r', 'r', 'a', 'y', 0, 'I', 'n', 't', '8', 'A', 'r', 'r', 'a', 'y', 0, 'U', 'i', 'n', 't', '8', 'A', 'r', 'r', 'a', 'y', 0, 'I', 'n', 't', '1', '6', 'A', 'r', 'r', 'a', 'y', 0, 'U', 'i', 'n', 't', '1', '6', 'A', 'r', 'r', 'a', 'y', 0, 'I', 'n', 't', '3', '2', 'A', 'r', 'r', 'a', 'y', 0, 'U', 'i', 'n', 't', '3', '2', 'A', 'r', 'r', 'a', 'y', 0, 'B', 'i', 'g', 'I', 'n', 't', '6', '4', 'A', 'r', 'r', 'a', 'y', 0, 'B', 'i', 'g', 'U', 'i', 'n', 't', '6', '4', 'A', 'r', 'r', 'a', 'y', 0, 'F', 'l', 'o', 'a', 't', '3', '2', 'A', 'r', 'r', 'a', 'y', 0, 'F', 'l', 'o', 'a', 't', '6', '4', 'A', 'r', 'r', 'a', 'y', 0, 'D', 'a', 't', 'a', 'V', 'i', 'e', 'w', 0, 'B', 'i', 'g', 'I', 'n', 't', 0, 'B', 'i', 'g', 'F', 'l', 'o', 'a', 't', 0, 'B', 'i', 'g', 'F', 'l', 'o', 'a', 't', 'E', 'n', 'v', 0, 'B', 'i', 'g', 'D', 'e', 'c', 'i', 'm', 'a', 'l', 0, 'O', 'p', 'e', 'r', 'a', 't', 'o', 'r', 'S', 'e', 't', 0, 'O', 'p', 'e', 'r', 'a', 't', 'o', 'r', 's', 0, 'M', 'a', 'p', 0, 'S', 'e', 't', 0, 'W', 'e', 'a', 'k', 'M', 'a', 'p', 0, 'W', 'e', 'a', 'k', 'S', 'e', 't', 0, 'M', 'a', 'p', ' ', 'I', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'S', 'e', 't', ' ', 'I', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'A', 'r', 'r', 'a', 'y', ' ', 'I', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'S', 't', 'r', 'i', 'n', 'g', ' ', 'I', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'R', 'e', 'g', 'E', 'x', 'p', ' ', 'S', 't', 'r', 'i', 'n', 'g', ' ', 'I', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'G', 'e', 'n', 'e', 'r', 'a', 't', 'o', 'r', 0, 'P', 'r', 'o', 'x', 'y', 0, 'P', 'r', 'o', 'm', 'i', 's', 'e', 0, 'P', 'r', 'o', 'm', 'i', 's', 'e', 'R', 'e', 's', 'o', 'l', 'v', 'e', 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 0, 'P', 'r', 'o', 'm', 'i', 's', 'e', 'R', 'e', 'j', 'e', 'c', 't', 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 0, 'A', 's', 'y', 'n', 'c', 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 0, 'A', 's', 'y', 'n', 'c', 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 'R', 'e', 's', 'o', 'l', 'v', 'e', 0, 'A', 's', 'y', 'n', 'c', 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 'R', 'e', 'j', 'e', 'c', 't', 0, 'A', 's', 'y', 'n', 'c', 'G', 'e', 'n', 'e', 'r', 'a', 't', 'o', 'r', 'F', 'u', 'n', 'c', 't', 'i', 'o', 'n', 0, 'A', 's', 'y', 'n', 'c', 'G', 'e', 'n', 'e', 'r', 'a', 't', 'o', 'r', 0, 'E', 'v', 'a', 'l', 'E', 'r', 'r', 'o', 'r', 0, 'R', 'a', 'n', 'g', 'e', 'E', 'r', 'r', 'o', 'r', 0, 'R', 'e', 'f', 'e', 'r', 'e', 'n', 'c', 'e', 'E', 'r', 'r', 'o', 'r', 0, 'S', 'y', 'n', 't', 'a', 'x', 'E', 'r', 'r', 'o', 'r', 0, 'T', 'y', 'p', 'e', 'E', 'r', 'r', 'o', 'r', 0, 'U', 'R', 'I', 'E', 'r', 'r', 'o', 'r', 0, 'I', 'n', 't', 'e', 'r', 'n', 'a', 'l', 'E', 'r', 'r', 'o', 'r', 0, '<', 'b', 'r', 'a', 'n', 'd', '>', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 't', 'o', 'P', 'r', 'i', 'm', 'i', 't', 'i', 'v', 'e', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'i', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'm', 'a', 't', 'c', 'h', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'm', 'a', 't', 'c', 'h', 'A', 'l', 'l', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'r', 'e', 'p', 'l', 'a', 'c', 'e', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 's', 'e', 'a', 'r', 'c', 'h', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 's', 'p', 'l', 'i', 't', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 't', 'o', 'S', 't', 'r', 'i', 'n', 'g', 'T', 'a', 'g', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'i', 's', 'C', 'o', 'n', 'c', 'a', 't', 'S', 'p', 'r', 'e', 'a', 'd', 'a', 'b', 'l', 'e', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'h', 'a', 's', 'I', 'n', 's', 't', 'a', 'n', 'c', 'e', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 's', 'p', 'e', 'c', 'i', 'e', 's', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'u', 'n', 's', 'c', 'o', 'p', 'a', 'b', 'l', 'e', 's', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'a', 's', 'y', 'n', 'c', 'I', 't', 'e', 'r', 'a', 't', 'o', 'r', 0, 'S', 'y', 'm', 'b', 'o', 'l', '.', 'o', 'p', 'e', 'r', 'a', 't', 'o', 'r', 'S', 'e', 't'}
 
-type TOPCodeFormat = int32
-
-type _OPCodeFormat = int32
-
-const EOP_FMT_none = 0
 const EOP_FMT_none_int = 1
 const EOP_FMT_none_loc = 2
 const EOP_FMT_none_arg = 3
@@ -4181,8 +2244,6 @@ const EOP_FMT_atom_label_u16 = 27
 const EOP_FMT_label_u16 = 28
 
 type TJSStrictEqModeEnum = int32
-
-type _JSStrictEqModeEnum = int32
 
 const EJS_EQ_STRICT = 0
 const EJS_EQ_SAME_VALUE = 1
@@ -4918,13 +2979,6 @@ func x_JS_SetMemoryLimit(tls *libc.TLS, rt uintptr, limit Tsize_t) {
 	(*TJSRuntime)(unsafe.Pointer(rt)).Fmalloc_state.Fmalloc_limit = limit
 }
 
-// C documentation
-//
-//	/* use -1 to disable automatic GC */
-func x_JS_SetGCThreshold(tls *libc.TLS, rt uintptr, gc_threshold Tsize_t) {
-	(*TJSRuntime)(unsafe.Pointer(rt)).Fmalloc_gc_threshold = gc_threshold
-}
-
 func x_JS_SetInterruptHandler(tls *libc.TLS, rt uintptr, cb uintptr, opaque uintptr) {
 	(*TJSRuntime)(unsafe.Pointer(rt)).Finterrupt_handler = cb
 	(*TJSRuntime)(unsafe.Pointer(rt)).Finterrupt_opaque = opaque
@@ -4983,17 +3037,6 @@ func x_JS_EnqueueJob(tls *libc.TLS, ctx1 uintptr, job_func uintptr, argc int32, 
 	(*Tlist_head)(unsafe.Pointer(v6)).Fnext = v8
 	(*Tlist_head)(unsafe.Pointer(v8)).Fprev = v6
 	return 0
-}
-
-func x_JS_IsJobPending(tls *libc.TLS, rt uintptr) (r TBOOL) {
-	var v1 uintptr
-	var v2 int32
-	_, _ = v1, v2
-	v1 = rt + 156
-	v2 = libc.BoolInt32((*Tlist_head)(unsafe.Pointer(v1)).Fnext == v1)
-	goto _3
-_3:
-	return libc.BoolInt32(!(v2 != 0))
 }
 
 // C documentation
@@ -5125,12 +3168,6 @@ func _js_free_string(tls *libc.TLS, rt uintptr, str uintptr) {
 		} else {
 			x_js_free_rt(tls, rt, str)
 		}
-	}
-}
-
-func x_JS_SetRuntimeInfo(tls *libc.TLS, rt uintptr, s uintptr) {
-	if rt != 0 {
-		(*TJSRuntime)(unsafe.Pointer(rt)).Frt_info = s
 	}
 }
 
@@ -5302,14 +3339,6 @@ func x_JS_NewContext(tls *libc.TLS, rt uintptr) (r uintptr) {
 	return ctx
 }
 
-func x_JS_GetContextOpaque(tls *libc.TLS, ctx uintptr) (r uintptr) {
-	return (*TJSContext)(unsafe.Pointer(ctx)).Fuser_opaque
-}
-
-func x_JS_SetContextOpaque(tls *libc.TLS, ctx uintptr, opaque uintptr) {
-	(*TJSContext)(unsafe.Pointer(ctx)).Fuser_opaque = opaque
-}
-
 // C documentation
 //
 //	/* set the new value and free the old value after (freeing the value
@@ -5358,8 +3387,6 @@ _3:
 }
 
 type TJSFreeModuleEnum = int32
-
-type _JSFreeModuleEnum = int32
 
 const EJS_FREE_MODULE_ALL = 0
 const EJS_FREE_MODULE_NOT_RESOLVED = 1
@@ -5792,110 +3819,6 @@ func _hash_string(tls *libc.TLS, str uintptr, h Tuint32_t) (r Tuint32_t) {
 		h = _hash_string8(tls, str+16, libc.Uint32FromInt32(int32(*(*uint32)(unsafe.Pointer(str + 4))&0x7fffffff>>0)), h)
 	}
 	return h
-}
-
-func _JS_DumpChar(tls *libc.TLS, rt uintptr, c int32, sep int32) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	if c == sep || c == int32('\\') {
-		libc.Xputchar(tls, int32('\\'))
-		libc.Xputchar(tls, c)
-	} else {
-		if c >= int32(' ') && c <= int32(126) {
-			libc.Xputchar(tls, c)
-		} else {
-			if c == int32('\n') {
-				libc.Xputchar(tls, int32('\\'))
-				libc.Xputchar(tls, int32('n'))
-			} else {
-				libc.Xprintf(tls, __ccgo_ts+1519, libc.VaList(bp+8, c))
-			}
-		}
-	}
-}
-
-func _JS_DumpString(tls *libc.TLS, rt uintptr, p uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var i, sep, v1 int32
-	_, _, _ = i, sep, v1
-	if p == libc.UintptrFromInt32(0) {
-		libc.Xprintf(tls, __ccgo_ts+1526, 0)
-		return
-	}
-	libc.Xprintf(tls, __ccgo_ts+1533, libc.VaList(bp+8, (*TJSString)(unsafe.Pointer(p)).Fheader.Fref_count))
-	if (*TJSString)(unsafe.Pointer(p)).Fheader.Fref_count == int32(1) {
-		v1 = int32('"')
-	} else {
-		v1 = int32('\'')
-	}
-	sep = v1
-	libc.Xputchar(tls, sep)
-	i = 0
-	for {
-		if !(i < int32(*(*uint32)(unsafe.Pointer(p + 4))&0x7fffffff>>0)) {
-			break
-		}
-		_JS_DumpChar(tls, rt, _string_get(tls, p, i), sep)
-		goto _2
-	_2:
-		;
-		i++
-	}
-	libc.Xputchar(tls, sep)
-}
-
-func _JS_DumpAtoms(tls *libc.TLS, rt uintptr) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var h, i int32
-	var p uintptr
-	_, _, _ = h, i, p
-	/* This only dumps hashed atoms, not JS_ATOM_TYPE_SYMBOL atoms */
-	libc.Xprintf(tls, __ccgo_ts+1536, libc.VaList(bp+8, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_count, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_size, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_hash_size))
-	libc.Xprintf(tls, __ccgo_ts+1575, 0)
-	i = 0
-	for {
-		if !(i < (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_hash_size) {
-			break
-		}
-		h = libc.Int32FromUint32(*(*Tuint32_t)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_hash + uintptr(i)*4)))
-		if h != 0 {
-			libc.Xprintf(tls, __ccgo_ts+1597, libc.VaList(bp+8, i))
-			for h != 0 {
-				p = *(*uintptr)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_array + uintptr(h)*4))
-				libc.Xprintf(tls, __ccgo_ts+1603, 0)
-				_JS_DumpString(tls, rt, p)
-				h = libc.Int32FromUint32((*TJSAtomStruct)(unsafe.Pointer(p)).Fhash_next)
-			}
-			libc.Xprintf(tls, __ccgo_ts+1605, 0)
-		}
-		goto _1
-	_1:
-		;
-		i++
-	}
-	libc.Xprintf(tls, __ccgo_ts+1607, 0)
-	libc.Xprintf(tls, __ccgo_ts+1610, 0)
-	i = 0
-	for {
-		if !(i < (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_size) {
-			break
-		}
-		p = *(*uintptr)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_array + uintptr(i)*4))
-		if !(_atom_is_free(tls, p) != 0) {
-			libc.Xprintf(tls, __ccgo_ts+1627, libc.VaList(bp+8, i, int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 8))&0xc0000000>>30)), int32(*(*uint32)(unsafe.Pointer(p + 8))&0x3fffffff>>0)))
-			if !(int32(*(*uint32)(unsafe.Pointer(p + 4))&0x7fffffff>>0) == 0 && int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 4))&0x80000000>>31)) != 0) {
-				_JS_DumpString(tls, rt, p)
-			}
-			libc.Xprintf(tls, __ccgo_ts+1644, libc.VaList(bp+8, (*TJSAtomStruct)(unsafe.Pointer(p)).Fhash_next))
-		}
-		goto _2
-	_2:
-		;
-		i++
-	}
-	libc.Xprintf(tls, __ccgo_ts+1607, 0)
 }
 
 func _JS_ResizeAtomHash(tls *libc.TLS, rt uintptr, new_hash_size int32) (r int32) {
@@ -6815,64 +4738,6 @@ func _JS_AtomSymbolHasDescription(tls *libc.TLS, ctx uintptr, v TJSAtom) (r TBOO
 	return libc.BoolInt32((int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 8))&0xc0000000>>30)) == int32(EJS_ATOM_TYPE_SYMBOL) && int32(*(*uint32)(unsafe.Pointer(p + 8))&0x3fffffff>>0) == int32(EJS_ATOM_HASH_SYMBOL) || int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 8))&0xc0000000>>30)) == int32(EJS_ATOM_TYPE_GLOBAL_SYMBOL)) && !(int32(*(*uint32)(unsafe.Pointer(p + 4))&0x7fffffff>>0) == 0 && int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 4))&0x80000000>>31)) != 0))
 }
 
-func _print_atom(tls *libc.TLS, ctx uintptr, atom TJSAtom) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
-	var c, c1, i int32
-	var p uintptr
-	var _ /* buf at bp+0 */ [64]int8
-	_, _, _, _ = c, c1, i, p
-	/* XXX: should handle embedded null characters */
-	/* XXX: should move encoding code to JS_AtomGetStr */
-	p = _JS_AtomGetStr(tls, ctx, bp, int32(64), atom)
-	i = 0
-	for {
-		if !(*(*int8)(unsafe.Pointer(p + uintptr(i))) != 0) {
-			break
-		}
-		c = libc.Int32FromUint8(libc.Uint8FromInt8(*(*int8)(unsafe.Pointer(p + uintptr(i)))))
-		if !(c >= int32('a') && c <= int32('z') || c >= int32('A') && c <= int32('Z') || (c == int32('_') || c == int32('$')) || c >= int32('0') && c <= int32('9') && i > 0) {
-			break
-		}
-		goto _1
-	_1:
-		;
-		i++
-	}
-	if i > 0 && int32(*(*int8)(unsafe.Pointer(p + uintptr(i)))) == int32('\000') {
-		libc.Xprintf(tls, __ccgo_ts+1667, libc.VaList(bp+72, p))
-	} else {
-		libc.Xputchar(tls, int32('"'))
-		libc.Xprintf(tls, __ccgo_ts+1670, libc.VaList(bp+72, i, p))
-		for {
-			if !(*(*int8)(unsafe.Pointer(p + uintptr(i))) != 0) {
-				break
-			}
-			c1 = libc.Int32FromUint8(libc.Uint8FromInt8(*(*int8)(unsafe.Pointer(p + uintptr(i)))))
-			if c1 == int32('"') || c1 == int32('\\') {
-				libc.Xputchar(tls, int32('\\'))
-				libc.Xputchar(tls, c1)
-			} else {
-				if c1 >= int32(' ') && c1 <= int32(126) {
-					libc.Xputchar(tls, c1)
-				} else {
-					if c1 == int32('\n') {
-						libc.Xputchar(tls, int32('\\'))
-						libc.Xputchar(tls, int32('n'))
-					} else {
-						libc.Xprintf(tls, __ccgo_ts+1519, libc.VaList(bp+72, c1))
-					}
-				}
-			}
-			goto _2
-		_2:
-			;
-			i++
-		}
-		libc.Xputchar(tls, int32('"'))
-	}
-}
-
 // C documentation
 //
 //	/* free with JS_FreeCString() */
@@ -7003,16 +4868,6 @@ func x_JS_NewClassID(tls *libc.TLS, pclass_id uintptr) (r TJSClassID) {
 	}
 	libc.Xpthread_mutex_unlock(tls, uintptr(unsafe.Pointer(&_js_class_id_mutex)))
 	return class_id
-}
-
-func x_JS_GetClassID(tls *libc.TLS, v TJSValue) (r TJSClassID) {
-	var p uintptr
-	_ = p
-	if libc.Int32FromUint64(v>>libc.Int32FromInt32(32)) != int32(EJS_TAG_OBJECT) {
-		return uint32(MJS_INVALID_CLASS_ID)
-	}
-	p = uintptr(libc.Int32FromUint64(v))
-	return uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))
 }
 
 func x_JS_IsRegisteredClass(tls *libc.TLS, rt uintptr, class_id TJSClassID) (r TBOOL) {
@@ -8923,78 +6778,6 @@ func _find_hashed_shape_prop(tls *libc.TLS, rt uintptr, sh uintptr, atom TJSAtom
 		sh1 = (*TJSShape)(unsafe.Pointer(sh1)).Fshape_hash_next
 	}
 	return libc.UintptrFromInt32(0)
-}
-
-func _JS_DumpShape(tls *libc.TLS, rt uintptr, i int32, sh uintptr) {
-	bp := tls.Alloc(128)
-	defer tls.Free(128)
-	var j int32
-	var _ /* atom_buf at bp+0 */ [64]int8
-	_ = j
-	/* XXX: should output readable class prototype */
-	libc.Xprintf(tls, __ccgo_ts+1691, libc.VaList(bp+72, i, (*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count, int32(*(*int8)(unsafe.Pointer(__ccgo_ts + 1714 + uintptr((*TJSShape)(unsafe.Pointer(sh)).Fis_hashed)))), (*TJSShape)(unsafe.Pointer(sh)).Fproto, (*TJSShape)(unsafe.Pointer(sh)).Fprop_size, (*TJSShape)(unsafe.Pointer(sh)).Fprop_count))
-	j = 0
-	for {
-		if !(j < (*TJSShape)(unsafe.Pointer(sh)).Fprop_count) {
-			break
-		}
-		libc.Xprintf(tls, __ccgo_ts+1717, libc.VaList(bp+72, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*(*TJSShapeProperty)(unsafe.Pointer(sh + 48 + uintptr(j)*8))).Fatom)))
-		goto _1
-	_1:
-		;
-		j++
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
-}
-
-func _JS_DumpShapes(tls *libc.TLS, rt uintptr) {
-	bp := tls.Alloc(64)
-	defer tls.Free(64)
-	var el, gp, p, sh uintptr
-	var i int32
-	_, _, _, _, _ = el, gp, i, p, sh
-	libc.Xprintf(tls, __ccgo_ts+1721, 0)
-	libc.Xprintf(tls, __ccgo_ts+1734, libc.VaList(bp+8, __ccgo_ts+1759, __ccgo_ts+1764, __ccgo_ts+1769, __ccgo_ts+1775, __ccgo_ts+1780, __ccgo_ts+1786))
-	i = 0
-	for {
-		if !(i < (*TJSRuntime)(unsafe.Pointer(rt)).Fshape_hash_size) {
-			break
-		}
-		sh = *(*uintptr)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fshape_hash + uintptr(i)*4))
-		for {
-			if !(sh != libc.UintptrFromInt32(0)) {
-				break
-			}
-			_JS_DumpShape(tls, rt, i, sh)
-			goto _2
-		_2:
-			;
-			sh = (*TJSShape)(unsafe.Pointer(sh)).Fshape_hash_next
-		}
-		goto _1
-	_1:
-		;
-		i++
-	}
-	/* dump non-hashed shapes */
-	el = (*Tlist_head)(unsafe.Pointer(rt + 80)).Fnext
-	for {
-		if !(el != rt+80) {
-			break
-		}
-		gp = el - uintptr(uint32(libc.UintptrFromInt32(0)+8))
-		if TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(gp + 4))&0xf>>0) == int32(EJS_GC_OBJ_TYPE_JS_OBJECT) {
-			p = gp
-			if !((*TJSShape)(unsafe.Pointer((*TJSObject)(unsafe.Pointer(p)).Fshape)).Fis_hashed != 0) {
-				_JS_DumpShape(tls, rt, -int32(1), (*TJSObject)(unsafe.Pointer(p)).Fshape)
-			}
-		}
-		goto _3
-	_3:
-		;
-		el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	}
-	libc.Xprintf(tls, __ccgo_ts+1607, 0)
 }
 
 func _JS_NewObjectFromShape(tls *libc.TLS, ctx1 uintptr, sh uintptr, class_id TJSClassID) (r TJSValue) {
@@ -11557,15 +9340,6 @@ func x_JS_GetException(tls *libc.TLS, ctx uintptr) (r TJSValue) {
 	return val
 }
 
-func x_JS_HasException(tls *libc.TLS, ctx uintptr) (r int32) {
-	var v1 int32
-	_ = v1
-	v1 = libc.BoolInt32(libc.Int32FromUint64((*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Frt)).Fcurrent_exception>>libc.Int32FromInt32(32)) == int32(EJS_TAG_NULL))
-	goto _2
-_2:
-	return libc.BoolInt32(!(v1 != 0))
-}
-
 func _dbuf_put_leb128(tls *libc.TLS, s uintptr, v Tuint32_t) {
 	var a Tuint32_t
 	_ = a
@@ -11847,10 +9621,6 @@ func _is_backtrace_needed(tls *libc.TLS, ctx uintptr, obj TJSValue) (r TBOOL) {
 		return int32(EFALSE)
 	}
 	return int32(ETRUE)
-}
-
-func x_JS_NewError(tls *libc.TLS, ctx uintptr) (r TJSValue) {
-	return x_JS_NewObjectClass(tls, ctx, int32(EJS_CLASS_ERROR))
 }
 
 func _JS_ThrowError2(tls *libc.TLS, ctx uintptr, error_num TJSErrorEnum, fmt uintptr, ap Tva_list, add_backtrace TBOOL) (r TJSValue) {
@@ -12189,13 +9959,6 @@ _2:
 	}
 	(*TJSShape)(unsafe.Pointer(sh)).Fproto = proto
 	return int32(ETRUE)
-}
-
-// C documentation
-//
-//	/* return -1 (exception) or TRUE/FALSE */
-func x_JS_SetPrototype(tls *libc.TLS, ctx uintptr, obj TJSValue, proto_val TJSValue) (r int32) {
-	return _JS_SetPrototypeInternal(tls, ctx, obj, proto_val, int32(ETRUE))
 }
 
 // C documentation
@@ -18162,16 +15925,6 @@ _3:
 	return _JS_ToPrimitiveFree(tls, ctx1, v2, hint)
 }
 
-func x_JS_SetIsHTMLDDA(tls *libc.TLS, ctx uintptr, obj TJSValue) {
-	var p uintptr
-	_ = p
-	if libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) != int32(EJS_TAG_OBJECT) {
-		return
-	}
-	p = uintptr(libc.Int32FromUint64(obj))
-	libc.SetBitFieldPtr8Uint8(p+5, uint8(ETRUE), 7, 0x80)
-}
-
 func _JS_IsHTMLDDA(tls *libc.TLS, ctx uintptr, obj TJSValue) (r TBOOL) {
 	var p uintptr
 	_ = p
@@ -18896,8 +16649,6 @@ func _js_atof(tls *libc.TLS, ctx uintptr, str uintptr, pp uintptr, radix int32, 
 }
 
 type TJSToNumberHintEnum = int32
-
-type _JSToNumberHintEnum = int32
 
 const ETON_FLAG_NUMBER = 0
 const ETON_FLAG_NUMERIC = 1
@@ -21461,408 +19212,6 @@ fail:
 	}
 	_string_buffer_free(tls, b)
 	return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-}
-
-func _JS_DumpObjectHeader(tls *libc.TLS, rt uintptr) {
-	bp := tls.Alloc(64)
-	defer tls.Free(64)
-	libc.Xprintf(tls, __ccgo_ts+3978, libc.VaList(bp+8, __ccgo_ts+4005, __ccgo_ts+1764, __ccgo_ts+4013, __ccgo_ts+1769, __ccgo_ts+4018, __ccgo_ts+1786))
-}
-
-// C documentation
-//
-//	/* for debug only: dump an object without side effect */
-func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
-	var b, b1, pr, prs, sh, var_refs, v3 uintptr
-	var i Tuint32_t
-	var is_first TBOOL
-	var size, v2 int32
-	var _ /* atom_buf at bp+0 */ [64]int8
-	_, _, _, _, _, _, _, _, _, _, _ = b, b1, i, is_first, pr, prs, sh, size, var_refs, v2, v3
-	is_first = int32(ETRUE)
-	/* XXX: should encode atoms with special characters */
-	sh = (*TJSObject)(unsafe.Pointer(p)).Fshape /* the shape can be NULL while freeing an object */
-	libc.Xprintf(tls, __ccgo_ts+4024, libc.VaList(bp+72, p, (*TJSObject)(unsafe.Pointer(p)).F__ccgo0_0.Fheader.Fref_count))
-	if sh != 0 {
-		libc.Xprintf(tls, __ccgo_ts+4034, libc.VaList(bp+72, (*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count, int32(*(*int8)(unsafe.Pointer(__ccgo_ts + 1714 + uintptr((*TJSShape)(unsafe.Pointer(sh)).Fis_hashed)))), (*TJSShape)(unsafe.Pointer(sh)).Fproto))
-	} else {
-		libc.Xprintf(tls, __ccgo_ts+4046, libc.VaList(bp+72, __ccgo_ts+4057, __ccgo_ts+4057))
-	}
-	libc.Xprintf(tls, __ccgo_ts+4059, libc.VaList(bp+72, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))*24))).Fclass_name)))
-	if int32(*(*uint8)(unsafe.Pointer(p + 5))&0x4>>2) != 0 && int32(*(*uint8)(unsafe.Pointer(p + 5))&0x8>>3) != 0 {
-		libc.Xprintf(tls, __ccgo_ts+4065, 0)
-		i = uint32(0)
-		for {
-			if !(i < (*(*struct {
-				Fu1 struct {
-					Ftyped_array [0]uintptr
-					Fsize        Tuint32_t
-				}
-				Fu struct {
-					Fptr        [0]uintptr
-					Fint8_ptr   [0]uintptr
-					Fuint8_ptr  [0]uintptr
-					Fint16_ptr  [0]uintptr
-					Fuint16_ptr [0]uintptr
-					Fint32_ptr  [0]uintptr
-					Fuint32_ptr [0]uintptr
-					Fint64_ptr  [0]uintptr
-					Fuint64_ptr [0]uintptr
-					Ffloat_ptr  [0]uintptr
-					Fdouble_ptr [0]uintptr
-					Fvalues     uintptr
-				}
-				Fcount Tuint32_t
-			})(unsafe.Pointer(p + 28))).Fcount) {
-				break
-			}
-			if i != uint32(0) {
-				libc.Xprintf(tls, __ccgo_ts+4068, 0)
-			}
-			switch libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) {
-			case int32(EJS_CLASS_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_ARGUMENTS):
-				_JS_DumpValueShort(tls, rt, *(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(p + 28 + 4)) + uintptr(i)*8)))
-			case int32(EJS_CLASS_UINT8C_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_INT8_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_UINT8_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_INT16_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_UINT16_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_INT32_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_UINT32_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_BIG_INT64_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_BIG_UINT64_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_FLOAT32_ARRAY):
-				fallthrough
-			case int32(EJS_CLASS_FLOAT64_ARRAY):
-				size = int32(1) << _typed_array_size_log2[libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))-int32(EJS_CLASS_UINT8C_ARRAY)]
-				b = *(*uintptr)(unsafe.Pointer(p + 28 + 4)) + uintptr(i*libc.Uint32FromInt32(size))
-				for {
-					v2 = size
-					size--
-					if !(v2 > 0) {
-						break
-					}
-					v3 = b
-					b++
-					libc.Xprintf(tls, __ccgo_ts+4071, libc.VaList(bp+72, libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(v3)))))
-				}
-				break
-			}
-			goto _1
-		_1:
-			;
-			i++
-		}
-		libc.Xprintf(tls, __ccgo_ts+4076, 0)
-	}
-	if sh != 0 {
-		libc.Xprintf(tls, __ccgo_ts+4080, 0)
-		i = uint32(0)
-		prs = _get_shape_prop(tls, sh)
-		for {
-			if !(i < libc.Uint32FromInt32((*TJSShape)(unsafe.Pointer(sh)).Fprop_count)) {
-				break
-			}
-			if (*TJSShapeProperty)(unsafe.Pointer(prs)).Fatom != uint32(MJS_ATOM_NULL) {
-				pr = (*TJSObject)(unsafe.Pointer(p)).Fprop + uintptr(i)*8
-				if !(is_first != 0) {
-					libc.Xprintf(tls, __ccgo_ts+4068, 0)
-				}
-				libc.Xprintf(tls, __ccgo_ts+4083, libc.VaList(bp+72, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*TJSShapeProperty)(unsafe.Pointer(prs)).Fatom)))
-				if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(1)<<libc.Int32FromInt32(4) {
-					libc.Xprintf(tls, __ccgo_ts+4088, libc.VaList(bp+72, (*(*struct {
-						Fgetter uintptr
-						Fsetter uintptr
-					})(unsafe.Pointer(pr))).Fgetter, (*(*struct {
-						Fgetter uintptr
-						Fsetter uintptr
-					})(unsafe.Pointer(pr))).Fsetter))
-				} else {
-					if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(4) {
-						libc.Xprintf(tls, __ccgo_ts+4103, libc.VaList(bp+72, *(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(pr)).Fu))))
-					} else {
-						if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(3)<<libc.Int32FromInt32(4) {
-							libc.Xprintf(tls, __ccgo_ts+4115, libc.VaList(bp+72, _js_autoinit_get_realm(tls, pr), _js_autoinit_get_id(tls, pr), (*(*struct {
-								Frealm_and_id Tuintptr_t
-								Fopaque       uintptr
-							})(unsafe.Pointer(pr))).Fopaque))
-						} else {
-							_JS_DumpValueShort(tls, rt, *(*TJSValue)(unsafe.Pointer(pr)))
-						}
-					}
-				}
-				is_first = int32(EFALSE)
-			}
-			goto _4
-		_4:
-			;
-			i++
-			prs += 8
-		}
-		libc.Xprintf(tls, __ccgo_ts+4135, 0)
-	}
-	if _js_class_has_bytecode(tls, uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))) != 0 {
-		b1 = (*(*struct {
-			Ffunction_bytecode uintptr
-			Fvar_refs          uintptr
-			Fhome_object       uintptr
-		})(unsafe.Pointer(p + 28))).Ffunction_bytecode
-		if (*TJSFunctionBytecode)(unsafe.Pointer(b1)).Fclosure_var_count != 0 {
-			var_refs = (*(*struct {
-				Ffunction_bytecode uintptr
-				Fvar_refs          uintptr
-				Fhome_object       uintptr
-			})(unsafe.Pointer(p + 28))).Fvar_refs
-			libc.Xprintf(tls, __ccgo_ts+4138, 0)
-			i = uint32(0)
-			for {
-				if !(i < libc.Uint32FromInt32((*TJSFunctionBytecode)(unsafe.Pointer(b1)).Fclosure_var_count)) {
-					break
-				}
-				libc.Xprintf(tls, __ccgo_ts+1603, 0)
-				_JS_DumpValueShort(tls, rt, (*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(var_refs + uintptr(i)*4)))).F__ccgo2_20.Fvalue)
-				goto _5
-			_5:
-				;
-				i++
-			}
-			if (*(*struct {
-				Ffunction_bytecode uintptr
-				Fvar_refs          uintptr
-				Fhome_object       uintptr
-			})(unsafe.Pointer(p + 28))).Fhome_object != 0 {
-				libc.Xprintf(tls, __ccgo_ts+4148, 0)
-				_JS_DumpValueShort(tls, rt, libc.Uint64FromInt32(int32(EJS_TAG_OBJECT))<<libc.Int32FromInt32(32)|uint64(uint32((*(*struct {
-					Ffunction_bytecode uintptr
-					Fvar_refs          uintptr
-					Fhome_object       uintptr
-				})(unsafe.Pointer(p + 28))).Fhome_object)))
-			}
-		}
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
-}
-
-func _JS_DumpGCObject(tls *libc.TLS, rt uintptr, p uintptr) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	if TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(p + 4))&0xf>>0) == int32(EJS_GC_OBJ_TYPE_JS_OBJECT) {
-		_JS_DumpObject(tls, rt, p)
-	} else {
-		libc.Xprintf(tls, __ccgo_ts+4024, libc.VaList(bp+8, p, (*TJSGCObjectHeader)(unsafe.Pointer(p)).Fref_count))
-		switch TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(p + 4)) & 0xf >> 0) {
-		case int32(EJS_GC_OBJ_TYPE_FUNCTION_BYTECODE):
-			libc.Xprintf(tls, __ccgo_ts+3875, 0)
-		case int32(EJS_GC_OBJ_TYPE_SHAPE):
-			libc.Xprintf(tls, __ccgo_ts+4162, 0)
-		case int32(EJS_GC_OBJ_TYPE_VAR_REF):
-			libc.Xprintf(tls, __ccgo_ts+4170, 0)
-		case int32(EJS_GC_OBJ_TYPE_ASYNC_FUNCTION):
-			libc.Xprintf(tls, __ccgo_ts+4180, 0)
-		case int32(EJS_GC_OBJ_TYPE_JS_CONTEXT):
-			libc.Xprintf(tls, __ccgo_ts+4197, 0)
-		default:
-			libc.Xprintf(tls, __ccgo_ts+4210, libc.VaList(bp+8, TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(p + 4))&0xf>>0)))
-			break
-		}
-		libc.Xprintf(tls, __ccgo_ts+1605, 0)
-	}
-}
-
-func _JS_DumpValueShort(tls *libc.TLS, rt uintptr, val TJSValue) {
-	bp := tls.Alloc(224)
-	defer tls.Free(224)
-	var atom TJSAtom
-	var b, p, p1, p2, p3, p4, p5, str, str1, str2, str3, v22, v24, v25, v27, v28 uintptr
-	var tag, tag1 Tuint32_t
-	var v1 int32
-	var v20 float64
-	var _ /* atom_buf at bp+136 */ [64]int8
-	var _ /* atom_buf at bp+72 */ [64]int8
-	var _ /* buf at bp+8 */ [64]int8
-	var _ /* u at bp+0 */ struct {
-		Fd [0]float64
-		Fv TJSValue
-	}
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = atom, b, p, p1, p2, p3, p4, p5, str, str1, str2, str3, tag, tag1, v1, v20, v22, v24, v25, v27, v28
-	tag = libc.Uint32FromInt32(libc.Int32FromUint64(val >> libc.Int32FromInt32(32)))
-	if tag-libc.Uint32FromInt32(EJS_TAG_FIRST) >= libc.Uint32FromInt32(int32(EJS_TAG_FLOAT64)-int32(EJS_TAG_FIRST)) {
-		v1 = int32(EJS_TAG_FLOAT64)
-		goto _2
-	} else {
-		v1 = libc.Int32FromUint32(tag)
-		goto _2
-	}
-_2:
-	tag1 = libc.Uint32FromInt32(v1)
-	switch tag1 {
-	case uint32(EJS_TAG_INT):
-		goto _3
-	case uint32(EJS_TAG_BOOL):
-		goto _4
-	case uint32(EJS_TAG_NULL):
-		goto _5
-	case uint32(EJS_TAG_EXCEPTION):
-		goto _6
-	case uint32(EJS_TAG_UNINITIALIZED):
-		goto _7
-	case uint32(EJS_TAG_UNDEFINED):
-		goto _8
-	case uint32(EJS_TAG_FLOAT64):
-		goto _9
-	case libc.Uint32FromInt32(EJS_TAG_BIG_INT):
-		goto _10
-	case libc.Uint32FromInt32(EJS_TAG_BIG_FLOAT):
-		goto _11
-	case libc.Uint32FromInt32(EJS_TAG_BIG_DECIMAL):
-		goto _12
-	case libc.Uint32FromInt32(EJS_TAG_STRING):
-		goto _13
-	case libc.Uint32FromInt32(EJS_TAG_FUNCTION_BYTECODE):
-		goto _14
-	case libc.Uint32FromInt32(EJS_TAG_OBJECT):
-		goto _15
-	case libc.Uint32FromInt32(EJS_TAG_SYMBOL):
-		goto _16
-	case libc.Uint32FromInt32(EJS_TAG_MODULE):
-		goto _17
-	default:
-		goto _18
-	}
-	goto _19
-_3:
-	;
-	libc.Xprintf(tls, __ccgo_ts+1533, libc.VaList(bp+208, libc.Int32FromUint64(val)))
-	goto _19
-_4:
-	;
-	if libc.Int32FromUint64(val) != 0 {
-		str = __ccgo_ts + 4223
-	} else {
-		str = __ccgo_ts + 4228
-	}
-	goto print_str
-_5:
-	;
-	str = __ccgo_ts + 4234
-	goto print_str
-_6:
-	;
-	str = __ccgo_ts + 4239
-	goto print_str
-_7:
-	;
-	str = __ccgo_ts + 4249
-	goto print_str
-_8:
-	;
-	str = __ccgo_ts + 4263
-	goto print_str
-print_str:
-	;
-	libc.Xprintf(tls, __ccgo_ts+1667, libc.VaList(bp+208, str))
-	goto _19
-_9:
-	;
-	*(*TJSValue)(unsafe.Pointer(bp)) = val
-	*(*TJSValue)(unsafe.Pointer(bp)) += libc.Uint64FromInt32(libc.Int32FromInt32(0x7ff80000)-int32(EJS_TAG_FIRST)+libc.Int32FromInt32(1)) << libc.Int32FromInt32(32)
-	v20 = *(*float64)(unsafe.Pointer(bp))
-	goto _21
-_21:
-	libc.Xprintf(tls, __ccgo_ts+4273, libc.VaList(bp+208, v20))
-	goto _19
-_10:
-	;
-	p = uintptr(libc.Int32FromUint64(val))
-	str1 = x_bf_ftoa(tls, libc.UintptrFromInt32(0), p+4, int32(10), uint32(0), libc.Uint32FromInt32(int32(EBF_RNDZ)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(16)))
-	libc.Xprintf(tls, __ccgo_ts+4279, libc.VaList(bp+208, str1))
-	v22 = rt + 220
-	_ = (*(*func(*libc.TLS, uintptr, uintptr, Tsize_t) uintptr)(unsafe.Pointer(&struct{ uintptr }{(*Tbf_context_t)(unsafe.Pointer(v22)).Frealloc_func})))(tls, (*Tbf_context_t)(unsafe.Pointer(v22)).Frealloc_opaque, str1, uint32(0))
-	goto _23
-_23:
-	;
-	goto _19
-_11:
-	;
-	p1 = uintptr(libc.Int32FromUint64(val))
-	str2 = x_bf_ftoa(tls, libc.UintptrFromInt32(0), p1+4, int32(16), libc.Uint32FromInt32(1)<<(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)-libc.Int32FromInt32(2))-libc.Uint32FromInt32(2)+libc.Uint32FromInt32(1), libc.Uint32FromInt32(int32(EBF_RNDZ)|libc.Int32FromInt32(2)<<libc.Int32FromInt32(16)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(21)))
-	libc.Xprintf(tls, __ccgo_ts+4283, libc.VaList(bp+208, str2))
-	v24 = str2
-	if v24 != 0 {
-		v25 = rt + 220
-		_ = (*(*func(*libc.TLS, uintptr, uintptr, Tsize_t) uintptr)(unsafe.Pointer(&struct{ uintptr }{(*Tbf_context_t)(unsafe.Pointer(v25)).Frealloc_func})))(tls, (*Tbf_context_t)(unsafe.Pointer(v25)).Frealloc_opaque, v24, uint32(0))
-		goto _26
-	_26:
-	}
-	goto _19
-_12:
-	;
-	p2 = uintptr(libc.Int32FromUint64(val))
-	str3 = x_bfdec_ftoa(tls, libc.UintptrFromInt32(0), p2+4, libc.Uint32FromInt32(1)<<(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)-libc.Int32FromInt32(2))-libc.Uint32FromInt32(2)+libc.Uint32FromInt32(1), libc.Uint32FromInt32(int32(EBF_RNDZ)|libc.Int32FromInt32(2)<<libc.Int32FromInt32(16)))
-	libc.Xprintf(tls, __ccgo_ts+4287, libc.VaList(bp+208, str3))
-	v27 = str3
-	if v27 != 0 {
-		v28 = rt + 220
-		_ = (*(*func(*libc.TLS, uintptr, uintptr, Tsize_t) uintptr)(unsafe.Pointer(&struct{ uintptr }{(*Tbf_context_t)(unsafe.Pointer(v28)).Frealloc_func})))(tls, (*Tbf_context_t)(unsafe.Pointer(v28)).Frealloc_opaque, v27, uint32(0))
-		goto _29
-	_29:
-	}
-	goto _19
-_13:
-	;
-	p3 = uintptr(libc.Int32FromUint64(val))
-	_JS_DumpString(tls, rt, p3)
-	goto _19
-_14:
-	;
-	b = uintptr(libc.Int32FromUint64(val))
-	libc.Xprintf(tls, __ccgo_ts+4291, libc.VaList(bp+208, _JS_AtomGetStrRT(tls, rt, bp+8, int32(64), (*TJSFunctionBytecode)(unsafe.Pointer(b)).Ffunc_name)))
-	goto _19
-_15:
-	;
-	p4 = uintptr(libc.Int32FromUint64(val))
-	atom = (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p4), 6)))*24))).Fclass_name
-	libc.Xprintf(tls, __ccgo_ts+4305, libc.VaList(bp+208, _JS_AtomGetStrRT(tls, rt, bp+72, int32(64), atom), p4))
-	goto _19
-_16:
-	;
-	p5 = uintptr(libc.Int32FromUint64(val))
-	libc.Xprintf(tls, __ccgo_ts+4313, libc.VaList(bp+208, _JS_AtomGetStrRT(tls, rt, bp+136, int32(64), _js_get_atom_index(tls, rt, p5))))
-	goto _19
-_17:
-	;
-	libc.Xprintf(tls, __ccgo_ts+4324, 0)
-	goto _19
-_18:
-	;
-	libc.Xprintf(tls, __ccgo_ts+4333, libc.VaList(bp+208, tag1))
-	goto _19
-_19:
-}
-
-func _JS_DumpValue(tls *libc.TLS, ctx uintptr, val TJSValue) {
-	_JS_DumpValueShort(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, val)
-}
-
-func _JS_PrintValue(tls *libc.TLS, ctx uintptr, str uintptr, val TJSValue) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	libc.Xprintf(tls, __ccgo_ts+4350, libc.VaList(bp+8, str))
-	_JS_DumpValueShort(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, val)
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
 }
 
 // C documentation
@@ -27057,35 +24406,6 @@ done_no_free:
 	return r
 }
 
-func _js_strict_eq(tls *libc.TLS, ctx1 uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
-	var p uintptr
-	var v1, v2, v4, v5 TJSValue
-	_, _, _, _, _ = p, v1, v2, v4, v5
-	_ = ctx1
-	v1 = op1
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v1>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v1))
-		(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
-	}
-	v2 = v1
-	goto _3
-_3:
-	_ = ctx1
-	v4 = op2
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v4>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v4))
-		(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
-	}
-	v5 = v4
-	goto _6
-_6:
-	return _js_strict_eq2(tls, ctx1, v2, v5, int32(EJS_EQ_STRICT))
-}
-
-func x_JS_StrictEq(tls *libc.TLS, ctx uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
-	return _js_strict_eq(tls, ctx, op1, op2)
-}
-
 func _js_same_value(tls *libc.TLS, ctx1 uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
 	var p uintptr
 	var v1, v2, v4, v5 TJSValue
@@ -27111,10 +24431,6 @@ _6:
 	return _js_strict_eq2(tls, ctx1, v2, v5, int32(EJS_EQ_SAME_VALUE))
 }
 
-func x_JS_SameValue(tls *libc.TLS, ctx uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
-	return _js_same_value(tls, ctx, op1, op2)
-}
-
 func _js_same_value_zero(tls *libc.TLS, ctx1 uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
 	var p uintptr
 	var v1, v2, v4, v5 TJSValue
@@ -27138,10 +24454,6 @@ _3:
 	goto _6
 _6:
 	return _js_strict_eq2(tls, ctx1, v2, v5, int32(EJS_EQ_SAME_VALUE_ZERO))
-}
-
-func x_JS_SameValueZero(tls *libc.TLS, ctx uintptr, op1 TJSValue, op2 TJSValue) (r TBOOL) {
-	return _js_same_value_zero(tls, ctx, op1, op2)
 }
 
 func _js_strict_eq_slow(tls *libc.TLS, ctx1 uintptr, sp uintptr, is_neq TBOOL) (r int32) {
@@ -30123,11 +27435,6 @@ func _js_call_bound_function(tls *libc.TLS, ctx uintptr, func_obj TJSValue, this
 	}
 	return r
 }
-
-// C documentation
-//
-//	/* argument of OP_special_object */
-type TOPSpecialObjectEnum = int32
 
 const EOP_SPECIAL_OBJECT_ARGUMENTS = 0
 const EOP_SPECIAL_OBJECT_MAPPED_ARGUMENTS = 1
@@ -35989,10 +33296,6 @@ func _async_func_free(tls *libc.TLS, rt uintptr, s uintptr) {
 
 type TJSGeneratorStateEnum = int32
 
-/* Generators */
-
-type _JSGeneratorStateEnum = int32
-
 const EJS_GENERATOR_STATE_SUSPENDED_START = 0
 const EJS_GENERATOR_STATE_SUSPENDED_YIELD = 1
 const EJS_GENERATOR_STATE_SUSPENDED_YIELD_STAR = 2
@@ -36529,10 +33832,6 @@ _2:
 /* AsyncGenerator */
 
 type TJSAsyncGeneratorStateEnum = int32
-
-/* AsyncGenerator */
-
-type _JSAsyncGeneratorStateEnum = int32
 
 const EJS_ASYNC_GENERATOR_STATE_SUSPENDED_START = 0
 const EJS_ASYNC_GENERATOR_STATE_SUSPENDED_YIELD = 1
@@ -37444,9 +34743,7 @@ const ETOK_INC = -106
 const ETOK_SHL = -105
 const ETOK_SAR = -104
 const ETOK_SHR = -103
-const ETOK_LT = -102
 const ETOK_LTE = -101
-const ETOK_GT = -100
 const ETOK_GTE = -99
 const ETOK_EQ = -98
 const ETOK_STRICT_EQ = -97
@@ -37504,9 +34801,6 @@ const ETOK_EXPORT = -51
 const ETOK_EXTENDS = -50
 const ETOK_IMPORT = -49
 const ETOK_SUPER = -48
-const
-/* FutureReservedWords when parsing strict mode code */
-ETOK_IMPLEMENTS = -47
 const ETOK_INTERFACE = -46
 const ETOK_LET = -45
 const ETOK_PACKAGE = -44
@@ -37567,8 +34861,6 @@ type TLineNumberSlot = struct {
 
 type TJSParseFunctionEnum = int32
 
-type _JSParseFunctionEnum = int32
-
 const EJS_PARSE_FUNC_STATEMENT = 0
 const EJS_PARSE_FUNC_VAR = 1
 const EJS_PARSE_FUNC_EXPR = 2
@@ -37581,8 +34873,6 @@ const EJS_PARSE_FUNC_CLASS_CONSTRUCTOR = 8
 const EJS_PARSE_FUNC_DERIVED_CLASS_CONSTRUCTOR = 9
 
 type TJSParseExportEnum = int32
-
-type _JSParseExportEnum = int32
 
 const EJS_PARSE_EXPORT_NONE = 0
 const EJS_PARSE_EXPORT_NAMED = 1
@@ -39141,107 +36431,6 @@ func _free_token(tls *libc.TLS, s uintptr, token uintptr) {
 		}
 		break
 	}
-}
-
-func _dump_token(tls *libc.TLS, s uintptr, token uintptr) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
-	var str, str1, str2, str21, v11, v13, v15, v9 uintptr
-	var _ /* buf at bp+8 */ [64]int8
-	var _ /* d at bp+0 */ float64
-	_, _, _, _, _, _, _, _ = str, str1, str2, str21, v11, v13, v15, v9
-	switch (*TJSToken)(unsafe.Pointer(token)).Fval {
-	case int32(ETOK_NUMBER):
-		goto _1
-	case int32(ETOK_IDENT):
-		goto _2
-	case int32(ETOK_STRING):
-		goto _3
-	case int32(ETOK_TEMPLATE):
-		goto _4
-	case int32(ETOK_REGEXP):
-		goto _5
-	case int32(ETOK_EOF):
-		goto _6
-	default:
-		goto _7
-	}
-	goto _8
-_1:
-	;
-	x_JS_ToFloat64(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, bp, (*(*struct {
-		Fval      TJSValue
-		Fexponent Tslimb_t
-	})(unsafe.Pointer(&(*TJSToken)(unsafe.Pointer(token)).Fu))).Fval) /* no exception possible */
-	libc.Xprintf(tls, __ccgo_ts+5378, libc.VaList(bp+80, *(*float64)(unsafe.Pointer(bp))))
-	goto _8
-_2:
-	;
-	goto dump_atom
-dump_atom:
-	;
-	libc.Xprintf(tls, __ccgo_ts+5393, libc.VaList(bp+80, _JS_AtomGetStr(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, bp+8, int32(64), (*(*struct {
-		Fatom        TJSAtom
-		Fhas_escape  TBOOL
-		Fis_reserved TBOOL
-	})(unsafe.Pointer(&(*TJSToken)(unsafe.Pointer(token)).Fu))).Fatom)))
-	goto _8
-_3:
-	;
-	/* XXX: quote the string */
-	v9 = x_JS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*TJSToken)(unsafe.Pointer(token)).Fu.Fstr.Fstr, 0)
-	goto _10
-_10:
-	str = v9
-	libc.Xprintf(tls, __ccgo_ts+5406, libc.VaList(bp+80, str))
-	x_JS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str)
-	goto _8
-_4:
-	;
-	v11 = x_JS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*TJSToken)(unsafe.Pointer(token)).Fu.Fstr.Fstr, 0)
-	goto _12
-_12:
-	str1 = v11
-	libc.Xprintf(tls, __ccgo_ts+5420, libc.VaList(bp+80, str1))
-	x_JS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str1)
-	goto _8
-_5:
-	;
-	v13 = x_JS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*(*struct {
-		Fbody  TJSValue
-		Fflags TJSValue
-	})(unsafe.Pointer(token + 12))).Fbody, 0)
-	goto _14
-_14:
-	str2 = v13
-	v15 = x_JS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*(*struct {
-		Fbody  TJSValue
-		Fflags TJSValue
-	})(unsafe.Pointer(token + 12))).Fflags, 0)
-	goto _16
-_16:
-	str21 = v15
-	libc.Xprintf(tls, __ccgo_ts+5436, libc.VaList(bp+80, str2, str21))
-	x_JS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str2)
-	x_JS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str21)
-	goto _8
-_6:
-	;
-	libc.Xprintf(tls, __ccgo_ts+5455, 0)
-	goto _8
-_7:
-	;
-	if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval >= int32(ETOK_NULL) && (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval <= int32(ETOK_AWAIT) {
-		goto dump_atom
-	} else {
-		if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval >= int32(256) {
-			libc.Xprintf(tls, __ccgo_ts+5460, libc.VaList(bp+80, (*TJSToken)(unsafe.Pointer(token)).Fval))
-		} else {
-			libc.Xprintf(tls, __ccgo_ts+5471, libc.VaList(bp+80, (*TJSToken)(unsafe.Pointer(token)).Fval))
-		}
-	}
-	goto _8
-_8:
 }
 
 func x_js_parse_error(tls *libc.TLS, s uintptr, fmt uintptr, va uintptr) (r int32) {
@@ -45007,8 +42196,6 @@ var_error:
 
 type TFuncCallType = int32
 
-type _FuncCallType = int32
-
 const EFUNC_CALL_NORMAL = 0
 const EFUNC_CALL_NEW = 1
 const EFUNC_CALL_SUPER_CTOR = 2
@@ -48768,8 +45955,6 @@ func _add_resolve_entry(tls *libc.TLS, ctx uintptr, s uintptr, m uintptr, name T
 }
 
 type TJSResolveResultEnum = int32
-
-type _JSResolveResultEnum = int32
 
 const EJS_RESOLVE_RES_EXCEPTION = -1
 const /* memory alloc error */
@@ -57755,16 +54940,6 @@ func _js_object_list_end(tls *libc.TLS, ctx uintptr, s uintptr) {
 	x_js_free(tls, ctx, (*TJSObjectList)(unsafe.Pointer(s)).Fhash_table)
 }
 
-/*******************************************************************/
-/* binary object writer & reader */
-
-type TBCTagEnum = int32
-
-/*******************************************************************/
-/* binary object writer & reader */
-
-type _BCTagEnum = int32
-
 const EBC_TAG_NULL = 1
 const EBC_TAG_UNDEFINED = 2
 const EBC_TAG_BOOL_FALSE = 3
@@ -59039,10 +56214,6 @@ fail:
 		*(*Tsize_t)(unsafe.Pointer(psab_tab_len)) = uint32(0)
 	}
 	return libc.UintptrFromInt32(0)
-}
-
-func x_JS_WriteObject(tls *libc.TLS, ctx uintptr, psize uintptr, obj TJSValue, flags int32) (r uintptr) {
-	return x_JS_WriteObject2(tls, ctx, psize, obj, flags, libc.UintptrFromInt32(0), libc.UintptrFromInt32(0))
 }
 
 type TBCReaderState = struct {
@@ -68755,7 +65926,6 @@ exception:
 	return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 }
 
-const EArrayFind = 0
 const EArrayFindIndex = 1
 const EArrayFindLast = 2
 const EArrayFindLastIndex = 3
@@ -74537,78 +71707,6 @@ exception:
 	return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 }
 
-// C documentation
-//
-//	/* only used in test262 */
-func x_js_string_codePointRange(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var b2 uintptr
-	var i, n, v10, v11, v12, v6, v7, v8 Tuint32_t
-	var v1, v3 int32
-	var v5 bool
-	var _ /* b_s at bp+8 */ TStringBuffer
-	var _ /* end at bp+4 */ Tuint32_t
-	var _ /* start at bp+0 */ Tuint32_t
-	_, _, _, _, _, _, _, _, _, _, _, _ = b2, i, n, v1, v10, v11, v12, v3, v5, v6, v7, v8
-	b2 = bp + 8
-	v1 = x_JS_ToInt32(tls, ctx1, bp, *(*TJSValue)(unsafe.Pointer(argv)))
-	goto _2
-_2:
-	;
-	if v5 = v1 != 0; !v5 {
-		v3 = x_JS_ToInt32(tls, ctx1, bp+4, *(*TJSValue)(unsafe.Pointer(argv + 1*8)))
-		goto _4
-	_4:
-	}
-	if v5 || v3 != 0 {
-		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-	}
-	v6 = *(*Tuint32_t)(unsafe.Pointer(bp + 4))
-	v7 = libc.Uint32FromInt32(libc.Int32FromInt32(0x10ffff) + libc.Int32FromInt32(1))
-	if v6 < v7 {
-		v8 = v6
-		goto _9
-	} else {
-		v8 = v7
-		goto _9
-	}
-_9:
-	*(*Tuint32_t)(unsafe.Pointer(bp + 4)) = v8
-	if *(*Tuint32_t)(unsafe.Pointer(bp)) > *(*Tuint32_t)(unsafe.Pointer(bp + 4)) {
-		*(*Tuint32_t)(unsafe.Pointer(bp)) = *(*Tuint32_t)(unsafe.Pointer(bp + 4))
-	}
-	n = *(*Tuint32_t)(unsafe.Pointer(bp + 4)) - *(*Tuint32_t)(unsafe.Pointer(bp))
-	if *(*Tuint32_t)(unsafe.Pointer(bp + 4)) > uint32(0x10000) {
-		v10 = *(*Tuint32_t)(unsafe.Pointer(bp))
-		v11 = uint32(0x10000)
-		if v10 > v11 {
-			v12 = v10
-			goto _13
-		} else {
-			v12 = v11
-			goto _13
-		}
-	_13:
-		n += *(*Tuint32_t)(unsafe.Pointer(bp + 4)) - v12
-	}
-	if _string_buffer_init2(tls, ctx1, b2, libc.Int32FromUint32(n), libc.BoolInt32(*(*Tuint32_t)(unsafe.Pointer(bp + 4)) >= uint32(0x100))) != 0 {
-		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-	}
-	i = *(*Tuint32_t)(unsafe.Pointer(bp))
-	for {
-		if !(i < *(*Tuint32_t)(unsafe.Pointer(bp + 4))) {
-			break
-		}
-		_string_buffer_putc(tls, b2, i)
-		goto _14
-	_14:
-		;
-		i++
-	}
-	return _string_buffer_end(tls, b2)
-}
-
 func _js_string_charCodeAt(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
@@ -77295,7 +74393,6 @@ _3:
 	return r
 }
 
-const Emagic_string_anchor = 0
 const Emagic_string_big = 1
 const Emagic_string_blink = 2
 const Emagic_string_bold = 3
@@ -101764,37 +98861,6 @@ var _js_date_proto_funcs = [47]TJSCFunctionListEntry{
 	},
 }
 
-func x_JS_NewDate(tls *libc.TLS, ctx1 uintptr, epoch_ms float64) (r TJSValue) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var obj, v, v3 TJSValue
-	var v1 int32
-	var _ /* u at bp+0 */ struct {
-		Fu64 [0]Tuint64_t
-		Fd   float64
-	}
-	_, _, _, _ = obj, v, v1, v3
-	obj = _js_create_from_ctor(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(EJS_CLASS_DATE))
-	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
-	goto _2
-_2:
-	if v1 != 0 {
-		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-	}
-	_ = ctx1
-	*(*float64)(unsafe.Pointer(bp)) = _time_clip(tls, epoch_ms)
-	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(*(*Tuint64_t)(unsafe.Pointer(bp))&libc.Uint64FromInt64(0x7fffffffffffffff) > libc.Uint64FromInt64(0x7ff0000000000000))), 0) != 0 {
-		v = libc.Uint64FromInt64(0x7ff8000000000000) - libc.Uint64FromInt32(libc.Int32FromInt32(0x7ff80000)-int32(EJS_TAG_FIRST)+libc.Int32FromInt32(1))<<libc.Int32FromInt32(32)
-	} else {
-		v = *(*Tuint64_t)(unsafe.Pointer(bp)) - libc.Uint64FromInt32(libc.Int32FromInt32(0x7ff80000)-int32(EJS_TAG_FIRST)+libc.Int32FromInt32(1))<<libc.Int32FromInt32(32)
-	}
-	v3 = v
-	goto _4
-_4:
-	_JS_SetObjectData(tls, ctx1, obj, v3)
-	return obj
-}
-
 func x_JS_AddIntrinsicDate(tls *libc.TLS, ctx uintptr) {
 	var obj TJSValue
 	_ = obj
@@ -109007,17 +106073,6 @@ func _js_array_buffer_constructor1(tls *libc.TLS, ctx uintptr, new_target TJSVal
 	return _js_array_buffer_constructor2(tls, ctx, new_target, len1, uint32(EJS_CLASS_ARRAY_BUFFER))
 }
 
-func x_JS_NewArrayBuffer(tls *libc.TLS, ctx uintptr, buf uintptr, len1 Tsize_t, free_func uintptr, opaque uintptr, is_shared TBOOL) (r TJSValue) {
-	var v1 int32
-	_ = v1
-	if is_shared != 0 {
-		v1 = int32(EJS_CLASS_SHARED_ARRAY_BUFFER)
-	} else {
-		v1 = int32(EJS_CLASS_ARRAY_BUFFER)
-	}
-	return _js_array_buffer_constructor3(tls, ctx, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), uint64(len1), libc.Uint32FromInt32(v1), buf, free_func, opaque, int32(EFALSE))
-}
-
 // C documentation
 //
 //	/* create a new ArrayBuffer of length 'len' and copy 'buf' to it */
@@ -109243,58 +106298,6 @@ func _js_array_buffer_get_byteLength(tls *libc.TLS, ctx3 uintptr, this_val TJSVa
 	goto _8
 _8:
 	return v7
-}
-
-func x_JS_DetachArrayBuffer(tls *libc.TLS, ctx uintptr, obj TJSValue) {
-	var abuf, el, p, ta uintptr
-	_, _, _, _ = abuf, el, p, ta
-	abuf = x_JS_GetOpaque(tls, obj, uint32(EJS_CLASS_ARRAY_BUFFER))
-	if !(abuf != 0) || (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdetached != 0 {
-		return
-	}
-	if (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Ffree_func != 0 {
-		(*(*func(*libc.TLS, uintptr, uintptr, uintptr))(unsafe.Pointer(&struct{ uintptr }{(*TJSArrayBuffer)(unsafe.Pointer(abuf)).Ffree_func})))(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fopaque, (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdata)
-	}
-	(*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdata = libc.UintptrFromInt32(0)
-	(*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fbyte_length = 0
-	(*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdetached = uint8(ETRUE)
-	el = (*Tlist_head)(unsafe.Pointer(abuf + 12)).Fnext
-	for {
-		if !(el != abuf+12) {
-			break
-		}
-		ta = el - uintptr(uint32(libc.UintptrFromInt32(0)))
-		p = (*TJSTypedArray)(unsafe.Pointer(ta)).Fobj
-		/* Note: the typed array length and offset fields are not modified */
-		if libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) != int32(EJS_CLASS_DATAVIEW) {
-			(*(*struct {
-				Fu1 struct {
-					Ftyped_array [0]uintptr
-					Fsize        Tuint32_t
-				}
-				Fu struct {
-					Fptr        [0]uintptr
-					Fint8_ptr   [0]uintptr
-					Fuint8_ptr  [0]uintptr
-					Fint16_ptr  [0]uintptr
-					Fuint16_ptr [0]uintptr
-					Fint32_ptr  [0]uintptr
-					Fuint32_ptr [0]uintptr
-					Fint64_ptr  [0]uintptr
-					Fuint64_ptr [0]uintptr
-					Ffloat_ptr  [0]uintptr
-					Fdouble_ptr [0]uintptr
-					Fvalues     uintptr
-				}
-				Fcount Tuint32_t
-			})(unsafe.Pointer(p + 28))).Fcount = uint32(0)
-			*(*uintptr)(unsafe.Pointer(p + 28 + 4)) = libc.UintptrFromInt32(0)
-		}
-		goto _1
-	_1:
-		;
-		el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	}
 }
 
 // C documentation
@@ -109927,51 +106930,6 @@ func _js_typed_array_get_byteOffset(tls *libc.TLS, ctx1 uintptr, this_val TJSVal
 	goto _4
 _4:
 	return v3
-}
-
-func x_JS_NewTypedArray(tls *libc.TLS, ctx uintptr, argc int32, argv uintptr, type1 TJSTypedArrayEnum) (r TJSValue) {
-	if type1 < int32(EJS_TYPED_ARRAY_UINT8C) || type1 > int32(EJS_TYPED_ARRAY_FLOAT64) {
-		return x_JS_ThrowRangeError(tls, ctx, __ccgo_ts+16681, 0)
-	}
-	return _js_typed_array_constructor(tls, ctx, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), argc, argv, int32(EJS_CLASS_UINT8C_ARRAY)+type1)
-}
-
-// C documentation
-//
-//	/* Return the buffer associated to the typed array or an exception if
-//	   it is not a typed array or if the buffer is detached. pbyte_offset,
-//	   pbyte_length or pbytes_per_element can be NULL. */
-func x_JS_GetTypedArrayBuffer(tls *libc.TLS, ctx1 uintptr, obj TJSValue, pbyte_offset uintptr, pbyte_length uintptr, pbytes_per_element uintptr) (r TJSValue) {
-	var p, p1, ta uintptr
-	var v1, v2 TJSValue
-	_, _, _, _, _ = p, p1, ta, v1, v2
-	p1 = _get_typed_array(tls, ctx1, obj, int32(EFALSE))
-	if !(p1 != 0) {
-		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-	}
-	if _typed_array_is_detached(tls, ctx1, p1) != 0 {
-		return _JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx1)
-	}
-	ta = *(*uintptr)(unsafe.Pointer(&(*TJSObject)(unsafe.Pointer(p1)).Fu))
-	if pbyte_offset != 0 {
-		*(*Tsize_t)(unsafe.Pointer(pbyte_offset)) = (*TJSTypedArray)(unsafe.Pointer(ta)).Foffset
-	}
-	if pbyte_length != 0 {
-		*(*Tsize_t)(unsafe.Pointer(pbyte_length)) = (*TJSTypedArray)(unsafe.Pointer(ta)).Flength
-	}
-	if pbytes_per_element != 0 {
-		*(*Tsize_t)(unsafe.Pointer(pbytes_per_element)) = libc.Uint32FromInt32(int32(1) << _typed_array_size_log2[libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6)))-int32(EJS_CLASS_UINT8C_ARRAY)])
-	}
-	_ = ctx1
-	v1 = libc.Uint64FromInt32(int32(EJS_TAG_OBJECT))<<libc.Int32FromInt32(32) | uint64(uint32((*TJSTypedArray)(unsafe.Pointer(ta)).Fbuffer))
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v1>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v1))
-		(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
-	}
-	v2 = v1
-	goto _3
-_3:
-	return v2
 }
 
 func _js_typed_array_get_toStringTag(tls *libc.TLS, ctx uintptr, this_val TJSValue) (r TJSValue) {
@@ -115867,14 +112825,6 @@ var _js_dataview_proto_funcs = [24]TJSCFunctionListEntry{
 	},
 }
 
-/* Atomics */
-
-type TAtomicsOpEnum = int32
-
-/* Atomics */
-
-type _AtomicsOpEnum = int32
-
 const EATOMICS_OP_ADD = 0
 const EATOMICS_OP_AND = 1
 const EATOMICS_OP_OR = 2
@@ -116425,14 +113375,6 @@ type TJSAtomicsWaiter = struct {
 
 var _js_atomics_mutex = Tpthread_mutex_t{}
 var _js_atomics_waiter_list Tlist_head
-var _js_atomics_waiter_list0 = Tlist_head{
-	Fprev: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
-	Fnext: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
-}
-
-func x_init_quickjs(tls *libc.TLS) {
-	_js_atomics_waiter_list = _js_atomics_waiter_list0
-}
 
 func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	bp := tls.Alloc(112)
@@ -117224,74 +114166,6 @@ _5:
 	x_JS_AddIntrinsicAtomics(tls, ctx4)
 }
 
-func x_DupValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) (r TJSValue) {
-	var p uintptr
-	var v11, v2 TJSValue
-	_, _, _ = p, v11, v2
-	_ = ctx1
-	v11 = v1
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v11))
-		(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
-	}
-	v2 = v11
-	goto _3
-_3:
-	return v2
-}
-
-func x_FreeValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) {
-	var p, v3 uintptr
-	var v11 TJSValue
-	var v2 int32
-	_, _, _, _ = p, v11, v2, v3
-	v11 = v1
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v11))
-		v3 = p
-		*(*int32)(unsafe.Pointer(v3))--
-		v2 = *(*int32)(unsafe.Pointer(v3))
-		if v2 <= libc.Int32FromInt32(0) {
-			x___JS_FreeValue(tls, ctx1, v11)
-		}
-	}
-}
-
-func x_ToCString(tls *libc.TLS, ctx uintptr, val1 TJSValue) (r uintptr) {
-	return x_JS_ToCStringLen2(tls, ctx, libc.UintptrFromInt32(0), val1, 0)
-}
-
-func x_NewInt32(tls *libc.TLS, ctx1 uintptr, val1 Tint32_t) (r TJSValue) {
-	var v1 TJSValue
-	_ = v1
-	_ = ctx1
-	v1 = libc.Uint64FromInt32(int32(EJS_TAG_INT))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(val1))
-	goto _2
-_2:
-	return v1
-}
-
-func x_SetProperty(tls *libc.TLS, ctx1 uintptr, this_obj1 TJSValue, prop1 TJSAtom, val1 TJSValue) (r int32) {
-	var v1 TJSValue
-	var v2 int32
-	_, _ = v1, v2
-	v1 = this_obj1
-	v2 = x_JS_SetPropertyInternal(tls, ctx1, v1, prop1, val1, v1, libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
-	goto _3
-_3:
-	return v2
-}
-
-func x_GetProperty(tls *libc.TLS, ctx1 uintptr, this_obj1 TJSValue, prop1 TJSAtom) (r TJSValue) {
-	var v1, v2 TJSValue
-	_, _ = v1, v2
-	v1 = this_obj1
-	v2 = x_JS_GetPropertyInternal(tls, ctx1, v1, prop1, v1, 0)
-	goto _3
-_3:
-	return v2
-}
-
 type TJSAsyncFunctionState1 = struct {
 	Fheader          TJSGCObjectHeader
 	Fthis_val        TJSValue
@@ -117412,25 +114286,8 @@ type TJSStackFrame1 = struct {
 const MCAPTURE_COUNT_MAX = 255
 const MCLASS_RANGE_BASE = 1073741824
 const MRE_HEADER_BYTECODE_LEN = 3
-const MRE_HEADER_CAPTURE_COUNT = 1
-const MRE_HEADER_FLAGS = 0
 const MRE_HEADER_LEN = 7
-const MRE_HEADER_STACK_SIZE = 2
 const MSTACK_SIZE_MAX = 255
-const MTMP_BUF_SIZE = 128
-
-/*
-  TODO:
-
-  - Add a lock step execution mode (=linear time execution guaranteed)
-    when the regular expression is "simple" i.e. no backreference nor
-    complicated lookahead. The opcodes are designed for this execution
-    model.
-*/
-
-type TREOPCodeEnum = int32
-
-const EREOP_invalid = 0
 const EREOP_char = 1
 const EREOP_char32 = 2
 const EREOP_dot = 3
@@ -117459,7 +114316,6 @@ const EREOP_push_char_pos = 25
 const EREOP_check_advance = 26
 const EREOP_prev = 27
 const EREOP_simple_greedy_quant = 28
-const EREOP_COUNT = 29
 
 /* unicode code points */
 
@@ -117637,8 +114493,6 @@ var _char_range_w = [9]Tuint16_t{
 	7: uint16(0x0061),
 	8: libc.Uint16FromInt32(libc.Int32FromInt32(0x007A) + libc.Int32FromInt32(1)),
 }
-
-type TCharRangeEnum = int32
 
 const ECHAR_RANGE_d = 0
 const ECHAR_RANGE_D = 1
@@ -121144,11 +117998,6 @@ _2:
 	return bc_buf + libc.UintptrFromInt32(MRE_HEADER_LEN) + uintptr(re_bytecode_len)
 }
 
-const MCASE_F = 4
-const MCASE_L = 2
-const MCASE_U = 1
-const MPOP_STACK_LEN_MAX = 4
-const MUNICODE_DECOMP_LEN_MAX = 18
 const MUNICODE_INDEX_BLOCK_LEN = 32
 
 var _case_conv_table1 = [370]Tuint32_t{
@@ -136287,8 +133136,6 @@ var _unicode_comp_table = [945]Tuint16_t{
 	944: uint16(0x90c0),
 }
 
-type TUnicodeGCEnum = int32
-
 const EUNICODE_GC_Cn = 0
 const EUNICODE_GC_Lu = 1
 const EUNICODE_GC_Ll = 2
@@ -136320,14 +133167,6 @@ const EUNICODE_GC_Cf = 27
 const EUNICODE_GC_Cs = 28
 const EUNICODE_GC_Co = 29
 const EUNICODE_GC_LC = 30
-const EUNICODE_GC_L = 31
-const EUNICODE_GC_M = 32
-const EUNICODE_GC_N = 33
-const EUNICODE_GC_S = 34
-const EUNICODE_GC_P = 35
-const EUNICODE_GC_Z = 36
-const EUNICODE_GC_C = 37
-const EUNICODE_GC_COUNT = 38
 
 var _unicode_gc_name_table = [660]int8{'C', 'n', ',', 'U', 'n', 'a', 's', 's', 'i', 'g', 'n', 'e', 'd', 0, 'L', 'u', ',', 'U', 'p', 'p', 'e', 'r', 'c', 'a', 's', 'e', '_', 'L', 'e', 't', 't', 'e', 'r', 0, 'L', 'l', ',', 'L', 'o', 'w', 'e', 'r', 'c', 'a', 's', 'e', '_', 'L', 'e', 't', 't', 'e', 'r', 0, 'L', 't', ',', 'T', 'i', 't', 'l', 'e', 'c', 'a', 's', 'e', '_', 'L', 'e', 't', 't', 'e', 'r', 0, 'L', 'm', ',', 'M', 'o', 'd', 'i', 'f', 'i', 'e', 'r', '_', 'L', 'e', 't', 't', 'e', 'r', 0, 'L', 'o', ',', 'O', 't', 'h', 'e', 'r', '_', 'L', 'e', 't', 't', 'e', 'r', 0, 'M', 'n', ',', 'N', 'o', 'n', 's', 'p', 'a', 'c', 'i', 'n', 'g', '_', 'M', 'a', 'r', 'k', 0, 'M', 'c', ',', 'S', 'p', 'a', 'c', 'i', 'n', 'g', '_', 'M', 'a', 'r', 'k', 0, 'M', 'e', ',', 'E', 'n', 'c', 'l', 'o', 's', 'i', 'n', 'g', '_', 'M', 'a', 'r', 'k', 0, 'N', 'd', ',', 'D', 'e', 'c', 'i', 'm', 'a', 'l', '_', 'N', 'u', 'm', 'b', 'e', 'r', ',', 'd', 'i', 'g', 'i', 't', 0, 'N', 'l', ',', 'L', 'e', 't', 't', 'e', 'r', '_', 'N', 'u', 'm', 'b', 'e', 'r', 0, 'N', 'o', ',', 'O', 't', 'h', 'e', 'r', '_', 'N', 'u', 'm', 'b', 'e', 'r', 0, 'S', 'm', ',', 'M', 'a', 't', 'h', '_', 'S', 'y', 'm', 'b', 'o', 'l', 0, 'S', 'c', ',', 'C', 'u', 'r', 'r', 'e', 'n', 'c', 'y', '_', 'S', 'y', 'm', 'b', 'o', 'l', 0, 'S', 'k', ',', 'M', 'o', 'd', 'i', 'f', 'i', 'e', 'r', '_', 'S', 'y', 'm', 'b', 'o', 'l', 0, 'S', 'o', ',', 'O', 't', 'h', 'e', 'r', '_', 'S', 'y', 'm', 'b', 'o', 'l', 0, 'P', 'c', ',', 'C', 'o', 'n', 'n', 'e', 'c', 't', 'o', 'r', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', 0, 'P', 'd', ',', 'D', 'a', 's', 'h', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', 0, 'P', 's', ',', 'O', 'p', 'e', 'n', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', 0, 'P', 'e', ',', 'C', 'l', 'o', 's', 'e', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', 0, 'P', 'i', ',', 'I', 'n', 'i', 't', 'i', 'a', 'l', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', 0, 'P', 'f', ',', 'F', 'i', 'n', 'a', 'l', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', 0, 'P', 'o', ',', 'O', 't', 'h', 'e', 'r', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', 0, 'Z', 's', ',', 'S', 'p', 'a', 'c', 'e', '_', 'S', 'e', 'p', 'a', 'r', 'a', 't', 'o', 'r', 0, 'Z', 'l', ',', 'L', 'i', 'n', 'e', '_', 'S', 'e', 'p', 'a', 'r', 'a', 't', 'o', 'r', 0, 'Z', 'p', ',', 'P', 'a', 'r', 'a', 'g', 'r', 'a', 'p', 'h', '_', 'S', 'e', 'p', 'a', 'r', 'a', 't', 'o', 'r', 0, 'C', 'c', ',', 'C', 'o', 'n', 't', 'r', 'o', 'l', ',', 'c', 'n', 't', 'r', 'l', 0, 'C', 'f', ',', 'F', 'o', 'r', 'm', 'a', 't', 0, 'C', 's', ',', 'S', 'u', 'r', 'r', 'o', 'g', 'a', 't', 'e', 0, 'C', 'o', ',', 'P', 'r', 'i', 'v', 'a', 't', 'e', '_', 'U', 's', 'e', 0, 'L', 'C', ',', 'C', 'a', 's', 'e', 'd', '_', 'L', 'e', 't', 't', 'e', 'r', 0, 'L', ',', 'L', 'e', 't', 't', 'e', 'r', 0, 'M', ',', 'M', 'a', 'r', 'k', ',', 'C', 'o', 'm', 'b', 'i', 'n', 'i', 'n', 'g', '_', 'M', 'a', 'r', 'k', 0, 'N', ',', 'N', 'u', 'm', 'b', 'e', 'r', 0, 'S', ',', 'S', 'y', 'm', 'b', 'o', 'l', 0, 'P', ',', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', ',', 'p', 'u', 'n', 'c', 't', 0, 'Z', ',', 'S', 'e', 'p', 'a', 'r', 'a', 't', 'o', 'r', 0, 'C', ',', 'O', 't', 'h', 'e', 'r'}
 var _unicode_gc_table = [3948]Tuint8_t{
@@ -139954,173 +136793,9 @@ var _unicode_gc_table = [3948]Tuint8_t{
 	3947: uint8(0x20),
 }
 
-type TUnicodeScriptEnum = int32
-
 const EUNICODE_SCRIPT_Unknown = 0
-const EUNICODE_SCRIPT_Adlam = 1
-const EUNICODE_SCRIPT_Ahom = 2
-const EUNICODE_SCRIPT_Anatolian_Hieroglyphs = 3
-const EUNICODE_SCRIPT_Arabic = 4
-const EUNICODE_SCRIPT_Armenian = 5
-const EUNICODE_SCRIPT_Avestan = 6
-const EUNICODE_SCRIPT_Balinese = 7
-const EUNICODE_SCRIPT_Bamum = 8
-const EUNICODE_SCRIPT_Bassa_Vah = 9
-const EUNICODE_SCRIPT_Batak = 10
-const EUNICODE_SCRIPT_Bengali = 11
-const EUNICODE_SCRIPT_Bhaiksuki = 12
-const EUNICODE_SCRIPT_Bopomofo = 13
-const EUNICODE_SCRIPT_Brahmi = 14
-const EUNICODE_SCRIPT_Braille = 15
-const EUNICODE_SCRIPT_Buginese = 16
-const EUNICODE_SCRIPT_Buhid = 17
-const EUNICODE_SCRIPT_Canadian_Aboriginal = 18
-const EUNICODE_SCRIPT_Carian = 19
-const EUNICODE_SCRIPT_Caucasian_Albanian = 20
-const EUNICODE_SCRIPT_Chakma = 21
-const EUNICODE_SCRIPT_Cham = 22
-const EUNICODE_SCRIPT_Cherokee = 23
-const EUNICODE_SCRIPT_Chorasmian = 24
 const EUNICODE_SCRIPT_Common = 25
-const EUNICODE_SCRIPT_Coptic = 26
-const EUNICODE_SCRIPT_Cuneiform = 27
-const EUNICODE_SCRIPT_Cypriot = 28
-const EUNICODE_SCRIPT_Cyrillic = 29
-const EUNICODE_SCRIPT_Cypro_Minoan = 30
-const EUNICODE_SCRIPT_Deseret = 31
-const EUNICODE_SCRIPT_Devanagari = 32
-const EUNICODE_SCRIPT_Dives_Akuru = 33
-const EUNICODE_SCRIPT_Dogra = 34
-const EUNICODE_SCRIPT_Duployan = 35
-const EUNICODE_SCRIPT_Egyptian_Hieroglyphs = 36
-const EUNICODE_SCRIPT_Elbasan = 37
-const EUNICODE_SCRIPT_Elymaic = 38
-const EUNICODE_SCRIPT_Ethiopic = 39
-const EUNICODE_SCRIPT_Georgian = 40
-const EUNICODE_SCRIPT_Glagolitic = 41
-const EUNICODE_SCRIPT_Gothic = 42
-const EUNICODE_SCRIPT_Grantha = 43
-const EUNICODE_SCRIPT_Greek = 44
-const EUNICODE_SCRIPT_Gujarati = 45
-const EUNICODE_SCRIPT_Gunjala_Gondi = 46
-const EUNICODE_SCRIPT_Gurmukhi = 47
-const EUNICODE_SCRIPT_Han = 48
-const EUNICODE_SCRIPT_Hangul = 49
-const EUNICODE_SCRIPT_Hanifi_Rohingya = 50
-const EUNICODE_SCRIPT_Hanunoo = 51
-const EUNICODE_SCRIPT_Hatran = 52
-const EUNICODE_SCRIPT_Hebrew = 53
-const EUNICODE_SCRIPT_Hiragana = 54
-const EUNICODE_SCRIPT_Imperial_Aramaic = 55
 const EUNICODE_SCRIPT_Inherited = 56
-const EUNICODE_SCRIPT_Inscriptional_Pahlavi = 57
-const EUNICODE_SCRIPT_Inscriptional_Parthian = 58
-const EUNICODE_SCRIPT_Javanese = 59
-const EUNICODE_SCRIPT_Kaithi = 60
-const EUNICODE_SCRIPT_Kannada = 61
-const EUNICODE_SCRIPT_Katakana = 62
-const EUNICODE_SCRIPT_Kawi = 63
-const EUNICODE_SCRIPT_Kayah_Li = 64
-const EUNICODE_SCRIPT_Kharoshthi = 65
-const EUNICODE_SCRIPT_Khmer = 66
-const EUNICODE_SCRIPT_Khojki = 67
-const EUNICODE_SCRIPT_Khitan_Small_Script = 68
-const EUNICODE_SCRIPT_Khudawadi = 69
-const EUNICODE_SCRIPT_Lao = 70
-const EUNICODE_SCRIPT_Latin = 71
-const EUNICODE_SCRIPT_Lepcha = 72
-const EUNICODE_SCRIPT_Limbu = 73
-const EUNICODE_SCRIPT_Linear_A = 74
-const EUNICODE_SCRIPT_Linear_B = 75
-const EUNICODE_SCRIPT_Lisu = 76
-const EUNICODE_SCRIPT_Lycian = 77
-const EUNICODE_SCRIPT_Lydian = 78
-const EUNICODE_SCRIPT_Makasar = 79
-const EUNICODE_SCRIPT_Mahajani = 80
-const EUNICODE_SCRIPT_Malayalam = 81
-const EUNICODE_SCRIPT_Mandaic = 82
-const EUNICODE_SCRIPT_Manichaean = 83
-const EUNICODE_SCRIPT_Marchen = 84
-const EUNICODE_SCRIPT_Masaram_Gondi = 85
-const EUNICODE_SCRIPT_Medefaidrin = 86
-const EUNICODE_SCRIPT_Meetei_Mayek = 87
-const EUNICODE_SCRIPT_Mende_Kikakui = 88
-const EUNICODE_SCRIPT_Meroitic_Cursive = 89
-const EUNICODE_SCRIPT_Meroitic_Hieroglyphs = 90
-const EUNICODE_SCRIPT_Miao = 91
-const EUNICODE_SCRIPT_Modi = 92
-const EUNICODE_SCRIPT_Mongolian = 93
-const EUNICODE_SCRIPT_Mro = 94
-const EUNICODE_SCRIPT_Multani = 95
-const EUNICODE_SCRIPT_Myanmar = 96
-const EUNICODE_SCRIPT_Nabataean = 97
-const EUNICODE_SCRIPT_Nag_Mundari = 98
-const EUNICODE_SCRIPT_Nandinagari = 99
-const EUNICODE_SCRIPT_New_Tai_Lue = 100
-const EUNICODE_SCRIPT_Newa = 101
-const EUNICODE_SCRIPT_Nko = 102
-const EUNICODE_SCRIPT_Nushu = 103
-const EUNICODE_SCRIPT_Nyiakeng_Puachue_Hmong = 104
-const EUNICODE_SCRIPT_Ogham = 105
-const EUNICODE_SCRIPT_Ol_Chiki = 106
-const EUNICODE_SCRIPT_Old_Hungarian = 107
-const EUNICODE_SCRIPT_Old_Italic = 108
-const EUNICODE_SCRIPT_Old_North_Arabian = 109
-const EUNICODE_SCRIPT_Old_Permic = 110
-const EUNICODE_SCRIPT_Old_Persian = 111
-const EUNICODE_SCRIPT_Old_Sogdian = 112
-const EUNICODE_SCRIPT_Old_South_Arabian = 113
-const EUNICODE_SCRIPT_Old_Turkic = 114
-const EUNICODE_SCRIPT_Old_Uyghur = 115
-const EUNICODE_SCRIPT_Oriya = 116
-const EUNICODE_SCRIPT_Osage = 117
-const EUNICODE_SCRIPT_Osmanya = 118
-const EUNICODE_SCRIPT_Pahawh_Hmong = 119
-const EUNICODE_SCRIPT_Palmyrene = 120
-const EUNICODE_SCRIPT_Pau_Cin_Hau = 121
-const EUNICODE_SCRIPT_Phags_Pa = 122
-const EUNICODE_SCRIPT_Phoenician = 123
-const EUNICODE_SCRIPT_Psalter_Pahlavi = 124
-const EUNICODE_SCRIPT_Rejang = 125
-const EUNICODE_SCRIPT_Runic = 126
-const EUNICODE_SCRIPT_Samaritan = 127
-const EUNICODE_SCRIPT_Saurashtra = 128
-const EUNICODE_SCRIPT_Sharada = 129
-const EUNICODE_SCRIPT_Shavian = 130
-const EUNICODE_SCRIPT_Siddham = 131
-const EUNICODE_SCRIPT_SignWriting = 132
-const EUNICODE_SCRIPT_Sinhala = 133
-const EUNICODE_SCRIPT_Sogdian = 134
-const EUNICODE_SCRIPT_Sora_Sompeng = 135
-const EUNICODE_SCRIPT_Soyombo = 136
-const EUNICODE_SCRIPT_Sundanese = 137
-const EUNICODE_SCRIPT_Syloti_Nagri = 138
-const EUNICODE_SCRIPT_Syriac = 139
-const EUNICODE_SCRIPT_Tagalog = 140
-const EUNICODE_SCRIPT_Tagbanwa = 141
-const EUNICODE_SCRIPT_Tai_Le = 142
-const EUNICODE_SCRIPT_Tai_Tham = 143
-const EUNICODE_SCRIPT_Tai_Viet = 144
-const EUNICODE_SCRIPT_Takri = 145
-const EUNICODE_SCRIPT_Tamil = 146
-const EUNICODE_SCRIPT_Tangut = 147
-const EUNICODE_SCRIPT_Telugu = 148
-const EUNICODE_SCRIPT_Thaana = 149
-const EUNICODE_SCRIPT_Thai = 150
-const EUNICODE_SCRIPT_Tibetan = 151
-const EUNICODE_SCRIPT_Tifinagh = 152
-const EUNICODE_SCRIPT_Tirhuta = 153
-const EUNICODE_SCRIPT_Tangsa = 154
-const EUNICODE_SCRIPT_Toto = 155
-const EUNICODE_SCRIPT_Ugaritic = 156
-const EUNICODE_SCRIPT_Vai = 157
-const EUNICODE_SCRIPT_Vithkuqi = 158
-const EUNICODE_SCRIPT_Wancho = 159
-const EUNICODE_SCRIPT_Warang_Citi = 160
-const EUNICODE_SCRIPT_Yezidi = 161
-const EUNICODE_SCRIPT_Yi = 162
-const EUNICODE_SCRIPT_Zanabazar_Square = 163
-const EUNICODE_SCRIPT_COUNT = 164
 
 var _unicode_script_name_table = [2374]int8{'A', 'd', 'l', 'a', 'm', ',', 'A', 'd', 'l', 'm', 0, 'A', 'h', 'o', 'm', ',', 'A', 'h', 'o', 'm', 0, 'A', 'n', 'a', 't', 'o', 'l', 'i', 'a', 'n', '_', 'H', 'i', 'e', 'r', 'o', 'g', 'l', 'y', 'p', 'h', 's', ',', 'H', 'l', 'u', 'w', 0, 'A', 'r', 'a', 'b', 'i', 'c', ',', 'A', 'r', 'a', 'b', 0, 'A', 'r', 'm', 'e', 'n', 'i', 'a', 'n', ',', 'A', 'r', 'm', 'n', 0, 'A', 'v', 'e', 's', 't', 'a', 'n', ',', 'A', 'v', 's', 't', 0, 'B', 'a', 'l', 'i', 'n', 'e', 's', 'e', ',', 'B', 'a', 'l', 'i', 0, 'B', 'a', 'm', 'u', 'm', ',', 'B', 'a', 'm', 'u', 0, 'B', 'a', 's', 's', 'a', '_', 'V', 'a', 'h', ',', 'B', 'a', 's', 's', 0, 'B', 'a', 't', 'a', 'k', ',', 'B', 'a', 't', 'k', 0, 'B', 'e', 'n', 'g', 'a', 'l', 'i', ',', 'B', 'e', 'n', 'g', 0, 'B', 'h', 'a', 'i', 'k', 's', 'u', 'k', 'i', ',', 'B', 'h', 'k', 's', 0, 'B', 'o', 'p', 'o', 'm', 'o', 'f', 'o', ',', 'B', 'o', 'p', 'o', 0, 'B', 'r', 'a', 'h', 'm', 'i', ',', 'B', 'r', 'a', 'h', 0, 'B', 'r', 'a', 'i', 'l', 'l', 'e', ',', 'B', 'r', 'a', 'i', 0, 'B', 'u', 'g', 'i', 'n', 'e', 's', 'e', ',', 'B', 'u', 'g', 'i', 0, 'B', 'u', 'h', 'i', 'd', ',', 'B', 'u', 'h', 'd', 0, 'C', 'a', 'n', 'a', 'd', 'i', 'a', 'n', '_', 'A', 'b', 'o', 'r', 'i', 'g', 'i', 'n', 'a', 'l', ',', 'C', 'a', 'n', 's', 0, 'C', 'a', 'r', 'i', 'a', 'n', ',', 'C', 'a', 'r', 'i', 0, 'C', 'a', 'u', 'c', 'a', 's', 'i', 'a', 'n', '_', 'A', 'l', 'b', 'a', 'n', 'i', 'a', 'n', ',', 'A', 'g', 'h', 'b', 0, 'C', 'h', 'a', 'k', 'm', 'a', ',', 'C', 'a', 'k', 'm', 0, 'C', 'h', 'a', 'm', ',', 'C', 'h', 'a', 'm', 0, 'C', 'h', 'e', 'r', 'o', 'k', 'e', 'e', ',', 'C', 'h', 'e', 'r', 0, 'C', 'h', 'o', 'r', 'a', 's', 'm', 'i', 'a', 'n', ',', 'C', 'h', 'r', 's', 0, 'C', 'o', 'm', 'm', 'o', 'n', ',', 'Z', 'y', 'y', 'y', 0, 'C', 'o', 'p', 't', 'i', 'c', ',', 'C', 'o', 'p', 't', ',', 'Q', 'a', 'a', 'c', 0, 'C', 'u', 'n', 'e', 'i', 'f', 'o', 'r', 'm', ',', 'X', 's', 'u', 'x', 0, 'C', 'y', 'p', 'r', 'i', 'o', 't', ',', 'C', 'p', 'r', 't', 0, 'C', 'y', 'r', 'i', 'l', 'l', 'i', 'c', ',', 'C', 'y', 'r', 'l', 0, 'C', 'y', 'p', 'r', 'o', '_', 'M', 'i', 'n', 'o', 'a', 'n', ',', 'C', 'p', 'm', 'n', 0, 'D', 'e', 's', 'e', 'r', 'e', 't', ',', 'D', 's', 'r', 't', 0, 'D', 'e', 'v', 'a', 'n', 'a', 'g', 'a', 'r', 'i', ',', 'D', 'e', 'v', 'a', 0, 'D', 'i', 'v', 'e', 's', '_', 'A', 'k', 'u', 'r', 'u', ',', 'D', 'i', 'a', 'k', 0, 'D', 'o', 'g', 'r', 'a', ',', 'D', 'o', 'g', 'r', 0, 'D', 'u', 'p', 'l', 'o', 'y', 'a', 'n', ',', 'D', 'u', 'p', 'l', 0, 'E', 'g', 'y', 'p', 't', 'i', 'a', 'n', '_', 'H', 'i', 'e', 'r', 'o', 'g', 'l', 'y', 'p', 'h', 's', ',', 'E', 'g', 'y', 'p', 0, 'E', 'l', 'b', 'a', 's', 'a', 'n', ',', 'E', 'l', 'b', 'a', 0, 'E', 'l', 'y', 'm', 'a', 'i', 'c', ',', 'E', 'l', 'y', 'm', 0, 'E', 't', 'h', 'i', 'o', 'p', 'i', 'c', ',', 'E', 't', 'h', 'i', 0, 'G', 'e', 'o', 'r', 'g', 'i', 'a', 'n', ',', 'G', 'e', 'o', 'r', 0, 'G', 'l', 'a', 'g', 'o', 'l', 'i', 't', 'i', 'c', ',', 'G', 'l', 'a', 'g', 0, 'G', 'o', 't', 'h', 'i', 'c', ',', 'G', 'o', 't', 'h', 0, 'G', 'r', 'a', 'n', 't', 'h', 'a', ',', 'G', 'r', 'a', 'n', 0, 'G', 'r', 'e', 'e', 'k', ',', 'G', 'r', 'e', 'k', 0, 'G', 'u', 'j', 'a', 'r', 'a', 't', 'i', ',', 'G', 'u', 'j', 'r', 0, 'G', 'u', 'n', 'j', 'a', 'l', 'a', '_', 'G', 'o', 'n', 'd', 'i', ',', 'G', 'o', 'n', 'g', 0, 'G', 'u', 'r', 'm', 'u', 'k', 'h', 'i', ',', 'G', 'u', 'r', 'u', 0, 'H', 'a', 'n', ',', 'H', 'a', 'n', 'i', 0, 'H', 'a', 'n', 'g', 'u', 'l', ',', 'H', 'a', 'n', 'g', 0, 'H', 'a', 'n', 'i', 'f', 'i', '_', 'R', 'o', 'h', 'i', 'n', 'g', 'y', 'a', ',', 'R', 'o', 'h', 'g', 0, 'H', 'a', 'n', 'u', 'n', 'o', 'o', ',', 'H', 'a', 'n', 'o', 0, 'H', 'a', 't', 'r', 'a', 'n', ',', 'H', 'a', 't', 'r', 0, 'H', 'e', 'b', 'r', 'e', 'w', ',', 'H', 'e', 'b', 'r', 0, 'H', 'i', 'r', 'a', 'g', 'a', 'n', 'a', ',', 'H', 'i', 'r', 'a', 0, 'I', 'm', 'p', 'e', 'r', 'i', 'a', 'l', '_', 'A', 'r', 'a', 'm', 'a', 'i', 'c', ',', 'A', 'r', 'm', 'i', 0, 'I', 'n', 'h', 'e', 'r', 'i', 't', 'e', 'd', ',', 'Z', 'i', 'n', 'h', ',', 'Q', 'a', 'a', 'i', 0, 'I', 'n', 's', 'c', 'r', 'i', 'p', 't', 'i', 'o', 'n', 'a', 'l', '_', 'P', 'a', 'h', 'l', 'a', 'v', 'i', ',', 'P', 'h', 'l', 'i', 0, 'I', 'n', 's', 'c', 'r', 'i', 'p', 't', 'i', 'o', 'n', 'a', 'l', '_', 'P', 'a', 'r', 't', 'h', 'i', 'a', 'n', ',', 'P', 'r', 't', 'i', 0, 'J', 'a', 'v', 'a', 'n', 'e', 's', 'e', ',', 'J', 'a', 'v', 'a', 0, 'K', 'a', 'i', 't', 'h', 'i', ',', 'K', 't', 'h', 'i', 0, 'K', 'a', 'n', 'n', 'a', 'd', 'a', ',', 'K', 'n', 'd', 'a', 0, 'K', 'a', 't', 'a', 'k', 'a', 'n', 'a', ',', 'K', 'a', 'n', 'a', 0, 'K', 'a', 'w', 'i', ',', 'K', 'a', 'w', 'i', 0, 'K', 'a', 'y', 'a', 'h', '_', 'L', 'i', ',', 'K', 'a', 'l', 'i', 0, 'K', 'h', 'a', 'r', 'o', 's', 'h', 't', 'h', 'i', ',', 'K', 'h', 'a', 'r', 0, 'K', 'h', 'm', 'e', 'r', ',', 'K', 'h', 'm', 'r', 0, 'K', 'h', 'o', 'j', 'k', 'i', ',', 'K', 'h', 'o', 'j', 0, 'K', 'h', 'i', 't', 'a', 'n', '_', 'S', 'm', 'a', 'l', 'l', '_', 'S', 'c', 'r', 'i', 'p', 't', ',', 'K', 'i', 't', 's', 0, 'K', 'h', 'u', 'd', 'a', 'w', 'a', 'd', 'i', ',', 'S', 'i', 'n', 'd', 0, 'L', 'a', 'o', ',', 'L', 'a', 'o', 'o', 0, 'L', 'a', 't', 'i', 'n', ',', 'L', 'a', 't', 'n', 0, 'L', 'e', 'p', 'c', 'h', 'a', ',', 'L', 'e', 'p', 'c', 0, 'L', 'i', 'm', 'b', 'u', ',', 'L', 'i', 'm', 'b', 0, 'L', 'i', 'n', 'e', 'a', 'r', '_', 'A', ',', 'L', 'i', 'n', 'a', 0, 'L', 'i', 'n', 'e', 'a', 'r', '_', 'B', ',', 'L', 'i', 'n', 'b', 0, 'L', 'i', 's', 'u', ',', 'L', 'i', 's', 'u', 0, 'L', 'y', 'c', 'i', 'a', 'n', ',', 'L', 'y', 'c', 'i', 0, 'L', 'y', 'd', 'i', 'a', 'n', ',', 'L', 'y', 'd', 'i', 0, 'M', 'a', 'k', 'a', 's', 'a', 'r', ',', 'M', 'a', 'k', 'a', 0, 'M', 'a', 'h', 'a', 'j', 'a', 'n', 'i', ',', 'M', 'a', 'h', 'j', 0, 'M', 'a', 'l', 'a', 'y', 'a', 'l', 'a', 'm', ',', 'M', 'l', 'y', 'm', 0, 'M', 'a', 'n', 'd', 'a', 'i', 'c', ',', 'M', 'a', 'n', 'd', 0, 'M', 'a', 'n', 'i', 'c', 'h', 'a', 'e', 'a', 'n', ',', 'M', 'a', 'n', 'i', 0, 'M', 'a', 'r', 'c', 'h', 'e', 'n', ',', 'M', 'a', 'r', 'c', 0, 'M', 'a', 's', 'a', 'r', 'a', 'm', '_', 'G', 'o', 'n', 'd', 'i', ',', 'G', 'o', 'n', 'm', 0, 'M', 'e', 'd', 'e', 'f', 'a', 'i', 'd', 'r', 'i', 'n', ',', 'M', 'e', 'd', 'f', 0, 'M', 'e', 'e', 't', 'e', 'i', '_', 'M', 'a', 'y', 'e', 'k', ',', 'M', 't', 'e', 'i', 0, 'M', 'e', 'n', 'd', 'e', '_', 'K', 'i', 'k', 'a', 'k', 'u', 'i', ',', 'M', 'e', 'n', 'd', 0, 'M', 'e', 'r', 'o', 'i', 't', 'i', 'c', '_', 'C', 'u', 'r', 's', 'i', 'v', 'e', ',', 'M', 'e', 'r', 'c', 0, 'M', 'e', 'r', 'o', 'i', 't', 'i', 'c', '_', 'H', 'i', 'e', 'r', 'o', 'g', 'l', 'y', 'p', 'h', 's', ',', 'M', 'e', 'r', 'o', 0, 'M', 'i', 'a', 'o', ',', 'P', 'l', 'r', 'd', 0, 'M', 'o', 'd', 'i', ',', 'M', 'o', 'd', 'i', 0, 'M', 'o', 'n', 'g', 'o', 'l', 'i', 'a', 'n', ',', 'M', 'o', 'n', 'g', 0, 'M', 'r', 'o', ',', 'M', 'r', 'o', 'o', 0, 'M', 'u', 'l', 't', 'a', 'n', 'i', ',', 'M', 'u', 'l', 't', 0, 'M', 'y', 'a', 'n', 'm', 'a', 'r', ',', 'M', 'y', 'm', 'r', 0, 'N', 'a', 'b', 'a', 't', 'a', 'e', 'a', 'n', ',', 'N', 'b', 'a', 't', 0, 'N', 'a', 'g', '_', 'M', 'u', 'n', 'd', 'a', 'r', 'i', ',', 'N', 'a', 'g', 'm', 0, 'N', 'a', 'n', 'd', 'i', 'n', 'a', 'g', 'a', 'r', 'i', ',', 'N', 'a', 'n', 'd', 0, 'N', 'e', 'w', '_', 'T', 'a', 'i', '_', 'L', 'u', 'e', ',', 'T', 'a', 'l', 'u', 0, 'N', 'e', 'w', 'a', ',', 'N', 'e', 'w', 'a', 0, 'N', 'k', 'o', ',', 'N', 'k', 'o', 'o', 0, 'N', 'u', 's', 'h', 'u', ',', 'N', 's', 'h', 'u', 0, 'N', 'y', 'i', 'a', 'k', 'e', 'n', 'g', '_', 'P', 'u', 'a', 'c', 'h', 'u', 'e', '_', 'H', 'm', 'o', 'n', 'g', ',', 'H', 'm', 'n', 'p', 0, 'O', 'g', 'h', 'a', 'm', ',', 'O', 'g', 'a', 'm', 0, 'O', 'l', '_', 'C', 'h', 'i', 'k', 'i', ',', 'O', 'l', 'c', 'k', 0, 'O', 'l', 'd', '_', 'H', 'u', 'n', 'g', 'a', 'r', 'i', 'a', 'n', ',', 'H', 'u', 'n', 'g', 0, 'O', 'l', 'd', '_', 'I', 't', 'a', 'l', 'i', 'c', ',', 'I', 't', 'a', 'l', 0, 'O', 'l', 'd', '_', 'N', 'o', 'r', 't', 'h', '_', 'A', 'r', 'a', 'b', 'i', 'a', 'n', ',', 'N', 'a', 'r', 'b', 0, 'O', 'l', 'd', '_', 'P', 'e', 'r', 'm', 'i', 'c', ',', 'P', 'e', 'r', 'm', 0, 'O', 'l', 'd', '_', 'P', 'e', 'r', 's', 'i', 'a', 'n', ',', 'X', 'p', 'e', 'o', 0, 'O', 'l', 'd', '_', 'S', 'o', 'g', 'd', 'i', 'a', 'n', ',', 'S', 'o', 'g', 'o', 0, 'O', 'l', 'd', '_', 'S', 'o', 'u', 't', 'h', '_', 'A', 'r', 'a', 'b', 'i', 'a', 'n', ',', 'S', 'a', 'r', 'b', 0, 'O', 'l', 'd', '_', 'T', 'u', 'r', 'k', 'i', 'c', ',', 'O', 'r', 'k', 'h', 0, 'O', 'l', 'd', '_', 'U', 'y', 'g', 'h', 'u', 'r', ',', 'O', 'u', 'g', 'r', 0, 'O', 'r', 'i', 'y', 'a', ',', 'O', 'r', 'y', 'a', 0, 'O', 's', 'a', 'g', 'e', ',', 'O', 's', 'g', 'e', 0, 'O', 's', 'm', 'a', 'n', 'y', 'a', ',', 'O', 's', 'm', 'a', 0, 'P', 'a', 'h', 'a', 'w', 'h', '_', 'H', 'm', 'o', 'n', 'g', ',', 'H', 'm', 'n', 'g', 0, 'P', 'a', 'l', 'm', 'y', 'r', 'e', 'n', 'e', ',', 'P', 'a', 'l', 'm', 0, 'P', 'a', 'u', '_', 'C', 'i', 'n', '_', 'H', 'a', 'u', ',', 'P', 'a', 'u', 'c', 0, 'P', 'h', 'a', 'g', 's', '_', 'P', 'a', ',', 'P', 'h', 'a', 'g', 0, 'P', 'h', 'o', 'e', 'n', 'i', 'c', 'i', 'a', 'n', ',', 'P', 'h', 'n', 'x', 0, 'P', 's', 'a', 'l', 't', 'e', 'r', '_', 'P', 'a', 'h', 'l', 'a', 'v', 'i', ',', 'P', 'h', 'l', 'p', 0, 'R', 'e', 'j', 'a', 'n', 'g', ',', 'R', 'j', 'n', 'g', 0, 'R', 'u', 'n', 'i', 'c', ',', 'R', 'u', 'n', 'r', 0, 'S', 'a', 'm', 'a', 'r', 'i', 't', 'a', 'n', ',', 'S', 'a', 'm', 'r', 0, 'S', 'a', 'u', 'r', 'a', 's', 'h', 't', 'r', 'a', ',', 'S', 'a', 'u', 'r', 0, 'S', 'h', 'a', 'r', 'a', 'd', 'a', ',', 'S', 'h', 'r', 'd', 0, 'S', 'h', 'a', 'v', 'i', 'a', 'n', ',', 'S', 'h', 'a', 'w', 0, 'S', 'i', 'd', 'd', 'h', 'a', 'm', ',', 'S', 'i', 'd', 'd', 0, 'S', 'i', 'g', 'n', 'W', 'r', 'i', 't', 'i', 'n', 'g', ',', 'S', 'g', 'n', 'w', 0, 'S', 'i', 'n', 'h', 'a', 'l', 'a', ',', 'S', 'i', 'n', 'h', 0, 'S', 'o', 'g', 'd', 'i', 'a', 'n', ',', 'S', 'o', 'g', 'd', 0, 'S', 'o', 'r', 'a', '_', 'S', 'o', 'm', 'p', 'e', 'n', 'g', ',', 'S', 'o', 'r', 'a', 0, 'S', 'o', 'y', 'o', 'm', 'b', 'o', ',', 'S', 'o', 'y', 'o', 0, 'S', 'u', 'n', 'd', 'a', 'n', 'e', 's', 'e', ',', 'S', 'u', 'n', 'd', 0, 'S', 'y', 'l', 'o', 't', 'i', '_', 'N', 'a', 'g', 'r', 'i', ',', 'S', 'y', 'l', 'o', 0, 'S', 'y', 'r', 'i', 'a', 'c', ',', 'S', 'y', 'r', 'c', 0, 'T', 'a', 'g', 'a', 'l', 'o', 'g', ',', 'T', 'g', 'l', 'g', 0, 'T', 'a', 'g', 'b', 'a', 'n', 'w', 'a', ',', 'T', 'a', 'g', 'b', 0, 'T', 'a', 'i', '_', 'L', 'e', ',', 'T', 'a', 'l', 'e', 0, 'T', 'a', 'i', '_', 'T', 'h', 'a', 'm', ',', 'L', 'a', 'n', 'a', 0, 'T', 'a', 'i', '_', 'V', 'i', 'e', 't', ',', 'T', 'a', 'v', 't', 0, 'T', 'a', 'k', 'r', 'i', ',', 'T', 'a', 'k', 'r', 0, 'T', 'a', 'm', 'i', 'l', ',', 'T', 'a', 'm', 'l', 0, 'T', 'a', 'n', 'g', 'u', 't', ',', 'T', 'a', 'n', 'g', 0, 'T', 'e', 'l', 'u', 'g', 'u', ',', 'T', 'e', 'l', 'u', 0, 'T', 'h', 'a', 'a', 'n', 'a', ',', 'T', 'h', 'a', 'a', 0, 'T', 'h', 'a', 'i', ',', 'T', 'h', 'a', 'i', 0, 'T', 'i', 'b', 'e', 't', 'a', 'n', ',', 'T', 'i', 'b', 't', 0, 'T', 'i', 'f', 'i', 'n', 'a', 'g', 'h', ',', 'T', 'f', 'n', 'g', 0, 'T', 'i', 'r', 'h', 'u', 't', 'a', ',', 'T', 'i', 'r', 'h', 0, 'T', 'a', 'n', 'g', 's', 'a', ',', 'T', 'n', 's', 'a', 0, 'T', 'o', 't', 'o', ',', 'T', 'o', 't', 'o', 0, 'U', 'g', 'a', 'r', 'i', 't', 'i', 'c', ',', 'U', 'g', 'a', 'r', 0, 'V', 'a', 'i', ',', 'V', 'a', 'i', 'i', 0, 'V', 'i', 't', 'h', 'k', 'u', 'q', 'i', ',', 'V', 'i', 't', 'h', 0, 'W', 'a', 'n', 'c', 'h', 'o', ',', 'W', 'c', 'h', 'o', 0, 'W', 'a', 'r', 'a', 'n', 'g', '_', 'C', 'i', 't', 'i', ',', 'W', 'a', 'r', 'a', 0, 'Y', 'e', 'z', 'i', 'd', 'i', ',', 'Y', 'e', 'z', 'i', 0, 'Y', 'i', ',', 'Y', 'i', 'i', 'i', 0, 'Z', 'a', 'n', 'a', 'b', 'a', 'z', 'a', 'r', '_', 'S', 'q', 'u', 'a', 'r', 'e', ',', 'Z', 'a', 'n', 'b'}
 var _unicode_script_table = [2720]Tuint8_t{
@@ -147003,18 +143678,13 @@ var _unicode_prop_Default_Ignorable_Code_Point_table = [51]Tuint8_t{
 	50: uint8(0xff),
 }
 
-type TUnicodePropertyEnum = int32
-
-const EUNICODE_PROP_Hyphen = 0
 const EUNICODE_PROP_Other_Math = 1
 const EUNICODE_PROP_Other_Alphabetic = 2
 const EUNICODE_PROP_Other_Lowercase = 3
 const EUNICODE_PROP_Other_Uppercase = 4
 const EUNICODE_PROP_Other_Grapheme_Extend = 5
-const EUNICODE_PROP_Other_Default_Ignorable_Code_Point = 6
 const EUNICODE_PROP_Other_ID_Start = 7
 const EUNICODE_PROP_Other_ID_Continue = 8
-const EUNICODE_PROP_Prepended_Concatenation_Mark = 9
 const EUNICODE_PROP_ID_Continue1 = 10
 const EUNICODE_PROP_XID_Start1 = 11
 const EUNICODE_PROP_XID_Continue1 = 12
@@ -147022,39 +143692,9 @@ const EUNICODE_PROP_Changes_When_Titlecased1 = 13
 const EUNICODE_PROP_Changes_When_Casefolded1 = 14
 const EUNICODE_PROP_Changes_When_NFKC_Casefolded1 = 15
 const EUNICODE_PROP_ASCII_Hex_Digit = 16
-const EUNICODE_PROP_Bidi_Control = 17
-const EUNICODE_PROP_Dash = 18
-const EUNICODE_PROP_Deprecated = 19
-const EUNICODE_PROP_Diacritic = 20
-const EUNICODE_PROP_Extender = 21
-const EUNICODE_PROP_Hex_Digit = 22
-const EUNICODE_PROP_IDS_Binary_Operator = 23
-const EUNICODE_PROP_IDS_Trinary_Operator = 24
-const EUNICODE_PROP_Ideographic = 25
-const EUNICODE_PROP_Join_Control = 26
-const EUNICODE_PROP_Logical_Order_Exception = 27
-const EUNICODE_PROP_Noncharacter_Code_Point = 28
 const EUNICODE_PROP_Pattern_Syntax = 29
 const EUNICODE_PROP_Pattern_White_Space = 30
-const EUNICODE_PROP_Quotation_Mark = 31
-const EUNICODE_PROP_Radical = 32
-const EUNICODE_PROP_Regional_Indicator = 33
-const EUNICODE_PROP_Sentence_Terminal = 34
-const EUNICODE_PROP_Soft_Dotted = 35
-const EUNICODE_PROP_Terminal_Punctuation = 36
-const EUNICODE_PROP_Unified_Ideograph = 37
-const EUNICODE_PROP_Variation_Selector = 38
-const EUNICODE_PROP_White_Space = 39
-const EUNICODE_PROP_Bidi_Mirrored = 40
-const EUNICODE_PROP_Emoji = 41
-const EUNICODE_PROP_Emoji_Component = 42
-const EUNICODE_PROP_Emoji_Modifier = 43
-const EUNICODE_PROP_Emoji_Modifier_Base = 44
-const EUNICODE_PROP_Emoji_Presentation = 45
-const EUNICODE_PROP_Extended_Pictographic = 46
-const EUNICODE_PROP_Default_Ignorable_Code_Point = 47
 const EUNICODE_PROP_ID_Start = 48
-const EUNICODE_PROP_Case_Ignorable = 49
 const EUNICODE_PROP_ASCII = 50
 const EUNICODE_PROP_Alphabetic = 51
 const EUNICODE_PROP_Any = 52
@@ -147074,8 +143714,6 @@ const EUNICODE_PROP_Math = 65
 const EUNICODE_PROP_Uppercase = 66
 const EUNICODE_PROP_XID_Continue = 67
 const EUNICODE_PROP_XID_Start = 68
-const EUNICODE_PROP_Cased1 = 69
-const EUNICODE_PROP_COUNT = 70
 
 var _unicode_prop_name_table = [1042]int8{'A', 'S', 'C', 'I', 'I', '_', 'H', 'e', 'x', '_', 'D', 'i', 'g', 'i', 't', ',', 'A', 'H', 'e', 'x', 0, 'B', 'i', 'd', 'i', '_', 'C', 'o', 'n', 't', 'r', 'o', 'l', ',', 'B', 'i', 'd', 'i', '_', 'C', 0, 'D', 'a', 's', 'h', 0, 'D', 'e', 'p', 'r', 'e', 'c', 'a', 't', 'e', 'd', ',', 'D', 'e', 'p', 0, 'D', 'i', 'a', 'c', 'r', 'i', 't', 'i', 'c', ',', 'D', 'i', 'a', 0, 'E', 'x', 't', 'e', 'n', 'd', 'e', 'r', ',', 'E', 'x', 't', 0, 'H', 'e', 'x', '_', 'D', 'i', 'g', 'i', 't', ',', 'H', 'e', 'x', 0, 'I', 'D', 'S', '_', 'B', 'i', 'n', 'a', 'r', 'y', '_', 'O', 'p', 'e', 'r', 'a', 't', 'o', 'r', ',', 'I', 'D', 'S', 'B', 0, 'I', 'D', 'S', '_', 'T', 'r', 'i', 'n', 'a', 'r', 'y', '_', 'O', 'p', 'e', 'r', 'a', 't', 'o', 'r', ',', 'I', 'D', 'S', 'T', 0, 'I', 'd', 'e', 'o', 'g', 'r', 'a', 'p', 'h', 'i', 'c', ',', 'I', 'd', 'e', 'o', 0, 'J', 'o', 'i', 'n', '_', 'C', 'o', 'n', 't', 'r', 'o', 'l', ',', 'J', 'o', 'i', 'n', '_', 'C', 0, 'L', 'o', 'g', 'i', 'c', 'a', 'l', '_', 'O', 'r', 'd', 'e', 'r', '_', 'E', 'x', 'c', 'e', 'p', 't', 'i', 'o', 'n', ',', 'L', 'O', 'E', 0, 'N', 'o', 'n', 'c', 'h', 'a', 'r', 'a', 'c', 't', 'e', 'r', '_', 'C', 'o', 'd', 'e', '_', 'P', 'o', 'i', 'n', 't', ',', 'N', 'C', 'h', 'a', 'r', 0, 'P', 'a', 't', 't', 'e', 'r', 'n', '_', 'S', 'y', 'n', 't', 'a', 'x', ',', 'P', 'a', 't', '_', 'S', 'y', 'n', 0, 'P', 'a', 't', 't', 'e', 'r', 'n', '_', 'W', 'h', 'i', 't', 'e', '_', 'S', 'p', 'a', 'c', 'e', ',', 'P', 'a', 't', '_', 'W', 'S', 0, 'Q', 'u', 'o', 't', 'a', 't', 'i', 'o', 'n', '_', 'M', 'a', 'r', 'k', ',', 'Q', 'M', 'a', 'r', 'k', 0, 'R', 'a', 'd', 'i', 'c', 'a', 'l', 0, 'R', 'e', 'g', 'i', 'o', 'n', 'a', 'l', '_', 'I', 'n', 'd', 'i', 'c', 'a', 't', 'o', 'r', ',', 'R', 'I', 0, 'S', 'e', 'n', 't', 'e', 'n', 'c', 'e', '_', 'T', 'e', 'r', 'm', 'i', 'n', 'a', 'l', ',', 'S', 'T', 'e', 'r', 'm', 0, 'S', 'o', 'f', 't', '_', 'D', 'o', 't', 't', 'e', 'd', ',', 'S', 'D', 0, 'T', 'e', 'r', 'm', 'i', 'n', 'a', 'l', '_', 'P', 'u', 'n', 'c', 't', 'u', 'a', 't', 'i', 'o', 'n', ',', 'T', 'e', 'r', 'm', 0, 'U', 'n', 'i', 'f', 'i', 'e', 'd', '_', 'I', 'd', 'e', 'o', 'g', 'r', 'a', 'p', 'h', ',', 'U', 'I', 'd', 'e', 'o', 0, 'V', 'a', 'r', 'i', 'a', 't', 'i', 'o', 'n', '_', 'S', 'e', 'l', 'e', 'c', 't', 'o', 'r', ',', 'V', 'S', 0, 'W', 'h', 'i', 't', 'e', '_', 'S', 'p', 'a', 'c', 'e', ',', 's', 'p', 'a', 'c', 'e', 0, 'B', 'i', 'd', 'i', '_', 'M', 'i', 'r', 'r', 'o', 'r', 'e', 'd', ',', 'B', 'i', 'd', 'i', '_', 'M', 0, 'E', 'm', 'o', 'j', 'i', 0, 'E', 'm', 'o', 'j', 'i', '_', 'C', 'o', 'm', 'p', 'o', 'n', 'e', 'n', 't', ',', 'E', 'C', 'o', 'm', 'p', 0, 'E', 'm', 'o', 'j', 'i', '_', 'M', 'o', 'd', 'i', 'f', 'i', 'e', 'r', ',', 'E', 'M', 'o', 'd', 0, 'E', 'm', 'o', 'j', 'i', '_', 'M', 'o', 'd', 'i', 'f', 'i', 'e', 'r', '_', 'B', 'a', 's', 'e', ',', 'E', 'B', 'a', 's', 'e', 0, 'E', 'm', 'o', 'j', 'i', '_', 'P', 'r', 'e', 's', 'e', 'n', 't', 'a', 't', 'i', 'o', 'n', ',', 'E', 'P', 'r', 'e', 's', 0, 'E', 'x', 't', 'e', 'n', 'd', 'e', 'd', '_', 'P', 'i', 'c', 't', 'o', 'g', 'r', 'a', 'p', 'h', 'i', 'c', ',', 'E', 'x', 't', 'P', 'i', 'c', 't', 0, 'D', 'e', 'f', 'a', 'u', 'l', 't', '_', 'I', 'g', 'n', 'o', 'r', 'a', 'b', 'l', 'e', '_', 'C', 'o', 'd', 'e', '_', 'P', 'o', 'i', 'n', 't', ',', 'D', 'I', 0, 'I', 'D', '_', 'S', 't', 'a', 'r', 't', ',', 'I', 'D', 'S', 0, 'C', 'a', 's', 'e', '_', 'I', 'g', 'n', 'o', 'r', 'a', 'b', 'l', 'e', ',', 'C', 'I', 0, 'A', 'S', 'C', 'I', 'I', 0, 'A', 'l', 'p', 'h', 'a', 'b', 'e', 't', 'i', 'c', ',', 'A', 'l', 'p', 'h', 'a', 0, 'A', 'n', 'y', 0, 'A', 's', 's', 'i', 'g', 'n', 'e', 'd', 0, 'C', 'a', 's', 'e', 'd', 0, 'C', 'h', 'a', 'n', 'g', 'e', 's', '_', 'W', 'h', 'e', 'n', '_', 'C', 'a', 's', 'e', 'f', 'o', 'l', 'd', 'e', 'd', ',', 'C', 'W', 'C', 'F', 0, 'C', 'h', 'a', 'n', 'g', 'e', 's', '_', 'W', 'h', 'e', 'n', '_', 'C', 'a', 's', 'e', 'm', 'a', 'p', 'p', 'e', 'd', ',', 'C', 'W', 'C', 'M', 0, 'C', 'h', 'a', 'n', 'g', 'e', 's', '_', 'W', 'h', 'e', 'n', '_', 'L', 'o', 'w', 'e', 'r', 'c', 'a', 's', 'e', 'd', ',', 'C', 'W', 'L', 0, 'C', 'h', 'a', 'n', 'g', 'e', 's', '_', 'W', 'h', 'e', 'n', '_', 'N', 'F', 'K', 'C', '_', 'C', 'a', 's', 'e', 'f', 'o', 'l', 'd', 'e', 'd', ',', 'C', 'W', 'K', 'C', 'F', 0, 'C', 'h', 'a', 'n', 'g', 'e', 's', '_', 'W', 'h', 'e', 'n', '_', 'T', 'i', 't', 'l', 'e', 'c', 'a', 's', 'e', 'd', ',', 'C', 'W', 'T', 0, 'C', 'h', 'a', 'n', 'g', 'e', 's', '_', 'W', 'h', 'e', 'n', '_', 'U', 'p', 'p', 'e', 'r', 'c', 'a', 's', 'e', 'd', ',', 'C', 'W', 'U', 0, 'G', 'r', 'a', 'p', 'h', 'e', 'm', 'e', '_', 'B', 'a', 's', 'e', ',', 'G', 'r', '_', 'B', 'a', 's', 'e', 0, 'G', 'r', 'a', 'p', 'h', 'e', 'm', 'e', '_', 'E', 'x', 't', 'e', 'n', 'd', ',', 'G', 'r', '_', 'E', 'x', 't', 0, 'I', 'D', '_', 'C', 'o', 'n', 't', 'i', 'n', 'u', 'e', ',', 'I', 'D', 'C', 0, 'L', 'o', 'w', 'e', 'r', 'c', 'a', 's', 'e', ',', 'L', 'o', 'w', 'e', 'r', 0, 'M', 'a', 't', 'h', 0, 'U', 'p', 'p', 'e', 'r', 'c', 'a', 's', 'e', ',', 'U', 'p', 'p', 'e', 'r', 0, 'X', 'I', 'D', '_', 'C', 'o', 'n', 't', 'i', 'n', 'u', 'e', ',', 'X', 'I', 'D', 'C', 0, 'X', 'I', 'D', '_', 'S', 't', 'a', 'r', 't', ',', 'X', 'I', 'D', 'S'}
 var _unicode_prop_table = [50]uintptr{
@@ -147555,26 +144193,6 @@ func x_lre_is_case_ignorable(tls *libc.TLS, c Tuint32_t) (r TBOOL) {
 	return _lre_is_in_table(tls, c, uintptr(unsafe.Pointer(&_unicode_prop_Case_Ignorable_table)), uintptr(unsafe.Pointer(&_unicode_prop_Case_Ignorable_index)), libc.Int32FromUint32(libc.Uint32FromInt64(69)/libc.Uint32FromInt32(3)))
 }
 
-/* character range */
-
-func _cr_dump(tls *libc.TLS, cr uintptr) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var i int32
-	_ = i
-	i = 0
-	for {
-		if !(i < (*TCharRange)(unsafe.Pointer(cr)).Flen1) {
-			break
-		}
-		libc.Xprintf(tls, __ccgo_ts+17947, libc.VaList(bp+8, i, *(*Tuint32_t)(unsafe.Pointer((*TCharRange)(unsafe.Pointer(cr)).Fpoints + uintptr(i)*4))))
-		goto _1
-	_1:
-		;
-		i++
-	}
-}
-
 func _cr_default_realloc(tls *libc.TLS, opaque uintptr, ptr uintptr, size Tsize_t) (r uintptr) {
 	return libc.Xrealloc(tls, ptr, size)
 }
@@ -147800,8 +144418,6 @@ func x_lre_is_id_start(tls *libc.TLS, c Tuint32_t) (r TBOOL) {
 func x_lre_is_id_continue(tls *libc.TLS, c Tuint32_t) (r TBOOL) {
 	return libc.BoolInt32(x_lre_is_id_start(tls, c) != 0 || _lre_is_in_table(tls, c, uintptr(unsafe.Pointer(&_unicode_prop_ID_Continue1_table)), uintptr(unsafe.Pointer(&_unicode_prop_ID_Continue1_index)), libc.Int32FromUint32(libc.Uint32FromInt64(63)/libc.Uint32FromInt32(3))) != 0)
 }
-
-type TDecompTypeEnum = int32
 
 const EDECOMP_TYPE_C1 = 0
 const /* 16 bit char */
@@ -149414,8 +146030,6 @@ fail:
 	return -int32(1)
 }
 
-type TPropOPEnum = int32
-
 const EPOP_GC = 0
 const EPOP_PROP = 1
 const EPOP_CASE = 2
@@ -149786,10 +146400,6 @@ func x_dbuf_init2(tls *libc.TLS, s uintptr, opaque uintptr, realloc_func uintptr
 	(*TDynBuf)(unsafe.Pointer(s)).Frealloc_func = realloc_func
 }
 
-func x_dbuf_init(tls *libc.TLS, s uintptr) {
-	x_dbuf_init2(tls, s, libc.UintptrFromInt32(0), libc.UintptrFromInt32(0))
-}
-
 // C documentation
 //
 //	/* return < 0 if error */
@@ -149812,20 +146422,6 @@ func x_dbuf_realloc(tls *libc.TLS, s uintptr, new_size Tsize_t) (r int32) {
 		}
 		(*TDynBuf)(unsafe.Pointer(s)).Fbuf = new_buf
 		(*TDynBuf)(unsafe.Pointer(s)).Fallocated_size = new_size
-	}
-	return 0
-}
-
-func x_dbuf_write(tls *libc.TLS, s uintptr, offset Tsize_t, data uintptr, len1 Tsize_t) (r int32) {
-	var end Tsize_t
-	_ = end
-	end = offset + len1
-	if x_dbuf_realloc(tls, s, end) != 0 {
-		return -int32(1)
-	}
-	libc.Xmemcpy(tls, (*TDynBuf)(unsafe.Pointer(s)).Fbuf+uintptr(offset), data, len1)
-	if end > (*TDynBuf)(unsafe.Pointer(s)).Fsize {
-		(*TDynBuf)(unsafe.Pointer(s)).Fsize = end
 	}
 	return 0
 }
@@ -150711,427 +147307,42 @@ func x_rqsort(tls *libc.TLS, base uintptr, nmemb Tsize_t, size Tsize_t, cmp Tcmp
 	}
 }
 
-const MARG_MAX = 131072
-const MB0 = 0
-const MB1000000 = 4104
-const MB110 = 3
-const MB115200 = 4098
-const MB1152000 = 4105
-const MB1200 = 9
-const MB134 = 4
-const MB150 = 5
-const MB1500000 = 4106
-const MB1800 = 10
-const MB19200 = 14
-const MB200 = 6
-const MB2000000 = 4107
-const MB230400 = 4099
-const MB2400 = 11
-const MB2500000 = 4108
-const MB300 = 7
-const MB3000000 = 4109
-const MB3500000 = 4110
-const MB38400 = 15
-const MB4000000 = 4111
-const MB460800 = 4100
-const MB4800 = 12
-const MB50 = 1
-const MB500000 = 4101
-const MB57600 = 4097
-const MB576000 = 4102
-const MB600 = 8
-const MB75 = 2
-const MB921600 = 4103
-const MB9600 = 13
-const MBC_BASE_MAX = 99
-const MBC_DIM_MAX = 2048
-const MBC_SCALE_MAX = 99
-const MBC_STRING_MAX = 1000
 const MBRKINT = 2
-const MBS0 = 0
-const MBS1 = 8192
-const MBSDLY = 8192
-const MBUS_ADRALN = 1
-const MBUS_ADRERR = 2
-const MBUS_MCEERR_AO = 5
-const MBUS_MCEERR_AR = 4
-const MBUS_OBJERR = 3
-const MCBAUD = 4111
-const MCBAUDEX = 4096
-const MCHARCLASS_NAME_MAX = 14
-const MCHAR_BIT = 8
-const MCHAR_MAX = 255
-const MCHAR_MIN = 0
-const MCIBAUD = 269418496
-const MCLD_CONTINUED = 6
-const MCLD_DUMPED = 3
-const MCLD_EXITED = 1
-const MCLD_KILLED = 2
-const MCLD_STOPPED = 5
-const MCLD_TRAPPED = 4
-const MCLOCAL = 2048
-const MCMSPAR = 1073741824
-const MCOLL_WEIGHTS_MAX = 2
-const MCR0 = 0
-const MCR1 = 512
-const MCR2 = 1024
-const MCR3 = 1536
-const MCRDLY = 1536
-const MCREAD = 128
-const MCRTSCTS = 2147483648
-const MCS5 = 0
-const MCS6 = 16
-const MCS7 = 32
 const MCS8 = 48
 const MCSIZE = 48
-const MCSTOPB = 64
-const MDELAYTIMER_MAX = 2147483647
-const MDT_BLK = 6
-const MDT_CHR = 2
-const MDT_DIR = 4
-const MDT_FIFO = 1
-const MDT_LNK = 10
-const MDT_REG = 8
-const MDT_SOCK = 12
-const MDT_UNKNOWN = 0
-const MDT_WHT = 14
 const MECHO = 8
-const MECHOCTL = 512
-const MECHOE = 16
-const MECHOK = 32
-const MECHOKE = 2048
 const MECHONL = 64
-const MECHOPRT = 1024
-const MEXPR_NEST_MAX = 32
-const MEXTA = 14
-const MEXTB = 15
-const MEXTPROC = 65536
-const MFF0 = 0
-const MFF1 = 32768
-const MFFDLY = 32768
-const MFILESIZEBITS = 64
-const MFIOASYNC = 21586
-const MFIOCLEX = 21585
-const MFIOGETOWN = 35075
-const MFIONBIO = 21537
-const MFIONCLEX = 21584
-const MFIONREAD = 21531
-const MFIOQSIZE = 21600
-const MFIOSETOWN = 35073
-const MFLUSHO = 4096
-const MFPE_FLTDIV = 3
-const MFPE_FLTINV = 7
-const MFPE_FLTOVF = 4
-const MFPE_FLTRES = 6
-const MFPE_FLTSUB = 8
-const MFPE_FLTUND = 5
-const MFPE_INTDIV = 1
-const MFPE_INTOVF = 2
-const MHOST_NAME_MAX = 255
-const MHUPCL = 1024
 const MICANON = 2
 const MICRNL = 256
 const MIEXTEN = 32768
 const MIGNBRK = 1
 const MIGNCR = 128
-const MIGNPAR = 4
-const MILL_BADSTK = 8
-const MILL_COPROC = 7
-const MILL_ILLADR = 3
-const MILL_ILLOPC = 1
-const MILL_ILLOPN = 2
-const MILL_ILLTRP = 4
-const MILL_PRVOPC = 5
-const MILL_PRVREG = 6
-const MIMAXBEL = 8192
 const MINLCR = 64
-const MINPCK = 16
-const MINT_MAX = 2147483647
-const MINT_MIN = -2147483648
-const MIOV_MAX = 1024
-const MISIG = 1
 const MISTRIP = 32
-const MIUCLC = 512
-const MIUTF8 = 16384
-const MIXANY = 2048
-const MIXOFF = 4096
 const MIXON = 1024
-const MLINE_MAX = 4096
-const MLLONG_MAX = 9223372036854775807
-const MLLONG_MIN = -9223372036854775808
-const MLOGIN_NAME_MAX = 256
-const MLONG_BIT = 32
-const MLONG_MAX = 2147483647
-const MLONG_MIN = -2147483648
-const MMB_LEN_MAX = 4
-const MMINSIGSTKSZ = 2048
-const MMQ_PRIO_MAX = 32768
-const MNAME_MAX = 255
-const MNCCS = 32
-const MNGROUPS_MAX = 32
-const MNL0 = 0
-const MNL1 = 256
-const MNLDLY = 256
-const MNL_ARGMAX = 9
-const MNL_LANGMAX = 32
-const MNL_MSGMAX = 32767
-const MNL_NMAX = 16
-const MNL_SETMAX = 255
-const MNL_TEXTMAX = 2048
-const MNOFLSH = 128
-const MNSIG = 65
-const MNZERO = 20
-const MN_6PACK = 7
-const MN_AX25 = 5
-const MN_CAIF = 20
-const MN_GIGASET_M101 = 16
-const MN_GSM0710 = 21
-const MN_HCI = 15
-const MN_HDLC = 13
-const MN_IRDA = 11
-const MN_MASC = 8
-const MN_MOUSE = 2
-const MN_NCI = 25
-const MN_NULL = 27
-const MN_PPP = 3
-const MN_PPS = 18
-const MN_PROFIBUS_FDL = 10
-const MN_R3964 = 9
-const MN_SLCAN = 17
-const MN_SLIP = 1
-const MN_SMSBLOCK = 12
-const MN_SPEAKUP = 26
-const MN_STRIP = 4
-const MN_SYNC_PPP = 14
-const MN_TI_WL = 22
-const MN_TRACEROUTER = 24
-const MN_TRACESINK = 23
-const MN_TTY = 0
-const MN_V253 = 19
-const MN_X25 = 6
-const MOCRNL = 8
-const MOFDEL = 128
-const MOFILL = 64
-const MOLCUC = 2
-const MONLCR = 4
-const MONLRET = 32
-const MONOCR = 16
 const MOPOST = 1
-const MOS_PLATFORM = "linux"
-const MPAGESIZE = 4096
-const MPAGE_SIZE = 4096
 const MPARENB = 256
 const MPARMRK = 8
-const MPARODD = 512
 const MPATH_MAX = 4096
-const MPENDIN = 16384
-const MPIPE_BUF = 4096
-const MPOLL_ERR = 4
-const MPOLL_HUP = 6
-const MPOLL_IN = 1
-const MPOLL_MSG = 3
-const MPOLL_OUT = 2
-const MPOLL_PRI = 5
-const MPRIO_MAX = 20
-const MPRIO_MIN = -20
-const MPRIO_PGRP = 1
-const MPRIO_PROCESS = 0
-const MPRIO_USER = 2
-const MPTHREAD_DESTRUCTOR_ITERATIONS = 4
-const MPTHREAD_KEYS_MAX = 128
-const MPTHREAD_STACK_MIN = 2048
-const MRE_DUP_MAX = 255
-const MRLIMIT_AS = 9
-const MRLIMIT_CORE = 4
-const MRLIMIT_CPU = 0
-const MRLIMIT_DATA = 2
-const MRLIMIT_FSIZE = 1
-const MRLIMIT_LOCKS = 10
-const MRLIMIT_MEMLOCK = 8
-const MRLIMIT_MSGQUEUE = 12
-const MRLIMIT_NICE = 13
-const MRLIMIT_NLIMITS = 16
-const MRLIMIT_NOFILE = 7
-const MRLIMIT_NPROC = 6
-const MRLIMIT_RSS = 5
-const MRLIMIT_RTPRIO = 14
-const MRLIMIT_RTTIME = 15
-const MRLIMIT_SIGPENDING = 11
-const MRLIMIT_STACK = 3
-const MRLIM_INFINITY = 18446744073709551615
-const MRLIM_NLIMITS = 16
-const MRLIM_SAVED_CUR = 18446744073709551615
-const MRLIM_SAVED_MAX = 18446744073709551615
-const MRTLD_DI_LINKMAP = 2
-const MRTLD_GLOBAL = 256
-const MRTLD_LAZY = 1
 const MRTLD_LOCAL = 0
-const MRTLD_NEXT = -1
-const MRTLD_NODELETE = 4096
-const MRTLD_NOLOAD = 4
 const MRTLD_NOW = 2
-const MRUSAGE_CHILDREN = -1
-const MRUSAGE_SELF = 0
-const MRUSAGE_THREAD = 1
-const MSA_EXPOSE_TAGBITS = 2048
-const MSA_NOCLDSTOP = 1
-const MSA_NOCLDWAIT = 2
-const MSA_NODEFER = 1073741824
-const MSA_NOMASK = 1073741824
-const MSA_ONESHOT = 2147483648
-const MSA_ONSTACK = 134217728
-const MSA_RESETHAND = 2147483648
-const MSA_RESTART = 268435456
-const MSA_RESTORER = 67108864
-const MSA_SIGINFO = 4
-const MSA_UNSUPPORTED = 1024
-const MSCHAR_MAX = 127
-const MSCHAR_MIN = -128
-const MSEGV_ACCERR = 2
-const MSEGV_BNDERR = 3
-const MSEGV_MAPERR = 1
-const MSEGV_MTEAERR = 8
-const MSEGV_MTESERR = 9
-const MSEGV_PKUERR = 4
-const MSEM_NSEMS_MAX = 256
-const MSEM_VALUE_MAX = 2147483647
-const MSHRT_MAX = 32767
-const MSHRT_MIN = -32768
 const MSIGABRT = 6
 const MSIGALRM = 14
-const MSIGBUS = 7
 const MSIGCHLD = 17
 const MSIGCONT = 18
-const MSIGEV_NONE = 1
-const MSIGEV_SIGNAL = 0
-const MSIGEV_THREAD = 2
-const MSIGEV_THREAD_ID = 4
 const MSIGFPE = 8
-const MSIGHUP = 1
 const MSIGILL = 4
 const MSIGINT = 2
-const MSIGIO = 29
-const MSIGIOT = 6
-const MSIGKILL = 9
 const MSIGPIPE = 13
-const MSIGPOLL = 29
-const MSIGPROF = 27
-const MSIGPWR = 30
 const MSIGQUIT = 3
-const MSIGRTMAX = 0
-const MSIGRTMIN = 0
 const MSIGSEGV = 11
-const MSIGSTKFLT = 16
-const MSIGSTKSZ = 8192
 const MSIGSTOP = 19
-const MSIGSYS = 31
 const MSIGTERM = 15
-const MSIGTRAP = 5
 const MSIGTSTP = 20
 const MSIGTTIN = 21
 const MSIGTTOU = 22
-const MSIGUNUSED = 31
-const MSIGURG = 23
 const MSIGUSR1 = 10
 const MSIGUSR2 = 12
-const MSIGVTALRM = 26
-const MSIGWINCH = 28
-const MSIGXCPU = 24
-const MSIGXFSZ = 25
-const MSIG_BLOCK = 0
-const MSIG_SETMASK = 2
-const MSIG_UNBLOCK = 1
-const MSIOCADDDLCI = 35200
-const MSIOCADDMULTI = 35121
-const MSIOCADDRT = 35083
-const MSIOCATMARK = 35077
-const MSIOCDARP = 35155
-const MSIOCDELDLCI = 35201
-const MSIOCDELMULTI = 35122
-const MSIOCDELRT = 35084
-const MSIOCDEVPRIVATE = 35312
-const MSIOCDIFADDR = 35126
-const MSIOCDRARP = 35168
-const MSIOCGARP = 35156
-const MSIOCGIFADDR = 35093
-const MSIOCGIFBR = 35136
-const MSIOCGIFBRDADDR = 35097
-const MSIOCGIFCONF = 35090
-const MSIOCGIFCOUNT = 35128
-const MSIOCGIFDSTADDR = 35095
-const MSIOCGIFENCAP = 35109
-const MSIOCGIFFLAGS = 35091
-const MSIOCGIFHWADDR = 35111
-const MSIOCGIFINDEX = 35123
-const MSIOCGIFMAP = 35184
-const MSIOCGIFMEM = 35103
-const MSIOCGIFMETRIC = 35101
-const MSIOCGIFMTU = 35105
-const MSIOCGIFNAME = 35088
-const MSIOCGIFNETMASK = 35099
-const MSIOCGIFPFLAGS = 35125
-const MSIOCGIFSLAVE = 35113
-const MSIOCGIFTXQLEN = 35138
-const MSIOCGPGRP = 35076
-const MSIOCGRARP = 35169
-const MSIOCGSTAMP = 2147518726
-const MSIOCGSTAMPNS = 2147518727
-const MSIOCPROTOPRIVATE = 35296
-const MSIOCRTMSG = 35085
-const MSIOCSARP = 35157
-const MSIOCSIFADDR = 35094
-const MSIOCSIFBR = 35137
-const MSIOCSIFBRDADDR = 35098
-const MSIOCSIFDSTADDR = 35096
-const MSIOCSIFENCAP = 35110
-const MSIOCSIFFLAGS = 35092
-const MSIOCSIFHWADDR = 35108
-const MSIOCSIFHWBROADCAST = 35127
-const MSIOCSIFLINK = 35089
-const MSIOCSIFMAP = 35185
-const MSIOCSIFMEM = 35104
-const MSIOCSIFMETRIC = 35102
-const MSIOCSIFMTU = 35106
-const MSIOCSIFNAME = 35107
-const MSIOCSIFNETMASK = 35100
-const MSIOCSIFPFLAGS = 35124
-const MSIOCSIFSLAVE = 35120
-const MSIOCSIFTXQLEN = 35139
-const MSIOCSPGRP = 35074
-const MSIOCSRARP = 35170
-const MSIOGIFINDEX = 35123
-const MSI_ASYNCIO = -4
-const MSI_ASYNCNL = -60
-const MSI_KERNEL = 128
-const MSI_MESGQ = -3
-const MSI_QUEUE = -1
-const MSI_SIGIO = -5
-const MSI_TIMER = -2
-const MSI_TKILL = -6
-const MSI_USER = 0
-const MSSIZE_MAX = 2147483647
-const MSS_AUTODISARM = 2147483648
-const MSS_DISABLE = 2
-const MSS_FLAG_BITS = 2147483648
-const MSS_ONSTACK = 1
-const MSTATX_ALL = 4095
-const MSTATX_ATIME = 32
-const MSTATX_BASIC_STATS = 2047
-const MSTATX_BLOCKS = 1024
-const MSTATX_BTIME = 2048
-const MSTATX_CTIME = 128
-const MSTATX_GID = 16
-const MSTATX_INO = 256
-const MSTATX_MODE = 2
-const MSTATX_MTIME = 64
-const MSTATX_NLINK = 4
-const MSTATX_SIZE = 512
-const MSTATX_TYPE = 1
-const MSTATX_UID = 8
-const MSYMLOOP_MAX = 40
-const MSYS_SECCOMP = 1
-const MSYS_USER_DISPATCH = 2
-const MS_IEXEC = 64
 const MS_IFBLK = 24576
 const MS_IFCHR = 8192
 const MS_IFDIR = 16384
@@ -151140,400 +147351,11 @@ const MS_IFLNK = 40960
 const MS_IFMT = 61440
 const MS_IFREG = 32768
 const MS_IFSOCK = 49152
-const MS_IREAD = 256
-const MS_IWRITE = 128
-const MTAB0 = 0
-const MTAB1 = 2048
-const MTAB2 = 4096
-const MTAB3 = 6144
-const MTABDLY = 6144
-const MTCFLSH = 21515
-const MTCGETA = 21509
-const MTCGETS = 21505
-const MTCGETX = 21554
-const MTCIFLUSH = 0
-const MTCIOFF = 2
-const MTCIOFLUSH = 2
-const MTCION = 3
-const MTCOFLUSH = 1
-const MTCOOFF = 0
-const MTCOON = 1
-const MTCSADRAIN = 1
-const MTCSAFLUSH = 2
 const MTCSANOW = 0
-const MTCSBRK = 21513
-const MTCSBRKP = 21541
-const MTCSETA = 21510
-const MTCSETAF = 21512
-const MTCSETAW = 21511
-const MTCSETS = 21506
-const MTCSETSF = 21508
-const MTCSETSW = 21507
-const MTCSETX = 21555
-const MTCSETXF = 21556
-const MTCSETXW = 21557
-const MTCXONC = 21514
-const MTIOCCBRK = 21544
-const MTIOCCONS = 21533
-const MTIOCEXCL = 21516
-const MTIOCGDEV = 2147767346
-const MTIOCGETD = 21540
-const MTIOCGEXCL = 2147767360
-const MTIOCGICOUNT = 21597
-const MTIOCGISO7816 = 2150126658
-const MTIOCGLCKTRMIOS = 21590
-const MTIOCGPGRP = 21519
-const MTIOCGPKT = 2147767352
-const MTIOCGPTLCK = 2147767353
-const MTIOCGPTN = 2147767344
-const MTIOCGPTPEER = 21569
-const MTIOCGRS485 = 21550
-const MTIOCGSERIAL = 21534
-const MTIOCGSID = 21545
-const MTIOCGSOFTCAR = 21529
 const MTIOCGWINSZ = 21523
-const MTIOCINQ = 21531
-const MTIOCLINUX = 21532
-const MTIOCMBIC = 21527
-const MTIOCMBIS = 21526
-const MTIOCMGET = 21525
-const MTIOCMIWAIT = 21596
-const MTIOCMSET = 21528
-const MTIOCM_CAR = 64
-const MTIOCM_CD = 64
-const MTIOCM_CTS = 32
-const MTIOCM_DSR = 256
-const MTIOCM_DTR = 2
-const MTIOCM_LE = 1
-const MTIOCM_LOOP = 32768
-const MTIOCM_OUT1 = 8192
-const MTIOCM_OUT2 = 16384
-const MTIOCM_RI = 128
-const MTIOCM_RNG = 128
-const MTIOCM_RTS = 4
-const MTIOCM_SR = 16
-const MTIOCM_ST = 8
-const MTIOCNOTTY = 21538
-const MTIOCNXCL = 21517
-const MTIOCOUTQ = 21521
-const MTIOCPKT = 21536
-const MTIOCPKT_DATA = 0
-const MTIOCPKT_DOSTOP = 32
-const MTIOCPKT_FLUSHREAD = 1
-const MTIOCPKT_FLUSHWRITE = 2
-const MTIOCPKT_IOCTL = 64
-const MTIOCPKT_NOSTOP = 16
-const MTIOCPKT_START = 8
-const MTIOCPKT_STOP = 4
-const MTIOCSBRK = 21543
-const MTIOCSCTTY = 21518
-const MTIOCSERCONFIG = 21587
-const MTIOCSERGETLSR = 21593
-const MTIOCSERGETMULTI = 21594
-const MTIOCSERGSTRUCT = 21592
-const MTIOCSERGWILD = 21588
-const MTIOCSERSETMULTI = 21595
-const MTIOCSERSWILD = 21589
-const MTIOCSER_TEMT = 1
-const MTIOCSETD = 21539
-const MTIOCSIG = 1074025526
-const MTIOCSISO7816 = 3223868483
-const MTIOCSLCKTRMIOS = 21591
-const MTIOCSPGRP = 21520
-const MTIOCSPTLCK = 1074025521
-const MTIOCSRS485 = 21551
-const MTIOCSSERIAL = 21535
-const MTIOCSSOFTCAR = 21530
-const MTIOCSTI = 21522
-const MTIOCSWINSZ = 21524
-const MTIOCVHANGUP = 21559
-const MTOSTOP = 256
-const MTRAP_BRANCH = 3
-const MTRAP_BRKPT = 1
-const MTRAP_HWBKPT = 4
-const MTRAP_TRACE = 2
-const MTRAP_UNK = 5
-const MTTY_NAME_MAX = 32
-const MTZNAME_MAX = 6
-const MUCHAR_MAX = 255
-const MUINT_MAX = 4294967295
-const MULLONG_MAX = 18446744073709551615
-const MULONG_MAX = 4294967295
 const MURL_GET_BUF_SIZE = 4096
-const MURL_GET_PROGRAM = "curl -s -i --"
-const MUSHRT_MAX = 65535
-const MUTIME_NOW = 1073741823
-const MUTIME_OMIT = 1073741822
-const MVDISCARD = 13
-const MVEOF = 4
-const MVEOL = 11
-const MVEOL2 = 16
-const MVERASE = 2
-const MVINTR = 0
-const MVKILL = 3
-const MVLNEXT = 15
-const MVMIN = 6
-const MVQUIT = 1
-const MVREPRINT = 12
-const MVSTART = 8
-const MVSTOP = 9
-const MVSUSP = 10
-const MVSWTC = 7
-const MVT0 = 0
-const MVT1 = 16384
-const MVTDLY = 16384
-const MVTIME = 5
-const MVWERASE = 14
-const MWCONTINUED = 8
-const MWEXITED = 4
-const MWNOWAIT = 16777216
-const MWORD_BIT = 32
-const MWSTOPPED = 2
-const MXCASE = 4
-const MXTABS = 6144
-const M_IOC_NONE = 0
-const M_IOC_READ = 2
-const M_IOC_WRITE = 1
-const M_NSIG = 65
-const M_POSIX2_BC_BASE_MAX = 99
-const M_POSIX2_BC_DIM_MAX = 2048
-const M_POSIX2_BC_SCALE_MAX = 99
-const M_POSIX2_BC_STRING_MAX = 1000
-const M_POSIX2_CHARCLASS_NAME_MAX = 14
-const M_POSIX2_COLL_WEIGHTS_MAX = 2
-const M_POSIX2_EXPR_NEST_MAX = 32
-const M_POSIX2_LINE_MAX = 2048
-const M_POSIX2_RE_DUP_MAX = 255
-const M_POSIX_AIO_LISTIO_MAX = 2
-const M_POSIX_AIO_MAX = 1
-const M_POSIX_ARG_MAX = 4096
-const M_POSIX_CHILD_MAX = 25
-const M_POSIX_CLOCKRES_MIN = 20000000
-const M_POSIX_DELAYTIMER_MAX = 32
-const M_POSIX_HOST_NAME_MAX = 255
-const M_POSIX_LINK_MAX = 8
-const M_POSIX_LOGIN_NAME_MAX = 9
-const M_POSIX_MAX_CANON = 255
-const M_POSIX_MAX_INPUT = 255
-const M_POSIX_MQ_OPEN_MAX = 8
-const M_POSIX_MQ_PRIO_MAX = 32
-const M_POSIX_NAME_MAX = 14
-const M_POSIX_NGROUPS_MAX = 8
-const M_POSIX_OPEN_MAX = 20
-const M_POSIX_PATH_MAX = 256
-const M_POSIX_PIPE_BUF = 512
-const M_POSIX_RE_DUP_MAX = 255
-const M_POSIX_RTSIG_MAX = 8
-const M_POSIX_SEM_NSEMS_MAX = 256
-const M_POSIX_SEM_VALUE_MAX = 32767
-const M_POSIX_SIGQUEUE_MAX = 32
-const M_POSIX_SSIZE_MAX = 32767
-const M_POSIX_SS_REPL_MAX = 4
-const M_POSIX_STREAM_MAX = 8
-const M_POSIX_SYMLINK_MAX = 255
-const M_POSIX_SYMLOOP_MAX = 8
-const M_POSIX_THREAD_DESTRUCTOR_ITERATIONS = 4
-const M_POSIX_THREAD_KEYS_MAX = 128
-const M_POSIX_THREAD_THREADS_MAX = 64
-const M_POSIX_TIMER_MAX = 32
-const M_POSIX_TRACE_EVENT_NAME_MAX = 30
-const M_POSIX_TRACE_NAME_MAX = 8
-const M_POSIX_TRACE_SYS_MAX = 8
-const M_POSIX_TRACE_USER_EVENT_MAX = 32
-const M_POSIX_TTY_NAME_MAX = 9
-const M_POSIX_TZNAME_MAX = 6
-const M_XOPEN_IOV_MAX = 16
-const M_XOPEN_NAME_MAX = 255
-const M_XOPEN_PATH_MAX = 1024
-const M__WALL = 1073741824
-const M__WCLONE = 2147483648
-const M__WNOTHREAD = 536870912
-const M__ucontext = 0
-const Md_fileno = 0
-const Mprlimit64 = 0
-
-type Tsigevent = struct {
-	Fsigev_value  Tsigval
-	Fsigev_signo  int32
-	Fsigev_notify int32
-	F__sev_fields struct {
-		Fsigev_notify_thread_id [0]Tpid_t
-		F__sev_thread           [0]struct {
-			Fsigev_notify_function   uintptr
-			Fsigev_notify_attributes uintptr
-		}
-		F__pad [52]int8
-	}
-}
-
-type Tstack_t = struct {
-	Fss_sp    uintptr
-	Fss_flags int32
-	Fss_size  Tsize_t
-}
-
-type Tsigaltstack = Tstack_t
-
-const EREG_GS = 0
-const EREG_FS = 1
-const EREG_ES = 2
-const EREG_DS = 3
-const EREG_EDI = 4
-const EREG_ESI = 5
-const EREG_EBP = 6
-const EREG_ESP = 7
-const EREG_EBX = 8
-const EREG_EDX = 9
-const EREG_ECX = 10
-const EREG_EAX = 11
-const EREG_TRAPNO = 12
-const EREG_ERR = 13
-const EREG_EIP = 14
-const EREG_CS = 15
-const EREG_EFL = 16
-const EREG_UESP = 17
-const EREG_SS = 18
-
-type Tgreg_t = int32
-
-type Tgregset_t = [19]int32
-
-type Tfpregset_t = uintptr
-
-type T_fpstate = struct {
-	Fcw      uint32
-	Fsw      uint32
-	Ftag     uint32
-	Fipoff   uint32
-	Fcssel   uint32
-	Fdataoff uint32
-	Fdatasel uint32
-	F_st     [8]struct {
-		Fsignificand [4]uint16
-		Fexponent    uint16
-	}
-	Fstatus uint32
-}
-
-type Tsigcontext = struct {
-	Fgs            uint16
-	F__gsh         uint16
-	Ffs            uint16
-	F__fsh         uint16
-	Fes            uint16
-	F__esh         uint16
-	Fds            uint16
-	F__dsh         uint16
-	Fedi           uint32
-	Fesi           uint32
-	Febp           uint32
-	Fesp           uint32
-	Febx           uint32
-	Fedx           uint32
-	Fecx           uint32
-	Feax           uint32
-	Ftrapno        uint32
-	Ferr           uint32
-	Feip           uint32
-	Fcs            uint16
-	F__csh         uint16
-	Feflags        uint32
-	Fesp_at_signal uint32
-	Fss            uint16
-	F__ssh         uint16
-	Ffpstate       uintptr
-	Foldmask       uint32
-	Fcr2           uint32
-}
-
-type Tmcontext_t = struct {
-	Fgregs   Tgregset_t
-	Ffpregs  Tfpregset_t
-	Foldmask uint32
-	Fcr2     uint32
-}
-
-type Tucontext_t = struct {
-	Fuc_flags     uint32
-	Fuc_link      uintptr
-	Fuc_stack     Tstack_t
-	Fuc_mcontext  Tmcontext_t
-	Fuc_sigmask   Tsigset_t
-	F__fpregs_mem [28]uint32
-}
-
-type Tucontext = Tucontext_t
-
-type Tsigval = struct {
-	Fsival_ptr [0]uintptr
-	Fsival_int int32
-}
-
-type Tsiginfo_t = struct {
-	Fsi_signo    int32
-	Fsi_errno    int32
-	Fsi_code     int32
-	F__si_fields struct {
-		F__si_common [0]struct {
-			F__first struct {
-				F__timer [0]struct {
-					Fsi_timerid int32
-					Fsi_overrun int32
-				}
-				F__piduid struct {
-					Fsi_pid Tpid_t
-					Fsi_uid Tuid_t
-				}
-			}
-			F__second struct {
-				F__sigchld [0]struct {
-					Fsi_status int32
-					Fsi_utime  Tclock_t
-					Fsi_stime  Tclock_t
-				}
-				Fsi_value    Tsigval
-				F__ccgo_pad2 [8]byte
-			}
-		}
-		F__sigfault [0]struct {
-			Fsi_addr     uintptr
-			Fsi_addr_lsb int16
-			F__first     struct {
-				Fsi_pkey    [0]uint32
-				F__addr_bnd struct {
-					Fsi_lower uintptr
-					Fsi_upper uintptr
-				}
-			}
-		}
-		F__sigpoll [0]struct {
-			Fsi_band int32
-			Fsi_fd   int32
-		}
-		F__sigsys [0]struct {
-			Fsi_call_addr uintptr
-			Fsi_syscall   int32
-			Fsi_arch      uint32
-		}
-		F__pad [116]int8
-	}
-}
-
-type Tsigaction = struct {
-	F__sa_handler struct {
-		Fsa_sigaction [0]uintptr
-		Fsa_handler   uintptr
-	}
-	Fsa_mask     Tsigset_t
-	Fsa_flags    int32
-	Fsa_restorer uintptr
-}
-
-type Tsig_t = uintptr
 
 type Tsighandler_t = uintptr
-
-type Tsig_atomic_t = int32
 
 type Tnlink_t = uint32
 
@@ -151576,51 +147398,6 @@ type Tstat = struct {
 	Fst_ctim Ttimespec
 }
 
-type Tstatx_timestamp = struct {
-	Ftv_sec  Tint64_t
-	Ftv_nsec Tuint32_t
-	F__pad   Tuint32_t
-}
-
-type Tstatx = struct {
-	Fstx_mask            Tuint32_t
-	Fstx_blksize         Tuint32_t
-	Fstx_attributes      Tuint64_t
-	Fstx_nlink           Tuint32_t
-	Fstx_uid             Tuint32_t
-	Fstx_gid             Tuint32_t
-	Fstx_mode            Tuint16_t
-	F__pad0              [1]Tuint16_t
-	Fstx_ino             Tuint64_t
-	Fstx_size            Tuint64_t
-	Fstx_blocks          Tuint64_t
-	Fstx_attributes_mask Tuint64_t
-	Fstx_atime           Tstatx_timestamp
-	Fstx_btime           Tstatx_timestamp
-	Fstx_ctime           Tstatx_timestamp
-	Fstx_mtime           Tstatx_timestamp
-	Fstx_rdev_major      Tuint32_t
-	Fstx_rdev_minor      Tuint32_t
-	Fstx_dev_major       Tuint32_t
-	Fstx_dev_minor       Tuint32_t
-	F__pad1              [14]Tuint64_t
-}
-
-type Tdirent = struct {
-	Fd_ino    Tino_t
-	Fd_off    Toff_t
-	Fd_reclen uint16
-	Fd_type   uint8
-	Fd_name   [256]int8
-}
-
-type TDl_info = struct {
-	Fdli_fname uintptr
-	Fdli_fbase uintptr
-	Fdli_sname uintptr
-	Fdli_saddr uintptr
-}
-
 type Twinsize = struct {
 	Fws_row    uint16
 	Fws_col    uint16
@@ -151643,42 +147420,6 @@ type Ttermios = struct {
 	Fc_cc       [32]Tcc_t
 	F__c_ispeed Tspeed_t
 	F__c_ospeed Tspeed_t
-}
-
-type Tid_t = uint32
-
-type Tidtype_t = int32
-
-const EP_ALL = 0
-const EP_PID = 1
-const EP_PGID = 2
-const EP_PIDFD = 3
-
-type Trlim_t = uint64
-
-type Trlimit = struct {
-	Frlim_cur Trlim_t
-	Frlim_max Trlim_t
-}
-
-type Trusage = struct {
-	Fru_utime    Ttimeval
-	Fru_stime    Ttimeval
-	Fru_maxrss   int32
-	Fru_ixrss    int32
-	Fru_idrss    int32
-	Fru_isrss    int32
-	Fru_minflt   int32
-	Fru_majflt   int32
-	Fru_nswap    int32
-	Fru_inblock  int32
-	Fru_oublock  int32
-	Fru_msgsnd   int32
-	Fru_msgrcv   int32
-	Fru_nsignals int32
-	Fru_nvcsw    int32
-	Fru_nivcsw   int32
-	F__reserved  [16]int32
 }
 
 /* TODO:
@@ -161474,20 +157215,12 @@ const MCHUD_BITS_PER_TERM = 47
 const MCHUD_C = 640320
 const MDIVNORM_LARGE_THRESHOLD = 50
 const MDIV_STATIC_ALLOC_LEN = 16
-const MFFT_MUL_R_NORESIZE = 4
-const MFFT_MUL_R_OVERLAP_A = 1
-const MFFT_MUL_R_OVERLAP_B = 2
 const MFFT_MUL_THRESHOLD = 100
-const MFMT_LIMB = "%08x"
-const MFMT_LIMB1 = "%x"
 const MNB_MODS = 5
 const MNTT_MOD_LOG2_MAX = 30
 const MNTT_MOD_LOG2_MIN = 29
 const MNTT_PROOT_2EXP = 20
 const MNTT_TRIG_K_MAX = 19
-const MPRId_LIMB = "d"
-const MPRIu_LIMB = "u"
-const MRADIXL_10 = 1000000000
 const MSTRIP_LEN = 16
 const MUDIV1NORM_THRESHOLD = 3
 
@@ -161589,13 +157322,6 @@ func _sat_add(tls *libc.TLS, a Tslimb_t, b Tslimb_t) (r1 Tslimb_t) {
 		r = libc.Int32FromUint32(libc.Uint32FromInt32(a>>(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)-libc.Int32FromInt32(1))) ^ (libc.Uint32FromInt32(1)<<(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)-libc.Int32FromInt32(1)) - libc.Uint32FromInt32(1)))
 	}
 	return r
-}
-
-func _shrd(tls *libc.TLS, low Tlimb_t, high Tlimb_t, shift int32) (r Tlimb_t) {
-	if shift != 0 {
-		low = low>>shift | high<<(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)-shift)
-	}
-	return low
 }
 
 func _shld(tls *libc.TLS, a1 Tlimb_t, a0 Tlimb_t, shift int32) (r Tlimb_t) {
@@ -162217,113 +157943,6 @@ func x_bf_round(tls *libc.TLS, r uintptr, prec Tlimb_t, flags Tbf_flags_t) (r1 i
 		return 0
 	}
 	return ___bf_round(tls, r, prec, flags, (*Tbf_t)(unsafe.Pointer(r)).Flen1, 0)
-}
-
-// C documentation
-//
-//	/* for debugging */
-func _dump_limbs(tls *libc.TLS, str uintptr, tab uintptr, n Tlimb_t) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var i Tlimb_t
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+20022, libc.VaList(bp+8, str, n))
-	i = uint32(0)
-	for {
-		if !(i < n) {
-			break
-		}
-		libc.Xprintf(tls, __ccgo_ts+20034, libc.VaList(bp+8, i, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
-		goto _1
-	_1:
-		;
-		i++
-	}
-}
-
-func x_mp_print_str(tls *libc.TLS, str uintptr, tab uintptr, n Tlimb_t) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var i Tslimb_t
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+20044, libc.VaList(bp+8, str))
-	i = libc.Int32FromUint32(n - uint32(1))
-	for {
-		if !(i >= 0) {
-			break
-		}
-		if libc.Uint32FromInt32(i) != n-uint32(1) {
-			libc.Xprintf(tls, __ccgo_ts+20051, 0)
-		}
-		libc.Xprintf(tls, __ccgo_ts+20053, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
-		goto _1
-	_1:
-		;
-		i--
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
-}
-
-func _mp_print_str_h(tls *libc.TLS, str uintptr, tab uintptr, n Tlimb_t, high Tlimb_t) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var i Tslimb_t
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+20044, libc.VaList(bp+8, str))
-	libc.Xprintf(tls, __ccgo_ts+20053, libc.VaList(bp+8, high))
-	i = libc.Int32FromUint32(n - uint32(1))
-	for {
-		if !(i >= 0) {
-			break
-		}
-		libc.Xprintf(tls, __ccgo_ts+20051, 0)
-		libc.Xprintf(tls, __ccgo_ts+20053, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
-		goto _1
-	_1:
-		;
-		i--
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
-}
-
-// C documentation
-//
-//	/* for debugging */
-func x_bf_print_str(tls *libc.TLS, str uintptr, a uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var i Tslimb_t
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+4350, libc.VaList(bp+8, str))
-	if (*Tbf_t)(unsafe.Pointer(a)).Fexpn == int32(MINT32_MAX) {
-		libc.Xprintf(tls, __ccgo_ts+3861, 0)
-	} else {
-		if (*Tbf_t)(unsafe.Pointer(a)).Fsign != 0 {
-			libc.Xputchar(tls, int32('-'))
-		}
-		if (*Tbf_t)(unsafe.Pointer(a)).Fexpn == -libc.Int32FromInt32(1)-libc.Int32FromInt32(0x7fffffff) {
-			libc.Xputchar(tls, int32('0'))
-		} else {
-			if (*Tbf_t)(unsafe.Pointer(a)).Fexpn == libc.Int32FromInt32(MINT32_MAX)-libc.Int32FromInt32(1) {
-				libc.Xprintf(tls, __ccgo_ts+20058, 0)
-			} else {
-				libc.Xprintf(tls, __ccgo_ts+20062, 0)
-				i = libc.Int32FromUint32((*Tbf_t)(unsafe.Pointer(a)).Flen1 - uint32(1))
-				for {
-					if !(i >= 0) {
-						break
-					}
-					libc.Xprintf(tls, __ccgo_ts+20053, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer((*Tbf_t)(unsafe.Pointer(a)).Ftab + uintptr(i)*4))))
-					goto _1
-				_1:
-					;
-					i--
-				}
-				libc.Xprintf(tls, __ccgo_ts+20067, libc.VaList(bp+8, (*Tbf_t)(unsafe.Pointer(a)).Fexpn))
-			}
-		}
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
 }
 
 // C documentation
@@ -164022,13 +159641,6 @@ func x_bf_remquo(tls *libc.TLS, pq uintptr, r1 uintptr, a uintptr, b uintptr, pr
 	_3:
 	}
 	return ret
-}
-
-func _mul_mod(tls *libc.TLS, a Tlimb_t, b Tlimb_t, m Tlimb_t) (r Tlimb_t) {
-	var t Tdlimb_t
-	_ = t
-	t = uint64(a) * uint64(b)
-	return uint32(t % uint64(m))
 }
 
 var _sqrt_table = [192]Tuint16_t{
@@ -168992,42 +164604,6 @@ type TFastDivData = struct {
 	Fshift2 Tint8_t
 }
 
-// C documentation
-//
-//	/* From "Division by Invariant Integers using Multiplication" by
-//	   Torborn Granlund and Peter L. Montgomery */
-//	/* d must be != 0 */
-func _fast_udiv_init(tls *libc.TLS, s uintptr, d Tlimb_t) {
-	var __b, m1, q, r Tlimb_t
-	var __t Tuint64_t
-	var l, v1 int32
-	_, _, _, _, _, _, _ = __b, __t, l, m1, q, r, v1
-	if d == uint32(1) {
-		l = 0
-	} else {
-		v1 = libc.X__builtin_clzll(tls, uint64(d-uint32(1)))
-		goto _2
-	_2:
-		l = int32(64) - v1
-	}
-	__b = d
-	__t = uint64(libc.Uint32FromInt32(1)<<l-d)<<libc.Int32FromInt32(32) | libc.Uint64FromInt32(libc.Int32FromInt32(0))
-	q = uint32(__t / uint64(__b))
-	r = uint32(__t % uint64(__b))
-	_ = r
-	m1 = q + uint32(1)
-	//    printf("d=%lu l=%d m1=0x%016lx\n", d, l, m1);
-	(*TFastDivData)(unsafe.Pointer(s)).Fm1 = m1
-	(*TFastDivData)(unsafe.Pointer(s)).Fshift1 = int8(l)
-	if int32((*TFastDivData)(unsafe.Pointer(s)).Fshift1) > int32(1) {
-		(*TFastDivData)(unsafe.Pointer(s)).Fshift1 = int8(1)
-	}
-	(*TFastDivData)(unsafe.Pointer(s)).Fshift2 = int8(l - int32(1))
-	if int32((*TFastDivData)(unsafe.Pointer(s)).Fshift2) < 0 {
-		(*TFastDivData)(unsafe.Pointer(s)).Fshift2 = 0
-	}
-}
-
 func _fast_udiv(tls *libc.TLS, a Tlimb_t, s uintptr) (r Tlimb_t) {
 	var __t Tuint64_t
 	var t0, t1 Tlimb_t
@@ -169492,51 +165068,6 @@ func x_mp_div1_dec(tls *libc.TLS, tabr uintptr, taba uintptr, na Tmp_size_t, b T
 	return *(*Tlimb_t)(unsafe.Pointer(bp))
 }
 
-func _mp_print_str_dec(tls *libc.TLS, str uintptr, tab uintptr, n Tslimb_t) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var i Tslimb_t
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+4350, libc.VaList(bp+8, str))
-	i = n - int32(1)
-	for {
-		if !(i >= 0) {
-			break
-		}
-		if i != n-int32(1) {
-			libc.Xprintf(tls, __ccgo_ts+20051, 0)
-		}
-		libc.Xprintf(tls, __ccgo_ts+20109, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
-		goto _1
-	_1:
-		;
-		i--
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
-}
-
-func _mp_print_str_h_dec(tls *libc.TLS, str uintptr, tab uintptr, n Tslimb_t, high Tlimb_t) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var i Tslimb_t
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+4350, libc.VaList(bp+8, str))
-	libc.Xprintf(tls, __ccgo_ts+20109, libc.VaList(bp+8, int32(MLIMB_DIGITS), high))
-	i = n - int32(1)
-	for {
-		if !(i >= 0) {
-			break
-		}
-		libc.Xprintf(tls, __ccgo_ts+20051, 0)
-		libc.Xprintf(tls, __ccgo_ts+20109, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
-		goto _1
-	_1:
-		;
-		i--
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
-}
-
 //#define DEBUG_DIV_SLOW
 
 // C documentation
@@ -169979,46 +165510,6 @@ func _clz_dec(tls *libc.TLS, a Tlimb_t) (r int32) {
 		return 0
 	}
 	return r
-}
-
-// C documentation
-//
-//	/* for debugging */
-func x_bfdec_print_str(tls *libc.TLS, str uintptr, a uintptr) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var i Tslimb_t
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+4350, libc.VaList(bp+8, str))
-	if (*Tbfdec_t)(unsafe.Pointer(a)).Fexpn == int32(MINT32_MAX) {
-		libc.Xprintf(tls, __ccgo_ts+3861, 0)
-	} else {
-		if (*Tbfdec_t)(unsafe.Pointer(a)).Fsign != 0 {
-			libc.Xputchar(tls, int32('-'))
-		}
-		if (*Tbfdec_t)(unsafe.Pointer(a)).Fexpn == -libc.Int32FromInt32(1)-libc.Int32FromInt32(0x7fffffff) {
-			libc.Xputchar(tls, int32('0'))
-		} else {
-			if (*Tbfdec_t)(unsafe.Pointer(a)).Fexpn == libc.Int32FromInt32(MINT32_MAX)-libc.Int32FromInt32(1) {
-				libc.Xprintf(tls, __ccgo_ts+20058, 0)
-			} else {
-				libc.Xprintf(tls, __ccgo_ts+20090, 0)
-				i = libc.Int32FromUint32((*Tbfdec_t)(unsafe.Pointer(a)).Flen1 - uint32(1))
-				for {
-					if !(i >= 0) {
-						break
-					}
-					libc.Xprintf(tls, __ccgo_ts+20109, libc.VaList(bp+8, int32(MLIMB_DIGITS), *(*Tlimb_t)(unsafe.Pointer((*Tbfdec_t)(unsafe.Pointer(a)).Ftab + uintptr(i)*4))))
-					goto _1
-				_1:
-					;
-					i--
-				}
-				libc.Xprintf(tls, __ccgo_ts+20114, libc.VaList(bp+8, (*Tbfdec_t)(unsafe.Pointer(a)).Fexpn))
-			}
-		}
-	}
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
 }
 
 // C documentation
