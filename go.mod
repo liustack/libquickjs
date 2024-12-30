@@ -3,10 +3,10 @@ module modernc.org/libquickjs
 go 1.21
 
 require (
-	modernc.org/ccgo/v4 v4.23.5
+	modernc.org/ccgo/v4 v4.23.6
 	modernc.org/fileutil v1.3.0
 	modernc.org/gc/v3 v3.0.0-20241004144649-1aea3fae8852
-	modernc.org/libc v1.61.5
+	modernc.org/libc v1.61.6
 )
 
 require (
@@ -24,10 +24,10 @@ require (
 	golang.org/x/tools v0.23.0 // indirect
 	lukechampine.com/uint128 v1.2.0 // indirect
 	modernc.org/cc/v3 v3.41.0 // indirect
-	modernc.org/cc/v4 v4.24.1 // indirect
+	modernc.org/cc/v4 v4.24.2 // indirect
 	modernc.org/ccgo/v3 v3.17.0 // indirect
 	modernc.org/gc/v2 v2.6.0 // indirect
-	modernc.org/mathutil v1.6.0 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.8.0 // indirect
 	modernc.org/opt v0.1.3 // indirect
 	modernc.org/sortutil v1.2.0 // indirect
