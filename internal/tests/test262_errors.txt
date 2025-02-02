@@ -26,8 +26,6 @@ test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-retu
 test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined-return-object.js:66: strict mode: TypeError: $DONE() not called
 test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined.js:41: TypeError: $DONE() not called
 test262/test/built-ins/AsyncFromSyncIteratorPrototype/throw/throw-undefined.js:41: strict mode: TypeError: $DONE() not called
-test262/test/built-ins/Date/UTC/fp-evaluation-order.js:19: Test262Error: order of operations / precision in MakeTime Expected SameValue(«29256», «29312») to be true
-test262/test/built-ins/Date/UTC/fp-evaluation-order.js:19: strict mode: Test262Error: order of operations / precision in MakeTime Expected SameValue(«29256», «29312») to be true
 test262/test/language/expressions/assignment/target-member-computed-reference-null.js:32: Test262Error: Expected a DummyError but got a TypeError
 test262/test/language/expressions/assignment/target-member-computed-reference-null.js:32: strict mode: Test262Error: Expected a DummyError but got a TypeError
 test262/test/language/expressions/assignment/target-member-computed-reference-undefined.js:32: Test262Error: Expected a DummyError but got a TypeError
@@ -36,7 +34,3 @@ test262/test/language/expressions/in/private-field-invalid-assignment-target.js:
 test262/test/language/expressions/in/private-field-invalid-assignment-target.js:23: strict mode: unexpected error type: Test262: This statement should not be evaluated.
 test262/test/language/global-code/script-decl-lex-var-declared-via-eval-sloppy.js:13: Test262Error: variable Expected a SyntaxError to be thrown but no exception was thrown at all
 test262/test/language/module-code/top-level-await/async-module-does-not-block-sibling-modules.js:13: SyntaxError: Could not find export 'check' in module 'test262/test/language/module-code/top-level-await/async-module-sync_FIXTURE.js'
-test262/test/language/types/number/S8.5_A2.1.js:16: Test262Error: #1: var x = 9007199254740994.0; var y = 1.0 - 1/65536.0; var z = x + y; var d = z - x; d === 0. Actual: 2
-test262/test/language/types/number/S8.5_A2.1.js:16: strict mode: Test262Error: #1: var x = 9007199254740994.0; var y = 1.0 - 1/65536.0; var z = x + y; var d = z - x; d === 0. Actual: 2
-test262/test/language/types/number/S8.5_A2.2.js:16: Test262Error: #1: var x = 9007199254740994.0; var y = 1.0 - 1/65536.0; var z = x + y; var d = z - x; d !== 2
-test262/test/language/types/number/S8.5_A2.2.js:16: strict mode: Test262Error: #1: var x = 9007199254740994.0; var y = 1.0 - 1/65536.0; var z = x + y; var d = z - x; d !== 2
