@@ -1,9 +1,11 @@
 module modernc.org/libquickjs
 
-go 1.21
+go 1.23
+
+toolchain go1.23.5
 
 require (
-	modernc.org/ccgo/v4 v4.23.16
+	modernc.org/ccgo/v4 v4.24.0
 	modernc.org/fileutil v1.3.0
 	modernc.org/gc/v3 v3.0.0-20241004144649-1aea3fae8852
 	modernc.org/libc v1.61.13
@@ -18,13 +20,13 @@ require (
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	golang.org/x/exp v0.0.0-20231108232855-2478ac86f678 // indirect
-	golang.org/x/mod v0.19.0 // indirect
-	golang.org/x/sync v0.7.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
-	golang.org/x/tools v0.23.0 // indirect
+	golang.org/x/mod v0.23.0 // indirect
+	golang.org/x/sync v0.11.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
+	golang.org/x/tools v0.30.0 // indirect
 	lukechampine.com/uint128 v1.2.0 // indirect
 	modernc.org/cc/v3 v3.41.0 // indirect
-	modernc.org/cc/v4 v4.24.4 // indirect
+	modernc.org/cc/v4 v4.25.0 // indirect
 	modernc.org/ccgo/v3 v3.17.0 // indirect
 	modernc.org/gc/v2 v2.6.3 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
