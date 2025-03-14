@@ -4082,7 +4082,7 @@ _3:
 		;
 		i++
 	}
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if v9 != 0 {
@@ -5364,7 +5364,7 @@ func XJS_NewAtomLen(tls *libc.TLS, ctx uintptr, str uintptr, len1 Tsize_t) (r TJ
 		}
 	}
 	val = XJS_NewStringLen(tls, ctx, str, len1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -5389,7 +5389,7 @@ func XJS_NewAtomUInt32(tls *libc.TLS, ctx uintptr, n Tuint32_t) (r TJSAtom) {
 	} else {
 		libc.X__builtin_snprintf(tls, bp, uint32(11), __ccgo_ts+154, libc.VaList(bp+24, n))
 		val = XJS_NewString(tls, ctx, bp)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -5412,7 +5412,7 @@ func _JS_NewAtomInt64(tls *libc.TLS, ctx uintptr, n Tint64_t) (r TJSAtom) {
 	} else {
 		libc.X__builtin_snprintf(tls, bp, uint32(24), __ccgo_ts+157, libc.VaList(bp+32, n))
 		val = XJS_NewString(tls, ctx, bp)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -5741,14 +5741,14 @@ _4:
 	   relying on current floating point precision */
 	/* this is ECMA CanonicalNumericIndexString primitive */
 	num = _JS_ToNumber(tls, ctx3, libc.Uint64FromInt32(int32(EJS_TAG_STRING))<<libc.Int32FromInt32(32)|uint64(uint32(p1)))
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(num>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(num>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if v9 != 0 {
 		return num
 	}
 	str = XJS_ToString(tls, ctx3, num)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -5808,7 +5808,7 @@ _2:
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1 != 0)), int32(1)) != 0 {
 		return int32(EFALSE)
 	}
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(num>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(num>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -5920,7 +5920,7 @@ func XJS_AtomToCString(tls *libc.TLS, ctx2 uintptr, atom TJSAtom) (r uintptr) {
 	var v1, v6 int32
 	_, _, _, _, _, _, _, _ = cstr, p, str, v1, v3, v5, v6, v7
 	str = XJS_AtomToString(tls, ctx2, atom)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -5957,7 +5957,7 @@ func _js_atom_concat_str(tls *libc.TLS, ctx2 uintptr, name TJSAtom, str1 uintptr
 	var _ /* len at bp+0 */ Tsize_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = atom, cstr, cstr2, len1, p, str, v1, v10, v3, v5, v6, v7, v8, v9
 	str = XJS_AtomToString(tls, ctx2, name)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -6650,7 +6650,7 @@ func _string_buffer_concat_value(tls *libc.TLS, s uintptr, v2 TJSValue) (r int32
 	}
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) != int32(EJS_TAG_STRING))), 0) != 0 {
 		v11 = XJS_ToString(tls, (*TStringBuffer)(unsafe.Pointer(s)).Fctx, v2)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -6695,7 +6695,7 @@ func _string_buffer_concat_value_free(tls *libc.TLS, s uintptr, v2 TJSValue) (r 
 	}
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) != int32(EJS_TAG_STRING))), 0) != 0 {
 		v2 = _JS_ToStringFree(tls, (*TStringBuffer)(unsafe.Pointer(s)).Fctx, v2)
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -6862,7 +6862,7 @@ func _JS_ConcatString3(tls *libc.TLS, ctx1 uintptr, str1 uintptr, str2 TJSValue,
 	b = bp
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str2>>libc.Int32FromInt32(32)) != int32(EJS_TAG_STRING))), 0) != 0 {
 		str2 = _JS_ToStringFree(tls, ctx1, str2)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -6936,7 +6936,7 @@ func XJS_ToCStringLen2(tls *libc.TLS, ctx2 uintptr, plen uintptr, val1 TJSValue,
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = c11, c2, count, len1, p, p1, pos, q, src, src1, str, str_new, val, v1, v10, v11, v12, v13, v15, v17, v19, v20, v21, v3, v4, v8, v9
 	if libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) != int32(EJS_TAG_STRING) {
 		val = XJS_ToString(tls, ctx2, val1)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -7302,7 +7302,7 @@ func _JS_ConcatString(tls *libc.TLS, ctx1 uintptr, op1 TJSValue, op2 TJSValue) (
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = p, p1, p2, ret, v1, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v3, v4, v5, v6, v8, v9
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) != int32(EJS_TAG_STRING))), 0) != 0 {
 		op1 = _JS_ToStringFree(tls, ctx1, op1)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -7321,7 +7321,7 @@ func _JS_ConcatString(tls *libc.TLS, ctx1 uintptr, op1 TJSValue, op2 TJSValue) (
 	}
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) != int32(EJS_TAG_STRING))), 0) != 0 {
 		op2 = _JS_ToStringFree(tls, ctx1, op2)
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -8359,7 +8359,7 @@ func _JS_SetObjectData(tls *libc.TLS, ctx1 uintptr, obj TJSValue, val TJSValue) 
 			X__JS_FreeValue(tls, ctx1, v4)
 		}
 	}
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if !(v7 != 0) {
@@ -8506,7 +8506,7 @@ func _js_method_set_properties(tls *libc.TLS, ctx uintptr, func_obj TJSValue, na
 			name_str = _JS_ConcatString3(tls, ctx, __ccgo_ts+325, name_str, __ccgo_ts+324)
 		}
 	}
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -8529,7 +8529,7 @@ func _JS_NewCFunction3(tls *libc.TLS, ctx uintptr, func1 uintptr, name uintptr, 
 	var v1 int32
 	_, _, _, _ = func_obj, name_atom, p, v1
 	func_obj = XJS_NewObjectProtoClass(tls, ctx, proto_val, uint32(EJS_CLASS_C_FUNCTION))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -8684,7 +8684,7 @@ func XJS_NewCFunctionData(tls *libc.TLS, ctx2 uintptr, func1 uintptr, length int
 	var p, p1, s, v5 uintptr
 	_, _, _, _, _, _, _, _, _, _, _ = func_obj, i, p, p1, s, v1, v3, v4, v5, v7, v8
 	func_obj = XJS_NewObjectProtoClass(tls, ctx2, (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_proto, uint32(EJS_CLASS_C_FUNCTION_DATA))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -10900,7 +10900,7 @@ func _JS_ThrowError2(tls *libc.TLS, ctx uintptr, error_num TJSErrorEnum, fmt uin
 	_, _, _ = obj, ret, v1
 	libc.X__builtin_vsnprintf(tls, bp, uint32(256), fmt, ap)
 	obj = XJS_NewObjectProtoClass(tls, ctx, *(*TJSValue)(unsafe.Pointer(ctx + 84 + uintptr(error_num)*8)), uint32(EJS_CLASS_ERROR))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1 != 0)), 0) != 0 {
@@ -11371,7 +11371,7 @@ func _JS_OrdinaryIsInstanceOf(tls *libc.TLS, ctx3 uintptr, val TJSValue, obj TJS
 _3:
 	obj_proto = v2
 	if libc.Int32FromUint64(obj_proto>>libc.Int32FromInt32(32)) != int32(EJS_TAG_OBJECT) {
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj_proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj_proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if !(v4 != 0) {
@@ -11399,7 +11399,7 @@ _3:
 				obj1 = v8
 				for {
 					obj1 = _JS_GetPrototypeFree(tls, ctx3, obj1)
-					v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+					v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 					goto _12
 				_12:
 					if v11 != 0 {
@@ -11496,7 +11496,7 @@ _2:
 	goto _5
 _5:
 	method = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -11560,9 +11560,9 @@ func _JS_AutoInitProperty(tls *libc.TLS, ctx uintptr, p uintptr, prop TJSAtom, p
 		Fopaque       uintptr
 	})(unsafe.Pointer(pr))).Fopaque)
 	_js_autoinit_free(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, pr)
-	libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 0))&0xfc000000>>26)&int32(^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4))), 6, 26, 0xfc000000)
+	libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 0))&0xfc000000>>26) & ^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)), 6, 26, 0xfc000000)
 	*(*TJSValue)(unsafe.Pointer(pr)) = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -11655,7 +11655,7 @@ func XJS_GetPropertyInternal(tls *libc.TLS, ctx3 uintptr, obj TJSValue, prop TJS
 				} else {
 					if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(4) {
 						val1 = *(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))).Fu)))).Fpvalue))
-						v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+						v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 						goto _8
 					_8:
 						if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v7 != 0)), 0) != 0 {
@@ -11991,7 +11991,7 @@ func _JS_AddBrand(tls *libc.TLS, ctx2 uintptr, obj TJSValue, home_obj TJSValue) 
 	if !(prs != 0) {
 		/* if the brand is not present, add it */
 		brand = _JS_NewSymbolFromAtom(tls, ctx2, uint32(EJS_ATOM_brand), int32(EJS_ATOM_TYPE_PRIVATE))
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(brand>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(brand>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -12213,7 +12213,7 @@ func _JS_GetOwnPropertyNamesInternal(tls *libc.TLS, ctx uintptr, ptab uintptr, p
 				   name space (implicit GetOwnProperty) */
 				if libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(4))), 0) != 0 && flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(5)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(4)) != 0 {
 					var_ref = *(*uintptr)(unsafe.Pointer((*TJSObject)(unsafe.Pointer(p)).Fprop + uintptr(i)*8))
-					v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(var_ref)).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+					v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(var_ref)).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 					goto _3
 				_3:
 					if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v2 != 0)), 0) != 0 {
@@ -12540,7 +12540,7 @@ retry:
 				} else {
 					if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(4) {
 						val = *(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))).Fu)))).Fpvalue))
-						v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+						v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 						goto _8
 					_8:
 						if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v7 != 0)), 0) != 0 {
@@ -12582,7 +12582,7 @@ retry:
 		} else {
 			/* for consistency, send the exception even if desc is NULL */
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(4))), 0) != 0 {
-				v15 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))).Fu)))).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+				v15 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))).Fu)))).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 				goto _16
 			_16:
 				if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v15 != 0)), 0) != 0 {
@@ -12800,7 +12800,7 @@ func XJS_ValueToAtom(tls *libc.TLS, ctx uintptr, val TJSValue) (r TJSAtom) {
 			atom = XJS_DupAtom(tls, ctx, _js_get_atom_index(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, p))
 		} else {
 			str = XJS_ToPropertyKey(tls, ctx, val)
-			v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _2
 		_2:
 			if v1 != 0 {
@@ -13283,7 +13283,7 @@ func _JS_TryGetPropertyInt64(tls *libc.TLS, ctx2 uintptr, obj TJSValue, idx Tint
 			goto _2
 		_2:
 			val1 = _JS_GetPropertyValue(tls, ctx2, obj, v1)
-			v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _4
 		_4:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v3 != 0)), 0) != 0 {
@@ -13301,7 +13301,7 @@ func _JS_TryGetPropertyInt64(tls *libc.TLS, ctx2 uintptr, obj TJSValue, idx Tint
 				goto _7
 			_7:
 				val1 = v6
-				v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _9
 			_9:
 				if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v8 != 0)), 0) != 0 {
@@ -13674,7 +13674,7 @@ func _call_setter(tls *libc.TLS, ctx2 uintptr, setter uintptr, this_obj TJSValue
 				X__JS_FreeValue(tls, ctx2, v4)
 			}
 		}
-		v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _8
 	_8:
 		if v7 != 0 {
@@ -14076,7 +14076,7 @@ func _js_allocate_fast_array(tls *libc.TLS, ctx1 uintptr, len1 Tint64_t) (r TJSV
 		return XJS_ThrowRangeError(tls, ctx1, __ccgo_ts+1747, 0)
 	}
 	arr = XJS_NewArray(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -14366,7 +14366,7 @@ _12:
 						X__JS_FreeValue(tls, ctx3, v22)
 					}
 				}
-				v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _26
 			_26:
 				if v25 != 0 {
@@ -15880,7 +15880,7 @@ _13:
 						}
 					}
 				}
-				libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 8))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 0))&0xfc000000>>26)&int32(^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1))), 6, 26, 0xfc000000)
+				libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 8))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 0))&0xfc000000>>26) & ^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)), 6, 26, 0xfc000000)
 				*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 12)))) = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 			} else {
 				if int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(4) {
@@ -15939,7 +15939,7 @@ _13:
 					val11 = v37
 					_free_var_ref(tls, (*TJSContext)(unsafe.Pointer(ctx5)).Frt, *(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 12)))).Fu)))
 					*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 12)))) = val11
-					libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 8))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 0))&0xfc000000>>26)&int32(^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1))), 6, 26, 0xfc000000)
+					libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 8))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 0))&0xfc000000>>26) & ^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)), 6, 26, 0xfc000000)
 				}
 			} else {
 				if int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 0))&0xfc000000>>26)&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)) != 0 {
@@ -16088,7 +16088,7 @@ _1:
 				if v54 != 0 {
 					goto typed_array_done
 				}
-				v56 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(num>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v56 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(num>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _57
 			_57:
 				if v56 != 0 {
@@ -16504,7 +16504,7 @@ _2:
 		}
 		name_str = _js_get_function_name(tls, ctx, prop)
 		XJS_FreeAtom(tls, ctx, prop)
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -16646,7 +16646,7 @@ func _JS_GetGlobalVar(tls *libc.TLS, ctx1 uintptr, prop TJSAtom, throw_ref_error
 	prs = _find_own_property(tls, bp, p1, prop)
 	if prs != 0 {
 		/* XXX: should handle JS_PROP_TMASK properties */
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _2
 	_2:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1 != 0)), 0) != 0 {
@@ -16684,7 +16684,7 @@ func _JS_GetGlobalVarRef(tls *libc.TLS, ctx1 uintptr, prop TJSAtom, sp uintptr) 
 		/* XXX: should handle JS_PROP_AUTOINIT properties? */
 		/* XXX: conformance: do these tests in
 		   OP_put_var_ref/OP_get_var_ref ? */
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _2
 	_2:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1 != 0)), 0) != 0 {
@@ -16769,7 +16769,7 @@ func _JS_SetGlobalVar(tls *libc.TLS, ctx1 uintptr, prop TJSAtom, val TJSValue, f
 	if prs != 0 {
 		/* XXX: should handle JS_PROP_AUTOINIT properties? */
 		if flag != int32(1) {
-			v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+			v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 			goto _2
 		_2:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1 != 0)), 0) != 0 {
@@ -16821,7 +16821,7 @@ func XJS_DeleteProperty(tls *libc.TLS, ctx1 uintptr, obj TJSValue, prop TJSAtom,
 	var res, v1, v4 int32
 	_, _, _, _, _, _, _, _ = obj1, p, p1, res, v1, v3, v4, v5
 	obj1 = _JS_ToObject(tls, ctx1, obj)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -17022,7 +17022,7 @@ func _JS_ToPrimitiveFree(tls *libc.TLS, ctx2 uintptr, val TJSValue, hint int32) 
 		goto _3
 	_3:
 		method = v2
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -17063,7 +17063,7 @@ func _JS_ToPrimitiveFree(tls *libc.TLS, ctx2 uintptr, val TJSValue, hint int32) 
 					X__JS_FreeValue(tls, ctx2, v11)
 				}
 			}
-			v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _15
 		_15:
 			if v14 != 0 {
@@ -17113,7 +17113,7 @@ func _JS_ToPrimitiveFree(tls *libc.TLS, ctx2 uintptr, val TJSValue, hint int32) 
 		goto _25
 	_25:
 		method = v24
-		v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _27
 	_27:
 		if v26 != 0 {
@@ -17121,7 +17121,7 @@ func _JS_ToPrimitiveFree(tls *libc.TLS, ctx2 uintptr, val TJSValue, hint int32) 
 		}
 		if XJS_IsFunction(tls, ctx2, method) != 0 {
 			ret = _JS_CallFree(tls, ctx2, method, val, 0, libc.UintptrFromInt32(0))
-			v28 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v28 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _29
 		_29:
 			if v28 != 0 {
@@ -17498,7 +17498,7 @@ func _js_string_to_bigint(tls *libc.TLS, ctx1 uintptr, buf uintptr, radix int32,
 	_, _, _, _, _, _, _, _ = a, p, ret, val, v1, v3, v4, v5
 	a = bp
 	val = _JS_NewBigInt(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -17529,7 +17529,7 @@ func _js_string_to_bigfloat(tls *libc.TLS, ctx1 uintptr, buf uintptr, radix int3
 	var val, v3 TJSValue
 	_, _, _, _, _, _, _, _ = a, p, ret, val, v1, v3, v4, v5
 	val = _JS_NewBigFloat(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -17564,7 +17564,7 @@ func _js_string_to_bigdecimal(tls *libc.TLS, ctx1 uintptr, buf uintptr, radix in
 	var val, v3 TJSValue
 	_, _, _, _, _, _, _, _ = a, p, ret, val, v1, v3, v4, v5
 	val = _JS_NewBigDecimal(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -17701,7 +17701,7 @@ no_radix_prefix:
 	if !(flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)) != 0) && (atod_type == libc.Int32FromInt32(0)<<libc.Int32FromInt32(7) || atod_type == libc.Int32FromInt32(2)<<libc.Int32FromInt32(7)) && Xstrstart(tls, *(*uintptr)(unsafe.Pointer(bp + 24)), __ccgo_ts+2191, bp+24) != 0 {
 		if atod_type == libc.Int32FromInt32(2)<<libc.Int32FromInt32(7) {
 			val1 = _JS_NewBigFloat(tls, ctx2)
-			v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _6
 		_6:
 			if v5 != 0 {
@@ -18027,7 +18027,7 @@ _2:
 		ret = libc.Uint64FromInt64(0x7ff8000000000000) - libc.Uint64FromInt32(libc.Int32FromInt32(0x7ff80000)-int32(EJS_TAG_FIRST)+libc.Int32FromInt32(1))<<libc.Int32FromInt32(32)
 	case libc.Uint32FromInt32(EJS_TAG_OBJECT):
 		val1 = _JS_ToPrimitiveFree(tls, ctx3, val1, int32(MHINT_NUMBER))
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if v14 != 0 {
@@ -18063,7 +18063,7 @@ _2:
 		} else {
 			flags = libc.Int32FromInt32(1) << libc.Int32FromInt32(2)
 			ret = _js_atof(tls, ctx3, *(*uintptr)(unsafe.Pointer(bp)), bp, 0, flags)
-			v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _24
 		_24:
 			if !(v23 != 0) {
@@ -18152,7 +18152,7 @@ func ___JS_ToFloat64Free(tls *libc.TLS, ctx1 uintptr, pres uintptr, val TJSValue
 	}
 	_, _, _, _, _, _, _, _, _, _ = p, p1, tag, tag1, v1, v3, v5, v7, v8, v9
 	val = _JS_ToNumberFree(tls, ctx1, val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -18418,7 +18418,7 @@ _2:
 			}
 		} else {
 			ret = _JS_NewBigInt(tls, ctx5)
-			v28 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v28 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _29
 		_29:
 			if !(v28 != 0) {
@@ -18450,7 +18450,7 @@ _2:
 		}
 	default:
 		val2 = _JS_ToNumberFree(tls, ctx5, val2)
-		v36 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v36 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _37
 	_37:
 		if v36 != 0 {
@@ -18547,7 +18547,7 @@ _2:
 		}
 	default:
 		val = _JS_ToNumberFree(tls, ctx1, val)
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if v10 != 0 {
@@ -18691,7 +18691,7 @@ _2:
 		return 0
 	default:
 		val = _JS_ToNumberFree(tls, ctx1, val)
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if v10 != 0 {
@@ -18832,7 +18832,7 @@ _2:
 		}
 	default:
 		val = _JS_ToNumberFree(tls, ctx1, val)
-		v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _9
 	_9:
 		if v8 != 0 {
@@ -18960,7 +18960,7 @@ _2:
 		}
 	default:
 		val = _JS_ToNumberFree(tls, ctx1, val)
-		v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _9
 	_9:
 		if v8 != 0 {
@@ -19098,7 +19098,7 @@ _22:
 			if d > libc.Float64FromInt32(255) {
 				*(*int32)(unsafe.Pointer(bp + 16)) = int32(255)
 			} else {
-				*(*int32)(unsafe.Pointer(bp + 16)) = int32(libc.X__builtin_lrint(tls, d))
+				*(*int32)(unsafe.Pointer(bp + 16)) = libc.X__builtin_lrint(tls, d)
 			}
 		}
 	}
@@ -19133,7 +19133,7 @@ _8:
 _9:
 	;
 	val = _JS_ToNumberFree(tls, ctx1, val)
-	v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _30
 _30:
 	if v29 != 0 {
@@ -19251,7 +19251,7 @@ _16:
 		goto _20
 	}
 	val1 = _JS_ToNumberFree(tls, ctx2, val1)
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -19282,7 +19282,7 @@ _25:
 		return -int32(1)
 	}
 	val1 = _JS_ToNumberFree(tls, ctx2, val1)
-	v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _30
 _30:
 	if v29 != 0 {
@@ -19506,7 +19506,7 @@ func _js_ftoa(tls *libc.TLS, ctx1 uintptr, val1 TJSValue, radix int32, prec Tlim
 	var _ /* r_s at bp+20 */ Tbf_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, flags1, p, prec1, r1, ret, s2, saved_sign, str, val, v1, v11, v12, v14, v15, v16, v17, v18, v3, v4, v5, v6, v8, v9
 	val = _JS_ToNumeric(tls, ctx1, val1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -20236,7 +20236,7 @@ _8:
 _9:
 	;
 	val1 = _JS_ToPrimitive(tls, ctx2, val, MHINT_STRING)
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -20375,7 +20375,7 @@ func _JS_ToQuotedString(tls *libc.TLS, ctx1 uintptr, val1 TJSValue) (r TJSValue)
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, c1, p, p1, val, v1, v13, v15, v16, v17, v18, v19, v20, v21
 	b = bp + 4
 	val = _JS_ToStringCheckObject(tls, ctx1, val1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -20954,7 +20954,7 @@ func XJS_NewBigInt64_1(tls *libc.TLS, ctx1 uintptr, v2 Tint64_t) (r TJSValue) {
 	var v1, v4 int32
 	_, _, _, _, _, _, _ = a, p, val, v1, v3, v4, v5
 	val = _JS_NewBigInt(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -21060,7 +21060,7 @@ func XJS_NewBigUint64(tls *libc.TLS, ctx4 uintptr, v4 Tuint64_t) (r TJSValue) {
 		val2 = v7
 	} else {
 		val2 = _JS_NewBigInt(tls, ctx4)
-		v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _10
 	_10:
 		if v9 != 0 {
@@ -21124,7 +21124,7 @@ _2:
 		}
 		val = _js_atof(tls, ctx2, *(*uintptr)(unsafe.Pointer(bp)), bp, 0, flags)
 		*(*uintptr)(unsafe.Pointer(bp)) += uintptr(_skip_spaces(tls, *(*uintptr)(unsafe.Pointer(bp))))
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if !(v6 != 0) {
@@ -21294,7 +21294,7 @@ _19:
 _10:
 	;
 	val = _JS_StringToBigIntErr(tls, ctx1, val)
-	v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _24
 _24:
 	if v23 != 0 {
@@ -21304,7 +21304,7 @@ _24:
 _11:
 	;
 	val = _JS_ToPrimitiveFree(tls, ctx1, val, int32(MHINT_NUMBER))
-	v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _26
 _26:
 	if v25 != 0 {
@@ -21361,7 +21361,7 @@ func _JS_ToBigIntValueFree(tls *libc.TLS, ctx1 uintptr, val TJSValue) (r1 TJSVal
 		return val
 	} else {
 		res = _JS_NewBigInt(tls, ctx1)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -21871,7 +21871,7 @@ func _js_call_binary_op_fallback(tls *libc.TLS, ctx4 uintptr, pret uintptr, op1 
 	goto _3
 _3:
 	opset1_obj = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset1_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset1_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -21892,7 +21892,7 @@ _7:
 	goto _10
 _10:
 	opset2_obj = v9
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset2_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset2_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -21961,7 +21961,7 @@ _14:
 		} else {
 			new_op1 = _JS_ToPrimitive(tls, ctx4, op1, hint)
 		}
-		v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _25
 	_25:
 		if v24 != 0 {
@@ -21985,7 +21985,7 @@ _14:
 		} else {
 			new_op2 = _JS_ToPrimitive(tls, ctx4, op2, hint)
 		}
-		v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _30
 	_30:
 		if v29 != 0 {
@@ -22053,7 +22053,7 @@ _39:
 			X__JS_FreeValue(tls, ctx4, v43)
 		}
 	}
-	v46 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v46 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _47
 _47:
 	if v46 != 0 {
@@ -22156,7 +22156,7 @@ func _js_call_binary_op_simple(tls *libc.TLS, ctx3 uintptr, pret uintptr, obj TJ
 	goto _3
 _3:
 	opset1_obj = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset1_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset1_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -22188,14 +22188,14 @@ _7:
 		return 0
 	}
 	new_op1 = _JS_ToNumeric(tls, ctx3, op1)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
 		goto exception
 	}
 	new_op2 = _JS_ToNumeric(tls, ctx3, op2)
-	v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _14
 _14:
 	if v13 != 0 {
@@ -22244,7 +22244,7 @@ _20:
 			X__JS_FreeValue(tls, ctx3, v24)
 		}
 	}
-	v27 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v27 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _28
 _28:
 	if v27 != 0 {
@@ -22300,7 +22300,7 @@ func _js_call_unary_op_fallback(tls *libc.TLS, ctx3 uintptr, pret uintptr, _op1 
 	goto _3
 _3:
 	opset1_obj = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset1_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset1_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -22346,7 +22346,7 @@ _7:
 _13:
 	method = v12
 	ret = _JS_CallFree(tls, ctx3, method, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(1), bp)
-	v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _15
 _15:
 	if v14 != 0 {
@@ -22404,7 +22404,7 @@ func _js_unary_arith_bigfloat(tls *libc.TLS, ctx1 uintptr, pres uintptr, op TOPC
 		return -int32(1)
 	}
 	res = _JS_NewBigFloat(tls, ctx1)
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -22518,7 +22518,7 @@ func _js_unary_arith_bigdecimal(tls *libc.TLS, ctx1 uintptr, pres uintptr, op TO
 		return -int32(1)
 	}
 	res = _JS_NewBigDecimal(tls, ctx1)
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -22631,7 +22631,7 @@ func _js_unary_arith_bigint(tls *libc.TLS, ctx1 uintptr, pres uintptr, op TOPCod
 		return -int32(1)
 	}
 	res = _JS_NewBigInt(tls, ctx1)
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -22768,7 +22768,7 @@ _2:
 		}
 	}
 	op1 = _JS_ToNumericFree(tls, ctx4, op1)
-	v61 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v61 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v61 != 0 {
@@ -22921,7 +22921,7 @@ func _js_post_inc_slow(tls *libc.TLS, ctx1 uintptr, sp uintptr, op TOPCodeEnum) 
 	/* XXX: allow custom operators */
 	op1 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))
 	op1 = _JS_ToNumericFree(tls, ctx1, op1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -22976,7 +22976,7 @@ _2:
 		}
 	}
 	op1 = _JS_ToNumericFree(tls, ctx2, op1)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -23017,7 +23017,7 @@ func _js_binary_arith_bigint(tls *libc.TLS, ctx1 uintptr, op TOPCodeEnum, pres u
 	var _ /* v2 at bp+68 */ Tslimb_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, b, p, r1, rem, ret, s1, v1, v17, v18, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61
 	*(*TJSValue)(unsafe.Pointer(bp + 40)) = _JS_NewBigInt(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 40))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 40))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -23161,7 +23161,7 @@ math_mode_div_pow:
 	/* if no BigInt power operator defined, return a
 	   bigfloat */
 	*(*TJSValue)(unsafe.Pointer(bp + 40)) = _JS_NewBigFloat(tls, ctx1)
-	v33 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 40))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v33 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 40))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _34
 _34:
 	if v33 != 0 {
@@ -23341,7 +23341,7 @@ func _js_binary_arith_bigfloat(tls *libc.TLS, ctx1 uintptr, op TOPCodeEnum, pres
 	var _ /* b_s at bp+20 */ Tbf_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, b, p, r1, res, ret, s1, v1, v10, v11, v12, v13, v15, v16, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v3, v30, v31, v32, v4, v5, v6, v7, v9
 	res = _JS_NewBigFloat(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -23551,7 +23551,7 @@ func _js_binary_arith_bigdecimal(tls *libc.TLS, ctx1 uintptr, op TOPCodeEnum, pr
 	var ret, v1, v10, v13, v16, v19, v4, v7 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, b, p, r, res, ret, v1, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v3, v4, v5, v6, v7, v8, v9
 	res = _JS_NewBigDecimal(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -23758,7 +23758,7 @@ _4:
 		}
 	}
 	op1 = _JS_ToNumericFree(tls, ctx5, op1)
-	v15 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v15 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _16
 _16:
 	if v15 != 0 {
@@ -23775,7 +23775,7 @@ _16:
 		goto exception
 	}
 	op2 = _JS_ToNumericFree(tls, ctx5, op2)
-	v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _21
 _21:
 	if v20 != 0 {
@@ -24165,7 +24165,7 @@ _4:
 			}
 		}
 		op1 = _JS_ToPrimitiveFree(tls, ctx4, op1, int32(MHINT_NONE))
-		v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v17 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _18
 	_18:
 		if v17 != 0 {
@@ -24182,7 +24182,7 @@ _4:
 			goto exception
 		}
 		op2 = _JS_ToPrimitiveFree(tls, ctx4, op2, int32(MHINT_NONE))
-		v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _23
 	_23:
 		if v22 != 0 {
@@ -24221,7 +24221,7 @@ _4:
 	}
 	if tag1 == libc.Uint32FromInt32(EJS_TAG_STRING) || tag2 == libc.Uint32FromInt32(EJS_TAG_STRING) {
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)) = _JS_ConcatString(tls, ctx4, op1, op2)
-		v311 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v311 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _32
 	_32:
 		if v311 != 0 {
@@ -24230,7 +24230,7 @@ _4:
 		return 0
 	}
 	op1 = _JS_ToNumericFree(tls, ctx4, op1)
-	v33 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v33 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _34
 _34:
 	if v33 != 0 {
@@ -24247,7 +24247,7 @@ _34:
 		goto exception
 	}
 	op2 = _JS_ToNumericFree(tls, ctx4, op2)
-	v38 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v38 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _39
 _39:
 	if v38 != 0 {
@@ -24445,7 +24445,7 @@ _4:
 		}
 	}
 	op1 = _JS_ToNumericFree(tls, ctx2, op1)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -24462,7 +24462,7 @@ _12:
 		goto exception
 	}
 	op2 = _JS_ToNumericFree(tls, ctx2, op2)
-	v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _17
 _17:
 	if v16 != 0 {
@@ -24702,7 +24702,7 @@ func _js_compare_bigdecimal(tls *libc.TLS, ctx1 uintptr, op TOPCodeEnum, op1 TJS
 	   toString(). It is not mathematically correct but is consistent
 	   with the BigDecimal() constructor behavior */
 	op1 = _JS_ToBigDecimalFree(tls, ctx1, op1, int32(ETRUE))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -24719,7 +24719,7 @@ _2:
 		return -int32(1)
 	}
 	op2 = _JS_ToBigDecimalFree(tls, ctx1, op2, int32(ETRUE))
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -24873,7 +24873,7 @@ _4:
 		}
 	}
 	op1 = _JS_ToPrimitiveFree(tls, ctx2, op1, int32(MHINT_NUMBER))
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -24890,7 +24890,7 @@ _12:
 		goto exception
 	}
 	op2 = _JS_ToPrimitiveFree(tls, ctx2, op2, int32(MHINT_NUMBER))
-	v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _17
 _17:
 	if v16 != 0 {
@@ -25021,7 +25021,7 @@ _24:
 	_33:
 		;
 		op1 = _JS_ToNumericFree(tls, ctx2, op1)
-		v43 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v43 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _44
 	_44:
 		if v43 != 0 {
@@ -25038,7 +25038,7 @@ _24:
 			goto exception
 		}
 		op2 = _JS_ToNumericFree(tls, ctx2, op2)
-		v48 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v48 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _49
 	_49:
 		if v48 != 0 {
@@ -25352,7 +25352,7 @@ _4:
 				_16:
 					;
 					op1 = _JS_ToNumericFree(tls, ctx3, op1)
-					v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+					v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 					goto _27
 				_27:
 					if v26 != 0 {
@@ -25369,7 +25369,7 @@ _4:
 						goto exception
 					}
 					op2 = _JS_ToNumericFree(tls, ctx3, op2)
-					v31 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+					v31 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 					goto _32
 				_32:
 					if v31 != 0 {
@@ -25442,7 +25442,7 @@ _4:
 									}
 								}
 								op1 = _JS_ToPrimitiveFree(tls, ctx3, op1, int32(MHINT_NONE))
-								v47 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+								v47 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 								goto _48
 							_48:
 								if v47 != 0 {
@@ -25459,7 +25459,7 @@ _4:
 									goto exception
 								}
 								op2 = _JS_ToPrimitiveFree(tls, ctx3, op2, int32(MHINT_NONE))
-								v52 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+								v52 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 								goto _53
 							_53:
 								if v52 != 0 {
@@ -25544,7 +25544,7 @@ func _js_shr_slow(tls *libc.TLS, ctx4 uintptr, sp uintptr) (r1 int32) {
 	op1 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8))
 	op2 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))
 	op1 = _JS_ToNumericFree(tls, ctx4, op1)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -25561,7 +25561,7 @@ _2:
 		goto exception
 	}
 	op2 = _JS_ToNumericFree(tls, ctx4, op2)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -25698,7 +25698,7 @@ func _js_mul_pow10(tls *libc.TLS, ctx2 uintptr, sp uintptr) (r int32) {
 	var _ /* e at bp+24 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, op1, op2, p, r1, res, ret, s1, tag, v1, v11, v12, v13, v14, v15, v17, v18, v19, v20, v21, v22, v3, v4, v5, v6, v8, v9
 	res = _JS_NewBigFloat(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -26317,7 +26317,7 @@ func _js_has_unscopable(tls *libc.TLS, ctx2 uintptr, obj TJSValue, atom TJSAtom)
 	goto _3
 _3:
 	arr = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -26633,7 +26633,7 @@ func _js_build_arguments(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr) 
 	var val1, v10, v12, v13, v3, v5, v9 TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, p, p1, p2, pr, tab, val1, v1, v10, v12, v13, v3, v5, v6, v7, v9
 	val1 = XJS_NewObjectProtoClass(tls, ctx3, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Fclass_proto + uintptr(EJS_CLASS_OBJECT)*8)), uint32(EJS_CLASS_ARGUMENTS))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -26731,7 +26731,7 @@ func _js_build_mapped_arguments(tls *libc.TLS, ctx3 uintptr, argc int32, argv ui
 	var val1, v10, v11, v13, v14, v16, v3, v7, v8 TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, p, p1, p2, pr, val1, var_ref, v1, v10, v11, v13, v14, v16, v17, v18, v3, v7, v8
 	val1 = XJS_NewObjectProtoClass(tls, ctx3, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Fclass_proto + uintptr(EJS_CLASS_OBJECT)*8)), uint32(EJS_CLASS_MAPPED_ARGUMENTS))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -26833,7 +26833,7 @@ func _js_build_rest(tls *libc.TLS, ctx2 uintptr, first int32, argc int32, argv u
 	var val, v4, v5, v7 TJSValue
 	_, _, _, _, _, _, _, _, _, _, _ = i, p, p1, ret, val, v1, v4, v5, v7, v8, v9
 	val = XJS_NewArray(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -26904,7 +26904,7 @@ func _build_for_in_iterator(tls *libc.TLS, ctx1 uintptr, obj TJSValue) (r TJSVal
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	enum_obj = XJS_NewObjectProtoClass(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), uint32(EJS_CLASS_FOR_IN_ITERATOR))
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -27009,7 +27009,7 @@ func _js_for_in_start(tls *libc.TLS, ctx uintptr, sp uintptr) (r int32) {
 	var v1 int32
 	_ = v1
 	*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)) = _build_for_in_iterator(tls, ctx, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -27052,7 +27052,7 @@ _3:
 		if v5 != 0 {
 			break
 		}
-		v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _8
 	_8:
 		if v7 != 0 {
@@ -27197,7 +27197,7 @@ func _js_for_in_next(tls *libc.TLS, ctx uintptr, sp uintptr) (r int32) {
 				(*TJSForInIterator)(unsafe.Pointer(it)).Fin_prototype_chain = uint8(ETRUE)
 			}
 			(*TJSForInIterator)(unsafe.Pointer(it)).Fobj = _JS_GetPrototypeFree(tls, ctx, (*TJSForInIterator)(unsafe.Pointer(it)).Fobj)
-			v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSForInIterator)(unsafe.Pointer(it)).Fobj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSForInIterator)(unsafe.Pointer(it)).Fobj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _8
 		_8:
 			if v7 != 0 {
@@ -27277,7 +27277,7 @@ func _JS_GetIterator2(tls *libc.TLS, ctx1 uintptr, obj TJSValue, method TJSValue
 	var v1, v3, v6 int32
 	_, _, _, _, _, _, _ = enum_obj, p, v1, v3, v5, v6, v7
 	enum_obj = XJS_Call(tls, ctx1, method, obj, 0, libc.UintptrFromInt32(0))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -27314,7 +27314,7 @@ func _JS_GetIterator(tls *libc.TLS, ctx2 uintptr, obj TJSValue, is_async TBOOL) 
 		goto _3
 	_3:
 		method = v2
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -27335,7 +27335,7 @@ func _JS_GetIterator(tls *libc.TLS, ctx2 uintptr, obj TJSValue, is_async TBOOL) 
 			goto _13
 		_13:
 			method = v12
-			v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _15
 		_15:
 			if v14 != 0 {
@@ -27352,7 +27352,7 @@ func _JS_GetIterator(tls *libc.TLS, ctx2 uintptr, obj TJSValue, is_async TBOOL) 
 					X__JS_FreeValue(tls, ctx2, v16)
 				}
 			}
-			v19 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sync_iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v19 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sync_iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _20
 		_20:
 			if v19 != 0 {
@@ -27377,7 +27377,7 @@ func _JS_GetIterator(tls *libc.TLS, ctx2 uintptr, obj TJSValue, is_async TBOOL) 
 		goto _26
 	_26:
 		method = v25
-		v27 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v27 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _28
 	_28:
 		if v27 != 0 {
@@ -27459,7 +27459,7 @@ _2:
 		}
 	}
 	obj = XJS_Call(tls, ctx1, method, enum_obj, argc, argv)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -27500,7 +27500,7 @@ func _JS_IteratorNext(tls *libc.TLS, ctx2 uintptr, enum_obj TJSValue, method TJS
 	var _ /* done at bp+0 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = done_val, obj, p, value, v1, v11, v12, v13, v14, v15, v16, v3, v4, v6, v8, v9
 	obj = _JS_IteratorNext2(tls, ctx2, enum_obj, method, argc, argv, bp)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -27515,7 +27515,7 @@ _2:
 		goto _5
 	_5:
 		done_val = v4
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(done_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(done_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -27581,7 +27581,7 @@ func _JS_IteratorClose(tls *libc.TLS, ctx2 uintptr, enum_obj TJSValue, is_except
 	goto _3
 _3:
 	method = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -27602,7 +27602,7 @@ _7:
 	}
 	ret = _JS_CallFree(tls, ctx2, method, enum_obj, 0, libc.UintptrFromInt32(0))
 	if !(is_exception_pending != 0) {
-		v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v11 != 0 {
@@ -27646,7 +27646,7 @@ func _js_for_of_start(tls *libc.TLS, ctx2 uintptr, sp uintptr, is_async TBOOL) (
 	_, _, _, _, _, _, _, _, _, _, _ = method, obj, op1, p, v1, v3, v4, v5, v6, v7, v9
 	op1 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))
 	obj = _JS_GetIterator(tls, ctx2, op1, is_async)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -27668,7 +27668,7 @@ _2:
 	goto _8
 _8:
 	method = v7
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if v9 != 0 {
@@ -27699,7 +27699,7 @@ func _js_for_of_next(tls *libc.TLS, ctx2 uintptr, sp uintptr, offset int32) (r i
 _2:
 	if libc.X__builtin_expect(tls, libc.BoolInt32(!!!(v1 != 0)), int32(1)) != 0 {
 		value = _JS_IteratorNext(tls, ctx2, *(*TJSValue)(unsafe.Pointer(sp + uintptr(offset)*8)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(offset+int32(1))*8)), 0, libc.UintptrFromInt32(0), bp)
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -27755,7 +27755,7 @@ func _JS_IteratorGetCompleteValue(tls *libc.TLS, ctx1 uintptr, obj TJSValue, pdo
 	goto _3
 _3:
 	done_val = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(done_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(done_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -27767,7 +27767,7 @@ _5:
 	goto _8
 _8:
 	value = v7
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if v9 != 0 {
@@ -27799,7 +27799,7 @@ _2:
 		return -int32(1)
 	}
 	value = _JS_IteratorGetCompleteValue(tls, ctx2, obj, bp)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -27830,7 +27830,7 @@ func _js_create_iterator_result(tls *libc.TLS, ctx2 uintptr, val1 TJSValue, done
 	var v1, v10, v4 int32
 	_, _, _, _, _, _, _, _, _, _ = obj, p, v1, v10, v11, v3, v4, v5, v7, v9
 	obj = XJS_NewObject(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -27954,7 +27954,7 @@ func _js_append_enumerate(tls *libc.TLS, ctx4 uintptr, sp uintptr) (r int32) {
 	goto _3
 _3:
 	iterator = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iterator>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iterator>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -27972,7 +27972,7 @@ _5:
 		}
 	}
 	enumobj = _JS_GetIterator(tls, ctx4, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)), int32(EFALSE))
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enumobj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enumobj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if v9 != 0 {
@@ -27983,7 +27983,7 @@ _10:
 	goto _13
 _13:
 	method = v12
-	v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _15
 _15:
 	if v14 != 0 {
@@ -28043,7 +28043,7 @@ general_case:
 	;
 	for {
 		value = _JS_IteratorNext(tls, ctx4, enumobj, method, 0, libc.UintptrFromInt32(0), bp+12)
-		v27 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v27 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _28
 	_28:
 		if v27 != 0 {
@@ -28183,7 +28183,7 @@ func _JS_CopyDataProperties(tls *libc.TLS, ctx2 uintptr, target TJSValue, source
 		goto _4
 	_4:
 		val1 = v3
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if v5 != 0 {
@@ -28359,7 +28359,7 @@ func _js_instantiate_prototype(tls *libc.TLS, ctx2 uintptr, p2 uintptr, atom TJS
 	_, _, _, _, _, _, _, _, _, _, _ = obj, p, p1, ret, this_val, v1, v3, v4, v6, v7, v8
 	this_val = libc.Uint64FromInt32(int32(EJS_TAG_OBJECT))<<libc.Int32FromInt32(32) | uint64(uint32(p2))
 	obj = XJS_NewObject(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -28408,7 +28408,7 @@ func _js_closure(tls *libc.TLS, ctx1 uintptr, bfunc TJSValue, cur_var_refs uintp
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, func_obj, name_atom, p, proto, proto_class_id, v1, v10, v11, v12, v3, v4, v5, v6, v8
 	b = uintptr(libc.Int32FromUint64(bfunc))
 	func_obj = XJS_NewObjectClass(tls, ctx1, libc.Int32FromUint16(_func_kind_to_class_id[int32(*(*uint8)(unsafe.Pointer(b + 17))&0x30>>4)]))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -28425,7 +28425,7 @@ _2:
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	func_obj = _js_closure2(tls, ctx1, func_obj, b, cur_var_refs, sf)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -28446,7 +28446,7 @@ _7:
 			proto_class_id = int32(EJS_CLASS_GENERATOR)
 		}
 		proto = XJS_NewObjectProto(tls, ctx1, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx1)).Fclass_proto + uintptr(proto_class_id)*8)))
-		v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _9
 	_9:
 		if v8 != 0 {
@@ -28517,7 +28517,7 @@ func _js_op_define_class(tls *libc.TLS, ctx4 uintptr, sp uintptr, class_name TJS
 			goto _8
 		_8:
 			parent_proto = v7
-			v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(parent_proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(parent_proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _10
 		_10:
 			if v9 != 0 {
@@ -28561,7 +28561,7 @@ func _js_op_define_class(tls *libc.TLS, ctx4 uintptr, sp uintptr, class_name TJS
 		parent_class = v20
 	}
 	proto = XJS_NewObjectProto(tls, ctx4, parent_proto)
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -28569,7 +28569,7 @@ _23:
 	}
 	b = uintptr(libc.Int32FromUint64(bfunc))
 	ctor = XJS_NewObjectProtoClass(tls, ctx4, parent_class, uint32(EJS_CLASS_BYTECODE_FUNCTION))
-	v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _25
 _25:
 	if v24 != 0 {
@@ -28577,7 +28577,7 @@ _25:
 	}
 	ctor = _js_closure2(tls, ctx4, ctor, b, cur_var_refs, sf)
 	bfunc = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-	v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _27
 _27:
 	if v26 != 0 {
@@ -29097,7 +29097,7 @@ _15:
 		Fcproto     Tuint8_t
 		Fmagic      Tint16_t
 	})(unsafe.Pointer(p + 28))).Fmagic))
-	v31 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v31 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _32
 _32:
 	;
@@ -29996,7 +29996,7 @@ restart:
 		goto _301
 	_301:
 		*(*TJSValue)(unsafe.Pointer(v297)) = _js_closure(tls, ctx9, v300, var_refs, sf)
-		v302 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v302 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _303
 	_303:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v302 != 0)), 0) != 0 {
@@ -30016,7 +30016,7 @@ restart:
 		goto _307
 	_307:
 		val5 = v306
-		v308 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val5>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v308 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val5>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _309
 	_309:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v308 != 0)), 0) != 0 {
@@ -30079,7 +30079,7 @@ restart:
 			val6 = v321
 		} else {
 			val6 = _JS_ToObject(tls, ctx9, this_obj1)
-			v323 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v323 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _324
 		_324:
 			if v323 != 0 {
@@ -30125,7 +30125,7 @@ restart:
 		v331 = sp
 		sp += 8
 		*(*TJSValue)(unsafe.Pointer(v331)) = XJS_NewObject(tls, ctx9)
-		v332 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v332 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _333
 	_333:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v332 != 0)), 0) != 0 {
@@ -30142,7 +30142,7 @@ restart:
 			v335 = sp
 			sp += 8
 			*(*TJSValue)(unsafe.Pointer(v335)) = _js_build_arguments(tls, ctx9, argc, argv)
-			v336 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v336 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _337
 		_337:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v336 != 0)), 0) != 0 {
@@ -30162,7 +30162,7 @@ restart:
 			}
 		_342:
 			*(*TJSValue)(unsafe.Pointer(v338)) = _js_build_mapped_arguments(tls, ctx9, argc, argv, sf, v341)
-			v343 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v343 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _344
 		_344:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v343 != 0)), 0) != 0 {
@@ -30222,7 +30222,7 @@ restart:
 			v358 = sp
 			sp += 8
 			*(*TJSValue)(unsafe.Pointer(v358)) = XJS_NewObjectProto(tls, ctx9, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-			v359 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v359 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _360
 		_360:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v359 != 0)), 0) != 0 {
@@ -30232,7 +30232,7 @@ restart:
 			v361 = sp
 			sp += 8
 			*(*TJSValue)(unsafe.Pointer(v361)) = _js_import_meta(tls, ctx9)
-			v362 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v362 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _363
 		_363:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v362 != 0)), 0) != 0 {
@@ -30252,7 +30252,7 @@ restart:
 		v366 = sp
 		sp += 8
 		*(*TJSValue)(unsafe.Pointer(v366)) = _js_build_rest(tls, ctx9, first, argc, argv)
-		v367 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v367 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _368
 	_368:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v367 != 0)), 0) != 0 {
@@ -30528,7 +30528,7 @@ restart:
 		v413 = sp
 		sp += 8
 		*(*TJSValue)(unsafe.Pointer(v413)) = _js_closure(tls, ctx9, bfunc, var_refs, sf)
-		v414 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v414 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _415
 	_415:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v414 != 0)), 0) != 0 {
@@ -30561,7 +30561,7 @@ restart:
 		call_argv = sp - uintptr(call_argc)*8
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
 		ret_val = _JS_CallInternal(tls, ctx9, *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(1))*8)), libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), call_argc, call_argv, 0)
-		v418 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v418 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _419
 	_419:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v418 != 0)), 0) != 0 {
@@ -30605,7 +30605,7 @@ restart:
 		call_argv = sp - uintptr(call_argc)*8
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
 		ret_val = _JS_CallConstructorInternal(tls, ctx9, *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(2))*8)), *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(1))*8)), call_argc, call_argv, 0)
-		v427 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v427 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _428
 	_428:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v427 != 0)), 0) != 0 {
@@ -30648,7 +30648,7 @@ restart:
 		call_argv = sp - uintptr(call_argc)*8
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
 		ret_val = _JS_CallInternal(tls, ctx9, *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(1))*8)), *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(2))*8)), libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), call_argc, call_argv, 0)
-		v436 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v436 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _437
 	_437:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v436 != 0)), 0) != 0 {
@@ -30690,7 +30690,7 @@ restart:
 		call_argc = libc.Int32FromUint32(v443)
 		pc += uintptr(2)
 		ret_val = XJS_NewArray(tls, ctx9)
-		v445 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v445 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _446
 	_446:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v445 != 0)), 0) != 0 {
@@ -30735,7 +30735,7 @@ restart:
 		magic = libc.Int32FromUint32(v452)
 		pc += uintptr(2)
 		ret_val = _js_function_apply(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*8)), int32(2), sp+uintptr(-libc.Int32FromInt32(2))*8, magic)
-		v454 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v454 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _455
 	_455:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v454 != 0)), 0) != 0 {
@@ -30913,7 +30913,7 @@ restart:
 		} else {
 			ret_val = _JS_CallInternal(tls, ctx9, *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(1))*8)), libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), call_argc, call_argv, 0)
 		}
-		v486 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v486 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _487
 	_487:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v486 != 0)), 0) != 0 {
@@ -30967,7 +30967,7 @@ restart:
 			ret_val = XJS_Call(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)), libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), libc.Int32FromUint32(*(*Tuint32_t)(unsafe.Pointer(bp + 76))), tab4)
 		}
 		_free_arg_list(tls, ctx9, tab4, *(*Tuint32_t)(unsafe.Pointer(bp + 76)))
-		v495 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v495 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _496
 	_496:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v495 != 0)), 0) != 0 {
@@ -31006,7 +31006,7 @@ restart:
 	_86:
 		;
 		proto = XJS_GetPrototype(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)))
-		v504 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v504 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _505
 	_505:
 		if v504 != 0 {
@@ -31027,7 +31027,7 @@ restart:
 	_87:
 		;
 		val7 = _js_dynamic_import(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)))
-		v509 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v509 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _510
 	_510:
 		if v509 != 0 {
@@ -31074,7 +31074,7 @@ restart:
 		atom2 = v519
 		pc += uintptr(4)
 		val8 = _JS_GetGlobalVar(tls, ctx9, atom2, opcode-int32(EOP_get_var_undef))
-		v521 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val8>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v521 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val8>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _522
 	_522:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v521 != 0)), 0) != 0 {
@@ -31762,7 +31762,7 @@ restart:
 		idx9 = libc.Int32FromUint32(v680)
 		pc += uintptr(2)
 		val10 = *(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(var_refs + uintptr(idx9)*4)))).Fpvalue))
-		v682 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val10>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v682 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val10>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _683
 	_683:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v682 != 0)), 0) != 0 {
@@ -31788,7 +31788,7 @@ restart:
 	_688:
 		idx10 = libc.Int32FromUint32(v687)
 		pc += uintptr(2)
-		v689 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(var_refs + uintptr(idx10)*4)))).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v689 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(var_refs + uintptr(idx10)*4)))).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _690
 	_690:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v689 != 0)), 0) != 0 {
@@ -31805,7 +31805,7 @@ restart:
 	_692:
 		idx11 = libc.Int32FromUint32(v691)
 		pc += uintptr(2)
-		v693 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(var_refs + uintptr(idx11)*4)))).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v693 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer((*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(var_refs + uintptr(idx11)*4)))).Fpvalue))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _694
 	_694:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!!(v693 != 0)), 0) != 0 {
@@ -31831,7 +31831,7 @@ restart:
 	_698:
 		idx13 = libc.Int32FromUint32(v697)
 		pc += uintptr(2)
-		v699 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx13)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v699 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx13)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _700
 	_700:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v699 != 0)), 0) != 0 {
@@ -31857,7 +31857,7 @@ restart:
 	_705:
 		idx14 = libc.Int32FromUint32(v704)
 		pc += uintptr(2)
-		v706 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx14)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v706 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx14)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _707
 	_707:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v706 != 0)), 0) != 0 {
@@ -31883,7 +31883,7 @@ restart:
 	_712:
 		idx15 = libc.Int32FromUint32(v711)
 		pc += uintptr(2)
-		v713 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx15)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v713 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx15)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _714
 	_714:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v713 != 0)), 0) != 0 {
@@ -31900,7 +31900,7 @@ restart:
 	_716:
 		idx16 = libc.Int32FromUint32(v715)
 		pc += uintptr(2)
-		v717 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx16)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0))
+		v717 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(var_buf + uintptr(idx16)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_UNINITIALIZED))), 0)
 		goto _718
 	_718:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!!(v717 != 0)), 0) != 0 {
@@ -31937,7 +31937,7 @@ restart:
 		v725 = sp
 		sp += 8
 		*(*TJSValue)(unsafe.Pointer(v725)) = XJS_NewObjectProto(tls, ctx9, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-		v726 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v726 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _727
 	_727:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v726 != 0)), 0) != 0 {
@@ -32267,7 +32267,7 @@ restart:
 		;
 		/* stack: iter_obj next catch_offset val */
 		ret5 = XJS_Call(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*8)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*8)), int32(1), sp-libc.UintptrFromInt32(1)*8)
-		v772 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret5>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v772 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret5>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _773
 	_773:
 		if v772 != 0 {
@@ -32301,7 +32301,7 @@ restart:
 		goto _781
 	_781:
 		method = v780
-		v782 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v782 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _783
 	_783:
 		if v782 != 0 {
@@ -32325,7 +32325,7 @@ restart:
 			} else {
 				ret6 = _JS_CallFree(tls, ctx9, method, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*8)), int32(1), sp-libc.UintptrFromInt32(1)*8)
 			}
-			v789 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v789 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _790
 		_790:
 			if v789 != 0 {
@@ -32377,7 +32377,7 @@ restart:
 		goto _802
 	_802:
 		val11 = v801
-		v803 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val11>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v803 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val11>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _804
 	_804:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v803 != 0)), 0) != 0 {
@@ -32407,7 +32407,7 @@ restart:
 		goto _812
 	_812:
 		val12 = v811
-		v813 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val12>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v813 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val12>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _814
 	_814:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v813 != 0)), 0) != 0 {
@@ -32448,7 +32448,7 @@ restart:
 		atom13 = v821
 		pc += uintptr(4)
 		val13 = _JS_NewSymbolFromAtom(tls, ctx9, atom13, int32(EJS_ATOM_TYPE_PRIVATE))
-		v823 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val13>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v823 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val13>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _824
 	_824:
 		if v823 != 0 {
@@ -32483,7 +32483,7 @@ restart:
 		}
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)) = val14
 		sp -= 8
-		v832 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val14>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v832 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val14>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _833
 	_833:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v832 != 0)), 0) != 0 {
@@ -32704,7 +32704,7 @@ restart:
 		}
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)) = val15
 		sp -= 8
-		v869 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val15>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v869 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val15>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _870
 	_870:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v869 != 0)), 0) != 0 {
@@ -32715,7 +32715,7 @@ restart:
 		;
 		val16 = _JS_GetPropertyValue(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)))
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)) = val16
-		v871 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val16>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v871 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val16>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _872
 	_872:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v871 != 0)), 0) != 0 {
@@ -32745,7 +32745,7 @@ restart:
 		goto _877
 	_877:
 		val17 = _JS_GetPropertyValue(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)), v876)
-		v878 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val17>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v878 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val17>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _879
 	_879:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v878 != 0)), 0) != 0 {
@@ -32762,7 +32762,7 @@ restart:
 		}
 		val18 = XJS_GetPropertyInternal(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)), atom19, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*8)), int32(EFALSE))
 		XJS_FreeAtom(tls, ctx9, atom19)
-		v880 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val18>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v880 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val18>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _881
 	_881:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v880 != 0)), 0) != 0 {
@@ -33019,7 +33019,7 @@ restart:
 		}
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*8)) = _JS_ConcatString(tls, ctx9, op16, op2)
 		sp -= 8
-		v938 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v938 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _939
 	_939:
 		if v938 != 0 {
@@ -33097,7 +33097,7 @@ restart:
 		}
 		sp -= 8
 		op21 = _JS_ToPrimitiveFree(tls, ctx9, op21, int32(MHINT_NONE))
-		v954 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op21>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v954 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op21>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _955
 	_955:
 		if v954 != 0 {
@@ -33125,7 +33125,7 @@ restart:
 			goto _961
 		_961:
 			op21 = _JS_ConcatString(tls, ctx9, v960, op21)
-			v962 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op21>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v962 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op21>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _963
 		_963:
 			if v962 != 0 {
@@ -33972,7 +33972,7 @@ restart:
 		;
 		if libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8))>>libc.Int32FromInt32(32)) != int32(EJS_TAG_OBJECT) {
 			ret_val = _JS_ToObject(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)))
-			v1074 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v1074 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _1075
 		_1075:
 			if v1074 != 0 {
@@ -34001,7 +34001,7 @@ restart:
 		case int32(EJS_TAG_SYMBOL):
 		default:
 			ret_val = XJS_ToPropertyKey(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)))
-			v1079 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v1079 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _1080
 		_1080:
 			if v1079 != 0 {
@@ -34045,7 +34045,7 @@ restart:
 		case int32(EJS_TAG_SYMBOL):
 		default:
 			ret_val = XJS_ToPropertyKey(tls, ctx9, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*8)))
-			v1089 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v1089 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _1090
 		_1090:
 			if v1089 != 0 {
@@ -34111,7 +34111,7 @@ restart:
 			goto _1102
 		_1102:
 			val24 = v1101
-			v1103 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val24>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v1103 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val24>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _1104
 		_1104:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1103 != 0)), 0) != 0 {
@@ -34167,7 +34167,7 @@ restart:
 			goto _1116
 		_1116:
 			val24 = v1115
-			v1117 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val24>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v1117 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val24>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _1118
 		_1118:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1117 != 0)), 0) != 0 {
@@ -34183,7 +34183,7 @@ restart:
 			goto _1122
 		_1122:
 			val24 = v1121
-			v1123 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val24>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v1123 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val24>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _1124
 		_1124:
 			if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v1123 != 0)), 0) != 0 {
@@ -34556,7 +34556,7 @@ _2:
 		goto _8
 	_8:
 		proto = v7
-		v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _10
 	_10:
 		if v9 != 0 {
@@ -34652,7 +34652,7 @@ _1:
 	} else {
 		/* legacy constructor behavior */
 		obj = _js_create_from_ctor(tls, ctx1, new_target, int32(EJS_CLASS_OBJECT))
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -34660,7 +34660,7 @@ _1:
 		}
 		ret = _JS_CallInternal(tls, ctx1, func_obj, obj, new_target, argc, argv, flags)
 		if v7 = libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_OBJECT); !v7 {
-			v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _6
 		_6:
 		}
@@ -34710,7 +34710,7 @@ func XJS_Invoke(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, atom TJSAtom, ar
 	goto _3
 _3:
 	func_obj = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -34921,7 +34921,7 @@ func _async_func_resume(tls *libc.TLS, ctx uintptr, s uintptr) (r TJSValue) {
 		func_obj = libc.Uint64FromInt32(int32(EJS_TAG_INT))<<libc.Int32FromInt32(32) | uint64(uint32(s))
 		ret = _JS_CallInternal(tls, ctx, func_obj, (*TJSAsyncFunctionState)(unsafe.Pointer(s)).Fthis_val, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), (*TJSAsyncFunctionState)(unsafe.Pointer(s)).Fargc, (*TJSStackFrame)(unsafe.Pointer(sf)).Farg_buf, libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 	}
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	;
@@ -35235,7 +35235,7 @@ func _js_generator_function_call(tls *libc.TLS, ctx1 uintptr, func_obj TJSValue,
 	}
 	/* execute the function up to 'OP_initial_yield' */
 	func_ret = _async_func_resume(tls, ctx1, (*TJSGeneratorData)(unsafe.Pointer(s)).Ffunc_state)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -35252,7 +35252,7 @@ _2:
 		}
 	}
 	obj = _js_create_from_ctor(tls, ctx1, func_obj, int32(EJS_CLASS_GENERATOR))
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -35301,7 +35301,7 @@ func _js_async_function_resolve_create(tls *libc.TLS, ctx1 uintptr, s uintptr, r
 			break
 		}
 		*(*TJSValue)(unsafe.Pointer(resolving_funcs + uintptr(i)*8)) = XJS_NewObjectProtoClass(tls, ctx1, (*TJSContext)(unsafe.Pointer(ctx1)).Ffunction_proto, libc.Uint32FromInt32(int32(EJS_CLASS_ASYNC_FUNCTION_RESOLVE)+i))
-		v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(resolving_funcs + uintptr(i)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(resolving_funcs + uintptr(i)*8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _3
 	_3:
 		if v2 != 0 {
@@ -35346,7 +35346,7 @@ func _js_async_function_resume(tls *libc.TLS, ctx1 uintptr, s uintptr) {
 	if !((*TJSAsyncFunctionState)(unsafe.Pointer(s)).Fis_completed != 0) {
 		goto _1
 	}
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if !(v5 != 0) {
@@ -35431,7 +35431,7 @@ _1:
 			X__JS_FreeValue(tls, ctx1, v22)
 		}
 	}
-	v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _26
 _26:
 	if v25 != 0 {
@@ -35552,7 +35552,7 @@ func _js_async_function_call(tls *libc.TLS, ctx uintptr, func_obj TJSValue, this
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	promise = XJS_NewPromiseCapability(tls, ctx, s+36)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -35708,7 +35708,7 @@ func _js_async_generator_resolve_function_create(tls *libc.TLS, ctx1 uintptr, _g
 			break
 		}
 		func1 = XJS_NewCFunctionData(tls, ctx1, __ccgo_fp(_js_async_generator_resolve_function), int32(1), i+is_resume_next*int32(2), int32(1), bp)
-		v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _3
 	_3:
 		if v2 != 0 {
@@ -35746,7 +35746,7 @@ func _js_async_generator_await(tls *libc.TLS, ctx1 uintptr, s uintptr, _value TJ
 	var _ /* resolving_funcs1 at bp+24 */ [2]TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, p, promise, res, v1, v11, v12, v13, v3, v4, v5, v7, v8, v9
 	promise = _js_promise_resolve(tls, ctx1, (*TJSContext)(unsafe.Pointer(ctx1)).Fpromise_ctor, int32(1), bp, 0)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -35946,7 +35946,7 @@ func _js_async_generator_completed_return(tls *libc.TLS, ctx1 uintptr, s uintptr
 	promise = _js_promise_resolve(tls, ctx1, (*TJSContext)(unsafe.Pointer(ctx1)).Fpromise_ctor, int32(1), bp, 0)
 	// A poisoned .constructor property is observable and the resulting
 	// exception should be delivered to the catch handler.
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -35962,7 +35962,7 @@ _2:
 				X__JS_FreeValue(tls, ctx1, v3)
 			}
 		}
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -36120,7 +36120,7 @@ func _js_async_generator_resume_next(tls *libc.TLS, ctx3 uintptr, s uintptr) {
 		;
 		func_ret = _async_func_resume(tls, ctx3, (*TJSAsyncGeneratorData)(unsafe.Pointer(s)).Ffunc_state)
 		if (*TJSAsyncFunctionState)(unsafe.Pointer((*TJSAsyncGeneratorData)(unsafe.Pointer(s)).Ffunc_state)).Fis_completed != 0 {
-			v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _21
 		_21:
 			if v20 != 0 {
@@ -36274,7 +36274,7 @@ func _js_async_generator_next(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, ar
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = p, p1, promise, req, res2, s, v1, v10, v11, v12, v13, v14, v15, v16, v18, v19, v21, v22, v23, v24, v25, v26, v27, v28, v29, v3, v30, v31, v32, v33, v4, v5, v6, v7, v8, v9
 	s = XJS_GetOpaque(tls, this_val, uint32(EJS_CLASS_ASYNC_GENERATOR))
 	promise = XJS_NewPromiseCapability(tls, ctx2, bp)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -36421,7 +36421,7 @@ func _js_async_generator_function_call(tls *libc.TLS, ctx1 uintptr, func_obj TJS
 	/* execute the function up to 'OP_initial_yield' (no yield nor
 	   await are possible) */
 	func_ret = _async_func_resume(tls, ctx1, (*TJSAsyncGeneratorData)(unsafe.Pointer(s)).Ffunc_state)
-	v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _3
 _3:
 	if v2 != 0 {
@@ -36438,7 +36438,7 @@ _3:
 		}
 	}
 	obj = _js_create_from_ctor(tls, ctx1, func_obj, int32(EJS_CLASS_ASYNC_GENERATOR))
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if v7 != 0 {
@@ -39572,7 +39572,7 @@ parse_number:
 	radix = 0
 	*(*Tslimb_t)(unsafe.Pointer(s + 16 + 12 + 8)) = 0
 	ret = _js_atof2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, *(*uintptr)(unsafe.Pointer(bp)), bp, radix, flags, s+16+12+8)
-	v112 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v112 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _113
 _113:
 	if v112 != 0 {
@@ -40441,7 +40441,7 @@ parse_number:
 		radix = 0
 	}
 	ret = _js_atof(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, *(*uintptr)(unsafe.Pointer(bp)), bp, radix, flags)
-	v82 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v82 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _83
 _83:
 	if v82 != 0 {
@@ -41591,7 +41591,7 @@ func _js_parse_template(tls *libc.TLS, s uintptr, call int32, argc uintptr) (r i
 		/* Create a template object: an array of cooked strings */
 		/* Create an array of raw strings and store it to the raw property */
 		template_object = XJS_NewArray(tls, ctx2)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(template_object>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(template_object>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -41613,7 +41613,7 @@ func _js_parse_template(tls *libc.TLS, s uintptr, call int32, argc uintptr) (r i
 			return -int32(1)
 		}
 		raw_array = XJS_NewArray(tls, ctx2)
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(raw_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(raw_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -41841,7 +41841,7 @@ _1:
 			if libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_BIG_FLOAT) {
 				p1 = uintptr(libc.Int32FromUint64(val))
 				val = (*(*func(*libc.TLS, uintptr, uintptr, Tint64_t) TJSValue)(unsafe.Pointer(&struct{ uintptr }{(*TJSRuntime)(unsafe.Pointer((*TJSContext)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fctx)).Frt)).Fbigfloat_ops.Fmul_pow10_to_float64})))(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, p1+4, int64(*(*Tslimb_t)(unsafe.Pointer(s + 16 + 12 + 8))))
-				v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _4
 			_4:
 				if v3 != 0 {
@@ -44159,7 +44159,7 @@ _1:
 				_emit_u32(tls, s, libc.Uint32FromInt32(e))
 			} else {
 				val = XJS_NewBigInt64_1(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, int64(e))
-				v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _22
 			_22:
 				if v21 != 0 {
@@ -44225,7 +44225,7 @@ parse_regexp:
 	}
 	ret1 = _emit_push_const(tls, s, *(*TJSValue)(unsafe.Pointer(s + 16 + 12)), 0)
 	str = (*(*func(*libc.TLS, uintptr, TJSValue, TJSValue) TJSValue)(unsafe.Pointer(&struct{ uintptr }{(*TJSContext)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fctx)).Fcompile_regexp})))(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, *(*TJSValue)(unsafe.Pointer(s + 16 + 12)), *(*TJSValue)(unsafe.Pointer(s + 16 + 12 + 8)))
-	v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _27
 _27:
 	if v26 != 0 {
@@ -48090,12 +48090,12 @@ func _exported_names_cmp(tls *libc.TLS, p1 uintptr, p2 uintptr, opaque uintptr) 
 	/* XXX: should avoid allocation memory in atom comparison */
 	str1 = XJS_AtomToString(tls, ctx1, (*TExportedNameEntry)(unsafe.Pointer(me1)).Fexport_name)
 	str2 = XJS_AtomToString(tls, ctx1, (*TExportedNameEntry)(unsafe.Pointer(me2)).Fexport_name)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	;
 	if v5 = v1 != 0; !v5 {
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 	}
@@ -48148,7 +48148,7 @@ func _js_build_module_ns(tls *libc.TLS, ctx1 uintptr, m uintptr) (r TJSValue) {
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = en, en1, i, obj, p, p1, p11, pr, res, ret, s, var_ref, v1, v5, v6, v7
 	s = bp
 	obj = XJS_NewObjectClass(tls, ctx1, int32(EJS_CLASS_MODULE_NS))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -48275,7 +48275,7 @@ func XJS_GetModuleNamespace(tls *libc.TLS, ctx1 uintptr, m uintptr) (r TJSValue)
 _2:
 	if v1 != 0 {
 		val = _js_build_module_ns(tls, ctx1, m)
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -48360,7 +48360,7 @@ func _js_create_module_bytecode_function(tls *libc.TLS, ctx1 uintptr, m uintptr)
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, bfunc, cv, func_obj, i, p, p1, var_ref, var_refs, v1, v4, v5, v6, v7, v8, v9
 	bfunc = (*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj
 	func_obj = XJS_NewObjectProtoClass(tls, ctx1, (*TJSContext)(unsafe.Pointer(ctx1)).Ffunction_proto, uint32(EJS_CLASS_BYTECODE_FUNCTION))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -48600,7 +48600,7 @@ func _js_inner_module_linking(tls *libc.TLS, ctx1 uintptr, m uintptr, pstack_top
 			if (*TJSImportEntry)(unsafe.Pointer(mi)).Fimport_name == uint32(EJS_ATOM__star_) {
 				/* name space import */
 				val = XJS_GetModuleNamespace(tls, ctx1, m1)
-				v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _9
 			_9:
 				if v8 != 0 {
@@ -48617,7 +48617,7 @@ func _js_inner_module_linking(tls *libc.TLS, ctx1 uintptr, m uintptr, pstack_top
 					/* name space import from */
 					m2 = (*(*TJSReqModuleEntry)(unsafe.Pointer((*TJSModuleDef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 12)))).Freq_module_entries + uintptr(*(*int32)(unsafe.Pointer(&(*TJSExportEntry)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)))).Fu)))*8))).Fmodule
 					val1 = XJS_GetModuleNamespace(tls, ctx1, m2)
-					v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+					v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 					goto _11
 				_11:
 					if v10 != 0 {
@@ -48691,7 +48691,7 @@ func _js_inner_module_linking(tls *libc.TLS, ctx1 uintptr, m uintptr, pstack_top
 		}
 		/* initialize the global variables */
 		ret_val = XJS_Call(tls, ctx1, (*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj, libc.Uint64FromInt32(int32(EJS_TAG_BOOL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(1))), 0, libc.UintptrFromInt32(0))
-		v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _17
 	_17:
 		if v16 != 0 {
@@ -48823,7 +48823,7 @@ func XJS_GetImportMeta(tls *libc.TLS, ctx1 uintptr, m uintptr) (r TJSValue) {
 _2:
 	if v1 != 0 {
 		obj = XJS_NewObjectProto(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -48926,7 +48926,7 @@ func _js_load_module_fulfilled(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, a
 	m = uintptr(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(func_data + 2*8))))
 	/* return the module namespace */
 	*(*TJSValue)(unsafe.Pointer(bp)) = XJS_GetModuleNamespace(tls, ctx1, m)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -48979,7 +48979,7 @@ func _JS_LoadModuleInternal(tls *libc.TLS, ctx1 uintptr, basename uintptr, filen
 	/* Evaluate the module code */
 	func_obj = _JS_NewModuleValue(tls, ctx1, m)
 	evaluate_promise = XJS_EvalFunction(tls, ctx1, func_obj)
-	v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(evaluate_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(evaluate_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _3
 _3:
 	if !(v2 != 0) {
@@ -49085,7 +49085,7 @@ func XJS_LoadModule(tls *libc.TLS, ctx1 uintptr, basename uintptr, filename uint
 	var _ /* resolving_funcs at bp+0 */ [2]TJSValue
 	_, _, _, _, _, _, _, _, _ = p, promise, v1, v3, v4, v5, v6, v7, v8
 	promise = XJS_NewPromiseCapability(tls, ctx1, bp)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -49198,14 +49198,14 @@ func _js_dynamic_import(tls *libc.TLS, ctx1 uintptr, specifier TJSValue) (r TJSV
 		basename_val = XJS_AtomToValue(tls, ctx1, basename)
 	}
 	XJS_FreeAtom(tls, ctx1, basename)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(basename_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(basename_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return basename_val
 	}
 	promise = XJS_NewPromiseCapability(tls, ctx1, bp)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -49519,7 +49519,7 @@ func _js_execute_async_module(tls *libc.TLS, ctx1 uintptr, m uintptr) (r int32) 
 	var _ /* resolve_funcs at bp+8 */ [2]TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = p, promise, ret_val, v1, v10, v11, v12, v13, v14, v15, v16, v17, v3, v4, v5, v6, v7, v8, v9
 	promise = _js_async_function_call(tls, ctx1, (*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), 0, libc.UintptrFromInt32(0), 0)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -49602,7 +49602,7 @@ func _js_execute_sync_module(tls *libc.TLS, ctx1 uintptr, m uintptr, pvalue uint
 _1:
 	;
 	promise = _js_async_function_call(tls, ctx1, (*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), 0, libc.UintptrFromInt32(0), 0)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -49846,7 +49846,7 @@ _2:
 		return v4
 	}
 	(*TJSModuleDef)(unsafe.Pointer(m)).Fpromise = XJS_NewPromiseCapability(tls, ctx2, m+140)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSModuleDef)(unsafe.Pointer(m)).Fpromise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSModuleDef)(unsafe.Pointer(m)).Fpromise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -55282,7 +55282,7 @@ func _js_create_function(tls *libc.TLS, ctx uintptr, fd uintptr) (r TJSValue) {
 		fd1 = el1 - uintptr(uint32(libc.UintptrFromInt32(0)+24))
 		cpool_idx = (*TJSFunctionDef)(unsafe.Pointer(fd1)).Fparent_cpool_idx
 		func_obj = _js_create_function(tls, ctx, fd1)
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -56415,7 +56415,7 @@ func _JS_EvalFunctionInternal(tls *libc.TLS, ctx1 uintptr, fun_obj TJSValue, thi
 			goto fail
 		}
 		ret_val = _js_evaluate_module(tls, ctx1, m)
-		v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _8
 	_8:
 		if !(v7 != 0) {
@@ -56556,7 +56556,7 @@ _1:
 	}
 	/* create the function object and all the enclosed functions */
 	fun_obj = _js_create_function(tls, ctx, fd)
-	v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(fun_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(fun_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _3
 _3:
 	if v2 != 0 {
@@ -57590,7 +57590,7 @@ func _JS_WriteArray(tls *libc.TLS, s uintptr, obj TJSValue) (r int32) {
 			break
 		}
 		val = XJS_GetPropertyUint32(tls, (*TBCWriterState)(unsafe.Pointer(s)).Fctx, obj, i)
-		v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _3
 	_3:
 		if v2 != 0 {
@@ -57621,7 +57621,7 @@ func _JS_WriteArray(tls *libc.TLS, s uintptr, obj TJSValue) (r int32) {
 		goto _9
 	_9:
 		val = v8
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if v10 != 0 {
@@ -58802,7 +58802,7 @@ func _JS_ReadFunctionTag(tls *libc.TLS, s uintptr) (r TJSValue) {
 				break
 			}
 			val = _JS_ReadObjectRec(tls, s)
-			v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _5
 		_5:
 			if v4 != 0 {
@@ -58975,7 +58975,7 @@ func _JS_ReadModule(tls *libc.TLS, s uintptr) (r TJSValue) {
 	}
 	libc.SetBitFieldPtr32Int32(m+84, libc.BoolInt32(libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(bp + 4))) != libc.Int32FromInt32(0)), 0, 0xff)
 	(*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj = _JS_ReadObjectRec(tls, s)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -59018,7 +59018,7 @@ func _JS_ReadObjectTag(tls *libc.TLS, s uintptr) (r TJSValue) {
 			goto fail
 		}
 		val = _JS_ReadObjectRec(tls, s)
-		v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _3
 	_3:
 		if v2 != 0 {
@@ -59077,7 +59077,7 @@ func _JS_ReadArray(tls *libc.TLS, s uintptr, tag int32) (r TJSValue) {
 			break
 		}
 		val = _JS_ReadObjectRec(tls, s)
-		v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _3
 	_3:
 		if v2 != 0 {
@@ -59099,7 +59099,7 @@ func _JS_ReadArray(tls *libc.TLS, s uintptr, tag int32) (r TJSValue) {
 	}
 	if is_template != 0 {
 		val = _JS_ReadObjectRec(tls, s)
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -59172,7 +59172,7 @@ func _JS_ReadTypedArray(tls *libc.TLS, s uintptr) (r TJSValue) {
 		goto fail
 	}
 	array_buffer = _JS_ReadObjectRec(tls, s)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(array_buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(array_buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -59243,7 +59243,7 @@ _13:
 _21:
 	(*(*[3]TJSValue)(unsafe.Pointer(bp + 12)))[int32(2)] = v20
 	obj = _js_typed_array_constructor(tls, ctx4, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(3), bp+12, int32(EJS_CLASS_UINT8C_ARRAY)+libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(bp + 8))))
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -59306,7 +59306,7 @@ func _JS_ReadArrayBuffer(tls *libc.TLS, s uintptr) (r TJSValue) {
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	obj = XJS_NewArrayBufferCopy(tls, ctx1, (*TBCReaderState)(unsafe.Pointer(s)).Fptr, *(*Tuint32_t)(unsafe.Pointer(bp)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -59352,7 +59352,7 @@ func _JS_ReadSharedArrayBuffer(tls *libc.TLS, s uintptr) (r TJSValue) {
 	data_ptr = uintptr(uint32(*(*Tuint64_t)(unsafe.Pointer(bp + 8))))
 	/* the SharedArrayBuffer is cloned */
 	obj = _js_array_buffer_constructor3(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), uint64(*(*Tuint32_t)(unsafe.Pointer(bp))), uint32(EJS_CLASS_SHARED_ARRAY_BUFFER), data_ptr, libc.UintptrFromInt32(0), libc.UintptrFromInt32(0), int32(EFALSE))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -59386,7 +59386,7 @@ func _JS_ReadDate(tls *libc.TLS, s uintptr) (r TJSValue) {
 	ctx1 = (*TBCReaderState)(unsafe.Pointer(s)).Fctx
 	obj = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	val = _JS_ReadObjectRec(tls, s)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -59401,7 +59401,7 @@ _4:
 		goto fail
 	}
 	obj = XJS_NewObjectProtoClass(tls, ctx1, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx1)).Fclass_proto + uintptr(EJS_CLASS_DATE)*8)), uint32(EJS_CLASS_DATE))
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -59446,14 +59446,14 @@ func _JS_ReadObjectValue(tls *libc.TLS, s uintptr) (r TJSValue) {
 	ctx1 = (*TBCReaderState)(unsafe.Pointer(s)).Fctx
 	obj = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	val = _JS_ReadObjectRec(tls, s)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		goto fail
 	}
 	obj = _JS_ToObject(tls, ctx1, val)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -59841,7 +59841,7 @@ func _check_exception_free(tls *libc.TLS, ctx1 uintptr, obj TJSValue) (r int32) 
 			X__JS_FreeValue(tls, ctx1, v1)
 		}
 	}
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	return v4
@@ -60442,7 +60442,7 @@ _15:
 	goto set_value
 set_value:
 	;
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if !(v22 != 0) {
@@ -60505,7 +60505,7 @@ _2:
 		goto _5
 	_5:
 		prop1 = v4
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -60522,7 +60522,7 @@ _2:
 		goto _10
 	_10:
 		prop2 = v9
-		v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v11 != 0 {
@@ -60539,7 +60539,7 @@ _2:
 		goto _15
 	_15:
 		prop3 = v14
-		v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _17
 	_17:
 		if v16 != 0 {
@@ -60557,7 +60557,7 @@ _2:
 		goto _20
 	_20:
 		val = v19
-		v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _22
 	_22:
 		if v21 != 0 {
@@ -60571,7 +60571,7 @@ _2:
 		goto _25
 	_25:
 		getter = v24
-		v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(getter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(getter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _27
 	_27:
 		;
@@ -60592,7 +60592,7 @@ _2:
 		goto _33
 	_33:
 		setter = v32
-		v34 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(setter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v34 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(setter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _35
 	_35:
 		;
@@ -60685,7 +60685,7 @@ _2:
 	}
 	desc = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	props = _JS_ToObject(tls, ctx2, properties)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(props>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(props>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -60715,7 +60715,7 @@ _4:
 		goto _11
 	_11:
 		desc = v10
-		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(desc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(desc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _13
 	_13:
 		if v12 != 0 {
@@ -60812,7 +60812,7 @@ _2:
 		return XJS_ThrowTypeError(tls, ctx1, __ccgo_ts+8957, 0)
 	}
 	obj = XJS_NewObjectProto(tls, ctx1, proto)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -60959,7 +60959,7 @@ func _js_object___defineGetter__(tls *libc.TLS, ctx1 uintptr, this_val TJSValue,
 	prop = *(*TJSValue)(unsafe.Pointer(argv))
 	value = *(*TJSValue)(unsafe.Pointer(argv + 1*8))
 	obj = _JS_ToObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -61049,7 +61049,7 @@ func _js_object_getOwnPropertyDescriptor(tls *libc.TLS, ctx3 uintptr, this_val T
 		obj = v2
 	} else {
 		obj = _JS_ToObject(tls, ctx3, *(*TJSValue)(unsafe.Pointer(argv)))
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -61069,7 +61069,7 @@ func _js_object_getOwnPropertyDescriptor(tls *libc.TLS, ctx3 uintptr, this_val T
 		}
 		if res != 0 {
 			ret = XJS_NewObject(tls, ctx3)
-			v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _7
 		_7:
 			if v6 != 0 {
@@ -61195,7 +61195,7 @@ func _js_object_getOwnPropertyDescriptors(tls *libc.TLS, ctx1 uintptr, this_val 
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = atomValue, desc, i, obj, p, p1, r, v1, v10, v11, v13, v15, v16, v17, v18, v19, v20, v21, v22, v23, v3, v6, v8, v9
 	r = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	obj = _JS_ToObject(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -61206,7 +61206,7 @@ _2:
 		goto exception
 	}
 	r = XJS_NewObject(tls, ctx1)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -61218,7 +61218,7 @@ _4:
 			break
 		}
 		atomValue = XJS_AtomToValue(tls, ctx1, (*(*TJSPropertyEnum)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + uintptr(i)*8))).Fatom)
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atomValue>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atomValue>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -61237,7 +61237,7 @@ _4:
 				X__JS_FreeValue(tls, ctx1, v8)
 			}
 		}
-		v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(desc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(desc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v11 != 0 {
@@ -61310,7 +61310,7 @@ func _JS_GetOwnPropertyNames2(tls *libc.TLS, ctx2 uintptr, obj1 TJSValue, flags 
 	r = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	val = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	obj = _JS_ToObject(tls, ctx2, obj1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -61321,7 +61321,7 @@ _2:
 		goto exception
 	}
 	r = XJS_NewArray(tls, ctx2)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -61354,7 +61354,7 @@ _4:
 			fallthrough
 		case int32(EJS_ITERATOR_KIND_KEY):
 			val = XJS_AtomToValue(tls, ctx2, atom)
-			v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _8
 		_8:
 			if v7 != 0 {
@@ -61366,7 +61366,7 @@ _4:
 			goto _11
 		_11:
 			val = v10
-			v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _13
 		_13:
 			if v12 != 0 {
@@ -61374,14 +61374,14 @@ _4:
 			}
 		case int32(EJS_ITERATOR_KIND_KEY_AND_VALUE):
 			val = XJS_NewArray(tls, ctx2)
-			v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _15
 		_15:
 			if v14 != 0 {
 				goto exception
 			}
 			key = XJS_AtomToValue(tls, ctx2, atom)
-			v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(key>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(key>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _17
 		_17:
 			if v16 != 0 {
@@ -61395,7 +61395,7 @@ _4:
 			goto _20
 		_20:
 			value = v19
-			v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _22
 		_22:
 			if v21 != 0 {
@@ -61560,7 +61560,7 @@ func _js_object_hasOwnProperty(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, a
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	obj = _JS_ToObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -61600,7 +61600,7 @@ func _js_object_hasOwn(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int3
 	var v1, v4, v7 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = atom, obj, p, p1, ret, v1, v3, v4, v5, v6, v7, v8, v9
 	obj = _JS_ToObject(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -61668,7 +61668,7 @@ _2:
 			tag = XJS_NewString(tls, ctx2, __ccgo_ts+9025)
 		} else {
 			obj = _JS_ToObject(tls, ctx2, this_val)
-			v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _6
 		_6:
 			if v5 != 0 {
@@ -61733,7 +61733,7 @@ _2:
 					X__JS_FreeValue(tls, ctx2, v13)
 				}
 			}
-			v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tag>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tag>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _17
 		_17:
 			if v16 != 0 {
@@ -61772,7 +61772,7 @@ func _js_object_assign(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int3
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, obj, p, s, v1, v11, v12, v13, v14, v15, v16, v17, v18, v19, v4, v6, v8, v9
 	s = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	obj = _JS_ToObject(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -61794,7 +61794,7 @@ _2:
 		}
 		if v8 && !(v6 != 0) {
 			s = _JS_ToObject(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv + uintptr(i)*8)))
-			v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _10
 		_10:
 			if v9 != 0 {
@@ -62011,14 +62011,14 @@ func _js_object_fromEntries(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc
 	    JS_GetIterator() by JS_GetProperty() */
 	iterable = *(*TJSValue)(unsafe.Pointer(argv))
 	obj = XJS_NewObject(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return obj
 	}
 	iter = _JS_GetIterator(tls, ctx2, iterable, int32(EFALSE))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -62029,7 +62029,7 @@ _4:
 	goto _7
 _7:
 	next_method = v6
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -62038,7 +62038,7 @@ _9:
 _12:
 	;
 	item = _JS_IteratorNext(tls, ctx2, iter, next_method, 0, libc.UintptrFromInt32(0), bp)
-	v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(item>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(item>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _14
 _14:
 	if v13 != 0 {
@@ -62067,14 +62067,14 @@ _19:
 		goto fail1
 	}
 	key = XJS_GetPropertyUint32(tls, ctx2, item, uint32(0))
-	v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(key>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(key>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _21
 _21:
 	if v20 != 0 {
 		goto fail1
 	}
 	value = XJS_GetPropertyUint32(tls, ctx2, item, uint32(1))
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -62249,7 +62249,7 @@ _2:
 	goto _5
 _5:
 	ctor = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -62301,7 +62301,7 @@ _20:
 			X__JS_FreeValue(tls, ctx3, v21)
 		}
 	}
-	v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(species>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(species>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _25
 _25:
 	if v24 != 0 {
@@ -62350,7 +62350,7 @@ func _js_object_get___proto__(tls *libc.TLS, ctx1 uintptr, this_val TJSValue) (r
 	var v1, v4 int32
 	_, _, _, _, _, _, _ = p, ret, val, v1, v3, v4, v5
 	val = _JS_ToObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -62419,7 +62419,7 @@ _2:
 		return libc.Uint64FromInt32(int32(EJS_TAG_BOOL))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	obj = _JS_ToObject(tls, ctx3, this_val)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -62437,7 +62437,7 @@ _7:
 	v11 = v6
 	for {
 		v11 = _JS_GetPrototypeFree(tls, ctx3, v11)
-		v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _10
 	_10:
 		if v9 != 0 {
@@ -62524,7 +62524,7 @@ func _js_object_propertyIsEnumerable(tls *libc.TLS, ctx2 uintptr, this_val TJSVa
 	res = libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	prop = uint32(MJS_ATOM_NULL)
 	obj = _JS_ToObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -62578,7 +62578,7 @@ func _js_object___lookupGetter__(tls *libc.TLS, ctx2 uintptr, this_val TJSValue,
 	res = libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	prop = uint32(MJS_ATOM_NULL)
 	obj = _JS_ToObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -62617,7 +62617,7 @@ _2:
 			break
 		}
 		obj = _JS_GetPrototypeFree(tls, ctx2, obj)
-		v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _9
 	_9:
 		if v8 != 0 {
@@ -63926,7 +63926,7 @@ func _js_function_constructor(tls *libc.TLS, ctx3 uintptr, new_target TJSValue, 
 	}
 	_string_buffer_puts8(tls, b, __ccgo_ts+9529)
 	s = _string_buffer_end(tls, b)
-	v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _3
 _3:
 	if v2 != 0 {
@@ -63943,7 +63943,7 @@ _3:
 			X__JS_FreeValue(tls, ctx3, v4)
 		}
 	}
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if v7 != 0 {
@@ -63959,7 +63959,7 @@ _10:
 		goto _13
 	_13:
 		proto = v12
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if v14 != 0 {
@@ -64039,7 +64039,7 @@ func _js_get_length32(tls *libc.TLS, ctx1 uintptr, pres uintptr, obj TJSValue) (
 	goto _3
 _3:
 	len_val = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(len_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(len_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -64058,7 +64058,7 @@ func _js_get_length64(tls *libc.TLS, ctx1 uintptr, pres uintptr, obj TJSValue) (
 	goto _3
 _3:
 	len_val = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(len_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(len_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -64185,7 +64185,7 @@ _4:
 				break
 			}
 			ret = XJS_GetPropertyUint32(tls, ctx1, array_arg, i)
-			v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _11
 		_11:
 			if v10 != 0 {
@@ -64279,7 +64279,7 @@ func _js_function_bind(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int3
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	func_obj = XJS_NewObjectProtoClass(tls, ctx6, (*TJSContext)(unsafe.Pointer(ctx6)).Ffunction_proto, uint32(EJS_CLASS_BOUND_FUNCTION))
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -64361,7 +64361,7 @@ _12:
 		goto _21
 	_21:
 		len_val = v20
-		v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(len_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(len_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _23
 	_23:
 		if v22 != 0 {
@@ -64460,7 +64460,7 @@ _12:
 	goto _44
 _44:
 	name1 = v43
-	v45 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v45 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _46
 _46:
 	if v45 != 0 {
@@ -64483,7 +64483,7 @@ _48:
 		name1 = XJS_AtomToString(tls, ctx6, uint32(EJS_ATOM_empty_string))
 	}
 	name1 = _JS_ConcatString3(tls, ctx6, __ccgo_ts+9600, name1, __ccgo_ts+324)
-	v52 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v52 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _53
 _53:
 	if v52 != 0 {
@@ -64828,7 +64828,7 @@ func _iterator_to_array(tls *libc.TLS, ctx2 uintptr, items TJSValue) (r1 TJSValu
 	next_method = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	r = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	iter = _JS_GetIterator(tls, ctx2, items, int32(EFALSE))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -64839,14 +64839,14 @@ _2:
 	goto _5
 _5:
 	next_method = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
 		goto exception
 	}
 	r = XJS_NewArray(tls, ctx2)
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -64855,7 +64855,7 @@ _9:
 	k = 0
 	for {
 		v2 = _JS_IteratorNext(tls, ctx2, iter, next_method, 0, libc.UintptrFromInt32(0), bp)
-		v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v11 != 0 {
@@ -64934,7 +64934,7 @@ _2:
 	goto _5
 _5:
 	proto = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -64985,7 +64985,7 @@ _9:
 			X__JS_FreeValue(tls, ctx3, v16)
 		}
 	}
-	v19 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v19 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _20
 _20:
 	if v19 != 0 {
@@ -65000,7 +65000,7 @@ _20:
 _23:
 	if !(v22 != 0) {
 		msg = XJS_ToString(tls, ctx3, message)
-		v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(msg>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(msg>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _25
 	_25:
 		if libc.X__builtin_expect(tls, libc.BoolInt32(!!(v24 != 0)), 0) != 0 {
@@ -65024,7 +65024,7 @@ _23:
 				goto _30
 			_30:
 				cause = v29
-				v31 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(cause>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v31 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(cause>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _32
 			_32:
 				if v31 != 0 {
@@ -65036,7 +65036,7 @@ _23:
 	}
 	if magic == int32(EJS_AGGREGATE_ERROR) {
 		error_list = _iterator_to_array(tls, ctx3, *(*TJSValue)(unsafe.Pointer(argv)))
-		v33 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(error_list>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v33 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(error_list>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _34
 	_34:
 		if v33 != 0 {
@@ -65087,7 +65087,7 @@ _7:
 	} else {
 		name = _JS_ToStringFree(tls, ctx2, name)
 	}
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -65106,7 +65106,7 @@ _14:
 	} else {
 		msg = _JS_ToStringFree(tls, ctx2, msg)
 	}
-	v15 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(msg>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v15 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(msg>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _16
 _16:
 	if v15 != 0 {
@@ -65237,7 +65237,7 @@ func _js_aggregate_error_constructor(tls *libc.TLS, ctx1 uintptr, errors TJSValu
 	var v1 int32
 	_, _, _, _, _ = obj, p, v1, v3, v4
 	obj = XJS_NewObjectProtoClass(tls, ctx1, *(*TJSValue)(unsafe.Pointer(ctx1 + 84 + uintptr(EJS_AGGREGATE_ERROR)*8)), uint32(EJS_CLASS_ERROR))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -65446,7 +65446,7 @@ func _js_array_constructor(tls *libc.TLS, ctx6 uintptr, new_target TJSValue, arg
 	}
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, obj, p, p1, tag, v, v1, v11, v10, v111, v13, v15, v17, v18, v21, v22, v24, v25, v26, v3, v5, v6, v7, v9
 	obj = _js_create_from_ctor(tls, ctx6, new_target, int32(EJS_CLASS_ARRAY))
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -65589,7 +65589,7 @@ func _js_array_from(tls *libc.TLS, ctx8 uintptr, this_val TJSValue, argc int32, 
 	goto _5
 _5:
 	iter = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -65614,7 +65614,7 @@ _9:
 		} else {
 			r = XJS_NewArray(tls, ctx8)
 		}
-		v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _14
 	_14:
 		if v13 != 0 {
@@ -65636,7 +65636,7 @@ _9:
 		k = 0
 		for {
 			v7 = _JS_IteratorNext(tls, ctx8, (*(*[2]TJSValue)(unsafe.Pointer(bp + 24)))[0], (*(*[2]TJSValue)(unsafe.Pointer(bp + 24)))[int32(1)], 0, libc.UintptrFromInt32(0), bp+48)
-			v19 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v19 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _20
 		_20:
 			if v19 != 0 {
@@ -65664,7 +65664,7 @@ _9:
 					}
 				}
 				v7 = v21
-				v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _27
 			_27:
 				if v26 != 0 {
@@ -65681,7 +65681,7 @@ _9:
 		}
 	} else {
 		arrayLike = _JS_ToObject(tls, ctx8, items)
-		v28 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arrayLike>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v28 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arrayLike>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _29
 	_29:
 		if v28 != 0 {
@@ -65731,7 +65731,7 @@ _9:
 				X__JS_FreeValue(tls, ctx8, v38)
 			}
 		}
-		v41 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v41 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _42
 	_42:
 		if v41 != 0 {
@@ -65743,7 +65743,7 @@ _9:
 				break
 			}
 			v7 = _JS_GetPropertyInt64(tls, ctx8, arrayLike, k)
-			v44 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v44 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _45
 		_45:
 			if v44 != 0 {
@@ -65768,7 +65768,7 @@ _9:
 					}
 				}
 				v7 = v21
-				v51 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v51 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v7>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _52
 			_52:
 				if v51 != 0 {
@@ -65898,7 +65898,7 @@ func _js_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, ar
 	} else {
 		obj = XJS_NewArray(tls, ctx6)
 	}
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -66029,7 +66029,7 @@ func _JS_ArraySpeciesCreate(tls *libc.TLS, ctx2 uintptr, obj TJSValue, _len_val 
 	goto _3
 _3:
 	ctor = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -66084,7 +66084,7 @@ _13:
 				X__JS_FreeValue(tls, ctx2, v17)
 			}
 		}
-		v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(species>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(species>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _21
 	_21:
 		if v20 != 0 {
@@ -66272,7 +66272,7 @@ _2:
 	goto _5
 _5:
 	val = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -66393,7 +66393,7 @@ func _js_array_with(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, 
 		goto exception
 	}
 	arr = _js_allocate_fast_array(tls, ctx6, *(*Tint64_t)(unsafe.Pointer(bp + 16)))
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -66590,7 +66590,7 @@ func _js_array_concat(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = arr, e, i, k, n, obj, p, p1, res, v, v1, v11, v10, v12, v13, v14, v16, v18, v20, v21, v23, v24, v25, v26, v27, v28, v29, v3, v30, v31, v5, v9
 	arr = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	obj = _JS_ToObject(tls, ctx6, this_val)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -66601,7 +66601,7 @@ _2:
 	goto _4
 _4:
 	arr = _JS_ArraySpeciesCreate(tls, ctx6, obj, v3)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -66824,7 +66824,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 		goto _11
 	_11:
 		ret = _JS_ArraySpeciesCreate(tls, ctx5, obj, v10)
-		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _13
 	_13:
 		if v12 != 0 {
@@ -66836,7 +66836,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 		goto _15
 	_15:
 		ret = _JS_ArraySpeciesCreate(tls, ctx5, obj, v14)
-		v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _17
 	_17:
 		if v16 != 0 {
@@ -66850,7 +66850,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 	_19:
 		(*(*[3]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)] = v18
 		ret = _js_typed_array___speciesCreate(tls, ctx5, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(2), bp+16)
-		v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _21
 	_21:
 		if v20 != 0 {
@@ -66858,7 +66858,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 		}
 	case libc.Int32FromInt32(Mspecial_filter) | libc.Int32FromInt32(Mspecial_TA):
 		ret = XJS_NewArray(tls, ctx5)
-		v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _23
 	_23:
 		if v22 != 0 {
@@ -66874,7 +66874,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 		}
 		if special&int32(Mspecial_TA) != 0 {
 			*(*TJSValue)(unsafe.Pointer(bp + 8)) = _JS_GetPropertyInt64(tls, ctx5, obj, k)
-			v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _26
 		_26:
 			if v25 != 0 {
@@ -66913,7 +66913,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 			goto _34
 		_34:
 			index_val = v33
-			v35 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(index_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v35 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(index_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _36
 		_36:
 			if v35 != 0 {
@@ -66933,7 +66933,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 					X__JS_FreeValue(tls, ctx5, v37)
 				}
 			}
-			v40 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v40 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _41
 		_41:
 			if v40 != 0 {
@@ -67026,7 +67026,7 @@ done:
 	_55:
 		(*(*[3]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)] = v54
 		arr = _js_typed_array___speciesCreate(tls, ctx5, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(2), bp+16)
-		v56 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v56 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _57
 	_57:
 		if v56 != 0 {
@@ -67177,7 +67177,7 @@ func _js_array_reduce(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32
 			k++
 			if special&int32(Mspecial_TA) != 0 {
 				*(*TJSValue)(unsafe.Pointer(bp + 16)) = _JS_GetPropertyInt64(tls, ctx5, obj, k1)
-				v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _10
 			_10:
 				if v9 != 0 {
@@ -67209,7 +67209,7 @@ func _js_array_reduce(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32
 		k1 = v12
 		if special&int32(Mspecial_TA) != 0 {
 			*(*TJSValue)(unsafe.Pointer(bp + 8)) = _JS_GetPropertyInt64(tls, ctx5, obj, k1)
-			v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _14
 		_14:
 			if v13 != 0 {
@@ -67248,7 +67248,7 @@ func _js_array_reduce(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32
 			goto _22
 		_22:
 			index_val = v21
-			v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(index_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(index_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _24
 		_24:
 			if v23 != 0 {
@@ -67280,7 +67280,7 @@ func _js_array_reduce(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32
 				}
 			}
 			*(*TJSValue)(unsafe.Pointer(bp + 8)) = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-			v31 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(acc1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v31 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(acc1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _32
 		_32:
 			if v31 != 0 {
@@ -67481,7 +67481,7 @@ func _js_array_includes(tls *libc.TLS, ctx3 uintptr, this_val TJSValue, argc int
 				break
 			}
 			val1 = _JS_GetPropertyInt64(tls, ctx3, obj, *(*Tint64_t)(unsafe.Pointer(bp + 8)))
-			v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _10
 		_10:
 			if v9 != 0 {
@@ -67864,14 +67864,14 @@ func _js_array_find(tls *libc.TLS, ctx4 uintptr, this_val TJSValue, argc int32, 
 		goto _9
 	_9:
 		index_val = v8
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(index_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(index_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if v10 != 0 {
 			goto exception
 		}
 		val2 = _JS_GetPropertyValue(tls, ctx4, obj, index_val)
-		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _13
 	_13:
 		if v12 != 0 {
@@ -67881,7 +67881,7 @@ func _js_array_find(tls *libc.TLS, ctx4 uintptr, this_val TJSValue, argc int32, 
 		(*(*[3]TJSValue)(unsafe.Pointer(bp + 8)))[int32(1)] = index_val
 		(*(*[3]TJSValue)(unsafe.Pointer(bp + 8)))[int32(2)] = this_val
 		res = XJS_Call(tls, ctx4, func1, this_arg, int32(3), bp+8)
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if v14 != 0 {
@@ -68020,7 +68020,7 @@ func _js_array_toString(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int
 	var v1, v12, v6, v9 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = method, obj, p, ret, v1, v10, v11, v12, v13, v3, v4, v6, v8, v9
 	obj = _JS_ToObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -68031,7 +68031,7 @@ _2:
 	goto _5
 _5:
 	method = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -68093,7 +68093,7 @@ func _js_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, 
 	}
 	if v3 && !(v1 != 0) {
 		sep = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -68120,7 +68120,7 @@ func _js_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, 
 			}
 		}
 		el = XJS_GetPropertyUint32(tls, ctx1, obj, libc.Uint32FromInt64(i))
-		v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _8
 	_8:
 		if v7 != 0 {
@@ -68276,7 +68276,7 @@ func _js_array_pop(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32, a
 		} else {
 			if shift != 0 {
 				res = _JS_GetPropertyInt64(tls, ctx5, obj, 0)
-				v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _2
 			_2:
 				if v11 != 0 {
@@ -68287,7 +68287,7 @@ func _js_array_pop(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32, a
 				}
 			} else {
 				res = _JS_GetPropertyInt64(tls, ctx5, obj, newLen)
-				v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _4
 			_4:
 				if v3 != 0 {
@@ -68642,7 +68642,7 @@ func _js_array_toReversed(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc i
 		goto exception
 	}
 	arr = _js_allocate_fast_array(tls, ctx6, *(*Tint64_t)(unsafe.Pointer(bp + 16)))
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -68868,7 +68868,7 @@ _14:
 			X__JS_FreeValue(tls, ctx6, v15)
 		}
 	}
-	v18 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v18 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _19
 _19:
 	if v18 != 0 {
@@ -69123,7 +69123,7 @@ func _js_array_toSpliced(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc in
 		goto exception
 	}
 	arr = _js_allocate_fast_array(tls, ctx6, newlen)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -69472,7 +69472,7 @@ func _JS_FlattenIntoArray(tls *libc.TLS, ctx4 uintptr, target TJSValue, source T
 					X__JS_FreeValue(tls, ctx4, v15)
 				}
 			}
-			v18 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v18 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _19
 		_19:
 			if v18 != 0 {
@@ -69578,7 +69578,7 @@ func _js_array_flatten(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int3
 	goto _5
 _5:
 	arr = _JS_ArraySpeciesCreate(tls, ctx2, obj, v4)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -69665,7 +69665,7 @@ func _js_array_cmp_generic(tls *libc.TLS, a uintptr, b uintptr, opaque uintptr) 
 		(*(*[2]TJSValue)(unsafe.Pointer(bp1)))[0] = (*TValueSlot)(unsafe.Pointer(ap)).Fval
 		(*(*[2]TJSValue)(unsafe.Pointer(bp1)))[int32(1)] = (*TValueSlot)(unsafe.Pointer(bp)).Fval
 		res = XJS_Call(tls, ctx, (*Tarray_sort_context)(unsafe.Pointer(psc)).Fmethod, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(2), bp1)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -69686,7 +69686,7 @@ func _js_array_cmp_generic(tls *libc.TLS, a uintptr, b uintptr, opaque uintptr) 
 		 */
 		if !((*TValueSlot)(unsafe.Pointer(ap)).Fstr != 0) {
 			str = XJS_ToString(tls, ctx, (*TValueSlot)(unsafe.Pointer(ap)).Fval)
-			v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _4
 		_4:
 			if v3 != 0 {
@@ -69696,7 +69696,7 @@ func _js_array_cmp_generic(tls *libc.TLS, a uintptr, b uintptr, opaque uintptr) 
 		}
 		if !((*TValueSlot)(unsafe.Pointer(bp)).Fstr != 0) {
 			str1 = XJS_ToString(tls, ctx, (*TValueSlot)(unsafe.Pointer(bp)).Fval)
-			v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _6
 		_6:
 			if v5 != 0 {
@@ -69947,7 +69947,7 @@ _2:
 		goto exception
 	}
 	arr = _js_allocate_fast_array(tls, ctx6, *(*Tint64_t)(unsafe.Pointer(bp + 16)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -70037,7 +70037,7 @@ _4:
 		}
 	}
 	ret = _js_array_sort(tls, ctx6, arr, argc, argv)
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -70125,7 +70125,7 @@ func _js_create_array(tls *libc.TLS, ctx2 uintptr, len1 int32, tab uintptr) (r T
 	var p, p1, v9 uintptr
 	_, _, _, _, _, _, _, _, _, _ = i, obj, p, p1, v1, v4, v5, v7, v8, v9
 	obj = XJS_NewArray(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -70181,14 +70181,14 @@ func _js_create_array_iterator(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, a
 		arr = _JS_ToObject(tls, ctx1, this_val)
 		class_id = int32(EJS_CLASS_ARRAY_ITERATOR)
 	}
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		goto fail
 	}
 	enum_obj = XJS_NewObjectClass(tls, ctx1, class_id)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -70352,7 +70352,7 @@ _6:
 		return v16
 	} else {
 		val2 = XJS_GetPropertyUint32(tls, ctx4, (*TJSArrayIteratorData)(unsafe.Pointer(it)).Fobj, idx)
-		v18 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v18 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _19
 	_19:
 		if v18 != 0 {
@@ -71915,7 +71915,7 @@ func _js_number_constructor(tls *libc.TLS, ctx3 uintptr, new_target TJSValue, ar
 		val1 = v1
 	} else {
 		val1 = _JS_ToNumeric(tls, ctx3, *(*TJSValue)(unsafe.Pointer(argv)))
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -71950,14 +71950,14 @@ func _js_number_constructor(tls *libc.TLS, ctx3 uintptr, new_target TJSValue, ar
 			val1 = v8
 		case int32(EJS_TAG_BIG_DECIMAL):
 			val1 = _JS_ToStringFree(tls, ctx3, val1)
-			v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _11
 		_11:
 			if v10 != 0 {
 				return val1
 			}
 			val1 = _JS_ToNumberFree(tls, ctx3, val1)
-			v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _13
 		_13:
 			if v12 != 0 {
@@ -71972,7 +71972,7 @@ func _js_number_constructor(tls *libc.TLS, ctx3 uintptr, new_target TJSValue, ar
 _15:
 	if !(v14 != 0) {
 		obj = _js_create_from_ctor(tls, ctx3, new_target, int32(EJS_CLASS_NUMBER))
-		v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _17
 	_17:
 		if !(v16 != 0) {
@@ -72552,7 +72552,7 @@ func _js_number_toString(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc in
 	var _ /* d at bp+8 */ float64
 	_, _, _, _, _, _, _, _, _, _, _, _ = base, p, ptr, val, v1, v10, v11, v3, v5, v6, v8, v9
 	val = _js_thisNumberValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -72617,7 +72617,7 @@ func _js_number_toFixed(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int
 	}
 	_, _, _, _ = v, val, v1, v3
 	val = _js_thisNumberValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -72668,7 +72668,7 @@ func _js_number_toExponential(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, ar
 	}
 	_, _, _, _, _, _, _ = flags, v, val, v1, v3, v5, v7
 	val = _js_thisNumberValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -72731,7 +72731,7 @@ func _js_number_toPrecision(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc
 	}
 	_, _, _, _, _, _ = v, val, v1, v3, v6, v8
 	val = _js_thisNumberValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -73052,7 +73052,7 @@ _2:
 _4:
 	if !(v3 != 0) {
 		obj = _js_create_from_ctor(tls, ctx1, new_target, int32(EJS_CLASS_BOOLEAN))
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if !(v5 != 0) {
@@ -73097,7 +73097,7 @@ func _js_boolean_toString(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc in
 	var v1, v3 int32
 	_, _, _ = val, v1, v3
 	val = _js_thisBooleanValue(tls, ctx, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -73310,7 +73310,7 @@ func _js_string_constructor(tls *libc.TLS, ctx1 uintptr, new_target TJSValue, ar
 		} else {
 			val1 = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
 		}
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -73323,7 +73323,7 @@ _9:
 	if !(v8 != 0) {
 		p1 = uintptr(libc.Int32FromUint64(val1))
 		obj = _js_create_from_ctor(tls, ctx1, new_target, int32(EJS_CLASS_STRING))
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if !(v10 != 0) {
@@ -73484,7 +73484,7 @@ func _js_string_raw(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32, 
 	_string_buffer_init(tls, ctx2, b, 0)
 	raw = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	cooked = _JS_ToObject(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(cooked>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(cooked>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -73495,7 +73495,7 @@ _2:
 	goto _5
 _5:
 	raw = _JS_ToObjectFree(tls, ctx2, v4)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(raw>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(raw>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -73510,7 +73510,7 @@ _7:
 			break
 		}
 		val = _JS_ToStringFree(tls, ctx2, _JS_GetPropertyInt64(tls, ctx2, raw, i))
-		v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _10
 	_10:
 		if v9 != 0 {
@@ -73656,7 +73656,7 @@ func _js_string_charCodeAt(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc 
 	var _ /* idx at bp+0 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = c, p, p1, ret, val1, v1, v10, v3, v4, v5, v6, v8, v9
 	val1 = _JS_ToStringCheckObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -73708,7 +73708,7 @@ func _js_string_charAt(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int3
 	var _ /* idx at bp+0 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _ = c, p, p1, ret, val, v1, v3, v4, v5, v6, v7, v8
 	val = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -73763,7 +73763,7 @@ func _js_string_codePointAt(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc
 	var _ /* idx at bp+0 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = c, p, p1, ret, val1, v1, v10, v3, v4, v5, v6, v8, v9
 	val1 = _JS_ToStringCheckObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -73820,7 +73820,7 @@ func _js_string_concat(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int3
 		if !(i < argc) {
 			break
 		}
-		v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _3
 	_3:
 		if v2 != 0 {
@@ -74001,7 +74001,7 @@ func _js_string_isWellFormed(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, arg
 	var v1, v4 int32
 	_, _, _, _, _, _, _, _, _ = p, p1, ret, str, v1, v3, v4, v5, v6
 	str = _JS_ToStringCheckObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -74035,7 +74035,7 @@ func _js_string_toWellFormed(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, arg
 	var v15 bool
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = c3, i, p, p1, ret, str, v1, v11, v13, v15, v3, v4, v5, v6, v9
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -74058,7 +74058,7 @@ _2:
 			X__JS_FreeValue(tls, ctx1, v3)
 		}
 	}
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -74112,14 +74112,14 @@ func _js_string_indexOf(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int
 	var _ /* pos at bp+8 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, inc, len1, p, p1, p11, ret, start, stop, str, v2, v_len, v1, v10, v11, v12, v13, v14, v16, v17, v18, v19, v20, v21, v3, v5, v8, v9
 	str = _JS_ToStringCheckObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return str
 	}
 	v2 = XJS_ToString(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -74242,7 +74242,7 @@ func _js_string_includes(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc in
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, len1, p, p1, p11, ret, start, stop, str, v3, v_len, v1, v11, v12, v13, v14, v15, v16, v17, v19, v20, v21, v22, v23, v24, v31, v5, v6, v8, v9
 	v3 = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	str = _JS_ToStringCheckObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -74256,7 +74256,7 @@ _2:
 		goto fail
 	}
 	v3 = XJS_ToString(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv)))
-	v31 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v31 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v31 != 0 {
@@ -74385,7 +74385,7 @@ func _check_regexp_g_flag(tls *libc.TLS, ctx2 uintptr, regexp TJSValue) (r int32
 		goto _3
 	_3:
 		flags = v2
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -74405,7 +74405,7 @@ func _check_regexp_g_flag(tls *libc.TLS, ctx2 uintptr, regexp TJSValue) (r int32
 			return -int32(1)
 		}
 		flags = _JS_ToStringFree(tls, ctx2, flags)
-		v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v11 != 0 {
@@ -74472,7 +74472,7 @@ _7:
 		goto _13
 	_13:
 		matcher = v12
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matcher>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matcher>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if v14 != 0 {
@@ -74507,7 +74507,7 @@ _7:
 		}
 	}
 	*(*TJSValue)(unsafe.Pointer(bp + 24)) = XJS_ToString(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp)))
-	v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 24))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 24))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _25
 _25:
 	if v24 != 0 {
@@ -74518,7 +74518,7 @@ _25:
 	str = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	if atom == int32(EJS_ATOM_Symbol_matchAll) {
 		str = XJS_NewString(tls, ctx2, __ccgo_ts+10533)
-		v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _27
 	_27:
 		if v26 != 0 {
@@ -74539,7 +74539,7 @@ _25:
 			X__JS_FreeValue(tls, ctx2, v29)
 		}
 	}
-	v33 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rx>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v33 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rx>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _34
 _34:
 	if !(v33 != 0) {
@@ -74674,7 +74674,7 @@ _9:
 						}
 						if k >= int32(1) && libc.Uint32FromInt32(k) < *(*Tuint32_t)(unsafe.Pointer(bp + 8)) {
 							s = _JS_GetPropertyInt64(tls, ctx1, captures, int64(k))
-							v15 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+							v15 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 							goto _16
 						_16:
 							if v15 != 0 {
@@ -74707,14 +74707,14 @@ _9:
 							goto norep
 						}
 						name = _js_sub_string(tls, ctx1, rp, j, k)
-						v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+						v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 						goto _25
 					_25:
 						if v24 != 0 {
 							goto exception
 						}
 						capture = _JS_GetPropertyValue(tls, ctx1, namedCaptures, name)
-						v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(capture>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+						v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(capture>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 						goto _27
 					_27:
 						if v26 != 0 {
@@ -74807,7 +74807,7 @@ _7:
 		goto _13
 	_13:
 		replacer = v12
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(replacer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(replacer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if v14 != 0 {
@@ -74830,14 +74830,14 @@ _7:
 	}
 	_string_buffer_init(tls, ctx3, b, 0)
 	str = XJS_ToString(tls, ctx3, O)
-	v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _22
 _22:
 	if v21 != 0 {
 		goto exception
 	}
 	search_str = XJS_ToString(tls, ctx3, searchValue)
-	v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(search_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(search_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _24
 _24:
 	if v23 != 0 {
@@ -74846,7 +74846,7 @@ _24:
 	functionalReplace = XJS_IsFunction(tls, ctx3, replaceValue)
 	if !(functionalReplace != 0) {
 		replaceValue_str = XJS_ToString(tls, ctx3, replaceValue)
-		v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(replaceValue_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(replaceValue_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _26
 	_26:
 		if v25 != 0 {
@@ -74921,7 +74921,7 @@ _24:
 			(*(*[6]TJSValue)(unsafe.Pointer(bp)))[int32(5)] = replaceValue_str
 			repl_str = _js_string___GetSubstitution(tls, ctx3, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(6), bp)
 		}
-		v38 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(repl_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v38 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(repl_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _39
 	_39:
 		if v38 != 0 {
@@ -75052,7 +75052,7 @@ _7:
 		goto _13
 	_13:
 		splitter = v12
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(splitter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(splitter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if v14 != 0 {
@@ -75074,14 +75074,14 @@ _7:
 		}
 	}
 	S = XJS_ToString(tls, ctx3, O)
-	v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(S>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(S>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _22
 _22:
 	if v21 != 0 {
 		goto exception
 	}
 	A = XJS_NewArray(tls, ctx3)
-	v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(A>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(A>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _24
 _24:
 	if v23 != 0 {
@@ -75104,7 +75104,7 @@ _26:
 	sp = uintptr(libc.Int32FromUint64(S))
 	s = int64(int32(*(*uint32)(unsafe.Pointer(sp + 4)) & 0x7fffffff >> 0))
 	R = XJS_ToString(tls, ctx3, separator)
-	v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(R>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(R>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _30
 _30:
 	if v29 != 0 {
@@ -75140,7 +75140,7 @@ _32:
 			break
 		}
 		T = _js_sub_string(tls, ctx3, sp, int32(p1), int32(e))
-		v34 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(T>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v34 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(T>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _35
 	_35:
 		if v34 != 0 {
@@ -75165,7 +75165,7 @@ _32:
 add_tail:
 	;
 	T = _js_sub_string(tls, ctx3, sp, int32(p1), int32(s))
-	v38 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(T>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v38 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(T>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _39
 _39:
 	if v38 != 0 {
@@ -75246,7 +75246,7 @@ func _js_string_substring(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	var _ /* b at bp+4 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = end, p, p1, ret, start, str, v1, v10, v11, v12, v13, v3, v4, v5, v6, v8, v9
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -75316,7 +75316,7 @@ func _js_string_substr(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int3
 	var _ /* n at bp+4 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = len1, p, p1, ret, str, v1, v10, v11, v12, v13, v3, v4, v5, v6, v8, v9
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -75380,7 +75380,7 @@ func _js_string_slice(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32
 	var _ /* start at bp+0 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = len1, p, p1, ret, str, v1, v10, v11, v12, v13, v15, v16, v17, v3, v4, v5, v6, v8, v9
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -75459,7 +75459,7 @@ func _js_string_pad(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, 
 	p11 = libc.UintptrFromInt32(0)
 	c = int32(' ')
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -75480,7 +75480,7 @@ _2:
 	}
 	if v5 && !(v31 != 0) {
 		v3 = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv + 1*8)))
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -75615,7 +75615,7 @@ func _js_string_repeat(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int3
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, len1, n, p, p1, str, v1, v3, v4, v5, v6, v7, v8, v9
 	b = bp
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -75689,7 +75689,7 @@ func _js_string_trim(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32,
 	var v15, v9 bool
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, b, len1, p, p1, ret, str, v1, v10, v11, v13, v15, v16, v17, v18, v3, v4, v5, v7, v9
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -75850,7 +75850,7 @@ func _js_string_toLowerCase(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, c, j, l, p, p1, val, v1, v10, v5, v6, v7, v8, v9
 	b = bp
 	val = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -75931,7 +75931,7 @@ func _JS_ToUTF32String(tls *libc.TLS, ctx1 uintptr, pbuf uintptr, val1 TJSValue)
 	var _ /* i at bp+0 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = buf, j, len1, p, p1, val, v1, v11, v12, v13, v14, v15, v3, v4, v5, v7, v8, v9
 	val = XJS_ToString(tls, ctx1, val1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -76060,7 +76060,7 @@ func _js_string_normalize(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc i
 	var _ /* out_buf at bp+4 */ uintptr
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = form, is_compat, n_type, out_len, p, p1, val, v1, v10, v11, v12, v13, v14, v15, v3, v5, v6
 	val = _JS_ToStringCheckObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -76197,14 +76197,14 @@ func _js_string_localeCompare(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, ar
 	var _ /* b_buf at bp+4 */ uintptr
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, a_len, b, b_len, cmp, p, v1, v10, v11, v12, v13, v14, v15, v16, v17, v3, v5, v6, v7, v8, v9
 	a = _JS_ToStringCheckObject(tls, ctx2, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(a>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(a>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	b = XJS_ToString(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(b>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(b>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -76357,7 +76357,7 @@ func _js_string_CreateHTML(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc 
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, c, i, p, p1, str, value, v1, v10, v11, v3, v5, v6, v7, v9
 	b = bp
 	str = _JS_ToStringCheckObject(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -76371,7 +76371,7 @@ _2:
 		_string_buffer_puts8(tls, b, _defs[magic].Fattr)
 		_string_buffer_puts8(tls, b, __ccgo_ts+10662)
 		value = _JS_ToStringCheckObject(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -80631,7 +80631,7 @@ fail:
 _1:
 	;
 	obj = _js_create_from_ctor(tls, ctx2, ctor, int32(EJS_CLASS_REGEXP))
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -80682,7 +80682,7 @@ _2:
 	goto _5
 _5:
 	m = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(m>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(m>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -80727,7 +80727,7 @@ _2:
 			goto _8
 		_8:
 			ctor = v7
-			v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _10
 		_10:
 			if v9 != 0 {
@@ -80787,7 +80787,7 @@ _2:
 			goto no_compilation
 		} else {
 			flags = XJS_ToString(tls, ctx3, flags1)
-			v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _26
 		_26:
 			if v25 != 0 {
@@ -80802,7 +80802,7 @@ _2:
 			goto _29
 		_29:
 			pattern = v28
-			v30 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(pattern>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v30 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(pattern>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _31
 		_31:
 			if v30 != 0 {
@@ -80817,7 +80817,7 @@ _2:
 				goto _36
 			_36:
 				flags = v35
-				v37 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v37 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _38
 			_38:
 				if v37 != 0 {
@@ -80875,7 +80875,7 @@ _2:
 					X__JS_FreeValue(tls, ctx3, v50)
 				}
 			}
-			v53 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(pattern>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v53 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(pattern>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _54
 		_54:
 			if v53 != 0 {
@@ -80884,7 +80884,7 @@ _2:
 		}
 	}
 	bc = _js_compile_regexp(tls, ctx3, pattern, flags)
-	v55 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(bc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v55 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(bc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _56
 _56:
 	if v55 != 0 {
@@ -80979,14 +80979,14 @@ func _js_regexp_compile(tls *libc.TLS, ctx4 uintptr, this_val TJSValue, argc int
 		} else {
 			pattern = XJS_ToString(tls, ctx4, pattern1)
 		}
-		v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(pattern>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(pattern>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v11 != 0 {
 			goto fail
 		}
 		bc = _js_compile_regexp(tls, ctx4, pattern, flags1)
-		v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(bc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(bc>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _14
 	_14:
 		if v13 != 0 {
@@ -81331,7 +81331,7 @@ func _js_regexp_exec(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	str_val = XJS_ToString(tls, ctx5, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -81348,7 +81348,7 @@ _2:
 	goto _5
 _5:
 	val2 = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	;
@@ -81409,7 +81409,7 @@ _7:
 			}
 		}
 		obj = XJS_NewArray(tls, ctx5)
-		v18 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v18 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _19
 	_19:
 		if v18 != 0 {
@@ -81419,7 +81419,7 @@ _7:
 		group_name_ptr = Xlre_get_groupnames(tls, re_bytecode)
 		if group_name_ptr != 0 {
 			groups = XJS_NewObjectProto(tls, ctx5, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-			v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(groups>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(groups>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _21
 		_21:
 			if v20 != 0 {
@@ -81428,7 +81428,7 @@ _7:
 		}
 		if re_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(6)) != 0 {
 			indices = XJS_NewArray(tls, ctx5)
-			v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(indices>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(indices>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _23
 		_23:
 			if v22 != 0 {
@@ -81436,7 +81436,7 @@ _7:
 			}
 			if group_name_ptr != 0 {
 				indices_groups = XJS_NewObjectProto(tls, ctx5, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-				v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(indices_groups>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(indices_groups>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _25
 			_25:
 				if v24 != 0 {
@@ -81470,7 +81470,7 @@ _7:
 				val3 = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 				if start != -int32(1) {
 					val3 = XJS_NewArray(tls, ctx5)
-					v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+					v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 					goto _30
 				_30:
 					if v29 != 0 {
@@ -81548,7 +81548,7 @@ _7:
 			val3 = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 			if start != -int32(1) {
 				val3 = _js_sub_string(tls, ctx5, str, start, end)
-				v50 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v50 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val3>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _51
 			_51:
 				if v50 != 0 {
@@ -81701,7 +81701,7 @@ func _JS_RegExpDelete(tls *libc.TLS, ctx4 uintptr, this_val TJSValue, arg TJSVal
 	_string_buffer_init(tls, ctx4, b, 0)
 	capture = libc.UintptrFromInt32(0)
 	str_val = XJS_ToString(tls, ctx4, arg)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -81718,7 +81718,7 @@ _2:
 		goto _5
 	_5:
 		val2 = v4
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		;
@@ -81843,7 +81843,7 @@ func _JS_RegExpExec(tls *libc.TLS, ctx2 uintptr, r TJSValue, _s TJSValue) (r1 TJ
 	goto _3
 _3:
 	method = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -81851,7 +81851,7 @@ _5:
 	}
 	if XJS_IsFunction(tls, ctx2, method) != 0 {
 		ret = _JS_CallFree(tls, ctx2, method, r, int32(1), bp)
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -81901,7 +81901,7 @@ func _js_regexp_test(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32,
 	var v1, v3, v6 int32
 	_, _, _, _, _, _, _, _, _ = p, ret, val1, v1, v3, v5, v6, v7, v8
 	val1 = _JS_RegExpExec(tls, ctx2, this_val, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -81954,7 +81954,7 @@ _2:
 	result = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	matchStr = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	S = XJS_ToString(tls, ctx6, *(*TJSValue)(unsafe.Pointer(argv)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(S>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(S>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -81965,14 +81965,14 @@ _4:
 	goto _7
 _7:
 	flags = v6
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
 		goto exception
 	}
 	flags = _JS_ToStringFree(tls, ctx6, flags)
-	v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _11
 _11:
 	if v10 != 0 {
@@ -82004,7 +82004,7 @@ _11:
 			goto exception
 		}
 		A = XJS_NewArray(tls, ctx6)
-		v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(A>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(A>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _21
 	_21:
 		if v20 != 0 {
@@ -82023,7 +82023,7 @@ _11:
 				}
 			}
 			result = _JS_RegExpExec(tls, ctx6, rx, S)
-			v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _27
 		_27:
 			if v26 != 0 {
@@ -82036,7 +82036,7 @@ _11:
 				break
 			}
 			matchStr = _JS_ToStringFree(tls, ctx6, _JS_GetPropertyInt64(tls, ctx6, result, 0))
-			v30 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matchStr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v30 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matchStr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _31
 		_31:
 			if v30 != 0 {
@@ -82261,7 +82261,7 @@ func _js_regexp_string_iterator_next(tls *libc.TLS, ctx6 uintptr, this_val TJSVa
 	R = (*TJSRegExpStringIteratorData)(unsafe.Pointer(it)).Fiterating_regexp
 	S = (*TJSRegExpStringIteratorData)(unsafe.Pointer(it)).Fiterated_string
 	match = _JS_RegExpExec(tls, ctx6, R, S)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(match>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(match>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -82277,7 +82277,7 @@ _4:
 	} else {
 		if (*TJSRegExpStringIteratorData)(unsafe.Pointer(it)).Fglobal != 0 {
 			matchStr = _JS_ToStringFree(tls, ctx6, _JS_GetPropertyInt64(tls, ctx6, match, 0))
-			v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matchStr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matchStr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _6
 		_6:
 			if v5 != 0 {
@@ -82395,14 +82395,14 @@ _2:
 	matcher = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	iter = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	S = XJS_ToString(tls, ctx6, *(*TJSValue)(unsafe.Pointer(argv)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(S>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(S>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
 		goto exception
 	}
 	C = _JS_SpeciesConstructor(tls, ctx6, R, (*TJSContext)(unsafe.Pointer(ctx6)).Fregexp_ctor)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(C>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(C>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -82413,7 +82413,7 @@ _6:
 	goto _9
 _9:
 	flags = _JS_ToStringFree(tls, ctx6, v8)
-	v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _11
 _11:
 	if v10 != 0 {
@@ -82422,7 +82422,7 @@ _11:
 	(*(*[2]TJSValue)(unsafe.Pointer(bp + 8)))[0] = R
 	(*(*[2]TJSValue)(unsafe.Pointer(bp + 8)))[int32(1)] = flags
 	matcher = XJS_CallConstructor(tls, ctx6, C, int32(2), bp+8)
-	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matcher>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matcher>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _13
 _13:
 	if v12 != 0 {
@@ -82467,7 +82467,7 @@ _27:
 		goto exception
 	}
 	iter = XJS_NewObjectClass(tls, ctx6, int32(EJS_CLASS_REGEXP_STRING_ITERATOR))
-	v28 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v28 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _29
 _29:
 	if v28 != 0 {
@@ -82663,7 +82663,7 @@ func _js_is_standard_regexp(tls *libc.TLS, ctx2 uintptr, rx TJSValue) (r int32) 
 	goto _3
 _3:
 	val = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -82687,7 +82687,7 @@ _5:
 		goto _11
 	_11:
 		val = v10
-		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _13
 	_13:
 		if v12 != 0 {
@@ -82747,7 +82747,7 @@ _2:
 	rep_str = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	namedCaptures = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	str = XJS_ToString(tls, ctx7, *(*TJSValue)(unsafe.Pointer(argv)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -82758,7 +82758,7 @@ _4:
 	functionalReplace = XJS_IsFunction(tls, ctx7, rep)
 	if !(functionalReplace != 0) {
 		rep_val = XJS_ToString(tls, ctx7, rep)
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rep_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rep_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if v5 != 0 {
@@ -82771,14 +82771,14 @@ _4:
 	goto _9
 _9:
 	flags = v8
-	v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _11
 _11:
 	if v10 != 0 {
 		goto exception
 	}
 	flags = _JS_ToStringFree(tls, ctx7, flags)
-	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _13
 _13:
 	if v12 != 0 {
@@ -82816,7 +82816,7 @@ _13:
 	}
 	for {
 		result = _JS_RegExpExec(tls, ctx7, rx, str)
-		v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _24
 	_24:
 		if v23 != 0 {
@@ -82845,7 +82845,7 @@ _13:
 			}
 		}
 		matched = _JS_ToStringFree(tls, ctx7, _JS_GetPropertyInt64(tls, ctx7, result, 0))
-		v30 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matched>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v30 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matched>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _31
 	_31:
 		if v30 != 0 {
@@ -82916,7 +82916,7 @@ _13:
 			}
 		}
 		matched = _JS_ToStringFree(tls, ctx7, _JS_GetPropertyInt64(tls, ctx7, result1, 0))
-		v50 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matched>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v50 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(matched>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _51
 	_51:
 		if v50 != 0 {
@@ -82949,7 +82949,7 @@ _13:
 			}
 		}
 		tab = XJS_NewArray(tls, ctx7)
-		v58 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tab>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v58 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tab>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _59
 	_59:
 		if v58 != 0 {
@@ -82973,7 +82973,7 @@ _13:
 				break
 			}
 			capN = _JS_GetPropertyInt64(tls, ctx7, result1, int64(n))
-			v64 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(capN>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v64 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(capN>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _65
 		_65:
 			if v64 != 0 {
@@ -82984,7 +82984,7 @@ _13:
 		_67:
 			if !(v66 != 0) {
 				capN = _JS_ToStringFree(tls, ctx7, capN)
-				v68 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(capN>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v68 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(capN>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _69
 			_69:
 				if v68 != 0 {
@@ -83014,7 +83014,7 @@ _13:
 		goto _75
 	_75:
 		namedCaptures = v74
-		v76 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(namedCaptures>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v76 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(namedCaptures>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _77
 	_77:
 		if v76 != 0 {
@@ -83082,7 +83082,7 @@ _13:
 		_95:
 			if !(v94 != 0) {
 				namedCaptures1 = _JS_ToObject(tls, ctx7, namedCaptures)
-				v96 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(namedCaptures1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v96 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(namedCaptures1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _97
 			_97:
 				if v96 != 0 {
@@ -83123,7 +83123,7 @@ _13:
 				}
 			}
 		}
-		v106 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rep_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v106 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rep_str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _107
 	_107:
 		if v106 != 0 {
@@ -83243,7 +83243,7 @@ _2:
 	currentLastIndex = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	previousLastIndex = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	str = XJS_ToString(tls, ctx4, *(*TJSValue)(unsafe.Pointer(argv)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -83254,7 +83254,7 @@ _4:
 	goto _7
 _7:
 	previousLastIndex = v6
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(previousLastIndex>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(previousLastIndex>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -83278,7 +83278,7 @@ _11:
 		}
 	}
 	result = _JS_RegExpExec(tls, ctx4, rx, str)
-	v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v17 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _18
 _18:
 	if v17 != 0 {
@@ -83289,7 +83289,7 @@ _18:
 	goto _21
 _21:
 	currentLastIndex = v20
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(currentLastIndex>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(currentLastIndex>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -83436,14 +83436,14 @@ _2:
 	flags = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	z = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	str = XJS_ToString(tls, ctx5, *(*TJSValue)(unsafe.Pointer(argv)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
 		goto exception
 	}
 	ctor = _JS_SpeciesConstructor(tls, ctx5, rx, (*TJSContext)(unsafe.Pointer(ctx5)).Fregexp_ctor)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -83454,7 +83454,7 @@ _6:
 	goto _9
 _9:
 	flags = _JS_ToStringFree(tls, ctx5, v8)
-	v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _11
 _11:
 	if v10 != 0 {
@@ -83464,7 +83464,7 @@ _11:
 	unicodeMatching = libc.BoolInt32(_string_indexof_char(tls, strp, int32('u'), 0) >= 0)
 	if _string_indexof_char(tls, strp, int32('y'), 0) < 0 {
 		flags = _JS_ConcatString3(tls, ctx5, __ccgo_ts+324, flags, __ccgo_ts+11495)
-		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(flags>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _13
 	_13:
 		if v12 != 0 {
@@ -83474,14 +83474,14 @@ _11:
 	(*(*[2]TJSValue)(unsafe.Pointer(bp)))[0] = rx
 	(*(*[2]TJSValue)(unsafe.Pointer(bp)))[int32(1)] = flags
 	splitter = XJS_CallConstructor(tls, ctx5, ctor, int32(2), bp)
-	v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(splitter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(splitter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _15
 _15:
 	if v14 != 0 {
 		goto exception
 	}
 	A = XJS_NewArray(tls, ctx5)
-	v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(A>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(A>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _17
 _17:
 	if v16 != 0 {
@@ -83511,7 +83511,7 @@ _19:
 	size = libc.Uint32FromInt32(int32(*(*uint32)(unsafe.Pointer(strp + 4)) & 0x7fffffff >> 0))
 	if size == uint32(0) {
 		z = _JS_RegExpExec(tls, ctx5, splitter, str)
-		v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(z>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(z>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _24
 	_24:
 		if v23 != 0 {
@@ -83548,7 +83548,7 @@ _19:
 			}
 		}
 		z = _JS_RegExpExec(tls, ctx5, splitter, str)
-		v35 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(z>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v35 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(z>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _36
 	_36:
 		if v35 != 0 {
@@ -83574,7 +83574,7 @@ _19:
 				q = libc.Uint32FromInt64(_string_advance_index(tls, strp, libc.Int64FromUint32(q), unicodeMatching))
 			} else {
 				sub = _js_sub_string(tls, ctx5, strp, libc.Int32FromUint32(p1), libc.Int32FromUint32(q))
-				v42 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sub>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v42 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sub>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _43
 			_43:
 				if v42 != 0 {
@@ -83598,7 +83598,7 @@ _19:
 						break
 					}
 					sub = _JS_ToStringFree(tls, ctx5, _JS_GetPropertyInt64(tls, ctx5, z, i))
-					v46 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sub>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+					v46 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sub>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 					goto _47
 				_47:
 					if v46 != 0 {
@@ -83628,7 +83628,7 @@ add_tail:
 		p1 = size
 	}
 	sub = _js_sub_string(tls, ctx5, strp, libc.Int32FromUint32(p1), libc.Int32FromUint32(size))
-	v49 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sub>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v49 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sub>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _50
 _50:
 	if v49 != 0 {
@@ -84497,7 +84497,7 @@ _1:
 		goto fail
 	}
 	val1 = XJS_NewObject(tls, ctx3)
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -84526,7 +84526,7 @@ _9:
 			goto fail1
 		}
 		prop_val = _json_parse_value(tls, s)
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if !(v14 != 0) {
@@ -84570,7 +84570,7 @@ _2:
 		goto fail
 	}
 	val1 = XJS_NewArray(tls, ctx3)
-	v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _17
 _17:
 	if v16 != 0 {
@@ -84580,7 +84580,7 @@ _17:
 		idx = uint32(0)
 		for {
 			el = _json_parse_value(tls, s)
-			v19 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v19 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _20
 		_20:
 			if v19 != 0 {
@@ -84696,7 +84696,7 @@ func XJS_ParseJSON2(tls *libc.TLS, ctx1 uintptr, buf uintptr, buf_len Tsize_t, f
 		goto fail
 	}
 	val = _json_parse_value(tls, s)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -84751,7 +84751,7 @@ func _internalize_json_property(tls *libc.TLS, ctx2 uintptr, holder TJSValue, na
 	goto _3
 _3:
 	val = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -84789,7 +84789,7 @@ _7:
 				prop1 = XJS_DupAtom(tls, ctx2, (*(*TJSPropertyEnum)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 20)) + uintptr(i)*8))).Fatom)
 			}
 			new_el = _internalize_json_property(tls, ctx2, val, prop1, reviver)
-			v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _10
 		_10:
 			if v9 != 0 {
@@ -84817,7 +84817,7 @@ _7:
 	_js_free_prop_enum(tls, ctx2, *(*uintptr)(unsafe.Pointer(bp + 20)), *(*Tuint32_t)(unsafe.Pointer(bp + 16)))
 	*(*uintptr)(unsafe.Pointer(bp + 20)) = libc.UintptrFromInt32(0)
 	name_val = XJS_AtomToValue(tls, ctx2, name)
-	v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(name_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _14
 _14:
 	if v13 != 0 {
@@ -84881,7 +84881,7 @@ _2:
 	}
 	obj = XJS_ParseJSON(tls, ctx2, str, *(*Tsize_t)(unsafe.Pointer(bp)), __ccgo_ts+8405)
 	XJS_FreeCString(tls, ctx2, str)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -84890,7 +84890,7 @@ _4:
 	if argc > int32(1) && XJS_IsFunction(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv + 1*8))) != 0 {
 		reviver = *(*TJSValue)(unsafe.Pointer(argv + 1*8))
 		root = XJS_NewObject(tls, ctx2)
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(root>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(root>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if v5 != 0 {
@@ -85005,7 +85005,7 @@ _2:
 		goto _14
 	_14:
 		f = v13
-		v15 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(f>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v15 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(f>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _16
 	_16:
 		if v15 != 0 {
@@ -85024,7 +85024,7 @@ _2:
 				}
 			}
 			val = v8
-			v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _21
 		_21:
 			if v20 != 0 {
@@ -85061,7 +85061,7 @@ _26:
 			}
 		}
 		val = v8
-		v30 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v30 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _31
 	_31:
 		if v30 != 0 {
@@ -85175,7 +85175,7 @@ _2:
 		cl = libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p2), 6)))
 		if cl == int32(EJS_CLASS_STRING) {
 			*(*TJSValue)(unsafe.Pointer(bp + 32)) = _JS_ToStringFree(tls, ctx5, *(*TJSValue)(unsafe.Pointer(bp + 32)))
-			v31 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v31 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _4
 		_4:
 			if v31 != 0 {
@@ -85185,7 +85185,7 @@ _2:
 		} else {
 			if cl == int32(EJS_CLASS_NUMBER) {
 				*(*TJSValue)(unsafe.Pointer(bp + 32)) = _JS_ToNumberFree(tls, ctx5, *(*TJSValue)(unsafe.Pointer(bp + 32)))
-				v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _6
 			_6:
 				if v5 != 0 {
@@ -85210,7 +85210,7 @@ _2:
 			}
 		}
 		v9 = _js_array_includes(tls, ctx5, (*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fstack, int32(1), bp+32)
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if v10 != 0 {
@@ -85239,7 +85239,7 @@ _2:
 		goto _17
 	_17:
 		indent1 = _JS_ConcatString(tls, ctx5, v13, v16)
-		v18 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(indent1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v18 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(indent1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _19
 	_19:
 		if v18 != 0 {
@@ -85256,14 +85256,14 @@ _2:
 			goto _22
 		_22:
 			sep = _JS_ConcatString3(tls, ctx5, __ccgo_ts+108, v21, __ccgo_ts+324)
-			v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _24
 		_24:
 			if v23 != 0 {
 				goto exception
 			}
 			sep1 = XJS_NewString(tls, ctx5, __ccgo_ts+106)
-			v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _26
 		_26:
 			if v25 != 0 {
@@ -85314,7 +85314,7 @@ _2:
 				}
 				_string_buffer_concat_value(tls, (*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fb, sep)
 				v9 = _JS_GetPropertyInt64(tls, ctx5, *(*TJSValue)(unsafe.Pointer(bp + 32)), i)
-				v34 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v34 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _35
 			_35:
 				if v34 != 0 {
@@ -85346,7 +85346,7 @@ _2:
 				goto _43
 			_43:
 				prop = _JS_ToStringFree(tls, ctx5, v42)
-				v44 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v44 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _45
 			_45:
 				if v44 != 0 {
@@ -85364,7 +85364,7 @@ _2:
 					}
 				}
 				prop = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-				v49 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v49 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _50
 			_50:
 				if v49 != 0 {
@@ -85407,7 +85407,7 @@ _2:
 			} else {
 				tab = _js_object_keys(tls, ctx5, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(1), bp+32, int32(EJS_ITERATOR_KIND_KEY))
 			}
-			v58 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tab>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v58 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tab>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _59
 		_59:
 			if v58 != 0 {
@@ -85434,7 +85434,7 @@ _2:
 					}
 				}
 				prop = _JS_GetPropertyInt64(tls, ctx5, tab, i)
-				v64 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v64 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _65
 			_65:
 				if v64 != 0 {
@@ -85450,14 +85450,14 @@ _2:
 				goto _68
 			_68:
 				v9 = _JS_GetPropertyValue(tls, ctx5, *(*TJSValue)(unsafe.Pointer(bp + 32)), v67)
-				v69 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v69 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _70
 			_70:
 				if v69 != 0 {
 					goto exception
 				}
 				v9 = _js_json_check(tls, ctx5, jsc, *(*TJSValue)(unsafe.Pointer(bp + 32)), v9, prop)
-				v71 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v71 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v9>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _72
 			_72:
 				if v71 != 0 {
@@ -85471,7 +85471,7 @@ _2:
 						_string_buffer_putc8(tls, (*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fb, uint32(','))
 					}
 					prop = _JS_ToQuotedStringFree(tls, ctx5, prop)
-					v75 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+					v75 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 					goto _76
 				_76:
 					if v75 != 0 {
@@ -85608,7 +85608,7 @@ _99:
 _100:
 	;
 	*(*TJSValue)(unsafe.Pointer(bp + 32)) = _JS_ToQuotedStringFree(tls, ctx5, *(*TJSValue)(unsafe.Pointer(bp + 32)))
-	v110 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v110 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _111
 _111:
 	if v110 != 0 {
@@ -85778,7 +85778,7 @@ func XJS_JSONStringify(tls *libc.TLS, ctx2 uintptr, obj TJSValue, replacer TJSVa
 	wrapper = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	_string_buffer_init(tls, ctx2, (*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fb, 0)
 	(*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fstack = XJS_NewArray(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fstack>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fstack>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -85794,7 +85794,7 @@ _2:
 		if res != 0 {
 			/* XXX: enumeration is not fully correct */
 			(*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fproperty_list = XJS_NewArray(tls, ctx2)
-			v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fproperty_list>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fproperty_list>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _4
 		_4:
 			if v3 != 0 {
@@ -85811,7 +85811,7 @@ _2:
 					break
 				}
 				*(*TJSValue)(unsafe.Pointer(bp + 72)) = _JS_GetPropertyInt64(tls, ctx2, replacer, i)
-				v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 72))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 72))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _8
 			_8:
 				if v7 != 0 {
@@ -85824,7 +85824,7 @@ _2:
 					p2 = uintptr(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 72))))
 					if libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p2), 6))) == int32(EJS_CLASS_STRING) || libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p2), 6))) == int32(EJS_CLASS_NUMBER) {
 						*(*TJSValue)(unsafe.Pointer(bp + 72)) = _JS_ToStringFree(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 72)))
-						v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 72))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+						v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 72))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 						goto _12
 					_12:
 						if v11 != 0 {
@@ -85850,7 +85850,7 @@ _2:
 				_17:
 					if v16 != 0 {
 						*(*TJSValue)(unsafe.Pointer(bp + 72)) = _JS_ToStringFree(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 72)))
-						v18 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 72))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+						v18 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 72))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 						goto _19
 					_19:
 						if v18 != 0 {
@@ -85876,7 +85876,7 @@ _2:
 					}
 				}
 				present = _js_array_includes(tls, ctx2, (*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fproperty_list, int32(1), bp+72)
-				v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(present>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(present>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _26
 			_26:
 				if v25 != 0 {
@@ -85937,7 +85937,7 @@ _38:
 				space = _JS_ToStringFree(tls, ctx2, space)
 			}
 		}
-		v39 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(space>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v39 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(space>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _40
 	_40:
 		if v39 != 0 {
@@ -86003,14 +86003,14 @@ _45:
 			X__JS_FreeValue(tls, ctx2, v55)
 		}
 	}
-	v58 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fgap>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v58 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fgap>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _59
 _59:
 	if v58 != 0 {
 		goto exception
 	}
 	wrapper = XJS_NewObject(tls, ctx2)
-	v60 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(wrapper>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v60 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(wrapper>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _61
 _61:
 	if v60 != 0 {
@@ -86039,7 +86039,7 @@ _64:
 _67:
 	val = v66
 	val = _js_json_check(tls, ctx2, jsc, wrapper, val, (*TJSONStringifyContext)(unsafe.Pointer(jsc)).Fempty)
-	v68 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v68 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _69
 _69:
 	if v68 != 0 {
@@ -87051,7 +87051,7 @@ func _get_proxy_method(tls *libc.TLS, ctx1 uintptr, pmethod uintptr, obj TJSValu
 	goto _3
 _3:
 	method = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -87086,7 +87086,7 @@ _2:
 		return XJS_GetPrototype(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget)
 	}
 	ret = _JS_CallFree(tls, ctx1, *(*TJSValue)(unsafe.Pointer(bp)), (*TJSProxyData)(unsafe.Pointer(s)).Fhandler, int32(1), s)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87114,7 +87114,7 @@ _4:
 	}
 	/* check invariant */
 	proto1 = XJS_GetPrototype(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget)
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if v9 != 0 {
@@ -87197,7 +87197,7 @@ _2:
 	(*(*[2]TJSValue)(unsafe.Pointer(bp + 8)))[0] = (*TJSProxyData)(unsafe.Pointer(s)).Ftarget
 	(*(*[2]TJSValue)(unsafe.Pointer(bp + 8)))[int32(1)] = proto_val
 	ret = _JS_CallFree(tls, ctx1, *(*TJSValue)(unsafe.Pointer(bp)), (*TJSProxyData)(unsafe.Pointer(s)).Fhandler, int32(2), bp+8)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87218,7 +87218,7 @@ _4:
 	}
 	if !(res2 != 0) {
 		proto1 = XJS_GetPrototype(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget)
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if v5 != 0 {
@@ -87272,7 +87272,7 @@ _2:
 		return XJS_IsExtensible(tls, ctx, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget)
 	}
 	ret = _JS_CallFree(tls, ctx, *(*TJSValue)(unsafe.Pointer(bp)), (*TJSProxyData)(unsafe.Pointer(s)).Fhandler, int32(1), s)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87310,7 +87310,7 @@ _2:
 		return XJS_PreventExtensions(tls, ctx, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget)
 	}
 	ret = _JS_CallFree(tls, ctx, *(*TJSValue)(unsafe.Pointer(bp)), (*TJSProxyData)(unsafe.Pointer(s)).Fhandler, int32(1), s)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87352,7 +87352,7 @@ _2:
 		return XJS_HasProperty(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget, atom)
 	}
 	atom_val = XJS_AtomToValue(tls, ctx1, atom)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87381,7 +87381,7 @@ _4:
 			X__JS_FreeValue(tls, ctx1, v8)
 		}
 	}
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -87429,7 +87429,7 @@ _2:
 		return XJS_GetPropertyInternal(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget, atom, receiver, int32(EFALSE))
 	}
 	atom_val = XJS_AtomToValue(tls, ctx1, atom)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87459,7 +87459,7 @@ _4:
 			X__JS_FreeValue(tls, ctx1, v8)
 		}
 	}
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -87551,7 +87551,7 @@ _2:
 		return XJS_SetPropertyInternal(tls, ctx2, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget, atom, v4, receiver, flags)
 	}
 	atom_val = XJS_AtomToValue(tls, ctx2, atom)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -87582,7 +87582,7 @@ _7:
 			X__JS_FreeValue(tls, ctx2, v11)
 		}
 	}
-	v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _15
 _15:
 	if v14 != 0 {
@@ -87639,7 +87639,7 @@ func _js_create_desc(tls *libc.TLS, ctx2 uintptr, val1 TJSValue, getter TJSValue
 	var v1 int32
 	_, _, _, _, _, _, _, _, _, _, _, _ = p, ret, v1, v10, v12, v14, v16, v3, v4, v6, v7, v9
 	ret = XJS_NewObject(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -87729,7 +87729,7 @@ _2:
 		return _JS_GetOwnPropertyInternal(tls, ctx1, pdesc, p1, prop)
 	}
 	prop_val = XJS_AtomToValue(tls, ctx1, prop)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87758,7 +87758,7 @@ _4:
 			X__JS_FreeValue(tls, ctx1, v8)
 		}
 	}
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(trap_result_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(trap_result_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -87920,7 +87920,7 @@ _2:
 		return XJS_DefineProperty(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget, prop, val, getter, setter, flags)
 	}
 	prop_val = XJS_AtomToValue(tls, ctx1, prop)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -87937,7 +87937,7 @@ _4:
 		return -int32(1)
 	}
 	desc_val = _js_create_desc(tls, ctx1, val, getter, setter, flags)
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(desc_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(desc_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -87987,7 +87987,7 @@ _9:
 			X__JS_FreeValue(tls, ctx1, v19)
 		}
 	}
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -88088,7 +88088,7 @@ _2:
 		return XJS_DeleteProperty(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget, atom, 0)
 	}
 	atom_val = XJS_AtomToValue(tls, ctx1, atom)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(atom_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -88117,7 +88117,7 @@ _4:
 			X__JS_FreeValue(tls, ctx1, v8)
 		}
 	}
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -88208,7 +88208,7 @@ _2:
 		return _JS_GetOwnPropertyNamesInternal(tls, ctx1, ptab, plen, uintptr(libc.Int32FromUint64((*TJSProxyData)(unsafe.Pointer(s)).Ftarget)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1))
 	}
 	prop_array = _JS_CallFree(tls, ctx1, *(*TJSValue)(unsafe.Pointer(bp)), (*TJSProxyData)(unsafe.Pointer(s)).Fhandler, int32(1), s)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -88233,7 +88233,7 @@ _4:
 			break
 		}
 		val = XJS_GetPropertyUint32(tls, ctx1, prop_array, i)
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -88415,7 +88415,7 @@ _2:
 		return XJS_CallConstructor2(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget, new_target, argc, argv)
 	}
 	arg_array = _js_create_array(tls, ctx1, argc, argv)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arg_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arg_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -88426,7 +88426,7 @@ _4:
 	(*(*[3]TJSValue)(unsafe.Pointer(bp + 8)))[int32(1)] = arg_array
 	(*(*[3]TJSValue)(unsafe.Pointer(bp + 8)))[int32(2)] = new_target
 	ret = XJS_Call(tls, ctx1, *(*TJSValue)(unsafe.Pointer(bp)), (*TJSProxyData)(unsafe.Pointer(s)).Fhandler, int32(3), bp+8)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	;
@@ -88505,7 +88505,7 @@ _5:
 		return XJS_Call(tls, ctx1, (*TJSProxyData)(unsafe.Pointer(s)).Ftarget, this_obj, argc, argv)
 	}
 	arg_array = _js_create_array(tls, ctx1, argc, argv)
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arg_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arg_array>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -88604,7 +88604,7 @@ func _js_proxy_constructor(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc 
 		return _JS_ThrowTypeErrorNotAnObject(tls, ctx2)
 	}
 	obj = XJS_NewObjectProtoClass(tls, ctx2, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), uint32(EJS_CLASS_PROXY))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -88690,21 +88690,21 @@ func _js_proxy_revocable(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc in
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = obj, p, proxy_obj, revoke_obj, v1, v10, v11, v12, v3, v5, v7, v8, v9
 	revoke_obj = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	proxy_obj = _js_proxy_constructor(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), argc, argv)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proxy_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proxy_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		goto fail
 	}
 	revoke_obj = _js_proxy_revoke_constructor(tls, ctx1, proxy_obj)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(revoke_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(revoke_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
 		goto fail
 	}
 	obj = XJS_NewObject(tls, ctx1)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -88828,7 +88828,7 @@ _2:
 		p = libc.UintptrFromInt32(0)
 	} else {
 		str = XJS_ToString(tls, ctx, *(*TJSValue)(unsafe.Pointer(argv)))
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -88884,7 +88884,7 @@ func _js_symbol_toString(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc in
 	var _ /* val at bp+0 */ TJSValue
 	_, _, _, _, _, _ = p, ret, v1, v3, v4, v5
 	*(*TJSValue)(unsafe.Pointer(bp)) = _js_thisSymbolValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -88915,7 +88915,7 @@ func _js_symbol_get_description(tls *libc.TLS, ctx1 uintptr, this_val TJSValue) 
 	var v1, v4 int32
 	_, _, _, _, _, _, _, _ = p, p1, ret, val, v1, v3, v4, v5
 	val = _js_thisSymbolValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -89112,7 +89112,7 @@ func _js_symbol_for(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, a
 	var v1 int32
 	_, _ = str, v1
 	str = XJS_ToString(tls, ctx, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -89259,7 +89259,7 @@ func _js_map_constructor(tls *libc.TLS, ctx2 uintptr, new_target TJSValue, argc 
 	is_set = magic & (libc.Int32FromInt32(1) << libc.Int32FromInt32(0))
 	is_weak = libc.BoolInt32(magic&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)) != libc.Int32FromInt32(0))
 	obj = _js_create_from_ctor(tls, ctx2, new_target, int32(EJS_CLASS_MAP)+magic)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -89307,7 +89307,7 @@ _6:
 		goto _13
 	_13:
 		adder = v12
-		v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(adder>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(adder>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _15
 	_15:
 		if v14 != 0 {
@@ -89318,7 +89318,7 @@ _6:
 			goto fail
 		}
 		iter = _JS_GetIterator(tls, ctx2, arr, int32(EFALSE))
-		v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _17
 	_17:
 		if v16 != 0 {
@@ -89329,7 +89329,7 @@ _6:
 		goto _20
 	_20:
 		next_method = v19
-		v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _22
 	_22:
 		if v21 != 0 {
@@ -89337,7 +89337,7 @@ _6:
 		}
 		for {
 			*(*TJSValue)(unsafe.Pointer(bp)) = _JS_IteratorNext(tls, ctx2, iter, next_method, 0, libc.UintptrFromInt32(0), bp+8)
-			v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _25
 		_25:
 			if v24 != 0 {
@@ -89358,7 +89358,7 @@ _6:
 			}
 			if is_set != 0 {
 				ret = XJS_Call(tls, ctx2, adder, obj, int32(1), bp)
-				v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _30
 			_30:
 				if v29 != 0 {
@@ -89385,14 +89385,14 @@ _6:
 					goto fail1
 				}
 				key = XJS_GetPropertyUint32(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp)), uint32(0))
-				v36 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(key>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v36 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(key>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _37
 			_37:
 				if v36 != 0 {
 					goto fail1
 				}
 				value = XJS_GetPropertyUint32(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp)), uint32(1))
-				v38 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v38 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _39
 			_39:
 				if v38 != 0 {
@@ -89401,7 +89401,7 @@ _6:
 				(*(*[2]TJSValue)(unsafe.Pointer(bp + 12)))[0] = key
 				(*(*[2]TJSValue)(unsafe.Pointer(bp + 12)))[int32(1)] = value
 				ret = XJS_Call(tls, ctx2, adder, obj, int32(2), bp+12)
-				v41 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v41 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _42
 			_42:
 				if !(v41 != 0) {
@@ -90270,7 +90270,7 @@ func _js_map_forEach(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32,
 			}
 			el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
 			_map_decref_record(tls, (*TJSContext)(unsafe.Pointer(ctx2)).Frt, mr)
-			v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _14
 		_14:
 			if v13 != 0 {
@@ -90317,7 +90317,7 @@ func _js_object_groupBy(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	iter = _JS_GetIterator(tls, ctx6, *(*TJSValue)(unsafe.Pointer(argv)), int32(EFALSE))
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v11 != 0 {
@@ -90333,7 +90333,7 @@ _2:
 	goto _5
 _5:
 	next = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -90344,7 +90344,7 @@ _7:
 	} else {
 		groups = XJS_NewObjectProto(tls, ctx6, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
 	}
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(groups>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(groups>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -90357,7 +90357,7 @@ _9:
 			goto iterator_close_exception
 		}
 		*(*TJSValue)(unsafe.Pointer(bp + 32)) = _JS_IteratorNext(tls, ctx6, iter, next, 0, libc.UintptrFromInt32(0), bp+40)
-		v111 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v111 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 32))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v111 != 0 {
@@ -90393,7 +90393,7 @@ _9:
 	_20:
 		(*(*[2]TJSValue)(unsafe.Pointer(bp + 8)))[int32(1)] = v19
 		*(*TJSValue)(unsafe.Pointer(bp + 24)) = XJS_Call(tls, ctx6, cb, (*TJSContext)(unsafe.Pointer(ctx6)).Fglobal_obj, int32(2), bp+8)
-		v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 24))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 24))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _22
 	_22:
 		if v21 != 0 {
@@ -90423,7 +90423,7 @@ _9:
 		_28:
 			prop1 = v27
 		}
-		v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _30
 	_30:
 		if v29 != 0 {
@@ -90434,7 +90434,7 @@ _9:
 	_32:
 		if v31 != 0 {
 			prop1 = XJS_NewArray(tls, ctx6)
-			v33 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v33 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _34
 		_34:
 			if v33 != 0 {
@@ -90444,7 +90444,7 @@ _9:
 				(*(*[2]TJSValue)(unsafe.Pointer(bp + 8)))[0] = *(*TJSValue)(unsafe.Pointer(bp + 24))
 				(*(*[2]TJSValue)(unsafe.Pointer(bp + 8)))[int32(1)] = prop1
 				res = _js_map_set(tls, ctx6, groups, int32(2), bp+8, 0)
-				v35 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v35 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _36
 			_36:
 				if v35 != 0 {
@@ -90477,7 +90477,7 @@ _9:
 			}
 		}
 		res = _js_array_push(tls, ctx6, prop1, int32(1), bp+32, 0)
-		v43 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v43 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _44
 	_44:
 		if v43 != 0 {
@@ -90754,7 +90754,7 @@ func _js_create_map_iterator(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, arg
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	enum_obj = XJS_NewObjectClass(tls, ctx2, int32(EJS_CLASS_MAP_ITERATOR)+magic)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(enum_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -92604,7 +92604,7 @@ _2:
 	} else {
 		*(*TJSValue)(unsafe.Pointer(bp + 8)) = XJS_Call(tls, ctx2, handler, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(1), bp)
 	}
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	is_reject = v9
@@ -92743,7 +92743,7 @@ func _js_promise_resolve_thenable_job(tls *libc.TLS, ctx1 uintptr, argc int32, a
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	res = XJS_Call(tls, ctx1, then, thenable, int32(2), bp)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -92814,7 +92814,7 @@ _3:
 		goto _1
 	}
 	obj = XJS_NewObjectProtoClass(tls, ctx2, (*TJSContext)(unsafe.Pointer(ctx2)).Ffunction_proto, libc.Uint32FromInt32(int32(EJS_CLASS_PROMISE_RESOLVE_FUNCTION)+i))
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -92951,7 +92951,7 @@ func _js_promise_resolve_function_call(tls *libc.TLS, ctx2 uintptr, func_obj TJS
 	goto _6
 _6:
 	then = v5
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(then>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(then>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if !(v9 != 0) {
@@ -93111,7 +93111,7 @@ func _js_promise_constructor(tls *libc.TLS, ctx1 uintptr, new_target TJSValue, a
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	obj = _js_create_from_ctor(tls, ctx1, new_target, int32(EJS_CLASS_PROMISE))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -93142,7 +93142,7 @@ _2:
 		goto fail
 	}
 	ret = XJS_Call(tls, ctx1, executor, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(2), bp)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -93158,7 +93158,7 @@ _6:
 				X__JS_FreeValue(tls, ctx1, v7)
 			}
 		}
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if v10 != 0 {
@@ -93297,7 +93297,7 @@ func _js_new_promise_capability(tls *libc.TLS, ctx2 uintptr, resolving_funcs uin
 	var _ /* executor at bp+0 */ TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = i, p, p1, result_promise, s, v1, v10, v12, v13, v14, v15, v16, v17, v18, v19, v20, v3, v5, v9
 	*(*TJSValue)(unsafe.Pointer(bp)) = _js_promise_executor_new(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -93311,7 +93311,7 @@ _4:
 	} else {
 		result_promise = XJS_CallConstructor(tls, ctx2, ctor, int32(1), bp)
 	}
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -93414,7 +93414,7 @@ _2:
 		goto _5
 	_5:
 		ctor = v4
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -93445,7 +93445,7 @@ _2:
 		}
 	}
 	result_promise = _js_new_promise_capability(tls, ctx3, bp, this_val)
-	v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _15
 _15:
 	if v14 != 0 {
@@ -93472,7 +93472,7 @@ _15:
 			X__JS_FreeValue(tls, ctx3, v19)
 		}
 	}
-	v22 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v22 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _23
 _23:
 	if v22 != 0 {
@@ -93516,14 +93516,14 @@ _2:
 		return _JS_ThrowTypeErrorNotAnObject(tls, ctx1)
 	}
 	result_promise = _js_new_promise_capability(tls, ctx1, bp, this_val)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
 		return result_promise
 	}
 	obj = XJS_NewObject(tls, ctx1)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -93573,7 +93573,7 @@ func _remainingElementsCount_add(tls *libc.TLS, ctx1 uintptr, resolve_element_en
 	var _ /* remainingElementsCount at bp+0 */ int32
 	_, _, _ = val1, v1, v3
 	val1 = XJS_GetPropertyUint32(tls, ctx1, resolve_element_env, uint32(0))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -93625,7 +93625,7 @@ _2:
 		goto _3
 	}
 	obj = XJS_NewObject(tls, ctx3)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -93637,7 +93637,7 @@ _6:
 		v7 = __ccgo_ts + 12750
 	}
 	str = XJS_NewString(tls, ctx3, v7)
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -93704,7 +93704,7 @@ _4:
 	if is_zero != 0 {
 		if resolve_type == int32(MPROMISE_MAGIC_any) {
 			*(*TJSValue)(unsafe.Pointer(bp + 16)) = _js_aggregate_error_constructor(tls, ctx3, *(*TJSValue)(unsafe.Pointer(bp)))
-			v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _22
 		_22:
 			if v21 != 0 {
@@ -93724,7 +93724,7 @@ _4:
 		} else {
 			ret = XJS_Call(tls, ctx3, resolve, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(1), bp)
 		}
-		v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _27
 	_27:
 		if v26 != 0 {
@@ -93774,7 +93774,7 @@ _2:
 		return _JS_ThrowTypeErrorNotAnObject(tls, ctx5)
 	}
 	result_promise = _js_new_promise_capability(tls, ctx5, bp, this_val)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -93785,7 +93785,7 @@ _4:
 	goto _7
 _7:
 	promise_resolve = v6
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise_resolve>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise_resolve>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	;
@@ -93793,7 +93793,7 @@ _9:
 		goto fail_reject
 	}
 	iter = _JS_GetIterator(tls, ctx5, *(*TJSValue)(unsafe.Pointer(argv)), int32(EFALSE))
-	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _13
 _13:
 	if !(v12 != 0) {
@@ -93814,7 +93814,7 @@ fail_reject:
 			X__JS_FreeValue(tls, ctx5, v14)
 		}
 	}
-	v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v17 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _18
 _18:
 	if v17 != 0 {
@@ -93838,21 +93838,21 @@ _10:
 	goto _24
 _24:
 	next_method = v23
-	v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _26
 _26:
 	if v25 != 0 {
 		goto fail_reject
 	}
 	*(*TJSValue)(unsafe.Pointer(bp + 24)) = XJS_NewArray(tls, ctx5)
-	v27 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 24))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v27 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 24))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _28
 _28:
 	if v27 != 0 {
 		goto fail_reject
 	}
 	resolve_element_env = XJS_NewArray(tls, ctx5)
-	v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(resolve_element_env>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(resolve_element_env>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _30
 _30:
 	if v29 != 0 {
@@ -93872,7 +93872,7 @@ _35:
 	/* XXX: conformance: should close the iterator if error on 'done'
 	   access, but not on 'value' access */
 	*(*TJSValue)(unsafe.Pointer(bp + 16)) = _JS_IteratorNext(tls, ctx5, iter, next_method, 0, libc.UintptrFromInt32(0), bp+88)
-	v36 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v36 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _37
 _37:
 	if v36 != 0 {
@@ -93892,7 +93892,7 @@ _37:
 			X__JS_FreeValue(tls, ctx5, v38)
 		}
 	}
-	v42 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v42 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _43
 _43:
 	if !(v42 != 0) {
@@ -93919,7 +93919,7 @@ _47:
 	(*(*[5]TJSValue)(unsafe.Pointer(bp + 48)))[int32(3)] = (*(*[2]TJSValue)(unsafe.Pointer(bp)))[is_promise_any]
 	(*(*[5]TJSValue)(unsafe.Pointer(bp + 48)))[int32(4)] = resolve_element_env
 	resolve_element = XJS_NewCFunctionData(tls, ctx5, __ccgo_fp(_js_promise_all_resolve_element), int32(1), magic, int32(5), bp+48)
-	v48 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(resolve_element>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v48 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(resolve_element>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _49
 _49:
 	if v48 != 0 {
@@ -93937,7 +93937,7 @@ _49:
 	}
 	if magic == int32(MPROMISE_MAGIC_allSettled) {
 		reject_element = XJS_NewCFunctionData(tls, ctx5, __ccgo_fp(_js_promise_all_resolve_element), int32(1), magic|int32(4), int32(5), bp+48)
-		v53 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(reject_element>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v53 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(reject_element>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _54
 	_54:
 		if v53 != 0 {
@@ -94056,7 +94056,7 @@ _33:
 	if is_zero != 0 {
 		if magic == int32(MPROMISE_MAGIC_any) {
 			error1 = _js_aggregate_error_constructor(tls, ctx5, *(*TJSValue)(unsafe.Pointer(bp + 24)))
-			v79 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(error1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v79 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(error1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _80
 		_80:
 			if v79 != 0 {
@@ -94194,7 +94194,7 @@ _2:
 		return _JS_ThrowTypeErrorNotAnObject(tls, ctx2)
 	}
 	result_promise = _js_new_promise_capability(tls, ctx2, bp, this_val)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -94205,7 +94205,7 @@ _4:
 	goto _7
 _7:
 	promise_resolve = v6
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise_resolve>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise_resolve>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	;
@@ -94213,7 +94213,7 @@ _9:
 		goto fail_reject
 	}
 	iter = _JS_GetIterator(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv)), int32(EFALSE))
-	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _13
 _13:
 	if !(v12 != 0) {
@@ -94234,7 +94234,7 @@ fail_reject:
 			X__JS_FreeValue(tls, ctx2, v14)
 		}
 	}
-	v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v17 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _18
 _18:
 	if v17 != 0 {
@@ -94258,7 +94258,7 @@ _10:
 	goto _24
 _24:
 	next_method = v23
-	v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _26
 _26:
 	if v25 != 0 {
@@ -94269,7 +94269,7 @@ _29:
 	/* XXX: conformance: should close the iterator if error on 'done'
 	   access, but not on 'value' access */
 	*(*TJSValue)(unsafe.Pointer(bp + 16)) = _JS_IteratorNext(tls, ctx2, iter, next_method, 0, libc.UintptrFromInt32(0), bp+24)
-	v30 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v30 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _31
 _31:
 	if v30 != 0 {
@@ -94289,7 +94289,7 @@ _31:
 			X__JS_FreeValue(tls, ctx2, v32)
 		}
 	}
-	v36 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v36 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _37
 _37:
 	if !(v36 != 0) {
@@ -94519,7 +94519,7 @@ func _js_promise_then(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	ctor = _JS_SpeciesConstructor(tls, ctx1, this_val, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -94536,7 +94536,7 @@ _2:
 			X__JS_FreeValue(tls, ctx1, v3)
 		}
 	}
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(result_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -94632,7 +94632,7 @@ func _js_promise_then_finally_func(tls *libc.TLS, ctx1 uintptr, this_val TJSValu
 	ctor = *(*TJSValue)(unsafe.Pointer(func_data))
 	onFinally = *(*TJSValue)(unsafe.Pointer(func_data + 1*8))
 	*(*TJSValue)(unsafe.Pointer(bp)) = XJS_Call(tls, ctx1, onFinally, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), 0, libc.UintptrFromInt32(0))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -94649,7 +94649,7 @@ _2:
 			X__JS_FreeValue(tls, ctx1, v3)
 		}
 	}
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -94660,7 +94660,7 @@ _7:
 	} else {
 		*(*TJSValue)(unsafe.Pointer(bp + 8)) = XJS_NewCFunctionData(tls, ctx1, __ccgo_fp(_js_promise_finally_thrower), 0, 0, int32(1), argv)
 	}
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 8))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -94701,7 +94701,7 @@ func _js_promise_finally(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc in
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = ctor, i, onFinally, p, p1, ret, v1, v10, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v3, v4, v6, v7
 	onFinally = *(*TJSValue)(unsafe.Pointer(argv))
 	ctor = _JS_SpeciesConstructor(tls, ctx2, this_val, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -94737,7 +94737,7 @@ _2:
 				break
 			}
 			(*(*[2]TJSValue)(unsafe.Pointer(bp)))[i] = XJS_NewCFunctionData(tls, ctx2, __ccgo_fp(_js_promise_then_finally_func), int32(1), i, int32(2), bp+16)
-			v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*(*[2]TJSValue)(unsafe.Pointer(bp)))[i]>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*(*[2]TJSValue)(unsafe.Pointer(bp)))[i]>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _11
 		_11:
 			if v10 != 0 {
@@ -95385,14 +95385,14 @@ func _JS_CreateAsyncFromSyncIterator(tls *libc.TLS, ctx3 uintptr, sync_iter TJSV
 	goto _3
 _3:
 	next_method = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	async_iter = XJS_NewObjectClass(tls, ctx3, int32(EJS_CLASS_ASYNC_FROM_SYNC_ITERATOR))
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(async_iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(async_iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -95461,7 +95461,7 @@ func _js_async_from_sync_iterator_next(tls *libc.TLS, ctx3 uintptr, this_val TJS
 	var _ /* value at bp+16 */ TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = is_reject, method, obj, p, p1, promise, res, res2, s, value_wrapper_promise, v1, v10, v12, v14, v16, v17, v18, v20, v21, v23, v24, v25, v26, v27, v29, v3, v30, v31, v32, v35, v37, v38, v39, v4, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v51, v52, v53, v54, v56, v57, v58, v59, v6, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v7, v70, v71, v72, v73, v74, v75, v76, v77, v78, v79, v8, v80, v81, v82, v83, v84, v85, v86, v87, v88
 	promise = XJS_NewPromiseCapability(tls, ctx3, bp)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -95494,7 +95494,7 @@ _2:
 		goto _9
 	_9:
 		method = v8
-		v10 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v10 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _11
 	_11:
 		if v10 != 0 {
@@ -95554,7 +95554,7 @@ _2:
 			X__JS_FreeValue(tls, ctx3, v24)
 		}
 	}
-	v27 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v27 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _28
 _28:
 	if v27 != 0 {
@@ -95573,14 +95573,14 @@ _28:
 				X__JS_FreeValue(tls, ctx3, v29)
 			}
 		}
-		v32 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v32 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _33
 	_33:
 		if v32 != 0 {
 			goto reject
 		}
 	}
-	v35 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v35 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp + 16))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _36
 _36:
 	if !(v35 != 0) {
@@ -95639,7 +95639,7 @@ done_resolve:
 _34:
 	;
 	value_wrapper_promise = _js_promise_resolve(tls, ctx3, (*TJSContext)(unsafe.Pointer(ctx3)).Fpromise_ctor, int32(1), bp+16, 0)
-	v49 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value_wrapper_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v49 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(value_wrapper_promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _50
 _50:
 	if v49 != 0 {
@@ -95656,7 +95656,7 @@ _50:
 		goto reject
 	}
 	(*(*[2]TJSValue)(unsafe.Pointer(bp + 36)))[0] = _js_async_from_sync_iterator_unwrap_func_create(tls, ctx3, *(*int32)(unsafe.Pointer(bp + 32)))
-	v54 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*(*[2]TJSValue)(unsafe.Pointer(bp + 36)))[0]>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v54 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64((*(*[2]TJSValue)(unsafe.Pointer(bp + 36)))[0]>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _55
 _55:
 	if v54 != 0 {
@@ -96283,7 +96283,7 @@ func _js_global_decodeURI(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, c1, c11, c_min, k, n, p, p1, str, v1, v10, v11, v12, v13, v4, v5, v7, v8, v9
 	b = bp
 	str = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -96447,7 +96447,7 @@ func _js_global_encodeURI(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, c11, c2, k, p, p1, str, v1, v10, v12, v13, v14, v15, v16, v17, v4, v6, v8
 	b = bp
 	str = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -96554,7 +96554,7 @@ func _js_global_escape(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int3
 	_, _, _, _, _, _, _, _, _, _, _ = b, c, i, len1, p, p1, str, v1, v4, v5, v6
 	b = bp
 	str = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -96603,7 +96603,7 @@ func _js_global_unescape(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc in
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, c, i, len1, n, p, p1, str, v1, v10, v4, v5, v6, v7, v8, v9
 	b = bp
 	str = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(str>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -97751,7 +97751,7 @@ _2:
 						X__JS_FreeValue(tls, ctx3, v8)
 					}
 				}
-				v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(dv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(dv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _12
 			_12:
 				if v11 != 0 {
@@ -97809,7 +97809,7 @@ _2:
 has_val:
 	;
 	rv = _js_create_from_ctor(tls, ctx3, new_target, int32(EJS_CLASS_DATE))
-	v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v17 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _18
 _18:
 	if !(v17 != 0) {
@@ -97838,7 +97838,7 @@ _18:
 	_21:
 		_JS_SetObjectData(tls, ctx3, rv, v20)
 	}
-	v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _25
 _25:
 	;
@@ -98587,7 +98587,7 @@ func _js_Date_parse(tls *libc.TLS, ctx3 uintptr, this_val TJSValue, argc int32, 
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = c, d2, i, p, rv, s, sp, v, val, valid, v1, v10, v12, v13, v14, v4, v7, v8
 	rv = libc.Uint64FromInt64(0x7ff8000000000000) - libc.Uint64FromInt32(libc.Int32FromInt32(0x7ff80000)-int32(EJS_TAG_FIRST)+libc.Int32FromInt32(1))<<libc.Int32FromInt32(32)
 	s = XJS_ToString(tls, ctx3, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(s>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -98974,7 +98974,7 @@ func _js_date_toJSON(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32,
 	tv = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	obj = _JS_ToObject(tls, ctx1, this_val)
 	tv = _JS_ToPrimitive(tls, ctx1, obj, int32(MHINT_NUMBER))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(tv>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -98998,7 +98998,7 @@ _4:
 		}
 	}
 	method = XJS_GetPropertyStr(tls, ctx1, obj, __ccgo_ts+13388)
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if v7 != 0 {
@@ -100813,7 +100813,7 @@ func XJS_NewDate(tls *libc.TLS, ctx1 uintptr, epoch_ms float64) (r TJSValue) {
 	}
 	_, _, _, _ = obj, v, v1, v3
 	obj = _js_create_from_ctor(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(EJS_CLASS_DATE))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -101035,7 +101035,7 @@ func _js_operators_create_internal(tls *libc.TLS, ctx2 uintptr, argc int32, argv
 		return XJS_ThrowTypeError(tls, ctx2, __ccgo_ts+13953, 0)
 	}
 	opset_obj = XJS_NewObjectProtoClass(tls, ctx2, libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), uint32(EJS_CLASS_OPERATOR_SET))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -101055,7 +101055,7 @@ _2:
 				break
 			}
 			prop1 = XJS_GetPropertyStr(tls, ctx2, arg, uintptr(unsafe.Pointer(&_js_overloadable_operator_names))+uintptr(i)*4)
-			v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _5
 		_5:
 			if v4 != 0 {
@@ -101094,7 +101094,7 @@ _2:
 		}
 		arg = *(*TJSValue)(unsafe.Pointer(argv + uintptr(j)*8))
 		prop1 = XJS_GetPropertyStr(tls, ctx2, arg, __ccgo_ts+13972)
-		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _13
 	_13:
 		if v12 != 0 {
@@ -101106,7 +101106,7 @@ _2:
 	_15:
 		if v14 != 0 {
 			prop1 = XJS_GetPropertyStr(tls, ctx2, arg, __ccgo_ts+13977)
-			v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _17
 		_17:
 			if v16 != 0 {
@@ -101137,7 +101137,7 @@ _2:
 				X__JS_FreeValue(tls, ctx2, v23)
 			}
 		}
-		v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _27
 	_27:
 		if v26 != 0 {
@@ -101158,7 +101158,7 @@ _2:
 				X__JS_FreeValue(tls, ctx2, v31)
 			}
 		}
-		v34 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v34 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _35
 	_35:
 		if v34 != 0 {
@@ -101205,7 +101205,7 @@ _2:
 				break
 			}
 			prop1 = XJS_GetPropertyStr(tls, ctx2, arg, uintptr(unsafe.Pointer(&_js_overloadable_operator_names))+uintptr(i)*4)
-			v43 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v43 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _44
 		_44:
 			if v43 != 0 {
@@ -101282,7 +101282,7 @@ func _js_operators_updateBigIntOperators(tls *libc.TLS, ctx2 uintptr, this_val T
 	goto _3
 _3:
 	opset_obj = v2
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -101299,7 +101299,7 @@ _5:
 		}
 		op = ops[i]
 		prop1 = XJS_GetPropertyStr(tls, ctx2, *(*TJSValue)(unsafe.Pointer(argv)), uintptr(unsafe.Pointer(&_js_overloadable_operator_names))+uintptr(op)*4)
-		v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _8
 	_8:
 		if v7 != 0 {
@@ -101390,7 +101390,7 @@ _2:
 		return 0
 	}
 	opset_obj = _js_operators_create_internal(tls, ctx, 0, libc.UintptrFromInt32(0), int32(ETRUE))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -101412,14 +101412,14 @@ func _js_global_operators(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = func_obj, opset_obj, p, proto, v1, v10, v11, v12, v13, v14, v15, v3, v5, v7, v8, v9
 	func_obj = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	proto = XJS_NewObject(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	opset_obj = _js_operators_create_internal(tls, ctx1, argc, argv, int32(EFALSE))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(opset_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -101427,7 +101427,7 @@ _4:
 	}
 	XJS_DefinePropertyValue(tls, ctx1, proto, uint32(EJS_ATOM_Symbol_operatorSet), opset_obj, libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
 	func_obj = XJS_NewCFunction2(tls, ctx1, __ccgo_fp(_js_dummy_operators_ctor), __ccgo_ts+14022, 0, int32(EJS_CFUNC_constructor), 0)
-	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _6
 _6:
 	if v5 != 0 {
@@ -101628,7 +101628,7 @@ _2:
 			val = XJS_ThrowRangeError(tls, ctx1, __ccgo_ts+14054, 0)
 		} else {
 			val1 = _JS_NewBigInt(tls, ctx1)
-			v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _12
 		_12:
 			if v11 != 0 {
@@ -101699,7 +101699,7 @@ _2:
 		}
 	case libc.Uint32FromInt32(EJS_TAG_BIG_DECIMAL):
 		val = _JS_ToStringFree(tls, ctx1, val)
-		v28 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v28 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _29
 	_29:
 		if v28 != 0 {
@@ -101710,7 +101710,7 @@ _2:
 		val = _JS_StringToBigIntErr(tls, ctx1, val)
 	case libc.Uint32FromInt32(EJS_TAG_OBJECT):
 		val = _JS_ToPrimitiveFree(tls, ctx1, val, int32(MHINT_NUMBER))
-		v30 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v30 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _31
 	_31:
 		if v30 != 0 {
@@ -101814,7 +101814,7 @@ func _js_bigint_toString(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc in
 	var v5 bool
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = base, p, ret, val, v1, v10, v11, v3, v5, v6, v7, v8, v9
 	val = _js_thisBigIntValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -101875,14 +101875,14 @@ func _js_bigint_div(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, 
 	var _ /* b_s at bp+20 */ Tbf_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, b, p, q, q_val, r, r_val, ret, status, v1, v10, v11, v12, v13, v14, v15, v3, v5, v7, v8, v9
 	q_val = _JS_NewBigInt(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(q_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(q_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	r_val = _JS_NewBigInt(tls, ctx1)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -101910,7 +101910,7 @@ _4:
 	q_val = _JS_CompactBigInt(tls, ctx1, q_val)
 	if magic&int32(0x10) != 0 {
 		ret = XJS_NewArray(tls, ctx1)
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if v5 != 0 {
@@ -101967,14 +101967,14 @@ func _js_bigint_sqrt(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32,
 	var _ /* a_s at bp+0 */ Tbf_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, p, r, r_val, rem, rem_val, ret, status, v1, v10, v11, v12, v13, v14, v15, v3, v5, v7, v8, v9
 	r_val = _JS_NewBigInt(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	rem_val = _JS_NewBigInt(tls, ctx1)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rem_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(rem_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -101995,7 +101995,7 @@ _4:
 	r_val = _JS_CompactBigInt(tls, ctx1, r_val)
 	if magic != 0 {
 		ret = XJS_NewArray(tls, ctx1)
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if v5 != 0 {
@@ -102094,7 +102094,7 @@ func _js_bigint_asUintN(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	res = _JS_NewBigInt(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -102817,7 +102817,7 @@ func _js_bigfloat_toString(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc 
 	var v5 bool
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = base, p, ret, val, v1, v10, v11, v3, v5, v6, v7, v8, v9
 	val = _js_thisBigFloatValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -102891,7 +102891,7 @@ func _js_bigfloat_toFixed(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	var _ /* f at bp+0 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _ = p, radix, ret, rnd_mode, val, v1, v3, v4, v5, v6, v7, v8
 	val = _js_thisBigFloatValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -102986,7 +102986,7 @@ func _js_bigfloat_toExponential(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, 
 	var _ /* f at bp+0 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = p, radix, ret, rnd_mode, val, v1, v10, v3, v5, v6, v7, v8, v9
 	val = _js_thisBigFloatValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -103061,7 +103061,7 @@ func _js_bigfloat_toPrecision(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, ar
 	var _ /* p at bp+0 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = p, radix, ret, rnd_mode, val, v1, v10, v11, v12, v3, v7, v8, v9
 	val = _js_thisBigFloatValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -103329,7 +103329,7 @@ _2:
 	}
 	if argc == 0 {
 		val = _JS_NewBigFloat(tls, ctx3)
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -103370,7 +103370,7 @@ _2:
 		_11:
 			d = v10
 			val = _JS_NewBigFloat(tls, ctx3)
-			v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _13
 		_13:
 			if v12 != 0 {
@@ -103383,7 +103383,7 @@ _2:
 		case int32(EJS_TAG_INT):
 			v6 = libc.Int32FromUint64(val)
 			val = _JS_NewBigFloat(tls, ctx3)
-			v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _15
 		_15:
 			if v14 != 0 {
@@ -103399,7 +103399,7 @@ _2:
 			val = libc.Uint64FromInt32(int32(EJS_TAG_BIG_FLOAT))<<libc.Int32FromInt32(32) | uint64(uint32(p2))
 		case int32(EJS_TAG_BIG_DECIMAL):
 			val = _JS_ToStringFree(tls, ctx3, val)
-			v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _17
 		_17:
 			if v16 != 0 {
@@ -103428,7 +103428,7 @@ _2:
 			*(*uintptr)(unsafe.Pointer(bp + 8)) += uintptr(_skip_spaces(tls, *(*uintptr)(unsafe.Pointer(bp + 8))))
 			if libc.Uint32FromInt32(int32(*(*uintptr)(unsafe.Pointer(bp + 8)))-int32(str)) == *(*Tsize_t)(unsafe.Pointer(bp + 12)) {
 				val = _JS_NewBigFloat(tls, ctx3)
-				v23 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v23 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _24
 			_24:
 				if v23 != 0 {
@@ -103439,7 +103439,7 @@ _2:
 				err = 0
 			} else {
 				val = _js_atof(tls, ctx3, *(*uintptr)(unsafe.Pointer(bp + 8)), bp+8, 0, libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(2)<<libc.Int32FromInt32(7)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(10))
-				v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _26
 			_26:
 				if v25 != 0 {
@@ -103465,7 +103465,7 @@ _2:
 			}
 		case int32(EJS_TAG_OBJECT):
 			val = _JS_ToPrimitiveFree(tls, ctx3, val, int32(MHINT_NUMBER))
-			v30 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v30 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _31
 		_31:
 			if v30 != 0 {
@@ -103514,7 +103514,7 @@ func _js_bigfloat_get_const(tls *libc.TLS, ctx uintptr, this_val TJSValue, magic
 	var val TJSValue
 	_, _, _, _, _, _, _ = e, e1, e_range, r, val, v1, v3
 	val = _JS_NewBigFloat(tls, ctx)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -103597,7 +103597,7 @@ _3:
 		}
 	}
 	ret = _JS_NewBigFloat(tls, ctx1)
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -103708,7 +103708,7 @@ func _js_bigfloat_fop(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32
 	var _ /* a_s at bp+0 */ Tbf_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a2, fe, op1, p, r1, res, rnd_mode, s1, v1, v10, v12, v13, v14, v3, v33, v35, v37, v38, v39, v4, v41, v42, v43, v5, v7, v9
 	op1 = _JS_ToNumeric(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -103736,7 +103736,7 @@ _2:
 		}
 	}
 	res = _JS_NewBigFloat(tls, ctx1)
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if !(v7 != 0) {
@@ -103930,14 +103930,14 @@ func _js_bigfloat_fop2(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int3
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, b, fe, op1, op2, p, r1, res, s1, v1, v11, v12, v14, v15, v17, v18, v19, v20, v21, v22, v23, v24, v26, v27, v29, v3, v30, v31, v32, v33, v34, v5, v6, v7, v9
 	r1 = bp + 40
 	op1 = _JS_ToNumeric(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return op1
 	}
 	op2 = _JS_ToNumeric(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv + 1*8)))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -103969,7 +103969,7 @@ _4:
 		}
 	}
 	res = _JS_NewBigFloat(tls, ctx1)
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if !(v9 != 0) {
@@ -105269,7 +105269,7 @@ _2:
 		}
 	}
 	obj = XJS_NewObjectClass(tls, ctx, int32(EJS_CLASS_FLOAT_ENV))
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -106386,7 +106386,7 @@ _5:
 	;
 	v3 = libc.Int32FromUint64(val)
 	val = _JS_NewBigDecimal(tls, ctx2)
-	v15 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v15 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _16
 _16:
 	if v15 != 0 {
@@ -106415,7 +106415,7 @@ _8:
 _7:
 	;
 	val = _JS_ToStringFree(tls, ctx2, val)
-	v20 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v20 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _21
 _21:
 	if v20 != 0 {
@@ -106445,7 +106445,7 @@ _23:
 	*(*uintptr)(unsafe.Pointer(bp)) += uintptr(_skip_spaces(tls, *(*uintptr)(unsafe.Pointer(bp))))
 	if libc.Uint32FromInt32(int32(*(*uintptr)(unsafe.Pointer(bp)))-int32(str)) == *(*Tsize_t)(unsafe.Pointer(bp + 4)) {
 		val = _JS_NewBigDecimal(tls, ctx2)
-		v27 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v27 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _28
 	_28:
 		if v27 != 0 {
@@ -106456,7 +106456,7 @@ _23:
 		err = 0
 	} else {
 		val = _js_atof(tls, ctx2, *(*uintptr)(unsafe.Pointer(bp)), bp, 0, libc.Int32FromInt32(3)<<libc.Int32FromInt32(7))
-		v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _30
 	_30:
 		if v29 != 0 {
@@ -106484,7 +106484,7 @@ _23:
 _11:
 	;
 	val = _JS_ToPrimitiveFree(tls, ctx2, val, int32(MHINT_NUMBER))
-	v34 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v34 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _35
 _35:
 	if v34 != 0 {
@@ -106497,7 +106497,7 @@ _12:
 		goto fail
 	}
 	val = _JS_NewBigDecimal(tls, ctx2)
-	v36 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v36 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _37
 _37:
 	if v36 != 0 {
@@ -106540,7 +106540,7 @@ _2:
 	}
 	if argc == 0 {
 		val = _JS_NewBigDecimal(tls, ctx1)
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -106613,7 +106613,7 @@ func _js_bigdecimal_toString(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc
 	var v1 int32
 	_, _ = val, v1
 	val = _js_thisBigDecimalValue(tls, ctx, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -106733,7 +106733,7 @@ _2:
 	goto _5
 _5:
 	prop1 = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -106759,7 +106759,7 @@ _7:
 	goto _13
 _13:
 	prop1 = v12
-	v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _15
 _15:
 	if v14 != 0 {
@@ -106784,7 +106784,7 @@ _17:
 	goto _20
 _20:
 	prop1 = v19
-	v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(prop1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _22
 _22:
 	if v21 != 0 {
@@ -106852,7 +106852,7 @@ func _js_bigdecimal_fop(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int
 		op_count = int32(2)
 	}
 	op1 = _JS_ToNumeric(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -106874,7 +106874,7 @@ _2:
 	}
 	if op_count >= int32(2) {
 		op2 = _JS_ToNumeric(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv + 1*8)))
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(op2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -106906,7 +106906,7 @@ _2:
 		}
 	}
 	res = _JS_NewBigDecimal(tls, ctx1)
-	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _13
 _13:
 	if !(v12 != 0) {
@@ -107011,7 +107011,7 @@ func _js_bigdecimal_toFixed(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc
 	var _ /* f at bp+0 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _ = p, ret, rnd_mode, val, v1, v3, v4, v5, v6, v7, v8
 	val = _js_thisBigDecimalValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -107068,7 +107068,7 @@ func _js_bigdecimal_toExponential(tls *libc.TLS, ctx1 uintptr, this_val TJSValue
 	var _ /* f at bp+0 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _ = p, ret, rnd_mode, val, v1, v10, v3, v5, v6, v7, v8, v9
 	val = _js_thisBigDecimalValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -107132,7 +107132,7 @@ func _js_bigdecimal_toPrecision(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, 
 	var _ /* p at bp+0 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _ = p, ret, rnd_mode, val, v1, v10, v3, v5, v6, v7, v8, v9
 	val = _js_thisBigDecimalValue(tls, ctx1, this_val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -107948,7 +107948,7 @@ func _js_array_buffer_constructor3(tls *libc.TLS, ctx1 uintptr, new_target TJSVa
 	rt = (*TJSContext)(unsafe.Pointer(ctx1)).Frt
 	abuf = libc.UintptrFromInt32(0)
 	obj = _js_create_from_ctor(tls, ctx1, new_target, libc.Int32FromUint32(class_id))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -108429,7 +108429,7 @@ _2:
 _6:
 	new_len = v5
 	ctor = _JS_SpeciesConstructor(tls, ctx4, this_val, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if v7 != 0 {
@@ -108488,7 +108488,7 @@ _10:
 			}
 		}
 	}
-	v25 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v25 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(new_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _26
 _26:
 	if v25 != 0 {
@@ -109057,7 +109057,7 @@ detached:
 _1:
 	;
 	src_obj = _JS_ToObject(tls, ctx1, src)
-	v2 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(src_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v2 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(src_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _3
 _3:
 	if v2 != 0 {
@@ -109174,7 +109174,7 @@ _5:
 			break
 		}
 		val = XJS_GetPropertyUint32(tls, ctx1, src_obj, i)
-		v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _9
 	_9:
 		if v8 != 0 {
@@ -109310,14 +109310,14 @@ func _js_typed_array_with(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 		return XJS_ThrowRangeError(tls, ctx1, __ccgo_ts+2334, 0)
 	}
 	val = _JS_ToPrimitive(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv + 1*8)), int32(MHINT_NUMBER))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	arr = _js_typed_array_constructor_ta(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), this_val, libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6))))
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -109412,7 +109412,7 @@ func _js_typed_array_create(tls *libc.TLS, ctx2 uintptr, ctor TJSValue, argc int
 	var _ /* len at bp+0 */ Tint64_t
 	_, _, _, _, _, _, _, _, _, _ = new_len, p, p1, ret, v1, v10, v4, v5, v8, v9
 	ret = XJS_CallConstructor(tls, ctx2, ctor, argc, argv)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -109475,7 +109475,7 @@ func _js_typed_array___speciesCreate(tls *libc.TLS, ctx1 uintptr, this_val TJSVa
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	ctor = _JS_SpeciesConstructor(tls, ctx1, obj, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ctor>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -109558,7 +109558,7 @@ func _js_typed_array_from(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc i
 	goto _5
 _5:
 	iter = v4
-	v61 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v61 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v61 != 0 {
@@ -109579,7 +109579,7 @@ _9:
 			}
 		}
 		arr = XJS_NewArray(tls, ctx6)
-		v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _14
 	_14:
 		if v13 != 0 {
@@ -109601,7 +109601,7 @@ _9:
 		k = 0
 		for {
 			v6 = _JS_IteratorNext(tls, ctx6, (*(*[2]TJSValue)(unsafe.Pointer(bp + 24)))[0], (*(*[2]TJSValue)(unsafe.Pointer(bp + 24)))[int32(1)], 0, libc.UintptrFromInt32(0), bp+48)
-			v19 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v19 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _20
 		_20:
 			if v19 != 0 {
@@ -109620,7 +109620,7 @@ _9:
 		}
 	} else {
 		arr = _JS_ToObject(tls, ctx6, items)
-		v211 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v211 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _22
 	_22:
 		if v211 != 0 {
@@ -109667,7 +109667,7 @@ _30:
 			X__JS_FreeValue(tls, ctx6, v31)
 		}
 	}
-	v34 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v34 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(r>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _35
 _35:
 	if v34 != 0 {
@@ -109679,7 +109679,7 @@ _35:
 			break
 		}
 		v6 = _JS_GetPropertyInt64(tls, ctx6, arr, k)
-		v37 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v37 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _38
 	_38:
 		if v37 != 0 {
@@ -109704,7 +109704,7 @@ _35:
 				}
 			}
 			v6 = v21
-			v44 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v44 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(v6>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _45
 		_45:
 			if v44 != 0 {
@@ -109793,7 +109793,7 @@ func _js_typed_array_of(tls *libc.TLS, ctx3 uintptr, this_val TJSValue, argc int
 _2:
 	(*(*[1]TJSValue)(unsafe.Pointer(bp)))[0] = v1
 	obj = _js_typed_array_create(tls, ctx3, this_val, int32(1), bp)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -110102,7 +110102,7 @@ func _js_typed_array_find(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc i
 	_3:
 		index_val = v2
 		val1 = _JS_GetPropertyValue(tls, ctx2, this_val, index_val)
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -110112,7 +110112,7 @@ func _js_typed_array_find(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc i
 		(*(*[3]TJSValue)(unsafe.Pointer(bp)))[int32(1)] = index_val
 		(*(*[3]TJSValue)(unsafe.Pointer(bp)))[int32(2)] = this_val
 		res = XJS_Call(tls, ctx2, func1, this_arg, int32(3), bp)
-		v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _7
 	_7:
 		if v6 != 0 {
@@ -110631,7 +110631,7 @@ func _js_typed_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	}
 	if v3 && !(v1 != 0) {
 		sep = XJS_ToString(tls, ctx1, *(*TJSValue)(unsafe.Pointer(argv)))
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(sep>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -110674,7 +110674,7 @@ func _js_typed_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 		_10:
 		}
 		if v11 && !(v9 != 0) {
-			v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(el>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _13
 		_13:
 			if v12 != 0 {
@@ -110814,7 +110814,7 @@ func _js_typed_array_toReversed(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, 
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	arr = _js_typed_array_constructor_ta(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), this_val, libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6))))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -110884,7 +110884,7 @@ _6:
 _8:
 	(*(*[2]TJSValue)(unsafe.Pointer(bp)))[int32(1)] = v7
 	arr = _js_typed_array___speciesCreate(tls, ctx2, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(2), bp)
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if v9 != 0 {
@@ -110908,7 +110908,7 @@ _10:
 				goto _13
 			_13:
 				val1 = _JS_GetPropertyValue(tls, ctx2, this_val, v12)
-				v14 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+				v14 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val1>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 				goto _15
 			_15:
 				if v14 != 0 {
@@ -111004,7 +111004,7 @@ _2:
 _6:
 	count = v5
 	byteOffset = _js_typed_array_get_byteOffset(tls, ctx2, this_val, 0)
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(byteOffset>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(byteOffset>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if v7 != 0 {
@@ -111023,7 +111023,7 @@ _8:
 		}
 	}
 	ta_buffer = _js_typed_array_get_buffer(tls, ctx2, this_val, 0)
-	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ta_buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ta_buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _13
 _13:
 	if v12 != 0 {
@@ -111361,7 +111361,7 @@ func _js_TA_cmp_generic(tls *libc.TLS, a uintptr, b uintptr, opaque uintptr) (r 
 		(*(*[2]TJSValue)(unsafe.Pointer(bp)))[0] = (*(*func(*libc.TLS, uintptr, uintptr) TJSValue)(unsafe.Pointer(&struct{ uintptr }{(*TTA_sort_context)(unsafe.Pointer(psc)).Fgetfun})))(tls, ctx1, (*TTA_sort_context)(unsafe.Pointer(psc)).Farray_ptr+uintptr(a_idx*libc.Uint32FromInt32((*TTA_sort_context)(unsafe.Pointer(psc)).Felt_size)))
 		(*(*[2]TJSValue)(unsafe.Pointer(bp)))[int32(1)] = (*(*func(*libc.TLS, uintptr, uintptr) TJSValue)(unsafe.Pointer(&struct{ uintptr }{(*TTA_sort_context)(unsafe.Pointer(psc)).Fgetfun})))(tls, ctx1, (*TTA_sort_context)(unsafe.Pointer(psc)).Farray_ptr+uintptr(b_idx*libc.Uint32FromInt32((*TTA_sort_context)(unsafe.Pointer(psc)).Felt_size)))
 		res = XJS_Call(tls, ctx1, (*TTA_sort_context)(unsafe.Pointer(psc)).Fcmp, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), int32(2), bp)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(res>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -111637,7 +111637,7 @@ func _js_typed_array_toSorted(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, ar
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	arr = _js_typed_array_constructor_ta(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), this_val, libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6))))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -113090,14 +113090,14 @@ func _js_array_from_iterator(tls *libc.TLS, ctx2 uintptr, plen uintptr, obj TJSV
 	next_method = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	*(*Tuint32_t)(unsafe.Pointer(plen)) = uint32(0)
 	arr = XJS_NewArray(tls, ctx2)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return arr
 	}
 	iter = _JS_GetIterator2(tls, ctx2, obj, method)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -113108,7 +113108,7 @@ _4:
 	goto _7
 _7:
 	next_method = v6
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(next_method>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -113117,7 +113117,7 @@ _9:
 	k = uint32(0)
 	for {
 		val = _JS_IteratorNext(tls, ctx2, iter, next_method, 0, libc.UintptrFromInt32(0), bp)
-		v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _12
 	_12:
 		if v11 != 0 {
@@ -113215,7 +113215,7 @@ func _js_typed_array_constructor_obj(tls *libc.TLS, ctx3 uintptr, new_target TJS
 	arr = libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	size_log2 = libc.Int32FromUint8(_typed_array_size_log2[classid-int32(EJS_CLASS_UINT8C_ARRAY)])
 	ret = _js_create_from_ctor(tls, ctx3, new_target, classid)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -113226,7 +113226,7 @@ _2:
 	goto _5
 _5:
 	iter = v4
-	v6 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v6 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(iter>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _7
 _7:
 	if v6 != 0 {
@@ -113253,7 +113253,7 @@ _9:
 				X__JS_FreeValue(tls, ctx3, v13)
 			}
 		}
-		v16 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v16 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _17
 	_17:
 		if v16 != 0 {
@@ -113276,7 +113276,7 @@ _9:
 		arr = v19
 	}
 	buffer = _js_array_buffer_constructor1(tls, ctx3, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), libc.Uint64FromInt64(*(*Tint64_t)(unsafe.Pointer(bp))<<size_log2))
-	v21 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v21 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _22
 _22:
 	if v21 != 0 {
@@ -113291,7 +113291,7 @@ _22:
 			break
 		}
 		val = XJS_GetPropertyUint32(tls, ctx3, arr, i)
-		v24 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v24 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _25
 	_25:
 		if v24 != 0 {
@@ -113349,7 +113349,7 @@ func _js_typed_array_constructor_ta(tls *libc.TLS, ctx1 uintptr, new_target TJSV
 	var size_log2, v1, v12, v3, v6, v9 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = abuf, buffer, i, len1, obj, p, p1, size_log2, src_abuf, src_buffer, ta, val, v1, v11, v12, v13, v3, v5, v6, v7, v9
 	obj = _js_create_from_ctor(tls, ctx1, new_target, classid)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -113386,7 +113386,7 @@ _2:
 	src_abuf = *(*uintptr)(unsafe.Pointer(&(*TJSObject)(unsafe.Pointer(src_buffer)).Fu))
 	size_log2 = libc.Int32FromUint8(_typed_array_size_log2[classid-int32(EJS_CLASS_UINT8C_ARRAY)])
 	buffer = _js_array_buffer_constructor1(tls, ctx1, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), uint64(len1)<<size_log2)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -113421,7 +113421,7 @@ _4:
 				break
 			}
 			val = XJS_GetPropertyUint32(tls, ctx1, src_obj, i)
-			v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _10
 		_10:
 			if v9 != 0 {
@@ -113468,7 +113468,7 @@ func _js_typed_array_constructor(tls *libc.TLS, ctx2 uintptr, new_target TJSValu
 			return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 		}
 		buffer = _js_array_buffer_constructor1(tls, ctx2, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), *(*Tuint64_t)(unsafe.Pointer(bp))<<size_log2)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(buffer>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -113537,7 +113537,7 @@ func _js_typed_array_constructor(tls *libc.TLS, ctx2 uintptr, new_target TJSValu
 		}
 	}
 	obj = _js_create_from_ctor(tls, ctx2, new_target, classid)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
@@ -113656,7 +113656,7 @@ func _js_dataview_constructor(tls *libc.TLS, ctx2 uintptr, new_target TJSValue, 
 		len1 = uint32(*(*Tuint64_t)(unsafe.Pointer(bp + 8)))
 	}
 	obj = _js_create_from_ctor(tls, ctx2, new_target, int32(EJS_CLASS_DATAVIEW))
-	v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _5
 _5:
 	if v4 != 0 {
@@ -115346,7 +115346,7 @@ func _js_atomics_store(tls *libc.TLS, ctx3 uintptr, this_obj TJSValue, argc int3
 		goto _3
 	_3:
 		ret = _JS_ToBigIntValueFree(tls, ctx3, v2)
-		v4 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v4 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _5
 	_5:
 		if v4 != 0 {
@@ -115385,7 +115385,7 @@ func _js_atomics_store(tls *libc.TLS, ctx3 uintptr, this_obj TJSValue, argc int3
 		goto _11
 	_11:
 		ret = _JS_ToIntegerFree(tls, ctx3, v10)
-		v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v12 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _13
 	_13:
 		if v12 != 0 {
@@ -151761,7 +151761,7 @@ func Xjs_module_set_import_meta(tls *libc.TLS, ctx2 uintptr, func_val TJSValue, 
 	}
 	XJS_FreeCString(tls, ctx2, module_name)
 	meta_obj = XJS_GetImportMeta(tls, ctx2, m)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(meta_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(meta_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -151805,7 +151805,7 @@ func Xjs_module_loader(tls *libc.TLS, ctx1 uintptr, module_name uintptr, opaque 
 		/* compile the module */
 		func_val = XJS_Eval(tls, ctx1, buf, *(*Tsize_t)(unsafe.Pointer(bp)), module_name, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(5))
 		Xjs_free(tls, ctx1, buf)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(func_val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -151912,7 +151912,7 @@ func _js_std_getenviron(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int
 	var ret, v1, v5 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = atom, envp, idx, name, name_len, obj, p, p1, ret, value, v1, v4, v5, v6
 	obj = XJS_NewObject(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -151977,7 +151977,7 @@ func _get_bool_option(tls *libc.TLS, ctx1 uintptr, pbool uintptr, obj TJSValue, 
 	var v1, v3, v6 int32
 	_, _, _, _, _, _, _ = p, val, v1, v3, v5, v6, v7
 	val = XJS_GetPropertyStr(tls, ctx1, obj, option)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -152062,7 +152062,7 @@ _2:
 		_os_pending_signals &= ^(libc.Uint64FromInt32(1) << libc.Int32FromInt32(MSIGINT))
 		/* convert the uncatchable "interrupted" error into a normal error
 		   so that it can be caught by the REPL */
-		v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _10
 	_10:
 		if v9 != 0 {
@@ -152138,7 +152138,7 @@ func _js_new_std_file(tls *libc.TLS, ctx1 uintptr, f uintptr, close_in_finalizer
 	var v1, v4 int32
 	_, _, _, _, _, _, _ = obj, p, s, v1, v3, v4, v5
 	obj = XJS_NewObjectClass(tls, ctx1, libc.Int32FromUint32(_js_std_file_class_id))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -152975,7 +152975,7 @@ _16:
 	} else {
 		response = XJS_NewStringLen(tls, ctx3, (*TDynBuf)(unsafe.Pointer(data_buf)).Fbuf, (*TDynBuf)(unsafe.Pointer(data_buf)).Fsize)
 	}
-	v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(response>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v17 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(response>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _18
 _18:
 	if v17 != 0 {
@@ -152992,7 +152992,7 @@ done:
 	data_buf = libc.UintptrFromInt32(0)
 	if *(*TBOOL)(unsafe.Pointer(bp + 76)) != 0 {
 		ret_obj = XJS_NewObject(tls, ctx3)
-		v19 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v19 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _20
 	_20:
 		if v19 != 0 {
@@ -154987,7 +154987,7 @@ func _js_os_ttyGetWinSize(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	}
 	if libc.Xioctl(tls, *(*int32)(unsafe.Pointer(bp)), int32(MTIOCGWINSZ), libc.VaList(bp+24, bp+8)) == 0 && libc.Int32FromUint16((*(*Twinsize)(unsafe.Pointer(bp + 8))).Fws_col) >= int32(4) && libc.Int32FromUint16((*(*Twinsize)(unsafe.Pointer(bp + 8))).Fws_row) >= int32(4) {
 		obj = XJS_NewArray(tls, ctx1)
-		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _2
 	_2:
 		if v1 != 0 {
@@ -155589,7 +155589,7 @@ func _js_os_sleepAsync(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int3
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	promise = XJS_NewPromiseCapability(tls, ctx2, bp+8)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(promise>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -155700,7 +155700,7 @@ _3:
 			X__JS_FreeValue(tls, ctx2, v4)
 		}
 	}
-	v7 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v7 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(ret>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _8
 _8:
 	if v7 != 0 {
@@ -155769,14 +155769,14 @@ _9:
 	libc.Xpthread_mutex_unlock(tls, ps+4)
 	data_obj = XJS_ReadObject(tls, ctx2, (*TJSWorkerMessage)(unsafe.Pointer(msg)).Fdata, (*TJSWorkerMessage)(unsafe.Pointer(msg)).Fdata_len, libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(3))
 	_js_free_message(tls, msg)
-	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(data_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v11 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(data_obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _12
 _12:
 	if v11 != 0 {
 		goto fail
 	}
 	*(*TJSValue)(unsafe.Pointer(bp)) = XJS_NewObject(tls, ctx2)
-	v13 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v13 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(*(*TJSValue)(unsafe.Pointer(bp))>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _14
 _14:
 	if v13 != 0 {
@@ -155826,7 +155826,7 @@ _20:
 			X__JS_FreeValue(tls, ctx2, v24)
 		}
 	}
-	v29 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(retval>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v29 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(retval>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _30
 _30:
 	if !(v29 != 0) {
@@ -156121,14 +156121,14 @@ func _make_obj_error(tls *libc.TLS, ctx1 uintptr, obj TJSValue, err int32) (r TJ
 	var arr, v5 TJSValue
 	var v1, v3 int32
 	_, _, _, _ = arr, v1, v3, v5
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
 		return obj
 	}
 	arr = XJS_NewArray(tls, ctx1)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(arr>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -156234,7 +156234,7 @@ _2:
 		return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	obj = XJS_NewArray(tls, ctx1)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -156315,7 +156315,7 @@ _2:
 		obj = libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	} else {
 		obj = XJS_NewObject(tls, ctx4)
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -156787,7 +156787,7 @@ func _build_envp(tls *libc.TLS, ctx3 uintptr, obj TJSValue) (r uintptr) {
 		goto _4
 	_4:
 		val = v3
-		v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v5 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _6
 	_6:
 		if v5 != 0 {
@@ -156968,7 +156968,7 @@ func _js_os_exec(tls *libc.TLS, ctx4 uintptr, this_val TJSValue, argc int32, arg
 	*(*Tuint32_t)(unsafe.Pointer(bp + 16)) = libc.Uint32FromInt32(-libc.Int32FromInt32(1))
 	*(*Tuint32_t)(unsafe.Pointer(bp + 20)) = libc.Uint32FromInt32(-libc.Int32FromInt32(1))
 	val2 = XJS_GetPropertyStr(tls, ctx4, args, __ccgo_ts+10706)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -157005,7 +157005,7 @@ _4:
 			break
 		}
 		val2 = XJS_GetPropertyUint32(tls, ctx4, args, i)
-		v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _10
 	_10:
 		if v9 != 0 {
@@ -157056,7 +157056,7 @@ _4:
 			goto exception
 		}
 		val2 = XJS_GetPropertyStr(tls, ctx4, options, __ccgo_ts+17649)
-		v17 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v17 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _18
 	_18:
 		if v17 != 0 {
@@ -157085,7 +157085,7 @@ _4:
 			}
 		}
 		val2 = XJS_GetPropertyStr(tls, ctx4, options, __ccgo_ts+17654)
-		v26 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v26 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _27
 	_27:
 		if v26 != 0 {
@@ -157120,7 +157120,7 @@ _4:
 				break
 			}
 			val2 = XJS_GetPropertyStr(tls, ctx4, options, _std_name[i])
-			v36 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+			v36 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 			goto _37
 		_37:
 			if v36 != 0 {
@@ -157152,7 +157152,7 @@ _4:
 			i++
 		}
 		val2 = XJS_GetPropertyStr(tls, ctx4, options, __ccgo_ts+17658)
-		v43 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v43 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _44
 	_44:
 		if v43 != 0 {
@@ -157178,7 +157178,7 @@ _4:
 			}
 		}
 		val2 = XJS_GetPropertyStr(tls, ctx4, options, __ccgo_ts+17530)
-		v50 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v50 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _51
 	_51:
 		if v50 != 0 {
@@ -157207,7 +157207,7 @@ _4:
 			}
 		}
 		val2 = XJS_GetPropertyStr(tls, ctx4, options, __ccgo_ts+17534)
-		v59 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v59 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _60
 	_60:
 		if v59 != 0 {
@@ -157259,7 +157259,7 @@ _4:
 			;
 			i++
 		}
-		v69 = int32(libc.Xsysconf(tls, int32(M_SC_OPEN_MAX)))
+		v69 = libc.Xsysconf(tls, int32(M_SC_OPEN_MAX))
 		v70 = int32(1024)
 		if v69 < v70 {
 			v71 = v69
@@ -157416,7 +157416,7 @@ func _js_os_waitpid(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, 
 		*(*int32)(unsafe.Pointer(bp + 4)) = 0
 	}
 	obj = XJS_NewArray(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -157450,7 +157450,7 @@ func _js_os_pipe(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, arg
 		return libc.Uint64FromInt32(int32(EJS_TAG_NULL))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
 	}
 	obj = XJS_NewArray(tls, ctx1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -157757,7 +157757,7 @@ func _worker_func(tls *libc.TLS, opaque uintptr) (r uintptr) {
 	libc.Xfree(tls, (*TWorkerFuncArgs)(unsafe.Pointer(args)).Fbasename)
 	libc.Xfree(tls, args)
 	val = Xjs_std_await(tls, ctx1, val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -157794,7 +157794,7 @@ _2:
 		proto = XJS_GetClassProto(tls, ctx1, _js_worker_class_id)
 	} else {
 		proto = XJS_GetPropertyStr(tls, ctx1, new_target, __ccgo_ts+17724)
-		v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+		v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(proto>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 		goto _4
 	_4:
 		if v3 != 0 {
@@ -157812,7 +157812,7 @@ _2:
 			X__JS_FreeValue(tls, ctx1, v5)
 		}
 	}
-	v8 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v8 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _9
 _9:
 	if v8 != 0 {
@@ -157897,7 +157897,7 @@ _2:
 		goto oom_fail
 	}
 	obj = _js_worker_ctor_internal(tls, ctx2, new_target, (*TWorkerFuncArgs)(unsafe.Pointer(args)).Fsend_pipe, (*TWorkerFuncArgs)(unsafe.Pointer(args)).Frecv_pipe)
-	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v3 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _4
 _4:
 	if v3 != 0 {
@@ -160872,7 +160872,7 @@ func Xjs_std_eval_binary(tls *libc.TLS, ctx1 uintptr, buf uintptr, buf_len Tsize
 	var v1, v12, v6, v9 int32
 	_, _, _, _, _, _, _, _, _, _, _ = obj, p, val, v1, v11, v12, v13, v5, v6, v7, v9
 	obj = XJS_ReadObject(tls, ctx1, buf, buf_len, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v1 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _2
 _2:
 	if v1 != 0 {
@@ -160907,7 +160907,7 @@ _3:
 	} else {
 		val = XJS_EvalFunction(tls, ctx1, obj)
 	}
-	v9 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	v9 = libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0)
 	goto _10
 _10:
 	if !(v9 != 0) {
@@ -161061,14 +161061,14 @@ func _sat_add(tls *libc.TLS, a Tslimb_t, b Tslimb_t) (r1 Tslimb_t) {
 
 func _shrd(tls *libc.TLS, low Tlimb_t, high Tlimb_t, shift int32) (r Tlimb_t) {
 	if shift != 0 {
-		low = low>>shift | high<<(int32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS))-shift)
+		low = low>>shift | high<<(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)-shift)
 	}
 	return low
 }
 
 func _shld(tls *libc.TLS, a1 Tlimb_t, a0 Tlimb_t, shift int32) (r Tlimb_t) {
 	if shift != 0 {
-		return a1<<shift | a0>>(int32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS))-shift)
+		return a1<<shift | a0>>(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)-shift)
 	} else {
 		return a1
 	}
