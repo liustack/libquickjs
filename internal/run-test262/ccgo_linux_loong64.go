@@ -13446,7 +13446,7 @@ func _JS_AutoInitProperty(tls *libc.TLS, ctx uintptr, p uintptr, prop TJSAtom, p
 		Fopaque       uintptr
 	})(unsafe.Pointer(pr))).Fopaque)
 	_js_autoinit_free(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, pr)
-	libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 0))&0xfc000000>>26)&int32(^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4))), 6, 26, 0xfc000000)
+	libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 0))&0xfc000000>>26) & ^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)), 6, 26, 0xfc000000)
 	*(*TJSValue)(unsafe.Pointer(pr)) = TJSValue{
 		Fu:   TJSValueUnion{},
 		Ftag: int64(EJS_TAG_UNDEFINED),
@@ -18205,7 +18205,7 @@ _13:
 						}
 					}
 				}
-				libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 96))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 96)) + 0))&0xfc000000>>26)&int32(^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1))), 6, 26, 0xfc000000)
+				libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 96))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 96)) + 0))&0xfc000000>>26) & ^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)), 6, 26, 0xfc000000)
 				*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 104)))) = TJSValue{
 					Fu:   TJSValueUnion{},
 					Ftag: int64(EJS_TAG_UNDEFINED),
@@ -18269,7 +18269,7 @@ _13:
 					val11 = v37
 					_free_var_ref(tls, (*TJSContext)(unsafe.Pointer(ctx5)).Frt, *(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 104)))).Fu)))
 					*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 104)))) = val11
-					libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 96))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 96)) + 0))&0xfc000000>>26)&int32(^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1))), 6, 26, 0xfc000000)
+					libc.AssignBitFieldPtr32Int32(*(*uintptr)(unsafe.Pointer(bp + 96))+0, int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 96)) + 0))&0xfc000000>>26) & ^(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)), 6, 26, 0xfc000000)
 				}
 			} else {
 				if int32(*(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 96)) + 0))&0xfc000000>>26)&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)) != 0 {
