@@ -3,10 +3,10 @@ module modernc.org/libquickjs
 go 1.23.0
 
 require (
-	modernc.org/ccgo/v4 v4.25.1
+	modernc.org/ccgo/v4 v4.25.2
 	modernc.org/fileutil v1.3.0
-	modernc.org/gc/v3 v3.0.0
-	modernc.org/libc v1.61.13
+	modernc.org/gc/v3 v3.1.0
+	modernc.org/libc v1.62.1
 )
 
 require (
@@ -17,7 +17,7 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
-	golang.org/x/exp v0.0.0-20241217172543-b2144cdd0a67 // indirect
+	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 // indirect
 	golang.org/x/mod v0.24.0 // indirect
 	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
@@ -28,7 +28,7 @@ require (
 	modernc.org/ccgo/v3 v3.17.0 // indirect
 	modernc.org/gc/v2 v2.6.5 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
-	modernc.org/memory v1.8.2 // indirect
+	modernc.org/memory v1.9.1 // indirect
 	modernc.org/opt v0.1.4 // indirect
 	modernc.org/sortutil v1.2.1 // indirect
 	modernc.org/strutil v1.2.1 // indirect
