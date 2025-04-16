@@ -196,7 +196,6 @@ func main() {
 	util.MustCopyFile(true, filepath.Join("internal", "tests", "test262.conf"), filepath.Join(makeRoot, "test262.conf"), nil)
 	util.MustCopyFile(true, filepath.Join("internal", "tests", "test262_errors.txt"), filepath.Join(makeRoot, "test262_errors.txt"), nil)
 	util.MustCopyFile(true, fn, filepath.Join(makeRoot, result), nil)
-	util.Shell(nil, "sh", "-c", "./unconvert.sh")
 	util.MustShell(true, nil, "gofmt", "-l", "-s", "-w", ".")
 	util.MustShell(true, nil, "go", "test", "-run", "@")
 	util.Shell(nil, "git", "status")
