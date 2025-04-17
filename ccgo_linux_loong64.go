@@ -21192,7 +21192,7 @@ func _js_dtoa_radix(tls *libc.TLS, ctx uintptr, d float64, radix int32) (r TJSVa
 			prec -= log2_radix
 		}
 		*(*int8)(unsafe.Pointer(ptr2)) = int8('\000')
-		if frac*float64(radix) >= float64(radix/int32(2)) {
+		if float64(frac*float64(radix)) >= float64(radix/int32(2)) {
 			nine = _digits[radix-int32(1)]
 			// round to closest
 			for int32(*(*int8)(unsafe.Pointer(ptr2 + uintptr(-libc.Int32FromInt32(1))))) == int32(nine) {
@@ -25175,7 +25175,7 @@ handle_float64:
 	case int32(EOP_sub):
 		dr = *(*float64)(unsafe.Pointer(bp + 80)) - *(*float64)(unsafe.Pointer(bp + 88))
 	case int32(EOP_mul):
-		dr = *(*float64)(unsafe.Pointer(bp + 80)) * *(*float64)(unsafe.Pointer(bp + 88))
+		dr = float64(*(*float64)(unsafe.Pointer(bp + 80)) * *(*float64)(unsafe.Pointer(bp + 88)))
 	case int32(EOP_div):
 		dr = *(*float64)(unsafe.Pointer(bp + 80)) / *(*float64)(unsafe.Pointer(bp + 88))
 	case int32(EOP_mod):
@@ -34920,7 +34920,7 @@ restart:
 		if libc.X__builtin_expect(tls, libc.BoolInt64(!!((*TJSStackFrame)(unsafe.Pointer(sf)).Fjs_mode&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) != 0)), 0) != 0 {
 			goto binary_arith_slow
 		}
-		d2 = *(*float64)(unsafe.Pointer(bp + 376)) * *(*float64)(unsafe.Pointer(bp + 392))
+		d2 = float64(*(*float64)(unsafe.Pointer(bp + 376)) * *(*float64)(unsafe.Pointer(bp + 392)))
 		goto mul_fp_res
 	mul_fp_res:
 		;
@@ -102843,16 +102843,16 @@ func _set_date_fields(tls *libc.TLS, fields uintptr, is_local int32) (r float64)
 	 * that performs the computation in a different order or with instructions
 	 * that produce a different result such as FMA (float multiply and add).
 	 */
-	time = h * libc.Float64FromInt32(3600000)
-	v2 = m * libc.Float64FromInt32(60000)
+	time = float64(h * libc.Float64FromInt32(3600000))
+	v2 = float64(m * libc.Float64FromInt32(60000))
 	temp = v2
 	time += v2
-	v3 = s * libc.Float64FromInt32(1000)
+	v3 = float64(s * libc.Float64FromInt32(1000))
 	temp = v3
 	time += v3
 	time += milli
 	/* emulate 21.4.1.16 MakeDate ( day, time ) */
-	v4 = day * libc.Float64FromInt32(86400000)
+	v4 = float64(day * libc.Float64FromInt32(86400000))
 	temp = v4
 	tv = v4 + time /* prevent generation of FMA */
 	*(*float64)(unsafe.Pointer(bp)) = tv
