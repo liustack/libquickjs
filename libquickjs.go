@@ -18,6 +18,7 @@
 //
 //	OS      Arch
 //	---------------
+//	linux	386
 //	linux	amd64
 //	linux	loong64
 //
