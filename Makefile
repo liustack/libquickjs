@@ -6,10 +6,10 @@
 
 DIR = /tmp/libquickjs
 
-TAR0 = 993660621a0a834c93eaad68713b2dc25508b326
+TAR0 = 36911f0d3ab1a4c190a4d5cbe7c2db225a455389
 TAR = $(TAR0).zip
 URL = https://github.com/bellard/quickjs/archive/$(TAR)
-ZIP = ce7e72d2107f99d165f4259571f10aa75753d997.zip
+ZIP = 837def66ac1700ce398df4a3b4eaeea915aa1df5.zip
 URL2 = https://github.com/tc39/test262/archive/$(ZIP)
 TMP = /tmp/libquickjs/quickjs-$(TAR0)/
 
