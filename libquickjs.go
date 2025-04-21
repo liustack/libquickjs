@@ -20,6 +20,7 @@
 //	---------------
 //	linux	386
 //	linux	amd64
+//	linux	arm64
 //	linux	loong64
 //
 // # Builders
