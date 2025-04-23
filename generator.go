@@ -33,6 +33,7 @@ var (
 	goos   = runtime.GOOS
 	goarch = runtime.GOARCH
 	j      = strconv.Itoa(runtime.GOMAXPROCS(-1))
+	target = fmt.Sprintf("%s/%s", goos, goarch)
 )
 
 func fail(rc int, msg string, args ...any) {
@@ -143,8 +144,15 @@ func main() {
 			"-eval-all-macros",
 			"-extended-errors",
 		)
-		if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
-			return err
+		switch target {
+		case "linux/arm":
+			if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "LIBS=-lm -latomic", "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
+				return err
+			}
+		default:
+			if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
+				return err
+			}
 		}
 
 		if err := ccgo.NewTask(goos, goarch, append(args,
