@@ -149,6 +149,11 @@ func main() {
 			if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "LIBS=-lm -latomic", "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
 				return err
 			}
+		case "linux/ppc64le":
+			util.MustShell(true, nil, "sed", "-i", "s/DEFINES+=-DHAVE_CLOSEFROM/#/", "Makefile")
+			if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
+				return err
+			}
 		default:
 			if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
 				return err
