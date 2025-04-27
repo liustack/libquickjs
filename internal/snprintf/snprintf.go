@@ -13,7 +13,7 @@ import (
 	"modernc.org/libc"
 )
 
-func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n libc.Tsize_t, nfmt, prec int32, d float64) (r int32) {
+func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n sizeT, nfmt, prec int32, d float64) (r int32) {
 	// fmt.Printf("rounding_mode=%v nfmt=%v prec=%v d=%.15f\n", rounding_mode, nfmt, prec, d)
 	var s string
 	switch nfmt {
@@ -36,7 +36,7 @@ func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n 
 		exp := s[expX:]
 		// fmt.Printf("sgn=%q before=%q after=%q exp=%q\n", sgn, before, after, exp)
 		switch rounding_mode {
-		case libc.FE_DOWNWARD:
+		case feDownward:
 			switch {
 			case d < 0:
 				switch {
@@ -61,7 +61,7 @@ func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n 
 					s = fmt.Sprintf("%s%s.%s%s\x00", sgn, before, after[:prec], exp)
 				}
 			}
-		case libc.FE_UPWARD:
+		case feUpward:
 			switch {
 			case d < 0:
 				switch {
@@ -109,7 +109,7 @@ func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n 
 		after := s
 		// fmt.Printf("sgn=%q before=%q after=%q\n", sgn, before, after)
 		switch rounding_mode {
-		case libc.FE_DOWNWARD:
+		case feDownward:
 			switch {
 			case d < 0:
 				switch {
@@ -133,7 +133,7 @@ func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n 
 					s = fmt.Sprintf("%s%s.%s\x00", sgn, before, after[:prec])
 				}
 			}
-		case libc.FE_UPWARD:
+		case feUpward:
 			switch {
 			case d < 0:
 				switch {
@@ -183,7 +183,7 @@ func SnprintfWithRoundingMode(tls *libc.TLS, rounding_mode int32, cs uintptr, n 
 		panic(nfmt)
 	}
 	r = int32(len(s)) - 1
-	if libc.Tsize_t(len(s)) > n {
+	if sizeT(len(s)) > n {
 		s = s[:n]
 	}
 	for i := 0; i < len(s); i++ {

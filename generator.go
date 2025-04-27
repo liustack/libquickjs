@@ -33,6 +33,7 @@ var (
 	goos   = runtime.GOOS
 	goarch = runtime.GOARCH
 	j      = strconv.Itoa(runtime.GOMAXPROCS(-1))
+	sed    = "sed"
 	target = fmt.Sprintf("%s/%s", goos, goarch)
 )
 
@@ -47,6 +48,11 @@ func main() {
 			fmt.Fprintln(os.Stderr, err)
 		}
 		return
+	}
+
+	switch goos {
+	case "darwin":
+		sed = "gsed"
 	}
 
 	f, err := os.Open(archivePath)
@@ -88,8 +94,8 @@ func main() {
 	fmt.Fprintf(os.Stderr, "tempDir %s\n", tempDir)
 	fmt.Fprintf(os.Stderr, "libRoot %s\n", libRoot)
 	fmt.Fprintf(os.Stderr, "makeRoot %s\n", makeRoot)
-	util.MustShell(true, nil, "unzip", archivePath, "-d", tempDir)
-	util.MustShell(true, nil, "unzip", test262Path, "-d", makeRoot)
+	util.MustShell(true, nil, "unzip", "-q", archivePath, "-d", tempDir)
+	util.MustShell(true, nil, "unzip", "-q", test262Path, "-d", makeRoot)
 	util.MustShell(true, nil, "mv", filepath.Join(makeRoot, extractedTest262Path), filepath.Join(makeRoot, "test262"))
 	b, err := os.ReadFile(filepath.Join("internal", "run-test262", "exclude"))
 	if err != nil {
@@ -98,7 +104,7 @@ func main() {
 
 	for _, v := range strings.Split(strings.TrimSpace(string(b)), "\n") {
 		if v = strings.TrimSpace(v); v != "" && !strings.HasPrefix(v, "#") {
-			util.Shell(nil, "sh", "-c", fmt.Sprintf("rm -rfv %s", filepath.Join(makeRoot, v)))
+			util.Shell(nil, "sh", "-c", fmt.Sprintf("rm -rf %s", filepath.Join(makeRoot, v)))
 		}
 	}
 	util.MustCopyFile(true, "LICENSE-LIBQUICKJS", filepath.Join(makeRoot, "LICENSE"), nil)
@@ -143,14 +149,15 @@ func main() {
 			"-UHAVE_CLOSEFROM",
 			"-eval-all-macros",
 			"-extended-errors",
+			"-ignore-unsupported-alignment",
 		)
+		util.MustShell(true, nil, sed, "-i", "s/DEFINES+=-DHAVE_CLOSEFROM/#/", "Makefile")
 		switch target {
 		case "linux/arm":
 			if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "LIBS=-lm -latomic", "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
 				return err
 			}
 		case "linux/ppc64le":
-			util.MustShell(true, nil, "sed", "-i", "s/DEFINES+=-DHAVE_CLOSEFROM/#/", "Makefile")
 			if err := ccgo.NewTask(goos, goarch, append(args, "-exec", "make", "-j", j, "libquickjs.a", "qjs", "run-test262"), os.Stdout, os.Stderr, nil).Exec(); err != nil {
 				return err
 			}
@@ -175,10 +182,10 @@ func main() {
 		// 	return err
 		// }
 		//
-		// util.MustShell(true, nil, "sed", "-i", `s/(\*(\*func(\*libc\.TLS/(*(*func(*libc.TLS, *Library/g`, result)
+		// util.MustShell(true, nil, sed, "-i", `s/(\*(\*func(\*libc\.TLS/(*(*func(*libc.TLS, *Library/g`, result)
 
-		util.MustShell(true, nil, "sed", "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
-		util.MustShell(true, nil, "sed", "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
+		util.MustShell(true, nil, sed, "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
+		util.MustShell(true, nil, sed, "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
 
 		out, err := util.Shell(nil, "./run-test262", "-u", "-c", "test262.conf", "-a")
 		if err != nil {
