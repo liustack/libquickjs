@@ -13,4 +13,4 @@ const (
 	feUpward   = libc.FE_UPWARD
 )
 
-type sizeT = libc.Tsize_T
+type sizeT = libc.Tsize_t
