@@ -1,5 +1,0 @@
-# Hangs in C
-test262/test/built-ins/Atomics/notify/*
-test262/test/built-ins/Atomics/sub/*
-test262/test/built-ins/Atomics/store/*
-test262/test/built-ins/Atomics/wait/*
