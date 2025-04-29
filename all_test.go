@@ -5,8 +5,11 @@
 package libquickjs // import "modernc.org/libquickjs"
 
 import (
+	"flag"
+	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"strings"
 	"testing"
@@ -17,10 +20,18 @@ import (
 )
 
 var (
-	goos = runtime.GOOS
+	goos  = runtime.GOOS
+	re    *regexp.Regexp
+	xtags string
 )
 
 func TestMain(m *testing.M) {
+	oRe := flag.String("re", "", "")
+	flag.StringVar(&xtags, "xtags", "", "")
+	flag.Parse()
+	if s := *oRe; s != "" {
+		re = regexp.MustCompile(s)
+	}
 	os.Exit(m.Run())
 }
 
@@ -31,7 +42,12 @@ func Test(t *testing.T) {
 	}
 
 	bin := filepath.Join(tmp, "gqjs")
-	shell(t, "go", "build", "-o", bin, "./gqjs")
+	switch {
+	case xtags != "":
+		shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./gqjs")
+	default:
+		shell(t, "go", "build", "-o", bin, "./gqjs")
+	}
 	for _, v := range []string{
 		"test_closure.js",
 		"test_language.js",
@@ -40,8 +56,12 @@ func Test(t *testing.T) {
 		"test_bigint.js",
 		"test_cyclic_import.js",
 		"test_worker.js",
-		//TODO "test_std.js",
+		"test_std.js",
 	} {
+		if re != nil && !re.MatchString(v) {
+			continue
+		}
+
 		t.Run(v, func(t *testing.T) {
 			args := strings.Fields(v)
 			x := len(args) - 1

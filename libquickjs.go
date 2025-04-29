@@ -24,6 +24,10 @@
 //
 // https://modern-c.appspot.com/-/builder/?importpath=modernc.org%2flibquickjs
 //
+// # Known limitations
+//
+//   - The quickjs std package does not implement popen(), exec().
+//
 // [QuickJS]: https://bellard.org/quickjs/
 package libquickjs // import "modernc.org/libquickjs"
 

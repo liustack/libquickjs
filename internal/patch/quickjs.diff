@@ -81,3 +81,20 @@ index 8814222..bca6496 100644
  #undef js_unlikely
  #undef js_force_inline
  
+diff --git a/tests/test_std.js b/tests/test_std.js
+index c844869..9d14939 100644
+--- a/tests/test_std.js
++++ b/tests/test_std.js
+@@ -298,9 +298,9 @@ test_printf();
+ test_file1();
+ test_file2();
+ test_getline();
+-test_popen();
+-test_os();
+-test_os_exec();
++//TODO test_popen();
++//TODO test_os();
++//TODO test_os_exec();
+ test_timer();
+ test_ext_json();
+ test_async_gc();
