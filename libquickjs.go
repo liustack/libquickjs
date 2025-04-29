@@ -26,3 +26,7 @@
 //
 // [QuickJS]: https://bellard.org/quickjs/
 package libquickjs // import "modernc.org/libquickjs"
+
+func init() {
+	Xinit(nil)
+}
