@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"runtime"
+	"strconv"
 	"strings"
 	"testing"
 
@@ -25,16 +26,17 @@ const (
 )
 
 var (
-	goos  = runtime.GOOS
-	keep  bool
-	re    *regexp.Regexp
-	xtags string
+	goarch = runtime.GOARCH
+	goos   = runtime.GOOS
+	keep   bool
+	re     *regexp.Regexp
+	xtags  string
 )
 
 func TestMain(m *testing.M) {
 	oRe := flag.String("re", "", "")
 	flag.BoolVar(&keep, "keep", false, "")
-	flag.StringVar(&xtags, "xtags", "", "")
+	flag.StringVar(&xtags, "xtags", os.Getenv("XTAGS"), "")
 	flag.Parse()
 	if s := *oRe; s != "" {
 		re = regexp.MustCompile(s)
@@ -87,6 +89,12 @@ func git(t *testing.T, args ...string) {
 	shell(t, "git", args...)
 }
 
+func copyFile(t *testing.T, dst, src string) {
+	if _, err := util.CopyFile(dst, src, nil); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func Test262(t *testing.T) {
 	if testing.Short() {
 		t.Skip()
@@ -110,13 +118,56 @@ func Test262(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if _, err := util.CopyFile(filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"), nil); err != nil {
-		t.Fatal(err)
-	}
-
+	copyFile(t, filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"))
+	copyFile(t, "test262_errors.txt", filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"))
 	git(t, "-C", dir, "init")
 	git(t, "-C", dir, "apply", "-v", "test262.diff")
 	bin := filepath.Join(dir, "run-test262")
 	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/run-test262")
-	shell(t, bin, "-t", "-m", "-c", "test262.conf", "-a")
+	out, _ := shell(nil, bin, "-t", "-m", "-c", "test262.conf", "-a")
+	s := strings.TrimSpace(string(out))
+	x := strings.Index(s, "\nResult: ")
+	if x < 0 {
+		t.Fatal("cannot find test results")
+	}
+
+	s = s[x+1:]
+	if x = strings.IndexByte(s, '\n'); x > 0 {
+		s = s[:x]
+	}
+	resultLine := strings.TrimSpace(s)
+	t.Log(resultLine)
+	if _, _, _, _, _, new := parseResultLine(resultLine); new != 0 {
+		t.Fatalf("FAIL: new errors=%v", new)
+	}
+
+}
+
+// Example: "Result: 36/76685 errors, 1519 excluded, 8703 skipped, 2 fixed\n"
+func parseResultLine(s string) (errors, count, excluded, skipped, fixed, new int64) {
+	s = strings.TrimSpace(s)
+	a := strings.Fields(s)
+	// ["Result:" "36/76685" "errors," "1519" "excluded," "8703" "skipped," "2" "fixed"]
+	if len(a) < 7 {
+		return
+	}
+
+	b := strings.Split(a[1], "/")
+	if len(b) != 2 {
+		return
+	}
+
+	errors, _ = strconv.ParseInt(b[0], 0, 64)
+	count, _ = strconv.ParseInt(b[1], 0, 64)
+	excluded, _ = strconv.ParseInt(a[3], 0, 64)
+	skipped, _ = strconv.ParseInt(a[5], 0, 64)
+	if len(a) == 9 {
+		switch a[8] {
+		case "fixed":
+			fixed, _ = strconv.ParseInt(a[7], 0, 64)
+		case "new":
+			new, _ = strconv.ParseInt(a[7], 0, 64)
+		}
+	}
+	return
 }

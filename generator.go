@@ -21,13 +21,14 @@ import (
 )
 
 const (
-	qjs           = "quickjs-" + qjsCommit
 	qjsCommit     = "19abf1888db5884a5758036ff6e7fa2b340acedc" // release 2025-04-26
 	qjsDiff       = "quickjs.diff"
+	qjsUnzip      = "quickjs-" + qjsCommit
 	qjsZip        = qjsCommit + ".zip"
-	test262       = "test262-" + test262Commit
 	test262Commit = "cba890eef02121251b7f11eb890b0202edf56d6f" // 2025-04-24
 	test262Diff   = "test262.diff"
+	test262Dir    = "test262"
+	test262Unzip  = "test262-" + test262Commit
 	test262Zip    = test262Commit + ".zip"
 	tmp           = "tmp"
 )
@@ -99,14 +100,25 @@ func main() {
 	removeAll(tmp)
 	mkdirAll(tmp)
 	unzip(qjsZip, tmp)
-	quickjs := filepath.Join(tmp, qjs)
+	quickjs := filepath.Join(tmp, qjsUnzip)
+	unzip(test262Zip, quickjs)
+	if err := os.Rename(filepath.Join(quickjs, test262Unzip), filepath.Join(quickjs, test262Dir)); err != nil {
+		fail(1, "%v", err)
+	}
+
+	test262 := filepath.Join(quickjs, test262Dir)
+	util.MustCopyFile(true, filepath.Join("internal", "patch", test262Diff), filepath.Join(quickjs, "tests", "test262.patch"), nil)
+	util.MustCopyFile(true, filepath.Join(test262, "test262.patch"), filepath.Join(quickjs, "tests", "test262.patch"), nil)
+	git("-C", test262, "init")
+	git("-C", test262, "apply", "-v", "test262.patch")
 	util.MustCopyFile(true, "LICENSE-LIBQUICKJS", filepath.Join(quickjs, "LICENSE"), nil)
 	util.MustCopyFile(true, "test262.conf", filepath.Join(quickjs, "test262.conf"), nil)
-	util.MustCopyFile(true, filepath.Join("internal", "patch", "test262.diff"), filepath.Join(quickjs, "tests", "test262.patch"), nil)
 	util.MustCopyFile(true, filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff), nil)
 	git("-C", quickjs, "init")
-	git("-C", quickjs, "apply", qjsDiff)
-	ccExec(append(ccArgs, "-exec", "make", "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+	git("-C", quickjs, "apply", "-v", qjsDiff)
+	ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+	util.Shell(nil, gmake, "-C", quickjs, "test2-update")
+	util.MustCopyFile(true, filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"), filepath.Join(quickjs, "test262_errors.txt"), nil)
 	result := fmt.Sprintf("ccgo_%s_%s.go", goos, goarch)
 	ccMain(append(ccArgs,
 		"--package-name", "libquickjs",
