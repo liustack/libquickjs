@@ -1,4 +1,4 @@
-// Code generated for linux/arm64 by 'generator --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -U__SIZEOF_INT128__ -UHAVE_CLOSEFROM -eval-all-macros -extended-errors --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
+// Code generated for linux/arm64 by 'generator --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -U__SIZEOF_INT128__ -UHAVE_CLOSEFROM -eval-all-macros -extended-errors -ignore-unsupported-alignment --package-name libquickjs -ignore-link-errors -o ccgo.go libquickjs.a', DO NOT EDIT.
 
 //go:build linux && arm64
 
@@ -157246,6 +157246,14 @@ type Tgreg_t = uint64
 
 type Tgregset_t = [34]uint64
 
+type Tfpregset_t = struct {
+	F__ccgo_align [0]uint64
+	Fvregs        [32][2]uint64
+	Ffpsr         uint32
+	Ffpcr         uint32
+	F__ccgo_pad3  [8]byte
+}
+
 type Tmcontext_t = struct {
 	Ffault_address uint64
 	Fregs          [31]uint64
@@ -157262,7 +157270,13 @@ type T_aarch64_ctx = struct {
 	Fsize  uint32
 }
 
-type Tfpsimd_context = int32
+type Tfpsimd_context = struct {
+	F__ccgo_align [0]uint64
+	Fhead         T_aarch64_ctx
+	Ffpsr         uint32
+	Ffpcr         uint32
+	Fvregs        [32][2]uint64
+}
 
 type Tesr_context = struct {
 	Fhead T_aarch64_ctx
