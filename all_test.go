@@ -126,7 +126,7 @@ func Test262(t *testing.T) {
 	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/run-test262")
 	out, _ := shell(nil, bin, "-t", "-m", "-c", "test262.conf", "-a")
 	s := strings.TrimSpace(string(out))
-	x := strings.Index(s, "\nResult: ")
+	x := strings.Index(s, "Result: ")
 	if x < 0 {
 		t.Fatal("cannot find test results")
 	}
