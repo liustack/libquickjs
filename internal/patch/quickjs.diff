@@ -1,3 +1,24 @@
+diff --git a/Makefile b/Makefile
+index 3b1c745..c7a6297 100644
+--- a/Makefile
++++ b/Makefile
+@@ -151,11 +151,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
+ ifdef CONFIG_WIN32
+ DEFINES+=-D__USE_MINGW_ANSI_STDIO # for standard snprintf behavior
+ endif
+-ifndef CONFIG_WIN32
+-ifeq ($(shell $(CC) -o /dev/null compat/test-closefrom.c 2>/dev/null && echo 1),1)
+-DEFINES+=-DHAVE_CLOSEFROM
+-endif
+-endif
++# ifndef CONFIG_WIN32
++# ifeq ($(shell $(CC) -o /dev/null compat/test-closefrom.c 2>/dev/null && echo 1),1)
++# DEFINES+=-DHAVE_CLOSEFROM
++# endif
++# endif
+ 
+ CFLAGS+=$(DEFINES)
+ CFLAGS_DEBUG=$(CFLAGS) -O0
 diff --git a/qjs.c b/qjs.c
 index 2eaa9ee..1eae4e5 100644
 --- a/qjs.c
@@ -13,7 +34,7 @@ index 2eaa9ee..1eae4e5 100644
      JSContext *ctx;
      struct trace_malloc_data trace_data = { NULL };
 diff --git a/quickjs.c b/quickjs.c
-index adfd93e..115633c 100644
+index adfd93e..5e3147e 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
