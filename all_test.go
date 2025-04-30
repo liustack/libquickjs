@@ -19,14 +19,21 @@ import (
 	_ "modernc.org/libc"
 )
 
+const (
+	hash262 = "cba890eef02121251b7f11eb890b0202edf56d6f"
+	zip262  = hash262 + ".zip"
+)
+
 var (
 	goos  = runtime.GOOS
+	keep  bool
 	re    *regexp.Regexp
 	xtags string
 )
 
 func TestMain(m *testing.M) {
 	oRe := flag.String("re", "", "")
+	flag.BoolVar(&keep, "keep", false, "")
 	flag.StringVar(&xtags, "xtags", "", "")
 	flag.Parse()
 	if s := *oRe; s != "" {
@@ -42,12 +49,7 @@ func Test(t *testing.T) {
 	}
 
 	bin := filepath.Join(tmp, "gqjs")
-	switch {
-	case xtags != "":
-		shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./gqjs")
-	default:
-		shell(t, "go", "build", "-o", bin, "./gqjs")
-	}
+	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./gqjs")
 	for _, v := range []string{
 		"test_closure.js",
 		"test_language.js",
@@ -79,4 +81,42 @@ func shell(t *testing.T, cmd string, args ...string) (out []byte, err error) {
 	}
 
 	return out, err
+}
+
+func git(t *testing.T, args ...string) {
+	shell(t, "git", args...)
+}
+
+func Test262(t *testing.T) {
+	if testing.Short() {
+		t.Skip()
+	}
+
+	const dir = "test262"
+	if _, err := os.Stat(zip262); err != nil {
+		t.Fatalf("%s: to download the test262 archive issue '$ make download'", err)
+	}
+
+	os.RemoveAll(dir)
+
+	if !keep {
+		defer func() {
+			os.RemoveAll(dir)
+		}()
+	}
+
+	shell(t, "unzip", "-q", zip262)
+	if err := os.Rename("test262-"+hash262, dir); err != nil {
+		t.Fatal(err)
+	}
+
+	if _, err := util.CopyFile(filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"), nil); err != nil {
+		t.Fatal(err)
+	}
+
+	git(t, "-C", dir, "init")
+	git(t, "-C", dir, "apply", "-v", "test262.diff")
+	bin := filepath.Join(dir, "run-test262")
+	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/run-test262")
+	shell(t, bin, "-t", "-m", "-c", "test262.conf", "-a", "-v")
 }

@@ -10,6 +10,10 @@
 // It supports the ES2023 specification including modules, asynchronous
 // generators, proxies and BigInt.
 //
+// # QuickJS Version
+//
+// Release 2025-04-26, [changelog].
+//
 // # Supported platforms and architectures
 //
 // These combinations of GOOS and GOARCH are currently supported
@@ -20,17 +24,29 @@
 //
 // # Builders
 //
-// Builder results available at:
+// Builder results available [here]:
 //
-// https://modern-c.appspot.com/-/builder/?importpath=modernc.org%2flibquickjs
-//
-// # Known limitations
+// # Known bogs or limitations
 //
 //   - The quickjs std package does not implement popen(), exec().
 //
 // [QuickJS]: https://bellard.org/quickjs/
+// [changelog]: https://bellard.org/quickjs/Changelog
+// [here]: https://modern-c.appspot.com/-/builder/?importpath=modernc.org%2flibquickjs
 package libquickjs // import "modernc.org/libquickjs"
+
+import (
+	"modernc.org/libc"
+)
 
 func init() {
 	Xinit(nil)
+}
+
+func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz libc.Tsize_t) int32 {
+	if tls.StackSlots() < 1000 {
+		return 0
+	}
+
+	return 1
 }

@@ -21,15 +21,19 @@ import (
 )
 
 const (
-	qjs       = "quickjs-" + qjsCommit
-	qjsCommit = "19abf1888db5884a5758036ff6e7fa2b340acedc"
-	qjsDiff   = "quickjs.diff"
-	qjsZip    = qjsCommit + ".zip"
-	tmp       = "tmp"
+	qjs        = "quickjs-" + qjsCommit
+	qjsCommit  = "19abf1888db5884a5758036ff6e7fa2b340acedc"
+	qjsDiff    = "quickjs.diff"
+	qjsZip     = qjsCommit + ".zip"
+	test262    = "test262-" + testCommit
+	testCommit = "cba890eef02121251b7f11eb890b0202edf56d6f"
+	testDiff   = "test262.diff"
+	testZip    = testCommit + ".zip"
+	tmp        = "tmp"
 )
 
 var (
-	args = []string{
+	ccArgs = []string{
 		"--prefix-enumerator=E",
 		"--prefix-external=x_",
 		"--prefix-field=F",
@@ -46,6 +50,8 @@ var (
 		"-U__SIZEOF_INT128__",
 		"-eval-all-macros",
 		"-extended-errors",
+		"-hide", "js_check_stack_overflow",
+		"-ignore-link-errors",
 		"-ignore-unsupported-alignment",
 	}
 	dev    = os.Getenv("GO_GENERATE_DEV") != ""
@@ -80,10 +86,10 @@ func main() {
 	}
 
 	if s := cc.LongDouble64Flag(goos, goarch); s != "" {
-		args = append(args, s)
+		ccArgs = append(ccArgs, s)
 	}
 	if dev {
-		args = append(args,
+		ccArgs = append(ccArgs,
 			"-absolute-paths",
 			"-keep-object-files",
 			"-positions",
@@ -94,14 +100,16 @@ func main() {
 	mkdirAll(tmp)
 	unzip(qjsZip, tmp)
 	quickjs := filepath.Join(tmp, qjs)
+	util.MustCopyFile(true, "LICENSE-LIBQUICKJS", filepath.Join(quickjs, "LICENSE"), nil)
+	util.MustCopyFile(true, "test262.conf", filepath.Join(quickjs, "test262.conf"), nil)
+	util.MustCopyFile(true, filepath.Join("internal", "patch", "test262.diff"), filepath.Join(quickjs, "tests", "test262.patch"), nil)
 	util.MustCopyFile(true, filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff), nil)
 	git("-C", quickjs, "init")
 	git("-C", quickjs, "apply", qjsDiff)
-	ccExec(append(args, "-exec", "make", "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+	ccExec(append(ccArgs, "-exec", "make", "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
 	result := fmt.Sprintf("ccgo_%s_%s.go", goos, goarch)
-	ccMain(append(args,
+	ccMain(append(ccArgs,
 		"--package-name", "libquickjs",
-		"-ignore-link-errors",
 		"-o", result,
 		filepath.Join(quickjs, "libquickjs.a"),
 	))

@@ -1,4 +1,4 @@
-// Code generated for linux/amd64 by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -ignore-unsupported-alignment -mlong-double-64 --package-name libquickjs -ignore-link-errors -o ccgo_linux_amd64.go tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/libquickjs.a', DO NOT EDIT.
+// Code generated for linux/amd64 by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment -mlong-double-64 --package-name libquickjs -o ccgo_linux_amd64.go tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/libquickjs.a', DO NOT EDIT.
 
 //go:build linux && amd64
 
@@ -3624,13 +3624,9 @@ func _init_class_range(tls *libc.TLS, rt uintptr, tab uintptr, start int32, coun
 
 // C documentation
 //
-//	/* no stack limitation */
+//	/* Note: OS and CPU dependent */
 func _js_get_stack_pointer(tls *libc.TLS) (r Tuintptr_t) {
 	return uint64(0)
-}
-
-func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, alloca_size Tsize_t) (r TBOOL) {
-	return int32(EFALSE)
 }
 
 func XJS_NewRuntime2(tls *libc.TLS, mf uintptr, opaque uintptr) (r uintptr) {

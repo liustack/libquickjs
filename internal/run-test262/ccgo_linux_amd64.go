@@ -1,4 +1,4 @@
-// Code generated for linux/amd64 by 'gcc --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -ignore-unsupported-alignment -mlong-double-64 -o run-test262.go .obj/run-test262.o.go .obj/quickjs.o.go .obj/dtoa.o.go .obj/libregexp.o.go .obj/libunicode.o.go .obj/cutils.o.go .obj/quickjs-libc.o.go -lm -lpthread -ldl', DO NOT EDIT.
+// Code generated for linux/amd64 by 'gcc --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment -mlong-double-64 -o run-test262.go .obj/run-test262.o.go .obj/quickjs.o.go .obj/dtoa.o.go .obj/libregexp.o.go .obj/libunicode.o.go .obj/cutils.o.go .obj/quickjs-libc.o.go -lm -lpthread -ldl', DO NOT EDIT.
 
 //go:build linux && amd64
 
@@ -852,9 +852,14 @@ var _agent_cond = Tpthread_cond_t{}
 // C documentation
 //
 //	/* list of Test262Agent.link */
-var _agent_list = Tlist_head{
+var _agent_list Tlist_head
+var _agent_list0 = Tlist_head{
 	Fprev: uintptr(unsafe.Pointer(&_agent_list)),
 	Fnext: uintptr(unsafe.Pointer(&_agent_list)),
+}
+
+func _init_agent_list(tls *libc.TLS) {
+	_agent_list = _agent_list0
 }
 
 var _report_mutex = Tpthread_mutex_t{}
@@ -862,9 +867,14 @@ var _report_mutex = Tpthread_mutex_t{}
 // C documentation
 //
 //	/* list of AgentReport.link */
-var _report_list = Tlist_head{
+var _report_list Tlist_head
+var _report_list0 = Tlist_head{
 	Fprev: uintptr(unsafe.Pointer(&_report_list)),
 	Fnext: uintptr(unsafe.Pointer(&_report_list)),
+}
+
+func _init_report_list(tls *libc.TLS) {
+	_report_list = _report_list0
 }
 
 func _agent_start(tls *libc.TLS, arg uintptr) (r uintptr) {
@@ -1395,8 +1405,10 @@ _2:
 	}
 }
 
-var _js_agent_funcs = [8]TJSCFunctionListEntry{
-	0: {
+var _js_agent_funcs [8]TJSCFunctionListEntry
+
+func _init_js_agent_funcs(tls *libc.TLS) {
+	_js_agent_funcs[0] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 258,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1429,8 +1441,8 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 			Flength: uint8(1),
 			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_start)})),
 		})),
-	},
-	1: {
+	}
+	_js_agent_funcs[int32(1)] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 264,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1462,8 +1474,8 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 		}{
 			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_getReport)})),
 		})),
-	},
-	2: {
+	}
+	_js_agent_funcs[int32(2)] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 274,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1496,8 +1508,8 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 			Flength: uint8(2),
 			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_broadcast)})),
 		})),
-	},
-	3: {
+	}
+	_js_agent_funcs[int32(3)] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 284,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1530,8 +1542,8 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 			Flength: uint8(1),
 			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_report)})),
 		})),
-	},
-	4: {
+	}
+	_js_agent_funcs[int32(4)] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 291,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1563,8 +1575,8 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 		}{
 			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_leaving)})),
 		})),
-	},
-	5: {
+	}
+	_js_agent_funcs[int32(5)] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 299,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1597,8 +1609,8 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 			Flength: uint8(1),
 			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_receiveBroadcast)})),
 		})),
-	},
-	6: {
+	}
+	_js_agent_funcs[int32(6)] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 316,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1631,8 +1643,8 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 			Flength: uint8(1),
 			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_sleep)})),
 		})),
-	},
-	7: {
+	}
+	_js_agent_funcs[int32(7)] = TJSCFunctionListEntry{
 		Fname:       __ccgo_ts + 322,
 		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
 		Fu: *(*struct {
@@ -1664,7 +1676,7 @@ var _js_agent_funcs = [8]TJSCFunctionListEntry{
 		}{
 			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_agent_monotonicNow)})),
 		})),
-	},
+	}
 }
 
 func _js_new_agent(tls *libc.TLS, ctx uintptr) (r TJSValue) {
@@ -3420,6 +3432,10 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 	ignore = __ccgo_ts + 838
 	is_test262_harness = int32(EFALSE)
 	is_module = int32(EFALSE)
+	x_init(tls)
+	_init_agent_list(tls)
+	_init_report_list(tls)
+	_init_js_agent_funcs(tls)
 	x_compact = libc.BoolInt32(!(libc.Xisatty(tls, int32(MSTDERR_FILENO)) != 0))
 	/* Date tests assume California local time */
 	libc.Xsetenv(tls, __ccgo_ts+2576, __ccgo_ts+2579, int32(1))
@@ -5376,13 +5392,9 @@ func _init_class_range(tls *libc.TLS, rt uintptr, tab uintptr, start int32, coun
 
 // C documentation
 //
-//	/* no stack limitation */
+//	/* Note: OS and CPU dependent */
 func _js_get_stack_pointer(tls *libc.TLS) (r Tuintptr_t) {
 	return uint64(0)
-}
-
-func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, alloca_size Tsize_t) (r TBOOL) {
-	return int32(EFALSE)
 }
 
 func x_JS_NewRuntime2(tls *libc.TLS, mf uintptr, opaque uintptr) (r uintptr) {
@@ -112132,6 +112144,10 @@ type TJSAtomicsWaiter = struct {
 
 var _js_atomics_mutex = Tpthread_mutex_t{}
 var _js_atomics_waiter_list Tlist_head
+var _js_atomics_waiter_list0 = Tlist_head{
+	Fprev: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
+	Fnext: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
+}
 
 func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	bp := tls.Alloc(144)
@@ -113667,6 +113683,10 @@ func x_JS_AddIntrinsicWeakRef(tls *libc.TLS, ctx uintptr) {
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_FINALIZATION_REGISTRY)*16)) = x_JS_NewObject(tls, ctx)
 	x_JS_SetPropertyFunctionList(tls, ctx, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_FINALIZATION_REGISTRY)*16)), uintptr(unsafe.Pointer(&_js_finrec_proto_funcs)), libc.Int32FromUint64(libc.Uint64FromInt64(96)/libc.Uint64FromInt64(32)))
 	_JS_NewGlobalCConstructor(tls, ctx, __ccgo_ts+17767, __ccgo_fp(_js_finrec_constructor), int32(1), *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_FINALIZATION_REGISTRY)*16)))
+}
+
+func x_init(tls *libc.TLS) {
+	_js_atomics_waiter_list = _js_atomics_waiter_list0
 }
 
 type TJSAsyncFunctionState1 = struct {

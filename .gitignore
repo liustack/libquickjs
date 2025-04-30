@@ -1,3 +1,5 @@
 *.zip
 tmp
 tmp_file.txt
+test262/
+test262_report.txt

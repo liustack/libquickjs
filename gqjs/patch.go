@@ -1,0 +1,17 @@
+// Copyright 2025 The libquickjs-go Authors. All rights reserved.
+// Use of the source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+package main
+
+import (
+	"modernc.org/libc"
+)
+
+func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz libc.Tsize_t) int32 {
+	if tls.StackSlots() < 1000 {
+		return 0
+	}
+
+	return 1
+}
