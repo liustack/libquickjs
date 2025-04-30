@@ -20,7 +20,7 @@ import (
 )
 
 const (
-	hash262 = "cba890eef02121251b7f11eb890b0202edf56d6f"
+	hash262 = "cba890eef02121251b7f11eb890b0202edf56d6f" // 2025-04-24
 	zip262  = hash262 + ".zip"
 )
 
@@ -118,5 +118,5 @@ func Test262(t *testing.T) {
 	git(t, "-C", dir, "apply", "-v", "test262.diff")
 	bin := filepath.Join(dir, "run-test262")
 	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/run-test262")
-	shell(t, bin, "-t", "-m", "-c", "test262.conf", "-a", "-v")
+	shell(t, bin, "-t", "-m", "-c", "test262.conf", "-a")
 }

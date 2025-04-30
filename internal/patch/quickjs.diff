@@ -41,7 +41,7 @@ index adfd93e..115633c 100644
  
 -static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
 +#ifndef __CCGO__
-+static inline 
++static inline
 +#endif
 +BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
  {

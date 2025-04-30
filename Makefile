@@ -4,8 +4,11 @@
 
 .PHONY:	all clean edit editor generate download dev test nuke shorttest
 
+# release 2025-04-26
 QJS_ZIP = 19abf1888db5884a5758036ff6e7fa2b340acedc.zip
 QJS_URL = https://github.com/bellard/quickjs/archive/$(QJS_ZIP)
+
+# 2025-04-24
 TEST262_ZIP = cba890eef02121251b7f11eb890b0202edf56d6f.zip
 TEST262_URL = https://github.com/tc39/test262/archive/$(TEST262_ZIP)
 

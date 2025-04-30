@@ -21,15 +21,15 @@ import (
 )
 
 const (
-	qjs        = "quickjs-" + qjsCommit
-	qjsCommit  = "19abf1888db5884a5758036ff6e7fa2b340acedc"
-	qjsDiff    = "quickjs.diff"
-	qjsZip     = qjsCommit + ".zip"
-	test262    = "test262-" + testCommit
-	testCommit = "cba890eef02121251b7f11eb890b0202edf56d6f"
-	testDiff   = "test262.diff"
-	testZip    = testCommit + ".zip"
-	tmp        = "tmp"
+	qjs           = "quickjs-" + qjsCommit
+	qjsCommit     = "19abf1888db5884a5758036ff6e7fa2b340acedc" // release 2025-04-26
+	qjsDiff       = "quickjs.diff"
+	qjsZip        = qjsCommit + ".zip"
+	test262       = "test262-" + test262Commit
+	test262Commit = "cba890eef02121251b7f11eb890b0202edf56d6f" // 2025-04-24
+	test262Diff   = "test262.diff"
+	test262Zip    = test262Commit + ".zip"
+	tmp           = "tmp"
 )
 
 var (
