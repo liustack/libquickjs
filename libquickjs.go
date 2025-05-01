@@ -43,8 +43,18 @@ func init() {
 	Xinit(nil)
 }
 
+const (
+	// MaxStackSlots defines the maximum allowed number of libc.TLS stack slots
+	// before a stack overflow is detected.
+	MaxStackSlots = 1000
+	// 1, 2, 4, 8, 16: nothing works
+	// 32: Some simple tests work
+	// 64, 128: Simple tests pass, some test262 tests work
+	// 512: All tests pass
+)
+
 func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz libc.Tsize_t) int32 {
-	if tls.StackSlots() < 1000 {
+	if tls.StackSlots() < MaxStackSlots {
 		return 0
 	}
 

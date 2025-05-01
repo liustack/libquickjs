@@ -51,5 +51,5 @@ shorttest:
 	go test -v -timeout 24h -short
 
 test:
-	go test -v -timeout 24h
+	go test -v -timeout 24h -failfast
 
