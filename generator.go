@@ -107,13 +107,13 @@ func main() {
 	}
 
 	test262 := filepath.Join(quickjs, test262Dir)
-	util.MustCopyFile(true, filepath.Join("internal", "patch", test262Diff), filepath.Join(quickjs, "tests", "test262.patch"), nil)
-	util.MustCopyFile(true, filepath.Join(test262, "test262.patch"), filepath.Join(quickjs, "tests", "test262.patch"), nil)
+	copyFile(filepath.Join("internal", "patch", test262Diff), filepath.Join(quickjs, "tests", "test262.patch"))
+	copyFile(filepath.Join(test262, "test262.patch"), filepath.Join(quickjs, "tests", "test262.patch"))
 	git("-C", test262, "init")
 	git("-C", test262, "apply", "-v", "test262.patch")
-	util.MustCopyFile(true, "LICENSE-LIBQUICKJS", filepath.Join(quickjs, "LICENSE"), nil)
-	util.MustCopyFile(true, "test262.conf", filepath.Join(quickjs, "test262.conf"), nil)
-	util.MustCopyFile(true, filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff), nil)
+	copyFile("LICENSE-LIBQUICKJS", filepath.Join(quickjs, "LICENSE"))
+	copyFile("test262.conf", filepath.Join(quickjs, "test262.conf"))
+	copyFile(filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff))
 	git("-C", quickjs, "init")
 	git("-C", quickjs, "apply", "-v", qjsDiff)
 	switch target {
@@ -123,25 +123,35 @@ func main() {
 		ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
 	}
 	util.Shell(nil, gmake, "-C", quickjs, "test2-update")
-	util.MustCopyFile(true, filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"), filepath.Join(quickjs, "test262_errors.txt"), nil)
+	copyFile(filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"), filepath.Join(quickjs, "test262_errors.txt"))
 	result := fmt.Sprintf("ccgo_%s_%s.go", goos, goarch)
 	ccMain(append(ccArgs,
 		"--package-name", "libquickjs",
 		"-o", result,
 		filepath.Join(quickjs, "libquickjs.a"),
 	))
-	util.MustShell(true, nil, gsed, "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
-	util.MustShell(true, nil, gsed, "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
-	util.MustShell(true, nil, gsed, "-i", `s/\<X__JS_\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/x__JS_\1/g`, result)
-	util.MustCopyFile(true, filepath.Join("gqjs", result), filepath.Join(quickjs, "qjs.go"), nil)
-	util.MustCopyFile(true, filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.go"), nil)
+	shell(gsed, "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
+	shell(gsed, "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
+	shell(gsed, "-i", `s/\<X__JS_\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/x__JS_\1/g`, result)
+	copyFile(filepath.Join("gqjs", result), filepath.Join(quickjs, "qjs.go"))
+	copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.go"))
 	util.MustCopyDir(true, filepath.Join("testdata", "tests"), filepath.Join(quickjs, "tests"), nil)
 }
 
-func git(args ...string) {
-	if out, err := util.Shell(nil, "git", args...); err != nil {
+func shell(cmd string, args ...string) {
+	if out, err := util.Shell(nil, cmd, args...); err != nil {
 		fail(1, "err=%v out=%s", err, out)
 	}
+}
+
+func copyFile(dst, src string) {
+	if _, err := util.CopyFile(dst, src, nil); err != nil {
+		fail(1, "err=%v", err)
+	}
+}
+
+func git(args ...string) {
+	shell("git", args...)
 }
 
 func ccMain(args []string) {
@@ -163,9 +173,7 @@ func mkdirAll(path string) {
 }
 
 func unzip(src, dest string) {
-	if out, err := util.Shell(nil, "unzip", "-q", src, "-d", dest); err != nil {
-		fail(1, "err=%v out=%s", err, out)
-	}
+	shell("unzip", "-q", src, "-d", dest)
 }
 
 func removeAll(path string) {
