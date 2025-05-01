@@ -33,7 +33,7 @@
 //
 // Builder results available [here]:
 //
-// # Known bogs or limitations
+// # Known bugs or limitations
 //
 //   - The quickjs std package does not implement popen(), exec().
 //
