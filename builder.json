@@ -1,10 +1,10 @@
 {
-	"autogen": "linux/(386|amd64|arm$|arm64|loong64|ppc64le)",
+	"autogen": "linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x)",
 	"autoupdate": ".",
 	"autotag": ".",
 	"download": [
-		{"re": "linux/(386|amd64|arm$|arm64|loong64|ppc64le)", "files": ["https://github.com/bellard/quickjs/archive/19abf1888db5884a5758036ff6e7fa2b340acedc.zip"]},
-		{"re": "linux/(386|amd64|arm$|arm64|loong64|ppc64le)", "files": ["https://github.com/tc39/test262/archive/cba890eef02121251b7f11eb890b0202edf56d6f.zip"]}
+		{"re": "linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x)", "files": ["https://github.com/bellard/quickjs/archive/19abf1888db5884a5758036ff6e7fa2b340acedc.zip"]},
+		{"re": "linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x)", "files": ["https://github.com/tc39/test262/archive/cba890eef02121251b7f11eb890b0202edf56d6f.zip"]}
 	],
-	"test": "linux/(386|amd64|arm$|arm64|loong64|ppc64le)"
+	"test": "linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x)"
 }
