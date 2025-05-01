@@ -116,7 +116,12 @@ func main() {
 	util.MustCopyFile(true, filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff), nil)
 	git("-C", quickjs, "init")
 	git("-C", quickjs, "apply", "-v", qjsDiff)
-	ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+	switch target {
+	case "linux/arm":
+		ccExec(append(ccArgs, "-exec", gmake, "LIBS=-lm -latomic", "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+	default:
+		ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+	}
 	util.Shell(nil, gmake, "-C", quickjs, "test2-update")
 	util.MustCopyFile(true, filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"), filepath.Join(quickjs, "test262_errors.txt"), nil)
 	result := fmt.Sprintf("ccgo_%s_%s.go", goos, goarch)
