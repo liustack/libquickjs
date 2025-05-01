@@ -34,7 +34,7 @@ index 2eaa9ee..1eae4e5 100644
      JSContext *ctx;
      struct trace_malloc_data trace_data = { NULL };
 diff --git a/quickjs.c b/quickjs.c
-index adfd93e..5e3147e 100644
+index adfd93e..4ed5896 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -82,7 +82,7 @@ index adfd93e..5e3147e 100644
  
  static JSValue js_atomics_wait(JSContext *ctx,
                                 JSValueConst this_obj,
-@@ -54692,3 +54700,9 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
+@@ -54692,3 +54700,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
                                 countof(js_finrec_proto_funcs));
      JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
  }
@@ -90,6 +90,32 @@ index adfd93e..5e3147e 100644
 +#ifdef __CCGO__
 +void init() {
 +	js_atomics_waiter_list = js_atomics_waiter_list0;
++}
++
++JSValue DupValue(JSContext *ctx, JSValueConst v) {
++       return JS_DupValue(ctx, v);
++}
++
++void FreeValue(JSContext *ctx, JSValue v) {
++       JS_FreeValue(ctx, v);
++}
++
++char *ToCString(JSContext *ctx, JSValueConst val1)
++{
++    return JS_ToCStringLen2(ctx, NULL, val1, 0);
++}
++
++JSValue NewInt32(JSContext *ctx, int32_t val)
++{
++    return JS_NewInt32(ctx, val);
++}
++
++int SetProperty(JSContext *ctx, JSValueConst this_obj, JSAtom prop, JSValue val) {
++	return JS_SetProperty(ctx, this_obj, prop, val);
++}
++
++JSValue GetProperty(JSContext *ctx, JSValueConst this_obj, JSAtom prop) {
++	return JS_GetProperty(ctx, this_obj, prop);
 +}
 +#endif
 diff --git a/quickjs.h b/quickjs.h
