@@ -63487,7 +63487,7 @@ done:
 	return r
 }
 
-func _js_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
+func x_js_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var i, v19, v22, v3 int32
@@ -63831,7 +63831,7 @@ var _js_array_funcs = [4]TJSCFunctionListEntry{
 			Fcproto Tuint8_t
 			Fcfunc  TJSCFunctionType
 		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_array_of)})),
+			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(x_js_array_of)})),
 		})),
 	},
 	3: {
