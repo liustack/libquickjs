@@ -1,106 +1,108 @@
+diff --git a/Makefile b/Makefile
+index 3b1c745..c7a6297 100644
+--- a/Makefile
++++ b/Makefile
+@@ -151,11 +151,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
+ ifdef CONFIG_WIN32
+ DEFINES+=-D__USE_MINGW_ANSI_STDIO # for standard snprintf behavior
+ endif
+-ifndef CONFIG_WIN32
+-ifeq ($(shell $(CC) -o /dev/null compat/test-closefrom.c 2>/dev/null && echo 1),1)
+-DEFINES+=-DHAVE_CLOSEFROM
+-endif
+-endif
++# ifndef CONFIG_WIN32
++# ifeq ($(shell $(CC) -o /dev/null compat/test-closefrom.c 2>/dev/null && echo 1),1)
++# DEFINES+=-DHAVE_CLOSEFROM
++# endif
++# endif
+ 
+ CFLAGS+=$(DEFINES)
+ CFLAGS_DEBUG=$(CFLAGS) -O0
+diff --git a/qjs.c b/qjs.c
+index 2eaa9ee..1eae4e5 100644
+--- a/qjs.c
++++ b/qjs.c
+@@ -309,6 +309,9 @@ void help(void)
+ 
+ int main(int argc, char **argv)
+ {
++#ifdef __CCGO__
++    init();
++#endif
+     JSRuntime *rt;
+     JSContext *ctx;
+     struct trace_malloc_data trace_data = { NULL };
 diff --git a/quickjs.c b/quickjs.c
-index 3c1c326..485ebc6 100644
+index adfd93e..c5ed698 100644
 --- a/quickjs.c
 +++ b/quickjs.c
-@@ -52,7 +52,7 @@
- #if defined(EMSCRIPTEN)
+@@ -49,11 +49,7 @@
+ 
+ #define OPTIMIZE         1
+ #define SHORT_OPCODES    1
+-#if defined(EMSCRIPTEN)
  #define DIRECT_DISPATCH  0
- #else
+-#else
 -#define DIRECT_DISPATCH  1
-+#define DIRECT_DISPATCH  0
- #endif
+-#endif
  
  #if defined(__APPLE__)
-@@ -74,7 +74,7 @@
- 
- #if !defined(EMSCRIPTEN)
- /* enable stack limitation */
--#define CONFIG_STACK_CHECK
-+// #define CONFIG_STACK_CHECK
- #endif
- 
- 
-@@ -11364,15 +11364,26 @@ static char *i64toa(char *buf_end, int64_t n, unsigned int base)
-     return q;
- }
- 
-+int snprintf_with_rounding_mode(int rounding_mode, char *str, size_t size, int format, int width, double d);
-+
-+
- /* buf1 contains the printf result */
- static void js_ecvt1(double d, int n_digits, int *decpt, int *sign, char *buf,
-                      int rounding_mode, char *buf1, int buf1_size)
+ #define MALLOC_OVERHEAD  0
+@@ -1521,10 +1517,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
+ /* Note: OS and CPU dependent */
+ static inline uintptr_t js_get_stack_pointer(void)
  {
 +#ifndef __CCGO__
-     if (rounding_mode != FE_TONEAREST)
-         fesetround(rounding_mode);
-     snprintf(buf1, buf1_size, "%+.*e", n_digits - 1, d);
-     if (rounding_mode != FE_TONEAREST)
-         fesetround(FE_TONEAREST);
+     return (uintptr_t)__builtin_frame_address(0);
 +#else
-+    if (rounding_mode != FE_TONEAREST) {
-+        snprintf_with_rounding_mode(rounding_mode, buf1, buf1_size, 0, n_digits - 1, d);
-+    } else {
-+        snprintf(buf1, buf1_size, "%+.*e", n_digits - 1, d);
-+    }
++    return 0;
 +#endif
-     *sign = (buf1[0] == '-');
-     /* mantissa */
-     buf[0] = buf1[1];
-@@ -11452,11 +11463,19 @@ static int js_fcvt1(char (*buf)[JS_DTOA_BUF_SIZE], double d, int n_digits,
-                     int rounding_mode)
- {
-     int n;
-+#ifndef __CCGO__
-     if (rounding_mode != FE_TONEAREST)
-         fesetround(rounding_mode);
-     n = snprintf(*buf, sizeof(*buf), "%.*f", n_digits, d);
-     if (rounding_mode != FE_TONEAREST)
-         fesetround(FE_TONEAREST);
-+#else
-+    if (rounding_mode != FE_TONEAREST) {
-+        n = snprintf_with_rounding_mode(rounding_mode, *buf, sizeof(*buf), 1, n_digits, d);
-+    } else {
-+        n = snprintf(*buf, sizeof(*buf), "%.*f", n_digits, d);
-+    }
-+#endif
-     assert(n < sizeof(*buf));
-     return n;
  }
-@@ -55391,6 +55410,10 @@ static const JSCFunctionListEntry js_dataview_proto_funcs[] = {
-     JS_PROP_STRING_DEF("[Symbol.toStringTag]", "DataView", JS_PROP_CONFIGURABLE ),
- };
  
-+#ifndef CONFIG_ATOMICS
-+void init_quickjs() {}
+-static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
++#ifndef __CCGO__
++static inline
 +#endif
-+
- /* Atomics */
- #ifdef CONFIG_ATOMICS
++BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
+ {
+     uintptr_t sp;
+     sp = js_get_stack_pointer() - alloca_size;
+@@ -39222,7 +39225,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
+     return r;
+ }
  
-@@ -55682,8 +55705,16 @@ typedef struct JSAtomicsWaiter {
+-static JSValue js_array_of(JSContext *ctx, JSValueConst this_val,
++#ifndef __CCGO__
++static
++#endif
++JSValue js_array_of(JSContext *ctx, JSValueConst this_val,
+                            int argc, JSValueConst *argv)
+ {
+     JSValue obj, args[1];
+@@ -54167,8 +54173,13 @@ typedef struct JSAtomicsWaiter {
  } JSAtomicsWaiter;
  
  static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
--static struct list_head js_atomics_waiter_list =
--    LIST_HEAD_INIT(js_atomics_waiter_list);
 +#ifndef __CCGO__
-+static struct list_head js_atomics_waiter_list = LIST_HEAD_INIT(js_atomics_waiter_list);
+ static struct list_head js_atomics_waiter_list =
+     LIST_HEAD_INIT(js_atomics_waiter_list);
 +#else
 +static struct list_head js_atomics_waiter_list;
 +static struct list_head js_atomics_waiter_list0 = LIST_HEAD_INIT(js_atomics_waiter_list);
-+
-+void init_quickjs() {
-+	js_atomics_waiter_list = js_atomics_waiter_list0;
-+}
 +#endif
  
  static JSValue js_atomics_wait(JSContext *ctx,
                                 JSValueConst this_obj,
-@@ -55930,3 +55961,29 @@ void JS_AddIntrinsicTypedArrays(JSContext *ctx)
-     JS_AddIntrinsicAtomics(ctx);
- #endif
+@@ -54692,3 +54703,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
+                                countof(js_finrec_proto_funcs));
+     JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
  }
++
++#ifdef __CCGO__
++void init() {
++	js_atomics_waiter_list = js_atomics_waiter_list0;
++}
 +
 +JSValue DupValue(JSContext *ctx, JSValueConst v) {
 +       return JS_DupValue(ctx, v);
@@ -127,11 +129,28 @@ index 3c1c326..485ebc6 100644
 +JSValue GetProperty(JSContext *ctx, JSValueConst this_obj, JSAtom prop) {
 +	return JS_GetProperty(ctx, this_obj, prop);
 +}
++#endif
+diff --git a/quickjs.h b/quickjs.h
+index 8814222..bca6496 100644
+--- a/quickjs.h
++++ b/quickjs.h
+@@ -1114,6 +1114,11 @@ int JS_SetModuleExport(JSContext *ctx, JSModuleDef *m, const char *export_name,
+ int JS_SetModuleExportList(JSContext *ctx, JSModuleDef *m,
+                            const JSCFunctionListEntry *tab, int len);
+ 
++
++#ifdef __CCGO__
++void init();
++#endif
++
+ #undef js_unlikely
+ #undef js_force_inline
+ 
 diff --git a/run-test262.c b/run-test262.c
-index 4afb3f8..c271479 100644
+index 4397a1d..7a3404a 100644
 --- a/run-test262.c
 +++ b/run-test262.c
-@@ -446,11 +446,27 @@ static void add_helpers(JSContext *ctx);
+@@ -446,11 +446,29 @@ static void add_helpers(JSContext *ctx);
  static pthread_mutex_t agent_mutex = PTHREAD_MUTEX_INITIALIZER;
  static pthread_cond_t agent_cond = PTHREAD_COND_INITIALIZER;
  /* list of Test262Agent.link */
@@ -139,9 +158,10 @@ index 4afb3f8..c271479 100644
  static struct list_head agent_list = LIST_HEAD_INIT(agent_list);
 +#else
 +static struct list_head agent_list;
++static struct list_head agent_list0 = LIST_HEAD_INIT(agent_list);
 +
 +static void init_agent_list() {
-+	agent_list = (struct list_head)LIST_HEAD_INIT(agent_list);
++    agent_list = agent_list0;
 +}
 +#endif
  
@@ -151,15 +171,16 @@ index 4afb3f8..c271479 100644
  static struct list_head report_list = LIST_HEAD_INIT(report_list);
 +#else
 +static struct list_head report_list;
++static struct list_head report_list0 = LIST_HEAD_INIT(report_list);
 +
 +static void init_report_list() {
-+	report_list = (struct list_head)LIST_HEAD_INIT(report_list);
++    report_list = report_list0;
 +}
 +#endif
  
  static void *agent_start(void *arg)
  {
-@@ -712,6 +728,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
+@@ -712,6 +730,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
      return JS_UNDEFINED;
  }
  
@@ -167,7 +188,7 @@ index 4afb3f8..c271479 100644
  static const JSCFunctionListEntry js_agent_funcs[] = {
      /* only in main */
      JS_CFUNC_DEF("start", 1, js_agent_start ),
-@@ -725,6 +742,23 @@ static const JSCFunctionListEntry js_agent_funcs[] = {
+@@ -725,6 +744,20 @@ static const JSCFunctionListEntry js_agent_funcs[] = {
      JS_CFUNC_DEF("sleep", 1, js_agent_sleep ),
      JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow ),
  };
@@ -175,35 +196,45 @@ index 4afb3f8..c271479 100644
 +static const JSCFunctionListEntry js_agent_funcs[8];
 +
 +static void init_js_agent_funcs() {
-+	/* only in main */
-+	js_agent_funcs[0] = (JSCFunctionListEntry)JS_CFUNC_DEF("start", 1, js_agent_start );
-+	js_agent_funcs[1] = (JSCFunctionListEntry)JS_CFUNC_DEF("getReport", 0, js_agent_getReport );
-+	js_agent_funcs[2] = (JSCFunctionListEntry)JS_CFUNC_DEF("broadcast", 2, js_agent_broadcast );
-+	/* only in agent */
-+	js_agent_funcs[3] = (JSCFunctionListEntry)JS_CFUNC_DEF("report", 1, js_agent_report );
-+	js_agent_funcs[4] = (JSCFunctionListEntry)JS_CFUNC_DEF("leaving", 0, js_agent_leaving );
-+	js_agent_funcs[5] = (JSCFunctionListEntry)JS_CFUNC_DEF("receiveBroadcast", 1, js_agent_receiveBroadcast );
-+	/* in both */
-+	js_agent_funcs[6] = (JSCFunctionListEntry)JS_CFUNC_DEF("sleep", 1, js_agent_sleep );
-+	js_agent_funcs[7] = (JSCFunctionListEntry)JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow );
++    js_agent_funcs[0] = (JSCFunctionListEntry)JS_CFUNC_DEF("start", 1, js_agent_start );
++    js_agent_funcs[1] = (JSCFunctionListEntry)JS_CFUNC_DEF("getReport", 0, js_agent_getReport );
++    js_agent_funcs[2] = (JSCFunctionListEntry)JS_CFUNC_DEF("broadcast", 2, js_agent_broadcast );
++    js_agent_funcs[3] = (JSCFunctionListEntry)JS_CFUNC_DEF("report", 1, js_agent_report );
++    js_agent_funcs[4] = (JSCFunctionListEntry)JS_CFUNC_DEF("leaving", 0, js_agent_leaving );
++    js_agent_funcs[5] = (JSCFunctionListEntry)JS_CFUNC_DEF("receiveBroadcast", 1, js_agent_receiveBroadcast );
++    js_agent_funcs[6] = (JSCFunctionListEntry)JS_CFUNC_DEF("sleep", 1, js_agent_sleep );
++    js_agent_funcs[7] = (JSCFunctionListEntry)JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow );
 +}
 +#endif
  
  static JSValue js_new_agent(JSContext *ctx)
  {
-@@ -2020,6 +2054,12 @@ char *get_opt_arg(const char *option, char *arg)
+@@ -2038,6 +2071,13 @@ int main(int argc, char **argv)
+     BOOL is_module = FALSE;
+     clock_t clocks;
  
- int main(int argc, char **argv)
- {
 +#ifdef __CCGO__
-+	init_agent_list();
-+	init_js_agent_funcs();
-+	init_report_list();
-+	init_quickjs();
++    init();
++    init_agent_list();
++    init_report_list();
++    init_js_agent_funcs();
 +#endif
-     int optind, start_index, stop_index;
-     BOOL is_dir_list;
-     BOOL only_check_errors = FALSE;
++
+ #if !defined(_WIN32)
+     compact = !isatty(STDERR_FILENO);
+     /* Date tests assume California local time */
+diff --git a/test262_errors.txt b/test262_errors.txt
+index 206e03f..db796bd 100644
+--- a/test262_errors.txt
++++ b/test262_errors.txt
+@@ -1,3 +1,7 @@
++test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values-__proto__.js:25: Test262Error: Object.setPrototypeOf(ObjProto, { __proto__: null }) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
++test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values-__proto__.js:25: strict mode: Test262Error: Object.setPrototypeOf(ObjProto, { __proto__: null }) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
++test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values.js:25: Test262Error: Object.setPrototypeOf(ObjProto, Object.create(null)) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
++test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values.js:25: strict mode: Test262Error: Object.setPrototypeOf(ObjProto, Object.create(null)) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
+ test262/test/language/module-code/top-level-await/module-graphs-does-not-hang.js:10: TypeError: $DONE() not called
+ test262/test/staging/sm/Date/UTC-convert-all-arguments.js:75: Test262Error: index 1: expected 42, got Error: didn't throw Expected SameValue(«Error: didn't throw», «42») to be true
+ test262/test/staging/sm/Date/constructor-convert-all-arguments.js:75: Test262Error: index undefined: expected 42, got Error: didn't throw Expected SameValue(«Error: didn't throw», «42») to be true
 diff --git a/tests/test_std.js b/tests/test_std.js
 index c844869..9d14939 100644
 --- a/tests/test_std.js

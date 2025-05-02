@@ -1,81 +1,55 @@
-# Copyright 2024 The libquickjs-go Authors. All rights reserved.
+# Copyright 2025 The libquickjs-go Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-.PHONY:	all clean dev download edit editor generate work test diff
+.PHONY:	all clean edit editor generate download dev test nuke shorttest
 
-DIR = /tmp/libquickjs
+# release 2025-04-26
+QJS_ZIP = 19abf1888db5884a5758036ff6e7fa2b340acedc.zip
+QJS_URL = https://github.com/bellard/quickjs/archive/$(QJS_ZIP)
 
-TAR0 = 36911f0d3ab1a4c190a4d5cbe7c2db225a455389
-TAR = $(TAR0).zip
-URL = https://github.com/bellard/quickjs/archive/$(TAR)
-ZIP = 837def66ac1700ce398df4a3b4eaeea915aa1df5.zip
-URL2 = https://github.com/tc39/test262/archive/$(ZIP)
-TMP = /tmp/libquickjs/quickjs-$(TAR0)/
+# 2025-04-24
+TEST262_ZIP = cba890eef02121251b7f11eb890b0202edf56d6f.zip
+TEST262_URL = https://github.com/tc39/test262/archive/$(TEST262_ZIP)
 
 all: editor
 	golint 2>&1
 	staticcheck 2>&1
 
-build_all_targets:
-	./build_all_targets.sh
-	echo done
-
 clean:
-	rm -f log-* cpu.test mem.test *.out go.work*
+	rm -f log-* cpu.test mem.test *.out tmp_file.txt
 	go clean
+
+dev:
+	GO_GENERATE_DEV=1 make generate
+
+download:
+	@if [ ! -f $(QJS_ZIP) ]; then wget $(QJS_URL) ; fi
+	@if [ ! -f $(TEST262_ZIP) ]; then wget $(TEST262_URL) ; fi
 
 edit:
 	@touch log
-	@if [ -f "Session.vim" ]; then novim -S & else novim -p Makefile go.mod builder.json all_test.go libquickjs.go libquickjs32.go libquickjs64.go generator.go & fi
+	@if [ -f "Session.vim" ]; then gvim -S & else gvim -p Makefile go.mod builder.json all_test.go generator.go libquickjs.go & fi
 
 editor:
-	gofmt -l -s -w .
+	@gofmt -l -s -w $(shell find -name \*.go | grep -v o.go)
 	go test -c -o /dev/null
-	go install -v  ./...
 	go build -o /dev/null generator*.go
 
-download:
-	@if [ ! -f $(TAR) ]; then wget $(URL) ; fi
-	@if [ ! -f $(ZIP) ]; then wget $(URL2) ; fi
-
-
 generate: download
-	mkdir -p $(DIR) || true
-	rm -rf $(DIR)/*
-	GO_GENERATE_DIR=$(DIR) go run generator*.go
-	go build -v ./...
+	go generate
+	gofmt -l -s -w .
+	go build -v -o /dev/null .
+	go build -v -o /dev/null ./gqjs
+	go build -v -o /dev/null ./internal/run-test262
 	git status
 
-dev: download
-	mkdir -p $(DIR) || true
-	rm -rf $(DIR)/*
-	echo -n > /tmp/ccgo.log
-	GO_GENERATE_DIR=$(DIR) GO_GENERATE_DEV=1 go run -tags=ccgo.dmesg,ccgo.assert generator*.go
-	go build -v ./...
-	git status
-	grep 'PASS\|TRC\|TODO\|ERRORF\|FAIL' /tmp/ccgo.log || true
+nuke: clean
+	rm -rf ./tmp/ ./test262/
+
+shorttest:
+	go test -v -timeout 24h -short
 
 test:
-	go test -v -timeout 24h -count=1
+	go test -v -timeout 24h -failfast
 
-work:
-	rm -f go.work*
-	go work init
-	go work use .
-	go work use ../cc/v4
-	go work use ../ccgo/v4
-	go work use ../libc
-
-diff0:
-	make -C $(TMP) clean
-	find $(TMP) -name \*.ago -delete
-	find $(TMP) -name \*.go -delete
-	find $(TMP) -name go.\* -delete
-	git diff quickjs-$(TAR0) $(TMP) | sed -e 's|/quickjs-$(TAR0)||g' -e 's|/tmp/libquickjs||g'
-
-diff:
-	rm -rf /tmp/libquickjs/quickjs-$(TAR0)/test262
-	rm -rf /tmp/libquickjs/quickjs-$(TAR0)/test262_report.txt
-	cp quickjs-$(TAR0)/test262_errors.txt /tmp/libquickjs/quickjs-$(TAR0)/test262_errors.txt
-	@make diff0 | tail -n +16 | head -n -1 > internal/patch/quickjs.diff
