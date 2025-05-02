@@ -9,7 +9,7 @@ import (
 	"modernc.org/libquickjs"
 )
 
-func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz libc.Tsize_t) int32 {
+func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz libquickjs.Size_t) int32 {
 	if tls.StackSlots() < libquickjs.MaxStackSlots {
 		return 0
 	}

@@ -4,3 +4,4 @@ tmp_file.txt
 test262/
 test262_report.txt
 test262_errors.txt
+go.work*

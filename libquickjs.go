@@ -33,9 +33,13 @@
 //
 // Builder results available [here]:
 //
-// # Known bugs or limitations
+// # Known bugs or limitations on Linux
 //
 //   - The quickjs std package does not implement popen(), exec().
+//
+// # Known bugs or limitations on Darwin
+//
+//   - The quickjs std package is not supported and not tested.
 //
 // [QuickJS]: https://bellard.org/quickjs/
 // [changelog]: https://bellard.org/quickjs/Changelog
@@ -60,7 +64,7 @@ const (
 	// 512: All tests pass
 )
 
-func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz libc.Tsize_t) int32 {
+func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz Size_t) int32 {
 	if tls.StackSlots() < MaxStackSlots {
 		return 0
 	}

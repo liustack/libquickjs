@@ -97,6 +97,11 @@ func main() {
 		)
 	}
 
+	switch target {
+	case "darwin/arm64", "darwin/amd64":
+		gsed = "gsed"
+	}
+
 	removeAll(tmp)
 	mkdirAll(tmp)
 	unzip(qjsZip, tmp)

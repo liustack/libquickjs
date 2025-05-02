@@ -30,6 +30,7 @@ var (
 	goos   = runtime.GOOS
 	keep   bool
 	re     *regexp.Regexp
+	target = fmt.Sprintf("%s/%s", goos, goarch)
 	xtags  string
 )
 
@@ -64,6 +65,15 @@ func Test(t *testing.T) {
 	} {
 		if re != nil && !re.MatchString(v) {
 			continue
+		}
+
+		switch target {
+		case "darwin/amd64", "darwin/arm64":
+			switch v {
+			case "test_std.js":
+				t.Logf("SKIP: not supported on %s: %s", target, v)
+				continue
+			}
 		}
 
 		t.Run(v, func(t *testing.T) {
@@ -124,7 +134,7 @@ func Test262(t *testing.T) {
 	git(t, "-C", dir, "apply", "-v", "test262.diff")
 	bin := filepath.Join(dir, "run-test262")
 	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/run-test262")
-	out, _ := shell(nil, bin, "-t", "-m", "-c", "test262.conf", "-a")
+	out, _ := shell(nil, bin, "-v", "-t", "-m", "-c", "test262.conf", "-a")
 	s := strings.TrimSpace(string(out))
 	x := strings.Index(s, "Result: ")
 	if x < 0 {

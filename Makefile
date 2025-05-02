@@ -17,7 +17,7 @@ all: editor
 	staticcheck 2>&1
 
 clean:
-	rm -f log-* cpu.test mem.test *.out go.work* tmp_file.txt
+	rm -f log-* cpu.test mem.test *.out tmp_file.txt
 	go clean
 
 dev:
