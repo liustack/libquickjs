@@ -33,13 +33,9 @@
 //
 // Builder results available [here]:
 //
-// # Known bugs or limitations on Linux
+// # Known bugs or limitations
 //
 //   - The quickjs std package does not implement popen(), exec().
-//
-// # Known bugs or limitations on Darwin
-//
-//   - The quickjs std package is not supported and not tested.
 //
 // [QuickJS]: https://bellard.org/quickjs/
 // [changelog]: https://bellard.org/quickjs/Changelog

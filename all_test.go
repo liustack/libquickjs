@@ -141,7 +141,7 @@ func Test262(t *testing.T) {
 		t.Fatal("cannot find test results")
 	}
 
-	s = s[x+1:]
+	s = s[x:]
 	if x = strings.IndexByte(s, '\n'); x > 0 {
 		s = s[:x]
 	}
