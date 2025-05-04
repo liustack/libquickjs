@@ -21,7 +21,7 @@ import (
 )
 
 const (
-	hash262 = "cba890eef02121251b7f11eb890b0202edf56d6f" // 2025-04-24
+	hash262 = "56e77d6325067a545ea7e8ff5be5d9284334e33c" // 2025-03-25
 	zip262  = hash262 + ".zip"
 )
 
@@ -52,7 +52,7 @@ func Test(t *testing.T) {
 	}
 
 	bin := filepath.Join(tmp, "gqjs")
-	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./gqjs")
+	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/gqjs")
 	for _, v := range []string{
 		"test_closure.js",
 		"test_language.js",
@@ -129,7 +129,6 @@ func Test262(t *testing.T) {
 	}
 
 	copyFile(t, filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"))
-	copyFile(t, "test262_errors.txt", filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"))
 	git(t, "-C", dir, "init")
 	git(t, "-C", dir, "apply", "-v", "test262.diff")
 	bin := filepath.Join(dir, "run-test262")

@@ -2,26 +2,46 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-.PHONY:	all clean edit editor generate download dev test nuke shorttest
+.PHONY:	all clean edit editor generate download dev test nuke shorttest w64 \
+	dev-w64 grep
 
 # release 2025-04-26
 QJS_ZIP = 19abf1888db5884a5758036ff6e7fa2b340acedc.zip
 QJS_URL = https://github.com/bellard/quickjs/archive/$(QJS_ZIP)
 
-# 2025-04-24
-TEST262_ZIP = cba890eef02121251b7f11eb890b0202edf56d6f.zip
+# 2025-03-25
+TEST262_ZIP = 56e77d6325067a545ea7e8ff5be5d9284334e33c.zip
 TEST262_URL = https://github.com/tc39/test262/archive/$(TEST262_ZIP)
+
+GREP = 'TRC\|TODO\|ERRORF\|FAIL\|undefined:'
 
 all: editor
 	golint 2>&1
 	staticcheck 2>&1
 
 clean:
-	rm -f log-* cpu.test mem.test *.out tmp_file.txt
+	rm -f log-* cpu.test mem.test *.out *.exe tmp_file.txt
 	go clean
 
-dev:
-	GO_GENERATE_DEV=1 make generate
+dev: download
+	echo -n > /tmp/ccgo.log
+	GO_GENERATE_DEV=1 go run -tags=ccgo.dmesg generator.go
+	gofmt -l -s -w .
+	go build -v -o /dev/null .
+	go build -v -o /dev/null ./gqjs
+	go build -v -o /dev/null ./internal/run-test262
+	grep $(GREP) /tmp/ccgo.log || true
+	git status
+
+dev-w64: download
+	echo -n > /tmp/ccgo.log
+	GO_GENERATE_DEV=1 GO_GENERATE_W64=1 go run -tags=ccgo.dmesg generator.go
+	gofmt -l -s -w .
+	GOOS=windows GOARCH=amd64 go build -v -o /dev/null .
+	GOOS=windows GOARCH=amd64 go build -v -o /dev/null ./internal/gqjs
+	GOOS=windows GOARCH=amd64 go build -v -o /dev/null ./internal/run-test262
+	grep $(GREP) /tmp/ccgo.log || true
+	git status
 
 download:
 	@if [ ! -f $(QJS_ZIP) ]; then wget $(QJS_URL) ; fi
@@ -44,6 +64,9 @@ generate: download
 	go build -v -o /dev/null ./internal/run-test262
 	git status
 
+grep:
+	grep -n $(GREP) /tmp/ccgo.log || true
+
 nuke: clean
 	rm -rf ./tmp/ ./test262/
 
@@ -53,3 +76,10 @@ shorttest:
 test:
 	go test -v -timeout 24h -failfast
 
+w64: download
+	GO_GENERATE_W64=1 go run -tags=ccgo.dmesg generator.go
+	gofmt -l -s -w .
+	GOOS=windows GOARCH=amd64 go build -v -o /dev/null .
+	GOOS=windows GOARCH=amd64 go build -v -o /dev/null ./internal/gqjs
+	GOOS=windows GOARCH=amd64 go build -v -o /dev/null ./internal/run-test262
+	git status

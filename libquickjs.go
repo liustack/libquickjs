@@ -67,3 +67,7 @@ func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz Size_t) int32 {
 
 	return 1
 }
+
+func _getcwd0(tls *libc.TLS, p uintptr, n Size_t) uintptr {
+	return libc.Xgetcwd(tls, p, n)
+}
