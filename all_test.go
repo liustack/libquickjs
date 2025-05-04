@@ -14,10 +14,11 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+	"unsafe"
 
 	_ "modernc.org/ccgo/v4/lib"
 	util "modernc.org/fileutil/ccgo"
-	_ "modernc.org/libc"
+	"modernc.org/libc"
 )
 
 const (
@@ -46,47 +47,70 @@ func TestMain(m *testing.M) {
 }
 
 func Test(t *testing.T) {
-	tmp := t.TempDir()
-	if !filepath.IsAbs(tmp) {
-		t.Fatal()
-	}
-
-	bin := filepath.Join(tmp, "gqjs")
-	if goos == "windows" {
-		bin += ".exe"
-	}
-	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/gqjs")
 	for _, v := range []string{
 		"test_closure.js",
 		"test_language.js",
-		"--std test_builtin.js",
 		"test_loop.js",
 		"test_bigint.js",
-		"test_cyclic_import.js",
-		"test_worker.js",
-		"test_std.js",
 	} {
 		if re != nil && !re.MatchString(v) {
 			continue
 		}
-
-		switch target {
-		case "darwin/amd64", "darwin/arm64":
-			switch v {
-			case "test_std.js":
-				t.Logf("SKIP: not supported on %s: %s", target, v)
-				continue
-			}
-		}
-
 		t.Run(v, func(t *testing.T) {
-			args := strings.Fields(v)
-			x := len(args) - 1
-			args[x] = filepath.Join("testdata", "tests", args[x])
-			if out, err := util.Shell(nil, bin, args...); err != nil && t != nil {
-				t.Errorf("FAIL: err=%v out=%s", err, out)
-			}
+			fn := filepath.Join("testdata", "tests", v)
+			eval(t, fn)
 		})
+	}
+}
+
+var evalFN = [...]byte{'<', 'e', 'v', 'a', 'l', '>', 0}
+
+func eval(t *testing.T, fn string) {
+	b, err := os.ReadFile(fn)
+	if err != nil {
+		t.Fatalf("FAIL: err=%v", err)
+	}
+
+	tls := libc.NewTLS()
+
+	defer tls.Close()
+
+	rt := XJS_NewRuntime(tls)
+
+	defer XJS_FreeRuntime(tls, rt)
+
+	ctx := XJS_NewContext(tls, rt)
+
+	defer XJS_FreeContext(tls, ctx)
+
+	cs, err := libc.CString(string(b))
+	if err != nil {
+		t.Fatalf("FAIL: err=%v", err)
+	}
+
+	defer libc.Xfree(tls, cs)
+
+	val := XJS_Eval(tls, ctx, cs, Size_t(len(b)), uintptr(unsafe.Pointer(&evalFN)), MJS_EVAL_TYPE_GLOBAL)
+	tv := tag(val)
+	if tv < 0 {
+		defer XFreeValue(tls, ctx, val)
+	}
+
+	switch tv {
+	case EJS_TAG_UNDEFINED:
+		// ok
+	case EJS_TAG_EXCEPTION:
+		e := XJS_GetException(tls, ctx)
+
+		defer XFreeValue(tls, ctx, e)
+
+		p := XToCString(tls, ctx, e)
+
+		defer XJS_FreeCString(tls, ctx, p)
+
+		t.Fatalf("FAIL: fn=%s err=%s", fn, libc.GoString(p))
+	default:
+		t.Fatalf("FAIL: fn=%s tag=%v", fn, tv)
 	}
 }
 

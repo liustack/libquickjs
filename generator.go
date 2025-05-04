@@ -190,13 +190,13 @@ func main() {
 	}
 	switch target {
 	case "linux/arm":
-		ccExec(append(ccArgs, "-exec", gmake, "LIBS=-lm -latomic", "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+		ccExec(append(ccArgs, "-exec", gmake, "LIBS=-lm -latomic", "-C", quickjs, "libquickjs.a", "run-test262"))
 	default:
 		switch {
 		case w64:
-			ccExec(append(ccArgs, "-exec", gmake, "CONFIG_WIN32=y", "-C", quickjs, "libquickjs.a", "qjs.exe", "run-test262.exe"))
+			ccExec(append(ccArgs, "-exec", gmake, "CONFIG_WIN32=y", "-C", quickjs, "libquickjs.a", "run-test262.exe"))
 		default:
-			ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+			ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "run-test262"))
 		}
 	}
 	copyFile("test262_errors.txt", filepath.Join(quickjs, "test262_errors.txt"))
@@ -215,10 +215,8 @@ func main() {
 	shell(gsed, "-i", `s/\<X__JS_\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/x__JS_\1/g`, result)
 	switch {
 	case w64:
-		copyFile(filepath.Join("internal", "gqjs", result), filepath.Join(quickjs, "qjs.exe.go"))
 		copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.exe.go"))
 	default:
-		copyFile(filepath.Join("internal", "gqjs", result), filepath.Join(quickjs, "qjs.go"))
 		copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.go"))
 	}
 	util.MustCopyDir(true, filepath.Join("testdata", "tests"), filepath.Join(quickjs, "tests"), nil)
