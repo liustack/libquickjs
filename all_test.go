@@ -52,6 +52,9 @@ func Test(t *testing.T) {
 	}
 
 	bin := filepath.Join(tmp, "gqjs")
+	if goos == "windows" {
+		bin += ".exe"
+	}
 	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/gqjs")
 	for _, v := range []string{
 		"test_closure.js",
