@@ -33,6 +33,53 @@ index 2eaa9ee..1eae4e5 100644
      JSRuntime *rt;
      JSContext *ctx;
      struct trace_malloc_data trace_data = { NULL };
+diff --git a/quickjs-libc.c b/quickjs-libc.c
+index 0788d8c..2010127 100644
+--- a/quickjs-libc.c
++++ b/quickjs-libc.c
+@@ -2520,6 +2520,8 @@ static JSValue make_string_error(JSContext *ctx,
+     return make_obj_error(ctx, JS_NewString(ctx, buf), err);
+ }
+ 
++char * getcwd0 (char*, size_t);
++
+ /* return [cwd, errorcode] */
+ static JSValue js_os_getcwd(JSContext *ctx, JSValueConst this_val,
+                             int argc, JSValueConst *argv)
+@@ -2527,7 +2529,11 @@ static JSValue js_os_getcwd(JSContext *ctx, JSValueConst this_val,
+     char buf[PATH_MAX];
+     int err;
+ 
++#ifndef __CCGO__
+     if (!getcwd(buf, sizeof(buf))) {
++#else
++    if (!getcwd0(buf, sizeof(buf))) {
++#endif
+         buf[0] = '\0';
+         err = errno;
+     } else {
+@@ -2550,6 +2556,8 @@ static JSValue js_os_chdir(JSContext *ctx, JSValueConst this_val,
+     return JS_NewInt32(ctx, err);
+ }
+ 
++int mkdir0(const char *pathname, mode_t mode);
++
+ static JSValue js_os_mkdir(JSContext *ctx, JSValueConst this_val,
+                            int argc, JSValueConst *argv)
+ {
+@@ -2566,8 +2574,12 @@ static JSValue js_os_mkdir(JSContext *ctx, JSValueConst this_val,
+     if (!path)
+         return JS_EXCEPTION;
+ #if defined(_WIN32)
++#ifndef __CCGO__
+     (void)mode;
+     ret = js_get_errno(mkdir(path));
++#else
++    ret = js_get_errno(mkdir0(path, mode));
++#endif
+ #else
+     ret = js_get_errno(mkdir(path, mode));
+ #endif
 diff --git a/quickjs.c b/quickjs.c
 index adfd93e..c5ed698 100644
 --- a/quickjs.c
