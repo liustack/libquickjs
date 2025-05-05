@@ -73,6 +73,9 @@ shorttest:
 test:
 	go test -v -timeout 24h -failfast
 
+ktest:
+	go test -v -timeout 24h -failfast -keep
+
 w64: download
 	GO_GENERATE_W64=1 go run -tags=ccgo.dmesg generator.go
 	gofmt -l -s -w .

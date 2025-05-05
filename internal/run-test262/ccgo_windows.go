@@ -4982,6 +4982,7 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1859:9:
 		ret = 0
 		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1860:9:
+		trc("", libc.GoString(filename))
 		if use_nostrict != 0 {
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1861:13:
 			ret = x_run_test_buf(tls, filename, harness, ip, buf, *(*Tsize_t)(unsafe.Pointer(bp + 1248)), error_type, eval_flags, is_negative, is_async, can_block)

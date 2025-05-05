@@ -138,7 +138,8 @@ func Test262(t *testing.T) {
 	}
 
 	const dir = "test262"
-	if _, err := os.Stat(zip262); err != nil {
+	_, err := os.Stat(zip262)
+	if err != nil {
 		t.Fatalf("%s: to download the test262 archive issue '$ make download'", err)
 	}
 
@@ -151,7 +152,7 @@ func Test262(t *testing.T) {
 	}
 
 	shell(t, "unzip", "-q", zip262)
-	if err := os.Rename("test262-"+hash262, dir); err != nil {
+	if err = os.Rename("test262-"+hash262, dir); err != nil {
 		t.Fatal(err)
 	}
 
@@ -159,8 +160,20 @@ func Test262(t *testing.T) {
 	git(t, "-C", dir, "init")
 	git(t, "-C", dir, "apply", "-v", "test262.diff")
 	bin := filepath.Join(dir, "run-test262")
+	if goos == "windows" {
+		bin += ".exe"
+	}
 	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/run-test262")
-	out, _ := shell(nil, bin, "-v", "-t", "-m", "-c", "test262.conf", "-a")
+	var out []byte
+	switch goos {
+	case "windows":
+		out, err = shell(nil, bin, "-v", "-t", "-m", "-c", "test262.conf", "-a")
+	default:
+		out, err = shell(nil, bin, "-v", "-t", "-m", "-c", "test262.conf", "-a")
+	}
+	if err != nil {
+		t.Logf("err=%v", err)
+	}
 	s := strings.TrimSpace(string(out))
 	x := strings.Index(s, "Result: ")
 	if x < 0 {
