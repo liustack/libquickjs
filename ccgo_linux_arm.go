@@ -23683,7 +23683,7 @@ handle_float64:
 	case int32(EOP_sub):
 		dr = *(*float64)(unsafe.Pointer(bp + 32)) - *(*float64)(unsafe.Pointer(bp + 40))
 	case int32(EOP_mul):
-		dr = *(*float64)(unsafe.Pointer(bp + 32)) * *(*float64)(unsafe.Pointer(bp + 40))
+		dr = float64(*(*float64)(unsafe.Pointer(bp + 32)) * *(*float64)(unsafe.Pointer(bp + 40)))
 	case int32(EOP_div):
 		dr = *(*float64)(unsafe.Pointer(bp + 32)) / *(*float64)(unsafe.Pointer(bp + 40))
 	case int32(EOP_mod):
@@ -32785,7 +32785,7 @@ restart:
 		v1004 = *(*float64)(unsafe.Pointer(bp))
 		goto _1005
 	_1005:
-		d3 = v1002 * v1004
+		d3 = float64(v1002 * v1004)
 		goto mul_fp_res
 	mul_fp_res:
 		;
@@ -65666,7 +65666,7 @@ done:
 	return r
 }
 
-func _js_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
+func Xjs_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var i, v19, v22, v3 int32
@@ -66014,7 +66014,7 @@ var _js_array_funcs = [4]TJSCFunctionListEntry{
 			Fcproto Tuint8_t
 			Fcfunc  TJSCFunctionType
 		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_array_of)})),
+			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(Xjs_array_of)})),
 		})),
 	},
 	3: {
@@ -97778,16 +97778,16 @@ func _set_date_fields(tls *libc.TLS, fields uintptr, is_local int32) (r float64)
 	 * that performs the computation in a different order or with instructions
 	 * that produce a different result such as FMA (float multiply and add).
 	 */
-	time = h * libc.Float64FromInt32(3600000)
-	v2 = m * libc.Float64FromInt32(60000)
+	time = float64(h * libc.Float64FromInt32(3600000))
+	v2 = float64(m * libc.Float64FromInt32(60000))
 	temp = v2
 	time += v2
-	v3 = s * libc.Float64FromInt32(1000)
+	v3 = float64(s * libc.Float64FromInt32(1000))
 	temp = v3
 	time += v3
 	time += milli
 	/* emulate 21.4.1.16 MakeDate ( day, time ) */
-	v4 = day * libc.Float64FromInt32(86400000)
+	v4 = float64(day * libc.Float64FromInt32(86400000))
 	temp = v4
 	tv = v4 + time /* prevent generation of FMA */
 	*(*float64)(unsafe.Pointer(bp)) = tv
@@ -111188,6 +111188,74 @@ func XJS_AddIntrinsicWeakRef(tls *libc.TLS, ctx uintptr) {
 
 func Xinit(tls *libc.TLS) {
 	_js_atomics_waiter_list = _js_atomics_waiter_list0
+}
+
+func XDupValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) (r TJSValue) {
+	var p uintptr
+	var v11, v2 TJSValue
+	_, _, _ = p, v11, v2
+	_ = ctx1
+	v11 = v1
+	if libc.Uint32FromInt32(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = uintptr(libc.Int32FromUint64(v11))
+		(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
+	}
+	v2 = v11
+	goto _3
+_3:
+	return v2
+}
+
+func XFreeValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) {
+	var p, v3 uintptr
+	var v11 TJSValue
+	var v2 int32
+	_, _, _, _ = p, v11, v2, v3
+	v11 = v1
+	if libc.Uint32FromInt32(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = uintptr(libc.Int32FromUint64(v11))
+		v3 = p
+		*(*int32)(unsafe.Pointer(v3))--
+		v2 = *(*int32)(unsafe.Pointer(v3))
+		if v2 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v11)
+		}
+	}
+}
+
+func XToCString(tls *libc.TLS, ctx uintptr, val1 TJSValue) (r uintptr) {
+	return XJS_ToCStringLen2(tls, ctx, libc.UintptrFromInt32(0), val1, 0)
+}
+
+func XNewInt32(tls *libc.TLS, ctx1 uintptr, val1 Tint32_t) (r TJSValue) {
+	var v1 TJSValue
+	_ = v1
+	_ = ctx1
+	v1 = libc.Uint64FromInt32(int32(EJS_TAG_INT))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(val1))
+	goto _2
+_2:
+	return v1
+}
+
+func XSetProperty(tls *libc.TLS, ctx1 uintptr, this_obj1 TJSValue, prop1 TJSAtom, val1 TJSValue) (r int32) {
+	var v1 TJSValue
+	var v2 int32
+	_, _ = v1, v2
+	v1 = this_obj1
+	v2 = XJS_SetPropertyInternal(tls, ctx1, v1, prop1, val1, v1, libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
+	goto _3
+_3:
+	return v2
+}
+
+func XGetProperty(tls *libc.TLS, ctx1 uintptr, this_obj1 TJSValue, prop1 TJSAtom) (r TJSValue) {
+	var v1, v2 TJSValue
+	_, _ = v1, v2
+	v1 = this_obj1
+	v2 = XJS_GetPropertyInternal(tls, ctx1, v1, prop1, v1, 0)
+	goto _3
+_3:
+	return v2
 }
 
 type TJSAsyncFunctionState1 = struct {

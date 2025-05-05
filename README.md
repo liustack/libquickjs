@@ -9,23 +9,9 @@
 # libquickjs
 
 Package libquickjs is a CGo-free, ccgo/v4 version of libquickjs.a, a library
-implementing [QuickJS] - an embeddable Javascript engine.
+implementing [C QuickJS] - an embeddable Javascript engine.
 
 It supports the ES2023 specification including modules, asynchronous
 generators, proxies and BigInt. 
 
-# Supported platforms and architectures
-
-These combinations of GOOS and GOARCH are currently supported
-
-    OS      Arch
-    ---------------
-    linux	amd64
-
-# Builders
-
-Builder results available at:
-
-https://modern-c.appspot.com/-/builder/?importpath=modernc.org%2flibquickjs
-
-[QuickJS]: https://bellard.org/quickjs/
+[C QuickJS]: https://bellard.org/quickjs/

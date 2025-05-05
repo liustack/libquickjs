@@ -74651,7 +74651,7 @@ done:
 	return r
 }
 
-func _js_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
+func Xjs_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	bp := tls.Alloc(64)
 	defer tls.Free(64)
 	var i, v19, v22, v3 int32
@@ -75040,7 +75040,7 @@ var _js_array_funcs = [4]TJSCFunctionListEntry{
 			Fcproto Tuint8_t
 			Fcfunc  TJSCFunctionType
 		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_array_of)})),
+			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(Xjs_array_of)})),
 		})),
 	},
 	3: {
@@ -166747,7 +166747,7 @@ func _js_os_getcwd(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, ar
 	var err int32
 	var _ /* buf at bp+0 */ [1024]int8
 	_ = err
-	if !(libc.Xgetcwd(tls, bp, uint64(1024)) != 0) {
+	if !(_getcwd0(tls, bp, uint64(1024)) != 0) {
 		(*(*[1024]int8)(unsafe.Pointer(bp)))[0] = int8('\000')
 		err = *(*int32)(unsafe.Pointer(libc.X__error(tls)))
 	} else {

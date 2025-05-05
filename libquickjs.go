@@ -5,7 +5,7 @@
 //go:generate go run generator.go
 
 // Package libquickjs is a CGo-free, ccgo/v4 version of libquickjs.a, a library
-// implementing [QuickJS] - an embeddable Javascript engine.
+// implementing [C QuickJS] - an embeddable Javascript engine.
 //
 // It supports the ES2023 specification including modules, asynchronous
 // generators, proxies and BigInt.
@@ -20,14 +20,14 @@
 //
 //	OS      Arch
 //	---------------
-//	linux	386
-//	linux	amd64
-//	linux	arm
-//	linux	arm64
-//	linux	loong64
-//	linux	ppc64le
-//	linux	riscv64
-//	linux	s390x
+//	linux   386
+//	linux   amd64
+//	linux   arm
+//	linux   arm64
+//	linux   loong64
+//	linux   ppc64le
+//	linux   riscv64
+//	linux   s390x
 //
 // # Builders
 //
@@ -37,7 +37,7 @@
 //
 //   - The quickjs std package does not implement popen(), exec().
 //
-// [QuickJS]: https://bellard.org/quickjs/
+// [C QuickJS]: https://bellard.org/quickjs/
 // [changelog]: https://bellard.org/quickjs/Changelog
 // [here]: https://modern-c.appspot.com/-/builder/?importpath=modernc.org%2flibquickjs
 package libquickjs // import "modernc.org/libquickjs"
@@ -66,4 +66,8 @@ func _js_check_stack_overflow(tls *libc.TLS, rt uintptr, sz Size_t) int32 {
 	}
 
 	return 1
+}
+
+func _getcwd0(tls *libc.TLS, p uintptr, n Size_t) uintptr {
+	return libc.Xgetcwd(tls, p, n)
 }

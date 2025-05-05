@@ -25,7 +25,7 @@ const (
 	qjsDiff       = "quickjs.diff"
 	qjsUnzip      = "quickjs-" + qjsCommit
 	qjsZip        = qjsCommit + ".zip"
-	test262Commit = "cba890eef02121251b7f11eb890b0202edf56d6f" // 2025-04-24
+	test262Commit = "56e77d6325067a545ea7e8ff5be5d9284334e33c" // 2025-03-25
 	test262Diff   = "test262.diff"
 	test262Dir    = "test262"
 	test262Unzip  = "test262-" + test262Commit
@@ -57,12 +57,21 @@ var (
 	}
 	dev    = os.Getenv("GO_GENERATE_DEV") != ""
 	gmake  = "make"
-	goarch = runtime.GOARCH
-	goos   = runtime.GOOS
+	goarch = env("TARGET_GOARCH", env("GOARCH", runtime.GOARCH))
+	goos   = env("TARGET_GOOS", env("GOOS", runtime.GOOS))
 	gsed   = "sed"
 	j      = strconv.Itoa(runtime.GOMAXPROCS(-1))
 	target = fmt.Sprintf("%s/%s", goos, goarch)
+	w64    = os.Getenv("GO_GENERATE_W64") != ""
 )
+
+func env(name, deflt string) (r string) {
+	r = deflt
+	if s := os.Getenv(name); s != "" {
+		r = s
+	}
+	return r
+}
 
 func fail(rc int, msg string, args ...any) {
 	fmt.Fprintln(os.Stderr, strings.TrimSpace(fmt.Sprintf("FAIL: "+msg, args...)))
@@ -86,6 +95,33 @@ func main() {
 		fail(1, "%v", err)
 	}
 
+	switch {
+	case w64:
+		if target != "linux/amd64" {
+			fail(1, "cross compiling for windows is supported only on linux/amd64")
+		}
+
+		goos = "windows"
+		goarch = "amd64"
+		os.Setenv("TARGET_GOOS", goos)
+		os.Setenv("TARGET_GOARCH", goarch)
+		xgcc := "/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-gcc"
+		os.Setenv("CC", xgcc)
+		os.Setenv("CCGO_CC", xgcc)
+		os.Setenv("CCGO_GCC", xgcc)
+		os.Setenv("CCGO_CLANG", xgcc)
+		os.Setenv("CCGO_CPP", xgcc)
+		ccArgs = append(ccArgs,
+			"--cpp", xgcc,
+			"--goarch", goarch,
+			"--goos", goos,
+			"-D__builtin_bit_cast(T, V)=__builtin_bit_cast()",
+			"-D_FILE_OFFSET_BITS",
+			"-D_FILE_OFFSET_BITS=64",
+			"-build-lines", "//go:build windows && (amd64 || arm64)\n",
+			"-map", "gcc=/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-gcc,ar=/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-ar",
+		)
+	}
 	if s := cc.LongDouble64Flag(goos, goarch); s != "" {
 		ccArgs = append(ccArgs, s)
 	}
@@ -121,15 +157,26 @@ func main() {
 	copyFile(filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff))
 	git("-C", quickjs, "init")
 	git("-C", quickjs, "apply", "-v", qjsDiff)
+	if w64 {
+		shell(gsed, "-i", `s/__SIZEOF_INT128__/__nothing__/`, filepath.Join(quickjs, "quickjs.h"))
+	}
 	switch target {
 	case "linux/arm":
-		ccExec(append(ccArgs, "-exec", gmake, "LIBS=-lm -latomic", "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+		ccExec(append(ccArgs, "-exec", gmake, "LIBS=-lm -latomic", "-C", quickjs, "libquickjs.a", "run-test262"))
 	default:
-		ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "qjs", "run-test262"))
+		switch {
+		case w64:
+			ccExec(append(ccArgs, "-exec", gmake, "CONFIG_WIN32=y", "-C", quickjs, "libquickjs.a", "run-test262.exe"))
+		default:
+			ccExec(append(ccArgs, "-exec", gmake, "-C", quickjs, "libquickjs.a", "run-test262"))
+		}
 	}
-	util.Shell(nil, gmake, "-C", quickjs, "test2-update")
-	copyFile(filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"), filepath.Join(quickjs, "test262_errors.txt"))
+	copyFile("test262_errors.txt", filepath.Join(quickjs, "test262_errors.txt"))
 	result := fmt.Sprintf("ccgo_%s_%s.go", goos, goarch)
+	switch {
+	case w64:
+		result = "ccgo_windows.go"
+	}
 	ccMain(append(ccArgs,
 		"--package-name", "libquickjs",
 		"-o", result,
@@ -138,8 +185,12 @@ func main() {
 	shell(gsed, "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
 	shell(gsed, "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
 	shell(gsed, "-i", `s/\<X__JS_\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/x__JS_\1/g`, result)
-	copyFile(filepath.Join("gqjs", result), filepath.Join(quickjs, "qjs.go"))
-	copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.go"))
+	switch {
+	case w64:
+		copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.exe.go"))
+	default:
+		copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.go"))
+	}
 	util.MustCopyDir(true, filepath.Join("testdata", "tests"), filepath.Join(quickjs, "tests"), nil)
 }
 

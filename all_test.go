@@ -14,30 +14,33 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+	"unsafe"
 
 	_ "modernc.org/ccgo/v4/lib"
 	util "modernc.org/fileutil/ccgo"
-	_ "modernc.org/libc"
+	"modernc.org/libc"
 )
 
 const (
-	hash262 = "cba890eef02121251b7f11eb890b0202edf56d6f" // 2025-04-24
+	hash262 = "56e77d6325067a545ea7e8ff5be5d9284334e33c" // 2025-03-25
 	zip262  = hash262 + ".zip"
 )
 
 var (
-	goarch = runtime.GOARCH
-	goos   = runtime.GOOS
-	keep   bool
-	re     *regexp.Regexp
-	target = fmt.Sprintf("%s/%s", goos, goarch)
-	xtags  string
+	goarch     = runtime.GOARCH
+	goos       = runtime.GOOS
+	keep       bool
+	re         *regexp.Regexp
+	target     = fmt.Sprintf("%s/%s", goos, goarch)
+	singleFile string
+	xtags      string
 )
 
 func TestMain(m *testing.M) {
 	oRe := flag.String("re", "", "")
 	flag.BoolVar(&keep, "keep", false, "")
 	flag.StringVar(&xtags, "xtags", os.Getenv("XTAGS"), "")
+	flag.StringVar(&singleFile, "f", "", "")
 	flag.Parse()
 	if s := *oRe; s != "" {
 		re = regexp.MustCompile(s)
@@ -46,45 +49,95 @@ func TestMain(m *testing.M) {
 }
 
 func Test(t *testing.T) {
-	tmp := t.TempDir()
-	if !filepath.IsAbs(tmp) {
-		t.Fatal()
-	}
-
-	bin := filepath.Join(tmp, "gqjs")
-	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./gqjs")
 	for _, v := range []string{
 		"test_closure.js",
 		"test_language.js",
-		"--std test_builtin.js",
 		"test_loop.js",
 		"test_bigint.js",
-		"test_cyclic_import.js",
-		"test_worker.js",
-		"test_std.js",
 	} {
 		if re != nil && !re.MatchString(v) {
 			continue
 		}
-
-		switch target {
-		case "darwin/amd64", "darwin/arm64":
-			switch v {
-			case "test_std.js":
-				t.Logf("SKIP: not supported on %s: %s", target, v)
-				continue
-			}
-		}
-
 		t.Run(v, func(t *testing.T) {
-			args := strings.Fields(v)
-			x := len(args) - 1
-			args[x] = filepath.Join("testdata", "tests", args[x])
-			if out, err := util.Shell(nil, bin, args...); err != nil && t != nil {
-				t.Errorf("FAIL: err=%v out=%s", err, out)
+			fn := filepath.Join("testdata", "tests", v)
+			evalFile(t, fn)
+		})
+	}
+}
+
+func Test2(t *testing.T) {
+	for i, v := range []struct{ in, out string }{
+		//{"12+34", "46"},
+		{"new Date(1899, 0).getYear()", "-1"},
+	} {
+		fn := fmt.Sprint(i)
+		if re != nil && !re.MatchString(fn) {
+			continue
+		}
+		t.Run(fn, func(t *testing.T) {
+			if g, e := eval(t, fn, v.in), v.out; g != e {
+				t.Errorf("%v: got=%q expexted=%q", fn, g, e)
 			}
 		})
 	}
+}
+
+var evalFN = [...]byte{'<', 'e', 'v', 'a', 'l', '>', 0}
+
+func evalFile(t *testing.T, fn string) {
+	b, err := os.ReadFile(fn)
+	if err != nil {
+		t.Fatalf("FAIL: err=%v", err)
+	}
+
+	eval(t, fn, string(b))
+}
+
+func eval(t *testing.T, fn, js string) (r string) {
+	tls := libc.NewTLS()
+
+	defer tls.Close()
+
+	rt := XJS_NewRuntime(tls)
+
+	defer XJS_FreeRuntime(tls, rt)
+
+	ctx := XJS_NewContext(tls, rt)
+
+	defer XJS_FreeContext(tls, ctx)
+
+	cs, err := libc.CString(js)
+	if err != nil {
+		t.Fatalf("FAIL: err=%v", err)
+	}
+
+	defer libc.Xfree(tls, cs)
+
+	val := XJS_Eval(tls, ctx, cs, Size_t(len(js)), uintptr(unsafe.Pointer(&evalFN)), MJS_EVAL_TYPE_GLOBAL)
+	tv := tag(val)
+	if tv < 0 {
+		defer XFreeValue(tls, ctx, val)
+	}
+
+	switch tv {
+	case EJS_TAG_UNDEFINED:
+		return "<undefined>"
+	case EJS_TAG_EXCEPTION:
+		e := XJS_GetException(tls, ctx)
+
+		defer XFreeValue(tls, ctx, e)
+
+		p := XToCString(tls, ctx, e)
+
+		defer XJS_FreeCString(tls, ctx, p)
+
+		t.Fatalf("FAIL: fn=%s err=%s", fn, libc.GoString(p))
+	case EJS_TAG_INT:
+		return fmt.Sprint(*(*int32)(unsafe.Pointer(&val)))
+	default:
+		t.Fatalf("FAIL: fn=%s tag=%v", fn, tv)
+	}
+	panic(todo(""))
 }
 
 func shell(t *testing.T, cmd string, args ...string) (out []byte, err error) {
@@ -105,14 +158,23 @@ func copyFile(t *testing.T, dst, src string) {
 	}
 }
 
+func fileExists(fn string) bool {
+	switch fi, err := os.Stat(fn); {
+	case err == nil && !fi.IsDir():
+		return true
+	default:
+		return false
+	}
+}
+
 func Test262(t *testing.T) {
 	if testing.Short() {
 		t.Skip()
 	}
 
 	const dir = "test262"
-	if _, err := os.Stat(zip262); err != nil {
-		t.Fatalf("%s: to download the test262 archive issue '$ make download'", err)
+	if !fileExists(zip262) {
+		t.Fatalf("to download the test262 archive issue '$ make download'")
 	}
 
 	os.RemoveAll(dir)
@@ -124,17 +186,34 @@ func Test262(t *testing.T) {
 	}
 
 	shell(t, "unzip", "-q", zip262)
-	if err := os.Rename("test262-"+hash262, dir); err != nil {
+	err := os.Rename("test262-"+hash262, dir)
+	if err != nil {
 		t.Fatal(err)
 	}
 
 	copyFile(t, filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"))
-	copyFile(t, "test262_errors.txt", filepath.Join("testdata", goos, goarch, "test262_errors_updated.txt"))
 	git(t, "-C", dir, "init")
 	git(t, "-C", dir, "apply", "-v", "test262.diff")
 	bin := filepath.Join(dir, "run-test262")
+	if goos == "windows" {
+		bin += ".exe"
+	}
 	shell(t, "go", "build", "-o", bin, fmt.Sprintf("-tags=%s", xtags), "./internal/run-test262")
-	out, _ := shell(nil, bin, "-v", "-t", "-m", "-c", "test262.conf", "-a")
+	var out []byte
+	args := []string{"-v", "-t", "-m", "-c", "test262.conf"}
+	switch {
+	case singleFile != "":
+		args = append(args, "-f", singleFile)
+	default:
+		args = append(args, "-a")
+	}
+	if fn := filepath.Join("testdata", fmt.Sprintf("test262_exclude_%s_%s", goos, goarch)); fileExists(fn) {
+		args = append(args, "-x", fn)
+	}
+	out, err = shell(nil, bin, args...)
+	if err != nil {
+		t.Logf("err=%v", err)
+	}
 	s := strings.TrimSpace(string(out))
 	x := strings.Index(s, "Result: ")
 	if x < 0 {

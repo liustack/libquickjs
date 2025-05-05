@@ -68348,7 +68348,7 @@ done:
 	return r
 }
 
-func _js_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
+func Xjs_array_of(tls *libc.TLS, ctx6 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	bp := tls.Alloc(64)
 	defer tls.Free(64)
 	var i, v19, v22, v3 int32
@@ -68737,7 +68737,7 @@ var _js_array_funcs = [4]TJSCFunctionListEntry{
 			Fcproto Tuint8_t
 			Fcfunc  TJSCFunctionType
 		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_array_of)})),
+			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(Xjs_array_of)})),
 		})),
 	},
 	3: {
@@ -116489,6 +116489,85 @@ func Xinit(tls *libc.TLS) {
 	_js_atomics_waiter_list = _js_atomics_waiter_list0
 }
 
+func XDupValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) (r TJSValue) {
+	bp := tls.Alloc(16)
+	defer tls.Free(16)
+	var p uintptr
+	var v11, v2 TJSValue
+	_, _, _ = p, v11, v2
+	_ = ctx1
+	v11 = v1
+	*(*TJSValue)(unsafe.Pointer(bp)) = v11
+	if libc.Uint32FromInt32(int32(v11.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
+	}
+	v2 = v11
+	goto _3
+_3:
+	return v2
+}
+
+func XFreeValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) {
+	bp := tls.Alloc(16)
+	defer tls.Free(16)
+	var p, v3 uintptr
+	var v11 TJSValue
+	var v2 int32
+	_, _, _, _ = p, v11, v2, v3
+	v11 = v1
+	*(*TJSValue)(unsafe.Pointer(bp)) = v11
+	if libc.Uint32FromInt32(int32(v11.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v3 = p
+		*(*int32)(unsafe.Pointer(v3))--
+		v2 = *(*int32)(unsafe.Pointer(v3))
+		if v2 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v11)
+		}
+	}
+}
+
+func XToCString(tls *libc.TLS, ctx uintptr, val1 TJSValue) (r uintptr) {
+	return XJS_ToCStringLen2(tls, ctx, libc.UintptrFromInt32(0), val1, 0)
+}
+
+func XNewInt32(tls *libc.TLS, ctx1 uintptr, val1 Tint32_t) (r TJSValue) {
+	var v1 TJSValue
+	_ = v1
+	_ = ctx1
+	v1 = TJSValue{
+		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+			f Tint32_t
+			_ [4]byte
+		}{f: val1})),
+	}
+	goto _2
+_2:
+	return v1
+}
+
+func XSetProperty(tls *libc.TLS, ctx1 uintptr, this_obj1 TJSValue, prop1 TJSAtom, val1 TJSValue) (r int32) {
+	var v1 TJSValue
+	var v2 int32
+	_, _ = v1, v2
+	v1 = this_obj1
+	v2 = XJS_SetPropertyInternal(tls, ctx1, v1, prop1, val1, v1, libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
+	goto _3
+_3:
+	return v2
+}
+
+func XGetProperty(tls *libc.TLS, ctx1 uintptr, this_obj1 TJSValue, prop1 TJSAtom) (r TJSValue) {
+	var v1, v2 TJSValue
+	_, _ = v1, v2
+	v1 = this_obj1
+	v2 = XJS_GetPropertyInternal(tls, ctx1, v1, prop1, v1, 0)
+	goto _3
+_3:
+	return v2
+}
+
 type TJSAsyncFunctionState1 = struct {
 	Fheader          TJSGCObjectHeader
 	Fthis_val        TJSValue
@@ -159984,7 +160063,7 @@ func _js_os_getcwd(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, ar
 	var err int32
 	var _ /* buf at bp+0 */ [4096]uint8
 	_ = err
-	if !(libc.Xgetcwd(tls, bp, uint64(4096)) != 0) {
+	if !(_getcwd0(tls, bp, uint64(4096)) != 0) {
 		(*(*[4096]uint8)(unsafe.Pointer(bp)))[0] = uint8('\000')
 		err = *(*int32)(unsafe.Pointer(libc.X__errno_location(tls)))
 	} else {
