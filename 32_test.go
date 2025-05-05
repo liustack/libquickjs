@@ -12,3 +12,7 @@ func tag(v TJSValue) (r int32) {
 	}
 	return r
 }
+
+func u32FromInt32(n int32) uint32 {
+	return uint32(n)
+}
