@@ -97,15 +97,11 @@ func main() {
 
 	switch {
 	case w64:
-		if target != "linux/amd64" {
-			fail(1, "cross compiling for windows is supported only on linux/amd64")
-		}
-
 		goos = "windows"
 		goarch = "amd64"
 		os.Setenv("TARGET_GOOS", goos)
 		os.Setenv("TARGET_GOARCH", goarch)
-		xgcc := "/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-gcc"
+		xgcc := "/home/jnml/bin/llvm-mingw/bin/x86_64-w64-mingw32-gcc"
 		os.Setenv("CC", xgcc)
 		os.Setenv("CCGO_CC", xgcc)
 		os.Setenv("CCGO_GCC", xgcc)
@@ -119,7 +115,7 @@ func main() {
 			"-D_FILE_OFFSET_BITS",
 			"-D_FILE_OFFSET_BITS=64",
 			"-build-lines", "//go:build windows && (amd64 || arm64)\n",
-			"-map", "gcc=/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-gcc,ar=/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-ar",
+			"-map", "gcc=/home/jnml/bin/llvm-mingw/bin/x86_64-w64-mingw32-gcc,ar=/home/jnml/bin/llvm-mingw/bin/x86_64-w64-mingw32-ar",
 		)
 	}
 	if s := cc.LongDouble64Flag(goos, goarch); s != "" {
