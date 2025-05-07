@@ -67,16 +67,39 @@ func Test(t *testing.T) {
 
 func Test2(t *testing.T) {
 	for i, v := range []struct{ in, out string }{
-		//{"12+34", "46"},
+		{"12+34", "46"},
 		{"new Date(1899, 0).getYear()", "-1"},
 	} {
 		fn := fmt.Sprint(i)
 		if re != nil && !re.MatchString(fn) {
 			continue
 		}
+
 		t.Run(fn, func(t *testing.T) {
-			if g, e := eval(t, fn, v.in), v.out; g != e {
+			switch g, e := eval(t, fn, v.in), v.out; {
+			case g != e:
 				t.Errorf("%v: got=%q expexted=%q", fn, g, e)
+			default:
+				t.Logf("%3d: %q\n%[2]s", i, g)
+			}
+		})
+	}
+}
+
+func Test3(t *testing.T) {
+	for i, v := range []struct{ fn, out string }{
+		{"testdata/test3/native_function_matcher.js", "OK\n"},
+	} {
+		if re != nil && !re.MatchString(v.fn) {
+			continue
+		}
+
+		t.Run(v.fn, func(t *testing.T) {
+			switch g, e := evalFile(t, v.fn), v.out; {
+			case g != e:
+				t.Errorf("%3d: got=%s\nexpexted=%s", i, g, e)
+			default:
+				t.Logf("%3d: %s", i, g)
 			}
 		})
 	}
@@ -84,13 +107,13 @@ func Test2(t *testing.T) {
 
 var evalFN = [...]byte{'<', 'e', 'v', 'a', 'l', '>', 0}
 
-func evalFile(t *testing.T, fn string) {
-	b, err := os.ReadFile(fn)
+func evalFile(t *testing.T, fn string) (r string) {
+	b, err := os.ReadFile(filepath.FromSlash(fn))
 	if err != nil {
 		t.Fatalf("FAIL: err=%v", err)
 	}
 
-	eval(t, fn, string(b))
+	return eval(t, fn, string(b))
 }
 
 func eval(t *testing.T, fn, js string) (r string) {
@@ -134,6 +157,15 @@ func eval(t *testing.T, fn, js string) (r string) {
 		t.Fatalf("FAIL: fn=%s err=%s", fn, libc.GoString(p))
 	case EJS_TAG_INT:
 		return fmt.Sprint(*(*int32)(unsafe.Pointer(&val)))
+	case
+		EJS_TAG_STRING_ROPE, // -6,
+		EJS_TAG_STRING:      // -7,
+
+		p := XToCString(tls, ctx, val)
+
+		defer XJS_FreeCString(tls, ctx, p)
+
+		return libc.GoString(p)
 	default:
 		t.Fatalf("FAIL: fn=%s tag=%v", fn, tv)
 	}
