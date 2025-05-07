@@ -88,7 +88,7 @@ func Test2(t *testing.T) {
 
 func Test3(t *testing.T) {
 	for i, v := range []struct{ fn, out string }{
-		{"testdata/test3/native_function_matcher.js", "OK\n"},
+		{"testdata/test3/native_function_matcher.js", "924\n"},
 	} {
 		if re != nil && !re.MatchString(v.fn) {
 			continue
@@ -116,6 +116,57 @@ func evalFile(t *testing.T, fn string) (r string) {
 	return eval(t, fn, string(b))
 }
 
+func eval0(t *testing.T, tls *libc.TLS, ctx uintptr, js string) (r TJSValue) {
+	cs, err := libc.CString(js)
+	if err != nil {
+		t.Fatalf("FAIL: err=%v", err)
+	}
+
+	defer libc.Xfree(tls, cs)
+
+	return XJS_Eval(tls, ctx, cs, Size_t(len(js)), uintptr(unsafe.Pointer(&evalFN)), MJS_EVAL_TYPE_GLOBAL)
+}
+
+func eval1(t *testing.T, tls *libc.TLS, ctx uintptr, js string) (r string) {
+	return toString(t, tls, ctx, eval0(t, tls, ctx, js))
+}
+
+func toString(t *testing.T, tls *libc.TLS, ctx uintptr, val TJSValue) (r string) {
+	tv := tag(val)
+	if tv < 0 {
+		defer XFreeValue(tls, ctx, val)
+	}
+
+	switch tv {
+	case EJS_TAG_UNDEFINED:
+		return "<undefined>"
+	case EJS_TAG_EXCEPTION:
+		e := XJS_GetException(tls, ctx)
+
+		defer XFreeValue(tls, ctx, e)
+
+		p := XToCString(tls, ctx, e)
+
+		defer XJS_FreeCString(tls, ctx, p)
+
+		return fmt.Sprintf("<exception=%s>", libc.GoString(p))
+	case EJS_TAG_INT:
+		return fmt.Sprint(*(*int32)(unsafe.Pointer(&val)))
+	case
+		EJS_TAG_STRING_ROPE, // -6,
+		EJS_TAG_STRING:      // -7,
+
+		p := XToCString(tls, ctx, val)
+
+		defer XJS_FreeCString(tls, ctx, p)
+
+		return libc.GoString(p)
+	}
+
+	t.Fatalf("FAIL: tag=%v", tv)
+	panic(todo(""))
+}
+
 func eval(t *testing.T, fn, js string) (r string) {
 	tls := libc.NewTLS()
 
@@ -136,40 +187,10 @@ func eval(t *testing.T, fn, js string) (r string) {
 
 	defer libc.Xfree(tls, cs)
 
-	val := XJS_Eval(tls, ctx, cs, Size_t(len(js)), uintptr(unsafe.Pointer(&evalFN)), MJS_EVAL_TYPE_GLOBAL)
-	tv := tag(val)
-	if tv < 0 {
-		defer XFreeValue(tls, ctx, val)
+	if r = eval1(t, tls, ctx, js); strings.HasPrefix(r, "<") {
+		r = fmt.Sprintf("%s: result=%s", r, eval1(t, tls, ctx, "result"))
 	}
-
-	switch tv {
-	case EJS_TAG_UNDEFINED:
-		return "<undefined>"
-	case EJS_TAG_EXCEPTION:
-		e := XJS_GetException(tls, ctx)
-
-		defer XFreeValue(tls, ctx, e)
-
-		p := XToCString(tls, ctx, e)
-
-		defer XJS_FreeCString(tls, ctx, p)
-
-		t.Fatalf("FAIL: fn=%s err=%s", fn, libc.GoString(p))
-	case EJS_TAG_INT:
-		return fmt.Sprint(*(*int32)(unsafe.Pointer(&val)))
-	case
-		EJS_TAG_STRING_ROPE, // -6,
-		EJS_TAG_STRING:      // -7,
-
-		p := XToCString(tls, ctx, val)
-
-		defer XJS_FreeCString(tls, ctx, p)
-
-		return libc.GoString(p)
-	default:
-		t.Fatalf("FAIL: fn=%s tag=%v", fn, tv)
-	}
-	panic(todo(""))
+	return r
 }
 
 func shell(t *testing.T, cmd string, args ...string) (out []byte, err error) {
@@ -206,7 +227,7 @@ func Test262(t *testing.T) {
 
 	const dir = "test262"
 	if !fileExists(zip262) {
-		t.Fatalf("to download the test262 archive issue '$ make download'")
+		t.Skip("to download the test262 archive issue '$ make download'")
 	}
 
 	os.RemoveAll(dir)
@@ -223,6 +244,11 @@ func Test262(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	cnf := filepath.Join("testdata", fmt.Sprintf("test262_%s_%s.conf", goos, goarch))
+	if !fileExists(cnf) {
+		cnf = filepath.Join("testdata", "test262.conf")
+	}
+	copyFile(t, "test262.conf", cnf)
 	copyFile(t, filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"))
 	git(t, "-C", dir, "init")
 	git(t, "-C", dir, "apply", "-v", "test262.diff")

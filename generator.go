@@ -149,7 +149,7 @@ func main() {
 	git("-C", test262, "init")
 	git("-C", test262, "apply", "-v", "test262.patch")
 	copyFile("LICENSE-LIBQUICKJS", filepath.Join(quickjs, "LICENSE"))
-	copyFile("test262.conf", filepath.Join(quickjs, "test262.conf"))
+	copyFile(filepath.Join("testdata", "test262.conf"), filepath.Join(quickjs, "test262.conf"))
 	copyFile(filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff))
 	git("-C", quickjs, "init")
 	git("-C", quickjs, "apply", "-v", qjsDiff)
