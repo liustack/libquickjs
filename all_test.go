@@ -27,12 +27,13 @@ const (
 )
 
 var (
+	builder    = os.Getenv("MODERNC_BUILDER") != ""
 	goarch     = runtime.GOARCH
 	goos       = runtime.GOOS
 	keep       bool
 	re         *regexp.Regexp
-	target     = fmt.Sprintf("%s/%s", goos, goarch)
 	singleFile string
+	target     = fmt.Sprintf("%s/%s", goos, goarch)
 	xtags      string
 )
 
@@ -227,6 +228,10 @@ func Test262(t *testing.T) {
 
 	const dir = "test262"
 	if !fileExists(zip262) {
+		if builder {
+			t.Fatal("missing test262 archive")
+		}
+
 		t.Skip("to download the test262 archive issue '$ make download'")
 	}
 
