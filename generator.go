@@ -132,6 +132,9 @@ func main() {
 	switch target {
 	case "darwin/arm64", "darwin/amd64":
 		gsed = "gsed"
+	case "freebsd/arm64", "freebsd/amd64":
+		gmake = "gmake"
+		gsed = "gsed"
 	}
 
 	removeAll(tmp)
@@ -157,6 +160,16 @@ func main() {
 		shell(gsed, "-i", `s/__SIZEOF_INT128__/__nothing__/`, filepath.Join(quickjs, "quickjs.h"))
 	}
 	switch target {
+	case "freebsd/amd64":
+		ccExec(append(ccArgs,
+			"-std=c99",
+			"-D__sync_fetch_and_add(p, v, ...)=__atomic_fetch_add((p), (v), 0)",
+			"-D__sync_fetch_and_and(p, v, ...)=__atomic_fetch_and((p), (v), 0)",
+			"-D__sync_fetch_and_or(p, v, ...)=__atomic_fetch_or((p), (v), 0)",
+			"-D__sync_fetch_and_sub(p, v, ...)=__atomic_fetch_sub((p), (v), 0)",
+			"-D__sync_fetch_and_xor(p, v, ...)=__atomic_fetch_xor((p), (v), 0)",
+			"-D__sync_lock_test_and_set(p, v, ...)=__c11_atomic_exchange((p), (v), 0)",
+			"-exec", gmake, "-C", quickjs, "libquickjs.a", "run-test262"))
 	case "linux/arm":
 		ccExec(append(ccArgs, "-exec", gmake, "LIBS=-lm -latomic", "-C", quickjs, "libquickjs.a", "run-test262"))
 	default:

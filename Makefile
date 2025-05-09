@@ -74,7 +74,7 @@ test:
 	go test -vet=off -v -timeout 24h -failfast
 
 test2:
-	go test -vet=off -v -timeout 24h -failfast -run Test2$
+	go test -vet=off -v -timeout 24h -failfast -run Test2$$
 
 test3:
 	go test -vet=off -v -timeout 24h -failfast -run Test3$$

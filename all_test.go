@@ -67,10 +67,57 @@ func Test(t *testing.T) {
 }
 
 func Test2(t *testing.T) {
-	for i, v := range []struct{ in, out string }{
+	tests := []struct{ in, out string }{
 		{"12+34", "46"},
 		{"new Date(1899, 0).getYear()", "-1"},
-	} {
+		{"new Date(1899, 11, 31, 23, 59, 59, 999).getYear()", "-1"},
+		{"new Date(1900, 0).getYear()", "0"},
+		{"new Date(1900, 11, 31, 23, 59, 59, 999).getYear()", "0"},
+		{"new Date(1970, 0).getYear()", "70"},
+		{"new Date(1970, 11, 31, 23, 59, 59, 999).getYear()", "70"},
+		{"new Date(2000, 0).getYear()", "100"},
+		{"new Date(2000, 11, 31, 23, 59, 59, 999).getYear()", "100"},
+	}
+	for i, v := range tests {
+		fn := fmt.Sprint(i)
+		if re != nil && !re.MatchString(fn) {
+			continue
+		}
+
+		t.Run(fn, func(t *testing.T) {
+			switch g, e := eval(t, fn, v.in), v.out; {
+			case g != e:
+				t.Errorf("%v: got=%q expexted=%q", fn, g, e)
+			default:
+				t.Logf("%3d: %q\n%[2]s", i, g)
+			}
+		})
+	}
+	tls := libc.NewTLS()
+
+	defer tls.Close()
+
+	tz, err := libc.CString("TZ")
+	if err != nil {
+		t.Fatalf("FAIL: err=%v", err)
+	}
+
+	defer libc.Xfree(tls, tz)
+
+	const la = "America/Los_Angeles"
+	loc, err := libc.CString(la)
+	if err != nil {
+		t.Fatalf("FAIL: err=%v", err)
+	}
+
+	defer libc.Xfree(tls, loc)
+
+	libc.Xsetenv(tls, tz, loc, 1)
+	if g, e := libc.GoString(libc.Xgetenv(tls, tz)), la; g != e {
+		t.Fatalf("%q", g)
+	}
+
+	for i, v := range tests {
 		fn := fmt.Sprint(i)
 		if re != nil && !re.MatchString(fn) {
 			continue
