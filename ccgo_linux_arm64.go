@@ -160159,7 +160159,7 @@ func _js_os_getcwd(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, ar
 	var err int32
 	var _ /* buf at bp+0 */ [4096]uint8
 	_ = err
-	if !(libc.Xgetcwd(tls, bp, uint64(4096)) != 0) {
+	if !(_getcwd0(tls, bp, uint64(4096)) != 0) {
 		(*(*[4096]uint8)(unsafe.Pointer(bp)))[0] = uint8('\000')
 		err = *(*int32)(unsafe.Pointer(libc.X__errno_location(tls)))
 	} else {

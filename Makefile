@@ -3,7 +3,7 @@
 # license that can be found in the LICENSE file.
 
 .PHONY:	all clean edit editor generate download dev test nuke shorttest w64 \
-	dev-w64 grep
+	dev-w64 grep ktest test2 test3
 
 # release 2025-04-26
 QJS_ZIP = 19abf1888db5884a5758036ff6e7fa2b340acedc.zip
@@ -51,7 +51,7 @@ edit:
 
 editor:
 	@gofmt -l -s -w $(shell find -name \*.go | grep -v o.go)
-	go test -c -o /dev/null
+	go test -vet=off -c -o /dev/null
 	go build -o /dev/null generator*.go
 
 generate: download
@@ -68,13 +68,19 @@ nuke: clean
 	rm -rf ./tmp/ ./test262/
 
 shorttest:
-	go test -v -timeout 24h -short
+	go test -vet=off -v -timeout 24h -short
 
 test:
-	go test -v -timeout 24h -failfast
+	go test -vet=off -v -timeout 24h -failfast
+
+test2:
+	go test -vet=off -v -timeout 24h -failfast -run Test2$$
+
+test3:
+	go test -vet=off -v -timeout 24h -failfast -run Test3$$
 
 ktest:
-	go test -v -timeout 24h -failfast -keep
+	go test -vet=off -v -timeout 24h -failfast -keep
 
 w64: download
 	GO_GENERATE_W64=1 go run -tags=ccgo.dmesg generator.go

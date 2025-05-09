@@ -97,15 +97,11 @@ func main() {
 
 	switch {
 	case w64:
-		if target != "linux/amd64" {
-			fail(1, "cross compiling for windows is supported only on linux/amd64")
-		}
-
 		goos = "windows"
 		goarch = "amd64"
 		os.Setenv("TARGET_GOOS", goos)
 		os.Setenv("TARGET_GOARCH", goarch)
-		xgcc := "/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-gcc"
+		xgcc := "/home/jnml/bin/llvm-mingw/bin/x86_64-w64-mingw32-gcc"
 		os.Setenv("CC", xgcc)
 		os.Setenv("CCGO_CC", xgcc)
 		os.Setenv("CCGO_GCC", xgcc)
@@ -119,7 +115,7 @@ func main() {
 			"-D_FILE_OFFSET_BITS",
 			"-D_FILE_OFFSET_BITS=64",
 			"-build-lines", "//go:build windows && (amd64 || arm64)\n",
-			"-map", "gcc=/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-gcc,ar=/home/jnml/llvm-mingw/bin/x86_64-w64-mingw32-ar",
+			"-map", "gcc=/home/jnml/bin/llvm-mingw/bin/x86_64-w64-mingw32-gcc,ar=/home/jnml/bin/llvm-mingw/bin/x86_64-w64-mingw32-ar",
 		)
 	}
 	if s := cc.LongDouble64Flag(goos, goarch); s != "" {
@@ -135,6 +131,9 @@ func main() {
 
 	switch target {
 	case "darwin/arm64", "darwin/amd64":
+		gsed = "gsed"
+	case "freebsd/arm64", "freebsd/amd64":
+		gmake = "gmake"
 		gsed = "gsed"
 	}
 
@@ -153,7 +152,7 @@ func main() {
 	git("-C", test262, "init")
 	git("-C", test262, "apply", "-v", "test262.patch")
 	copyFile("LICENSE-LIBQUICKJS", filepath.Join(quickjs, "LICENSE"))
-	copyFile("test262.conf", filepath.Join(quickjs, "test262.conf"))
+	copyFile(filepath.Join("testdata", "test262.conf"), filepath.Join(quickjs, "test262.conf"))
 	copyFile(filepath.Join(quickjs, qjsDiff), filepath.Join(wd, "internal", "patch", qjsDiff))
 	git("-C", quickjs, "init")
 	git("-C", quickjs, "apply", "-v", qjsDiff)
@@ -161,6 +160,16 @@ func main() {
 		shell(gsed, "-i", `s/__SIZEOF_INT128__/__nothing__/`, filepath.Join(quickjs, "quickjs.h"))
 	}
 	switch target {
+	case "freebsd/amd64":
+		ccExec(append(ccArgs,
+			"-std=c99",
+			"-D__sync_fetch_and_add(p, v, ...)=__atomic_fetch_add((p), (v), 0)",
+			"-D__sync_fetch_and_and(p, v, ...)=__atomic_fetch_and((p), (v), 0)",
+			"-D__sync_fetch_and_or(p, v, ...)=__atomic_fetch_or((p), (v), 0)",
+			"-D__sync_fetch_and_sub(p, v, ...)=__atomic_fetch_sub((p), (v), 0)",
+			"-D__sync_fetch_and_xor(p, v, ...)=__atomic_fetch_xor((p), (v), 0)",
+			"-D__sync_lock_test_and_set(p, v, ...)=__c11_atomic_exchange((p), (v), 0)",
+			"-exec", gmake, "-C", quickjs, "libquickjs.a", "run-test262"))
 	case "linux/arm":
 		ccExec(append(ccArgs, "-exec", gmake, "LIBS=-lm -latomic", "-C", quickjs, "libquickjs.a", "run-test262"))
 	default:
