@@ -2761,11 +2761,32 @@ func _load_file(tls *libc.TLS, filename uintptr, lenp uintptr) (r uintptr) {
 	return buf
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:859:20:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:859:8:
+func _toSlash(tls *libc.TLS, p uintptr) (r int32) {
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:859:25:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:860:2:
+	for {
+		if !(*(*int8)(unsafe.Pointer(p)) != 0) {
+			break
+		}
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:861:3:
+		if int32(*(*int8)(unsafe.Pointer(p))) == int32('\\') {
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:862:4:
+			*(*int8)(unsafe.Pointer(p)) = int8('/')
+		}
+		goto _1
+	_1:
+		;
+		p++
+	}
+	return r
+}
+
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:867:20:
 func _js_module_loader_test(tls *libc.TLS, ctx1 uintptr, module_name uintptr, opaque uintptr) (r uintptr) {
 	bp := tls.Alloc(1120)
 	defer tls.Free(1120)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:861:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:869:1:
 	var __local_argv T__builtin_va_list
 	var __retval, v3, v6 int32
 	var buf, filename, m, p, slash, v1, v7 uintptr
@@ -2774,17 +2795,19 @@ func _js_module_loader_test(tls *libc.TLS, ctx1 uintptr, module_name uintptr, op
 	var _ /* func_val at bp+64 */ TJSValue
 	var _ /* path at bp+80 */ [1024]int8
 	_, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, buf, filename, m, p, slash, v1, v3, v5, v6, v7
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:877:5:
+	_toSlash(tls, module_name)
 	// interpret import("bar.js") from path/to/foo.js as
 	// import("path/to/bar.js") but leave import("./bar.js") untouched
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:870:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:882:5:
 	filename = opaque
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:871:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:883:5:
 	if !(libc.Xstrchr(tls, module_name, int32('/')) != 0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:872:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:884:9:
 		slash = libc.Xstrrchr(tls, filename, int32('/'))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:873:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:885:9:
 		if slash != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:874:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:886:13:
 			v1 = __ccgo_ts + 422
 			libc.VaList(bp, int32(int64(slash)-int64(filename)), filename, module_name)
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:458:35:
@@ -2798,37 +2821,37 @@ func _js_module_loader_test(tls *libc.TLS, ctx1 uintptr, module_name uintptr, op
 			goto _2
 		_2:
 			;
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:876:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:888:13:
 			module_name = bp + 80
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:880:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:892:5:
 	buf = x_js_load_file(tls, ctx1, bp+56, module_name)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:881:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:893:5:
 	if !(buf != 0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:882:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:894:9:
 		x_JS_ThrowReferenceError(tls, ctx1, __ccgo_ts+430, libc.VaList(bp+1112, module_name))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:884:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:896:9:
 		return libc.UintptrFromInt32(0)
 	}
 	/* compile the module */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:888:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:900:5:
 	*(*TJSValue)(unsafe.Pointer(bp + 64)) = x_JS_Eval(tls, ctx1, buf, *(*Tsize_t)(unsafe.Pointer(bp + 56)), module_name, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(5))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:890:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:902:5:
 	x_js_free(tls, ctx1, buf)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:891:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:903:5:
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:637:5:
 	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 64))).Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 	goto _4
 _4:
 	if v3 != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:892:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:904:9:
 		return libc.UintptrFromInt32(0)
 	}
 	/* the module is already referenced, so we must free it */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:894:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:906:5:
 	m = *(*uintptr)(unsafe.Pointer(bp + 64))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:895:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:907:5:
 	v5 = *(*TJSValue)(unsafe.Pointer(bp + 64))
 	*(*TJSValue)(unsafe.Pointer(bp + 40)) = v5
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -2844,28 +2867,28 @@ _4:
 			x___JS_FreeValue(tls, ctx1, v5)
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:896:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:908:5:
 	return m
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:917:5:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:929:5:
 func x_is_word_sep(tls *libc.TLS, c int8) (r int32) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:918:1:
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:919:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:930:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:931:5:
 	return libc.BoolInt32(int32(c) == int32('\000') || libc.Xisspace(tls, int32(uint8(c))) != 0 || int32(c) == int32(','))
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:922:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:934:6:
 func x_find_word(tls *libc.TLS, str uintptr, word uintptr) (r uintptr) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:923:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:935:1:
 	var len1 int32
 	var p, v2 uintptr
 	_, _, _ = len1, p, v2
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:925:9:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:937:9:
 	len1 = int32(libc.Xstrlen(tls, word))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:926:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:938:5:
 	if str != 0 && len1 != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:927:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:939:9:
 		p = str
 		for {
 			v2 = libc.Xstrstr(tls, p, word)
@@ -2873,9 +2896,9 @@ func x_find_word(tls *libc.TLS, str uintptr, word uintptr) (r uintptr) {
 			if !(v2 != libc.UintptrFromInt32(0)) {
 				break
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:928:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:940:13:
 			if (p == str || x_is_word_sep(tls, *(*int8)(unsafe.Pointer(p + uintptr(-libc.Int32FromInt32(1))))) != 0) && x_is_word_sep(tls, *(*int8)(unsafe.Pointer(p + uintptr(len1)))) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:929:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:941:17:
 				return p
 			}
 			goto _1
@@ -2884,7 +2907,7 @@ func x_find_word(tls *libc.TLS, str uintptr, word uintptr) (r uintptr) {
 			p += uintptr(len1)
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:932:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:944:5:
 	return libc.UintptrFromInt32(0)
 }
 
@@ -2892,20 +2915,20 @@ func x_find_word(tls *libc.TLS, str uintptr, word uintptr) (r uintptr) {
 //
 //	/* handle exclude directories */
 //
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:936:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:948:6:
 func x_update_exclude_dirs(tls *libc.TLS) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:937:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:949:1:
 	var count, i, j, v2, v3, v5, v7 int32
 	var dp, ep, lp, name uintptr
 	_, _, _, _, _, _, _, _, _, _, _ = count, dp, ep, i, j, lp, name, v2, v3, v5, v7
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:938:16:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:950:16:
 	lp = uintptr(unsafe.Pointer(&x_test_list))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:939:16:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:951:16:
 	ep = uintptr(unsafe.Pointer(&x_exclude_list))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:940:16:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:952:16:
 	dp = uintptr(unsafe.Pointer(&x_exclude_dir_list))
 	/* split directpries from exclude_list */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:945:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:957:5:
 	v2 = libc.Int32FromInt32(0)
 	i = v2
 	count = v2
@@ -2913,16 +2936,16 @@ func x_update_exclude_dirs(tls *libc.TLS) {
 		if !(i < (*Tnamelist_t)(unsafe.Pointer(ep)).Fcount) {
 			break
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:946:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:958:9:
 		name = *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(ep)).Farray + uintptr(i)*8))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:947:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:959:9:
 		if x_has_suffix(tls, name, __ccgo_ts+466) != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:948:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:960:13:
 			x_namelist_add(tls, dp, libc.UintptrFromInt32(0), name)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:949:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:961:13:
 			libc.Xfree(tls, name)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:951:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:963:13:
 			v3 = count
 			count++
 			*(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(ep)).Farray + uintptr(v3)*8)) = name
@@ -2932,12 +2955,12 @@ func x_update_exclude_dirs(tls *libc.TLS) {
 		;
 		i++
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:954:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:966:5:
 	(*Tnamelist_t)(unsafe.Pointer(ep)).Fcount = count
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:956:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:968:5:
 	x_namelist_sort(tls, dp)
 	/* filter out excluded directories */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:959:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:971:5:
 	v5 = libc.Int32FromInt32(0)
 	i = v5
 	count = v5
@@ -2945,23 +2968,23 @@ func x_update_exclude_dirs(tls *libc.TLS) {
 		if !(i < (*Tnamelist_t)(unsafe.Pointer(lp)).Fcount) {
 			break
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:960:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:972:9:
 		name = *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(lp)).Farray + uintptr(i)*8))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:961:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:973:9:
 		j = 0
 		for {
 			if !(j < (*Tnamelist_t)(unsafe.Pointer(dp)).Fcount) {
 				break
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:962:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:974:13:
 			if x_has_prefix(tls, name, *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(dp)).Farray + uintptr(j)*8))) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:963:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:975:17:
 				x_test_excluded++
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:964:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:976:17:
 				libc.Xfree(tls, name)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:965:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:977:17:
 				name = libc.UintptrFromInt32(0)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:966:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:978:17:
 				break
 			}
 			goto _6
@@ -2969,9 +2992,9 @@ func x_update_exclude_dirs(tls *libc.TLS) {
 			;
 			j++
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:969:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:981:9:
 		if name != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:970:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:982:13:
 			v7 = count
 			count++
 			*(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(lp)).Farray + uintptr(v7)*8)) = name
@@ -2981,99 +3004,99 @@ func x_update_exclude_dirs(tls *libc.TLS) {
 		;
 		i++
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:973:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:985:5:
 	(*Tnamelist_t)(unsafe.Pointer(lp)).Fcount = count
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:976:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:988:6:
 func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 	bp := tls.Alloc(1120)
 	defer tls.Free(1120)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:977:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:989:1:
 	var __local_argv T__builtin_va_list
 	var __retval, lineno, section int32
 	var base_name, f, p, path, q, testdir, v1, v2, v4 uintptr
 	var _ /* buf at bp+80 */ [1024]int8
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, base_name, f, lineno, p, path, q, section, testdir, v1, v2, v4
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:987:7:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:999:7:
 	section = 0
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:988:9:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1000:9:
 	lineno = 0
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:990:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1002:5:
 	f = libc.Xfopen(tls, filename, __ccgo_ts+37)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:991:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1003:5:
 	if !(f != 0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:992:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1004:9:
 		x_perror_exit(tls, int32(1), filename)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:994:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1006:5:
 	base_name = x_get_basename(tls, filename)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:996:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1008:5:
 	for libc.Xfgets(tls, bp+80, int32(1024), f) != libc.UintptrFromInt32(0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:998:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1010:9:
 		lineno++
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:999:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1011:9:
 		p = x_str_strip(tls, bp+80)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1000:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1012:9:
 		if int32(*(*int8)(unsafe.Pointer(p))) == int32('#') || int32(*(*int8)(unsafe.Pointer(p))) == int32(';') || int32(*(*int8)(unsafe.Pointer(p))) == int32('\000') {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1001:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1013:13:
 			continue
 		} /* line comment */
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1003:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1015:9:
 		if int32(*(*int8)(unsafe.Pointer(p))) == int32(*(*int8)(unsafe.Pointer(__ccgo_ts + 468))) {
 			/* new section */
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1005:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1017:13:
 			p++
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1006:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1018:13:
 			*(*int8)(unsafe.Pointer(p + uintptr(libc.Xstrcspn(tls, p, __ccgo_ts+471)))) = int8('\000')
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1007:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1019:13:
 			if _str_equal(tls, p, __ccgo_ts+473) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1008:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1020:17:
 				section = 1
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1009:18:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1021:18:
 				if _str_equal(tls, p, __ccgo_ts+480) != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1010:17:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1022:17:
 					section = 2
 				} else {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1011:18:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1023:18:
 					if _str_equal(tls, p, __ccgo_ts+488) != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1012:17:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1024:17:
 						section = 3
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1013:18:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1025:18:
 						if _str_equal(tls, p, __ccgo_ts+497) != 0 {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1014:17:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1026:17:
 							section = 4
 						} else {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1016:17:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1028:17:
 							section = 0
 						}
 					}
 				}
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1017:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1029:13:
 			continue
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1019:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1031:9:
 		q = libc.Xstrchr(tls, p, int32('='))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1020:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1032:9:
 		if q != 0 {
 			/* setting: name=value */
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1022:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1034:13:
 			v1 = q
 			q++
 			*(*int8)(unsafe.Pointer(v1)) = int8('\000')
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1023:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1035:13:
 			q = x_str_strip(tls, q)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1025:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1037:9:
 		switch section {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1026:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1038:9:
 		case 1:
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1027:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1039:13:
 			if !(q != 0) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1028:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1040:17:
 				v2 = __ccgo_ts + 503
 				libc.VaList(bp, filename, lineno)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -3087,12 +3110,12 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 				goto _3
 			_3:
 				;
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1029:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1041:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1031:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1043:13:
 			if libc.Xstrstr(tls, ignore, p) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1032:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1044:17:
 				v4 = __ccgo_ts + 524
 				libc.VaList(bp, filename, lineno, p, q)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -3106,214 +3129,214 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 				goto _5
 			_5:
 				;
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1033:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1045:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1035:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1047:13:
 			if _str_equal(tls, p, __ccgo_ts+547) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1036:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1048:17:
 				x_new_style = _str_equal(tls, q, __ccgo_ts+553)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1037:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1049:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1039:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1051:13:
 			if _str_equal(tls, p, __ccgo_ts+557) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1040:22:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1052:22:
 				testdir = x_compose_path(tls, base_name, q)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1041:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1053:17:
 				_enumerate_tests(tls, testdir)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1042:17:
-				libc.Xfree(tls, testdir)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1043:17:
-				continue
-			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1045:13:
-			if _str_equal(tls, p, __ccgo_ts+565) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1046:17:
-				x_harness_dir = x_compose_path(tls, base_name, q)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1047:17:
-				continue
-			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1049:13:
-			if _str_equal(tls, p, __ccgo_ts+576) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1050:17:
-				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_exclude)), __ccgo_ts+591, q)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1051:17:
-				continue
-			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1053:13:
-			if _str_equal(tls, p, __ccgo_ts+488) != 0 {
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1054:17:
-				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_features)), __ccgo_ts+591, q)
+				libc.Xfree(tls, testdir)
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1055:17:
 				continue
 			}
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1057:13:
-			if _str_equal(tls, p, __ccgo_ts+593) != 0 {
+			if _str_equal(tls, p, __ccgo_ts+565) != 0 {
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1058:17:
-				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_skip_features)), __ccgo_ts+591, q)
+				x_harness_dir = x_compose_path(tls, base_name, q)
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1059:17:
 				continue
 			}
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1061:13:
-			if _str_equal(tls, p, __ccgo_ts+607) != 0 {
+			if _str_equal(tls, p, __ccgo_ts+576) != 0 {
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1062:17:
+				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_exclude)), __ccgo_ts+591, q)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1063:17:
+				continue
+			}
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1065:13:
+			if _str_equal(tls, p, __ccgo_ts+488) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1066:17:
+				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_features)), __ccgo_ts+591, q)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1067:17:
+				continue
+			}
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1069:13:
+			if _str_equal(tls, p, __ccgo_ts+593) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1070:17:
+				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_skip_features)), __ccgo_ts+591, q)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1071:17:
+				continue
+			}
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1073:13:
+			if _str_equal(tls, p, __ccgo_ts+607) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1074:17:
 				if _str_equal(tls, q, __ccgo_ts+612) != 0 || _str_equal(tls, q, __ccgo_ts+620) != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1063:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1075:21:
 					x_test_mode = int32(ETEST_DEFAULT_NOSTRICT)
 				} else {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1064:22:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1076:22:
 					if _str_equal(tls, q, __ccgo_ts+637) != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1065:21:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1077:21:
 						x_test_mode = int32(ETEST_DEFAULT_STRICT)
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1066:22:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1078:22:
 						if _str_equal(tls, q, __ccgo_ts+652) != 0 {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1067:21:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1079:21:
 							x_test_mode = int32(ETEST_NOSTRICT)
 						} else {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1068:22:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1080:22:
 							if _str_equal(tls, q, __ccgo_ts+661) != 0 {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1069:21:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1081:21:
 								x_test_mode = int32(ETEST_STRICT)
 							} else {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1070:22:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1082:22:
 								if _str_equal(tls, q, __ccgo_ts+668) != 0 || _str_equal(tls, q, __ccgo_ts+672) != 0 {
-									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1071:21:
+									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1083:21:
 									x_test_mode = int32(ETEST_ALL)
 								} else {
-									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1073:21:
+									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1085:21:
 									x_fatal(tls, int32(2), __ccgo_ts+677, libc.VaList(bp+1112, q))
 								}
 							}
 						}
 					}
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1074:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1086:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1076:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1088:13:
 			if _str_equal(tls, p, __ccgo_ts+661) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1077:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1089:17:
 				if _str_equal(tls, q, __ccgo_ts+699) != 0 || _str_equal(tls, q, __ccgo_ts+704) != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1078:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1090:21:
 					x_test_mode = int32(ETEST_NOSTRICT)
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1079:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1091:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1081:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1093:13:
 			if _str_equal(tls, p, __ccgo_ts+652) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1082:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1094:17:
 				if _str_equal(tls, q, __ccgo_ts+699) != 0 || _str_equal(tls, q, __ccgo_ts+704) != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1083:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1095:21:
 					x_test_mode = int32(ETEST_STRICT)
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1084:17:
-				continue
-			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1086:13:
-			if _str_equal(tls, p, __ccgo_ts+707) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1087:17:
-				x_skip_async = libc.BoolInt32(!(_str_equal(tls, q, __ccgo_ts+713) != 0))
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1088:17:
-				continue
-			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1090:13:
-			if _str_equal(tls, p, __ccgo_ts+717) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1091:17:
-				x_skip_module = libc.BoolInt32(!(_str_equal(tls, q, __ccgo_ts+713) != 0))
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1092:17:
-				continue
-			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1094:13:
-			if _str_equal(tls, p, __ccgo_ts+724) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1095:17:
-				x_verbose = _str_equal(tls, q, __ccgo_ts+713)
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1096:17:
 				continue
 			}
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1098:13:
-			if _str_equal(tls, p, __ccgo_ts+732) != 0 {
+			if _str_equal(tls, p, __ccgo_ts+707) != 0 {
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1099:17:
-				x_error_filename = x_compose_path(tls, base_name, q)
+				x_skip_async = libc.BoolInt32(!(_str_equal(tls, q, __ccgo_ts+713) != 0))
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1100:17:
 				continue
 			}
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1102:13:
-			if _str_equal(tls, p, __ccgo_ts+742) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1103:22:
-				path = x_compose_path(tls, base_name, q)
+			if _str_equal(tls, p, __ccgo_ts+717) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1103:17:
+				x_skip_module = libc.BoolInt32(!(_str_equal(tls, q, __ccgo_ts+713) != 0))
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1104:17:
-				x_namelist_load(tls, uintptr(unsafe.Pointer(&x_exclude_list)), path)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1105:17:
-				libc.Xfree(tls, path)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1106:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1108:13:
-			if _str_equal(tls, p, __ccgo_ts+754) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1109:17:
-				x_report_filename = x_compose_path(tls, base_name, q)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1110:17:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1106:13:
+			if _str_equal(tls, p, __ccgo_ts+724) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1107:17:
+				x_verbose = _str_equal(tls, q, __ccgo_ts+713)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1108:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1112:9:
-			fallthrough
-		case 2:
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1113:13:
-			x_namelist_add(tls, uintptr(unsafe.Pointer(&x_exclude_list)), base_name, p)
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1110:13:
+			if _str_equal(tls, p, __ccgo_ts+732) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1111:17:
+				x_error_filename = x_compose_path(tls, base_name, q)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1112:17:
+				continue
+			}
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1114:13:
-			break
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1115:9:
-			fallthrough
-		case 3:
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1116:13:
-			if !(q != 0) || _str_equal(tls, q, __ccgo_ts+713) != 0 {
+			if _str_equal(tls, p, __ccgo_ts+742) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1115:22:
+				path = x_compose_path(tls, base_name, q)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1116:17:
+				x_namelist_load(tls, uintptr(unsafe.Pointer(&x_exclude_list)), path)
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1117:17:
-				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_features)), __ccgo_ts+591, p)
-			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1119:17:
-				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_skip_features)), __ccgo_ts+591, p)
+				libc.Xfree(tls, path)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1118:17:
+				continue
 			}
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1120:13:
+			if _str_equal(tls, p, __ccgo_ts+754) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1121:17:
+				x_report_filename = x_compose_path(tls, base_name, q)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1122:17:
+				continue
+			}
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1124:9:
+			fallthrough
+		case 2:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1125:13:
+			x_namelist_add(tls, uintptr(unsafe.Pointer(&x_exclude_list)), base_name, p)
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1126:13:
 			break
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1121:9:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1127:9:
+			fallthrough
+		case 3:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1128:13:
+			if !(q != 0) || _str_equal(tls, q, __ccgo_ts+713) != 0 {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1129:17:
+				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_features)), __ccgo_ts+591, p)
+			} else {
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1131:17:
+				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_skip_features)), __ccgo_ts+591, p)
+			}
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1132:13:
+			break
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1133:9:
 			fallthrough
 		case 4:
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1122:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1134:13:
 			x_namelist_add(tls, uintptr(unsafe.Pointer(&x_test_list)), base_name, p)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1123:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1135:13:
 			break
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1124:9:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1136:9:
 			fallthrough
 		default:
 			/* ignore settings in other sections */
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1126:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1138:13:
 			break
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1129:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1141:5:
 	libc.Xfclose(tls, f)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1130:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1142:5:
 	libc.Xfree(tls, base_name)
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1133:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1145:6:
 func x_find_error(tls *libc.TLS, filename uintptr, pline uintptr, is_strict int32) (r1 uintptr) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1134:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1146:1:
 	var len1 Tsize_t
 	var line int32
 	var p, r, v2, v3 uintptr
 	var _ /* q at bp+0 */ uintptr
 	_, _, _, _, _, _ = len1, line, p, r, v2, v3
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1135:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1147:5:
 	if x_error_file != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1136:16:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1148:16:
 		len1 = libc.Xstrlen(tls, filename)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1140:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1152:9:
 		p = x_error_file
 		for {
 			v2 = libc.Xstrstr(tls, p, filename)
@@ -3321,52 +3344,52 @@ func x_find_error(tls *libc.TLS, filename uintptr, pline uintptr, is_strict int3
 			if !(v2 != libc.UintptrFromInt32(0)) {
 				break
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1141:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1153:13:
 			if (p == x_error_file || int32(*(*int8)(unsafe.Pointer(p + uintptr(-libc.Int32FromInt32(1))))) == int32('\n') || int32(*(*int8)(unsafe.Pointer(p + uintptr(-libc.Int32FromInt32(1))))) == int32('(')) && int32(*(*int8)(unsafe.Pointer(p + uintptr(len1)))) == int32(':') {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1142:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1154:17:
 				*(*uintptr)(unsafe.Pointer(bp)) = p + uintptr(len1)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1143:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1155:17:
 				line = int32(1)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1144:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1156:17:
 				if int32(*(*int8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) == int32(':') {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1145:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1157:21:
 					line = int32(libc.Xstrtol(tls, *(*uintptr)(unsafe.Pointer(bp))+uintptr(1), bp, int32(10)))
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1146:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1158:21:
 					if int32(*(*int8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) == int32(':') {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1147:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1159:25:
 						*(*uintptr)(unsafe.Pointer(bp))++
 					}
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1149:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1161:17:
 				for int32(*(*int8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) == int32(' ') {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1150:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1162:21:
 					*(*uintptr)(unsafe.Pointer(bp))++
 				}
 				/* check strict mode indicator */
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1153:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1165:17:
 				if libc.BoolInt32(!(x_strstart(tls, *(*uintptr)(unsafe.Pointer(bp)), __ccgo_ts+765, bp) != 0)) != libc.BoolInt32(!(is_strict != 0)) {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1154:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1166:21:
 					goto _1
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1155:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1167:17:
 				v3 = x_skip_prefix(tls, *(*uintptr)(unsafe.Pointer(bp)), __ccgo_ts+779)
 				*(*uintptr)(unsafe.Pointer(bp)) = v3
 				r = v3
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1156:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1168:17:
 				r += uintptr(libc.Xstrcspn(tls, r, __ccgo_ts+798))
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1157:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1169:17:
 				for int32(*(*int8)(unsafe.Pointer(r))) == int32('\n') && *(*int8)(unsafe.Pointer(r + 1)) != 0 && libc.Xstrncmp(tls, r+uintptr(1), filename, uint64(8)) != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1158:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1170:21:
 					r++
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1159:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1171:21:
 					r += uintptr(libc.Xstrcspn(tls, r, __ccgo_ts+798))
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1161:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1173:17:
 				if pline != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1162:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1174:21:
 					*(*int32)(unsafe.Pointer(pline)) = line
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1163:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1175:17:
 				return x_strdup_len(tls, *(*uintptr)(unsafe.Pointer(bp)), int32(int64(r)-int64(*(*uintptr)(unsafe.Pointer(bp)))))
 			}
 			goto _1
@@ -3375,19 +3398,19 @@ func x_find_error(tls *libc.TLS, filename uintptr, pline uintptr, is_strict int3
 			p += uintptr(len1)
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1167:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1179:5:
 	return libc.UintptrFromInt32(0)
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1170:5:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1182:5:
 func x_skip_comments(tls *libc.TLS, str uintptr, line int32, pline uintptr) (r int32) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1171:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1183:1:
 	var c, v1 int32
 	var p, v2, v3 uintptr
 	_, _, _, _, _ = c, p, v1, v2, v3
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1175:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1187:5:
 	p = str
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1176:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1188:5:
 	for {
 		v2 = p
 		p++
@@ -3396,51 +3419,51 @@ func x_skip_comments(tls *libc.TLS, str uintptr, line int32, pline uintptr) (r i
 		if !(v1 != int32('\000')) {
 			break
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1177:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1189:9:
 		if libc.Xisspace(tls, c) != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1178:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1190:13:
 			if c == int32('\n') {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1179:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1191:17:
 				line++
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1180:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1192:13:
 			continue
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1182:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1194:9:
 		if c == int32('/') && int32(*(*int8)(unsafe.Pointer(p))) == int32('/') {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1183:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1195:13:
 			for {
 				p++
 				v3 = p
 				if !(*(*int8)(unsafe.Pointer(v3)) != 0 && int32(*(*int8)(unsafe.Pointer(p))) != int32('\n')) {
 					break
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1184:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1196:17:
 				continue
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1185:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1197:13:
 			continue
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1187:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1199:9:
 		if c == int32('/') && int32(*(*int8)(unsafe.Pointer(p))) == int32('*') {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1188:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1200:13:
 			p += uintptr(1)
 			for {
 				if !(*(*int8)(unsafe.Pointer(p)) != 0) {
 					break
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1189:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1201:17:
 				if int32(*(*int8)(unsafe.Pointer(p))) == int32('\n') {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1190:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1202:21:
 					line++
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1191:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1203:21:
 					goto _4
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1193:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1205:17:
 				if int32(*(*int8)(unsafe.Pointer(p))) == int32('*') && int32(*(*int8)(unsafe.Pointer(p + 1))) == int32('/') {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1194:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1206:21:
 					p += uintptr(2)
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1195:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1207:21:
 					break
 				}
 				goto _4
@@ -3448,76 +3471,76 @@ func x_skip_comments(tls *libc.TLS, str uintptr, line int32, pline uintptr) (r i
 				;
 				p++
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1198:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1210:13:
 			continue
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1200:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1212:9:
 		break
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1202:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1214:5:
 	if pline != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1203:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1215:9:
 		*(*int32)(unsafe.Pointer(pline)) = line
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1205:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1217:5:
 	return int32(int64(p) - int64(str))
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1208:5:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1220:5:
 func x_longest_match(tls *libc.TLS, str uintptr, find uintptr, pos int32, ppos uintptr, line int32, pline uintptr) (r int32) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1209:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1221:1:
 	var len1, maxlen int32
 	var p uintptr
 	_, _, _ = len1, maxlen, p
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1212:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1224:5:
 	maxlen = 0
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1214:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1226:5:
 	if *(*int8)(unsafe.Pointer(find)) != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1216:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1228:9:
 		p = str + uintptr(pos)
 		for {
 			if !(*(*int8)(unsafe.Pointer(p)) != 0) {
 				break
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1217:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1229:13:
 			if int32(*(*int8)(unsafe.Pointer(p))) == int32(*(*int8)(unsafe.Pointer(find))) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1218:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1230:17:
 				len1 = int32(1)
 				for {
 					if !(*(*int8)(unsafe.Pointer(p + uintptr(len1))) != 0 && int32(*(*int8)(unsafe.Pointer(p + uintptr(len1)))) == int32(*(*int8)(unsafe.Pointer(find + uintptr(len1))))) {
 						break
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1219:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1231:21:
 					goto _2
 					goto _2
 				_2:
 					;
 					len1++
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1220:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1232:17:
 				if len1 > maxlen {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1221:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1233:21:
 					maxlen = len1
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1222:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1234:21:
 					if ppos != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1223:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1235:25:
 						*(*int32)(unsafe.Pointer(ppos)) = int32(int64(p) - int64(str))
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1224:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1236:21:
 					if pline != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1225:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1237:25:
 						*(*int32)(unsafe.Pointer(pline)) = line
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1226:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1238:21:
 					if !(*(*int8)(unsafe.Pointer(find + uintptr(len1))) != 0) {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1227:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1239:25:
 						break
 					}
 				}
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1230:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1242:13:
 			if int32(*(*int8)(unsafe.Pointer(p))) == int32('\n') {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1231:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1243:17:
 				line++
 			}
 			goto _1
@@ -3526,15 +3549,15 @@ func x_longest_match(tls *libc.TLS, str uintptr, find uintptr, pos int32, ppos u
 			p++
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1234:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1246:5:
 	return maxlen
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1237:12:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1249:12:
 func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filename uintptr, is_test int32, is_negative int32, error_type uintptr, outfile uintptr, eval_flags int32, is_async int32) (r int32) {
 	bp := tls.Alloc(400)
 	defer tls.Free(400)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1241:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1253:1:
 	var __local_argv, __local_argv1 T__builtin_va_list
 	var __retval, __retval1, len1, ret, v1, v11, v18, v25, v28, v33, v5, v51, v54, v57, v9 int32
 	var error_class, error_name, msg, msg1, p, p1, p2, s, stack_str, strict_mode, v10, v13, v14, v16, v20, v22, v26, v29, v30, v32, v35, v37, v39, v41, v43, v44, v46, v48, v52, v55, v58, v6 uintptr
@@ -3549,27 +3572,27 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 	var _ /* pos_line at bp+376 */ int32
 	var _ /* s_line at bp+392 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __local_argv1, __retval, __retval1, error_class, error_name, has_error_line, is_error, len1, msg, msg1, msg_val, name, p, p1, p2, promise, res_val, ret, ret_promise, s, stack, stack_str, state, strict_mode, v1, v10, v11, v13, v14, v16, v18, v20, v22, v24, v25, v26, v27, v28, v29, v3, v30, v32, v33, v35, v37, v39, v4, v41, v43, v44, v46, v48, v5, v50, v51, v52, v53, v54, v55, v56, v57, v58, v6, v8, v9
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1247:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1259:5:
 	*(*int32)(unsafe.Pointer(bp + 372)) = x_skip_comments(tls, buf, int32(1), bp+376)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1248:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1260:5:
 	*(*int32)(unsafe.Pointer(bp + 368)) = *(*int32)(unsafe.Pointer(bp + 376))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1249:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1261:5:
 	has_error_line = int32(EFALSE)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1250:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1262:5:
 	*(*TJSValue)(unsafe.Pointer(bp + 352)) = TJSValue{
 		Fu:   TJSValueUnion{},
 		Ftag: int64(EJS_TAG_UNDEFINED),
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1251:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1263:5:
 	error_name = libc.UintptrFromInt32(0)
 	/* a module evaluation returns a promise */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1254:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1266:5:
 	ret_promise = libc.BoolInt32(eval_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)) != libc.Int32FromInt32(0))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1255:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1267:5:
 	x_async_done = 0 /* counter of "Test262:AsyncTestComplete" messages */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1257:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1269:5:
 	res_val = x_JS_Eval(tls, ctx2, buf, buf_len, filename, eval_flags)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1259:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1271:5:
 	if v3 = is_async != 0 || ret_promise != 0; v3 {
 		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:637:5:
 		v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32(res_val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
@@ -3577,17 +3600,17 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 	_2:
 	}
 	if v3 && !(v1 != 0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1260:17:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1272:17:
 		promise = TJSValue{
 			Fu:   TJSValueUnion{},
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1261:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1273:9:
 		if ret_promise != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1262:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1274:13:
 			promise = res_val
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1264:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1276:13:
 			v4 = res_val
 			*(*TJSValue)(unsafe.Pointer(bp + 336)) = v4
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -3604,31 +3627,31 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 				}
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1266:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1278:9:
 		for {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1268:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1280:13:
 			ret = x_JS_ExecutePendingJob(tls, x_JS_GetRuntime(tls, ctx2), bp+384)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1269:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1281:13:
 			if ret < 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1270:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1282:17:
 				res_val = TJSValue{
 					Fu:   TJSValueUnion{},
 					Ftag: int64(EJS_TAG_EXCEPTION),
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1271:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1283:17:
 				break
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1272:20:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1284:20:
 				if ret == 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1273:17:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1285:17:
 					if is_async != 0 {
 						/* test if the test called $DONE() once */
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1275:21:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1287:21:
 						if x_async_done != int32(1) {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1276:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1288:25:
 							res_val = x_JS_ThrowTypeError(tls, ctx2, __ccgo_ts+800, 0)
 						} else {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1278:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1290:25:
 							res_val = TJSValue{
 								Fu:   TJSValueUnion{},
 								Ftag: int64(EJS_TAG_UNDEFINED),
@@ -3636,34 +3659,34 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 						}
 					} else {
 						/* check that the returned promise is fulfilled */
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1282:40:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1294:40:
 						state = x_JS_PromiseState(tls, ctx2, promise)
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1283:21:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1295:21:
 						if state == int32(EJS_PROMISE_FULFILLED) {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1284:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1296:25:
 							res_val = TJSValue{
 								Fu:   TJSValueUnion{},
 								Ftag: int64(EJS_TAG_UNDEFINED),
 							}
 						} else {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1285:26:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1297:26:
 							if state == int32(EJS_PROMISE_REJECTED) {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1286:25:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1298:25:
 								res_val = x_JS_Throw(tls, ctx2, x_JS_PromiseResult(tls, ctx2, promise))
 							} else {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1288:25:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1300:25:
 								res_val = x_JS_ThrowTypeError(tls, ctx2, __ccgo_ts+819, 0)
 							}
 						}
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1290:17:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1302:17:
 					break
 				}
 			}
 			goto _7
 		_7:
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1293:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1305:9:
 		v8 = promise
 		*(*TJSValue)(unsafe.Pointer(bp + 336)) = v8
 		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -3680,22 +3703,22 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 			}
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1296:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1308:5:
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:637:5:
 	v11 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32(res_val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 	goto _12
 _12:
 	if v11 != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1297:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1309:9:
 		*(*TJSValue)(unsafe.Pointer(bp + 352)) = x_JS_GetException(tls, ctx2)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1298:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1310:9:
 		is_error = x_JS_IsError(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)))
 		/* XXX: should get the filename and line number */
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1300:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1312:9:
 		if outfile != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1301:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1313:13:
 			if !(is_error != 0) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1302:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1314:17:
 				if eval_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)) != 0 {
 					v13 = __ccgo_ts + 765
 				} else {
@@ -3714,41 +3737,41 @@ _12:
 				goto _15
 			_15:
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1304:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1316:13:
 			_js_print(tls, ctx2, TJSValue{
 				Fu:   TJSValueUnion{},
 				Ftag: int64(EJS_TAG_NULL),
 			}, int32(1), bp+352)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1306:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1318:9:
 		if is_error != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1310:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1322:13:
 			name = x_JS_GetPropertyStr(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)), __ccgo_ts+849)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1311:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1323:13:
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:747:5:
 			v16 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), name, 0)
 			goto _17
 		_17:
 			error_name = v16
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1312:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1324:13:
 			stack = x_JS_GetPropertyStr(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)), __ccgo_ts+854)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1313:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1325:13:
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:632:5:
 			v18 = libc.BoolInt32(int32(stack.Ftag) == int32(EJS_TAG_UNDEFINED))
 			goto _19
 		_19:
 			if !(v18 != 0) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1314:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1326:17:
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:747:5:
 				v20 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), stack, 0)
 				goto _21
 			_21:
 				stack_str = v20
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1315:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1327:17:
 				if stack_str != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1319:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1331:21:
 					if outfile != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1320:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1332:25:
 						v22 = __ccgo_ts + 860
 						libc.VaList(bp, stack_str)
 						// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -3762,22 +3785,22 @@ _12:
 						goto _23
 					_23:
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1322:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1334:21:
 					len1 = int32(libc.Xstrlen(tls, filename))
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1323:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1335:21:
 					p1 = libc.Xstrstr(tls, stack_str, filename)
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1324:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1336:21:
 					if p1 != libc.UintptrFromInt32(0) && int32(*(*int8)(unsafe.Pointer(p1 + uintptr(len1)))) == int32(':') {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1325:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1337:25:
 						*(*int32)(unsafe.Pointer(bp + 368)) = libc.Xatoi(tls, p1+uintptr(len1)+uintptr(1))
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1326:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1338:25:
 						has_error_line = int32(ETRUE)
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1328:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1340:21:
 					x_JS_FreeCString(tls, ctx2, stack_str)
 				}
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1331:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1343:13:
 			v24 = stack
 			*(*TJSValue)(unsafe.Pointer(bp + 336)) = v24
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -3793,7 +3816,7 @@ _12:
 					x___JS_FreeValue(tls, ctx2, v24)
 				}
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1332:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1344:13:
 			v27 = name
 			*(*TJSValue)(unsafe.Pointer(bp + 336)) = v27
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -3810,89 +3833,89 @@ _12:
 				}
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1334:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1346:9:
 		if is_negative != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1335:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1347:13:
 			ret = 0
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1336:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1348:13:
 			if error_type != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1340:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1352:17:
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:747:5:
 				v30 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(bp + 352)), 0)
 				goto _31
 			_31:
 				msg = v30
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1341:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1353:17:
 				error_class = x_strdup_len(tls, msg, int32(libc.Xstrcspn(tls, msg, __ccgo_ts+863)))
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1342:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1354:17:
 				if !(_str_equal(tls, error_class, error_type) != 0) {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1343:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1355:21:
 					ret = -int32(1)
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1344:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1356:17:
 				libc.Xfree(tls, error_class)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1345:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1357:17:
 				x_JS_FreeCString(tls, ctx2, msg)
 			}
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1348:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1360:13:
 			ret = -int32(1)
 		}
 	} else {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1351:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1363:9:
 		if is_negative != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1352:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1364:13:
 			ret = -int32(1)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1354:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1366:13:
 			ret = 0
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1357:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1369:5:
 	if x_verbose != 0 && is_test != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1358:17:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1370:17:
 		msg_val = TJSValue{
 			Fu:   TJSValueUnion{},
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1359:20:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1371:20:
 		msg1 = libc.UintptrFromInt32(0)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1361:14:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1373:14:
 		s = x_find_error(tls, filename, bp+392, eval_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)))
 		if eval_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)) != 0 {
 			v32 = __ccgo_ts + 765
 		} else {
 			v32 = __ccgo_ts + 838
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1362:20:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1374:20:
 		strict_mode = v32
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1364:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1376:9:
 		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:632:5:
 		v33 = libc.BoolInt32(int32((*(*TJSValue)(unsafe.Pointer(bp + 352))).Ftag) == int32(EJS_TAG_UNDEFINED))
 		goto _34
 	_34:
 		if !(v33 != 0) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1365:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1377:13:
 			msg_val = x_JS_ToString(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1366:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1378:13:
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:747:5:
 			v35 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), msg_val, 0)
 			goto _36
 		_36:
 			msg1 = v35
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1368:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1380:9:
 		if is_negative != 0 { // expect error
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1369:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1381:13:
 			if ret == 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1370:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1382:17:
 				if msg1 != 0 && s != 0 && (_str_equal(tls, s, __ccgo_ts+865) != 0 || x_strstart(tls, s, __ccgo_ts+880, libc.UintptrFromInt32(0)) != 0 || _str_equal(tls, s, msg1) != 0) { // did not have error yet
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1374:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1386:21:
 					if !(has_error_line != 0) {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1375:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1387:25:
 						x_longest_match(tls, buf, msg1, *(*int32)(unsafe.Pointer(bp + 372)), bp+372, *(*int32)(unsafe.Pointer(bp + 376)), bp+368)
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1377:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1389:21:
 					v37 = __ccgo_ts + 903
 					libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 368)), strict_mode, msg1)
 					// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -3906,15 +3929,15 @@ _12:
 					goto _38
 				_38:
 					;
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1379:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1391:21:
 					x_fixed_errors++
 				}
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1382:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1394:17:
 				if !(s != 0) { // not yet reported
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1383:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1395:21:
 					if msg1 != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1384:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1396:25:
 						v39 = __ccgo_ts + 934
 						libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 368)), strict_mode, msg1)
 						// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -3928,7 +3951,7 @@ _12:
 						goto _40
 					_40:
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1387:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1399:25:
 						v41 = __ccgo_ts + 970
 						libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 368)), strict_mode)
 						// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -3942,29 +3965,29 @@ _12:
 						goto _42
 					_42:
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1390:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1402:21:
 					x_new_errors++
 				}
 			}
 		} else { // should not have error
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1394:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1406:13:
 			if msg1 != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1395:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1407:17:
 				if !(s != 0) || !(_str_equal(tls, s, msg1) != 0) {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1396:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1408:21:
 					if !(has_error_line != 0) {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1397:30:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1409:30:
 						p2 = x_skip_prefix(tls, msg1, __ccgo_ts+995)
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1398:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1410:25:
 						if libc.Xstrstr(tls, p2, __ccgo_ts+1011) != 0 {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1399:29:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1411:29:
 							x_longest_match(tls, buf, __ccgo_ts+1046, *(*int32)(unsafe.Pointer(bp + 372)), bp+372, *(*int32)(unsafe.Pointer(bp + 376)), bp+368)
 						} else {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1401:29:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1413:29:
 							x_longest_match(tls, buf, p2, *(*int32)(unsafe.Pointer(bp + 372)), bp+372, *(*int32)(unsafe.Pointer(bp + 376)), bp+368)
 						}
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1404:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1416:21:
 					if x_error_file != 0 {
 						v43 = __ccgo_ts + 779
 					} else {
@@ -3983,9 +4006,9 @@ _12:
 					goto _45
 				_45:
 					;
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1407:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1419:21:
 					if s != 0 && (!(_str_equal(tls, s, msg1) != 0) || *(*int32)(unsafe.Pointer(bp + 368)) != *(*int32)(unsafe.Pointer(bp + 392))) {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1408:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1420:25:
 						v46 = __ccgo_ts + 1073
 						libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 392)), strict_mode, s)
 						// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -3999,17 +4022,17 @@ _12:
 						goto _47
 					_47:
 						;
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1409:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1421:25:
 						x_changed_errors++
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1411:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1423:25:
 						x_new_errors++
 					}
 				}
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1415:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1427:17:
 				if s != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1416:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1428:21:
 					v48 = __ccgo_ts + 1102
 					libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 392)), strict_mode, s)
 					// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -4023,12 +4046,12 @@ _12:
 					goto _49
 				_49:
 					;
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1417:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1429:21:
 					x_fixed_errors++
 				}
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1421:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1433:9:
 		v50 = msg_val
 		*(*TJSValue)(unsafe.Pointer(bp + 336)) = v50
 		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -4044,14 +4067,14 @@ _12:
 				x___JS_FreeValue(tls, ctx2, v50)
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1422:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1434:9:
 		x_JS_FreeCString(tls, ctx2, msg1)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1423:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1435:9:
 		libc.Xfree(tls, s)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1425:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1437:5:
 	x_JS_FreeCString(tls, ctx2, error_name)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1426:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1438:5:
 	v53 = *(*TJSValue)(unsafe.Pointer(bp + 352))
 	*(*TJSValue)(unsafe.Pointer(bp + 336)) = v53
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -4067,7 +4090,7 @@ _12:
 			x___JS_FreeValue(tls, ctx2, v53)
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1427:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1439:5:
 	v56 = res_val
 	*(*TJSValue)(unsafe.Pointer(bp + 336)) = v56
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -4083,232 +4106,232 @@ _12:
 			x___JS_FreeValue(tls, ctx2, v56)
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1428:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1440:5:
 	return ret
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1431:12:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1443:12:
 func _eval_file(tls *libc.TLS, ctx uintptr, base uintptr, p uintptr, eval_flags int32) (r int32) {
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1433:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1445:1:
 	var buf, filename uintptr
 	var _ /* buf_len at bp+0 */ Tsize_t
 	_, _ = buf, filename
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1436:10:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1448:10:
 	filename = x_compose_path(tls, base, p)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1438:5:
-	buf = _load_file(tls, filename, bp)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1439:5:
-	if !(buf != 0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1440:9:
-		x_warning(tls, __ccgo_ts+1132, libc.VaList(bp+16, filename))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1441:9:
-		goto fail
-	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1443:5:
-	if _eval_buf(tls, ctx, buf, *(*Tsize_t)(unsafe.Pointer(bp)), filename, int32(EFALSE), int32(EFALSE), libc.UintptrFromInt32(0), libc.X__acrt_iob_func(tls, uint32(2)), eval_flags, int32(EFALSE)) != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1445:9:
-		x_warning(tls, __ccgo_ts+1147, libc.VaList(bp+16, filename))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1446:9:
-		goto fail
-	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1448:5:
-	libc.Xfree(tls, buf)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1449:5:
-	libc.Xfree(tls, filename)
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1450:5:
+	buf = _load_file(tls, filename, bp)
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1451:5:
+	if !(buf != 0) {
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1452:9:
+		x_warning(tls, __ccgo_ts+1132, libc.VaList(bp+16, filename))
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1453:9:
+		goto fail
+	}
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1455:5:
+	if _eval_buf(tls, ctx, buf, *(*Tsize_t)(unsafe.Pointer(bp)), filename, int32(EFALSE), int32(EFALSE), libc.UintptrFromInt32(0), libc.X__acrt_iob_func(tls, uint32(2)), eval_flags, int32(EFALSE)) != 0 {
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1457:9:
+		x_warning(tls, __ccgo_ts+1147, libc.VaList(bp+16, filename))
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1458:9:
+		goto fail
+	}
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1460:5:
+	libc.Xfree(tls, buf)
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1461:5:
+	libc.Xfree(tls, filename)
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1462:5:
 	return 0
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1452:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1464:1:
 	goto fail
 fail:
 	;
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1453:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1465:5:
 	libc.Xfree(tls, buf)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1454:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1466:5:
 	libc.Xfree(tls, filename)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1455:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1467:5:
 	return int32(1)
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1458:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1470:6:
 func x_extract_desc(tls *libc.TLS, buf uintptr, style int8) (r uintptr) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1459:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1471:1:
 	var desc, desc_start, p uintptr
 	var len1 int32
 	_, _, _, _ = desc, desc_start, len1, p
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1464:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1476:5:
 	p = buf
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1465:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1477:5:
 	for int32(*(*int8)(unsafe.Pointer(p))) != int32('\000') {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1466:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1478:9:
 		if int32(*(*int8)(unsafe.Pointer(p))) == int32('/') && int32(*(*int8)(unsafe.Pointer(p + 1))) == int32('*') && int32(*(*int8)(unsafe.Pointer(p + 2))) == int32(style) && int32(*(*int8)(unsafe.Pointer(p + 3))) != int32('/') {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1467:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1479:13:
 			p += uintptr(3)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1468:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1480:13:
 			desc_start = p
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1469:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1481:13:
 			for int32(*(*int8)(unsafe.Pointer(p))) != int32('\000') && (int32(*(*int8)(unsafe.Pointer(p))) != int32('*') || int32(*(*int8)(unsafe.Pointer(p + 1))) != int32('/')) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1470:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1482:17:
 				p++
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1471:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1483:13:
 			if int32(*(*int8)(unsafe.Pointer(p))) == int32('\000') {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1472:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1484:17:
 				x_warning(tls, __ccgo_ts+1167, 0)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1473:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1485:17:
 				return libc.UintptrFromInt32(0)
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1475:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1487:13:
 			len1 = int32(int64(p) - int64(desc_start))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1476:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1488:13:
 			desc = libc.Xmalloc(tls, uint64(len1+int32(1)))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1477:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1489:13:
 			libc.Xmemcpy(tls, desc, desc_start, uint64(len1))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1478:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1490:13:
 			*(*int8)(unsafe.Pointer(desc + uintptr(len1))) = int8('\000')
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1479:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1491:13:
 			return desc
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1481:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1493:13:
 			p++
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1484:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1496:5:
 	return libc.UintptrFromInt32(0)
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1487:13:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1499:13:
 func _find_tag(tls *libc.TLS, desc uintptr, tag uintptr, state uintptr) (r uintptr) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1488:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1500:1:
 	var p uintptr
 	_ = p
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1490:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1502:5:
 	p = libc.Xstrstr(tls, desc, tag)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1491:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1503:5:
 	if p != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1492:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1504:9:
 		p += uintptr(libc.Xstrlen(tls, tag))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1493:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1505:9:
 		*(*int32)(unsafe.Pointer(state)) = 0
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1495:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1507:5:
 	return p
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1498:13:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1510:13:
 func _get_option(tls *libc.TLS, pp uintptr, state uintptr) (r uintptr) {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1499:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1511:1:
 	var option, p, p0 uintptr
 	_, _, _ = option, p, p0
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1500:19:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1512:19:
 	option = libc.UintptrFromInt32(0)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1501:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1513:5:
 	if *(*uintptr)(unsafe.Pointer(pp)) != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1502:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1514:9:
 		p = *(*uintptr)(unsafe.Pointer(pp))
 		for {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1503:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1515:13:
 			switch int32(*(*int8)(unsafe.Pointer(p))) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1504:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1516:13:
 			case int32('['):
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1505:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1517:17:
 				*(*int32)(unsafe.Pointer(state)) += int32(1)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1506:17:
-				goto _1
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1507:13:
-				fallthrough
-			case int32(']'):
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1508:17:
-				*(*int32)(unsafe.Pointer(state)) -= int32(1)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1509:17:
-				if *(*int32)(unsafe.Pointer(state)) > 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1510:21:
-					goto _1
-				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1511:17:
-				p = libc.UintptrFromInt32(0)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1512:17:
-				break
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1513:13:
-				fallthrough
-			case int32(' '):
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1514:13:
-				fallthrough
-			case int32('\t'):
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1515:13:
-				fallthrough
-			case int32('\r'):
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1516:13:
-				fallthrough
-			case int32(','):
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1517:13:
-				fallthrough
-			case int32('-'):
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1518:17:
 				goto _1
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1519:13:
 				fallthrough
-			case int32('\n'):
+			case int32(']'):
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1520:17:
-				if *(*int32)(unsafe.Pointer(state)) > 0 || int32(*(*int8)(unsafe.Pointer(p + 1))) == int32(' ') {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1521:21:
+				*(*int32)(unsafe.Pointer(state)) -= int32(1)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1521:17:
+				if *(*int32)(unsafe.Pointer(state)) > 0 {
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1522:21:
 					goto _1
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1522:17:
-				p = libc.UintptrFromInt32(0)
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1523:17:
-				break
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1524:13:
-				fallthrough
-			case int32('\000'):
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1525:17:
 				p = libc.UintptrFromInt32(0)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1526:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1524:17:
 				break
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1525:13:
+				fallthrough
+			case int32(' '):
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1526:13:
+				fallthrough
+			case int32('\t'):
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1527:13:
 				fallthrough
-			default:
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1528:17:
-				p0 = p
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1529:17:
-				p += uintptr(libc.Xstrcspn(tls, p0, __ccgo_ts+1197))
+			case int32('\r'):
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1528:13:
+				fallthrough
+			case int32(','):
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1529:13:
+				fallthrough
+			case int32('-'):
 				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1530:17:
+				goto _1
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1531:13:
+				fallthrough
+			case int32('\n'):
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1532:17:
+				if *(*int32)(unsafe.Pointer(state)) > 0 || int32(*(*int8)(unsafe.Pointer(p + 1))) == int32(' ') {
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1533:21:
+					goto _1
+				}
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1534:17:
+				p = libc.UintptrFromInt32(0)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1535:17:
+				break
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1536:13:
+				fallthrough
+			case int32('\000'):
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1537:17:
+				p = libc.UintptrFromInt32(0)
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1538:17:
+				break
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1539:13:
+				fallthrough
+			default:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1540:17:
+				p0 = p
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1541:17:
+				p += uintptr(libc.Xstrcspn(tls, p0, __ccgo_ts+1197))
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1542:17:
 				option = x_strdup_len(tls, p0, int32(int64(p)-int64(p0)))
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1531:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1543:17:
 				break
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1533:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1545:13:
 			break
 			goto _1
 		_1:
 			;
 			p++
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1535:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1547:9:
 		*(*uintptr)(unsafe.Pointer(pp)) = p
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1537:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1549:5:
 	return option
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1540:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1552:6:
 func x_update_stats(tls *libc.TLS, rt uintptr, filename uintptr) {
 	bp := tls.Alloc(208)
 	defer tls.Free(208)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1540:56:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1552:56:
 	var v1 int32
 	var v2, v3, v4 TJSMemoryUsage
 	var p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p5, p6, p7, p8, p9 uintptr
 	var _ /* stats at bp+0 */ TJSMemoryUsage
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = v1, v2, v3, v4, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p5, p6, p7, p8, p9
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1542:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1554:5:
 	x_JS_ComputeMemoryUsage(tls, rt, bp)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1543:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1555:5:
 	v1 = x_stats_count
 	x_stats_count++
 	if v1 == 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1544:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1556:9:
 		v4 = *(*TJSMemoryUsage)(unsafe.Pointer(bp))
 		x_stats_max = v4
 		v3 = v4
@@ -4316,167 +4339,167 @@ func x_update_stats(tls *libc.TLS, rt uintptr, filename uintptr) {
 		v2 = v3
 		x_stats_all = v2
 		x_stats_avg = v2
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1545:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1557:9:
 		x_stats_min_filename = libc.Xstrdup(tls, filename)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1546:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1558:9:
 		x_stats_max_filename = libc.Xstrdup(tls, filename)
 	} else {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1548:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1560:9:
 		if x_stats_max.Fmalloc_size < (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fmalloc_size {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1549:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1561:13:
 			x_stats_max = *(*TJSMemoryUsage)(unsafe.Pointer(bp))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1550:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1562:13:
 			libc.Xfree(tls, x_stats_max_filename)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1551:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1563:13:
 			x_stats_max_filename = libc.Xstrdup(tls, filename)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1553:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1565:9:
 		if x_stats_min.Fmalloc_size > (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fmalloc_size {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1554:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1566:13:
 			x_stats_min = *(*TJSMemoryUsage)(unsafe.Pointer(bp))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1555:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1567:13:
 			libc.Xfree(tls, x_stats_min_filename)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1556:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1568:13:
 			x_stats_min_filename = libc.Xstrdup(tls, filename)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1560:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1572:9:
 		p5 = uintptr(unsafe.Pointer(&x_stats_all)) + 24
 		*(*Tint64_t)(unsafe.Pointer(p5)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fmalloc_count
 		x_stats_avg.Fmalloc_count = *(*Tint64_t)(unsafe.Pointer(p5)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1561:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1573:9:
 		p6 = uintptr(unsafe.Pointer(&x_stats_all))
 		*(*Tint64_t)(unsafe.Pointer(p6)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fmalloc_size
 		x_stats_avg.Fmalloc_size = *(*Tint64_t)(unsafe.Pointer(p6)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1562:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1574:9:
 		p7 = uintptr(unsafe.Pointer(&x_stats_all)) + 32
 		*(*Tint64_t)(unsafe.Pointer(p7)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fmemory_used_count
 		x_stats_avg.Fmemory_used_count = *(*Tint64_t)(unsafe.Pointer(p7)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1563:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1575:9:
 		p8 = uintptr(unsafe.Pointer(&x_stats_all)) + 16
 		*(*Tint64_t)(unsafe.Pointer(p8)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fmemory_used_size
 		x_stats_avg.Fmemory_used_size = *(*Tint64_t)(unsafe.Pointer(p8)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1564:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1576:9:
 		p9 = uintptr(unsafe.Pointer(&x_stats_all)) + 40
 		*(*Tint64_t)(unsafe.Pointer(p9)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fatom_count
 		x_stats_avg.Fatom_count = *(*Tint64_t)(unsafe.Pointer(p9)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1565:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1577:9:
 		p10 = uintptr(unsafe.Pointer(&x_stats_all)) + 48
 		*(*Tint64_t)(unsafe.Pointer(p10)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fatom_size
 		x_stats_avg.Fatom_size = *(*Tint64_t)(unsafe.Pointer(p10)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1566:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1578:9:
 		p11 = uintptr(unsafe.Pointer(&x_stats_all)) + 56
 		*(*Tint64_t)(unsafe.Pointer(p11)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fstr_count
 		x_stats_avg.Fstr_count = *(*Tint64_t)(unsafe.Pointer(p11)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1567:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1579:9:
 		p12 = uintptr(unsafe.Pointer(&x_stats_all)) + 64
 		*(*Tint64_t)(unsafe.Pointer(p12)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fstr_size
 		x_stats_avg.Fstr_size = *(*Tint64_t)(unsafe.Pointer(p12)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1568:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1580:9:
 		p13 = uintptr(unsafe.Pointer(&x_stats_all)) + 72
 		*(*Tint64_t)(unsafe.Pointer(p13)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fobj_count
 		x_stats_avg.Fobj_count = *(*Tint64_t)(unsafe.Pointer(p13)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1569:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1581:9:
 		p14 = uintptr(unsafe.Pointer(&x_stats_all)) + 80
 		*(*Tint64_t)(unsafe.Pointer(p14)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fobj_size
 		x_stats_avg.Fobj_size = *(*Tint64_t)(unsafe.Pointer(p14)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1570:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1582:9:
 		p15 = uintptr(unsafe.Pointer(&x_stats_all)) + 88
 		*(*Tint64_t)(unsafe.Pointer(p15)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fprop_count
 		x_stats_avg.Fprop_count = *(*Tint64_t)(unsafe.Pointer(p15)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1571:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1583:9:
 		p16 = uintptr(unsafe.Pointer(&x_stats_all)) + 96
 		*(*Tint64_t)(unsafe.Pointer(p16)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fprop_size
 		x_stats_avg.Fprop_size = *(*Tint64_t)(unsafe.Pointer(p16)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1572:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1584:9:
 		p17 = uintptr(unsafe.Pointer(&x_stats_all)) + 104
 		*(*Tint64_t)(unsafe.Pointer(p17)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fshape_count
 		x_stats_avg.Fshape_count = *(*Tint64_t)(unsafe.Pointer(p17)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1573:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1585:9:
 		p18 = uintptr(unsafe.Pointer(&x_stats_all)) + 112
 		*(*Tint64_t)(unsafe.Pointer(p18)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fshape_size
 		x_stats_avg.Fshape_size = *(*Tint64_t)(unsafe.Pointer(p18)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1574:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1586:9:
 		p19 = uintptr(unsafe.Pointer(&x_stats_all)) + 120
 		*(*Tint64_t)(unsafe.Pointer(p19)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fjs_func_count
 		x_stats_avg.Fjs_func_count = *(*Tint64_t)(unsafe.Pointer(p19)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1575:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1587:9:
 		p20 = uintptr(unsafe.Pointer(&x_stats_all)) + 128
 		*(*Tint64_t)(unsafe.Pointer(p20)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fjs_func_size
 		x_stats_avg.Fjs_func_size = *(*Tint64_t)(unsafe.Pointer(p20)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1576:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1588:9:
 		p21 = uintptr(unsafe.Pointer(&x_stats_all)) + 136
 		*(*Tint64_t)(unsafe.Pointer(p21)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fjs_func_code_size
 		x_stats_avg.Fjs_func_code_size = *(*Tint64_t)(unsafe.Pointer(p21)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1577:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1589:9:
 		p22 = uintptr(unsafe.Pointer(&x_stats_all)) + 144
 		*(*Tint64_t)(unsafe.Pointer(p22)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fjs_func_pc2line_count
 		x_stats_avg.Fjs_func_pc2line_count = *(*Tint64_t)(unsafe.Pointer(p22)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1578:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1590:9:
 		p23 = uintptr(unsafe.Pointer(&x_stats_all)) + 152
 		*(*Tint64_t)(unsafe.Pointer(p23)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fjs_func_pc2line_size
 		x_stats_avg.Fjs_func_pc2line_size = *(*Tint64_t)(unsafe.Pointer(p23)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1579:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1591:9:
 		p24 = uintptr(unsafe.Pointer(&x_stats_all)) + 160
 		*(*Tint64_t)(unsafe.Pointer(p24)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Fc_func_count
 		x_stats_avg.Fc_func_count = *(*Tint64_t)(unsafe.Pointer(p24)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1580:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1592:9:
 		p25 = uintptr(unsafe.Pointer(&x_stats_all)) + 168
 		*(*Tint64_t)(unsafe.Pointer(p25)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Farray_count
 		x_stats_avg.Farray_count = *(*Tint64_t)(unsafe.Pointer(p25)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1581:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1593:9:
 		p26 = uintptr(unsafe.Pointer(&x_stats_all)) + 176
 		*(*Tint64_t)(unsafe.Pointer(p26)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Ffast_array_count
 		x_stats_avg.Ffast_array_count = *(*Tint64_t)(unsafe.Pointer(p26)) / int64(x_stats_count)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1582:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1594:9:
 		p27 = uintptr(unsafe.Pointer(&x_stats_all)) + 184
 		*(*Tint64_t)(unsafe.Pointer(p27)) += (*(*TJSMemoryUsage)(unsafe.Pointer(bp))).Ffast_array_elements
 		x_stats_avg.Ffast_array_elements = *(*Tint64_t)(unsafe.Pointer(p27)) / int64(x_stats_count)
 	}
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1587:5:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1599:5:
 func x_run_test_buf(tls *libc.TLS, filename uintptr, harness uintptr, ip uintptr, buf uintptr, buf_len Tsize_t, error_type uintptr, eval_flags int32, is_negative TBOOL, is_async TBOOL, can_block TBOOL) (r int32) {
 	bp := tls.Alloc(48)
 	defer tls.Free(48)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1591:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1603:1:
 	var __local_argv T__builtin_va_list
 	var __retval, i, ret int32
 	var ctx, rt, v2 uintptr
 	_, _, _, _, _, _, _ = __local_argv, __retval, ctx, i, ret, rt, v2
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1596:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1608:5:
 	rt = x_JS_NewRuntime(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1597:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1609:5:
 	if rt == libc.UintptrFromInt32(0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1598:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1610:9:
 		x_fatal(tls, int32(1), __ccgo_ts+125, 0)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1600:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1612:5:
 	ctx = x_JS_NewContext(tls, rt)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1601:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1613:5:
 	if ctx == libc.UintptrFromInt32(0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1602:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1614:9:
 		x_JS_FreeRuntime(tls, rt)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1603:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1615:9:
 		x_fatal(tls, int32(1), __ccgo_ts+147, 0)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1605:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1617:5:
 	x_JS_SetRuntimeInfo(tls, rt, filename)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1607:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1619:5:
 	x_JS_SetCanBlock(tls, rt, can_block)
 	/* loader for ES6 modules */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1610:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1622:5:
 	x_JS_SetModuleLoaderFunc(tls, rt, libc.UintptrFromInt32(0), __ccgo_fp(_js_module_loader_test), filename)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1612:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1624:5:
 	_add_helpers(tls, ctx)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1614:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1626:5:
 	i = 0
 	for {
 		if !(i < (*Tnamelist_t)(unsafe.Pointer(ip)).Fcount) {
 			break
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1615:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1627:9:
 		if _eval_file(tls, ctx, harness, *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(ip)).Farray + uintptr(i)*8)), libc.Int32FromInt32(0)<<libc.Int32FromInt32(0)) != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1617:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1629:13:
 			x_fatal(tls, int32(1), __ccgo_ts+1204, libc.VaList(bp+24, *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(ip)).Farray + uintptr(i)*8)), filename))
 		}
 		goto _1
@@ -4484,31 +4507,31 @@ func x_run_test_buf(tls *libc.TLS, filename uintptr, harness uintptr, ip uintptr
 		;
 		i++
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1621:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1633:5:
 	ret = _eval_buf(tls, ctx, buf, buf_len, filename, int32(ETRUE), is_negative, error_type, x_outfile, eval_flags, is_async)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1623:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1635:5:
 	ret = libc.BoolInt32(ret != 0)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1625:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1637:5:
 	if x_dump_memory != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1626:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1638:9:
 		x_update_stats(tls, rt, filename)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1629:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1641:5:
 	_js_agent_free(tls, ctx)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1631:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1643:5:
 	x_JS_FreeContext(tls, ctx)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1632:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1644:5:
 	x_JS_FreeRuntime(tls, rt)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1634:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1646:5:
 	x_test_count++
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1635:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1647:5:
 	if ret != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1636:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1648:9:
 		x_test_failed++
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1637:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1649:9:
 		if x_outfile != 0 {
 			/* do not output a failure number to minimize diff */
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1639:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1651:13:
 			v2 = __ccgo_ts + 1230
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
 			__local_argv = bp
@@ -4522,15 +4545,15 @@ func x_run_test_buf(tls *libc.TLS, filename uintptr, harness uintptr, ip uintptr
 		_3:
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1642:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1654:5:
 	return ret
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1645:5:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1657:5:
 func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 	bp := tls.Alloc(1296)
 	defer tls.Free(1296)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1646:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1658:1:
 	var __local_argv, __local_argv1, __local_argv2 T__builtin_va_list
 	var __retval, __retval1, __retval2, eval_flags, ret, use_nostrict, use_strict, v25 int32
 	var buf, desc, error_type, harness, ifile, ifile1, ip, option, q, v10, v11, v13, v16, v17, v18, v19, v20, v21, v22, v23, v26, v6, v8, v9 uintptr
@@ -4542,11 +4565,11 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 	var _ /* p at bp+1256 */ uintptr
 	var _ /* state at bp+1288 */ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __local_argv1, __local_argv2, __retval, __retval1, __retval2, buf, can_block, clocks, desc, error_type, eval_flags, harness, ifile, ifile1, ip, is_async, is_module, is_negative, is_nostrict, is_onlystrict, option, q, ret, skip, use_nostrict, use_strict, v1, v10, v11, v13, v16, v17, v18, v19, v2, v20, v21, v22, v23, v25, v26, v3, v4, v5, v6, v8, v9
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1656:16:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1668:16:
 	*(*Tnamelist_t)(unsafe.Pointer(bp + 1264)) = Tnamelist_t{}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1656:38:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1668:38:
 	ip = bp + 1264
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1658:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1670:5:
 	v5 = int32(EFALSE)
 	skip = v5
 	v4 = v5
@@ -4558,23 +4581,23 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 	v1 = v2
 	is_onlystrict = v1
 	is_nostrict = v1
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1659:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1671:5:
 	can_block = int32(ETRUE)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1660:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1672:5:
 	error_type = libc.UintptrFromInt32(0)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1661:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1673:5:
 	buf = _load_file(tls, filename, bp+1248)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1663:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1675:5:
 	harness = x_harness_dir
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1665:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1677:5:
 	if x_new_style != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1666:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1678:9:
 		if !(harness != 0) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1667:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1679:13:
 			*(*uintptr)(unsafe.Pointer(bp + 1256)) = libc.Xstrstr(tls, filename, __ccgo_ts+1240)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1668:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1680:13:
 			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1669:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1681:17:
 				v6 = __ccgo_ts + 1246
 				libc.VaList(bp, int32(int64(*(*uintptr)(unsafe.Pointer(bp + 1256)))-int64(filename)), filename, __ccgo_ts+1253)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:458:35:
@@ -4588,26 +4611,26 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 				goto _7
 			_7:
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1672:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1684:17:
 				x_pstrcpy(tls, bp+224, int32(1024), __ccgo_ts+838)
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1674:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1686:13:
 			harness = bp + 224
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1676:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1688:9:
 		x_namelist_add(tls, ip, libc.UintptrFromInt32(0), __ccgo_ts+1261)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1677:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1689:9:
 		x_namelist_add(tls, ip, libc.UintptrFromInt32(0), __ccgo_ts+1268)
 		/* extract the YAML frontmatter */
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1679:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1691:9:
 		desc = x_extract_desc(tls, buf, int8('-'))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1680:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1692:9:
 		if desc != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1683:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1695:13:
 			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1278, bp+1288)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1684:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1696:13:
 			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1685:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1697:17:
 				for {
 					v8 = _get_option(tls, bp+1256, bp+1288)
 					ifile = v8
@@ -4615,113 +4638,113 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 						break
 					}
 					// skip unsupported harness files
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1687:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1699:21:
 					if x_find_word(tls, x_harness_exclude, ifile) != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1688:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1700:25:
 						skip |= int32(1)
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1690:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1702:25:
 						x_namelist_add(tls, ip, libc.UintptrFromInt32(0), ifile)
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1692:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1704:21:
 					libc.Xfree(tls, ifile)
 				}
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1695:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1707:13:
 			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1288, bp+1288)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1696:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1708:13:
 			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1697:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1709:17:
 				for {
 					v9 = _get_option(tls, bp+1256, bp+1288)
 					option = v9
 					if !(v9 != libc.UintptrFromInt32(0)) {
 						break
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1698:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1710:21:
 					if _str_equal(tls, option, __ccgo_ts+1295) != 0 || _str_equal(tls, option, __ccgo_ts+1304) != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1700:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1712:25:
 						is_nostrict = int32(ETRUE)
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1701:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1713:25:
 						skip |= libc.BoolInt32(x_test_mode == int32(ETEST_STRICT))
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1703:26:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1715:26:
 						if _str_equal(tls, option, __ccgo_ts+1308) != 0 {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1704:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1716:25:
 							is_onlystrict = int32(ETRUE)
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1705:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1717:25:
 							skip |= libc.BoolInt32(x_test_mode == int32(ETEST_NOSTRICT))
 						} else {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1707:26:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1719:26:
 							if _str_equal(tls, option, __ccgo_ts+707) != 0 {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1708:25:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1720:25:
 								is_async = int32(ETRUE)
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1709:25:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1721:25:
 								skip |= x_skip_async
 							} else {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1711:26:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1723:26:
 								if _str_equal(tls, option, __ccgo_ts+717) != 0 {
-									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1712:25:
+									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1724:25:
 									is_module = int32(ETRUE)
-									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1713:25:
+									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1725:25:
 									skip |= x_skip_module
 								} else {
-									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1715:26:
+									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1727:26:
 									if _str_equal(tls, option, __ccgo_ts+1319) != 0 {
-										// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1716:25:
+										// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1728:25:
 										can_block = int32(EFALSE)
 									}
 								}
 							}
 						}
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1718:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1730:21:
 					libc.Xfree(tls, option)
 				}
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1721:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1733:13:
 			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1335, bp+1288)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1722:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1734:13:
 			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
 				/* XXX: should extract the phase */
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1724:22:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1736:22:
 				q = _find_tag(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), __ccgo_ts+1345, bp+1288)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1725:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1737:17:
 				if q != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1726:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1738:21:
 					for libc.Xisspace(tls, int32(uint8(*(*int8)(unsafe.Pointer(q))))) != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1727:25:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1739:25:
 						q++
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1728:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1740:21:
 					error_type = x_strdup_len(tls, q, int32(libc.Xstrcspn(tls, q, __ccgo_ts+1351)))
 				}
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1730:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1742:17:
 				is_negative = int32(ETRUE)
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1732:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1744:13:
 			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1354, bp+1288)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1733:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1745:13:
 			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1734:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1746:17:
 				for {
 					v10 = _get_option(tls, bp+1256, bp+1288)
 					option = v10
 					if !(v10 != libc.UintptrFromInt32(0)) {
 						break
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1735:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1747:21:
 					if x_find_word(tls, x_harness_features, option) != 0 {
 						/* feature is enabled */
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1737:28:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1749:28:
 						if x_find_word(tls, x_harness_skip_features, option) != 0 {
 							/* skip disabled feature */
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1739:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1751:25:
 							skip |= int32(1)
 						} else {
 							/* feature is not listed: skip and warn */
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1742:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1754:25:
 							v11 = __ccgo_ts + 1364
 							libc.VaList(bp, filename, int32(1), option)
 							// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -4735,30 +4758,30 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 							goto _12
 						_12:
 							;
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1743:25:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1755:25:
 							skip |= int32(1)
 						}
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1745:21:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1757:21:
 					libc.Xfree(tls, option)
 				}
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1748:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1760:13:
 			libc.Xfree(tls, desc)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1750:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1762:9:
 		if is_async != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1751:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1763:13:
 			x_namelist_add(tls, ip, libc.UintptrFromInt32(0), __ccgo_ts+1392)
 		}
 	} else {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1755:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1767:9:
 		if !(harness != 0) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1756:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1768:13:
 			*(*uintptr)(unsafe.Pointer(bp + 1256)) = libc.Xstrstr(tls, filename, __ccgo_ts+1240)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1757:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1769:13:
 			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1758:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1770:17:
 				v13 = __ccgo_ts + 1246
 				libc.VaList(bp, int32(int64(*(*uintptr)(unsafe.Pointer(bp + 1256)))-int64(filename)), filename, __ccgo_ts+1411)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:458:35:
@@ -4772,16 +4795,16 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 				goto _14
 			_14:
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1761:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1773:17:
 				x_pstrcpy(tls, bp+224, int32(1024), __ccgo_ts+838)
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1763:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1775:13:
 			harness = bp + 224
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1766:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1778:9:
 		x_namelist_add(tls, ip, libc.UintptrFromInt32(0), __ccgo_ts+1261)
 		/* include extra harness files */
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1769:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1781:9:
 		*(*uintptr)(unsafe.Pointer(bp + 1256)) = buf
 		for {
 			v16 = libc.Xstrstr(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), __ccgo_ts+1424)
@@ -4789,20 +4812,20 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 			if !(v16 != libc.UintptrFromInt32(0)) {
 				break
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1770:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1782:13:
 			*(*uintptr)(unsafe.Pointer(bp + 1256)) += uintptr(10)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1771:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1783:13:
 			ifile1 = x_strdup_len(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), int32(libc.Xstrcspn(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), __ccgo_ts+1435)))
 			// skip unsupported harness files
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1773:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1785:13:
 			if x_find_word(tls, x_harness_exclude, ifile1) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1774:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1786:17:
 				skip |= int32(1)
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1776:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1788:17:
 				x_namelist_add(tls, ip, libc.UintptrFromInt32(0), ifile1)
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1778:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1790:13:
 			libc.Xfree(tls, ifile1)
 			goto _15
 		_15:
@@ -4810,37 +4833,37 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 			*(*uintptr)(unsafe.Pointer(bp + 1256))++
 		}
 		/* locate the old style configuration comment */
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1782:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1794:9:
 		desc = x_extract_desc(tls, buf, int8('*'))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1783:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1795:9:
 		if desc != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1784:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1796:13:
 			if libc.Xstrstr(tls, desc, __ccgo_ts+1437) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1785:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1797:17:
 				is_nostrict = int32(ETRUE)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1786:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1798:17:
 				skip |= libc.BoolInt32(x_test_mode == int32(ETEST_STRICT))
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1788:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1800:13:
 			if libc.Xstrstr(tls, desc, __ccgo_ts+1447) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1789:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1801:17:
 				is_onlystrict = int32(ETRUE)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1790:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1802:17:
 				skip |= libc.BoolInt32(x_test_mode == int32(ETEST_NOSTRICT))
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1792:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1804:13:
 			if libc.Xstrstr(tls, desc, __ccgo_ts+1459) != 0 {
 				/* XXX: should extract the regex to check error type */
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1794:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1806:17:
 				is_negative = int32(ETRUE)
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1796:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1808:13:
 			libc.Xfree(tls, desc)
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1800:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1812:5:
 	if x_outfile != 0 && index >= 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1801:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1813:9:
 		if is_nostrict != 0 {
 			v17 = __ccgo_ts + 1469
 		} else {
@@ -4884,119 +4907,119 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 		goto _24
 	_24:
 		;
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1808:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1820:9:
 		libc.Xfflush(tls, x_outfile)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1811:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1823:5:
 	v25 = libc.Int32FromInt32(0)
 	use_nostrict = v25
 	use_strict = v25
 	/* XXX: should remove 'test_mode' or simplify it just to force
 	   strict or non strict mode for single file tests */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1814:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1826:5:
 	switch x_test_mode {
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1815:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1827:5:
 	case int32(ETEST_DEFAULT_NOSTRICT):
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1816:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1828:9:
 		if is_onlystrict != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1817:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1829:13:
 			use_strict = int32(1)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1819:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1831:13:
 			use_nostrict = int32(1)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1820:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1832:9:
 		break
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1821:5:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1833:5:
 		fallthrough
 	case int32(ETEST_DEFAULT_STRICT):
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1822:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1834:9:
 		if is_nostrict != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1823:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1835:13:
 			use_nostrict = int32(1)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1825:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1837:13:
 			use_strict = int32(1)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1826:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1838:9:
 		break
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1827:5:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1839:5:
 		fallthrough
 	case int32(ETEST_NOSTRICT):
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1828:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1840:9:
 		if !(is_onlystrict != 0) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1829:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1841:13:
 			use_nostrict = int32(1)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1830:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1842:9:
 		break
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1831:5:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1843:5:
 		fallthrough
 	case int32(ETEST_STRICT):
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1832:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1844:9:
 		if !(is_nostrict != 0) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1833:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1845:13:
 			use_strict = int32(1)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1834:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1846:9:
 		break
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1835:5:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1847:5:
 		fallthrough
 	case int32(ETEST_ALL):
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1836:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1848:9:
 		if is_module != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1837:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1849:13:
 			use_nostrict = int32(1)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1839:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1851:13:
 			if !(is_nostrict != 0) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1840:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1852:17:
 				use_strict = int32(1)
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1841:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1853:13:
 			if !(is_onlystrict != 0) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1842:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1854:17:
 				use_nostrict = int32(1)
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1844:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1856:9:
 		break
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1847:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1859:5:
 	if skip != 0 || use_strict+use_nostrict == 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1848:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1860:9:
 		x_test_skipped++
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1849:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1861:9:
 		ret = -int32(2)
 	} else {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1853:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1865:9:
 		if is_module != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1854:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1866:13:
 			eval_flags = libc.Int32FromInt32(1) << libc.Int32FromInt32(0)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1856:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1868:13:
 			eval_flags = libc.Int32FromInt32(0) << libc.Int32FromInt32(0)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1858:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1870:9:
 		clocks = _clock(tls)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1859:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1871:9:
 		ret = 0
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1860:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1872:9:
 		if use_nostrict != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1861:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1873:13:
 			ret = x_run_test_buf(tls, filename, harness, ip, buf, *(*Tsize_t)(unsafe.Pointer(bp + 1248)), error_type, eval_flags, is_negative, is_async, can_block)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1865:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1877:9:
 		if use_strict != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1866:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1878:13:
 			ret |= x_run_test_buf(tls, filename, harness, ip, buf, *(*Tsize_t)(unsafe.Pointer(bp + 1248)), error_type, eval_flags|libc.Int32FromInt32(1)<<libc.Int32FromInt32(3), is_negative, is_async, can_block)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1870:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1882:9:
 		clocks = _clock(tls) - clocks
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1871:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1883:9:
 		if x_outfile != 0 && index >= 0 && clocks >= int32(libc.Int32FromInt32(MCLOCKS_PER_SEC)/libc.Int32FromInt32(10)) {
 			/* output timings for tests that take more than 100 ms */
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1873:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1885:13:
 			v26 = __ccgo_ts + 1554
 			libc.VaList(bp, int32(int64(clocks)*libc.Int64FromInt64(1000)/libc.Int64FromInt32(MCLOCKS_PER_SEC)))
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5011,13 +5034,13 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 		_27:
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1876:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1888:5:
 	x_namelist_free(tls, bp+1264)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1877:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1889:5:
 	libc.Xfree(tls, error_type)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1878:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1890:5:
 	libc.Xfree(tls, buf)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1880:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1892:5:
 	return ret
 }
 
@@ -5025,11 +5048,11 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 //
 //	/* run a test when called by test262-harness+eshost */
 //
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1884:5:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1896:5:
 func x_run_test262_harness_test(tls *libc.TLS, filename uintptr, is_module TBOOL) (r int32) {
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1885:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1897:1:
 	var buf, ctx1, p, rt, v5, v9 uintptr
 	var can_block TBOOL
 	var eval_flags, ret, ret_code, v1, v4, v8 int32
@@ -5038,71 +5061,71 @@ func x_run_test262_harness_test(tls *libc.TLS, filename uintptr, is_module TBOOL
 	var _ /* buf_len at bp+16 */ Tsize_t
 	var _ /* ctx1 at bp+24 */ uintptr
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = buf, can_block, ctx1, eval_flags, p, promise, res_val, ret, ret_code, rt, state, v1, v3, v4, v5, v7, v8, v9
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1894:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1906:5:
 	x_outfile = libc.X__acrt_iob_func(tls, uint32(1)) /* for js_print */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1896:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1908:5:
 	rt = x_JS_NewRuntime(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1897:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1909:5:
 	if rt == libc.UintptrFromInt32(0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1898:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1910:9:
 		x_fatal(tls, int32(1), __ccgo_ts+125, 0)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1900:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1912:5:
 	ctx1 = x_JS_NewContext(tls, rt)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1901:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1913:5:
 	if ctx1 == libc.UintptrFromInt32(0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1902:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1914:9:
 		x_JS_FreeRuntime(tls, rt)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1903:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1915:9:
 		x_fatal(tls, int32(1), __ccgo_ts+147, 0)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1905:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1917:5:
 	x_JS_SetRuntimeInfo(tls, rt, filename)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1907:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1919:5:
 	can_block = int32(ETRUE)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1908:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1920:5:
 	x_JS_SetCanBlock(tls, rt, can_block)
 	/* loader for ES6 modules */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1911:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1923:5:
 	x_JS_SetModuleLoaderFunc(tls, rt, libc.UintptrFromInt32(0), __ccgo_fp(_js_module_loader_test), filename)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1913:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1925:5:
 	_add_helpers(tls, ctx1)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1915:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1927:5:
 	buf = _load_file(tls, filename, bp+16)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1917:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1929:5:
 	if is_module != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1918:7:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1930:7:
 		eval_flags = libc.Int32FromInt32(1) << libc.Int32FromInt32(0)
 	} else {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1920:7:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1932:7:
 		eval_flags = libc.Int32FromInt32(0) << libc.Int32FromInt32(0)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1922:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1934:5:
 	res_val = x_JS_Eval(tls, ctx1, buf, *(*Tsize_t)(unsafe.Pointer(bp + 16)), filename, eval_flags)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1923:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1935:5:
 	ret_code = 0
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1924:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1936:5:
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:637:5:
 	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32(res_val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 	goto _2
 _2:
 	if v1 != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1925:8:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1937:8:
 		x_js_std_dump_error(tls, ctx1)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1926:8:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1938:8:
 		ret_code = int32(1)
 	} else {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1928:17:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1940:17:
 		promise = TJSValue{
 			Fu:   TJSValueUnion{},
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1929:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1941:9:
 		if is_module != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1930:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1942:13:
 			promise = res_val
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1932:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1944:13:
 			v3 = res_val
 			*(*TJSValue)(unsafe.Pointer(bp)) = v3
 			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -5119,20 +5142,20 @@ _2:
 				}
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1934:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1946:9:
 		for {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1936:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1948:13:
 			ret = x_JS_ExecutePendingJob(tls, x_JS_GetRuntime(tls, ctx1), bp+24)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1937:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1949:13:
 			if ret < 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1938:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1950:17:
 				x_js_std_dump_error(tls, *(*uintptr)(unsafe.Pointer(bp + 24)))
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1939:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1951:17:
 				ret_code = int32(1)
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1940:20:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1952:20:
 				if ret == 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1941:17:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1953:17:
 					break
 				}
 			}
@@ -5140,21 +5163,21 @@ _2:
 		_6:
 		}
 		/* dump the error if the module returned an error. */
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1945:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1957:9:
 		if is_module != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1946:32:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1958:32:
 			state = x_JS_PromiseState(tls, ctx1, promise)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1947:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1959:13:
 			if state == int32(EJS_PROMISE_REJECTED) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1948:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1960:17:
 				x_JS_Throw(tls, ctx1, x_JS_PromiseResult(tls, ctx1, promise))
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1949:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1961:17:
 				x_js_std_dump_error(tls, ctx1)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1950:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1962:17:
 				ret_code = int32(1)
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1953:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1965:9:
 		v7 = promise
 		*(*TJSValue)(unsafe.Pointer(bp)) = v7
 		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/quickjs.h:678:5:
@@ -5171,23 +5194,23 @@ _2:
 			}
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1955:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1967:5:
 	libc.Xfree(tls, buf)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1957:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1969:5:
 	_js_agent_free(tls, ctx1)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1959:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1971:5:
 	x_JS_FreeContext(tls, ctx1)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1960:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1972:5:
 	x_JS_FreeRuntime(tls, rt)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1961:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1973:5:
 	return ret_code
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1966:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1978:6:
 func x_show_progress(tls *libc.TLS, force int32) {
 	bp := tls.Alloc(80)
 	defer tls.Free(80)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1966:31:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1978:31:
 	var __local_argv T__builtin_va_list
 	var __retval, v1 int32
 	var c int8
@@ -5195,39 +5218,39 @@ func x_show_progress(tls *libc.TLS, force int32) {
 	var v2 bool
 	var v3, v5 uintptr
 	_, _, _, _, _, _, _, _ = __local_argv, __retval, c, t, v1, v2, v3, v5
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1967:13:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1979:13:
 	t = _clock(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1968:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1980:5:
 	if force != 0 || !(x_last_clock != 0) || t-x_last_clock > int32(libc.Int32FromInt32(MCLOCKS_PER_SEC)/libc.Int32FromInt32(20)) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1969:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1981:9:
 		x_last_clock = t
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1970:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1982:9:
 		if x_compact != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1974:18:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1986:18:
 			c = int8('.')
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1975:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1987:13:
 			if x_test_skipped > _last_test_skipped {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1976:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1988:17:
 				c = int8('-')
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1977:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1989:13:
 			if x_test_failed > _last_test_failed {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1978:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1990:17:
 				c = int8('!')
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1979:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1991:13:
 			_last_test_skipped = x_test_skipped
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1980:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1992:13:
 			_last_test_failed = x_test_failed
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1981:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1993:13:
 			libc.Xfputc(tls, int32(c), libc.X__acrt_iob_func(tls, uint32(2)))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1982:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1994:13:
 			if v2 = force != 0; !v2 {
 				_dots++
 				v1 = _dots
 			}
 			if v2 || v1%int32(60) == 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1983:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1995:17:
 				v3 = __ccgo_ts + 1568
 				libc.VaList(bp, x_test_failed, x_test_count, x_test_skipped)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5243,7 +5266,7 @@ func x_show_progress(tls *libc.TLS, force int32) {
 			}
 		} else {
 			/* output progress indicator: erase end of line and return to col 0 */
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1988:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2000:13:
 			v5 = __ccgo_ts + 1579
 			libc.VaList(bp, x_test_failed, x_test_count, x_test_skipped)
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5257,77 +5280,77 @@ func x_show_progress(tls *libc.TLS, force int32) {
 			goto _6
 		_6:
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1991:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2003:9:
 		libc.Xfflush(tls, libc.X__acrt_iob_func(tls, uint32(2)))
 	}
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1971:24:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1983:24:
 var _last_test_skipped int32
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1972:24:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1984:24:
 var _last_test_failed int32
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1973:24:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1985:24:
 var _dots int32
 
 //
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1995:1:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2007:1:
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1995:12:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2007:12:
 var _slow_test_threshold int32
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1997:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2009:6:
 func x_run_test_dir_list(tls *libc.TLS, lp uintptr, start_index int32, stop_index int32) {
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1998:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2010:1:
 	var __local_argv T__builtin_va_list
 	var __retval, i, ti int32
 	var p, v2 uintptr
 	_, _, _, _, _, _ = __local_argv, __retval, i, p, ti, v2
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2001:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2013:5:
 	x_namelist_sort(tls, lp)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2002:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2014:5:
 	i = 0
 	for {
 		if !(i < (*Tnamelist_t)(unsafe.Pointer(lp)).Fcount) {
 			break
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2003:20:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2015:20:
 		p = *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(lp)).Farray + uintptr(i)*8))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2004:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2016:9:
 		if x_namelist_find(tls, uintptr(unsafe.Pointer(&x_exclude_list)), p) >= 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2005:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2017:13:
 			x_test_excluded++
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2006:16:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2018:16:
 			if x_test_index < start_index {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2007:13:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2019:13:
 				x_test_skipped++
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2008:16:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2020:16:
 				if stop_index >= 0 && x_test_index > stop_index {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2009:13:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2021:13:
 					x_test_skipped++
 				} else {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2012:13:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2024:13:
 					if _slow_test_threshold != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2013:17:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2025:17:
 						ti = int32(_get_clock_ms(tls))
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2015:17:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2027:17:
 						ti = 0
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2017:13:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2029:13:
 					x_run_test(tls, p, x_test_index)
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2018:13:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2030:13:
 					if _slow_test_threshold != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2019:17:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2031:17:
 						ti = int32(_get_clock_ms(tls) - int64(ti))
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2020:17:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2032:17:
 						if ti >= _slow_test_threshold {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2021:21:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2033:21:
 							v2 = __ccgo_ts + 1592
 							libc.VaList(bp, p, ti)
 							// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5342,32 +5365,32 @@ func x_run_test_dir_list(tls *libc.TLS, lp uintptr, start_index int32, stop_inde
 						_3:
 						}
 					}
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2023:13:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2035:13:
 					x_show_progress(tls, int32(EFALSE))
 				}
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2025:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2037:9:
 		x_test_index++
 		goto _1
 	_1:
 		;
 		i++
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2027:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2039:5:
 	x_show_progress(tls, int32(ETRUE))
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2030:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2042:6:
 func x_help(tls *libc.TLS) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2031:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2043:1:
 	var __local_argv T__builtin_va_list
 	var __retval int32
 	var v1 uintptr
 	_, _, _ = __local_argv, __retval, v1
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2032:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2044:5:
 	v1 = __ccgo_ts + 1605
 	// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
 	__local_argv = bp
@@ -5380,202 +5403,202 @@ func x_help(tls *libc.TLS) {
 	goto _2
 _2:
 	;
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2052:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2064:5:
 	libc.Xexit(tls, int32(1))
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2055:6:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2067:6:
 func x_get_opt_arg(tls *libc.TLS, option uintptr, arg uintptr) (r uintptr) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2056:1:
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2057:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2068:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2069:5:
 	if !(arg != 0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2058:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2070:9:
 		x_fatal(tls, int32(2), __ccgo_ts+2545, libc.VaList(bp+8, option))
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2060:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2072:5:
 	return arg
 }
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2063:5:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2075:5:
 func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 	bp := tls.Alloc(304)
 	defer tls.Free(304)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2064:1:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2076:1:
 	var __local_argv, __local_argv1 T__builtin_va_list
 	var __retval, __retval1, optind, start_index, stop_index, v1, v10, v2, v3, v4, v5, v6, v7, v8, v9 int32
 	var arg, arg1, filename, ignore, v11, v13, v15, v17, v19, v20, v22, v24, v26, v28, v30, v32, v34 uintptr
 	var clocks Tclock_t
 	var is_dir_list, is_module, is_test262_harness, only_check_errors TBOOL
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __local_argv1, __retval, __retval1, arg, arg1, clocks, filename, ignore, is_dir_list, is_module, is_test262_harness, only_check_errors, optind, start_index, stop_index, v1, v10, v11, v13, v15, v17, v19, v2, v20, v22, v24, v26, v28, v3, v30, v32, v34, v4, v5, v6, v7, v8, v9
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2067:10:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2079:10:
 	only_check_errors = int32(EFALSE)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2069:16:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2081:16:
 	ignore = __ccgo_ts + 838
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2070:10:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2082:10:
 	is_test262_harness = int32(EFALSE)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2071:10:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2083:10:
 	is_module = int32(EFALSE)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2075:5:
-	x_init(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2076:5:
-	_init_agent_list(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2077:5:
-	_init_report_list(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2078:5:
-	_init_js_agent_funcs(tls)
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2087:5:
-	optind = int32(1)
+	x_init(tls)
 	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2088:5:
+	_init_agent_list(tls)
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2089:5:
+	_init_report_list(tls)
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2090:5:
+	_init_js_agent_funcs(tls)
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2099:5:
+	optind = int32(1)
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2100:5:
 	for optind < argc {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2089:14:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2101:14:
 		arg = *(*uintptr)(unsafe.Pointer(argv + uintptr(optind)*8))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2090:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2102:9:
 		if int32(*(*int8)(unsafe.Pointer(arg))) != int32('-') {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2091:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2103:13:
 			break
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2092:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2104:9:
 		optind++
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2093:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2105:9:
 		if libc.Xstrstr(tls, __ccgo_ts+2576, arg) != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2094:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2106:13:
 			optind++
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2095:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2107:9:
 		if libc.Xstrstr(tls, __ccgo_ts+2600, arg) != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2096:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2108:13:
 			ignore = __ccgo_ts + 557
 		} // run only the tests from -d or -f
 	}
 	/* cannot use getopt because we want to pass the command line to
 	   the script */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2101:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2113:5:
 	optind = int32(1)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2102:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2114:5:
 	is_dir_list = int32(ETRUE)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2103:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2115:5:
 	for optind < argc {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2104:14:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2116:14:
 		arg1 = *(*uintptr)(unsafe.Pointer(argv + uintptr(optind)*8))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2105:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2117:9:
 		if int32(*(*int8)(unsafe.Pointer(arg1))) != int32('-') {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2106:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2118:13:
 			break
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2107:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2119:9:
 		optind++
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2108:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2120:9:
 		if _str_equal(tls, arg1, __ccgo_ts+2606) != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2109:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2121:13:
 			x_help(tls)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2110:16:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2122:16:
 			if _str_equal(tls, arg1, __ccgo_ts+2609) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2111:13:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2123:13:
 				x_dump_memory++
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2112:16:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2124:16:
 				if _str_equal(tls, arg1, __ccgo_ts+2612) != 0 {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2113:13:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2125:13:
 					x_new_style++
 				} else {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2114:16:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2126:16:
 					if _str_equal(tls, arg1, __ccgo_ts+2615) != 0 {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2115:13:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2127:13:
 						x_test_mode = int32(ETEST_STRICT)
 					} else {
-						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2116:16:
+						// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2128:16:
 						if _str_equal(tls, arg1, __ccgo_ts+2618) != 0 {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2117:13:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2129:13:
 							x_test_mode = int32(ETEST_ALL)
 						} else {
-							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2118:16:
+							// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2130:16:
 							if _str_equal(tls, arg1, __ccgo_ts+2621) != 0 {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2119:13:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2131:13:
 								x_show_timings++
 							} else {
-								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2120:16:
+								// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2132:16:
 								if _str_equal(tls, arg1, __ccgo_ts+2624) != 0 {
-									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2121:13:
+									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2133:13:
 									x_update_errors++
 								} else {
-									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2122:16:
+									// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2134:16:
 									if _str_equal(tls, arg1, __ccgo_ts+2627) != 0 {
-										// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2123:13:
+										// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2135:13:
 										x_verbose++
 									} else {
-										// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2124:16:
+										// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2136:16:
 										if _str_equal(tls, arg1, __ccgo_ts+2630) != 0 {
-											// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2125:13:
+											// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2137:13:
 											x_compact = int32(1)
 										} else {
-											// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2126:16:
+											// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2138:16:
 											if _str_equal(tls, arg1, __ccgo_ts+2633) != 0 {
-												// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2127:13:
+												// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2139:13:
 												v1 = optind
 												optind++
 												x_load_config(tls, x_get_opt_arg(tls, arg1, *(*uintptr)(unsafe.Pointer(argv + uintptr(v1)*8))), ignore)
 											} else {
-												// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2128:16:
+												// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2140:16:
 												if _str_equal(tls, arg1, __ccgo_ts+2636) != 0 {
-													// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2129:13:
+													// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2141:13:
 													v2 = optind
 													optind++
 													_enumerate_tests(tls, x_get_opt_arg(tls, arg1, *(*uintptr)(unsafe.Pointer(argv + uintptr(v2)*8))))
 												} else {
-													// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2130:16:
+													// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2142:16:
 													if _str_equal(tls, arg1, __ccgo_ts+2639) != 0 {
-														// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2131:13:
+														// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2143:13:
 														v3 = optind
 														optind++
 														x_error_filename = x_get_opt_arg(tls, arg1, *(*uintptr)(unsafe.Pointer(argv + uintptr(v3)*8)))
 													} else {
-														// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2132:16:
+														// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2144:16:
 														if _str_equal(tls, arg1, __ccgo_ts+2642) != 0 {
-															// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2133:13:
+															// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2145:13:
 															v4 = optind
 															optind++
 															x_namelist_load(tls, uintptr(unsafe.Pointer(&x_exclude_list)), x_get_opt_arg(tls, arg1, *(*uintptr)(unsafe.Pointer(argv + uintptr(v4)*8))))
 														} else {
-															// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2134:16:
+															// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2146:16:
 															if _str_equal(tls, arg1, __ccgo_ts+2645) != 0 {
-																// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2135:13:
+																// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2147:13:
 																is_dir_list = int32(EFALSE)
 															} else {
-																// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2136:16:
+																// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2148:16:
 																if _str_equal(tls, arg1, __ccgo_ts+2648) != 0 {
-																	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2137:13:
+																	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2149:13:
 																	v5 = optind
 																	optind++
 																	x_report_filename = x_get_opt_arg(tls, arg1, *(*uintptr)(unsafe.Pointer(argv + uintptr(v5)*8)))
 																} else {
-																	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2138:16:
+																	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2150:16:
 																	if _str_equal(tls, arg1, __ccgo_ts+2651) != 0 {
-																		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2139:13:
+																		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2151:13:
 																		only_check_errors = int32(ETRUE)
 																	} else {
-																		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2140:16:
+																		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2152:16:
 																		if _str_equal(tls, arg1, __ccgo_ts+2654) != 0 {
-																			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2141:13:
+																			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2153:13:
 																			v6 = optind
 																			optind++
 																			_slow_test_threshold = libc.Xatoi(tls, x_get_opt_arg(tls, arg1, *(*uintptr)(unsafe.Pointer(argv + uintptr(v6)*8))))
 																		} else {
-																			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2142:16:
+																			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2154:16:
 																			if _str_equal(tls, arg1, __ccgo_ts+2657) != 0 {
-																				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2143:13:
+																				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2155:13:
 																				is_test262_harness = int32(ETRUE)
 																			} else {
-																				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2144:16:
+																				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2156:16:
 																				if _str_equal(tls, arg1, __ccgo_ts+2660) != 0 {
-																					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2145:13:
+																					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2157:13:
 																					is_module = int32(ETRUE)
 																				} else {
-																					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2147:13:
+																					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2159:13:
 																					x_fatal(tls, int32(1), __ccgo_ts+2669, libc.VaList(bp+296, arg1))
-																					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2148:13:
+																					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2160:13:
 																					break
 																				}
 																			}
@@ -5597,123 +5620,123 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 			}
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2152:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2164:5:
 	if optind >= argc && !(x_test_list.Fcount != 0) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2153:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2165:9:
 		x_help(tls)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2155:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2167:5:
 	if is_test262_harness != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2156:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2168:9:
 		return x_run_test262_harness_test(tls, *(*uintptr)(unsafe.Pointer(argv + uintptr(optind)*8)), is_module)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2159:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2171:5:
 	x_error_out = libc.X__acrt_iob_func(tls, uint32(1))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2160:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2172:5:
 	if x_error_filename != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2161:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2173:9:
 		x_error_file = _load_file(tls, x_error_filename, libc.UintptrFromInt32(0))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2162:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2174:9:
 		if only_check_errors != 0 && x_error_file != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2163:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2175:13:
 			x_namelist_free(tls, uintptr(unsafe.Pointer(&x_test_list)))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2164:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2176:13:
 			x_namelist_add_from_error_file(tls, uintptr(unsafe.Pointer(&x_test_list)), x_error_file)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2166:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2178:9:
 		if x_update_errors != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2167:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2179:13:
 			libc.Xfree(tls, x_error_file)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2168:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2180:13:
 			x_error_file = libc.UintptrFromInt32(0)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2169:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2181:13:
 			x_error_out = libc.Xfopen(tls, x_error_filename, __ccgo_ts+2688)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2170:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2182:13:
 			if !(x_error_out != 0) {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2171:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2183:17:
 				x_perror_exit(tls, int32(1), x_error_filename)
 			}
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2176:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2188:5:
 	x_update_exclude_dirs(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2178:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2190:5:
 	clocks = _clock(tls)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2180:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2192:5:
 	if is_dir_list != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2181:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2193:9:
 		if optind < argc && !(libc.Xisdigit(tls, int32(uint8(*(*int8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(argv + uintptr(optind)*8))))))) != 0) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2182:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2194:13:
 			v7 = optind
 			optind++
 			filename = *(*uintptr)(unsafe.Pointer(argv + uintptr(v7)*8))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2183:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2195:13:
 			x_namelist_load(tls, uintptr(unsafe.Pointer(&x_test_list)), filename)
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2185:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2197:9:
 		start_index = 0
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2186:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2198:9:
 		stop_index = -int32(1)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2187:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2199:9:
 		if optind < argc {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2188:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2200:13:
 			v8 = optind
 			optind++
 			start_index = libc.Xatoi(tls, *(*uintptr)(unsafe.Pointer(argv + uintptr(v8)*8)))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2189:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2201:13:
 			if optind < argc {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2190:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2202:17:
 				v9 = optind
 				optind++
 				stop_index = libc.Xatoi(tls, *(*uintptr)(unsafe.Pointer(argv + uintptr(v9)*8)))
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2193:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2205:9:
 		if !(x_report_filename != 0) || _str_equal(tls, x_report_filename, __ccgo_ts+2690) != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2194:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2206:13:
 			x_outfile = libc.UintptrFromInt32(0)
 		} else {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2195:16:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2207:16:
 			if _str_equal(tls, x_report_filename, __ccgo_ts+2695) != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2196:13:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2208:13:
 				x_outfile = libc.X__acrt_iob_func(tls, uint32(1))
 			} else {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2198:13:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2210:13:
 				x_outfile = libc.Xfopen(tls, x_report_filename, __ccgo_ts+2697)
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2199:13:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2211:13:
 				if !(x_outfile != 0) {
-					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2200:17:
+					// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2212:17:
 					x_perror_exit(tls, int32(1), x_report_filename)
 				}
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2203:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2215:9:
 		x_run_test_dir_list(tls, uintptr(unsafe.Pointer(&x_test_list)), start_index, stop_index)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2205:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2217:9:
 		if x_outfile != 0 && x_outfile != libc.X__acrt_iob_func(tls, uint32(1)) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2206:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2218:13:
 			libc.Xfclose(tls, x_outfile)
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2207:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2219:13:
 			x_outfile = libc.UintptrFromInt32(0)
 		}
 	} else {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2210:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2222:9:
 		x_outfile = libc.X__acrt_iob_func(tls, uint32(1))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2211:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2223:9:
 		for optind < argc {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2212:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2224:13:
 			v10 = optind
 			optind++
 			x_run_test(tls, *(*uintptr)(unsafe.Pointer(argv + uintptr(v10)*8)), -int32(1))
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2216:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2228:5:
 	clocks = _clock(tls) - clocks
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2218:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2230:5:
 	if x_dump_memory != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2219:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2231:9:
 		if x_dump_memory > int32(1) && x_stats_count > int32(1) {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2220:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2232:13:
 			v11 = __ccgo_ts + 2700
 			libc.VaList(bp, x_stats_min_filename)
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -5727,9 +5750,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 			goto _12
 		_12:
 			;
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2221:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2233:13:
 			x_JS_DumpMemoryUsage(tls, libc.X__acrt_iob_func(tls, uint32(1)), uintptr(unsafe.Pointer(&x_stats_min)), libc.UintptrFromInt32(0))
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2222:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2234:13:
 			v13 = __ccgo_ts + 2737
 			libc.VaList(bp, x_stats_max_filename)
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -5743,10 +5766,10 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 			goto _14
 		_14:
 			;
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2223:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2235:13:
 			x_JS_DumpMemoryUsage(tls, libc.X__acrt_iob_func(tls, uint32(1)), uintptr(unsafe.Pointer(&x_stats_max)), libc.UintptrFromInt32(0))
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2225:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2237:9:
 		v15 = __ccgo_ts + 2774
 		libc.VaList(bp, x_stats_count)
 		// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
@@ -5760,9 +5783,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 		goto _16
 	_16:
 		;
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2226:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2238:9:
 		x_JS_DumpMemoryUsage(tls, libc.X__acrt_iob_func(tls, uint32(1)), uintptr(unsafe.Pointer(&x_stats_avg)), libc.UintptrFromInt32(0))
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2227:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2239:9:
 		v17 = __ccgo_ts + 798
 		// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:371:35:
 		__local_argv1 = bp
@@ -5775,9 +5798,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 		goto _18
 	_18:
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2230:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2242:5:
 	if is_dir_list != 0 {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2231:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2243:9:
 		if x_test_count != int32(1) {
 			v19 = __ccgo_ts + 2817
 		} else {
@@ -5796,9 +5819,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 		goto _21
 	_21:
 		;
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2233:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2245:9:
 		if x_test_excluded != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2234:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2246:13:
 			v22 = __ccgo_ts + 2841
 			libc.VaList(bp, x_test_excluded)
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5812,9 +5835,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 			goto _23
 		_23:
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2235:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2247:9:
 		if x_test_skipped != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2236:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2248:13:
 			v24 = __ccgo_ts + 2855
 			libc.VaList(bp, x_test_skipped)
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5828,11 +5851,11 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 			goto _25
 		_25:
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2237:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2249:9:
 		if x_error_file != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2238:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2250:13:
 			if x_new_errors != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2239:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2251:17:
 				v26 = __ccgo_ts + 2868
 				libc.VaList(bp, x_new_errors)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5846,9 +5869,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 				goto _27
 			_27:
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2240:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2252:13:
 			if x_changed_errors != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2241:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2253:17:
 				v28 = __ccgo_ts + 2877
 				libc.VaList(bp, x_changed_errors)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5862,9 +5885,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 				goto _29
 			_29:
 			}
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2242:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2254:13:
 			if x_fixed_errors != 0 {
-				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2243:17:
+				// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2255:17:
 				v30 = __ccgo_ts + 2890
 				libc.VaList(bp, x_fixed_errors)
 				// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5879,7 +5902,7 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 			_31:
 			}
 		}
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2245:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2257:9:
 		v32 = __ccgo_ts + 798
 		// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
 		__local_argv = bp
@@ -5892,9 +5915,9 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 		goto _33
 	_33:
 		;
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2246:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2258:9:
 		if x_show_timings != 0 {
-			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2247:13:
+			// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2259:13:
 			v34 = __ccgo_ts + 2901
 			libc.VaList(bp, float64(clocks)/libc.Float64FromInt32(MCLOCKS_PER_SEC))
 			// /home/jnml/bin/llvm-mingw/x86_64-w64-mingw32/include/stdio.h:360:35:
@@ -5909,29 +5932,29 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 		_35:
 		}
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2250:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2262:5:
 	if x_error_out != 0 && x_error_out != libc.X__acrt_iob_func(tls, uint32(1)) {
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2251:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2263:9:
 		libc.Xfclose(tls, x_error_out)
-		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2252:9:
+		// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2264:9:
 		x_error_out = libc.UintptrFromInt32(0)
 	}
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2255:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2267:5:
 	x_namelist_free(tls, uintptr(unsafe.Pointer(&x_test_list)))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2256:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2268:5:
 	x_namelist_free(tls, uintptr(unsafe.Pointer(&x_exclude_list)))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2257:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2269:5:
 	x_namelist_free(tls, uintptr(unsafe.Pointer(&x_exclude_dir_list)))
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2258:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2270:5:
 	libc.Xfree(tls, x_harness_dir)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2259:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2271:5:
 	libc.Xfree(tls, x_harness_features)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2260:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2272:5:
 	libc.Xfree(tls, x_harness_exclude)
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2261:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2273:5:
 	libc.Xfree(tls, x_error_file)
 	/* Signal that the error file is out of date. */
-	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2264:5:
+	// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:2276:5:
 	return libc.BoolInt32(x_new_errors != 0 || x_changed_errors != 0 || x_fixed_errors != 0)
 }
 
@@ -202700,9 +202723,9 @@ var x_harness_features uintptr
 var x_harness_skip_features uintptr
 
 //
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1964:1:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1976:1:
 
-// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1964:9:
+// /home/jnml/src/modernc.org/libquickjs/tmp/quickjs-19abf1888db5884a5758036ff6e7fa2b340acedc/run-test262.c:1976:9:
 var x_last_clock Tclock_t
 
 /*---- lre codepoint categorizing functions ----*/
