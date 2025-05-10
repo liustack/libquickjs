@@ -160,7 +160,7 @@ func main() {
 		shell(gsed, "-i", `s/__SIZEOF_INT128__/__nothing__/`, filepath.Join(quickjs, "quickjs.h"))
 	}
 	switch target {
-	case "freebsd/amd64":
+	case "freebsd/amd64", "freebsd/arm64":
 		ccExec(append(ccArgs,
 			"-std=c99",
 			"-D__sync_fetch_and_add(p, v, ...)=__atomic_fetch_add((p), (v), 0)",
