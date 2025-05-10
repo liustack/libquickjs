@@ -38,6 +38,8 @@ const MSEEK_SET = 0
 const MUTF8_CHAR_LEN_MAX = 6
 const M__ATOMIC_SEQ_CST = 5
 
+type T__builtin_va_list = uintptr
+
 type T__predefined_ptrdiff_t = int64
 
 type Tva_list = uintptr
@@ -321,37 +323,77 @@ const /* run tests as strict, skip nostrict tests */
 ETEST_ALL = 4
 
 func x_warning(tls *libc.TLS, fmt uintptr, va uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
+	bp := tls.Alloc(32)
+	defer tls.Free(32)
+	var __local_argv T__builtin_va_list
+	var __retval int32
 	var ap Tva_list
-	_ = ap
+	var v1 uintptr
+	_, _, _, _ = __local_argv, __retval, ap, v1
 	libc.Xfflush(tls, libc.X__acrt_iob_func(tls, uint32(1)))
-	libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts, libc.VaList(bp+8, __ccgo_ts+5))
+	v1 = __ccgo_ts
+	libc.VaList(bp, __ccgo_ts+5)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	ap = va
-	libc.Xvfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), fmt, ap)
+	_ = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), fmt, ap)
+	goto _3
+_3:
+	;
 	_ = ap
 	libc.Xfputc(tls, int32('\n'), libc.X__acrt_iob_func(tls, uint32(2)))
 }
 
 func x_fatal(tls *libc.TLS, errcode int32, fmt uintptr, va uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
+	bp := tls.Alloc(32)
+	defer tls.Free(32)
+	var __local_argv T__builtin_va_list
+	var __retval int32
 	var ap Tva_list
-	_ = ap
+	var v1 uintptr
+	_, _, _, _ = __local_argv, __retval, ap, v1
 	libc.Xfflush(tls, libc.X__acrt_iob_func(tls, uint32(1)))
-	libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts, libc.VaList(bp+8, __ccgo_ts+5))
+	v1 = __ccgo_ts
+	libc.VaList(bp, __ccgo_ts+5)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	ap = va
-	libc.Xvfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), fmt, ap)
+	_ = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), fmt, ap)
+	goto _3
+_3:
+	;
 	_ = ap
 	libc.Xfputc(tls, int32('\n'), libc.X__acrt_iob_func(tls, uint32(2)))
 	libc.Xexit(tls, errcode)
 }
 
 func x_perror_exit(tls *libc.TLS, errcode int32, s uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
+	bp := tls.Alloc(32)
+	defer tls.Free(32)
+	var __local_argv T__builtin_va_list
+	var __retval int32
+	var v1 uintptr
+	_, _, _ = __local_argv, __retval, v1
 	libc.Xfflush(tls, libc.X__acrt_iob_func(tls, uint32(1)))
-	libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts, libc.VaList(bp+8, __ccgo_ts+5))
+	v1 = __ccgo_ts
+	libc.VaList(bp, __ccgo_ts+5)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	libc.Xperror(tls, s)
 	libc.Xexit(tls, errcode)
 }
@@ -776,11 +818,11 @@ _2:
 	return ret
 }
 
+type Tpthread_t = uint64
+
 type Tsched_param = struct {
 	Fsched_priority int32
 }
-
-type Tpthread_t = uint64
 
 type Tpthread_attr_t = struct {
 	Fp_state uint32
@@ -1820,50 +1862,59 @@ func _load_file(tls *libc.TLS, filename uintptr, lenp uintptr) (r uintptr) {
 }
 
 func _js_module_loader_test(tls *libc.TLS, ctx1 uintptr, module_name uintptr, opaque uintptr) (r uintptr) {
-	bp := tls.Alloc(1104)
-	defer tls.Free(1104)
-	var buf, filename, m, p, slash, v5 uintptr
-	var v1, v4 int32
-	var v3 TJSValue
-	var _ /* buf_len at bp+16 */ Tsize_t
-	var _ /* func_val at bp+24 */ TJSValue
-	var _ /* path at bp+40 */ [1024]int8
-	_, _, _, _, _, _, _, _, _ = buf, filename, m, p, slash, v1, v3, v4, v5
+	bp := tls.Alloc(1120)
+	defer tls.Free(1120)
+	var __local_argv T__builtin_va_list
+	var __retval, v3, v6 int32
+	var buf, filename, m, p, slash, v1, v7 uintptr
+	var v5 TJSValue
+	var _ /* buf_len at bp+56 */ Tsize_t
+	var _ /* func_val at bp+64 */ TJSValue
+	var _ /* path at bp+80 */ [1024]int8
+	_, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, buf, filename, m, p, slash, v1, v3, v5, v6, v7
 	// interpret import("bar.js") from path/to/foo.js as
 	// import("path/to/bar.js") but leave import("./bar.js") untouched
 	filename = opaque
 	if !(libc.Xstrchr(tls, module_name, int32('/')) != 0) {
 		slash = libc.Xstrrchr(tls, filename, int32('/'))
 		if slash != 0 {
-			libc.X__builtin_snprintf(tls, bp+40, uint64(1024), __ccgo_ts+422, libc.VaList(bp+1072, int32(int64(slash)-int64(filename)), filename, module_name))
-			module_name = bp + 40
+			v1 = __ccgo_ts + 422
+			libc.VaList(bp, int32(int64(slash)-int64(filename)), filename, module_name)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+80, uint64(1024), v1, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _2
+		_2:
+			;
+			module_name = bp + 80
 		}
 	}
-	buf = x_js_load_file(tls, ctx1, bp+16, module_name)
+	buf = x_js_load_file(tls, ctx1, bp+56, module_name)
 	if !(buf != 0) {
-		x_JS_ThrowReferenceError(tls, ctx1, __ccgo_ts+430, libc.VaList(bp+1072, module_name))
+		x_JS_ThrowReferenceError(tls, ctx1, __ccgo_ts+430, libc.VaList(bp+1112, module_name))
 		return libc.UintptrFromInt32(0)
 	}
 	/* compile the module */
-	*(*TJSValue)(unsafe.Pointer(bp + 24)) = x_JS_Eval(tls, ctx1, buf, *(*Tsize_t)(unsafe.Pointer(bp + 16)), module_name, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(5))
+	*(*TJSValue)(unsafe.Pointer(bp + 64)) = x_JS_Eval(tls, ctx1, buf, *(*Tsize_t)(unsafe.Pointer(bp + 56)), module_name, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(5))
 	x_js_free(tls, ctx1, buf)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 24))).Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
-	goto _2
-_2:
-	if v1 != 0 {
+	v3 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 64))).Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
+	goto _4
+_4:
+	if v3 != 0 {
 		return libc.UintptrFromInt32(0)
 	}
 	/* the module is already referenced, so we must free it */
-	m = *(*uintptr)(unsafe.Pointer(bp + 24))
-	v3 = *(*TJSValue)(unsafe.Pointer(bp + 24))
-	*(*TJSValue)(unsafe.Pointer(bp)) = v3
-	if uint32(int32(v3.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v5 = p
-		*(*int32)(unsafe.Pointer(v5))--
-		v4 = *(*int32)(unsafe.Pointer(v5))
-		if v4 <= libc.Int32FromInt32(0) {
-			x___JS_FreeValue(tls, ctx1, v3)
+	m = *(*uintptr)(unsafe.Pointer(bp + 64))
+	v5 = *(*TJSValue)(unsafe.Pointer(bp + 64))
+	*(*TJSValue)(unsafe.Pointer(bp + 40)) = v5
+	if uint32(int32(v5.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 40))
+		v7 = p
+		*(*int32)(unsafe.Pointer(v7))--
+		v6 = *(*int32)(unsafe.Pointer(v7))
+		if v6 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx1, v5)
 		}
 	}
 	return m
@@ -1971,12 +2022,13 @@ func x_update_exclude_dirs(tls *libc.TLS) {
 }
 
 func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
-	bp := tls.Alloc(1072)
-	defer tls.Free(1072)
-	var base_name, f, p, path, q, testdir, v1 uintptr
-	var lineno, section int32
-	var _ /* buf at bp+0 */ [1024]int8
-	_, _, _, _, _, _, _, _, _ = base_name, f, lineno, p, path, q, section, testdir, v1
+	bp := tls.Alloc(1120)
+	defer tls.Free(1120)
+	var __local_argv T__builtin_va_list
+	var __retval, lineno, section int32
+	var base_name, f, p, path, q, testdir, v1, v2, v4 uintptr
+	var _ /* buf at bp+80 */ [1024]int8
+	_, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, base_name, f, lineno, p, path, q, section, testdir, v1, v2, v4
 	section = 0
 	lineno = 0
 	f = libc.Xfopen(tls, filename, __ccgo_ts+37)
@@ -1984,9 +2036,9 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 		x_perror_exit(tls, int32(1), filename)
 	}
 	base_name = x_get_basename(tls, filename)
-	for libc.Xfgets(tls, bp, int32(1024), f) != libc.UintptrFromInt32(0) {
+	for libc.Xfgets(tls, bp+80, int32(1024), f) != libc.UintptrFromInt32(0) {
 		lineno++
-		p = x_str_strip(tls, bp)
+		p = x_str_strip(tls, bp+80)
 		if int32(*(*int8)(unsafe.Pointer(p))) == int32('#') || int32(*(*int8)(unsafe.Pointer(p))) == int32(';') || int32(*(*int8)(unsafe.Pointer(p))) == int32('\000') {
 			continue
 		} /* line comment */
@@ -2024,11 +2076,27 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 		switch section {
 		case 1:
 			if !(q != 0) {
-				libc.Xprintf(tls, __ccgo_ts+503, libc.VaList(bp+1032, filename, lineno))
+				v2 = __ccgo_ts + 503
+				libc.VaList(bp, filename, lineno)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v2, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _3
+			_3:
+				;
 				continue
 			}
 			if libc.Xstrstr(tls, ignore, p) != 0 {
-				libc.Xprintf(tls, __ccgo_ts+524, libc.VaList(bp+1032, filename, lineno, p, q))
+				v4 = __ccgo_ts + 524
+				libc.VaList(bp, filename, lineno, p, q)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v4, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _5
+			_5:
+				;
 				continue
 			}
 			if _str_equal(tls, p, __ccgo_ts+547) != 0 {
@@ -2073,7 +2141,7 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 								if _str_equal(tls, q, __ccgo_ts+668) != 0 || _str_equal(tls, q, __ccgo_ts+672) != 0 {
 									x_test_mode = int32(ETEST_ALL)
 								} else {
-									x_fatal(tls, int32(2), __ccgo_ts+677, libc.VaList(bp+1032, q))
+									x_fatal(tls, int32(2), __ccgo_ts+677, libc.VaList(bp+1112, q))
 								}
 							}
 						}
@@ -2302,25 +2370,26 @@ func x_longest_match(tls *libc.TLS, str uintptr, find uintptr, pos int32, ppos u
 }
 
 func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filename uintptr, is_test int32, is_negative int32, error_type uintptr, outfile uintptr, eval_flags int32, is_async int32) (r int32) {
-	bp := tls.Alloc(112)
-	defer tls.Free(112)
-	var error_class, error_name, msg, msg1, p, p1, p2, s, stack_str, strict_mode, v10, v13, v14, v18, v22, v25, v26, v28, v31, v33, v36, v39, v42, v6 uintptr
+	bp := tls.Alloc(400)
+	defer tls.Free(400)
+	var __local_argv, __local_argv1 T__builtin_va_list
+	var __retval, __retval1, len1, ret, v1, v11, v18, v25, v28, v33, v5, v51, v54, v57, v9 int32
+	var error_class, error_name, msg, msg1, p, p1, p2, s, stack_str, strict_mode, v10, v13, v14, v16, v20, v22, v26, v29, v30, v32, v35, v37, v39, v41, v43, v44, v46, v48, v52, v55, v58, v6 uintptr
 	var has_error_line, is_error, ret_promise TBOOL
-	var len1, ret, v1, v11, v16, v21, v24, v29, v35, v38, v41, v5, v9 int32
-	var msg_val, name, promise, res_val, stack, v20, v23, v34, v37, v4, v40, v8 TJSValue
+	var msg_val, name, promise, res_val, stack, v24, v27, v4, v50, v53, v56, v8 TJSValue
 	var state TJSPromiseStateEnum
 	var v3 bool
-	var _ /* ctx1 at bp+48 */ uintptr
-	var _ /* error_line at bp+32 */ int32
-	var _ /* exception_val at bp+16 */ TJSValue
-	var _ /* pos at bp+36 */ int32
-	var _ /* pos_line at bp+40 */ int32
-	var _ /* s_line at bp+56 */ int32
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = error_class, error_name, has_error_line, is_error, len1, msg, msg1, msg_val, name, p, p1, p2, promise, res_val, ret, ret_promise, s, stack, stack_str, state, strict_mode, v1, v10, v11, v13, v14, v16, v18, v20, v21, v22, v23, v24, v25, v26, v28, v29, v3, v31, v33, v34, v35, v36, v37, v38, v39, v4, v40, v41, v42, v5, v6, v8, v9
-	*(*int32)(unsafe.Pointer(bp + 36)) = x_skip_comments(tls, buf, int32(1), bp+40)
-	*(*int32)(unsafe.Pointer(bp + 32)) = *(*int32)(unsafe.Pointer(bp + 40))
+	var _ /* ctx1 at bp+384 */ uintptr
+	var _ /* error_line at bp+368 */ int32
+	var _ /* exception_val at bp+352 */ TJSValue
+	var _ /* pos at bp+372 */ int32
+	var _ /* pos_line at bp+376 */ int32
+	var _ /* s_line at bp+392 */ int32
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __local_argv1, __retval, __retval1, error_class, error_name, has_error_line, is_error, len1, msg, msg1, msg_val, name, p, p1, p2, promise, res_val, ret, ret_promise, s, stack, stack_str, state, strict_mode, v1, v10, v11, v13, v14, v16, v18, v20, v22, v24, v25, v26, v27, v28, v29, v3, v30, v32, v33, v35, v37, v39, v4, v41, v43, v44, v46, v48, v5, v50, v51, v52, v53, v54, v55, v56, v57, v58, v6, v8, v9
+	*(*int32)(unsafe.Pointer(bp + 372)) = x_skip_comments(tls, buf, int32(1), bp+376)
+	*(*int32)(unsafe.Pointer(bp + 368)) = *(*int32)(unsafe.Pointer(bp + 376))
 	has_error_line = int32(EFALSE)
-	*(*TJSValue)(unsafe.Pointer(bp + 16)) = TJSValue{
+	*(*TJSValue)(unsafe.Pointer(bp + 352)) = TJSValue{
 		Fu:   TJSValueUnion{},
 		Ftag: int64(EJS_TAG_UNDEFINED),
 	}
@@ -2343,9 +2412,9 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 			promise = res_val
 		} else {
 			v4 = res_val
-			*(*TJSValue)(unsafe.Pointer(bp)) = v4
+			*(*TJSValue)(unsafe.Pointer(bp + 336)) = v4
 			if uint32(int32(v4.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = *(*uintptr)(unsafe.Pointer(bp))
+				p = *(*uintptr)(unsafe.Pointer(bp + 336))
 				v6 = p
 				*(*int32)(unsafe.Pointer(v6))--
 				v5 = *(*int32)(unsafe.Pointer(v6))
@@ -2355,7 +2424,7 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 			}
 		}
 		for {
-			ret = x_JS_ExecutePendingJob(tls, x_JS_GetRuntime(tls, ctx2), bp+48)
+			ret = x_JS_ExecutePendingJob(tls, x_JS_GetRuntime(tls, ctx2), bp+384)
 			if ret < 0 {
 				res_val = TJSValue{
 					Fu:   TJSValueUnion{},
@@ -2397,9 +2466,9 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 		_7:
 		}
 		v8 = promise
-		*(*TJSValue)(unsafe.Pointer(bp)) = v8
+		*(*TJSValue)(unsafe.Pointer(bp + 336)) = v8
 		if uint32(int32(v8.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
+			p = *(*uintptr)(unsafe.Pointer(bp + 336))
 			v10 = p
 			*(*int32)(unsafe.Pointer(v10))--
 			v9 = *(*int32)(unsafe.Pointer(v10))
@@ -2412,8 +2481,8 @@ func _eval_buf(tls *libc.TLS, ctx2 uintptr, buf uintptr, buf_len Tsize_t, filena
 	goto _12
 _12:
 	if v11 != 0 {
-		*(*TJSValue)(unsafe.Pointer(bp + 16)) = x_JS_GetException(tls, ctx2)
-		is_error = x_JS_IsError(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 16)))
+		*(*TJSValue)(unsafe.Pointer(bp + 352)) = x_JS_GetException(tls, ctx2)
+		is_error = x_JS_IsError(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)))
 		/* XXX: should get the filename and line number */
 		if outfile != 0 {
 			if !(is_error != 0) {
@@ -2422,71 +2491,85 @@ _12:
 				} else {
 					v13 = __ccgo_ts + 838
 				}
-				libc.Xfprintf(tls, outfile, __ccgo_ts+839, libc.VaList(bp+72, v13))
+				v14 = __ccgo_ts + 839
+				libc.VaList(bp, v13)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, outfile, v14, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _15
+			_15:
 			}
 			_js_print(tls, ctx2, TJSValue{
 				Fu:   TJSValueUnion{},
 				Ftag: int64(EJS_TAG_NULL),
-			}, int32(1), bp+16)
+			}, int32(1), bp+352)
 		}
 		if is_error != 0 {
-			name = x_JS_GetPropertyStr(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 16)), __ccgo_ts+849)
-			v14 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), name, 0)
-			goto _15
-		_15:
-			error_name = v14
-			stack = x_JS_GetPropertyStr(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 16)), __ccgo_ts+854)
-			v16 = libc.BoolInt32(int32(stack.Ftag) == int32(EJS_TAG_UNDEFINED))
+			name = x_JS_GetPropertyStr(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)), __ccgo_ts+849)
+			v16 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), name, 0)
 			goto _17
 		_17:
-			if !(v16 != 0) {
-				v18 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), stack, 0)
-				goto _19
-			_19:
-				stack_str = v18
+			error_name = v16
+			stack = x_JS_GetPropertyStr(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)), __ccgo_ts+854)
+			v18 = libc.BoolInt32(int32(stack.Ftag) == int32(EJS_TAG_UNDEFINED))
+			goto _19
+		_19:
+			if !(v18 != 0) {
+				v20 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), stack, 0)
+				goto _21
+			_21:
+				stack_str = v20
 				if stack_str != 0 {
 					if outfile != 0 {
-						libc.Xfprintf(tls, outfile, __ccgo_ts+860, libc.VaList(bp+72, stack_str))
+						v22 = __ccgo_ts + 860
+						libc.VaList(bp, stack_str)
+						__local_argv = bp
+						__retval = libc.X__mingw_vfprintf(tls, outfile, v22, __local_argv)
+						_ = __local_argv
+						_ = __retval
+						goto _23
+					_23:
 					}
 					len1 = int32(libc.Xstrlen(tls, filename))
 					p1 = libc.Xstrstr(tls, stack_str, filename)
 					if p1 != libc.UintptrFromInt32(0) && int32(*(*int8)(unsafe.Pointer(p1 + uintptr(len1)))) == int32(':') {
-						*(*int32)(unsafe.Pointer(bp + 32)) = libc.Xatoi(tls, p1+uintptr(len1)+uintptr(1))
+						*(*int32)(unsafe.Pointer(bp + 368)) = libc.Xatoi(tls, p1+uintptr(len1)+uintptr(1))
 						has_error_line = int32(ETRUE)
 					}
 					x_JS_FreeCString(tls, ctx2, stack_str)
 				}
 			}
-			v20 = stack
-			*(*TJSValue)(unsafe.Pointer(bp)) = v20
-			if uint32(int32(v20.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = *(*uintptr)(unsafe.Pointer(bp))
-				v22 = p
-				*(*int32)(unsafe.Pointer(v22))--
-				v21 = *(*int32)(unsafe.Pointer(v22))
-				if v21 <= libc.Int32FromInt32(0) {
-					x___JS_FreeValue(tls, ctx2, v20)
+			v24 = stack
+			*(*TJSValue)(unsafe.Pointer(bp + 336)) = v24
+			if uint32(int32(v24.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = *(*uintptr)(unsafe.Pointer(bp + 336))
+				v26 = p
+				*(*int32)(unsafe.Pointer(v26))--
+				v25 = *(*int32)(unsafe.Pointer(v26))
+				if v25 <= libc.Int32FromInt32(0) {
+					x___JS_FreeValue(tls, ctx2, v24)
 				}
 			}
-			v23 = name
-			*(*TJSValue)(unsafe.Pointer(bp)) = v23
-			if uint32(int32(v23.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = *(*uintptr)(unsafe.Pointer(bp))
-				v25 = p
-				*(*int32)(unsafe.Pointer(v25))--
-				v24 = *(*int32)(unsafe.Pointer(v25))
-				if v24 <= libc.Int32FromInt32(0) {
-					x___JS_FreeValue(tls, ctx2, v23)
+			v27 = name
+			*(*TJSValue)(unsafe.Pointer(bp + 336)) = v27
+			if uint32(int32(v27.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = *(*uintptr)(unsafe.Pointer(bp + 336))
+				v29 = p
+				*(*int32)(unsafe.Pointer(v29))--
+				v28 = *(*int32)(unsafe.Pointer(v29))
+				if v28 <= libc.Int32FromInt32(0) {
+					x___JS_FreeValue(tls, ctx2, v27)
 				}
 			}
 		}
 		if is_negative != 0 {
 			ret = 0
 			if error_type != 0 {
-				v26 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(bp + 16)), 0)
-				goto _27
-			_27:
-				msg = v26
+				v30 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(bp + 352)), 0)
+				goto _31
+			_31:
+				msg = v30
 				error_class = x_strdup_len(tls, msg, int32(libc.Xstrcspn(tls, msg, __ccgo_ts+863)))
 				if !(_str_equal(tls, error_class, error_type) != 0) {
 					ret = -int32(1)
@@ -2510,38 +2593,60 @@ _12:
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
 		msg1 = libc.UintptrFromInt32(0)
-		s = x_find_error(tls, filename, bp+56, eval_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)))
+		s = x_find_error(tls, filename, bp+392, eval_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)))
 		if eval_flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)) != 0 {
-			v28 = __ccgo_ts + 765
+			v32 = __ccgo_ts + 765
 		} else {
-			v28 = __ccgo_ts + 838
+			v32 = __ccgo_ts + 838
 		}
-		strict_mode = v28
-		v29 = libc.BoolInt32(int32((*(*TJSValue)(unsafe.Pointer(bp + 16))).Ftag) == int32(EJS_TAG_UNDEFINED))
-		goto _30
-	_30:
-		if !(v29 != 0) {
-			msg_val = x_JS_ToString(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 16)))
-			v31 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), msg_val, 0)
-			goto _32
-		_32:
-			msg1 = v31
+		strict_mode = v32
+		v33 = libc.BoolInt32(int32((*(*TJSValue)(unsafe.Pointer(bp + 352))).Ftag) == int32(EJS_TAG_UNDEFINED))
+		goto _34
+	_34:
+		if !(v33 != 0) {
+			msg_val = x_JS_ToString(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 352)))
+			v35 = x_JS_ToCStringLen2(tls, ctx2, libc.UintptrFromInt32(0), msg_val, 0)
+			goto _36
+		_36:
+			msg1 = v35
 		}
 		if is_negative != 0 { // expect error
 			if ret == 0 {
 				if msg1 != 0 && s != 0 && (_str_equal(tls, s, __ccgo_ts+865) != 0 || x_strstart(tls, s, __ccgo_ts+880, libc.UintptrFromInt32(0)) != 0 || _str_equal(tls, s, msg1) != 0) { // did not have error yet
 					if !(has_error_line != 0) {
-						x_longest_match(tls, buf, msg1, *(*int32)(unsafe.Pointer(bp + 36)), bp+36, *(*int32)(unsafe.Pointer(bp + 40)), bp+32)
+						x_longest_match(tls, buf, msg1, *(*int32)(unsafe.Pointer(bp + 372)), bp+372, *(*int32)(unsafe.Pointer(bp + 376)), bp+368)
 					}
-					libc.Xprintf(tls, __ccgo_ts+903, libc.VaList(bp+72, filename, *(*int32)(unsafe.Pointer(bp + 32)), strict_mode, msg1))
+					v37 = __ccgo_ts + 903
+					libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 368)), strict_mode, msg1)
+					__local_argv1 = bp
+					__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v37, __local_argv1)
+					_ = __local_argv1
+					_ = __retval1
+					goto _38
+				_38:
+					;
 					x_fixed_errors++
 				}
 			} else {
 				if !(s != 0) { // not yet reported
 					if msg1 != 0 {
-						libc.Xfprintf(tls, x_error_out, __ccgo_ts+934, libc.VaList(bp+72, filename, *(*int32)(unsafe.Pointer(bp + 32)), strict_mode, msg1))
+						v39 = __ccgo_ts + 934
+						libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 368)), strict_mode, msg1)
+						__local_argv = bp
+						__retval = libc.X__mingw_vfprintf(tls, x_error_out, v39, __local_argv)
+						_ = __local_argv
+						_ = __retval
+						goto _40
+					_40:
 					} else {
-						libc.Xfprintf(tls, x_error_out, __ccgo_ts+970, libc.VaList(bp+72, filename, *(*int32)(unsafe.Pointer(bp + 32)), strict_mode))
+						v41 = __ccgo_ts + 970
+						libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 368)), strict_mode)
+						__local_argv = bp
+						__retval = libc.X__mingw_vfprintf(tls, x_error_out, v41, __local_argv)
+						_ = __local_argv
+						_ = __retval
+						goto _42
+					_42:
 					}
 					x_new_errors++
 				}
@@ -2552,19 +2657,35 @@ _12:
 					if !(has_error_line != 0) {
 						p2 = x_skip_prefix(tls, msg1, __ccgo_ts+995)
 						if libc.Xstrstr(tls, p2, __ccgo_ts+1011) != 0 {
-							x_longest_match(tls, buf, __ccgo_ts+1046, *(*int32)(unsafe.Pointer(bp + 36)), bp+36, *(*int32)(unsafe.Pointer(bp + 40)), bp+32)
+							x_longest_match(tls, buf, __ccgo_ts+1046, *(*int32)(unsafe.Pointer(bp + 372)), bp+372, *(*int32)(unsafe.Pointer(bp + 376)), bp+368)
 						} else {
-							x_longest_match(tls, buf, p2, *(*int32)(unsafe.Pointer(bp + 36)), bp+36, *(*int32)(unsafe.Pointer(bp + 40)), bp+32)
+							x_longest_match(tls, buf, p2, *(*int32)(unsafe.Pointer(bp + 372)), bp+372, *(*int32)(unsafe.Pointer(bp + 376)), bp+368)
 						}
 					}
 					if x_error_file != 0 {
-						v33 = __ccgo_ts + 779
+						v43 = __ccgo_ts + 779
 					} else {
-						v33 = __ccgo_ts + 838
+						v43 = __ccgo_ts + 838
 					}
-					libc.Xfprintf(tls, x_error_out, __ccgo_ts+1058, libc.VaList(bp+72, filename, *(*int32)(unsafe.Pointer(bp + 32)), strict_mode, v33, msg1))
-					if s != 0 && (!(_str_equal(tls, s, msg1) != 0) || *(*int32)(unsafe.Pointer(bp + 32)) != *(*int32)(unsafe.Pointer(bp + 56))) {
-						libc.Xprintf(tls, __ccgo_ts+1073, libc.VaList(bp+72, filename, *(*int32)(unsafe.Pointer(bp + 56)), strict_mode, s))
+					v44 = __ccgo_ts + 1058
+					libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 368)), strict_mode, v43, msg1)
+					__local_argv = bp
+					__retval = libc.X__mingw_vfprintf(tls, x_error_out, v44, __local_argv)
+					_ = __local_argv
+					_ = __retval
+					goto _45
+				_45:
+					;
+					if s != 0 && (!(_str_equal(tls, s, msg1) != 0) || *(*int32)(unsafe.Pointer(bp + 368)) != *(*int32)(unsafe.Pointer(bp + 392))) {
+						v46 = __ccgo_ts + 1073
+						libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 392)), strict_mode, s)
+						__local_argv1 = bp
+						__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v46, __local_argv1)
+						_ = __local_argv1
+						_ = __retval1
+						goto _47
+					_47:
+						;
 						x_changed_errors++
 					} else {
 						x_new_errors++
@@ -2572,46 +2693,54 @@ _12:
 				}
 			} else {
 				if s != 0 {
-					libc.Xprintf(tls, __ccgo_ts+1102, libc.VaList(bp+72, filename, *(*int32)(unsafe.Pointer(bp + 56)), strict_mode, s))
+					v48 = __ccgo_ts + 1102
+					libc.VaList(bp, filename, *(*int32)(unsafe.Pointer(bp + 392)), strict_mode, s)
+					__local_argv1 = bp
+					__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v48, __local_argv1)
+					_ = __local_argv1
+					_ = __retval1
+					goto _49
+				_49:
+					;
 					x_fixed_errors++
 				}
 			}
 		}
-		v34 = msg_val
-		*(*TJSValue)(unsafe.Pointer(bp)) = v34
-		if uint32(int32(v34.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
-			v36 = p
-			*(*int32)(unsafe.Pointer(v36))--
-			v35 = *(*int32)(unsafe.Pointer(v36))
-			if v35 <= libc.Int32FromInt32(0) {
-				x___JS_FreeValue(tls, ctx2, v34)
+		v50 = msg_val
+		*(*TJSValue)(unsafe.Pointer(bp + 336)) = v50
+		if uint32(int32(v50.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+			p = *(*uintptr)(unsafe.Pointer(bp + 336))
+			v52 = p
+			*(*int32)(unsafe.Pointer(v52))--
+			v51 = *(*int32)(unsafe.Pointer(v52))
+			if v51 <= libc.Int32FromInt32(0) {
+				x___JS_FreeValue(tls, ctx2, v50)
 			}
 		}
 		x_JS_FreeCString(tls, ctx2, msg1)
 		libc.Xfree(tls, s)
 	}
 	x_JS_FreeCString(tls, ctx2, error_name)
-	v37 = *(*TJSValue)(unsafe.Pointer(bp + 16))
-	*(*TJSValue)(unsafe.Pointer(bp)) = v37
-	if uint32(int32(v37.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v39 = p
-		*(*int32)(unsafe.Pointer(v39))--
-		v38 = *(*int32)(unsafe.Pointer(v39))
-		if v38 <= libc.Int32FromInt32(0) {
-			x___JS_FreeValue(tls, ctx2, v37)
+	v53 = *(*TJSValue)(unsafe.Pointer(bp + 352))
+	*(*TJSValue)(unsafe.Pointer(bp + 336)) = v53
+	if uint32(int32(v53.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 336))
+		v55 = p
+		*(*int32)(unsafe.Pointer(v55))--
+		v54 = *(*int32)(unsafe.Pointer(v55))
+		if v54 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx2, v53)
 		}
 	}
-	v40 = res_val
-	*(*TJSValue)(unsafe.Pointer(bp)) = v40
-	if uint32(int32(v40.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v42 = p
-		*(*int32)(unsafe.Pointer(v42))--
-		v41 = *(*int32)(unsafe.Pointer(v42))
-		if v41 <= libc.Int32FromInt32(0) {
-			x___JS_FreeValue(tls, ctx2, v40)
+	v56 = res_val
+	*(*TJSValue)(unsafe.Pointer(bp + 336)) = v56
+	if uint32(int32(v56.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 336))
+		v58 = p
+		*(*int32)(unsafe.Pointer(v58))--
+		v57 = *(*int32)(unsafe.Pointer(v58))
+		if v57 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx2, v56)
 		}
 	}
 	return ret
@@ -2839,11 +2968,12 @@ func x_update_stats(tls *libc.TLS, rt uintptr, filename uintptr) {
 }
 
 func x_run_test_buf(tls *libc.TLS, filename uintptr, harness uintptr, ip uintptr, buf uintptr, buf_len Tsize_t, error_type uintptr, eval_flags int32, is_negative TBOOL, is_async TBOOL, can_block TBOOL) (r int32) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var ctx, rt uintptr
-	var i, ret int32
-	_, _, _, _ = ctx, i, ret, rt
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv T__builtin_va_list
+	var __retval, i, ret int32
+	var ctx, rt, v2 uintptr
+	_, _, _, _, _, _, _ = __local_argv, __retval, ctx, i, ret, rt, v2
 	rt = x_JS_NewRuntime(tls)
 	if rt == libc.UintptrFromInt32(0) {
 		x_fatal(tls, int32(1), __ccgo_ts+125, 0)
@@ -2864,7 +2994,7 @@ func x_run_test_buf(tls *libc.TLS, filename uintptr, harness uintptr, ip uintptr
 			break
 		}
 		if _eval_file(tls, ctx, harness, *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(ip)).Farray + uintptr(i)*8)), libc.Int32FromInt32(0)<<libc.Int32FromInt32(0)) != 0 {
-			x_fatal(tls, int32(1), __ccgo_ts+1204, libc.VaList(bp+8, *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(ip)).Farray + uintptr(i)*8)), filename))
+			x_fatal(tls, int32(1), __ccgo_ts+1204, libc.VaList(bp+24, *(*uintptr)(unsafe.Pointer((*Tnamelist_t)(unsafe.Pointer(ip)).Farray + uintptr(i)*8)), filename))
 		}
 		goto _1
 	_1:
@@ -2884,27 +3014,34 @@ func x_run_test_buf(tls *libc.TLS, filename uintptr, harness uintptr, ip uintptr
 		x_test_failed++
 		if x_outfile != 0 {
 			/* do not output a failure number to minimize diff */
-			libc.Xfprintf(tls, x_outfile, __ccgo_ts+1230, 0)
+			v2 = __ccgo_ts + 1230
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, x_outfile, v2, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _3
+		_3:
 		}
 	}
 	return ret
 }
 
 func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
-	bp := tls.Alloc(1152)
-	defer tls.Free(1152)
-	var buf, desc, error_type, harness, ifile, ifile1, ip, option, q, v10, v11, v12, v13, v14, v15, v16, v6, v7, v8 uintptr
+	bp := tls.Alloc(1296)
+	defer tls.Free(1296)
+	var __local_argv, __local_argv1, __local_argv2 T__builtin_va_list
+	var __retval, __retval1, __retval2, eval_flags, ret, use_nostrict, use_strict, v25 int32
+	var buf, desc, error_type, harness, ifile, ifile1, ip, option, q, v10, v11, v13, v16, v17, v18, v19, v20, v21, v22, v23, v26, v6, v8, v9 uintptr
 	var can_block, is_async, is_module, is_negative, is_nostrict, is_onlystrict, skip, v1, v2, v3, v4, v5 TBOOL
 	var clocks Tclock_t
-	var eval_flags, ret, use_nostrict, use_strict, v17 int32
-	var _ /* buf_len at bp+1024 */ Tsize_t
-	var _ /* harnessbuf at bp+0 */ [1024]int8
-	var _ /* include_list at bp+1040 */ Tnamelist_t
-	var _ /* p at bp+1032 */ uintptr
-	var _ /* state at bp+1064 */ int32
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = buf, can_block, clocks, desc, error_type, eval_flags, harness, ifile, ifile1, ip, is_async, is_module, is_negative, is_nostrict, is_onlystrict, option, q, ret, skip, use_nostrict, use_strict, v1, v10, v11, v12, v13, v14, v15, v16, v17, v2, v3, v4, v5, v6, v7, v8
-	*(*Tnamelist_t)(unsafe.Pointer(bp + 1040)) = Tnamelist_t{}
-	ip = bp + 1040
+	var _ /* buf_len at bp+1248 */ Tsize_t
+	var _ /* harnessbuf at bp+224 */ [1024]int8
+	var _ /* include_list at bp+1264 */ Tnamelist_t
+	var _ /* p at bp+1256 */ uintptr
+	var _ /* state at bp+1288 */ int32
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __local_argv1, __local_argv2, __retval, __retval1, __retval2, buf, can_block, clocks, desc, error_type, eval_flags, harness, ifile, ifile1, ip, is_async, is_module, is_negative, is_nostrict, is_onlystrict, option, q, ret, skip, use_nostrict, use_strict, v1, v10, v11, v13, v16, v17, v18, v19, v2, v20, v21, v22, v23, v25, v26, v3, v4, v5, v6, v8, v9
+	*(*Tnamelist_t)(unsafe.Pointer(bp + 1264)) = Tnamelist_t{}
+	ip = bp + 1264
 	v5 = int32(EFALSE)
 	skip = v5
 	v4 = v5
@@ -2918,29 +3055,36 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 	is_nostrict = v1
 	can_block = int32(ETRUE)
 	error_type = libc.UintptrFromInt32(0)
-	buf = _load_file(tls, filename, bp+1024)
+	buf = _load_file(tls, filename, bp+1248)
 	harness = x_harness_dir
 	if x_new_style != 0 {
 		if !(harness != 0) {
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) = libc.Xstrstr(tls, filename, __ccgo_ts+1240)
-			if *(*uintptr)(unsafe.Pointer(bp + 1032)) != 0 {
-				libc.X__builtin_snprintf(tls, bp, uint64(1024), __ccgo_ts+1246, libc.VaList(bp+1080, int32(int64(*(*uintptr)(unsafe.Pointer(bp + 1032)))-int64(filename)), filename, __ccgo_ts+1253))
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) = libc.Xstrstr(tls, filename, __ccgo_ts+1240)
+			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
+				v6 = __ccgo_ts + 1246
+				libc.VaList(bp, int32(int64(*(*uintptr)(unsafe.Pointer(bp + 1256)))-int64(filename)), filename, __ccgo_ts+1253)
+				__local_argv2 = bp
+				__retval2 = libc.X__mingw_vsnprintf(tls, bp+224, uint64(1024), v6, __local_argv2)
+				_ = __local_argv2
+				_ = __retval2
+				goto _7
+			_7:
 			} else {
-				x_pstrcpy(tls, bp, int32(1024), __ccgo_ts+838)
+				x_pstrcpy(tls, bp+224, int32(1024), __ccgo_ts+838)
 			}
-			harness = bp
+			harness = bp + 224
 		}
 		x_namelist_add(tls, ip, libc.UintptrFromInt32(0), __ccgo_ts+1261)
 		x_namelist_add(tls, ip, libc.UintptrFromInt32(0), __ccgo_ts+1268)
 		/* extract the YAML frontmatter */
 		desc = x_extract_desc(tls, buf, int8('-'))
 		if desc != 0 {
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) = _find_tag(tls, desc, __ccgo_ts+1278, bp+1064)
-			if *(*uintptr)(unsafe.Pointer(bp + 1032)) != 0 {
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1278, bp+1288)
+			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
 				for {
-					v6 = _get_option(tls, bp+1032, bp+1064)
-					ifile = v6
-					if !(v6 != libc.UintptrFromInt32(0)) {
+					v8 = _get_option(tls, bp+1256, bp+1288)
+					ifile = v8
+					if !(v8 != libc.UintptrFromInt32(0)) {
 						break
 					}
 					// skip unsupported harness files
@@ -2952,12 +3096,12 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 					libc.Xfree(tls, ifile)
 				}
 			}
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) = _find_tag(tls, desc, __ccgo_ts+1288, bp+1064)
-			if *(*uintptr)(unsafe.Pointer(bp + 1032)) != 0 {
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1288, bp+1288)
+			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
 				for {
-					v7 = _get_option(tls, bp+1032, bp+1064)
-					option = v7
-					if !(v7 != libc.UintptrFromInt32(0)) {
+					v9 = _get_option(tls, bp+1256, bp+1288)
+					option = v9
+					if !(v9 != libc.UintptrFromInt32(0)) {
 						break
 					}
 					if _str_equal(tls, option, __ccgo_ts+1295) != 0 || _str_equal(tls, option, __ccgo_ts+1304) != 0 {
@@ -2986,10 +3130,10 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 					libc.Xfree(tls, option)
 				}
 			}
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) = _find_tag(tls, desc, __ccgo_ts+1335, bp+1064)
-			if *(*uintptr)(unsafe.Pointer(bp + 1032)) != 0 {
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1335, bp+1288)
+			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
 				/* XXX: should extract the phase */
-				q = _find_tag(tls, *(*uintptr)(unsafe.Pointer(bp + 1032)), __ccgo_ts+1345, bp+1064)
+				q = _find_tag(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), __ccgo_ts+1345, bp+1288)
 				if q != 0 {
 					for libc.Xisspace(tls, int32(uint8(*(*int8)(unsafe.Pointer(q))))) != 0 {
 						q++
@@ -2998,12 +3142,12 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 				}
 				is_negative = int32(ETRUE)
 			}
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) = _find_tag(tls, desc, __ccgo_ts+1354, bp+1064)
-			if *(*uintptr)(unsafe.Pointer(bp + 1032)) != 0 {
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) = _find_tag(tls, desc, __ccgo_ts+1354, bp+1288)
+			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
 				for {
-					v8 = _get_option(tls, bp+1032, bp+1064)
-					option = v8
-					if !(v8 != libc.UintptrFromInt32(0)) {
+					v10 = _get_option(tls, bp+1256, bp+1288)
+					option = v10
+					if !(v10 != libc.UintptrFromInt32(0)) {
 						break
 					}
 					if x_find_word(tls, x_harness_features, option) != 0 {
@@ -3014,7 +3158,15 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 							skip |= int32(1)
 						} else {
 							/* feature is not listed: skip and warn */
-							libc.Xprintf(tls, __ccgo_ts+1364, libc.VaList(bp+1080, filename, int32(1), option))
+							v11 = __ccgo_ts + 1364
+							libc.VaList(bp, filename, int32(1), option)
+							__local_argv1 = bp
+							__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v11, __local_argv1)
+							_ = __local_argv1
+							_ = __retval1
+							goto _12
+						_12:
+							;
 							skip |= int32(1)
 						}
 					}
@@ -3028,25 +3180,32 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 		}
 	} else {
 		if !(harness != 0) {
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) = libc.Xstrstr(tls, filename, __ccgo_ts+1240)
-			if *(*uintptr)(unsafe.Pointer(bp + 1032)) != 0 {
-				libc.X__builtin_snprintf(tls, bp, uint64(1024), __ccgo_ts+1246, libc.VaList(bp+1080, int32(int64(*(*uintptr)(unsafe.Pointer(bp + 1032)))-int64(filename)), filename, __ccgo_ts+1411))
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) = libc.Xstrstr(tls, filename, __ccgo_ts+1240)
+			if *(*uintptr)(unsafe.Pointer(bp + 1256)) != 0 {
+				v13 = __ccgo_ts + 1246
+				libc.VaList(bp, int32(int64(*(*uintptr)(unsafe.Pointer(bp + 1256)))-int64(filename)), filename, __ccgo_ts+1411)
+				__local_argv2 = bp
+				__retval2 = libc.X__mingw_vsnprintf(tls, bp+224, uint64(1024), v13, __local_argv2)
+				_ = __local_argv2
+				_ = __retval2
+				goto _14
+			_14:
 			} else {
-				x_pstrcpy(tls, bp, int32(1024), __ccgo_ts+838)
+				x_pstrcpy(tls, bp+224, int32(1024), __ccgo_ts+838)
 			}
-			harness = bp
+			harness = bp + 224
 		}
 		x_namelist_add(tls, ip, libc.UintptrFromInt32(0), __ccgo_ts+1261)
 		/* include extra harness files */
-		*(*uintptr)(unsafe.Pointer(bp + 1032)) = buf
+		*(*uintptr)(unsafe.Pointer(bp + 1256)) = buf
 		for {
-			v10 = libc.Xstrstr(tls, *(*uintptr)(unsafe.Pointer(bp + 1032)), __ccgo_ts+1424)
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) = v10
-			if !(v10 != libc.UintptrFromInt32(0)) {
+			v16 = libc.Xstrstr(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), __ccgo_ts+1424)
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) = v16
+			if !(v16 != libc.UintptrFromInt32(0)) {
 				break
 			}
-			*(*uintptr)(unsafe.Pointer(bp + 1032)) += uintptr(10)
-			ifile1 = x_strdup_len(tls, *(*uintptr)(unsafe.Pointer(bp + 1032)), int32(libc.Xstrcspn(tls, *(*uintptr)(unsafe.Pointer(bp + 1032)), __ccgo_ts+1435)))
+			*(*uintptr)(unsafe.Pointer(bp + 1256)) += uintptr(10)
+			ifile1 = x_strdup_len(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), int32(libc.Xstrcspn(tls, *(*uintptr)(unsafe.Pointer(bp + 1256)), __ccgo_ts+1435)))
 			// skip unsupported harness files
 			if x_find_word(tls, x_harness_exclude, ifile1) != 0 {
 				skip |= int32(1)
@@ -3054,10 +3213,10 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 				x_namelist_add(tls, ip, libc.UintptrFromInt32(0), ifile1)
 			}
 			libc.Xfree(tls, ifile1)
-			goto _9
-		_9:
+			goto _15
+		_15:
 			;
-			*(*uintptr)(unsafe.Pointer(bp + 1032))++
+			*(*uintptr)(unsafe.Pointer(bp + 1256))++
 		}
 		/* locate the old style configuration comment */
 		desc = x_extract_desc(tls, buf, int8('*'))
@@ -3079,41 +3238,49 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 	}
 	if x_outfile != 0 && index >= 0 {
 		if is_nostrict != 0 {
-			v11 = __ccgo_ts + 1469
+			v17 = __ccgo_ts + 1469
 		} else {
-			v11 = __ccgo_ts + 838
+			v17 = __ccgo_ts + 838
 		}
 		if is_onlystrict != 0 {
-			v12 = __ccgo_ts + 1481
+			v18 = __ccgo_ts + 1481
 		} else {
-			v12 = __ccgo_ts + 838
+			v18 = __ccgo_ts + 838
 		}
 		if is_async != 0 {
-			v13 = __ccgo_ts + 1495
+			v19 = __ccgo_ts + 1495
 		} else {
-			v13 = __ccgo_ts + 838
+			v19 = __ccgo_ts + 838
 		}
 		if is_module != 0 {
-			v14 = __ccgo_ts + 1503
+			v20 = __ccgo_ts + 1503
 		} else {
-			v14 = __ccgo_ts + 838
+			v20 = __ccgo_ts + 838
 		}
 		if is_negative != 0 {
-			v15 = __ccgo_ts + 1512
+			v21 = __ccgo_ts + 1512
 		} else {
-			v15 = __ccgo_ts + 838
+			v21 = __ccgo_ts + 838
 		}
 		if skip != 0 {
-			v16 = __ccgo_ts + 1524
+			v22 = __ccgo_ts + 1524
 		} else {
-			v16 = __ccgo_ts + 838
+			v22 = __ccgo_ts + 838
 		}
-		libc.Xfprintf(tls, x_outfile, __ccgo_ts+1534, libc.VaList(bp+1080, index, filename, v11, v12, v13, v14, v15, v16))
+		v23 = __ccgo_ts + 1534
+		libc.VaList(bp, index, filename, v17, v18, v19, v20, v21, v22)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, x_outfile, v23, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _24
+	_24:
+		;
 		libc.Xfflush(tls, x_outfile)
 	}
-	v17 = libc.Int32FromInt32(0)
-	use_nostrict = v17
-	use_strict = v17
+	v25 = libc.Int32FromInt32(0)
+	use_nostrict = v25
+	use_strict = v25
 	/* XXX: should remove 'test_mode' or simplify it just to force
 	   strict or non strict mode for single file tests */
 	switch x_test_mode {
@@ -3162,18 +3329,25 @@ func x_run_test(tls *libc.TLS, filename uintptr, index int32) (r int32) {
 		clocks = _clock(tls)
 		ret = 0
 		if use_nostrict != 0 {
-			ret = x_run_test_buf(tls, filename, harness, ip, buf, *(*Tsize_t)(unsafe.Pointer(bp + 1024)), error_type, eval_flags, is_negative, is_async, can_block)
+			ret = x_run_test_buf(tls, filename, harness, ip, buf, *(*Tsize_t)(unsafe.Pointer(bp + 1248)), error_type, eval_flags, is_negative, is_async, can_block)
 		}
 		if use_strict != 0 {
-			ret |= x_run_test_buf(tls, filename, harness, ip, buf, *(*Tsize_t)(unsafe.Pointer(bp + 1024)), error_type, eval_flags|libc.Int32FromInt32(1)<<libc.Int32FromInt32(3), is_negative, is_async, can_block)
+			ret |= x_run_test_buf(tls, filename, harness, ip, buf, *(*Tsize_t)(unsafe.Pointer(bp + 1248)), error_type, eval_flags|libc.Int32FromInt32(1)<<libc.Int32FromInt32(3), is_negative, is_async, can_block)
 		}
 		clocks = _clock(tls) - clocks
 		if x_outfile != 0 && index >= 0 && clocks >= int32(libc.Int32FromInt32(MCLOCKS_PER_SEC)/libc.Int32FromInt32(10)) {
 			/* output timings for tests that take more than 100 ms */
-			libc.Xfprintf(tls, x_outfile, __ccgo_ts+1554, libc.VaList(bp+1080, int32(int64(clocks)*libc.Int64FromInt64(1000)/libc.Int64FromInt32(MCLOCKS_PER_SEC))))
+			v26 = __ccgo_ts + 1554
+			libc.VaList(bp, int32(int64(clocks)*libc.Int64FromInt64(1000)/libc.Int64FromInt32(MCLOCKS_PER_SEC)))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, x_outfile, v26, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _27
+		_27:
 		}
 	}
-	x_namelist_free(tls, bp+1040)
+	x_namelist_free(tls, bp+1264)
 	libc.Xfree(tls, error_type)
 	libc.Xfree(tls, buf)
 	return ret
@@ -3285,13 +3459,15 @@ _2:
 }
 
 func x_show_progress(tls *libc.TLS, force int32) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
+	bp := tls.Alloc(80)
+	defer tls.Free(80)
+	var __local_argv T__builtin_va_list
+	var __retval, v1 int32
 	var c int8
 	var t Tclock_t
-	var v1 int32
 	var v2 bool
-	_, _, _, _ = c, t, v1, v2
+	var v3, v5 uintptr
+	_, _, _, _, _, _, _, _ = __local_argv, __retval, c, t, v1, v2, v3, v5
 	t = _clock(tls)
 	if force != 0 || !(x_last_clock != 0) || t-x_last_clock > int32(libc.Int32FromInt32(MCLOCKS_PER_SEC)/libc.Int32FromInt32(20)) {
 		x_last_clock = t
@@ -3311,11 +3487,25 @@ func x_show_progress(tls *libc.TLS, force int32) {
 				v1 = _dots
 			}
 			if v2 || v1%int32(60) == 0 {
-				libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+1568, libc.VaList(bp+8, x_test_failed, x_test_count, x_test_skipped))
+				v3 = __ccgo_ts + 1568
+				libc.VaList(bp, x_test_failed, x_test_count, x_test_skipped)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v3, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _4
+			_4:
 			}
 		} else {
 			/* output progress indicator: erase end of line and return to col 0 */
-			libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+1579, libc.VaList(bp+8, x_test_failed, x_test_count, x_test_skipped))
+			v5 = __ccgo_ts + 1579
+			libc.VaList(bp, x_test_failed, x_test_count, x_test_skipped)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v5, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _6
+		_6:
 		}
 		libc.Xfflush(tls, libc.X__acrt_iob_func(tls, uint32(2)))
 	}
@@ -3332,9 +3522,10 @@ var _slow_test_threshold int32
 func x_run_test_dir_list(tls *libc.TLS, lp uintptr, start_index int32, stop_index int32) {
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
-	var i, ti int32
-	var p uintptr
-	_, _, _ = i, p, ti
+	var __local_argv T__builtin_va_list
+	var __retval, i, ti int32
+	var p, v2 uintptr
+	_, _, _, _, _, _ = __local_argv, __retval, i, p, ti, v2
 	x_namelist_sort(tls, lp)
 	i = 0
 	for {
@@ -3360,7 +3551,14 @@ func x_run_test_dir_list(tls *libc.TLS, lp uintptr, start_index int32, stop_inde
 					if _slow_test_threshold != 0 {
 						ti = int32(_get_clock_ms(tls) - int64(ti))
 						if ti >= _slow_test_threshold {
-							libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+1592, libc.VaList(bp+8, p, ti))
+							v2 = __ccgo_ts + 1592
+							libc.VaList(bp, p, ti)
+							__local_argv = bp
+							__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v2, __local_argv)
+							_ = __local_argv
+							_ = __retval
+							goto _3
+						_3:
 						}
 					}
 					x_show_progress(tls, int32(EFALSE))
@@ -3377,7 +3575,20 @@ func x_run_test_dir_list(tls *libc.TLS, lp uintptr, start_index int32, stop_inde
 }
 
 func x_help(tls *libc.TLS) {
-	libc.Xprintf(tls, __ccgo_ts+1605, 0)
+	bp := tls.Alloc(16)
+	defer tls.Free(16)
+	var __local_argv T__builtin_va_list
+	var __retval int32
+	var v1 uintptr
+	_, _, _ = __local_argv, __retval, v1
+	v1 = __ccgo_ts + 1605
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	libc.Xexit(tls, int32(1))
 }
 
@@ -3391,13 +3602,14 @@ func x_get_opt_arg(tls *libc.TLS, option uintptr, arg uintptr) (r uintptr) {
 }
 
 func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var arg, arg1, filename, ignore, v11 uintptr
+	bp := tls.Alloc(304)
+	defer tls.Free(304)
+	var __local_argv, __local_argv1 T__builtin_va_list
+	var __retval, __retval1, optind, start_index, stop_index, v1, v10, v2, v3, v4, v5, v6, v7, v8, v9 int32
+	var arg, arg1, filename, ignore, v11, v13, v15, v17, v19, v20, v22, v24, v26, v28, v30, v32, v34 uintptr
 	var clocks Tclock_t
 	var is_dir_list, is_module, is_test262_harness, only_check_errors TBOOL
-	var optind, start_index, stop_index, v1, v10, v2, v3, v4, v5, v6, v7, v8, v9 int32
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = arg, arg1, clocks, filename, ignore, is_dir_list, is_module, is_test262_harness, only_check_errors, optind, start_index, stop_index, v1, v10, v11, v2, v3, v4, v5, v6, v7, v8, v9
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __local_argv1, __retval, __retval1, arg, arg1, clocks, filename, ignore, is_dir_list, is_module, is_test262_harness, only_check_errors, optind, start_index, stop_index, v1, v10, v11, v13, v15, v17, v19, v2, v20, v22, v24, v26, v28, v3, v30, v32, v34, v4, v5, v6, v7, v8, v9
 	only_check_errors = int32(EFALSE)
 	ignore = __ccgo_ts + 838
 	is_test262_harness = int32(EFALSE)
@@ -3499,7 +3711,7 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 																				if _str_equal(tls, arg1, __ccgo_ts+2660) != 0 {
 																					is_module = int32(ETRUE)
 																				} else {
-																					x_fatal(tls, int32(1), __ccgo_ts+2669, libc.VaList(bp+8, arg1))
+																					x_fatal(tls, int32(1), __ccgo_ts+2669, libc.VaList(bp+296, arg1))
 																					break
 																				}
 																			}
@@ -3592,42 +3804,129 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 	clocks = _clock(tls) - clocks
 	if x_dump_memory != 0 {
 		if x_dump_memory > int32(1) && x_stats_count > int32(1) {
-			libc.Xprintf(tls, __ccgo_ts+2700, libc.VaList(bp+8, x_stats_min_filename))
+			v11 = __ccgo_ts + 2700
+			libc.VaList(bp, x_stats_min_filename)
+			__local_argv1 = bp
+			__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v11, __local_argv1)
+			_ = __local_argv1
+			_ = __retval1
+			goto _12
+		_12:
+			;
 			x_JS_DumpMemoryUsage(tls, libc.X__acrt_iob_func(tls, uint32(1)), uintptr(unsafe.Pointer(&x_stats_min)), libc.UintptrFromInt32(0))
-			libc.Xprintf(tls, __ccgo_ts+2737, libc.VaList(bp+8, x_stats_max_filename))
+			v13 = __ccgo_ts + 2737
+			libc.VaList(bp, x_stats_max_filename)
+			__local_argv1 = bp
+			__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v13, __local_argv1)
+			_ = __local_argv1
+			_ = __retval1
+			goto _14
+		_14:
+			;
 			x_JS_DumpMemoryUsage(tls, libc.X__acrt_iob_func(tls, uint32(1)), uintptr(unsafe.Pointer(&x_stats_max)), libc.UintptrFromInt32(0))
 		}
-		libc.Xprintf(tls, __ccgo_ts+2774, libc.VaList(bp+8, x_stats_count))
+		v15 = __ccgo_ts + 2774
+		libc.VaList(bp, x_stats_count)
+		__local_argv1 = bp
+		__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v15, __local_argv1)
+		_ = __local_argv1
+		_ = __retval1
+		goto _16
+	_16:
+		;
 		x_JS_DumpMemoryUsage(tls, libc.X__acrt_iob_func(tls, uint32(1)), uintptr(unsafe.Pointer(&x_stats_avg)), libc.UintptrFromInt32(0))
-		libc.Xprintf(tls, __ccgo_ts+798, 0)
+		v17 = __ccgo_ts + 798
+		__local_argv1 = bp
+		__retval1 = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v17, __local_argv1)
+		_ = __local_argv1
+		_ = __retval1
+		goto _18
+	_18:
 	}
 	if is_dir_list != 0 {
 		if x_test_count != int32(1) {
-			v11 = __ccgo_ts + 2817
+			v19 = __ccgo_ts + 2817
 		} else {
-			v11 = __ccgo_ts + 838
+			v19 = __ccgo_ts + 838
 		}
-		libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+2819, libc.VaList(bp+8, x_test_failed, x_test_count, v11))
+		v20 = __ccgo_ts + 2819
+		libc.VaList(bp, x_test_failed, x_test_count, v19)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v20, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _21
+	_21:
+		;
 		if x_test_excluded != 0 {
-			libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+2841, libc.VaList(bp+8, x_test_excluded))
+			v22 = __ccgo_ts + 2841
+			libc.VaList(bp, x_test_excluded)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v22, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _23
+		_23:
 		}
 		if x_test_skipped != 0 {
-			libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+2855, libc.VaList(bp+8, x_test_skipped))
+			v24 = __ccgo_ts + 2855
+			libc.VaList(bp, x_test_skipped)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v24, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _25
+		_25:
 		}
 		if x_error_file != 0 {
 			if x_new_errors != 0 {
-				libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+2868, libc.VaList(bp+8, x_new_errors))
+				v26 = __ccgo_ts + 2868
+				libc.VaList(bp, x_new_errors)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v26, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _27
+			_27:
 			}
 			if x_changed_errors != 0 {
-				libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+2877, libc.VaList(bp+8, x_changed_errors))
+				v28 = __ccgo_ts + 2877
+				libc.VaList(bp, x_changed_errors)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v28, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _29
+			_29:
 			}
 			if x_fixed_errors != 0 {
-				libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+2890, libc.VaList(bp+8, x_fixed_errors))
+				v30 = __ccgo_ts + 2890
+				libc.VaList(bp, x_fixed_errors)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v30, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _31
+			_31:
 			}
 		}
-		libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+798, 0)
+		v32 = __ccgo_ts + 798
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v32, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _33
+	_33:
+		;
 		if x_show_timings != 0 {
-			libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+2901, libc.VaList(bp+8, float64(clocks)/libc.Float64FromInt32(MCLOCKS_PER_SEC)))
+			v34 = __ccgo_ts + 2901
+			libc.VaList(bp, float64(clocks)/libc.Float64FromInt32(MCLOCKS_PER_SEC))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v34, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _35
+		_35:
 		}
 	}
 	if x_error_out != 0 && x_error_out != libc.X__acrt_iob_func(tls, uint32(1)) {
@@ -6928,16 +7227,30 @@ _2:
 //
 //	/* Should only be used for debug. */
 func _JS_AtomGetStrRT(tls *libc.TLS, rt uintptr, buf uintptr, buf_size int32, atom TJSAtom) (r uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var c, i int32
-	var p, q, str, v3 uintptr
-	_, _, _, _, _, _ = c, i, p, q, str, v3
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv T__builtin_va_list
+	var __retval, c, i int32
+	var p, q, str, v1, v3, v7 uintptr
+	_, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, c, i, p, q, str, v1, v3, v7
 	if ___JS_AtomIsTaggedInt(tls, atom) != 0 {
-		libc.X__builtin_snprintf(tls, buf, uint64(buf_size), __ccgo_ts+3048, libc.VaList(bp+8, ___JS_AtomToUInt32(tls, atom)))
+		v1 = __ccgo_ts + 3048
+		libc.VaList(bp, ___JS_AtomToUInt32(tls, atom))
+		__local_argv = bp
+		__retval = libc.X__mingw_vsnprintf(tls, buf, uint64(buf_size), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
 	} else {
 		if atom == uint32(MJS_ATOM_NULL) {
-			libc.X__builtin_snprintf(tls, buf, uint64(buf_size), __ccgo_ts+2927, 0)
+			v3 = __ccgo_ts + 2927
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, buf, uint64(buf_size), v3, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _4
+		_4:
 		} else {
 			q = buf
 			p = *(*uintptr)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_array + uintptr(atom)*8))
@@ -6952,8 +7265,8 @@ func _JS_AtomGetStrRT(tls *libc.TLS, rt uintptr, buf uintptr, buf_size int32, at
 							break
 						}
 						c |= int32(*(*Tuint8_t)(unsafe.Pointer(str + 16 + uintptr(i))))
-						goto _1
-					_1:
+						goto _5
+					_5:
 						;
 						i++
 					}
@@ -6971,14 +7284,14 @@ func _JS_AtomGetStrRT(tls *libc.TLS, rt uintptr, buf uintptr, buf_size int32, at
 						break
 					}
 					if c < int32(128) {
-						v3 = q
+						v7 = q
 						q++
-						*(*int8)(unsafe.Pointer(v3)) = int8(c)
+						*(*int8)(unsafe.Pointer(v7)) = int8(c)
 					} else {
 						q += uintptr(x_unicode_to_utf8(tls, q, uint32(c)))
 					}
-					goto _2
-				_2:
+					goto _6
+				_6:
 					;
 					i++
 				}
@@ -12877,16 +13190,25 @@ func x_JS_ComputeMemoryUsage(tls *libc.TLS, rt uintptr, s uintptr) {
 }
 
 func x_JS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
-	bp := tls.Alloc(112)
-	defer tls.Free(112)
-	var class_id, i, usage_size_ok int32
-	var el, gp, p, p1 uintptr
+	bp := tls.Alloc(1008)
+	defer tls.Free(1008)
+	var __local_argv T__builtin_va_list
+	var __retval, class_id, i, usage_size_ok int32
+	var el, gp, p, p1, v1, v13, v15, v18, v20, v22, v24, v26, v28, v30, v32, v34, v36, v38, v4, v40, v42, v44, v46, v48, v50, v52, v54, v6 uintptr
 	var obj_classes [57]int32
 	var size, size1 uint32
-	var v3, v4, v5 Tuint32_t
-	var _ /* buf at bp+0 */ [64]int8
-	_, _, _, _, _, _, _, _, _, _, _, _, _ = class_id, el, gp, i, obj_classes, p, p1, size, size1, usage_size_ok, v3, v4, v5
-	libc.Xfprintf(tls, fp, __ccgo_ts+3205, libc.VaList(bp+72, libc.Int32FromInt64(8)*libc.Int32FromInt32(8), (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_limit))
+	var v10, v11, v9 Tuint32_t
+	var _ /* buf at bp+944 */ [64]int8
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, class_id, el, gp, i, obj_classes, p, p1, size, size1, usage_size_ok, v1, v10, v11, v13, v15, v18, v20, v22, v24, v26, v28, v30, v32, v34, v36, v38, v4, v40, v42, v44, v46, v48, v50, v52, v54, v6, v9
+	v1 = __ccgo_ts + 3205
+	libc.VaList(bp, libc.Int32FromInt64(8)*libc.Int32FromInt32(8), (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_limit)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, fp, v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	if rt != 0 {
 		usage_size_ok = 0
 		i = 0
@@ -12900,17 +13222,30 @@ func x_JS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
 				size1 = uint32(x_js_malloc_usable_size_rt(tls, rt, p))
 				if size1 >= size {
 					usage_size_ok = int32(1)
-					libc.Xfprintf(tls, fp, __ccgo_ts+3335, libc.VaList(bp+72, size, size1-size, _object_types[i].Fname))
+					v4 = __ccgo_ts + 3335
+					libc.VaList(bp, size, size1-size, _object_types[i].Fname)
+					__local_argv = bp
+					__retval = libc.X__mingw_vfprintf(tls, fp, v4, __local_argv)
+					_ = __local_argv
+					_ = __retval
+					goto _5
+				_5:
 				}
 				x_js_free_rt(tls, rt, p)
 			}
-			goto _1
-		_1:
+			goto _3
+		_3:
 			;
 			i++
 		}
 		if !(usage_size_ok != 0) {
-			libc.Xfprintf(tls, fp, __ccgo_ts+3353, 0)
+			v6 = __ccgo_ts + 3353
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v6, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _7
+		_7:
 		}
 		obj_classes = [57]int32{}
 		el = (*Tlist_head)(unsafe.Pointer(rt + 136)).Fnext
@@ -12921,26 +13256,40 @@ func x_JS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
 			gp = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)+8))
 			if TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(gp + 4))&0xf>>0) == int32(EJS_GC_OBJ_TYPE_JS_OBJECT) {
 				p1 = gp
-				v3 = uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6)))
-				v4 = uint32(EJS_CLASS_INIT_COUNT)
-				if v3 < v4 {
-					v5 = v3
-					goto _6
+				v9 = uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6)))
+				v10 = uint32(EJS_CLASS_INIT_COUNT)
+				if v9 < v10 {
+					v11 = v9
+					goto _12
 				} else {
-					v5 = v4
-					goto _6
+					v11 = v10
+					goto _12
 				}
-			_6:
-				obj_classes[v5]++
+			_12:
+				obj_classes[v11]++
 			}
-			goto _2
-		_2:
+			goto _8
+		_8:
 			;
 			el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
 		}
-		libc.Xfprintf(tls, fp, __ccgo_ts+3387, 0)
+		v13 = __ccgo_ts + 3387
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v13, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _14
+	_14:
+		;
 		if obj_classes[0] != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+3406, libc.VaList(bp+72, obj_classes[0], 0, __ccgo_ts+2690))
+			v15 = __ccgo_ts + 3406
+			libc.VaList(bp, obj_classes[0], 0, __ccgo_ts+2690)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v15, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _16
+		_16:
 		}
 		class_id = int32(1)
 		for {
@@ -12948,53 +13297,193 @@ func x_JS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
 				break
 			}
 			if obj_classes[class_id] != 0 && class_id < (*TJSRuntime)(unsafe.Pointer(rt)).Fclass_count {
-				libc.Xfprintf(tls, fp, __ccgo_ts+3406, libc.VaList(bp+72, obj_classes[class_id], class_id, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(class_id)*40))).Fclass_name)))
+				v18 = __ccgo_ts + 3406
+				libc.VaList(bp, obj_classes[class_id], class_id, _JS_AtomGetStrRT(tls, rt, bp+944, int32(64), (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(class_id)*40))).Fclass_name))
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, fp, v18, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _19
+			_19:
 			}
-			goto _7
-		_7:
+			goto _17
+		_17:
 			;
 			class_id++
 		}
 		if obj_classes[int32(EJS_CLASS_INIT_COUNT)] != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+3406, libc.VaList(bp+72, obj_classes[int32(EJS_CLASS_INIT_COUNT)], 0, __ccgo_ts+3423))
+			v20 = __ccgo_ts + 3406
+			libc.VaList(bp, obj_classes[int32(EJS_CLASS_INIT_COUNT)], 0, __ccgo_ts+3423)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v20, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _21
+		_21:
 		}
-		libc.Xfprintf(tls, fp, __ccgo_ts+798, 0)
+		v22 = __ccgo_ts + 798
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v22, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _23
+	_23:
 	}
-	libc.Xfprintf(tls, fp, __ccgo_ts+3429, libc.VaList(bp+72, __ccgo_ts+3444, __ccgo_ts+3161, __ccgo_ts+3156))
+	v24 = __ccgo_ts + 3429
+	libc.VaList(bp, __ccgo_ts+3444, __ccgo_ts+3161, __ccgo_ts+3156)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, fp, v24, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _25
+_25:
+	;
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3449, libc.VaList(bp+72, __ccgo_ts+3487, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count)))
-		libc.Xfprintf(tls, fp, __ccgo_ts+3504, libc.VaList(bp+72, __ccgo_ts+3559, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size, int32(MMALLOC_OVERHEAD), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size-(*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count)))
+		v26 = __ccgo_ts + 3449
+		libc.VaList(bp, __ccgo_ts+3487, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v26, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _27
+	_27:
+		;
+		v28 = __ccgo_ts + 3504
+		libc.VaList(bp, __ccgo_ts+3559, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size, int32(MMALLOC_OVERHEAD), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size-(*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v28, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _29
+	_29:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3571, libc.VaList(bp+72, __ccgo_ts+3608, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count)))
+		v30 = __ccgo_ts + 3571
+		libc.VaList(bp, __ccgo_ts+3608, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v30, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _31
+	_31:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3614, libc.VaList(bp+72, __ccgo_ts+3653, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count)))
+		v32 = __ccgo_ts + 3614
+		libc.VaList(bp, __ccgo_ts+3653, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v32, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _33
+	_33:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3661, libc.VaList(bp+72, __ccgo_ts+3700, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count)))
-		libc.Xfprintf(tls, fp, __ccgo_ts+3661, libc.VaList(bp+72, __ccgo_ts+3708, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count)))
-		libc.Xfprintf(tls, fp, __ccgo_ts+3721, libc.VaList(bp+72, __ccgo_ts+3759, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count)))
+		v34 = __ccgo_ts + 3661
+		libc.VaList(bp, __ccgo_ts+3700, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v34, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _35
+	_35:
+		;
+		v36 = __ccgo_ts + 3661
+		libc.VaList(bp, __ccgo_ts+3708, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v36, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _37
+	_37:
+		;
+		v38 = __ccgo_ts + 3721
+		libc.VaList(bp, __ccgo_ts+3759, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v38, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _39
+	_39:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3768, libc.VaList(bp+72, __ccgo_ts+3787, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_size))
-		libc.Xfprintf(tls, fp, __ccgo_ts+3806, libc.VaList(bp+72, __ccgo_ts+3847, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count)))
+		v40 = __ccgo_ts + 3768
+		libc.VaList(bp, __ccgo_ts+3787, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_size)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v40, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _41
+	_41:
+		;
+		v42 = __ccgo_ts + 3806
+		libc.VaList(bp, __ccgo_ts+3847, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v42, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _43
+	_43:
+		;
 		if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+3806, libc.VaList(bp+72, __ccgo_ts+3858, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count)))
+			v44 = __ccgo_ts + 3806
+			libc.VaList(bp, __ccgo_ts+3858, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v44, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _45
+		_45:
 		}
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fc_func_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3868, libc.VaList(bp+72, __ccgo_ts+3881, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fc_func_count))
+		v46 = __ccgo_ts + 3868
+		libc.VaList(bp, __ccgo_ts+3881, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fc_func_count)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v46, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _47
+	_47:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Farray_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3868, libc.VaList(bp+72, __ccgo_ts+3893, (*TJSMemoryUsage)(unsafe.Pointer(s)).Farray_count))
+		v48 = __ccgo_ts + 3868
+		libc.VaList(bp, __ccgo_ts+3893, (*TJSMemoryUsage)(unsafe.Pointer(s)).Farray_count)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v48, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _49
+	_49:
+		;
 		if (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+3868, libc.VaList(bp+72, __ccgo_ts+3900, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count))
-			libc.Xfprintf(tls, fp, __ccgo_ts+3914, libc.VaList(bp+72, __ccgo_ts+3957, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements*int64(libc.Int32FromInt64(16)), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count)))
+			v50 = __ccgo_ts + 3868
+			libc.VaList(bp, __ccgo_ts+3900, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v50, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _51
+		_51:
+			;
+			v52 = __ccgo_ts + 3914
+			libc.VaList(bp, __ccgo_ts+3957, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements*int64(libc.Int32FromInt64(16)), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v52, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _53
+		_53:
 		}
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+3768, libc.VaList(bp+72, __ccgo_ts+3968, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_size))
+		v54 = __ccgo_ts + 3768
+		libc.VaList(bp, __ccgo_ts+3968, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_size)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v54, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _55
+	_55:
 	}
 }
 
@@ -24242,38 +24731,39 @@ func _JS_ToStringCheckObject(tls *libc.TLS, ctx uintptr, val TJSValue) (r TJSVal
 func _JS_ToQuotedString(tls *libc.TLS, ctx1 uintptr, val1 TJSValue) (r TJSValue) {
 	bp := tls.Alloc(112)
 	defer tls.Free(112)
-	var b, p, p1, v18, v21 uintptr
+	var __local_argv T__builtin_va_list
+	var __retval, v1, v19, v22 int32
+	var b, p, p1, v16, v20, v23 uintptr
 	var c1 Tuint32_t
-	var v1, v17, v20 int32
 	var v13 TBOOL
 	var v15 bool
-	var v16, v19 TJSValue
-	var _ /* b_s at bp+40 */ TStringBuffer
-	var _ /* buf at bp+72 */ [16]int8
-	var _ /* i at bp+32 */ int32
-	var _ /* val at bp+16 */ TJSValue
-	_, _, _, _, _, _, _, _, _, _, _, _, _ = b, c1, p, p1, v1, v13, v15, v16, v17, v18, v19, v20, v21
-	b = bp + 40
-	*(*TJSValue)(unsafe.Pointer(bp + 16)) = _JS_ToStringCheckObject(tls, ctx1, val1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 16))).Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
+	var v18, v21 TJSValue
+	var _ /* b_s at bp+64 */ TStringBuffer
+	var _ /* buf at bp+96 */ [16]int8
+	var _ /* i at bp+56 */ int32
+	var _ /* val at bp+40 */ TJSValue
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, b, c1, p, p1, v1, v13, v15, v16, v18, v19, v20, v21, v22, v23
+	b = bp + 64
+	*(*TJSValue)(unsafe.Pointer(bp + 40)) = _JS_ToStringCheckObject(tls, ctx1, val1)
+	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 40))).Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 	goto _2
 _2:
 	if v1 != 0 {
-		return *(*TJSValue)(unsafe.Pointer(bp + 16))
+		return *(*TJSValue)(unsafe.Pointer(bp + 40))
 	}
-	p1 = *(*uintptr)(unsafe.Pointer(bp + 16))
+	p1 = *(*uintptr)(unsafe.Pointer(bp + 40))
 	if _string_buffer_init(tls, ctx1, b, int32(*(*uint32)(unsafe.Pointer(p1 + 4))&0x7fffffff>>0)+int32(2)) != 0 {
 		goto fail
 	}
 	if _string_buffer_putc8(tls, b, uint32('"')) != 0 {
 		goto fail
 	}
-	*(*int32)(unsafe.Pointer(bp + 32)) = 0
+	*(*int32)(unsafe.Pointer(bp + 56)) = 0
 	for {
-		if !(*(*int32)(unsafe.Pointer(bp + 32)) < int32(*(*uint32)(unsafe.Pointer(p1 + 4))&0x7fffffff>>0)) {
+		if !(*(*int32)(unsafe.Pointer(bp + 56)) < int32(*(*uint32)(unsafe.Pointer(p1 + 4))&0x7fffffff>>0)) {
 			break
 		}
-		c1 = uint32(_string_getc(tls, p1, bp+32))
+		c1 = uint32(_string_getc(tls, p1, bp+56))
 		switch c1 {
 		case uint32('\t'):
 			goto _4
@@ -24335,8 +24825,16 @@ _2:
 		_14:
 		}
 		if v15 || v13 != 0 {
-			libc.X__builtin_snprintf(tls, bp+72, uint64(16), __ccgo_ts+2920, libc.VaList(bp+96, c1))
-			if _string_buffer_puts8(tls, b, bp+72) != 0 {
+			v16 = __ccgo_ts + 2920
+			libc.VaList(bp, c1)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+96, uint64(16), v16, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _17
+		_17:
+			;
+			if _string_buffer_puts8(tls, b, bp+96) != 0 {
 				goto fail
 			}
 		} else {
@@ -24353,30 +24851,30 @@ _2:
 	if _string_buffer_putc8(tls, b, uint32('"')) != 0 {
 		goto fail
 	}
-	v16 = *(*TJSValue)(unsafe.Pointer(bp + 16))
-	*(*TJSValue)(unsafe.Pointer(bp)) = v16
-	if uint32(int32(v16.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v18 = p
-		*(*int32)(unsafe.Pointer(v18))--
-		v17 = *(*int32)(unsafe.Pointer(v18))
-		if v17 <= libc.Int32FromInt32(0) {
-			x___JS_FreeValue(tls, ctx1, v16)
+	v18 = *(*TJSValue)(unsafe.Pointer(bp + 40))
+	*(*TJSValue)(unsafe.Pointer(bp + 24)) = v18
+	if uint32(int32(v18.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 24))
+		v20 = p
+		*(*int32)(unsafe.Pointer(v20))--
+		v19 = *(*int32)(unsafe.Pointer(v20))
+		if v19 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx1, v18)
 		}
 	}
 	return _string_buffer_end(tls, b)
 	goto fail
 fail:
 	;
-	v19 = *(*TJSValue)(unsafe.Pointer(bp + 16))
-	*(*TJSValue)(unsafe.Pointer(bp)) = v19
-	if uint32(int32(v19.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v21 = p
-		*(*int32)(unsafe.Pointer(v21))--
-		v20 = *(*int32)(unsafe.Pointer(v21))
-		if v20 <= libc.Int32FromInt32(0) {
-			x___JS_FreeValue(tls, ctx1, v19)
+	v21 = *(*TJSValue)(unsafe.Pointer(bp + 40))
+	*(*TJSValue)(unsafe.Pointer(bp + 24)) = v21
+	if uint32(int32(v21.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 24))
+		v23 = p
+		*(*int32)(unsafe.Pointer(v23))--
+		v22 = *(*int32)(unsafe.Pointer(v23))
+		if v22 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx1, v21)
 		}
 	}
 	_string_buffer_free(tls, b)
@@ -58045,20 +58543,30 @@ func _free_function_bytecode(tls *libc.TLS, rt1 uintptr, b uintptr) {
 }
 
 func _js_parse_directives(tls *libc.TLS, s uintptr) (r int32) {
-	bp := tls.Alloc(64)
-	defer tls.Free(64)
+	bp := tls.Alloc(80)
+	defer tls.Free(80)
+	var __local_argv T__builtin_va_list
+	var __retval int32
 	var has_semi TBOOL
-	var p1 uintptr
-	var _ /* pos at bp+24 */ TJSParsePos
-	var _ /* str at bp+0 */ [20]int8
-	_, _ = has_semi, p1
+	var v1, p3 uintptr
+	var _ /* pos at bp+56 */ TJSParsePos
+	var _ /* str at bp+32 */ [20]int8
+	_, _, _, _, _ = __local_argv, __retval, has_semi, v1, p3
 	if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval != int32(ETOK_STRING) {
 		return 0
 	}
-	_js_parse_get_pos(tls, s, bp+24)
+	_js_parse_get_pos(tls, s, bp+56)
 	for (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_STRING) {
 		/* Copy actual source string representation */
-		libc.X__builtin_snprintf(tls, bp, uint64(20), __ccgo_ts+3051, libc.VaList(bp+48, int32(int64((*TJSParseState)(unsafe.Pointer(s)).Fbuf_ptr)-int64((*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr)-libc.Int64FromInt32(2)), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr+uintptr(1)))
+		v1 = __ccgo_ts + 3051
+		libc.VaList(bp, int32(int64((*TJSParseState)(unsafe.Pointer(s)).Fbuf_ptr)-int64((*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr)-libc.Int64FromInt32(2)), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr+uintptr(1))
+		__local_argv = bp
+		__retval = libc.X__mingw_vsnprintf(tls, bp+32, uint64(20), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
+		;
 		if _next_token(tls, s) != 0 {
 			return -int32(1)
 		}
@@ -58160,13 +58668,13 @@ func _js_parse_directives(tls *libc.TLS, s uintptr) (r int32) {
 		if !(has_semi != 0) {
 			break
 		}
-		if !(libc.Xstrcmp(tls, bp, __ccgo_ts+10629) != 0) {
+		if !(libc.Xstrcmp(tls, bp+32, __ccgo_ts+10629) != 0) {
 			(*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fhas_use_strict = int32(ETRUE)
-			p1 = (*TJSParseState)(unsafe.Pointer(s)).Fcur_func + 130
-			*(*Tuint8_t)(unsafe.Pointer(p1)) = Tuint8_t(int32(*(*Tuint8_t)(unsafe.Pointer(p1))) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
+			p3 = (*TJSParseState)(unsafe.Pointer(s)).Fcur_func + 130
+			*(*Tuint8_t)(unsafe.Pointer(p3)) = Tuint8_t(int32(*(*Tuint8_t)(unsafe.Pointer(p3))) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
 		}
 	}
-	return _js_parse_seek_token(tls, s, bp+24)
+	return _js_parse_seek_token(tls, s, bp+56)
 }
 
 // C documentation
@@ -59318,16 +59826,17 @@ func _JS_InstantiateFunctionListItem2(tls *libc.TLS, ctx uintptr, p uintptr, ato
 }
 
 func _JS_InstantiateFunctionListItem(tls *libc.TLS, ctx4 uintptr, obj TJSValue, atom TJSAtom, e uintptr) (r int32) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
+	bp := tls.Alloc(128)
+	defer tls.Free(128)
+	var __local_argv T__builtin_va_list
+	var __retval, prop_flags, v12, v15 int32
 	var atom1 TJSAtom
-	var getter, setter, v1, val2, v11, v12, v16, v18, v2, v20, v22, v4, v5, v7, v8 TJSValue
-	var prop_flags, v10, v111 int32
-	var v14 uintptr
-	var v15 Tint64_t
-	var _ /* buf at bp+16 */ [64]int8
-	var _ /* v at bp+0 */ TJSValue
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = atom1, getter, prop_flags, setter, v1, val2, v11, v10, v111, v12, v14, v15, v16, v18, v2, v20, v22, v4, v5, v7, v8
+	var getter, setter, v1, val2, v11, v16, v2, v20, v22, v24, v26, v4, v5, v7, v8 TJSValue
+	var v10, v13, v18 uintptr
+	var v19 Tint64_t
+	var _ /* buf at bp+64 */ [64]int8
+	var _ /* v at bp+48 */ TJSValue
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, atom1, getter, prop_flags, setter, v1, val2, v11, v10, v12, v13, v15, v16, v18, v19, v2, v20, v22, v24, v26, v4, v5, v7, v8
 	prop_flags = int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fprop_flags)
 	switch int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fdef_type) {
 	case int32(MJS_DEF_ALIAS): /* using autoinit for aliases is not safe */
@@ -59390,75 +59899,91 @@ func _JS_InstantiateFunctionListItem(tls *libc.TLS, ctx4 uintptr, obj TJSValue, 
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
 		if *(*uintptr)(unsafe.Pointer(e + 16)) != 0 {
-			libc.X__builtin_snprintf(tls, bp+16, uint64(64), __ccgo_ts+11397, libc.VaList(bp+88, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname))
+			v10 = __ccgo_ts + 11397
+			libc.VaList(bp, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+64, uint64(64), v10, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _11
+		_11:
+			;
 			if int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fdef_type) == int32(MJS_DEF_CGETSET_MAGIC) {
-				v10 = int32(EJS_CFUNC_getter_magic)
+				v12 = int32(EJS_CFUNC_getter_magic)
 			} else {
-				v10 = int32(EJS_CFUNC_getter)
+				v12 = int32(EJS_CFUNC_getter)
 			}
-			getter = x_JS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16)), bp+16, 0, v10, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
+			getter = x_JS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16)), bp+64, 0, v12, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
 		}
 		setter = TJSValue{
 			Fu:   TJSValueUnion{},
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
 		if *(*uintptr)(unsafe.Pointer(e + 16 + 8)) != 0 {
-			libc.X__builtin_snprintf(tls, bp+16, uint64(64), __ccgo_ts+11404, libc.VaList(bp+88, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname))
+			v13 = __ccgo_ts + 11404
+			libc.VaList(bp, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+64, uint64(64), v13, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _14
+		_14:
+			;
 			if int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fdef_type) == int32(MJS_DEF_CGETSET_MAGIC) {
-				v111 = int32(EJS_CFUNC_setter_magic)
+				v15 = int32(EJS_CFUNC_setter_magic)
 			} else {
-				v111 = int32(EJS_CFUNC_setter)
+				v15 = int32(EJS_CFUNC_setter)
 			}
-			setter = x_JS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16 + 8)), bp+16, int32(1), v111, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
+			setter = x_JS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16 + 8)), bp+64, int32(1), v15, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
 		}
 		x_JS_DefinePropertyGetSet(tls, ctx4, obj, atom, getter, setter, prop_flags)
 		return 0
 	case int32(MJS_DEF_PROP_INT32):
 		_ = ctx4
-		v12 = TJSValue{
+		v16 = TJSValue{
 			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 				f Tint32_t
 				_ [4]byte
 			}{f: *(*Tint32_t)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))})),
 		}
-		goto _13
-	_13:
-		val2 = v12
+		goto _17
+	_17:
+		val2 = v16
 	case int32(MJS_DEF_PROP_INT64):
-		v14 = ctx4
-		v15 = *(*Tint64_t)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
-		if v15 == int64(int32(v15)) {
-			_ = v14
-			v16 = TJSValue{
+		v18 = ctx4
+		v19 = *(*Tint64_t)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
+		if v19 == int64(int32(v19)) {
+			_ = v18
+			v20 = TJSValue{
 				Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 					f Tint32_t
 					_ [4]byte
-				}{f: int32(v15)})),
+				}{f: int32(v19)})),
 			}
-			goto _17
-		_17:
-			v1 = v16
+			goto _21
+		_21:
+			v1 = v20
 		} else {
-			_ = v14
-			(*(*TJSValue)(unsafe.Pointer(bp))).Ftag = int64(EJS_TAG_FLOAT64)
-			*(*float64)(unsafe.Pointer(bp)) = float64(v15)
-			v18 = *(*TJSValue)(unsafe.Pointer(bp))
-			goto _19
-		_19:
-			v1 = v18
+			_ = v18
+			(*(*TJSValue)(unsafe.Pointer(bp + 48))).Ftag = int64(EJS_TAG_FLOAT64)
+			*(*float64)(unsafe.Pointer(bp + 48)) = float64(v19)
+			v22 = *(*TJSValue)(unsafe.Pointer(bp + 48))
+			goto _23
+		_23:
+			v1 = v22
 		}
-		v20 = v1
-		goto _21
-	_21:
-		val2 = v20
+		v24 = v1
+		goto _25
+	_25:
+		val2 = v24
 	case int32(MJS_DEF_PROP_DOUBLE):
 		_ = ctx4
-		(*(*TJSValue)(unsafe.Pointer(bp))).Ftag = int64(EJS_TAG_FLOAT64)
-		*(*float64)(unsafe.Pointer(bp)) = *(*float64)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
-		v22 = *(*TJSValue)(unsafe.Pointer(bp))
-		goto _23
-	_23:
-		val2 = v22
+		(*(*TJSValue)(unsafe.Pointer(bp + 48))).Ftag = int64(EJS_TAG_FLOAT64)
+		*(*float64)(unsafe.Pointer(bp + 48)) = *(*float64)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
+		v26 = *(*TJSValue)(unsafe.Pointer(bp + 48))
+		goto _27
+	_27:
+		val2 = v26
 	case int32(MJS_DEF_PROP_UNDEFINED):
 		val2 = TJSValue{
 			Fu:   TJSValueUnion{},
@@ -100268,15 +100793,17 @@ _4:
 //	   XXX: should use a variant of strftime().
 //	 */
 func _get_date_string(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, argv uintptr, magic int32) (r TJSValue) {
-	bp := tls.Alloc(192)
-	defer tls.Free(192)
-	var d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v1, v2, v3, v4, v5, v6 int32
-	var _ /* buf at bp+0 */ [64]int8
-	var _ /* fields at bp+64 */ [9]float64
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v1, v2, v3, v4, v5, v6
+	bp := tls.Alloc(592)
+	defer tls.Free(592)
+	var __local_argv T__builtin_va_list
+	var __retval, d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v12, v15, v18, v2, v20, v21, v23, v26, v28, v29, v31, v34, v36, v38, v5, v7, v9 int32
+	var v1, v11, v14, v17, v22, v25, v30, v33, v37, v4, v8 uintptr
+	var _ /* buf at bp+448 */ [64]int8
+	var _ /* fields at bp+512 */ [9]float64
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v1, v11, v12, v14, v15, v17, v18, v2, v20, v21, v22, v23, v25, v26, v28, v29, v30, v31, v33, v34, v36, v37, v38, v4, v5, v7, v8, v9
 	fmt = magic >> int32(4) & int32(0x0F)
 	part = magic & int32(0x0F)
-	res = _get_date_fields(tls, ctx, this_val, bp+64, fmt&int32(1), 0)
+	res = _get_date_fields(tls, ctx, this_val, bp+512, fmt&int32(1), 0)
 	if res < 0 {
 		return TJSValue{
 			Fu:   TJSValueUnion{},
@@ -100290,43 +100817,91 @@ func _get_date_string(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32,
 			return _js_new_string8(tls, ctx, __ccgo_ts+15770)
 		}
 	}
-	y = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[0])
-	mon = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(1)])
-	d = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(2)])
-	h = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(3)])
-	m = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(4)])
-	s = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(5)])
-	ms = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(6)])
-	wd = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(7)])
-	tz = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(8)])
+	y = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[0])
+	mon = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(1)])
+	d = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(2)])
+	h = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(3)])
+	m = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(4)])
+	s = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(5)])
+	ms = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(6)])
+	wd = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(7)])
+	tz = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(8)])
 	pos = 0
 	if part&int32(1) != 0 { /* date part */
 		switch fmt {
 		case 0:
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15783, libc.VaList(bp+144, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), d, uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), int32(4)+libc.BoolInt32(y < 0), y))
+			v1 = __ccgo_ts + 15783
+			libc.VaList(bp, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), d, uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), int32(4)+libc.BoolInt32(y < 0), y)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v1, __local_argv)
+			_ = __local_argv
+			v2 = __retval
+			goto _3
+		_3:
+			pos += v2
 		case int32(1):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15805, libc.VaList(bp+144, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), d, int32(4)+libc.BoolInt32(y < 0), y))
+			v4 = __ccgo_ts + 15805
+			libc.VaList(bp, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), d, int32(4)+libc.BoolInt32(y < 0), y)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v4, __local_argv)
+			_ = __local_argv
+			v5 = __retval
+			goto _6
+		_6:
+			pos += v5
 			if part == int32(3) {
-				v1 = pos
+				v7 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v1] = int8(' ')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v7] = int8(' ')
 			}
 		case int32(2):
 			if y >= 0 && y <= int32(9999) {
-				pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15825, libc.VaList(bp+144, y))
+				v8 = __ccgo_ts + 15825
+				libc.VaList(bp, y)
+				__local_argv = bp
+				__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v8, __local_argv)
+				_ = __local_argv
+				v9 = __retval
+				goto _10
+			_10:
+				pos += v9
 			} else {
-				pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15830, libc.VaList(bp+144, y))
+				v11 = __ccgo_ts + 15830
+				libc.VaList(bp, y)
+				__local_argv = bp
+				__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v11, __local_argv)
+				_ = __local_argv
+				v12 = __retval
+				goto _13
+			_13:
+				pos += v12
 			}
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15836, libc.VaList(bp+144, mon+int32(1), d))
+			v14 = __ccgo_ts + 15836
+			libc.VaList(bp, mon+int32(1), d)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v14, __local_argv)
+			_ = __local_argv
+			v15 = __retval
+			goto _16
+		_16:
+			pos += v15
 		case int32(3):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15848, libc.VaList(bp+144, mon+int32(1), d, int32(4)+libc.BoolInt32(y < 0), y))
+			v17 = __ccgo_ts + 15848
+			libc.VaList(bp, mon+int32(1), d, int32(4)+libc.BoolInt32(y < 0), y)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v17, __local_argv)
+			_ = __local_argv
+			v18 = __retval
+			goto _19
+		_19:
+			pos += v18
 			if part == int32(3) {
-				v2 = pos
+				v20 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v2] = int8(',')
-				v3 = pos
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v20] = int8(',')
+				v21 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v3] = int8(' ')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v21] = int8(' ')
 			}
 			break
 		}
@@ -100334,35 +100909,75 @@ func _get_date_string(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32,
 	if part&int32(2) != 0 { /* time part */
 		switch fmt {
 		case 0:
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15863, libc.VaList(bp+144, h, m, s))
+			v22 = __ccgo_ts + 15863
+			libc.VaList(bp, h, m, s)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v22, __local_argv)
+			_ = __local_argv
+			v23 = __retval
+			goto _24
+		_24:
+			pos += v23
 		case int32(1):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15863, libc.VaList(bp+144, h, m, s))
+			v25 = __ccgo_ts + 15863
+			libc.VaList(bp, h, m, s)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v25, __local_argv)
+			_ = __local_argv
+			v26 = __retval
+			goto _27
+		_27:
+			pos += v26
 			if tz < 0 {
-				v4 = pos
+				v28 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v4] = int8('-')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v28] = int8('-')
 				tz = -tz
 			} else {
-				v5 = pos
+				v29 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v5] = int8('+')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v29] = int8('+')
 			}
 			/* tz is >= 0, can use % */
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15882, libc.VaList(bp+144, tz/int32(60), tz%int32(60)))
+			v30 = __ccgo_ts + 15882
+			libc.VaList(bp, tz/int32(60), tz%int32(60))
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v30, __local_argv)
+			_ = __local_argv
+			v31 = __retval
+			goto _32
+		_32:
+			pos += v31
 			/* XXX: tack the time zone code? */
 		case int32(2):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15891, libc.VaList(bp+144, h, m, s, ms))
+			v33 = __ccgo_ts + 15891
+			libc.VaList(bp, h, m, s, ms)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v33, __local_argv)
+			_ = __local_argv
+			v34 = __retval
+			goto _35
+		_35:
+			pos += v34
 		case int32(3):
 			if h < int32(12) {
-				v6 = int32('A')
+				v36 = int32('A')
 			} else {
-				v6 = int32('P')
+				v36 = int32('P')
 			}
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+15912, libc.VaList(bp+144, (h+int32(11))%int32(12)+int32(1), m, s, v6))
+			v37 = __ccgo_ts + 15912
+			libc.VaList(bp, (h+int32(11))%int32(12)+int32(1), m, s, v36)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v37, __local_argv)
+			_ = __local_argv
+			v38 = __retval
+			goto _39
+		_39:
+			pos += v38
 			break
 		}
 	}
-	return x_JS_NewStringLen(tls, ctx, bp, uint64(pos))
+	return x_JS_NewStringLen(tls, ctx, bp+448, uint64(pos))
 }
 
 // C documentation
@@ -150640,19 +151255,35 @@ func init() {
 }
 
 func _js_dump_obj(tls *libc.TLS, ctx1 uintptr, f uintptr, val TJSValue) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var str, v1 uintptr
-	_, _ = str, v1
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv T__builtin_va_list
+	var __retval int32
+	var str, v1, v3, v5 uintptr
+	_, _, _, _, _, _ = __local_argv, __retval, str, v1, v3, v5
 	v1 = x_JS_ToCStringLen2(tls, ctx1, libc.UintptrFromInt32(0), val, 0)
 	goto _2
 _2:
 	str = v1
 	if str != 0 {
-		libc.Xfprintf(tls, f, __ccgo_ts+19914, libc.VaList(bp+8, str))
+		v3 = __ccgo_ts + 19914
+		libc.VaList(bp, str)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, f, v3, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _4
+	_4:
+		;
 		x_JS_FreeCString(tls, ctx1, str)
 	} else {
-		libc.Xfprintf(tls, f, __ccgo_ts+19918, 0)
+		v5 = __ccgo_ts + 19918
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, f, v5, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _6
+	_6:
 	}
 }
 

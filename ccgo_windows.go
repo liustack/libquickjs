@@ -52,20 +52,6 @@ const MCP_BOM = 65279
 const MCP_LS = 8232
 const MCP_NBSP = 160
 const MCP_PS = 8233
-const MDBL_DECIMAL_DIG = 17
-const MDBL_DIG = 15
-const MDBL_EPSILON = 0
-const MDBL_HAS_SUBNORM = 1
-const MDBL_MANT_DIG = 53
-const MDBL_MAX = 0
-const MDBL_MAX_10_EXP = 308
-const MDBL_MAX_EXP = 1024
-const MDBL_MIN = 0
-const MDBL_MIN_10_EXP = -307
-const MDBL_MIN_EXP = -1021
-const MDBL_NORM_MAX = 0
-const MDBL_TRUE_MIN = 0
-const MDECIMAL_DIG = 17
 const MDECL_MASK_ALL = 7
 const MDECL_MASK_FUNC = 1
 const MDECL_MASK_FUNC_WITH_LABEL = 2
@@ -158,36 +144,18 @@ const MEWOULDBLOCK = 140
 const MEXDEV = 18
 const MEXIT_FAILURE = 1
 const MEXIT_SUCCESS = 0
-const MFE_ALL_EXCEPT = 0
-const MFE_DFL_ENV = 0
-const MFE_DIVBYZERO = 0
-const MFE_DOWNWARD = 0
-const MFE_INEXACT = 0
-const MFE_INVALID = 0
-const MFE_OVERFLOW = 0
-const MFE_PC53_ENV = 0
-const MFE_PC64_ENV = 0
+const MFE_ALL_EXCEPT = 63
+const MFE_DENORMAL = 2
+const MFE_DIVBYZERO = 4
+const MFE_DOWNWARD = 1024
+const MFE_INEXACT = 32
+const MFE_INVALID = 1
+const MFE_OVERFLOW = 8
 const MFE_TONEAREST = 0
-const MFE_TOWARDZERO = 0
-const MFE_UNDERFLOW = 0
-const MFE_UPWARD = 0
+const MFE_TOWARDZERO = 3072
+const MFE_UNDERFLOW = 16
+const MFE_UPWARD = 2048
 const MFILENAME_MAX = 260
-const MFLT_DECIMAL_DIG = 9
-const MFLT_DIG = 6
-const MFLT_EPSILON = 0
-const MFLT_EVAL_METHOD = 0
-const MFLT_HAS_SUBNORM = 1
-const MFLT_MANT_DIG = 24
-const MFLT_MAX = 0
-const MFLT_MAX_10_EXP = 38
-const MFLT_MAX_EXP = 128
-const MFLT_MIN = 0
-const MFLT_MIN_10_EXP = -37
-const MFLT_MIN_EXP = -125
-const MFLT_NORM_MAX = 0
-const MFLT_RADIX = 2
-const MFLT_ROUNDS = 0
-const MFLT_TRUE_MIN = 0
 const MFOPEN_MAX = 20
 const MFP_INFINITE = 1280
 const MFP_NAN = 256
@@ -226,6 +194,7 @@ const MHUGE = 0
 const MHUGE_VAL = 0
 const MHUGE_VALF = 0
 const MHUGE_VALL = 0
+const MINFINITY = 0
 const MINT16_MAX = 32767
 const MINT16_MIN = -32768
 const MINT32_MAX = 2147483647
@@ -368,19 +337,6 @@ const MJS_WRITE_OBJ_BSWAP = 2
 const MJS_WRITE_OBJ_BYTECODE = 1
 const MJS_WRITE_OBJ_REFERENCE = 8
 const MJS_WRITE_OBJ_SAB = 4
-const MLDBL_DECIMAL_DIG = 17
-const MLDBL_DIG = 15
-const MLDBL_EPSILON = 0
-const MLDBL_HAS_SUBNORM = 1
-const MLDBL_MANT_DIG = 53
-const MLDBL_MAX = 0
-const MLDBL_MAX_10_EXP = 308
-const MLDBL_MAX_EXP = 1024
-const MLDBL_MIN = 0
-const MLDBL_MIN_10_EXP = -307
-const MLDBL_MIN_EXP = -1021
-const MLDBL_NORM_MAX = 0
-const MLDBL_TRUE_MIN = 0
 const MLRE_CC_RES_LEN_MAX = 3
 const MLRE_FLAG_DOTALL = 8
 const MLRE_FLAG_GLOBAL = 1
@@ -415,6 +371,7 @@ const MM_PI_2 = 0
 const MM_PI_4 = 0
 const MM_SQRT1_2 = 0
 const MM_SQRT2 = 0
+const MNAN = 0
 const MNDEBUG = 1
 const MNSIG = 23
 const MOLD_P_OVERLAY = 2
@@ -731,8 +688,8 @@ const M_CRTIMP2 = "_CRTIMP"
 const M_CRTIMP_ALTERNATIVE = "_CRTIMP"
 const M_CRTIMP_NOIA64 = "_CRTIMP"
 const M_CRTIMP_PURE = "_CRTIMP"
-const M_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS = 0
-const M_CRT_INTERNAL_LOCAL_SCANF_OPTIONS = 0
+const M_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS = 36
+const M_CRT_INTERNAL_LOCAL_SCANF_OPTIONS = 2
 const M_CRT_INTERNAL_PRINTF_LEGACY_MSVCRT_COMPATIBILITY = 8
 const M_CRT_INTERNAL_PRINTF_LEGACY_THREE_DIGIT_EXPONENTS = 16
 const M_CRT_INTERNAL_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION = 1
@@ -765,6 +722,7 @@ const M_HEAPEMPTY = -1
 const M_HEAPEND = -5
 const M_HEAPOK = -2
 const M_HEAP_MAXREQ = 18446744073709551584
+const M_HUGE = 0
 const M_IOB_ENTRIES = 20
 const M_IOFBF = 0
 const M_IOLBF = 64
@@ -822,7 +780,7 @@ const M__ATOMIC_RELEASE = 3
 const M__ATOMIC_SEQ_CST = 5
 const M__BIGGEST_ALIGNMENT__ = 16
 const M__BITINT_MAXWIDTH__ = 8388608
-const M__BOOL_WIDTH__ = 1
+const M__BOOL_WIDTH__ = 8
 const M__BYTE_ORDER__ = 1234
 const M__C89_NAMELESS = 0
 const M__CCGO__ = 1
@@ -1163,7 +1121,7 @@ const M__UINT_LEAST8_FMTx__ = "hhx"
 const M__UINT_LEAST8_MAX__ = 255
 const M__USE_MINGW_ANSI_STDIO = 1
 const M__USE_MINGW_STRTOX = 1
-const M__VERSION__ = "Clang 20.1.4 (https://github.com/llvm/llvm-project.git ec28b8f9cc7f2ac187d8a617a6d08d5e56f9120e)"
+const M__VERSION__ = "Clang 19.1.0 (https://github.com/llvm/llvm-project.git a4bf6cd7cfb1a1421ba92bca9d017b49936c55e4)"
 const M__WCHAR_MAX__ = 65535
 const M__WCHAR_UNSIGNED__ = 1
 const M__WCHAR_WIDTH__ = 16
@@ -1188,10 +1146,10 @@ const M__builtin_vsnprintf = 0
 const M__builtin_vsprintf = 0
 const M__clang__ = 1
 const M__clang_literal_encoding__ = "UTF-8"
-const M__clang_major__ = 20
+const M__clang_major__ = 19
 const M__clang_minor__ = 1
-const M__clang_patchlevel__ = 4
-const M__clang_version__ = "20.1.4 (https://github.com/llvm/llvm-project.git ec28b8f9cc7f2ac187d8a617a6d08d5e56f9120e)"
+const M__clang_patchlevel__ = 0
+const M__clang_version__ = "19.1.0 (https://github.com/llvm/llvm-project.git a4bf6cd7cfb1a1421ba92bca9d017b49936c55e4)"
 const M__clang_wide_literal_encoding__ = "UTF-16"
 const M__clockid_t_defined = 1
 const M__code_model_small__ = 1
@@ -1547,14 +1505,23 @@ type Ttimezone = struct {
 
 type Tclockid_t = int32
 
-type Tmode_t = uint16
+type Tfexcept_t = uint16
 
 type Tfenv_t = struct {
-	F_Fe_ctl  uint32
-	F_Fe_stat uint32
+	F__control_word  uint16
+	F__unused0       uint16
+	F__status_word   uint16
+	F__unused1       uint16
+	F__tag_word      uint16
+	F__unused2       uint16
+	F__ip_offset     uint32
+	F__ip_selector   uint16
+	F__opcode        uint16
+	F__data_offset   uint32
+	F__data_selector uint16
+	F__unused3       uint16
+	F__mxcsr         uint32
 }
-
-type Tfexcept_t = uint32
 
 type T_exception = struct {
 	Ftype1  int32
@@ -2038,6 +2005,10 @@ type T_pid_t = int64
 
 type Tpid_t = int64
 
+type T_mode_t = uint16
+
+type Tmode_t = uint16
+
 type Tuseconds_t = uint32
 
 type T_sigset_t = uint64
@@ -2080,10 +2051,6 @@ type Tsig_atomic_t = int32
 
 type t__p_sig_fn_t = uintptr
 
-type Tsched_param = struct {
-	Fsched_priority int32
-}
-
 type Tpthread_once_t = int32
 
 type Tpthread_mutexattr_t = uint32
@@ -2108,6 +2075,10 @@ type T_pthread_cleanup1 = struct {
 	Ffunc1 uintptr
 	Farg   uintptr
 	Fnext  uintptr
+}
+
+type Tsched_param = struct {
+	Fsched_priority int32
 }
 
 type Tpthread_attr_t = struct {
@@ -5119,8 +5090,12 @@ func _hash_string_rope(tls *libc.TLS, _val TJSValue, h Tuint32_t) (r1 Tuint32_t)
 }
 
 func _JS_DumpChar(tls *libc.TLS, rt uintptr, c int32, sep int32) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
+	bp := tls.Alloc(32)
+	defer tls.Free(32)
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var v1 uintptr
+	_, _, _ = __local_argv, __retval, v1
 	if c == sep || c == int32('\\') {
 		libc.Xputchar(tls, int32('\\'))
 		libc.Xputchar(tls, c)
@@ -5132,28 +5107,52 @@ func _JS_DumpChar(tls *libc.TLS, rt uintptr, c int32, sep int32) {
 				libc.Xputchar(tls, int32('\\'))
 				libc.Xputchar(tls, int32('n'))
 			} else {
-				libc.Xprintf(tls, __ccgo_ts, libc.VaList(bp+8, c))
+				v1 = __ccgo_ts
+				libc.VaList(bp, c)
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _2
+			_2:
 			}
 		}
 	}
 }
 
 func _JS_DumpString(tls *libc.TLS, rt uintptr, p uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var i, sep, v1 int32
-	_, _, _ = i, sep, v1
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv t__builtin_va_list
+	var __retval, i, sep, v5 int32
+	var v1, v3 uintptr
+	_, _, _, _, _, _, _ = __local_argv, __retval, i, sep, v1, v3, v5
 	if p == libc.UintptrFromInt32(0) {
-		libc.Xprintf(tls, __ccgo_ts+7, 0)
+		v1 = __ccgo_ts + 7
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
+		;
 		return
 	}
-	libc.Xprintf(tls, __ccgo_ts+14, libc.VaList(bp+8, (*TJSString)(unsafe.Pointer(p)).Fheader.Fref_count))
+	v3 = __ccgo_ts + 14
+	libc.VaList(bp, (*TJSString)(unsafe.Pointer(p)).Fheader.Fref_count)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v3, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _4
+_4:
+	;
 	if (*TJSString)(unsafe.Pointer(p)).Fheader.Fref_count == int32(1) {
-		v1 = int32('"')
+		v5 = int32('"')
 	} else {
-		v1 = int32('\'')
+		v5 = int32('\'')
 	}
-	sep = v1
+	sep = v5
 	libc.Xputchar(tls, sep)
 	i = 0
 	for {
@@ -5161,8 +5160,8 @@ func _JS_DumpString(tls *libc.TLS, rt uintptr, p uintptr) {
 			break
 		}
 		_JS_DumpChar(tls, rt, _string_get(tls, p, i), sep)
-		goto _2
-	_2:
+		goto _6
+	_6:
 		;
 		i++
 	}
@@ -5170,14 +5169,30 @@ func _JS_DumpString(tls *libc.TLS, rt uintptr, p uintptr) {
 }
 
 func _JS_DumpAtoms(tls *libc.TLS, rt uintptr) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var h, i int32
-	var p uintptr
-	_, _, _ = h, i, p
+	bp := tls.Alloc(224)
+	defer tls.Free(224)
+	var __local_argv t__builtin_va_list
+	var __retval, h, i int32
+	var p, v1, v10, v12, v14, v17, v19, v21, v3, v6, v8 uintptr
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, h, i, p, v1, v10, v12, v14, v17, v19, v21, v3, v6, v8
 	/* This only dumps hashed atoms, not JS_ATOM_TYPE_SYMBOL atoms */
-	libc.Xprintf(tls, __ccgo_ts+17, libc.VaList(bp+8, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_count, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_size, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_hash_size))
-	libc.Xprintf(tls, __ccgo_ts+56, 0)
+	v1 = __ccgo_ts + 17
+	libc.VaList(bp, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_count, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_size, (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_hash_size)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
+	v3 = __ccgo_ts + 56
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v3, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _4
+_4:
+	;
 	i = 0
 	for {
 		if !(i < (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_hash_size) {
@@ -5185,22 +5200,57 @@ func _JS_DumpAtoms(tls *libc.TLS, rt uintptr) {
 		}
 		h = int32(*(*Tuint32_t)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_hash + uintptr(i)*4)))
 		if h != 0 {
-			libc.Xprintf(tls, __ccgo_ts+78, libc.VaList(bp+8, i))
+			v6 = __ccgo_ts + 78
+			libc.VaList(bp, i)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v6, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _7
+		_7:
+			;
 			for h != 0 {
 				p = *(*uintptr)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_array + uintptr(h)*8))
-				libc.Xprintf(tls, __ccgo_ts+84, 0)
+				v8 = __ccgo_ts + 84
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v8, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _9
+			_9:
+				;
 				_JS_DumpString(tls, rt, p)
 				h = int32((*TJSAtomStruct)(unsafe.Pointer(p)).Fhash_next)
 			}
-			libc.Xprintf(tls, __ccgo_ts+86, 0)
+			v10 = __ccgo_ts + 86
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v10, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _11
+		_11:
 		}
-		goto _1
-	_1:
+		goto _5
+	_5:
 		;
 		i++
 	}
-	libc.Xprintf(tls, __ccgo_ts+88, 0)
-	libc.Xprintf(tls, __ccgo_ts+91, 0)
+	v12 = __ccgo_ts + 88
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v12, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _13
+_13:
+	;
+	v14 = __ccgo_ts + 91
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v14, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _15
+_15:
+	;
 	i = 0
 	for {
 		if !(i < (*TJSRuntime)(unsafe.Pointer(rt)).Fatom_size) {
@@ -5208,18 +5258,39 @@ func _JS_DumpAtoms(tls *libc.TLS, rt uintptr) {
 		}
 		p = *(*uintptr)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_array + uintptr(i)*8))
 		if !(_atom_is_free(tls, p) != 0) {
-			libc.Xprintf(tls, __ccgo_ts+108, libc.VaList(bp+8, i, int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 8))&0xc0000000>>30)), int32(*(*uint32)(unsafe.Pointer(p + 8))&0x3fffffff>>0)))
+			v17 = __ccgo_ts + 108
+			libc.VaList(bp, i, int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 8))&0xc0000000>>30)), int32(*(*uint32)(unsafe.Pointer(p + 8))&0x3fffffff>>0))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v17, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _18
+		_18:
+			;
 			if !(int32(*(*uint32)(unsafe.Pointer(p + 4))&0x7fffffff>>0) == 0 && int32(Tuint8_t(*(*uint32)(unsafe.Pointer(p + 4))&0x80000000>>31)) != 0) {
 				_JS_DumpString(tls, rt, p)
 			}
-			libc.Xprintf(tls, __ccgo_ts+125, libc.VaList(bp+8, (*TJSAtomStruct)(unsafe.Pointer(p)).Fhash_next))
+			v19 = __ccgo_ts + 125
+			libc.VaList(bp, (*TJSAtomStruct)(unsafe.Pointer(p)).Fhash_next)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v19, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _20
+		_20:
 		}
-		goto _2
-	_2:
+		goto _16
+	_16:
 		;
 		i++
 	}
-	libc.Xprintf(tls, __ccgo_ts+88, 0)
+	v21 = __ccgo_ts + 88
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v21, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _22
+_22:
 }
 
 func _JS_ResizeAtomHash(tls *libc.TLS, rt uintptr, new_hash_size int32) (r int32) {
@@ -5778,16 +5849,30 @@ _2:
 //
 //	/* Should only be used for debug. */
 func _JS_AtomGetStrRT(tls *libc.TLS, rt uintptr, buf uintptr, buf_size int32, atom TJSAtom) (r uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var c, i int32
-	var p, q, str, v3 uintptr
-	_, _, _, _, _, _ = c, i, p, q, str, v3
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv t__builtin_va_list
+	var __retval, c, i int32
+	var p, q, str, v1, v3, v7 uintptr
+	_, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, c, i, p, q, str, v1, v3, v7
 	if ___JS_AtomIsTaggedInt(tls, atom) != 0 {
-		libc.X__builtin_snprintf(tls, buf, uint64(buf_size), __ccgo_ts+132, libc.VaList(bp+8, ___JS_AtomToUInt32(tls, atom)))
+		v1 = __ccgo_ts + 132
+		libc.VaList(bp, ___JS_AtomToUInt32(tls, atom))
+		__local_argv = bp
+		__retval = libc.X__mingw_vsnprintf(tls, buf, uint64(buf_size), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
 	} else {
 		if atom == uint32(MJS_ATOM_NULL) {
-			libc.X__builtin_snprintf(tls, buf, uint64(buf_size), __ccgo_ts+7, 0)
+			v3 = __ccgo_ts + 7
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, buf, uint64(buf_size), v3, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _4
+		_4:
 		} else {
 			q = buf
 			p = *(*uintptr)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fatom_array + uintptr(atom)*8))
@@ -5802,8 +5887,8 @@ func _JS_AtomGetStrRT(tls *libc.TLS, rt uintptr, buf uintptr, buf_size int32, at
 							break
 						}
 						c |= int32(*(*Tuint8_t)(unsafe.Pointer(str + 16 + uintptr(i))))
-						goto _1
-					_1:
+						goto _5
+					_5:
 						;
 						i++
 					}
@@ -5821,14 +5906,14 @@ func _JS_AtomGetStrRT(tls *libc.TLS, rt uintptr, buf uintptr, buf_size int32, at
 						break
 					}
 					if c < int32(128) {
-						v3 = q
+						v7 = q
 						q++
-						*(*int8)(unsafe.Pointer(v3)) = int8(c)
+						*(*int8)(unsafe.Pointer(v7)) = int8(c)
 					} else {
 						q += uintptr(Xunicode_to_utf8(tls, q, uint32(c)))
 					}
-					goto _2
-				_2:
+					goto _6
+				_6:
 					;
 					i++
 				}
@@ -6158,15 +6243,16 @@ func _JS_AtomSymbolHasDescription(tls *libc.TLS, ctx uintptr, v TJSAtom) (r TBOO
 }
 
 func _print_atom(tls *libc.TLS, ctx uintptr, atom TJSAtom) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
-	var c, c1, i int32
-	var p uintptr
-	var _ /* buf at bp+0 */ [64]int8
-	_, _, _, _ = c, c1, i, p
+	bp := tls.Alloc(144)
+	defer tls.Free(144)
+	var __local_argv t__builtin_va_list
+	var __retval, c, c1, i int32
+	var p, v2, v4, v7 uintptr
+	var _ /* buf at bp+80 */ [64]int8
+	_, _, _, _, _, _, _, _, _ = __local_argv, __retval, c, c1, i, p, v2, v4, v7
 	/* XXX: should handle embedded null characters */
 	/* XXX: should move encoding code to JS_AtomGetStr */
-	p = _JS_AtomGetStr(tls, ctx, bp, int32(64), atom)
+	p = _JS_AtomGetStr(tls, ctx, bp+80, int32(64), atom)
 	i = 0
 	for {
 		if !(*(*int8)(unsafe.Pointer(p + uintptr(i))) != 0) {
@@ -6182,10 +6268,25 @@ func _print_atom(tls *libc.TLS, ctx uintptr, atom TJSAtom) {
 		i++
 	}
 	if i > 0 && int32(*(*int8)(unsafe.Pointer(p + uintptr(i)))) == int32('\000') {
-		libc.Xprintf(tls, __ccgo_ts+136, libc.VaList(bp+72, p))
+		v2 = __ccgo_ts + 136
+		libc.VaList(bp, p)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v2, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _3
+	_3:
 	} else {
 		libc.Xputchar(tls, int32('"'))
-		libc.Xprintf(tls, __ccgo_ts+139, libc.VaList(bp+72, i, p))
+		v4 = __ccgo_ts + 139
+		libc.VaList(bp, i, p)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v4, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _5
+	_5:
+		;
 		for {
 			if !(*(*int8)(unsafe.Pointer(p + uintptr(i))) != 0) {
 				break
@@ -6202,12 +6303,19 @@ func _print_atom(tls *libc.TLS, ctx uintptr, atom TJSAtom) {
 						libc.Xputchar(tls, int32('\\'))
 						libc.Xputchar(tls, int32('n'))
 					} else {
-						libc.Xprintf(tls, __ccgo_ts, libc.VaList(bp+72, c1))
+						v7 = __ccgo_ts
+						libc.VaList(bp, c1)
+						__local_argv = bp
+						__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v7, __local_argv)
+						_ = __local_argv
+						_ = __retval
+						goto _8
+					_8:
 					}
 				}
 			}
-			goto _2
-		_2:
+			goto _6
+		_6:
 			;
 			i++
 		}
@@ -9239,35 +9347,75 @@ func _find_hashed_shape_prop(tls *libc.TLS, rt uintptr, sh uintptr, atom TJSAtom
 }
 
 func _JS_DumpShape(tls *libc.TLS, rt uintptr, i int32, sh uintptr) {
-	bp := tls.Alloc(128)
-	defer tls.Free(128)
-	var j int32
-	var _ /* atom_buf at bp+0 */ [64]int8
-	_ = j
+	bp := tls.Alloc(176)
+	defer tls.Free(176)
+	var __local_argv t__builtin_va_list
+	var __retval, j int32
+	var v1, v4, v6 uintptr
+	var _ /* atom_buf at bp+104 */ [64]int8
+	_, _, _, _, _, _ = __local_argv, __retval, j, v1, v4, v6
 	/* XXX: should output readable class prototype */
-	libc.Xprintf(tls, __ccgo_ts+160, libc.VaList(bp+72, i, (*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count, int32(*(*int8)(unsafe.Pointer(__ccgo_ts + 183 + uintptr((*TJSShape)(unsafe.Pointer(sh)).Fis_hashed)))), (*TJSShape)(unsafe.Pointer(sh)).Fproto, (*TJSShape)(unsafe.Pointer(sh)).Fprop_size, (*TJSShape)(unsafe.Pointer(sh)).Fprop_count))
+	v1 = __ccgo_ts + 160
+	libc.VaList(bp, i, (*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count, int32(*(*int8)(unsafe.Pointer(__ccgo_ts + 183 + uintptr((*TJSShape)(unsafe.Pointer(sh)).Fis_hashed)))), (*TJSShape)(unsafe.Pointer(sh)).Fproto, (*TJSShape)(unsafe.Pointer(sh)).Fprop_size, (*TJSShape)(unsafe.Pointer(sh)).Fprop_count)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	j = 0
 	for {
 		if !(j < (*TJSShape)(unsafe.Pointer(sh)).Fprop_count) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+186, libc.VaList(bp+72, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*(*TJSShapeProperty)(unsafe.Pointer(sh + 64 + uintptr(j)*8))).Fatom)))
-		goto _1
-	_1:
+		v4 = __ccgo_ts + 186
+		libc.VaList(bp, _JS_AtomGetStrRT(tls, rt, bp+104, int32(64), (*(*TJSShapeProperty)(unsafe.Pointer(sh + 64 + uintptr(j)*8))).Fatom))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v4, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _5
+	_5:
+		;
+		goto _3
+	_3:
 		;
 		j++
 	}
-	libc.Xprintf(tls, __ccgo_ts+86, 0)
+	v6 = __ccgo_ts + 86
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v6, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _7
+_7:
 }
 
 func _JS_DumpShapes(tls *libc.TLS, rt uintptr) {
-	bp := tls.Alloc(64)
-	defer tls.Free(64)
-	var el, gp, p, sh uintptr
-	var i int32
-	_, _, _, _, _ = el, gp, i, p, sh
-	libc.Xprintf(tls, __ccgo_ts+190, 0)
-	libc.Xprintf(tls, __ccgo_ts+203, libc.VaList(bp+8, __ccgo_ts+228, __ccgo_ts+233, __ccgo_ts+238, __ccgo_ts+244, __ccgo_ts+249, __ccgo_ts+255))
+	bp := tls.Alloc(96)
+	defer tls.Free(96)
+	var __local_argv t__builtin_va_list
+	var __retval, i int32
+	var el, gp, p, sh, v1, v3, v8 uintptr
+	_, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, el, gp, i, p, sh, v1, v3, v8
+	v1 = __ccgo_ts + 190
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
+	v3 = __ccgo_ts + 203
+	libc.VaList(bp, __ccgo_ts+228, __ccgo_ts+233, __ccgo_ts+238, __ccgo_ts+244, __ccgo_ts+249, __ccgo_ts+255)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v3, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _4
+_4:
+	;
 	i = 0
 	for {
 		if !(i < (*TJSRuntime)(unsafe.Pointer(rt)).Fshape_hash_size) {
@@ -9279,13 +9427,13 @@ func _JS_DumpShapes(tls *libc.TLS, rt uintptr) {
 				break
 			}
 			_JS_DumpShape(tls, rt, i, sh)
-			goto _2
-		_2:
+			goto _6
+		_6:
 			;
 			sh = (*TJSShape)(unsafe.Pointer(sh)).Fshape_hash_next
 		}
-		goto _1
-	_1:
+		goto _5
+	_5:
 		;
 		i++
 	}
@@ -9302,12 +9450,18 @@ func _JS_DumpShapes(tls *libc.TLS, rt uintptr) {
 				_JS_DumpShape(tls, rt, -int32(1), (*TJSObject)(unsafe.Pointer(p)).Fshape)
 			}
 		}
-		goto _3
-	_3:
+		goto _7
+	_7:
 		;
 		el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
 	}
-	libc.Xprintf(tls, __ccgo_ts+88, 0)
+	v8 = __ccgo_ts + 88
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v8, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _9
+_9:
 }
 
 func _JS_NewObjectFromShape(tls *libc.TLS, ctx1 uintptr, sh uintptr, class_id TJSClassID) (r TJSValue) {
@@ -11909,16 +12063,25 @@ func XJS_ComputeMemoryUsage(tls *libc.TLS, rt uintptr, s uintptr) {
 }
 
 func XJS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
-	bp := tls.Alloc(112)
-	defer tls.Free(112)
-	var class_id, i, usage_size_ok int32
-	var el, gp, p, p1 uintptr
+	bp := tls.Alloc(1008)
+	defer tls.Free(1008)
+	var __local_argv t__builtin_va_list
+	var __retval, class_id, i, usage_size_ok int32
+	var el, gp, p, p1, v1, v13, v15, v18, v20, v22, v24, v26, v28, v30, v32, v34, v36, v38, v4, v40, v42, v44, v46, v48, v50, v52, v54, v6 uintptr
 	var obj_classes [57]int32
 	var size, size1 uint32
-	var v3, v4, v5 Tuint32_t
-	var _ /* buf at bp+0 */ [64]int8
-	_, _, _, _, _, _, _, _, _, _, _, _, _ = class_id, el, gp, i, obj_classes, p, p1, size, size1, usage_size_ok, v3, v4, v5
-	libc.Xfprintf(tls, fp, __ccgo_ts+295, libc.VaList(bp+72, libc.Int32FromInt64(8)*libc.Int32FromInt32(8), (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_limit))
+	var v10, v11, v9 Tuint32_t
+	var _ /* buf at bp+944 */ [64]int8
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, class_id, el, gp, i, obj_classes, p, p1, size, size1, usage_size_ok, v1, v10, v11, v13, v15, v18, v20, v22, v24, v26, v28, v30, v32, v34, v36, v38, v4, v40, v42, v44, v46, v48, v50, v52, v54, v6, v9
+	v1 = __ccgo_ts + 295
+	libc.VaList(bp, libc.Int32FromInt64(8)*libc.Int32FromInt32(8), (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_limit)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, fp, v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	if rt != 0 {
 		usage_size_ok = 0
 		i = 0
@@ -11932,17 +12095,30 @@ func XJS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
 				size1 = uint32(Xjs_malloc_usable_size_rt(tls, rt, p))
 				if size1 >= size {
 					usage_size_ok = int32(1)
-					libc.Xfprintf(tls, fp, __ccgo_ts+425, libc.VaList(bp+72, size, size1-size, _object_types[i].Fname))
+					v4 = __ccgo_ts + 425
+					libc.VaList(bp, size, size1-size, _object_types[i].Fname)
+					__local_argv = bp
+					__retval = libc.X__mingw_vfprintf(tls, fp, v4, __local_argv)
+					_ = __local_argv
+					_ = __retval
+					goto _5
+				_5:
 				}
 				Xjs_free_rt(tls, rt, p)
 			}
-			goto _1
-		_1:
+			goto _3
+		_3:
 			;
 			i++
 		}
 		if !(usage_size_ok != 0) {
-			libc.Xfprintf(tls, fp, __ccgo_ts+443, 0)
+			v6 = __ccgo_ts + 443
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v6, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _7
+		_7:
 		}
 		obj_classes = [57]int32{}
 		el = (*Tlist_head)(unsafe.Pointer(rt + 136)).Fnext
@@ -11953,26 +12129,40 @@ func XJS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
 			gp = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)+8))
 			if TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(gp + 4))&0xf>>0) == int32(EJS_GC_OBJ_TYPE_JS_OBJECT) {
 				p1 = gp
-				v3 = uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6)))
-				v4 = uint32(EJS_CLASS_INIT_COUNT)
-				if v3 < v4 {
-					v5 = v3
-					goto _6
+				v9 = uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6)))
+				v10 = uint32(EJS_CLASS_INIT_COUNT)
+				if v9 < v10 {
+					v11 = v9
+					goto _12
 				} else {
-					v5 = v4
-					goto _6
+					v11 = v10
+					goto _12
 				}
-			_6:
-				obj_classes[v5]++
+			_12:
+				obj_classes[v11]++
 			}
-			goto _2
-		_2:
+			goto _8
+		_8:
 			;
 			el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
 		}
-		libc.Xfprintf(tls, fp, __ccgo_ts+477, 0)
+		v13 = __ccgo_ts + 477
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v13, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _14
+	_14:
+		;
 		if obj_classes[0] != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+496, libc.VaList(bp+72, obj_classes[0], 0, __ccgo_ts+513))
+			v15 = __ccgo_ts + 496
+			libc.VaList(bp, obj_classes[0], 0, __ccgo_ts+513)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v15, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _16
+		_16:
 		}
 		class_id = int32(1)
 		for {
@@ -11980,53 +12170,193 @@ func XJS_DumpMemoryUsage(tls *libc.TLS, fp uintptr, s uintptr, rt uintptr) {
 				break
 			}
 			if obj_classes[class_id] != 0 && class_id < (*TJSRuntime)(unsafe.Pointer(rt)).Fclass_count {
-				libc.Xfprintf(tls, fp, __ccgo_ts+496, libc.VaList(bp+72, obj_classes[class_id], class_id, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(class_id)*40))).Fclass_name)))
+				v18 = __ccgo_ts + 496
+				libc.VaList(bp, obj_classes[class_id], class_id, _JS_AtomGetStrRT(tls, rt, bp+944, int32(64), (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(class_id)*40))).Fclass_name))
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, fp, v18, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _19
+			_19:
 			}
-			goto _7
-		_7:
+			goto _17
+		_17:
 			;
 			class_id++
 		}
 		if obj_classes[int32(EJS_CLASS_INIT_COUNT)] != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+496, libc.VaList(bp+72, obj_classes[int32(EJS_CLASS_INIT_COUNT)], 0, __ccgo_ts+518))
+			v20 = __ccgo_ts + 496
+			libc.VaList(bp, obj_classes[int32(EJS_CLASS_INIT_COUNT)], 0, __ccgo_ts+518)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v20, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _21
+		_21:
 		}
-		libc.Xfprintf(tls, fp, __ccgo_ts+86, 0)
+		v22 = __ccgo_ts + 86
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v22, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _23
+	_23:
 	}
-	libc.Xfprintf(tls, fp, __ccgo_ts+524, libc.VaList(bp+72, __ccgo_ts+539, __ccgo_ts+249, __ccgo_ts+244))
+	v24 = __ccgo_ts + 524
+	libc.VaList(bp, __ccgo_ts+539, __ccgo_ts+249, __ccgo_ts+244)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, fp, v24, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _25
+_25:
+	;
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+544, libc.VaList(bp+72, __ccgo_ts+582, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count)))
-		libc.Xfprintf(tls, fp, __ccgo_ts+599, libc.VaList(bp+72, __ccgo_ts+654, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size, int32(MMALLOC_OVERHEAD), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size-(*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count)))
+		v26 = __ccgo_ts + 544
+		libc.VaList(bp, __ccgo_ts+582, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v26, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _27
+	_27:
+		;
+		v28 = __ccgo_ts + 599
+		libc.VaList(bp, __ccgo_ts+654, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size, int32(MMALLOC_OVERHEAD), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmalloc_size-(*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fmemory_used_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v28, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _29
+	_29:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+666, libc.VaList(bp+72, __ccgo_ts+703, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count)))
+		v30 = __ccgo_ts + 666
+		libc.VaList(bp, __ccgo_ts+703, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fatom_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v30, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _31
+	_31:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+709, libc.VaList(bp+72, __ccgo_ts+748, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count)))
+		v32 = __ccgo_ts + 709
+		libc.VaList(bp, __ccgo_ts+748, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fstr_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v32, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _33
+	_33:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+756, libc.VaList(bp+72, __ccgo_ts+795, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count)))
-		libc.Xfprintf(tls, fp, __ccgo_ts+756, libc.VaList(bp+72, __ccgo_ts+803, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count)))
-		libc.Xfprintf(tls, fp, __ccgo_ts+816, libc.VaList(bp+72, __ccgo_ts+854, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count)))
+		v34 = __ccgo_ts + 756
+		libc.VaList(bp, __ccgo_ts+795, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v34, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _35
+	_35:
+		;
+		v36 = __ccgo_ts + 756
+		libc.VaList(bp, __ccgo_ts+803, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fprop_count)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fobj_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v36, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _37
+	_37:
+		;
+		v38 = __ccgo_ts + 816
+		libc.VaList(bp, __ccgo_ts+854, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fshape_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v38, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _39
+	_39:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+863, libc.VaList(bp+72, __ccgo_ts+882, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_size))
-		libc.Xfprintf(tls, fp, __ccgo_ts+901, libc.VaList(bp+72, __ccgo_ts+942, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count)))
+		v40 = __ccgo_ts + 863
+		libc.VaList(bp, __ccgo_ts+882, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_size)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v40, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _41
+	_41:
+		;
+		v42 = __ccgo_ts + 901
+		libc.VaList(bp, __ccgo_ts+942, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_code_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_count))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v42, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _43
+	_43:
+		;
 		if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+901, libc.VaList(bp+72, __ccgo_ts+953, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count)))
+			v44 = __ccgo_ts + 901
+			libc.VaList(bp, __ccgo_ts+953, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size, float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_size)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Fjs_func_pc2line_count))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v44, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _45
+		_45:
 		}
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fc_func_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+963, libc.VaList(bp+72, __ccgo_ts+976, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fc_func_count))
+		v46 = __ccgo_ts + 963
+		libc.VaList(bp, __ccgo_ts+976, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fc_func_count)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v46, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _47
+	_47:
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Farray_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+963, libc.VaList(bp+72, __ccgo_ts+988, (*TJSMemoryUsage)(unsafe.Pointer(s)).Farray_count))
+		v48 = __ccgo_ts + 963
+		libc.VaList(bp, __ccgo_ts+988, (*TJSMemoryUsage)(unsafe.Pointer(s)).Farray_count)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v48, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _49
+	_49:
+		;
 		if (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count != 0 {
-			libc.Xfprintf(tls, fp, __ccgo_ts+963, libc.VaList(bp+72, __ccgo_ts+995, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count))
-			libc.Xfprintf(tls, fp, __ccgo_ts+1009, libc.VaList(bp+72, __ccgo_ts+1052, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements*int64(libc.Int32FromInt64(16)), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count)))
+			v50 = __ccgo_ts + 963
+			libc.VaList(bp, __ccgo_ts+995, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v50, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _51
+		_51:
+			;
+			v52 = __ccgo_ts + 1009
+			libc.VaList(bp, __ccgo_ts+1052, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements, (*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements*int64(libc.Int32FromInt64(16)), float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_elements)/float64((*TJSMemoryUsage)(unsafe.Pointer(s)).Ffast_array_count))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, fp, v52, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _53
+		_53:
 		}
 	}
 	if (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_count != 0 {
-		libc.Xfprintf(tls, fp, __ccgo_ts+863, libc.VaList(bp+72, __ccgo_ts+1063, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_size))
+		v54 = __ccgo_ts + 863
+		libc.VaList(bp, __ccgo_ts+1063, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_count, (*TJSMemoryUsage)(unsafe.Pointer(s)).Fbinary_object_size)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, fp, v54, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _55
+	_55:
 	}
 }
 
@@ -20204,23 +20534,47 @@ func _js_bigint_set_short(tls *libc.TLS, buf uintptr, _val TJSValue) (r uintptr)
 }
 
 func _js_bigint_dump1(tls *libc.TLS, ctx uintptr, str uintptr, tab uintptr, len1 int32) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var i int32
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+2215, libc.VaList(bp+8, str))
+	bp := tls.Alloc(64)
+	defer tls.Free(64)
+	var __local_argv t__builtin_va_list
+	var __retval, i int32
+	var v1, v4, v6 uintptr
+	_, _, _, _, _, _ = __local_argv, __retval, i, v1, v4, v6
+	v1 = __ccgo_ts + 2215
+	libc.VaList(bp, str)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	i = len1 - int32(1)
 	for {
 		if !(i >= 0) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+2220, libc.VaList(bp+8, *(*Tjs_limb_t)(unsafe.Pointer(tab + uintptr(i)*4))))
-		goto _1
-	_1:
+		v4 = __ccgo_ts + 2220
+		libc.VaList(bp, *(*Tjs_limb_t)(unsafe.Pointer(tab + uintptr(i)*4)))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v4, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _5
+	_5:
+		;
+		goto _3
+	_3:
 		;
 		i--
 	}
-	libc.Xprintf(tls, __ccgo_ts+86, 0)
+	v6 = __ccgo_ts + 86
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v6, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _7
+_7:
 }
 
 func _js_bigint_dump(tls *libc.TLS, ctx uintptr, str uintptr, p uintptr) {
@@ -23449,38 +23803,39 @@ func _JS_ToStringCheckObject(tls *libc.TLS, ctx uintptr, val TJSValue) (r TJSVal
 func _JS_ToQuotedString(tls *libc.TLS, ctx1 uintptr, val1 TJSValue) (r TJSValue) {
 	bp := tls.Alloc(112)
 	defer tls.Free(112)
-	var b, p, p1, v18, v21 uintptr
+	var __local_argv t__builtin_va_list
+	var __retval, v1, v19, v22 int32
+	var b, p, p1, v16, v20, v23 uintptr
 	var c1 Tuint32_t
-	var v1, v17, v20 int32
 	var v13 TBOOL
 	var v15 bool
-	var v16, v19 TJSValue
-	var _ /* b_s at bp+40 */ TStringBuffer
-	var _ /* buf at bp+72 */ [16]int8
-	var _ /* i at bp+32 */ int32
-	var _ /* val at bp+16 */ TJSValue
-	_, _, _, _, _, _, _, _, _, _, _, _, _ = b, c1, p, p1, v1, v13, v15, v16, v17, v18, v19, v20, v21
-	b = bp + 40
-	*(*TJSValue)(unsafe.Pointer(bp + 16)) = _JS_ToStringCheckObject(tls, ctx1, val1)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 16))).Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
+	var v18, v21 TJSValue
+	var _ /* b_s at bp+64 */ TStringBuffer
+	var _ /* buf at bp+96 */ [16]int8
+	var _ /* i at bp+56 */ int32
+	var _ /* val at bp+40 */ TJSValue
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, b, c1, p, p1, v1, v13, v15, v16, v18, v19, v20, v21, v22, v23
+	b = bp + 64
+	*(*TJSValue)(unsafe.Pointer(bp + 40)) = _JS_ToStringCheckObject(tls, ctx1, val1)
+	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 40))).Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
 	goto _2
 _2:
 	if v1 != 0 {
-		return *(*TJSValue)(unsafe.Pointer(bp + 16))
+		return *(*TJSValue)(unsafe.Pointer(bp + 40))
 	}
-	p1 = *(*uintptr)(unsafe.Pointer(bp + 16))
+	p1 = *(*uintptr)(unsafe.Pointer(bp + 40))
 	if _string_buffer_init(tls, ctx1, b, int32(*(*uint32)(unsafe.Pointer(p1 + 4))&0x7fffffff>>0)+int32(2)) != 0 {
 		goto fail
 	}
 	if _string_buffer_putc8(tls, b, uint32('"')) != 0 {
 		goto fail
 	}
-	*(*int32)(unsafe.Pointer(bp + 32)) = 0
+	*(*int32)(unsafe.Pointer(bp + 56)) = 0
 	for {
-		if !(*(*int32)(unsafe.Pointer(bp + 32)) < int32(*(*uint32)(unsafe.Pointer(p1 + 4))&0x7fffffff>>0)) {
+		if !(*(*int32)(unsafe.Pointer(bp + 56)) < int32(*(*uint32)(unsafe.Pointer(p1 + 4))&0x7fffffff>>0)) {
 			break
 		}
-		c1 = uint32(_string_getc(tls, p1, bp+32))
+		c1 = uint32(_string_getc(tls, p1, bp+56))
 		switch c1 {
 		case uint32('\t'):
 			goto _4
@@ -23542,8 +23897,16 @@ _2:
 		_14:
 		}
 		if v15 || v13 != 0 {
-			libc.X__builtin_snprintf(tls, bp+72, uint64(16), __ccgo_ts, libc.VaList(bp+96, c1))
-			if _string_buffer_puts8(tls, b, bp+72) != 0 {
+			v16 = __ccgo_ts
+			libc.VaList(bp, c1)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+96, uint64(16), v16, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _17
+		_17:
+			;
+			if _string_buffer_puts8(tls, b, bp+96) != 0 {
 				goto fail
 			}
 		} else {
@@ -23560,30 +23923,30 @@ _2:
 	if _string_buffer_putc8(tls, b, uint32('"')) != 0 {
 		goto fail
 	}
-	v16 = *(*TJSValue)(unsafe.Pointer(bp + 16))
-	*(*TJSValue)(unsafe.Pointer(bp)) = v16
-	if uint32(int32(v16.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v18 = p
-		*(*int32)(unsafe.Pointer(v18))--
-		v17 = *(*int32)(unsafe.Pointer(v18))
-		if v17 <= libc.Int32FromInt32(0) {
-			x__JS_FreeValue(tls, ctx1, v16)
+	v18 = *(*TJSValue)(unsafe.Pointer(bp + 40))
+	*(*TJSValue)(unsafe.Pointer(bp + 24)) = v18
+	if uint32(int32(v18.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 24))
+		v20 = p
+		*(*int32)(unsafe.Pointer(v20))--
+		v19 = *(*int32)(unsafe.Pointer(v20))
+		if v19 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v18)
 		}
 	}
 	return _string_buffer_end(tls, b)
 	goto fail
 fail:
 	;
-	v19 = *(*TJSValue)(unsafe.Pointer(bp + 16))
-	*(*TJSValue)(unsafe.Pointer(bp)) = v19
-	if uint32(int32(v19.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v21 = p
-		*(*int32)(unsafe.Pointer(v21))--
-		v20 = *(*int32)(unsafe.Pointer(v21))
-		if v20 <= libc.Int32FromInt32(0) {
-			x__JS_FreeValue(tls, ctx1, v19)
+	v21 = *(*TJSValue)(unsafe.Pointer(bp + 40))
+	*(*TJSValue)(unsafe.Pointer(bp + 24)) = v21
+	if uint32(int32(v21.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 24))
+		v23 = p
+		*(*int32)(unsafe.Pointer(v23))--
+		v22 = *(*int32)(unsafe.Pointer(v23))
+		if v22 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v21)
 		}
 	}
 	_string_buffer_free(tls, b)
@@ -23596,33 +23959,82 @@ fail:
 func _JS_DumpObjectHeader(tls *libc.TLS, rt uintptr) {
 	bp := tls.Alloc(64)
 	defer tls.Free(64)
-	libc.Xprintf(tls, __ccgo_ts+2493, libc.VaList(bp+8, __ccgo_ts+2520, __ccgo_ts+233, __ccgo_ts+2528, __ccgo_ts+238, __ccgo_ts+2533, __ccgo_ts+255))
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var v1 uintptr
+	_, _, _ = __local_argv, __retval, v1
+	v1 = __ccgo_ts + 2493
+	libc.VaList(bp, __ccgo_ts+2520, __ccgo_ts+233, __ccgo_ts+2528, __ccgo_ts+238, __ccgo_ts+2533, __ccgo_ts+255)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
 }
 
 // C documentation
 //
 //	/* for debug only: dump an object without side effect */
 func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
-	var b, b1, pr, prs, sh, var_refs, v3 uintptr
+	bp := tls.Alloc(496)
+	defer tls.Free(496)
+	var __local_argv t__builtin_va_list
+	var __retval, size, v14 int32
+	var b, b1, pr, prs, sh, var_refs, v1, v12, v15, v16, v18, v20, v23, v25, v27, v29, v3, v31, v33, v35, v38, v40, v42, v5, v7, v9 uintptr
 	var i Tuint32_t
 	var is_first TBOOL
-	var size, v2 int32
-	var _ /* atom_buf at bp+0 */ [64]int8
-	_, _, _, _, _, _, _, _, _, _, _ = b, b1, i, is_first, pr, prs, sh, size, var_refs, v2, v3
+	var _ /* atom_buf at bp+432 */ [64]int8
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, b, b1, i, is_first, pr, prs, sh, size, var_refs, v1, v12, v14, v15, v16, v18, v20, v23, v25, v27, v29, v3, v31, v33, v35, v38, v40, v42, v5, v7, v9
 	is_first = int32(ETRUE)
 	/* XXX: should encode atoms with special characters */
 	sh = (*TJSObject)(unsafe.Pointer(p)).Fshape /* the shape can be NULL while freeing an object */
-	libc.Xprintf(tls, __ccgo_ts+2539, libc.VaList(bp+72, p, (*TJSObject)(unsafe.Pointer(p)).F__ccgo0_0.Fheader.Fref_count))
+	v1 = __ccgo_ts + 2539
+	libc.VaList(bp, p, (*TJSObject)(unsafe.Pointer(p)).F__ccgo0_0.Fheader.Fref_count)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	if sh != 0 {
-		libc.Xprintf(tls, __ccgo_ts+2549, libc.VaList(bp+72, (*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count, int32(*(*int8)(unsafe.Pointer(__ccgo_ts + 183 + uintptr((*TJSShape)(unsafe.Pointer(sh)).Fis_hashed)))), (*TJSShape)(unsafe.Pointer(sh)).Fproto))
+		v3 = __ccgo_ts + 2549
+		libc.VaList(bp, (*TJSShape)(unsafe.Pointer(sh)).Fheader.Fref_count, int32(*(*int8)(unsafe.Pointer(__ccgo_ts + 183 + uintptr((*TJSShape)(unsafe.Pointer(sh)).Fis_hashed)))), (*TJSShape)(unsafe.Pointer(sh)).Fproto)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v3, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _4
+	_4:
 	} else {
-		libc.Xprintf(tls, __ccgo_ts+2561, libc.VaList(bp+72, __ccgo_ts+2572, __ccgo_ts+2572))
+		v5 = __ccgo_ts + 2561
+		libc.VaList(bp, __ccgo_ts+2572, __ccgo_ts+2572)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v5, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _6
+	_6:
 	}
-	libc.Xprintf(tls, __ccgo_ts+2574, libc.VaList(bp+72, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))*40))).Fclass_name)))
+	v7 = __ccgo_ts + 2574
+	libc.VaList(bp, _JS_AtomGetStrRT(tls, rt, bp+432, int32(64), (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))*40))).Fclass_name))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v7, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _8
+_8:
+	;
 	if int32(*(*uint8)(unsafe.Pointer(p + 5))&0x4>>2) != 0 && int32(*(*uint8)(unsafe.Pointer(p + 5))&0x8>>3) != 0 {
-		libc.Xprintf(tls, __ccgo_ts+2580, 0)
+		v9 = __ccgo_ts + 2580
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v9, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _10
+	_10:
+		;
 		i = uint32(0)
 		for {
 			if !(i < (*(*struct {
@@ -23650,7 +24062,13 @@ func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
 				break
 			}
 			if i != uint32(0) {
-				libc.Xprintf(tls, __ccgo_ts+2583, 0)
+				v12 = __ccgo_ts + 2583
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v12, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _13
+			_13:
 			}
 			switch int32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) {
 			case int32(EJS_CLASS_ARRAY):
@@ -23681,26 +24099,46 @@ func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
 				size = int32(1) << _typed_array_size_log2[int32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))-int32(EJS_CLASS_UINT8C_ARRAY)]
 				b = *(*uintptr)(unsafe.Pointer(p + 48 + 8)) + uintptr(i*uint32(size))
 				for {
-					v2 = size
+					v14 = size
 					size--
-					if !(v2 > 0) {
+					if !(v14 > 0) {
 						break
 					}
-					v3 = b
+					v15 = b
 					b++
-					libc.Xprintf(tls, __ccgo_ts+2586, libc.VaList(bp+72, int32(*(*Tuint8_t)(unsafe.Pointer(v3)))))
+					v16 = __ccgo_ts + 2586
+					libc.VaList(bp, int32(*(*Tuint8_t)(unsafe.Pointer(v15))))
+					__local_argv = bp
+					__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v16, __local_argv)
+					_ = __local_argv
+					_ = __retval
+					goto _17
+				_17:
 				}
 				break
 			}
-			goto _1
-		_1:
+			goto _11
+		_11:
 			;
 			i++
 		}
-		libc.Xprintf(tls, __ccgo_ts+2591, 0)
+		v18 = __ccgo_ts + 2591
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v18, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _19
+	_19:
 	}
 	if sh != 0 {
-		libc.Xprintf(tls, __ccgo_ts+2595, 0)
+		v20 = __ccgo_ts + 2595
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v20, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _21
+	_21:
+		;
 		i = uint32(0)
 		prs = _get_shape_prop(tls, sh)
 		for {
@@ -23710,26 +24148,61 @@ func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
 			if (*TJSShapeProperty)(unsafe.Pointer(prs)).Fatom != uint32(MJS_ATOM_NULL) {
 				pr = (*TJSObject)(unsafe.Pointer(p)).Fprop + uintptr(i)*16
 				if !(is_first != 0) {
-					libc.Xprintf(tls, __ccgo_ts+2583, 0)
+					v23 = __ccgo_ts + 2583
+					__local_argv = bp
+					__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v23, __local_argv)
+					_ = __local_argv
+					_ = __retval
+					goto _24
+				_24:
 				}
-				libc.Xprintf(tls, __ccgo_ts+2215, libc.VaList(bp+72, _JS_AtomGetStrRT(tls, rt, bp, int32(64), (*TJSShapeProperty)(unsafe.Pointer(prs)).Fatom)))
+				v25 = __ccgo_ts + 2215
+				libc.VaList(bp, _JS_AtomGetStrRT(tls, rt, bp+432, int32(64), (*TJSShapeProperty)(unsafe.Pointer(prs)).Fatom))
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v25, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _26
+			_26:
+				;
 				if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(1)<<libc.Int32FromInt32(4) {
-					libc.Xprintf(tls, __ccgo_ts+2598, libc.VaList(bp+72, (*(*struct {
+					v27 = __ccgo_ts + 2598
+					libc.VaList(bp, (*(*struct {
 						Fgetter uintptr
 						Fsetter uintptr
 					})(unsafe.Pointer(pr))).Fgetter, (*(*struct {
 						Fgetter uintptr
 						Fsetter uintptr
-					})(unsafe.Pointer(pr))).Fsetter))
+					})(unsafe.Pointer(pr))).Fsetter)
+					__local_argv = bp
+					__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v27, __local_argv)
+					_ = __local_argv
+					_ = __retval
+					goto _28
+				_28:
 				} else {
 					if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(4) {
-						libc.Xprintf(tls, __ccgo_ts+2613, libc.VaList(bp+72, *(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(pr)).Fu))))
+						v29 = __ccgo_ts + 2613
+						libc.VaList(bp, *(*uintptr)(unsafe.Pointer(&(*TJSProperty)(unsafe.Pointer(pr)).Fu)))
+						__local_argv = bp
+						__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v29, __local_argv)
+						_ = __local_argv
+						_ = __retval
+						goto _30
+					_30:
 					} else {
 						if int32(*(*uint32)(unsafe.Pointer(prs + 0))&0xfc000000>>26)&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(4)) == libc.Int32FromInt32(3)<<libc.Int32FromInt32(4) {
-							libc.Xprintf(tls, __ccgo_ts+2625, libc.VaList(bp+72, _js_autoinit_get_realm(tls, pr), _js_autoinit_get_id(tls, pr), (*(*struct {
+							v31 = __ccgo_ts + 2625
+							libc.VaList(bp, _js_autoinit_get_realm(tls, pr), _js_autoinit_get_id(tls, pr), (*(*struct {
 								Frealm_and_id Tuintptr_t
 								Fopaque       uintptr
-							})(unsafe.Pointer(pr))).Fopaque))
+							})(unsafe.Pointer(pr))).Fopaque)
+							__local_argv = bp
+							__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v31, __local_argv)
+							_ = __local_argv
+							_ = __retval
+							goto _32
+						_32:
 						} else {
 							_JS_DumpValueShort(tls, rt, *(*TJSValue)(unsafe.Pointer(pr)))
 						}
@@ -23737,13 +24210,19 @@ func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
 				}
 				is_first = int32(EFALSE)
 			}
-			goto _4
-		_4:
+			goto _22
+		_22:
 			;
 			i++
 			prs += 8
 		}
-		libc.Xprintf(tls, __ccgo_ts+2645, 0)
+		v33 = __ccgo_ts + 2645
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v33, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _34
+	_34:
 	}
 	if _js_class_has_bytecode(tls, uint32(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6)))) != 0 {
 		b1 = (*(*struct {
@@ -23757,16 +24236,30 @@ func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
 				Fvar_refs          uintptr
 				Fhome_object       uintptr
 			})(unsafe.Pointer(p + 48))).Fvar_refs
-			libc.Xprintf(tls, __ccgo_ts+2648, 0)
+			v35 = __ccgo_ts + 2648
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v35, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _36
+		_36:
+			;
 			i = uint32(0)
 			for {
 				if !(i < uint32((*TJSFunctionBytecode)(unsafe.Pointer(b1)).Fclosure_var_count)) {
 					break
 				}
-				libc.Xprintf(tls, __ccgo_ts+84, 0)
+				v38 = __ccgo_ts + 84
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v38, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _39
+			_39:
+				;
 				_JS_DumpValueShort(tls, rt, (*TJSVarRef)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(var_refs + uintptr(i)*8)))).F__ccgo2_32.Fvalue)
-				goto _5
-			_5:
+				goto _37
+			_37:
 				;
 				i++
 			}
@@ -23775,7 +24268,14 @@ func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
 				Fvar_refs          uintptr
 				Fhome_object       uintptr
 			})(unsafe.Pointer(p + 48))).Fhome_object != 0 {
-				libc.Xprintf(tls, __ccgo_ts+2658, 0)
+				v40 = __ccgo_ts + 2658
+				__local_argv = bp
+				__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v40, __local_argv)
+				_ = __local_argv
+				_ = __retval
+				goto _41
+			_41:
+				;
 				_JS_DumpValueShort(tls, rt, TJSValue{
 					Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct{ f uintptr }{f: (*(*struct {
 						Ffunction_bytecode uintptr
@@ -23787,48 +24287,116 @@ func _JS_DumpObject(tls *libc.TLS, rt uintptr, p uintptr) {
 			}
 		}
 	}
-	libc.Xprintf(tls, __ccgo_ts+86, 0)
+	v42 = __ccgo_ts + 86
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v42, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _43
+_43:
 }
 
 func _JS_DumpGCObject(tls *libc.TLS, rt uintptr, p uintptr) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
+	bp := tls.Alloc(160)
+	defer tls.Free(160)
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var v1, v11, v13, v15, v3, v5, v7, v9 uintptr
+	_, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, v1, v11, v13, v15, v3, v5, v7, v9
 	if TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(p + 4))&0xf>>0) == int32(EJS_GC_OBJ_TYPE_JS_OBJECT) {
 		_JS_DumpObject(tls, rt, p)
 	} else {
-		libc.Xprintf(tls, __ccgo_ts+2539, libc.VaList(bp+8, p, (*TJSGCObjectHeader)(unsafe.Pointer(p)).Fref_count))
+		v1 = __ccgo_ts + 2539
+		libc.VaList(bp, p, (*TJSGCObjectHeader)(unsafe.Pointer(p)).Fref_count)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
+		;
 		switch TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(p + 4)) & 0xf >> 0) {
 		case int32(EJS_GC_OBJ_TYPE_FUNCTION_BYTECODE):
-			libc.Xprintf(tls, __ccgo_ts+2390, 0)
+			v3 = __ccgo_ts + 2390
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v3, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _4
+		_4:
+			;
 		case int32(EJS_GC_OBJ_TYPE_SHAPE):
-			libc.Xprintf(tls, __ccgo_ts+2672, 0)
+			v5 = __ccgo_ts + 2672
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v5, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _6
+		_6:
+			;
 		case int32(EJS_GC_OBJ_TYPE_VAR_REF):
-			libc.Xprintf(tls, __ccgo_ts+2680, 0)
+			v7 = __ccgo_ts + 2680
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v7, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _8
+		_8:
+			;
 		case int32(EJS_GC_OBJ_TYPE_ASYNC_FUNCTION):
-			libc.Xprintf(tls, __ccgo_ts+2690, 0)
+			v9 = __ccgo_ts + 2690
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v9, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _10
+		_10:
+			;
 		case int32(EJS_GC_OBJ_TYPE_JS_CONTEXT):
-			libc.Xprintf(tls, __ccgo_ts+2707, 0)
+			v11 = __ccgo_ts + 2707
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v11, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _12
+		_12:
+			;
 		default:
-			libc.Xprintf(tls, __ccgo_ts+2720, libc.VaList(bp+8, TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(p + 4))&0xf>>0)))
+			v13 = __ccgo_ts + 2720
+			libc.VaList(bp, TJSGCObjectTypeEnum(*(*uint8)(unsafe.Pointer(p + 4))&0xf>>0))
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v13, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _14
+		_14:
+			;
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+86, 0)
+		v15 = __ccgo_ts + 86
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v15, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _16
+	_16:
 	}
 }
 
 func _JS_DumpValueShort(tls *libc.TLS, rt uintptr, _val TJSValue) {
-	bp := tls.Alloc(240)
-	defer tls.Free(240)
-	*(*TJSValue)(unsafe.Pointer(bp)) = _val
+	bp := tls.Alloc(576)
+	defer tls.Free(576)
+	*(*TJSValue)(unsafe.Pointer(bp + 360)) = _val
+	var __local_argv t__builtin_va_list
+	var __retval, i, sgn int32
 	var atom TJSAtom
-	var b, p, p1, p2, p3, r, str uintptr
-	var i, sgn int32
+	var b, p, p1, p2, p3, r, str, v18, v20, v22, v24, v26, v28, v31, v33, v35, v37, v39, v41, v43, v45, v47, v49 uintptr
 	var tag Tuint32_t
-	var _ /* atom_buf at bp+144 */ [64]int8
-	var _ /* atom_buf at bp+80 */ [64]int8
-	var _ /* buf at bp+16 */ [64]int8
-	_, _, _, _, _, _, _, _, _, _, _ = atom, b, i, p, p1, p2, p3, r, sgn, str, tag
-	tag = uint32(int32((*(*TJSValue)(unsafe.Pointer(bp))).Ftag))
+	var _ /* atom_buf at bp+440 */ [64]int8
+	var _ /* atom_buf at bp+504 */ [64]int8
+	var _ /* buf at bp+376 */ [64]int8
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, atom, b, i, p, p1, p2, p3, r, sgn, str, tag, v18, v20, v22, v24, v26, v28, v31, v33, v35, v37, v39, v41, v43, v45, v47, v49
+	tag = uint32(int32((*(*TJSValue)(unsafe.Pointer(bp + 360))).Ftag))
 	switch tag {
 	case uint32(EJS_TAG_INT):
 		goto _1
@@ -23866,11 +24434,19 @@ func _JS_DumpValueShort(tls *libc.TLS, rt uintptr, _val TJSValue) {
 	goto _17
 _1:
 	;
-	libc.Xprintf(tls, __ccgo_ts+14, libc.VaList(bp+216, *(*Tint32_t)(unsafe.Pointer(bp))))
+	v18 = __ccgo_ts + 14
+	libc.VaList(bp, *(*Tint32_t)(unsafe.Pointer(bp + 360)))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v18, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _19
+_19:
+	;
 	goto _17
 _2:
 	;
-	if *(*Tint32_t)(unsafe.Pointer(bp)) != 0 {
+	if *(*Tint32_t)(unsafe.Pointer(bp + 360)) != 0 {
 		str = __ccgo_ts + 2733
 	} else {
 		str = __ccgo_ts + 2738
@@ -23894,77 +24470,189 @@ _6:
 	goto print_str
 print_str:
 	;
-	libc.Xprintf(tls, __ccgo_ts+136, libc.VaList(bp+216, str))
+	v20 = __ccgo_ts + 136
+	libc.VaList(bp, str)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v20, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _21
+_21:
+	;
 	goto _17
 _7:
 	;
-	libc.Xprintf(tls, __ccgo_ts+2768, libc.VaList(bp+216, *(*float64)(unsafe.Pointer(bp))))
+	v22 = __ccgo_ts + 2768
+	libc.VaList(bp, *(*float64)(unsafe.Pointer(bp + 360)))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v22, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _23
+_23:
+	;
 	goto _17
 _8:
 	;
-	libc.Xprintf(tls, __ccgo_ts+2774, libc.VaList(bp+216, int64(*(*Tint32_t)(unsafe.Pointer(bp)))))
+	v24 = __ccgo_ts + 2774
+	libc.VaList(bp, int64(*(*Tint32_t)(unsafe.Pointer(bp + 360))))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v24, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _25
+_25:
+	;
 	goto _17
 _9:
 	;
-	p = *(*uintptr)(unsafe.Pointer(bp))
+	p = *(*uintptr)(unsafe.Pointer(bp + 360))
 	/* In order to avoid allocations we just dump the limbs */
 	sgn = _js_bigint_sign(tls, p)
 	if sgn != 0 {
-		libc.Xprintf(tls, __ccgo_ts+2780, libc.VaList(bp+216, (*TJSBigInt)(unsafe.Pointer(p)).Flen1*uint32(MJS_LIMB_BITS)))
+		v26 = __ccgo_ts + 2780
+		libc.VaList(bp, (*TJSBigInt)(unsafe.Pointer(p)).Flen1*uint32(MJS_LIMB_BITS))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v26, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _27
+	_27:
 	}
-	libc.Xprintf(tls, __ccgo_ts+2798, 0)
+	v28 = __ccgo_ts + 2798
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v28, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _29
+_29:
+	;
 	i = int32((*TJSBigInt)(unsafe.Pointer(p)).Flen1 - uint32(1))
 	for {
 		if !(i >= 0) {
 			break
 		}
 		if uint32(i) != (*TJSBigInt)(unsafe.Pointer(p)).Flen1-uint32(1) {
-			libc.Xprintf(tls, __ccgo_ts+2801, 0)
+			v31 = __ccgo_ts + 2801
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v31, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _32
+		_32:
 		}
-		libc.Xprintf(tls, __ccgo_ts+2803, libc.VaList(bp+216, *(*Tjs_limb_t)(unsafe.Pointer(p + 8 + uintptr(i)*4))))
-		goto _18
-	_18:
+		v33 = __ccgo_ts + 2803
+		libc.VaList(bp, *(*Tjs_limb_t)(unsafe.Pointer(p + 8 + uintptr(i)*4)))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v33, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _34
+	_34:
+		;
+		goto _30
+	_30:
 		;
 		i--
 	}
-	libc.Xprintf(tls, __ccgo_ts+2808, 0)
+	v35 = __ccgo_ts + 2808
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v35, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _36
+_36:
+	;
 	if sgn != 0 {
-		libc.Xprintf(tls, __ccgo_ts+2810, 0)
+		v37 = __ccgo_ts + 2810
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v37, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _38
+	_38:
 	}
 	goto _17
 _10:
 	;
-	p1 = *(*uintptr)(unsafe.Pointer(bp))
+	p1 = *(*uintptr)(unsafe.Pointer(bp + 360))
 	_JS_DumpString(tls, rt, p1)
 	goto _17
 _11:
 	;
-	r = *(*uintptr)(unsafe.Pointer(bp))
-	libc.Xprintf(tls, __ccgo_ts+2812, libc.VaList(bp+216, (*TJSStringRope)(unsafe.Pointer(r)).Flen1, int32((*TJSStringRope)(unsafe.Pointer(r)).Fdepth)))
+	r = *(*uintptr)(unsafe.Pointer(bp + 360))
+	v39 = __ccgo_ts + 2812
+	libc.VaList(bp, (*TJSStringRope)(unsafe.Pointer(r)).Flen1, int32((*TJSStringRope)(unsafe.Pointer(r)).Fdepth))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v39, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _40
+_40:
+	;
 	goto _17
 _12:
 	;
-	b = *(*uintptr)(unsafe.Pointer(bp))
-	libc.Xprintf(tls, __ccgo_ts+2835, libc.VaList(bp+216, _JS_AtomGetStrRT(tls, rt, bp+16, int32(64), (*TJSFunctionBytecode)(unsafe.Pointer(b)).Ffunc_name)))
+	b = *(*uintptr)(unsafe.Pointer(bp + 360))
+	v41 = __ccgo_ts + 2835
+	libc.VaList(bp, _JS_AtomGetStrRT(tls, rt, bp+376, int32(64), (*TJSFunctionBytecode)(unsafe.Pointer(b)).Ffunc_name))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v41, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _42
+_42:
+	;
 	goto _17
 _13:
 	;
-	p2 = *(*uintptr)(unsafe.Pointer(bp))
+	p2 = *(*uintptr)(unsafe.Pointer(bp + 360))
 	atom = (*(*TJSClass)(unsafe.Pointer((*TJSRuntime)(unsafe.Pointer(rt)).Fclass_array + uintptr(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p2), 6)))*40))).Fclass_name
-	libc.Xprintf(tls, __ccgo_ts+2849, libc.VaList(bp+216, _JS_AtomGetStrRT(tls, rt, bp+80, int32(64), atom), p2))
+	v43 = __ccgo_ts + 2849
+	libc.VaList(bp, _JS_AtomGetStrRT(tls, rt, bp+440, int32(64), atom), p2)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v43, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _44
+_44:
+	;
 	goto _17
 _14:
 	;
-	p3 = *(*uintptr)(unsafe.Pointer(bp))
-	libc.Xprintf(tls, __ccgo_ts+2857, libc.VaList(bp+216, _JS_AtomGetStrRT(tls, rt, bp+144, int32(64), _js_get_atom_index(tls, rt, p3))))
+	p3 = *(*uintptr)(unsafe.Pointer(bp + 360))
+	v45 = __ccgo_ts + 2857
+	libc.VaList(bp, _JS_AtomGetStrRT(tls, rt, bp+504, int32(64), _js_get_atom_index(tls, rt, p3)))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v45, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _46
+_46:
+	;
 	goto _17
 _15:
 	;
-	libc.Xprintf(tls, __ccgo_ts+2868, 0)
+	v47 = __ccgo_ts + 2868
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v47, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _48
+_48:
+	;
 	goto _17
 _16:
 	;
-	libc.Xprintf(tls, __ccgo_ts+2877, libc.VaList(bp+216, tag))
+	v49 = __ccgo_ts + 2877
+	libc.VaList(bp, tag)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v49, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _50
+_50:
+	;
 	goto _17
 _17:
 }
@@ -23974,11 +24662,29 @@ func _JS_DumpValue(tls *libc.TLS, ctx uintptr, val TJSValue) {
 }
 
 func _JS_PrintValue(tls *libc.TLS, ctx uintptr, str uintptr, val TJSValue) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	libc.Xprintf(tls, __ccgo_ts+2894, libc.VaList(bp+8, str))
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var v1, v3 uintptr
+	_, _, _, _ = __local_argv, __retval, v1, v3
+	v1 = __ccgo_ts + 2894
+	libc.VaList(bp, str)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	_JS_DumpValueShort(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, val)
-	libc.Xprintf(tls, __ccgo_ts+86, 0)
+	v3 = __ccgo_ts + 86
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v3, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _4
+_4:
 }
 
 // C documentation
@@ -40078,12 +40784,14 @@ func _free_token(tls *libc.TLS, s uintptr, token uintptr) {
 }
 
 func _dump_token(tls *libc.TLS, s uintptr, token uintptr) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
-	var str, str1, str2, str21, v11, v13, v15, v9 uintptr
-	var _ /* buf at bp+8 */ [64]int8
-	var _ /* d at bp+0 */ float64
-	_, _, _, _, _, _, _, _ = str, str1, str2, str21, v11, v13, v15, v9
+	bp := tls.Alloc(272)
+	defer tls.Free(272)
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var str, str1, str2, str21, v11, v13, v15, v17, v19, v21, v23, v25, v27, v29, v31, v9 uintptr
+	var _ /* buf at bp+200 */ [64]int8
+	var _ /* d at bp+192 */ float64
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, str, str1, str2, str21, v11, v13, v15, v17, v19, v21, v23, v25, v27, v29, v31, v9
 	switch (*TJSToken)(unsafe.Pointer(token)).Fval {
 	case int32(ETOK_NUMBER):
 		goto _1
@@ -40103,64 +40811,111 @@ func _dump_token(tls *libc.TLS, s uintptr, token uintptr) {
 	goto _8
 _1:
 	;
-	XJS_ToFloat64(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, bp, (*(*struct {
+	XJS_ToFloat64(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, bp+192, (*(*struct {
 		Fval TJSValue
 	})(unsafe.Pointer(&(*TJSToken)(unsafe.Pointer(token)).Fu))).Fval) /* no exception possible */
-	libc.Xprintf(tls, __ccgo_ts+3698, libc.VaList(bp+80, *(*float64)(unsafe.Pointer(bp))))
+	v9 = __ccgo_ts + 3698
+	libc.VaList(bp, *(*float64)(unsafe.Pointer(bp + 192)))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v9, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _10
+_10:
+	;
 	goto _8
 _2:
 	;
 	goto dump_atom
 dump_atom:
 	;
-	libc.Xprintf(tls, __ccgo_ts+3713, libc.VaList(bp+80, _JS_AtomGetStr(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, bp+8, int32(64), (*(*struct {
+	v11 = __ccgo_ts + 3713
+	libc.VaList(bp, _JS_AtomGetStr(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, bp+200, int32(64), (*(*struct {
 		Fatom        TJSAtom
 		Fhas_escape  TBOOL
 		Fis_reserved TBOOL
-	})(unsafe.Pointer(&(*TJSToken)(unsafe.Pointer(token)).Fu))).Fatom)))
+	})(unsafe.Pointer(&(*TJSToken)(unsafe.Pointer(token)).Fu))).Fatom))
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v11, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _12
+_12:
+	;
 	goto _8
 _3:
 	;
 	/* XXX: quote the string */
-	v9 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*TJSToken)(unsafe.Pointer(token)).Fu.Fstr.Fstr, 0)
-	goto _10
-_10:
-	str = v9
-	libc.Xprintf(tls, __ccgo_ts+3726, libc.VaList(bp+80, str))
+	v13 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*TJSToken)(unsafe.Pointer(token)).Fu.Fstr.Fstr, 0)
+	goto _14
+_14:
+	str = v13
+	v15 = __ccgo_ts + 3726
+	libc.VaList(bp, str)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v15, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _16
+_16:
+	;
 	XJS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str)
 	goto _8
 _4:
 	;
-	v11 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*TJSToken)(unsafe.Pointer(token)).Fu.Fstr.Fstr, 0)
-	goto _12
-_12:
-	str1 = v11
-	libc.Xprintf(tls, __ccgo_ts+3740, libc.VaList(bp+80, str1))
+	v17 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*TJSToken)(unsafe.Pointer(token)).Fu.Fstr.Fstr, 0)
+	goto _18
+_18:
+	str1 = v17
+	v19 = __ccgo_ts + 3740
+	libc.VaList(bp, str1)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v19, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _20
+_20:
+	;
 	XJS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str1)
 	goto _8
 _5:
 	;
-	v13 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*(*struct {
+	v21 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*(*struct {
 		Fbody  TJSValue
 		Fflags TJSValue
 	})(unsafe.Pointer(token + 16))).Fbody, 0)
-	goto _14
-_14:
-	str2 = v13
-	v15 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*(*struct {
+	goto _22
+_22:
+	str2 = v21
+	v23 = XJS_ToCStringLen2(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, libc.UintptrFromInt32(0), (*(*struct {
 		Fbody  TJSValue
 		Fflags TJSValue
 	})(unsafe.Pointer(token + 16))).Fflags, 0)
-	goto _16
-_16:
-	str21 = v15
-	libc.Xprintf(tls, __ccgo_ts+3756, libc.VaList(bp+80, str2, str21))
+	goto _24
+_24:
+	str21 = v23
+	v25 = __ccgo_ts + 3756
+	libc.VaList(bp, str2, str21)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v25, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _26
+_26:
+	;
 	XJS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str2)
 	XJS_FreeCString(tls, (*TJSParseState)(unsafe.Pointer(s)).Fctx, str21)
 	goto _8
 _6:
 	;
-	libc.Xprintf(tls, __ccgo_ts+3775, 0)
+	v27 = __ccgo_ts + 3775
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v27, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _28
+_28:
+	;
 	goto _8
 _7:
 	;
@@ -40168,9 +40923,23 @@ _7:
 		goto dump_atom
 	} else {
 		if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval >= int32(256) {
-			libc.Xprintf(tls, __ccgo_ts+3780, libc.VaList(bp+80, (*TJSToken)(unsafe.Pointer(token)).Fval))
+			v29 = __ccgo_ts + 3780
+			libc.VaList(bp, (*TJSToken)(unsafe.Pointer(token)).Fval)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v29, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _30
+		_30:
 		} else {
-			libc.Xprintf(tls, __ccgo_ts+3791, libc.VaList(bp+80, (*TJSToken)(unsafe.Pointer(token)).Fval))
+			v31 = __ccgo_ts + 3791
+			libc.VaList(bp, (*TJSToken)(unsafe.Pointer(token)).Fval)
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v31, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _32
+		_32:
 		}
 	}
 	goto _8
@@ -57960,20 +58729,30 @@ func _free_function_bytecode(tls *libc.TLS, rt1 uintptr, b uintptr) {
 }
 
 func _js_parse_directives(tls *libc.TLS, s uintptr) (r int32) {
-	bp := tls.Alloc(64)
-	defer tls.Free(64)
+	bp := tls.Alloc(80)
+	defer tls.Free(80)
+	var __local_argv t__builtin_va_list
+	var __retval int32
 	var has_semi TBOOL
-	var p1 uintptr
-	var _ /* pos at bp+24 */ TJSParsePos
-	var _ /* str at bp+0 */ [20]int8
-	_, _ = has_semi, p1
+	var v1, p3 uintptr
+	var _ /* pos at bp+56 */ TJSParsePos
+	var _ /* str at bp+32 */ [20]int8
+	_, _, _, _, _ = __local_argv, __retval, has_semi, v1, p3
 	if (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval != int32(ETOK_STRING) {
 		return 0
 	}
-	_js_parse_get_pos(tls, s, bp+24)
+	_js_parse_get_pos(tls, s, bp+56)
 	for (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fval == int32(ETOK_STRING) {
 		/* Copy actual source string representation */
-		libc.X__builtin_snprintf(tls, bp, uint64(20), __ccgo_ts+139, libc.VaList(bp+48, int32(int64((*TJSParseState)(unsafe.Pointer(s)).Fbuf_ptr)-int64((*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr)-libc.Int64FromInt32(2)), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr+uintptr(1)))
+		v1 = __ccgo_ts + 139
+		libc.VaList(bp, int32(int64((*TJSParseState)(unsafe.Pointer(s)).Fbuf_ptr)-int64((*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr)-libc.Int64FromInt32(2)), (*TJSParseState)(unsafe.Pointer(s)).Ftoken.Fptr+uintptr(1))
+		__local_argv = bp
+		__retval = libc.X__mingw_vsnprintf(tls, bp+32, uint64(20), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
+		;
 		if _next_token(tls, s) != 0 {
 			return -int32(1)
 		}
@@ -58075,13 +58854,13 @@ func _js_parse_directives(tls *libc.TLS, s uintptr) (r int32) {
 		if !(has_semi != 0) {
 			break
 		}
-		if !(libc.Xstrcmp(tls, bp, __ccgo_ts+7752) != 0) {
+		if !(libc.Xstrcmp(tls, bp+32, __ccgo_ts+7752) != 0) {
 			(*TJSFunctionDef)(unsafe.Pointer((*TJSParseState)(unsafe.Pointer(s)).Fcur_func)).Fhas_use_strict = int32(ETRUE)
-			p1 = (*TJSParseState)(unsafe.Pointer(s)).Fcur_func + 130
-			*(*Tuint8_t)(unsafe.Pointer(p1)) = Tuint8_t(int32(*(*Tuint8_t)(unsafe.Pointer(p1))) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
+			p3 = (*TJSParseState)(unsafe.Pointer(s)).Fcur_func + 130
+			*(*Tuint8_t)(unsafe.Pointer(p3)) = Tuint8_t(int32(*(*Tuint8_t)(unsafe.Pointer(p3))) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
 		}
 	}
-	return _js_parse_seek_token(tls, s, bp+24)
+	return _js_parse_seek_token(tls, s, bp+56)
 }
 
 // C documentation
@@ -62399,16 +63178,17 @@ func _JS_InstantiateFunctionListItem2(tls *libc.TLS, ctx uintptr, p uintptr, ato
 }
 
 func _JS_InstantiateFunctionListItem(tls *libc.TLS, ctx4 uintptr, obj TJSValue, atom TJSAtom, e uintptr) (r int32) {
-	bp := tls.Alloc(96)
-	defer tls.Free(96)
+	bp := tls.Alloc(128)
+	defer tls.Free(128)
+	var __local_argv t__builtin_va_list
+	var __retval, prop_flags, v12, v15 int32
 	var atom1 TJSAtom
-	var getter, setter, v1, val2, v11, v12, v16, v18, v2, v20, v22, v4, v5, v7, v8 TJSValue
-	var prop_flags, v10, v111 int32
-	var v14 uintptr
-	var v15 Tint64_t
-	var _ /* buf at bp+16 */ [64]int8
-	var _ /* v at bp+0 */ TJSValue
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = atom1, getter, prop_flags, setter, v1, val2, v11, v10, v111, v12, v14, v15, v16, v18, v2, v20, v22, v4, v5, v7, v8
+	var getter, setter, v1, val2, v11, v16, v2, v20, v22, v24, v26, v4, v5, v7, v8 TJSValue
+	var v10, v13, v18 uintptr
+	var v19 Tint64_t
+	var _ /* buf at bp+64 */ [64]int8
+	var _ /* v at bp+48 */ TJSValue
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, atom1, getter, prop_flags, setter, v1, val2, v11, v10, v12, v13, v15, v16, v18, v19, v2, v20, v22, v24, v26, v4, v5, v7, v8
 	prop_flags = int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fprop_flags)
 	switch int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fdef_type) {
 	case int32(MJS_DEF_ALIAS): /* using autoinit for aliases is not safe */
@@ -62471,75 +63251,91 @@ func _JS_InstantiateFunctionListItem(tls *libc.TLS, ctx4 uintptr, obj TJSValue, 
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
 		if *(*uintptr)(unsafe.Pointer(e + 16)) != 0 {
-			libc.X__builtin_snprintf(tls, bp+16, uint64(64), __ccgo_ts+8520, libc.VaList(bp+88, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname))
+			v10 = __ccgo_ts + 8520
+			libc.VaList(bp, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+64, uint64(64), v10, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _11
+		_11:
+			;
 			if int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fdef_type) == int32(MJS_DEF_CGETSET_MAGIC) {
-				v10 = int32(EJS_CFUNC_getter_magic)
+				v12 = int32(EJS_CFUNC_getter_magic)
 			} else {
-				v10 = int32(EJS_CFUNC_getter)
+				v12 = int32(EJS_CFUNC_getter)
 			}
-			getter = XJS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16)), bp+16, 0, v10, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
+			getter = XJS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16)), bp+64, 0, v12, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
 		}
 		setter = TJSValue{
 			Fu:   TJSValueUnion{},
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}
 		if *(*uintptr)(unsafe.Pointer(e + 16 + 8)) != 0 {
-			libc.X__builtin_snprintf(tls, bp+16, uint64(64), __ccgo_ts+8527, libc.VaList(bp+88, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname))
+			v13 = __ccgo_ts + 8527
+			libc.VaList(bp, (*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fname)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+64, uint64(64), v13, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _14
+		_14:
+			;
 			if int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fdef_type) == int32(MJS_DEF_CGETSET_MAGIC) {
-				v111 = int32(EJS_CFUNC_setter_magic)
+				v15 = int32(EJS_CFUNC_setter_magic)
 			} else {
-				v111 = int32(EJS_CFUNC_setter)
+				v15 = int32(EJS_CFUNC_setter)
 			}
-			setter = XJS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16 + 8)), bp+16, int32(1), v111, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
+			setter = XJS_NewCFunction2(tls, ctx4, *(*uintptr)(unsafe.Pointer(e + 16 + 8)), bp+64, int32(1), v15, int32((*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fmagic))
 		}
 		XJS_DefinePropertyGetSet(tls, ctx4, obj, atom, getter, setter, prop_flags)
 		return 0
 	case int32(MJS_DEF_PROP_INT32):
 		_ = ctx4
-		v12 = TJSValue{
+		v16 = TJSValue{
 			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 				f Tint32_t
 				_ [4]byte
 			}{f: *(*Tint32_t)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))})),
 		}
-		goto _13
-	_13:
-		val2 = v12
+		goto _17
+	_17:
+		val2 = v16
 	case int32(MJS_DEF_PROP_INT64):
-		v14 = ctx4
-		v15 = *(*Tint64_t)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
-		if v15 == int64(int32(v15)) {
-			_ = v14
-			v16 = TJSValue{
+		v18 = ctx4
+		v19 = *(*Tint64_t)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
+		if v19 == int64(int32(v19)) {
+			_ = v18
+			v20 = TJSValue{
 				Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 					f Tint32_t
 					_ [4]byte
-				}{f: int32(v15)})),
+				}{f: int32(v19)})),
 			}
-			goto _17
-		_17:
-			v1 = v16
+			goto _21
+		_21:
+			v1 = v20
 		} else {
-			_ = v14
-			(*(*TJSValue)(unsafe.Pointer(bp))).Ftag = int64(EJS_TAG_FLOAT64)
-			*(*float64)(unsafe.Pointer(bp)) = float64(v15)
-			v18 = *(*TJSValue)(unsafe.Pointer(bp))
-			goto _19
-		_19:
-			v1 = v18
+			_ = v18
+			(*(*TJSValue)(unsafe.Pointer(bp + 48))).Ftag = int64(EJS_TAG_FLOAT64)
+			*(*float64)(unsafe.Pointer(bp + 48)) = float64(v19)
+			v22 = *(*TJSValue)(unsafe.Pointer(bp + 48))
+			goto _23
+		_23:
+			v1 = v22
 		}
-		v20 = v1
-		goto _21
-	_21:
-		val2 = v20
+		v24 = v1
+		goto _25
+	_25:
+		val2 = v24
 	case int32(MJS_DEF_PROP_DOUBLE):
 		_ = ctx4
-		(*(*TJSValue)(unsafe.Pointer(bp))).Ftag = int64(EJS_TAG_FLOAT64)
-		*(*float64)(unsafe.Pointer(bp)) = *(*float64)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
-		v22 = *(*TJSValue)(unsafe.Pointer(bp))
-		goto _23
-	_23:
-		val2 = v22
+		(*(*TJSValue)(unsafe.Pointer(bp + 48))).Ftag = int64(EJS_TAG_FLOAT64)
+		*(*float64)(unsafe.Pointer(bp + 48)) = *(*float64)(unsafe.Pointer(&(*TJSCFunctionListEntry)(unsafe.Pointer(e)).Fu))
+		v26 = *(*TJSValue)(unsafe.Pointer(bp + 48))
+		goto _27
+	_27:
+		val2 = v26
 	case int32(MJS_DEF_PROP_UNDEFINED):
 		val2 = TJSValue{
 			Fu:   TJSValueUnion{},
@@ -103476,15 +104272,17 @@ _4:
 //	   XXX: should use a variant of strftime().
 //	 */
 func _get_date_string(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, argv uintptr, magic int32) (r TJSValue) {
-	bp := tls.Alloc(192)
-	defer tls.Free(192)
-	var d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v1, v2, v3, v4, v5, v6 int32
-	var _ /* buf at bp+0 */ [64]int8
-	var _ /* fields at bp+64 */ [9]float64
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v1, v2, v3, v4, v5, v6
+	bp := tls.Alloc(592)
+	defer tls.Free(592)
+	var __local_argv t__builtin_va_list
+	var __retval, d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v12, v15, v18, v2, v20, v21, v23, v26, v28, v29, v31, v34, v36, v38, v5, v7, v9 int32
+	var v1, v11, v14, v17, v22, v25, v30, v33, v37, v4, v8 uintptr
+	var _ /* buf at bp+448 */ [64]int8
+	var _ /* fields at bp+512 */ [9]float64
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, d, fmt, h, m, mon, ms, part, pos, res, s, tz, wd, y, v1, v11, v12, v14, v15, v17, v18, v2, v20, v21, v22, v23, v25, v26, v28, v29, v30, v31, v33, v34, v36, v37, v38, v4, v5, v7, v8, v9
 	fmt = magic >> int32(4) & int32(0x0F)
 	part = magic & int32(0x0F)
-	res = _get_date_fields(tls, ctx, this_val, bp+64, fmt&int32(1), 0)
+	res = _get_date_fields(tls, ctx, this_val, bp+512, fmt&int32(1), 0)
 	if res < 0 {
 		return TJSValue{
 			Fu:   TJSValueUnion{},
@@ -103498,43 +104296,91 @@ func _get_date_string(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32,
 			return _js_new_string8(tls, ctx, __ccgo_ts+12913)
 		}
 	}
-	y = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[0])
-	mon = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(1)])
-	d = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(2)])
-	h = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(3)])
-	m = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(4)])
-	s = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(5)])
-	ms = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(6)])
-	wd = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(7)])
-	tz = int32((*(*[9]float64)(unsafe.Pointer(bp + 64)))[int32(8)])
+	y = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[0])
+	mon = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(1)])
+	d = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(2)])
+	h = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(3)])
+	m = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(4)])
+	s = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(5)])
+	ms = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(6)])
+	wd = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(7)])
+	tz = int32((*(*[9]float64)(unsafe.Pointer(bp + 512)))[int32(8)])
 	pos = 0
 	if part&int32(1) != 0 { /* date part */
 		switch fmt {
 		case 0:
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+12926, libc.VaList(bp+144, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), d, uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), int32(4)+libc.BoolInt32(y < 0), y))
+			v1 = __ccgo_ts + 12926
+			libc.VaList(bp, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), d, uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), int32(4)+libc.BoolInt32(y < 0), y)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v1, __local_argv)
+			_ = __local_argv
+			v2 = __retval
+			goto _3
+		_3:
+			pos += v2
 		case int32(1):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+12948, libc.VaList(bp+144, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), d, int32(4)+libc.BoolInt32(y < 0), y))
+			v4 = __ccgo_ts + 12948
+			libc.VaList(bp, uintptr(unsafe.Pointer(&_day_names))+uintptr(wd*int32(3)), uintptr(unsafe.Pointer(&_month_names))+uintptr(mon*int32(3)), d, int32(4)+libc.BoolInt32(y < 0), y)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v4, __local_argv)
+			_ = __local_argv
+			v5 = __retval
+			goto _6
+		_6:
+			pos += v5
 			if part == int32(3) {
-				v1 = pos
+				v7 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v1] = int8(' ')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v7] = int8(' ')
 			}
 		case int32(2):
 			if y >= 0 && y <= int32(9999) {
-				pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+12968, libc.VaList(bp+144, y))
+				v8 = __ccgo_ts + 12968
+				libc.VaList(bp, y)
+				__local_argv = bp
+				__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v8, __local_argv)
+				_ = __local_argv
+				v9 = __retval
+				goto _10
+			_10:
+				pos += v9
 			} else {
-				pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+12973, libc.VaList(bp+144, y))
+				v11 = __ccgo_ts + 12973
+				libc.VaList(bp, y)
+				__local_argv = bp
+				__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v11, __local_argv)
+				_ = __local_argv
+				v12 = __retval
+				goto _13
+			_13:
+				pos += v12
 			}
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+12979, libc.VaList(bp+144, mon+int32(1), d))
+			v14 = __ccgo_ts + 12979
+			libc.VaList(bp, mon+int32(1), d)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v14, __local_argv)
+			_ = __local_argv
+			v15 = __retval
+			goto _16
+		_16:
+			pos += v15
 		case int32(3):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+12991, libc.VaList(bp+144, mon+int32(1), d, int32(4)+libc.BoolInt32(y < 0), y))
+			v17 = __ccgo_ts + 12991
+			libc.VaList(bp, mon+int32(1), d, int32(4)+libc.BoolInt32(y < 0), y)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v17, __local_argv)
+			_ = __local_argv
+			v18 = __retval
+			goto _19
+		_19:
+			pos += v18
 			if part == int32(3) {
-				v2 = pos
+				v20 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v2] = int8(',')
-				v3 = pos
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v20] = int8(',')
+				v21 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v3] = int8(' ')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v21] = int8(' ')
 			}
 			break
 		}
@@ -103542,35 +104388,75 @@ func _get_date_string(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32,
 	if part&int32(2) != 0 { /* time part */
 		switch fmt {
 		case 0:
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+13006, libc.VaList(bp+144, h, m, s))
+			v22 = __ccgo_ts + 13006
+			libc.VaList(bp, h, m, s)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v22, __local_argv)
+			_ = __local_argv
+			v23 = __retval
+			goto _24
+		_24:
+			pos += v23
 		case int32(1):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+13006, libc.VaList(bp+144, h, m, s))
+			v25 = __ccgo_ts + 13006
+			libc.VaList(bp, h, m, s)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v25, __local_argv)
+			_ = __local_argv
+			v26 = __retval
+			goto _27
+		_27:
+			pos += v26
 			if tz < 0 {
-				v4 = pos
+				v28 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v4] = int8('-')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v28] = int8('-')
 				tz = -tz
 			} else {
-				v5 = pos
+				v29 = pos
 				pos++
-				(*(*[64]int8)(unsafe.Pointer(bp)))[v5] = int8('+')
+				(*(*[64]int8)(unsafe.Pointer(bp + 448)))[v29] = int8('+')
 			}
 			/* tz is >= 0, can use % */
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+13025, libc.VaList(bp+144, tz/int32(60), tz%int32(60)))
+			v30 = __ccgo_ts + 13025
+			libc.VaList(bp, tz/int32(60), tz%int32(60))
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v30, __local_argv)
+			_ = __local_argv
+			v31 = __retval
+			goto _32
+		_32:
+			pos += v31
 			/* XXX: tack the time zone code? */
 		case int32(2):
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+13034, libc.VaList(bp+144, h, m, s, ms))
+			v33 = __ccgo_ts + 13034
+			libc.VaList(bp, h, m, s, ms)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v33, __local_argv)
+			_ = __local_argv
+			v34 = __retval
+			goto _35
+		_35:
+			pos += v34
 		case int32(3):
 			if h < int32(12) {
-				v6 = int32('A')
+				v36 = int32('A')
 			} else {
-				v6 = int32('P')
+				v36 = int32('P')
 			}
-			pos += libc.X__builtin_snprintf(tls, bp+uintptr(pos), uint64(64)-uint64(pos), __ccgo_ts+13055, libc.VaList(bp+144, (h+int32(11))%int32(12)+int32(1), m, s, v6))
+			v37 = __ccgo_ts + 13055
+			libc.VaList(bp, (h+int32(11))%int32(12)+int32(1), m, s, v36)
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, bp+448+uintptr(pos), uint64(64)-uint64(pos), v37, __local_argv)
+			_ = __local_argv
+			v38 = __retval
+			goto _39
+		_39:
+			pos += v38
 			break
 		}
 	}
-	return XJS_NewStringLen(tls, ctx, bp, uint64(pos))
+	return XJS_NewStringLen(tls, ctx, bp+448, uint64(pos))
 }
 
 // C documentation
@@ -117623,13 +118509,11 @@ type TJSValueUnion1 = struct {
 }
 
 const MDBIGNUM_LEN_MAX = 52
-const MINFINITY = 0
 const MLIMB_BITS = 32
 const MLIMB_DIGITS = 9
 const MLIMB_LOG2_BITS = 5
 const MMANT_LEN_MAX = 18
 const MMUL_LOG2_RADIX_BASE_LOG2 = 24
-const MNAN = 0
 const M_ALPHA = 259
 const M_BLANK = 64
 const M_CONTROL = 32
@@ -117645,6 +118529,7 @@ const M__PCTYPE_FUNC = 0
 const M_pctype = 0
 const M_pwctype = 0
 const M_setjmp = 0
+const M_wctype = 0
 const Misascii = 0
 const Miscsym = 0
 const Miscsymf = 0
@@ -117895,26 +118780,56 @@ func _mp_div1norm1(tls *libc.TLS, tabr uintptr, taba uintptr, n Tlimb_t, b Tlimb
 }
 
 func _mpb_dump(tls *libc.TLS, str uintptr, a uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var i int32
-	_ = i
-	libc.Xprintf(tls, __ccgo_ts+14930, libc.VaList(bp+8, str))
+	bp := tls.Alloc(80)
+	defer tls.Free(80)
+	var __local_argv t__builtin_va_list
+	var __retval, i int32
+	var v1, v4, v6, v8 uintptr
+	_, _, _, _, _, _, _ = __local_argv, __retval, i, v1, v4, v6, v8
+	v1 = __ccgo_ts + 14930
+	libc.VaList(bp, str)
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v1, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _2
+_2:
+	;
 	i = (*Tmpb_t)(unsafe.Pointer(a)).Flen1 - int32(1)
 	for {
 		if !(i >= 0) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+2803, libc.VaList(bp+8, *(*Tlimb_t)(unsafe.Pointer(a + 4 + uintptr(i)*4))))
+		v4 = __ccgo_ts + 2803
+		libc.VaList(bp, *(*Tlimb_t)(unsafe.Pointer(a + 4 + uintptr(i)*4)))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v4, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _5
+	_5:
+		;
 		if i != 0 {
-			libc.Xprintf(tls, __ccgo_ts+2801, 0)
+			v6 = __ccgo_ts + 2801
+			__local_argv = bp
+			__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v6, __local_argv)
+			_ = __local_argv
+			_ = __retval
+			goto _7
+		_7:
 		}
-		goto _1
-	_1:
+		goto _3
+	_3:
 		;
 		i--
 	}
-	libc.Xprintf(tls, __ccgo_ts+86, 0)
+	v8 = __ccgo_ts + 86
+	__local_argv = bp
+	__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v8, __local_argv)
+	_ = __local_argv
+	_ = __retval
+	goto _9
+_9:
 }
 
 func _mpb_renorm(tls *libc.TLS, r uintptr) {
@@ -151014,14 +151929,24 @@ func Xlre_is_case_ignorable(tls *libc.TLS, c Tuint32_t) (r TBOOL) {
 func _cr_dump(tls *libc.TLS, cr uintptr) {
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
-	var i int32
-	_ = i
+	var __local_argv t__builtin_va_list
+	var __retval, i int32
+	var v2 uintptr
+	_, _, _, _ = __local_argv, __retval, i, v2
 	i = 0
 	for {
 		if !(i < (*TCharRange)(unsafe.Pointer(cr)).Flen1) {
 			break
 		}
-		libc.Xprintf(tls, __ccgo_ts+15611, libc.VaList(bp+8, i, *(*Tuint32_t)(unsafe.Pointer((*TCharRange)(unsafe.Pointer(cr)).Fpoints + uintptr(i)*4))))
+		v2 = __ccgo_ts + 15611
+		libc.VaList(bp, i, *(*Tuint32_t)(unsafe.Pointer((*TCharRange)(unsafe.Pointer(cr)).Fpoints + uintptr(i)*4)))
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(1)), v2, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _3
+	_3:
+		;
 		goto _1
 	_1:
 		;
@@ -154560,8 +155485,6 @@ const MAPPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT = 15702
 const MAPPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT = 15701
 const MAPP_LOCAL_DEVICE_ID_SIZE = 32
 const MARABIC_CHARSET = 178
-const MARM64_MAX_BREAKPOINTS = 8
-const MARM64_MAX_WATCHPOINTS = 2
 const MARM_CACHE_ALIGNMENT_SIZE = 128
 const MARW_BOTTOMLEFT = 0
 const MARW_BOTTOMRIGHT = 1
@@ -156661,15 +157584,6 @@ const MCONST = 0
 const MCONTAINER_INHERIT_ACE = 2
 const MCONTEXT_ALL = 1048607
 const MCONTEXT_AMD64 = 1048576
-const MCONTEXT_ARM64 = 4194304
-const MCONTEXT_ARM64_ALL = 4194335
-const MCONTEXT_ARM64_CONTROL = 4194305
-const MCONTEXT_ARM64_DEBUG_REGISTERS = 4194312
-const MCONTEXT_ARM64_FLOATING_POINT = 4194308
-const MCONTEXT_ARM64_FULL = 4194311
-const MCONTEXT_ARM64_INTEGER = 4194306
-const MCONTEXT_ARM64_UNWOUND_TO_CALL = 536870912
-const MCONTEXT_ARM64_X18 = 4194320
 const MCONTEXT_CONTROL = 1048577
 const MCONTEXT_DEBUG_REGISTERS = 1048592
 const MCONTEXT_EXCEPTION_ACTIVE = 134217728
@@ -158280,7 +159194,6 @@ const MDOMAIN_ALIAS_RID_LOGGING_USERS = 559
 const MDOMAIN_ALIAS_RID_MONITORING_USERS = 558
 const MDOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS = 556
 const MDOMAIN_ALIAS_RID_NON_CACHEABLE_PRINCIPALS_GROUP = 572
-const MDOMAIN_ALIAS_RID_OPENSSH_USERS = 585
 const MDOMAIN_ALIAS_RID_POWER_USERS = 547
 const MDOMAIN_ALIAS_RID_PREW2KCOMPACCESS = 554
 const MDOMAIN_ALIAS_RID_PRINT_OPS = 550
@@ -158295,7 +159208,6 @@ const MDOMAIN_ALIAS_RID_STORAGE_REPLICA_ADMINS = 582
 const MDOMAIN_ALIAS_RID_SYSTEM_OPS = 549
 const MDOMAIN_ALIAS_RID_TS_LICENSE_SERVERS = 561
 const MDOMAIN_ALIAS_RID_USERS = 545
-const MDOMAIN_ALIAS_RID_USER_MODE_HARDWARE_OPERATORS = 584
 const MDOMAIN_GROUP_RID_ADMINS = 512
 const MDOMAIN_GROUP_RID_AUTHORIZATION_DATA_CONTAINS_CLAIMS = 497
 const MDOMAIN_GROUP_RID_AUTHORIZATION_DATA_IS_COMPOUNDED = 496
@@ -158307,8 +159219,6 @@ const MDOMAIN_GROUP_RID_CONTROLLERS = 516
 const MDOMAIN_GROUP_RID_ENTERPRISE_ADMINS = 519
 const MDOMAIN_GROUP_RID_ENTERPRISE_KEY_ADMINS = 527
 const MDOMAIN_GROUP_RID_ENTERPRISE_READONLY_DOMAIN_CONTROLLERS = 498
-const MDOMAIN_GROUP_RID_EXTERNAL_TRUSTS = 529
-const MDOMAIN_GROUP_RID_FOREST_TRUSTS = 528
 const MDOMAIN_GROUP_RID_GUESTS = 514
 const MDOMAIN_GROUP_RID_KEY_ADMINS = 526
 const MDOMAIN_GROUP_RID_POLICY_ADMINS = 520
@@ -165219,11 +166129,6 @@ const MLTP_PC_SMT = 1
 const MLUA_TOKEN = 4
 const MLWA_ALPHA = 2
 const MLWA_COLORKEY = 1
-const MLX_FILE_CASE_SENSITIVE_DIR = 16
-const MLX_FILE_METADATA_HAS_DEVICE_ID = 8
-const MLX_FILE_METADATA_HAS_GID = 2
-const MLX_FILE_METADATA_HAS_MODE = 4
-const MLX_FILE_METADATA_HAS_UID = 1
 const MLZERROR_BADINHANDLE = -1
 const MLZERROR_BADOUTHANDLE = -2
 const MLZERROR_BADVALUE = -7
@@ -168255,11 +169160,9 @@ const MPROC_THREAD_ATTRIBUTE_UMS_THREAD = 196608
 const MPRODUCT_ARM64_SERVER = 120
 const MPRODUCT_AZURESTACKHCI_SERVER_CORE = 406
 const MPRODUCT_AZURE_NANO_SERVER = 169
-const MPRODUCT_AZURE_SERVER_AGENTBRIDGE = 208
 const MPRODUCT_AZURE_SERVER_CLOUDHOST = 199
 const MPRODUCT_AZURE_SERVER_CLOUDMOS = 200
 const MPRODUCT_AZURE_SERVER_CORE = 168
-const MPRODUCT_AZURE_SERVER_NANOHOST = 209
 const MPRODUCT_BUSINESS = 6
 const MPRODUCT_BUSINESS_N = 16
 const MPRODUCT_CLOUD = 178
@@ -168346,10 +169249,7 @@ const MPRODUCT_ID_LENGTH = 16
 const MPRODUCT_INDUSTRY_HANDHELD = 118
 const MPRODUCT_IOTEDGEOS = 187
 const MPRODUCT_IOTENTERPRISE = 188
-const MPRODUCT_IOTENTERPRISEK = 206
 const MPRODUCT_IOTENTERPRISES = 191
-const MPRODUCT_IOTENTERPRISESEVAL = 207
-const MPRODUCT_IOTENTERPRISESK = 205
 const MPRODUCT_IOTOS = 185
 const MPRODUCT_IOTUAP = 123
 const MPRODUCT_LITE = 189
@@ -168423,10 +169323,8 @@ const MPRODUCT_ULTIMATE_N = 28
 const MPRODUCT_UNDEFINED = 0
 const MPRODUCT_UNLICENSED = 2882382797
 const MPRODUCT_UTILITY_VM = 149
-const MPRODUCT_VALIDATION = 204
 const MPRODUCT_WEB_SERVER = 17
 const MPRODUCT_WEB_SERVER_CORE = 29
-const MPRODUCT_WNC = 210
 const MPRODUCT_XBOX_DURANGOHOSTOS = 196
 const MPRODUCT_XBOX_ERAOS = 195
 const MPRODUCT_XBOX_GAMEOS = 194
@@ -169848,7 +170746,6 @@ const MSECURITY_DESCRIPTOR_REVISION = 1
 const MSECURITY_DESCRIPTOR_REVISION1 = 1
 const MSECURITY_DIALUP_RID = 1
 const MSECURITY_DYNAMIC_TRACKING = 1
-const MSECURITY_EDGE_CLOUD_INFRASTRUCTURE_SERVICE_ID_BASE_RID = 98
 const MSECURITY_EFFECTIVE_ONLY = 524288
 const MSECURITY_ENTERPRISE_CONTROLLERS_RID = 9
 const MSECURITY_ENTERPRISE_READONLY_CONTROLLERS_RID = 22
@@ -169913,8 +170810,6 @@ const MSECURITY_RDV_GFX_BASE_RID = 91
 const MSECURITY_REMOTE_LOGON_RID = 14
 const MSECURITY_RESERVED_ID_BASE_RID = 81
 const MSECURITY_RESTRICTED_CODE_RID = 12
-const MSECURITY_RESTRICTED_SERVICES_BASE_RID = 99
-const MSECURITY_RESTRICTED_SERVICES_RID_COUNT = 6
 const MSECURITY_SERVER_LOGON_RID = 9
 const MSECURITY_SERVICE_ID_BASE_RID = 80
 const MSECURITY_SERVICE_ID_RID_COUNT = 6
@@ -169930,7 +170825,6 @@ const MSECURITY_TRUSTED_INSTALLER_RID3 = 1831038044
 const MSECURITY_TRUSTED_INSTALLER_RID4 = 1853292631
 const MSECURITY_TRUSTED_INSTALLER_RID5 = 2271478464
 const MSECURITY_UMFD_BASE_RID = 96
-const MSECURITY_UNIQUIFIED_SERVICE_BASE_RID = 97
 const MSECURITY_USERMANAGER_ID_BASE_RID = 93
 const MSECURITY_USERMANAGER_ID_RID_COUNT = 6
 const MSECURITY_USERMODEDRIVERHOST_ID_BASE_RID = 84
@@ -171541,7 +172435,7 @@ const MSYSTEM_STATUS_FLAG_POWER_SAVING_ON = 1
 const MS_ALLTHRESHOLD = 2
 const MS_ASYNCHRONOUS = "MK_S_ASYNCHRONOUS"
 const MS_IEXEC = 64
-const MS_IFBLK = 24576
+const MS_IFBLK = 12288
 const MS_IFCHR = 8192
 const MS_IFDIR = 16384
 const MS_IFIFO = 4096
@@ -171763,6 +172657,7 @@ const MTA_RIGHT = 2
 const MTA_RTLREADING = 256
 const MTA_TOP = 0
 const MTA_UPDATECP = 1
+const MTBS_SUCCESS = 0
 const MTCI_SRCCHARSET = 1
 const MTCI_SRCCODEPAGE = 2
 const MTCI_SRCFONTSIG = 3
@@ -172342,10 +173237,6 @@ const MUSAGE_MATCH_TYPE_AND = 0
 const MUSAGE_MATCH_TYPE_OR = 1
 const MUSER_CALL_IS_ASYNC = 256
 const MUSER_CALL_NEW_CORRELATION_DESC = 512
-const MUSER_CET_ENVIRONMENT_SGX2_ENCLAVE = 2
-const MUSER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE = 17
-const MUSER_CET_ENVIRONMENT_VBS_ENCLAVE = 16
-const MUSER_CET_ENVIRONMENT_WIN32_PROCESS = 0
 const MUSER_DEFAULT_SCREEN_DPI = 96
 const MUSER_MARSHAL_CB_SIGNATURE = 85
 const MUSER_MARSHAL_FC_BYTE = 1
@@ -173792,7 +174683,6 @@ const MXSTATE_CET_S = 12
 const MXSTATE_CET_U = 11
 const MXSTATE_COMPACTION_ENABLE = 63
 const MXSTATE_COMPACTION_ENABLE_MASK = 9223372036854775808
-const MXSTATE_CONTEXT_FLAG_LOOKASIDE = 1
 const MXSTATE_CONTROLFLAG_VALID_MASK = 7
 const MXSTATE_CONTROLFLAG_XFD_MASK = 4
 const MXSTATE_CONTROLFLAG_XSAVEC_MASK = 2
@@ -174010,7 +174900,7 @@ const M_SIDD_UNIT_MASK = 64
 const M_SIDD_UWORD_OPS = 1
 const M_STRALIGN_USE_SECURE_CRT = 0
 const M_S_IEXEC = 64
-const M_S_IFBLK = 24576
+const M_S_IFBLK = 12288
 const M_S_IFCHR = 8192
 const M_S_IFDIR = 16384
 const M_S_IFIFO = 4096
@@ -174088,7 +174978,6 @@ const M_XABORT_NESTED = 32
 const M_XABORT_RETRY = 2
 const M_XBEGIN_STARTED = 18446744073709551615
 const M__CLRCALL_OR_CDECL = "__cdecl"
-const M__DEFAULT_FN_ATTRS256_CONSTEXPR = 0
 const M__ENABLE_VIRTUAL_TERMINAL_INPUT = 512
 const M__ENABLE_VIRTUAL_TERMINAL_PROCESSING = 4
 const M__MIDL_CONST = 0
@@ -174107,6 +174996,7 @@ const M__SAVE_GPRBX = "mov {%%rbx, %%rax |rax, rbx};"
 const M__STDC_WANT_SECURE_LIB__ = 0
 const M__TMPGPR = "rax"
 const M__UA_WCSLEN = 0
+const M__WIDL_INLINE = 0
 const M__checkReturn = "__inner_checkReturn"
 const M__int3264 = "__int64"
 const M__stat64 = 0
@@ -175073,8 +175963,6 @@ type T_wfinddata64_t = struct {
 	Fname        [260]Twchar_t
 }
 
-type T_mode_t = uint16
-
 type T_stat32 = struct {
 	Fst_dev   T_dev_t
 	Fst_ino   T_ino_t
@@ -175270,7 +176158,7 @@ type T_DISPATCHER_CONTEXT = struct {
 	FContextRecord    TPCONTEXT
 	FLanguageHandler  TPEXCEPTION_ROUTINE
 	FHandlerData      TPVOID
-	FHistoryTable     uintptr
+	FHistoryTable     TPUNWIND_HISTORY_TABLE
 	FScopeIndex       TULONG
 	FFill0            TULONG
 }
@@ -175631,26 +176519,6 @@ type T_GROUP_AFFINITY = TGROUP_AFFINITY
 
 type TPGROUP_AFFINITY = uintptr
 
-type TGROUP_AFFINITY32 = struct {
-	FMask     TDWORD
-	FGroup    TWORD
-	FReserved [3]TWORD
-}
-
-type T_GROUP_AFFINITY32 = TGROUP_AFFINITY32
-
-type TPGROUP_AFFINITY32 = uintptr
-
-type TGROUP_AFFINITY64 = struct {
-	FMask     uint64
-	FGroup    TWORD
-	FReserved [3]TWORD
-}
-
-type T_GROUP_AFFINITY64 = TGROUP_AFFINITY64
-
-type TPGROUP_AFFINITY64 = uintptr
-
 type THANDLE = uintptr
 
 type TPHANDLE = uintptr
@@ -175881,17 +176749,6 @@ type T_XSAVE_CET_U_FORMAT = TXSAVE_CET_U_FORMAT
 
 type TPXSAVE_CET_U_FORMAT = uintptr
 
-type TXSAVE_ARM64_SVE_HEADER = struct {
-	FVectorLength            TDWORD
-	FVectorRegisterOffset    TDWORD
-	FPredicateRegisterOffset TDWORD
-	FReserved                [5]TDWORD
-}
-
-type T_XSAVE_ARM64_SVE_HEADER = TXSAVE_ARM64_SVE_HEADER
-
-type TPXSAVE_ARM64_SVE_HEADER = uintptr
-
 type TXSAVE_AREA_HEADER = struct {
 	FMask     TDWORD64
 	FReserved [7]TDWORD64
@@ -175913,8 +176770,7 @@ type TPXSAVE_AREA = uintptr
 type TXSTATE_CONTEXT = struct {
 	FMask      TDWORD64
 	FLength    TDWORD
-	FFlags     TBYTE
-	FReserved0 [3]TBYTE
+	FReserved1 TDWORD
 	FArea      TPXSAVE_AREA
 	FBuffer    TPVOID
 }
@@ -175979,11 +176835,11 @@ const E_CMPCCX_NL = 13
 const E_CMPCCX_LE = 14
 const E_CMPCCX_NLE = 15
 
-type t__m128i = [2]int64
-
 type t__m128 = [4]float32
 
 type t__m128d = [2]float64
+
+type t__m128i = [2]int64
 
 type t__m256 = [8]float32
 
@@ -176295,8 +177151,6 @@ type t__mmask64 = uint64
 
 type T_tile1024i = [256]int32
 
-type T_tile1024i_1024a = [256]int32
-
 type t__tile1024i = struct {
 	F__ccgo_align  [0]uint64
 	Frow           uint16
@@ -176418,240 +177272,6 @@ type TPGET_RUNTIME_FUNCTION_CALLBACK = uintptr
 
 type TPOUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = uintptr
 
-type TARM64_NT_NEON128 = struct {
-	FD         [0][2]float64
-	FS         [0][4]float32
-	FH         [0][8]TWORD
-	FB         [0][16]TBYTE
-	F__ccgo0_0 struct {
-		FLow  TULONGLONG
-		FHigh TLONGLONG
-	}
-}
-
-type T_ARM64_NT_NEON128 = TARM64_NT_NEON128
-
-type TPARM64_NT_NEON128 = uintptr
-
-type TARM64_NT_CONTEXT = struct {
-	FContextFlags TULONG
-	FCpsr         TULONG
-	F__ccgo2_8    struct {
-		FX         [0][31]TDWORD64
-		F__ccgo0_0 struct {
-			FX0  TDWORD64
-			FX1  TDWORD64
-			FX2  TDWORD64
-			FX3  TDWORD64
-			FX4  TDWORD64
-			FX5  TDWORD64
-			FX6  TDWORD64
-			FX7  TDWORD64
-			FX8  TDWORD64
-			FX9  TDWORD64
-			FX10 TDWORD64
-			FX11 TDWORD64
-			FX12 TDWORD64
-			FX13 TDWORD64
-			FX14 TDWORD64
-			FX15 TDWORD64
-			FX16 TDWORD64
-			FX17 TDWORD64
-			FX18 TDWORD64
-			FX19 TDWORD64
-			FX20 TDWORD64
-			FX21 TDWORD64
-			FX22 TDWORD64
-			FX23 TDWORD64
-			FX24 TDWORD64
-			FX25 TDWORD64
-			FX26 TDWORD64
-			FX27 TDWORD64
-			FX28 TDWORD64
-			FFp  TDWORD64
-			FLr  TDWORD64
-		}
-	}
-	FSp   TDWORD64
-	FPc   TDWORD64
-	FV    [32]TARM64_NT_NEON128
-	FFpcr TDWORD
-	FFpsr TDWORD
-	FBcr  [8]TDWORD
-	FBvr  [8]TDWORD64
-	FWcr  [2]TDWORD
-	FWvr  [2]TDWORD64
-}
-
-type T_ARM64_NT_CONTEXT = TARM64_NT_CONTEXT
-
-type TPARM64_NT_CONTEXT = uintptr
-
-type TARM64EC_NT_CONTEXT = struct {
-	F__ccgo0_0 struct {
-		F__ccgo0_0 struct {
-			FAMD64_P1Home     TDWORD64
-			FAMD64_P2Home     TDWORD64
-			FAMD64_P3Home     TDWORD64
-			FAMD64_P4Home     TDWORD64
-			FAMD64_P5Home     TDWORD64
-			FAMD64_P6Home     TDWORD64
-			FContextFlags     TDWORD
-			FAMD64_MxCsr_copy TDWORD
-			FAMD64_SegCs      TWORD
-			FAMD64_SegDs      TWORD
-			FAMD64_SegEs      TWORD
-			FAMD64_SegFs      TWORD
-			FAMD64_SegGs      TWORD
-			FAMD64_SegSs      TWORD
-			FAMD64_EFlags     TDWORD
-			FAMD64_Dr0        TDWORD64
-			FAMD64_Dr1        TDWORD64
-			FAMD64_Dr2        TDWORD64
-			FAMD64_Dr3        TDWORD64
-			FAMD64_Dr6        TDWORD64
-			FAMD64_Dr7        TDWORD64
-			FX8               TDWORD64
-			FX0               TDWORD64
-			FX1               TDWORD64
-			FX27              TDWORD64
-			FSp               TDWORD64
-			FFp               TDWORD64
-			FX25              TDWORD64
-			FX26              TDWORD64
-			FX2               TDWORD64
-			FX3               TDWORD64
-			FX4               TDWORD64
-			FX5               TDWORD64
-			FX19              TDWORD64
-			FX20              TDWORD64
-			FX21              TDWORD64
-			FX22              TDWORD64
-			FPc               TDWORD64
-			F__ccgo38_256     struct {
-				FAMD64_ControlWord            TWORD
-				FAMD64_StatusWord             TWORD
-				FAMD64_TagWord                TBYTE
-				FAMD64_Reserved1              TBYTE
-				FAMD64_ErrorOpcode            TWORD
-				FAMD64_ErrorOffset            TDWORD
-				FAMD64_ErrorSelector          TWORD
-				FAMD64_Reserved2              TWORD
-				FAMD64_DataOffset             TDWORD
-				FAMD64_DataSelector           TWORD
-				FAMD64_Reserved3              TWORD
-				FAMD64_MxCsr                  TDWORD
-				FAMD64_MxCsr_Mask             TDWORD
-				FLr                           TDWORD64
-				FX16_0                        TWORD
-				FAMD64_St0_Reserved1          TWORD
-				FAMD64_St0_Reserved2          TDWORD
-				FX6                           TDWORD64
-				FX16_1                        TWORD
-				FAMD64_St1_Reserved1          TWORD
-				FAMD64_St1_Reserved2          TDWORD
-				FX7                           TDWORD64
-				FX16_2                        TWORD
-				FAMD64_St2_Reserved1          TWORD
-				FAMD64_St2_Reserved2          TDWORD
-				FX9                           TDWORD64
-				FX16_3                        TWORD
-				FAMD64_St3_Reserved1          TWORD
-				FAMD64_St3_Reserved2          TDWORD
-				FX10                          TDWORD64
-				FX17_0                        TWORD
-				FAMD64_St4_Reserved1          TWORD
-				FAMD64_St4_Reserved2          TDWORD
-				FX11                          TDWORD64
-				FX17_1                        TWORD
-				FAMD64_St5_Reserved1          TWORD
-				FAMD64_St5_Reserved2          TDWORD
-				FX12                          TDWORD64
-				FX17_2                        TWORD
-				FAMD64_St6_Reserved1          TWORD
-				FAMD64_St6_Reserved2          TDWORD
-				FX15                          TDWORD64
-				FX17_3                        TWORD
-				FAMD64_St7_Reserved1          TWORD
-				FAMD64_St7_Reserved2          TDWORD
-				FV                            [16]TARM64_NT_NEON128
-				FAMD64_XSAVE_FORMAT_Reserved4 [96]TBYTE
-			}
-			FAMD64_VectorRegister       [26]TARM64_NT_NEON128
-			FAMD64_VectorControl        TDWORD64
-			FAMD64_DebugControl         TDWORD64
-			FAMD64_LastBranchToRip      TDWORD64
-			FAMD64_LastBranchFromRip    TDWORD64
-			FAMD64_LastExceptionToRip   TDWORD64
-			FAMD64_LastExceptionFromRip TDWORD64
-		}
-	}
-}
-
-type T_ARM64EC_NT_CONTEXT = TARM64EC_NT_CONTEXT
-
-type TPARM64EC_NT_CONTEXT = uintptr
-
-type TARM64_RUNTIME_FUNCTION = struct {
-	FBeginAddress TDWORD
-	F__ccgo1_4    struct {
-		F__ccgo1_0 [0]struct {
-			F__ccgo0 uint32
-		}
-		FUnwindData TDWORD
-	}
-}
-
-type T_IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = TARM64_RUNTIME_FUNCTION
-
-type TPARM64_RUNTIME_FUNCTION = uintptr
-
-type TDISPATCHER_CONTEXT_ARM64 = struct {
-	FControlPc            TULONG_PTR
-	FImageBase            TULONG_PTR
-	FFunctionEntry        TPARM64_RUNTIME_FUNCTION
-	FEstablisherFrame     TULONG_PTR
-	FTargetPc             TULONG_PTR
-	FContextRecord        TPARM64_NT_CONTEXT
-	FLanguageHandler      TPEXCEPTION_ROUTINE
-	FHandlerData          TPVOID
-	FHistoryTable         uintptr
-	FScopeIndex           TULONG
-	FControlPcIsUnwound   TBOOLEAN
-	FNonVolatileRegisters TPBYTE
-}
-
-type T_DISPATCHER_CONTEXT_ARM64 = TDISPATCHER_CONTEXT_ARM64
-
-type TPDISPATCHER_CONTEXT_ARM64 = uintptr
-
-type TKNONVOLATILE_CONTEXT_POINTERS_ARM64 = struct {
-	FX19 TPDWORD64
-	FX20 TPDWORD64
-	FX21 TPDWORD64
-	FX22 TPDWORD64
-	FX23 TPDWORD64
-	FX24 TPDWORD64
-	FX25 TPDWORD64
-	FX26 TPDWORD64
-	FX27 TPDWORD64
-	FX28 TPDWORD64
-	FFp  TPDWORD64
-	FLr  TPDWORD64
-	FD8  TPDWORD64
-	FD9  TPDWORD64
-	FD10 TPDWORD64
-	FD11 TPDWORD64
-	FD12 TPDWORD64
-	FD13 TPDWORD64
-	FD14 TPDWORD64
-	FD15 TPDWORD64
-}
-
-type T_KNONVOLATILE_CONTEXT_POINTERS_ARM64 = TKNONVOLATILE_CONTEXT_POINTERS_ARM64
-
-type TPKNONVOLATILE_CONTEXT_POINTERS_ARM64 = uintptr
-
 type TLDT_ENTRY = struct {
 	FLimitLow TWORD
 	FBaseLow  TWORD
@@ -176717,6 +177337,30 @@ type TEXCEPTION_POINTERS = struct {
 
 type TPEXCEPTION_POINTERS = uintptr
 
+type TUNWIND_HISTORY_TABLE_ENTRY = struct {
+	FImageBase     TULONG64
+	FFunctionEntry TPRUNTIME_FUNCTION
+}
+
+type T_UNWIND_HISTORY_TABLE_ENTRY = TUNWIND_HISTORY_TABLE_ENTRY
+
+type TPUNWIND_HISTORY_TABLE_ENTRY = uintptr
+
+type TUNWIND_HISTORY_TABLE = struct {
+	FCount       TULONG
+	FLocalHint   TBYTE
+	FGlobalHint  TBYTE
+	FSearch      TBYTE
+	FOnce        TBYTE
+	FLowAddress  TULONG64
+	FHighAddress TULONG64
+	FEntry       [12]TUNWIND_HISTORY_TABLE_ENTRY
+}
+
+type T_UNWIND_HISTORY_TABLE = TUNWIND_HISTORY_TABLE
+
+type TPUNWIND_HISTORY_TABLE = uintptr
+
 type TDISPATCHER_CONTEXT = struct {
 	FControlPc        TULONG64
 	FImageBase        TULONG64
@@ -176726,7 +177370,7 @@ type TDISPATCHER_CONTEXT = struct {
 	FContextRecord    TPCONTEXT
 	FLanguageHandler  TPEXCEPTION_ROUTINE
 	FHandlerData      TPVOID
-	FHistoryTable     uintptr
+	FHistoryTable     TPUNWIND_HISTORY_TABLE
 	FScopeIndex       TULONG
 	FFill0            TULONG
 }
@@ -176841,15 +177485,6 @@ type TSID_AND_ATTRIBUTES_HASH = struct {
 type T_SID_AND_ATTRIBUTES_HASH = TSID_AND_ATTRIBUTES_HASH
 
 type TPSID_AND_ATTRIBUTES_HASH = uintptr
-
-type TATTRIBUTES_AND_SID = struct {
-	FAttributes TUINT32
-	FSidStart   TDWORD
-}
-
-type T_ATTRIBUTES_AND_SID = TATTRIBUTES_AND_SID
-
-type TPATTRIBUTES_AND_SID = uintptr
 
 type TWELL_KNOWN_SID_TYPE = int32
 
@@ -176973,8 +177608,6 @@ const EWinAuthenticationKeyPropertyMFASid = 116
 const EWinAuthenticationKeyPropertyAttestationSid = 117
 const EWinAuthenticationFreshKeyAuthSid = 118
 const EWinBuiltinDeviceOwnersSid = 119
-const EWinBuiltinUserModeHardwareOperatorsSid = 120
-const EWinBuiltinOpenSSHUsersSid = 121
 
 type TACL = struct {
 	FAclRevision TBYTE
@@ -178800,7 +179433,6 @@ const ECacheUnified = 0
 const ECacheInstruction = 1
 const ECacheData = 2
 const ECacheTrace = 3
-const ECacheUnknown = 4
 
 type TCACHE_DESCRIPTOR = struct {
 	FLevel         TBYTE
@@ -178848,12 +179480,8 @@ type TPPROCESSOR_RELATIONSHIP = uintptr
 
 type TNUMA_NODE_RELATIONSHIP = struct {
 	FNodeNumber TDWORD
-	FReserved   [18]TBYTE
-	FGroupCount TWORD
-	F__ccgo3_24 struct {
-		FGroupMasks [0][1]TGROUP_AFFINITY
-		FGroupMask  TGROUP_AFFINITY
-	}
+	FReserved   [20]TBYTE
+	FGroupMask  TGROUP_AFFINITY
 }
 
 type T_NUMA_NODE_RELATIONSHIP = TNUMA_NODE_RELATIONSHIP
@@ -178866,12 +179494,8 @@ type TCACHE_RELATIONSHIP = struct {
 	FLineSize      TWORD
 	FCacheSize     TDWORD
 	FType          TPROCESSOR_CACHE_TYPE
-	FReserved      [18]TBYTE
-	FGroupCount    TWORD
-	F__ccgo7_32    struct {
-		FGroupMasks [0][1]TGROUP_AFFINITY
-		FGroupMask  TGROUP_AFFINITY
-	}
+	FReserved      [20]TBYTE
+	FGroupMask     TGROUP_AFFINITY
 }
 
 type T_CACHE_RELATIONSHIP = TCACHE_RELATIONSHIP
@@ -179346,56 +179970,6 @@ type TFILE_NOTIFY_FULL_INFORMATION = struct {
 type T_FILE_NOTIFY_FULL_INFORMATION = TFILE_NOTIFY_FULL_INFORMATION
 
 type TPFILE_NOTIFY_FULL_INFORMATION = uintptr
-
-type TFILE_STAT_INFORMATION = struct {
-	FFileId          TLARGE_INTEGER
-	FCreationTime    TLARGE_INTEGER
-	FLastAccessTime  TLARGE_INTEGER
-	FLastWriteTime   TLARGE_INTEGER
-	FChangeTime      TLARGE_INTEGER
-	FAllocationSize  TLARGE_INTEGER
-	FEndOfFile       TLARGE_INTEGER
-	FFileAttributes  TDWORD
-	FReparseTag      TDWORD
-	FNumberOfLinks   TDWORD
-	FEffectiveAccess TACCESS_MASK
-}
-
-type T_FILE_STAT_INFORMATION = TFILE_STAT_INFORMATION
-
-type TPFILE_STAT_INFORMATION = uintptr
-
-type TFILE_STAT_LX_INFORMATION = struct {
-	FFileId          TLARGE_INTEGER
-	FCreationTime    TLARGE_INTEGER
-	FLastAccessTime  TLARGE_INTEGER
-	FLastWriteTime   TLARGE_INTEGER
-	FChangeTime      TLARGE_INTEGER
-	FAllocationSize  TLARGE_INTEGER
-	FEndOfFile       TLARGE_INTEGER
-	FFileAttributes  TDWORD
-	FReparseTag      TDWORD
-	FNumberOfLinks   TDWORD
-	FEffectiveAccess TACCESS_MASK
-	FLxFlags         TDWORD
-	FLxUid           TDWORD
-	FLxGid           TDWORD
-	FLxMode          TDWORD
-	FLxDeviceIdMajor TDWORD
-	FLxDeviceIdMinor TDWORD
-}
-
-type T_FILE_STAT_LX_INFORMATION = TFILE_STAT_LX_INFORMATION
-
-type TPFILE_STAT_LX_INFORMATION = uintptr
-
-type TFILE_CASE_SENSITIVE_INFORMATION = struct {
-	FFlags TDWORD
-}
-
-type T_FILE_CASE_SENSITIVE_INFORMATION = TFILE_CASE_SENSITIVE_INFORMATION
-
-type TPFILE_CASE_SENSITIVE_INFORMATION = uintptr
 
 type TFILE_SEGMENT_ELEMENT = struct {
 	FAlignment [0]TULONGLONG
@@ -180947,175 +181521,77 @@ type T_IMAGE_RESOURCE_DATA_ENTRY = TIMAGE_RESOURCE_DATA_ENTRY
 
 type TPIMAGE_RESOURCE_DATA_ENTRY = uintptr
 
-type TIMAGE_LOAD_CONFIG_CODE_INTEGRITY = struct {
-	FFlags         TWORD
-	FCatalog       TWORD
-	FCatalogOffset TDWORD
-	FReserved      TDWORD
-}
-
-type T_IMAGE_LOAD_CONFIG_CODE_INTEGRITY = TIMAGE_LOAD_CONFIG_CODE_INTEGRITY
-
-type TPIMAGE_LOAD_CONFIG_CODE_INTEGRITY = uintptr
-
 type TIMAGE_LOAD_CONFIG_DIRECTORY32 = struct {
-	FSize                                     TDWORD
-	FTimeDateStamp                            TDWORD
-	FMajorVersion                             TWORD
-	FMinorVersion                             TWORD
-	FGlobalFlagsClear                         TDWORD
-	FGlobalFlagsSet                           TDWORD
-	FCriticalSectionDefaultTimeout            TDWORD
-	FDeCommitFreeBlockThreshold               TDWORD
-	FDeCommitTotalFreeThreshold               TDWORD
-	FLockPrefixTable                          TDWORD
-	FMaximumAllocationSize                    TDWORD
-	FVirtualMemoryThreshold                   TDWORD
-	FProcessHeapFlags                         TDWORD
-	FProcessAffinityMask                      TDWORD
-	FCSDVersion                               TWORD
-	FDependentLoadFlags                       TWORD
-	FEditList                                 TDWORD
-	FSecurityCookie                           TDWORD
-	FSEHandlerTable                           TDWORD
-	FSEHandlerCount                           TDWORD
-	FGuardCFCheckFunctionPointer              TDWORD
-	FGuardCFDispatchFunctionPointer           TDWORD
-	FGuardCFFunctionTable                     TDWORD
-	FGuardCFFunctionCount                     TDWORD
-	FGuardFlags                               TDWORD
-	FCodeIntegrity                            TIMAGE_LOAD_CONFIG_CODE_INTEGRITY
-	FGuardAddressTakenIatEntryTable           TDWORD
-	FGuardAddressTakenIatEntryCount           TDWORD
-	FGuardLongJumpTargetTable                 TDWORD
-	FGuardLongJumpTargetCount                 TDWORD
-	FDynamicValueRelocTable                   TDWORD
-	FCHPEMetadataPointer                      TDWORD
-	FGuardRFFailureRoutine                    TDWORD
-	FGuardRFFailureRoutineFunctionPointer     TDWORD
-	FDynamicValueRelocTableOffset             TDWORD
-	FDynamicValueRelocTableSection            TWORD
-	FReserved2                                TWORD
-	FGuardRFVerifyStackPointerFunctionPointer TDWORD
-	FHotPatchTableOffset                      TDWORD
-	FReserved3                                TDWORD
-	FEnclaveConfigurationPointer              TDWORD
-	FVolatileMetadataPointer                  TDWORD
-	FGuardEHContinuationTable                 TDWORD
-	FGuardEHContinuationCount                 TDWORD
-	FGuardXFGCheckFunctionPointer             TDWORD
-	FGuardXFGDispatchFunctionPointer          TDWORD
-	FGuardXFGTableDispatchFunctionPointer     TDWORD
-	FCastGuardOsDeterminedFailureMode         TDWORD
-	FGuardMemcpyFunctionPointer               TDWORD
+	FSize                          TDWORD
+	FTimeDateStamp                 TDWORD
+	FMajorVersion                  TWORD
+	FMinorVersion                  TWORD
+	FGlobalFlagsClear              TDWORD
+	FGlobalFlagsSet                TDWORD
+	FCriticalSectionDefaultTimeout TDWORD
+	FDeCommitFreeBlockThreshold    TDWORD
+	FDeCommitTotalFreeThreshold    TDWORD
+	FLockPrefixTable               TDWORD
+	FMaximumAllocationSize         TDWORD
+	FVirtualMemoryThreshold        TDWORD
+	FProcessHeapFlags              TDWORD
+	FProcessAffinityMask           TDWORD
+	FCSDVersion                    TWORD
+	FReserved1                     TWORD
+	FEditList                      TDWORD
+	FSecurityCookie                TDWORD
+	FSEHandlerTable                TDWORD
+	FSEHandlerCount                TDWORD
 }
 
 type TPIMAGE_LOAD_CONFIG_DIRECTORY32 = uintptr
 
 type TIMAGE_LOAD_CONFIG_DIRECTORY64 = struct {
-	FSize                                     TDWORD
-	FTimeDateStamp                            TDWORD
-	FMajorVersion                             TWORD
-	FMinorVersion                             TWORD
-	FGlobalFlagsClear                         TDWORD
-	FGlobalFlagsSet                           TDWORD
-	FCriticalSectionDefaultTimeout            TDWORD
-	FDeCommitFreeBlockThreshold               TULONGLONG
-	FDeCommitTotalFreeThreshold               TULONGLONG
-	FLockPrefixTable                          TULONGLONG
-	FMaximumAllocationSize                    TULONGLONG
-	FVirtualMemoryThreshold                   TULONGLONG
-	FProcessAffinityMask                      TULONGLONG
-	FProcessHeapFlags                         TDWORD
-	FCSDVersion                               TWORD
-	FDependentLoadFlags                       TWORD
-	FEditList                                 TULONGLONG
-	FSecurityCookie                           TULONGLONG
-	FSEHandlerTable                           TULONGLONG
-	FSEHandlerCount                           TULONGLONG
-	FGuardCFCheckFunctionPointer              TULONGLONG
-	FGuardCFDispatchFunctionPointer           TULONGLONG
-	FGuardCFFunctionTable                     TULONGLONG
-	FGuardCFFunctionCount                     TULONGLONG
-	FGuardFlags                               TDWORD
-	FCodeIntegrity                            TIMAGE_LOAD_CONFIG_CODE_INTEGRITY
-	FGuardAddressTakenIatEntryTable           TULONGLONG
-	FGuardAddressTakenIatEntryCount           TULONGLONG
-	FGuardLongJumpTargetTable                 TULONGLONG
-	FGuardLongJumpTargetCount                 TULONGLONG
-	FDynamicValueRelocTable                   TULONGLONG
-	FCHPEMetadataPointer                      TULONGLONG
-	FGuardRFFailureRoutine                    TULONGLONG
-	FGuardRFFailureRoutineFunctionPointer     TULONGLONG
-	FDynamicValueRelocTableOffset             TDWORD
-	FDynamicValueRelocTableSection            TWORD
-	FReserved2                                TWORD
-	FGuardRFVerifyStackPointerFunctionPointer TULONGLONG
-	FHotPatchTableOffset                      TDWORD
-	FReserved3                                TDWORD
-	FEnclaveConfigurationPointer              TULONGLONG
-	FVolatileMetadataPointer                  TULONGLONG
-	FGuardEHContinuationTable                 TULONGLONG
-	FGuardEHContinuationCount                 TULONGLONG
-	FGuardXFGCheckFunctionPointer             TULONGLONG
-	FGuardXFGDispatchFunctionPointer          TULONGLONG
-	FGuardXFGTableDispatchFunctionPointer     TULONGLONG
-	FCastGuardOsDeterminedFailureMode         TULONGLONG
-	FGuardMemcpyFunctionPointer               TULONGLONG
+	FSize                          TDWORD
+	FTimeDateStamp                 TDWORD
+	FMajorVersion                  TWORD
+	FMinorVersion                  TWORD
+	FGlobalFlagsClear              TDWORD
+	FGlobalFlagsSet                TDWORD
+	FCriticalSectionDefaultTimeout TDWORD
+	FDeCommitFreeBlockThreshold    TULONGLONG
+	FDeCommitTotalFreeThreshold    TULONGLONG
+	FLockPrefixTable               TULONGLONG
+	FMaximumAllocationSize         TULONGLONG
+	FVirtualMemoryThreshold        TULONGLONG
+	FProcessAffinityMask           TULONGLONG
+	FProcessHeapFlags              TDWORD
+	FCSDVersion                    TWORD
+	FReserved1                     TWORD
+	FEditList                      TULONGLONG
+	FSecurityCookie                TULONGLONG
+	FSEHandlerTable                TULONGLONG
+	FSEHandlerCount                TULONGLONG
 }
 
 type TPIMAGE_LOAD_CONFIG_DIRECTORY64 = uintptr
 
 type TIMAGE_LOAD_CONFIG_DIRECTORY = struct {
-	FSize                                     TDWORD
-	FTimeDateStamp                            TDWORD
-	FMajorVersion                             TWORD
-	FMinorVersion                             TWORD
-	FGlobalFlagsClear                         TDWORD
-	FGlobalFlagsSet                           TDWORD
-	FCriticalSectionDefaultTimeout            TDWORD
-	FDeCommitFreeBlockThreshold               TULONGLONG
-	FDeCommitTotalFreeThreshold               TULONGLONG
-	FLockPrefixTable                          TULONGLONG
-	FMaximumAllocationSize                    TULONGLONG
-	FVirtualMemoryThreshold                   TULONGLONG
-	FProcessAffinityMask                      TULONGLONG
-	FProcessHeapFlags                         TDWORD
-	FCSDVersion                               TWORD
-	FDependentLoadFlags                       TWORD
-	FEditList                                 TULONGLONG
-	FSecurityCookie                           TULONGLONG
-	FSEHandlerTable                           TULONGLONG
-	FSEHandlerCount                           TULONGLONG
-	FGuardCFCheckFunctionPointer              TULONGLONG
-	FGuardCFDispatchFunctionPointer           TULONGLONG
-	FGuardCFFunctionTable                     TULONGLONG
-	FGuardCFFunctionCount                     TULONGLONG
-	FGuardFlags                               TDWORD
-	FCodeIntegrity                            TIMAGE_LOAD_CONFIG_CODE_INTEGRITY
-	FGuardAddressTakenIatEntryTable           TULONGLONG
-	FGuardAddressTakenIatEntryCount           TULONGLONG
-	FGuardLongJumpTargetTable                 TULONGLONG
-	FGuardLongJumpTargetCount                 TULONGLONG
-	FDynamicValueRelocTable                   TULONGLONG
-	FCHPEMetadataPointer                      TULONGLONG
-	FGuardRFFailureRoutine                    TULONGLONG
-	FGuardRFFailureRoutineFunctionPointer     TULONGLONG
-	FDynamicValueRelocTableOffset             TDWORD
-	FDynamicValueRelocTableSection            TWORD
-	FReserved2                                TWORD
-	FGuardRFVerifyStackPointerFunctionPointer TULONGLONG
-	FHotPatchTableOffset                      TDWORD
-	FReserved3                                TDWORD
-	FEnclaveConfigurationPointer              TULONGLONG
-	FVolatileMetadataPointer                  TULONGLONG
-	FGuardEHContinuationTable                 TULONGLONG
-	FGuardEHContinuationCount                 TULONGLONG
-	FGuardXFGCheckFunctionPointer             TULONGLONG
-	FGuardXFGDispatchFunctionPointer          TULONGLONG
-	FGuardXFGTableDispatchFunctionPointer     TULONGLONG
-	FCastGuardOsDeterminedFailureMode         TULONGLONG
-	FGuardMemcpyFunctionPointer               TULONGLONG
+	FSize                          TDWORD
+	FTimeDateStamp                 TDWORD
+	FMajorVersion                  TWORD
+	FMinorVersion                  TWORD
+	FGlobalFlagsClear              TDWORD
+	FGlobalFlagsSet                TDWORD
+	FCriticalSectionDefaultTimeout TDWORD
+	FDeCommitFreeBlockThreshold    TULONGLONG
+	FDeCommitTotalFreeThreshold    TULONGLONG
+	FLockPrefixTable               TULONGLONG
+	FMaximumAllocationSize         TULONGLONG
+	FVirtualMemoryThreshold        TULONGLONG
+	FProcessAffinityMask           TULONGLONG
+	FProcessHeapFlags              TDWORD
+	FCSDVersion                    TWORD
+	FReserved1                     TWORD
+	FEditList                      TULONGLONG
+	FSecurityCookie                TULONGLONG
+	FSEHandlerTable                TULONGLONG
+	FSEHandlerCount                TULONGLONG
 }
 
 type TPIMAGE_LOAD_CONFIG_DIRECTORY = uintptr
@@ -181193,6 +181669,8 @@ type TIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = struct {
 		FUnwindData TDWORD
 	}
 }
+
+type T_IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = TIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY
 
 type TPIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = uintptr
 
@@ -181471,30 +181949,6 @@ type TIMAGE_COR20_HEADER1 = struct {
 	FExportAddressTableJumps TIMAGE_DATA_DIRECTORY
 	FManagedNativeHeader     TIMAGE_DATA_DIRECTORY
 }
-
-type TUNWIND_HISTORY_TABLE_ENTRY = struct {
-	FImageBase     TULONG_PTR
-	FFunctionEntry TPRUNTIME_FUNCTION
-}
-
-type T_UNWIND_HISTORY_TABLE_ENTRY = TUNWIND_HISTORY_TABLE_ENTRY
-
-type TPUNWIND_HISTORY_TABLE_ENTRY = uintptr
-
-type TUNWIND_HISTORY_TABLE = struct {
-	FCount       TDWORD
-	FLocalHint   TBYTE
-	FGlobalHint  TBYTE
-	FSearch      TBYTE
-	FOnce        TBYTE
-	FLowAddress  TULONG_PTR
-	FHighAddress TULONG_PTR
-	FEntry       [12]TUNWIND_HISTORY_TABLE_ENTRY
-}
-
-type T_UNWIND_HISTORY_TABLE = TUNWIND_HISTORY_TABLE
-
-type TPUNWIND_HISTORY_TABLE = uintptr
 
 type TSLIST_ENTRY = struct {
 	FNext uintptr
@@ -181798,7 +182252,6 @@ type __HEAP_INFORMATION_CLASS = int32
 
 const EHeapCompatibilityInformation = 0
 const EHeapEnableTerminationOnCorruption = 1
-const EHeapTag = 7
 
 type TWORKERCALLBACKFUNC = uintptr
 
@@ -183692,9 +184145,7 @@ const EProcessTelemetryCoverageInfo = 6
 const EProcessProtectionLevelInfo = 7
 const EProcessLeapSecondInfo = 8
 const EProcessMachineTypeInfo = 9
-const EProcessOverrideSubsequentPrefetchParameter = 10
-const EProcessMaxOverridePrefetchParameter = 11
-const EProcessInformationClassMax = 12
+const EProcessInformationClassMax = 10
 
 type TAPP_MEMORY_INFORMATION = struct {
 	FAvailableCommit        TULONG64
@@ -183722,10 +184173,6 @@ type TPROCESS_MACHINE_INFORMATION = struct {
 }
 
 type T_PROCESS_MACHINE_INFORMATION = TPROCESS_MACHINE_INFORMATION
-
-type TOVERRIDE_PREFETCH_PARAMETER = struct {
-	FValue TUINT32
-}
 
 type TPROCESS_MEMORY_EXHAUSTION_TYPE = int32
 
@@ -190791,39 +191238,6 @@ type T_CHAR_INFO = TCHAR_INFO
 
 type TPCHAR_INFO = uintptr
 
-type TCONSOLE_FONT_INFO = struct {
-	FnFont      TDWORD
-	FdwFontSize TCOORD
-}
-
-type T_CONSOLE_FONT_INFO = TCONSOLE_FONT_INFO
-
-type TPCONSOLE_FONT_INFO = uintptr
-
-type THPCON = uintptr
-
-type TCONSOLE_READCONSOLE_CONTROL = struct {
-	FnLength           TULONG
-	FnInitialChars     TULONG
-	FdwCtrlWakeupMask  TULONG
-	FdwControlKeyState TULONG
-}
-
-type T_CONSOLE_READCONSOLE_CONTROL = TCONSOLE_READCONSOLE_CONTROL
-
-type TPCONSOLE_READCONSOLE_CONTROL = uintptr
-
-type TPHANDLER_ROUTINE = uintptr
-
-type TCONSOLE_CURSOR_INFO = struct {
-	FdwSize   TDWORD
-	FbVisible TWINBOOL
-}
-
-type T_CONSOLE_CURSOR_INFO = TCONSOLE_CURSOR_INFO
-
-type TPCONSOLE_CURSOR_INFO = uintptr
-
 type TCONSOLE_SCREEN_BUFFER_INFO = struct {
 	FdwSize              TCOORD
 	FdwCursorPosition    TCOORD
@@ -190835,6 +191249,71 @@ type TCONSOLE_SCREEN_BUFFER_INFO = struct {
 type T_CONSOLE_SCREEN_BUFFER_INFO = TCONSOLE_SCREEN_BUFFER_INFO
 
 type TPCONSOLE_SCREEN_BUFFER_INFO = uintptr
+
+type TCONSOLE_CURSOR_INFO = struct {
+	FdwSize   TDWORD
+	FbVisible TWINBOOL
+}
+
+type T_CONSOLE_CURSOR_INFO = TCONSOLE_CURSOR_INFO
+
+type TPCONSOLE_CURSOR_INFO = uintptr
+
+type TCONSOLE_FONT_INFO = struct {
+	FnFont      TDWORD
+	FdwFontSize TCOORD
+}
+
+type T_CONSOLE_FONT_INFO = TCONSOLE_FONT_INFO
+
+type TPCONSOLE_FONT_INFO = uintptr
+
+type TCONSOLE_SELECTION_INFO = struct {
+	FdwFlags           TDWORD
+	FdwSelectionAnchor TCOORD
+	FsrSelection       TSMALL_RECT
+}
+
+type T_CONSOLE_SELECTION_INFO = TCONSOLE_SELECTION_INFO
+
+type TPCONSOLE_SELECTION_INFO = uintptr
+
+type TPHANDLER_ROUTINE = uintptr
+
+type TCONSOLE_FONT_INFOEX = struct {
+	FcbSize     TULONG
+	FnFont      TDWORD
+	FdwFontSize TCOORD
+	FFontFamily TUINT
+	FFontWeight TUINT
+	FFaceName   [32]TWCHAR
+}
+
+type T_CONSOLE_FONT_INFOEX = TCONSOLE_FONT_INFOEX
+
+type TPCONSOLE_FONT_INFOEX = uintptr
+
+type TCONSOLE_HISTORY_INFO = struct {
+	FcbSize                 TUINT
+	FHistoryBufferSize      TUINT
+	FNumberOfHistoryBuffers TUINT
+	FdwFlags                TDWORD
+}
+
+type T_CONSOLE_HISTORY_INFO = TCONSOLE_HISTORY_INFO
+
+type TPCONSOLE_HISTORY_INFO = uintptr
+
+type TCONSOLE_READCONSOLE_CONTROL = struct {
+	FnLength           TULONG
+	FnInitialChars     TULONG
+	FdwCtrlWakeupMask  TULONG
+	FdwControlKeyState TULONG
+}
+
+type T_CONSOLE_READCONSOLE_CONTROL = TCONSOLE_READCONSOLE_CONTROL
+
+type TPCONSOLE_READCONSOLE_CONTROL = uintptr
 
 type TCONSOLE_SCREEN_BUFFER_INFOEX = struct {
 	FcbSize               TULONG
@@ -190851,40 +191330,6 @@ type TCONSOLE_SCREEN_BUFFER_INFOEX = struct {
 type T_CONSOLE_SCREEN_BUFFER_INFOEX = TCONSOLE_SCREEN_BUFFER_INFOEX
 
 type TPCONSOLE_SCREEN_BUFFER_INFOEX = uintptr
-
-type TCONSOLE_FONT_INFOEX = struct {
-	FcbSize     TULONG
-	FnFont      TDWORD
-	FdwFontSize TCOORD
-	FFontFamily TUINT
-	FFontWeight TUINT
-	FFaceName   [32]TWCHAR
-}
-
-type T_CONSOLE_FONT_INFOEX = TCONSOLE_FONT_INFOEX
-
-type TPCONSOLE_FONT_INFOEX = uintptr
-
-type TCONSOLE_SELECTION_INFO = struct {
-	FdwFlags           TDWORD
-	FdwSelectionAnchor TCOORD
-	FsrSelection       TSMALL_RECT
-}
-
-type T_CONSOLE_SELECTION_INFO = TCONSOLE_SELECTION_INFO
-
-type TPCONSOLE_SELECTION_INFO = uintptr
-
-type TCONSOLE_HISTORY_INFO = struct {
-	FcbSize                 TUINT
-	FHistoryBufferSize      TUINT
-	FNumberOfHistoryBuffers TUINT
-	FdwFlags                TDWORD
-}
-
-type T_CONSOLE_HISTORY_INFO = TCONSOLE_HISTORY_INFO
-
-type TPCONSOLE_HISTORY_INFO = uintptr
 
 type TVS_FIXEDFILEINFO = struct {
 	FdwSignature        TDWORD
@@ -215709,26 +216154,27 @@ func _my_isdigit(tls *libc.TLS, c int32) (r TBOOL) {
 }
 
 func _js_printf_internal(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr, fp uintptr) (r TJSValue) {
-	bp := tls.Alloc(160)
-	defer tls.Free(160)
-	var c, i, len1, mod, v10, v15, v41, v43, v46, v47, v48, v51 int32
-	var dbuf_printf_fun, fmt, fmt_end, fmt_str, q, string_arg, v1, v11, v12, v13, v14, v16, v17, v18, v19, v20, v44, v49, v6, v7, v9 uintptr
-	var res, v40, v52 TJSValue
-	var _ /* cbuf at bp+35 */ [7]Tuint8_t
-	var _ /* dbuf at bp+48 */ TDynBuf
-	var _ /* double_arg at bp+128 */ float64
-	var _ /* fmt_len at bp+104 */ Tsize_t
-	var _ /* fmtbuf at bp+0 */ [32]int8
-	var _ /* int32_arg at bp+112 */ Tint32_t
-	var _ /* int64_arg at bp+120 */ Tint64_t
-	var _ /* p at bp+96 */ uintptr
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = c, dbuf_printf_fun, fmt, fmt_end, fmt_str, i, len1, mod, q, res, string_arg, v1, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v40, v41, v43, v44, v46, v47, v48, v49, v51, v52, v6, v7, v9
+	bp := tls.Alloc(208)
+	defer tls.Free(208)
+	var __local_argv t__builtin_va_list
+	var __retval, c, i, len1, mod, v10, v12, v18, v20, v47, v49, v52, v53, v54, v57 int32
+	var dbuf_printf_fun, fmt, fmt_end, fmt_str, q, string_arg, v1, v11, v14, v15, v16, v17, v19, v22, v23, v24, v25, v26, v50, v55, v6, v7, v9 uintptr
+	var res, v46, v58 TJSValue
+	var _ /* cbuf at bp+84 */ [7]Tuint8_t
+	var _ /* dbuf at bp+96 */ TDynBuf
+	var _ /* double_arg at bp+176 */ float64
+	var _ /* fmt_len at bp+152 */ Tsize_t
+	var _ /* fmtbuf at bp+48 */ [32]int8
+	var _ /* int32_arg at bp+160 */ Tint32_t
+	var _ /* int64_arg at bp+168 */ Tint64_t
+	var _ /* p at bp+144 */ uintptr
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, c, dbuf_printf_fun, fmt, fmt_end, fmt_str, i, len1, mod, q, res, string_arg, v1, v10, v11, v12, v14, v15, v16, v17, v18, v19, v20, v22, v23, v24, v25, v26, v46, v47, v49, v50, v52, v53, v54, v55, v57, v58, v6, v7, v9
 	fmt_str = libc.UintptrFromInt32(0)
 	/* Use indirect call to dbuf_printf to prevent gcc warning */
 	dbuf_printf_fun = __ccgo_fp(Xdbuf_printf)
-	_js_std_dbuf_init(tls, ctx3, bp+48)
+	_js_std_dbuf_init(tls, ctx3, bp+96)
 	if argc > 0 {
-		v1 = XJS_ToCStringLen2(tls, ctx3, bp+104, *(*TJSValue)(unsafe.Pointer(argv)), 0)
+		v1 = XJS_ToCStringLen2(tls, ctx3, bp+152, *(*TJSValue)(unsafe.Pointer(argv)), 0)
 		goto _2
 	_2:
 		fmt_str = v1
@@ -215737,13 +216183,13 @@ func _js_printf_internal(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr, 
 		}
 		i = int32(1)
 		fmt = fmt_str
-		fmt_end = fmt + uintptr(*(*Tsize_t)(unsafe.Pointer(bp + 104)))
+		fmt_end = fmt + uintptr(*(*Tsize_t)(unsafe.Pointer(bp + 152)))
 	_4:
 		;
 		if !(fmt < fmt_end) {
 			goto _3
 		}
-		*(*uintptr)(unsafe.Pointer(bp + 96)) = fmt
+		*(*uintptr)(unsafe.Pointer(bp + 144)) = fmt
 		for {
 			if !(fmt < fmt_end && int32(*(*Tuint8_t)(unsafe.Pointer(fmt))) != int32('%')) {
 				break
@@ -215754,11 +216200,11 @@ func _js_printf_internal(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr, 
 			;
 			fmt++
 		}
-		Xdbuf_put(tls, bp+48, *(*uintptr)(unsafe.Pointer(bp + 96)), uint64(int64(fmt)-int64(*(*uintptr)(unsafe.Pointer(bp + 96)))))
+		Xdbuf_put(tls, bp+96, *(*uintptr)(unsafe.Pointer(bp + 144)), uint64(int64(fmt)-int64(*(*uintptr)(unsafe.Pointer(bp + 144)))))
 		if fmt >= fmt_end {
 			goto _3
 		}
-		q = bp
+		q = bp + 48
 		v6 = q
 		q++
 		v7 = fmt
@@ -215768,7 +216214,7 @@ func _js_printf_internal(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr, 
 		for {
 			c = int32(*(*Tuint8_t)(unsafe.Pointer(fmt)))
 			if c == int32('0') || c == int32('#') || c == int32('+') || c == int32('-') || c == int32(' ') || c == int32('\'') {
-				if q >= bp+uintptr(32)-uintptr(1) {
+				if q >= bp+48+uintptr(32)-uintptr(1) {
 					goto invalid
 				}
 				v9 = q
@@ -215788,208 +216234,165 @@ func _js_printf_internal(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr, 
 			}
 			v10 = i
 			i++
-			if XJS_ToInt32(tls, ctx3, bp+112, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v10)*16))) != 0 {
+			if XJS_ToInt32(tls, ctx3, bp+160, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v10)*16))) != 0 {
 				goto fail
 			}
-			q += uintptr(libc.X__builtin_snprintf(tls, q, uint64(int64(bp+uintptr(32))-int64(q)), __ccgo_ts+14, libc.VaList(bp+144, *(*Tint32_t)(unsafe.Pointer(bp + 112)))))
+			v11 = __ccgo_ts + 14
+			libc.VaList(bp, *(*Tint32_t)(unsafe.Pointer(bp + 160)))
+			__local_argv = bp
+			__retval = libc.X__mingw_vsnprintf(tls, q, uint64(int64(bp+48+uintptr(32))-int64(q)), v11, __local_argv)
+			_ = __local_argv
+			v12 = __retval
+			goto _13
+		_13:
+			q += uintptr(v12)
 			fmt++
 		} else {
 			for _my_isdigit(tls, int32(*(*Tuint8_t)(unsafe.Pointer(fmt)))) != 0 {
-				if q >= bp+uintptr(32)-uintptr(1) {
+				if q >= bp+48+uintptr(32)-uintptr(1) {
 					goto invalid
 				}
-				v11 = q
+				v14 = q
 				q++
-				v12 = fmt
+				v15 = fmt
 				fmt++
-				*(*int8)(unsafe.Pointer(v11)) = int8(*(*Tuint8_t)(unsafe.Pointer(v12)))
+				*(*int8)(unsafe.Pointer(v14)) = int8(*(*Tuint8_t)(unsafe.Pointer(v15)))
 			}
 		}
 		if int32(*(*Tuint8_t)(unsafe.Pointer(fmt))) == int32('.') {
-			if q >= bp+uintptr(32)-uintptr(1) {
+			if q >= bp+48+uintptr(32)-uintptr(1) {
 				goto invalid
 			}
-			v13 = q
+			v16 = q
 			q++
-			v14 = fmt
+			v17 = fmt
 			fmt++
-			*(*int8)(unsafe.Pointer(v13)) = int8(*(*Tuint8_t)(unsafe.Pointer(v14)))
+			*(*int8)(unsafe.Pointer(v16)) = int8(*(*Tuint8_t)(unsafe.Pointer(v17)))
 			if int32(*(*Tuint8_t)(unsafe.Pointer(fmt))) == int32('*') {
 				if i >= argc {
 					goto missing
 				}
-				v15 = i
+				v18 = i
 				i++
-				if XJS_ToInt32(tls, ctx3, bp+112, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v15)*16))) != 0 {
+				if XJS_ToInt32(tls, ctx3, bp+160, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v18)*16))) != 0 {
 					goto fail
 				}
-				q += uintptr(libc.X__builtin_snprintf(tls, q, uint64(int64(bp+uintptr(32))-int64(q)), __ccgo_ts+14, libc.VaList(bp+144, *(*Tint32_t)(unsafe.Pointer(bp + 112)))))
+				v19 = __ccgo_ts + 14
+				libc.VaList(bp, *(*Tint32_t)(unsafe.Pointer(bp + 160)))
+				__local_argv = bp
+				__retval = libc.X__mingw_vsnprintf(tls, q, uint64(int64(bp+48+uintptr(32))-int64(q)), v19, __local_argv)
+				_ = __local_argv
+				v20 = __retval
+				goto _21
+			_21:
+				q += uintptr(v20)
 				fmt++
 			} else {
 				for _my_isdigit(tls, int32(*(*Tuint8_t)(unsafe.Pointer(fmt)))) != 0 {
-					if q >= bp+uintptr(32)-uintptr(1) {
+					if q >= bp+48+uintptr(32)-uintptr(1) {
 						goto invalid
 					}
-					v16 = q
+					v22 = q
 					q++
-					v17 = fmt
+					v23 = fmt
 					fmt++
-					*(*int8)(unsafe.Pointer(v16)) = int8(*(*Tuint8_t)(unsafe.Pointer(v17)))
+					*(*int8)(unsafe.Pointer(v22)) = int8(*(*Tuint8_t)(unsafe.Pointer(v23)))
 				}
 			}
 		}
 		/* we only support the "l" modifier for 64 bit numbers */
 		mod = int32(' ')
 		if int32(*(*Tuint8_t)(unsafe.Pointer(fmt))) == int32('l') {
-			v18 = fmt
+			v24 = fmt
 			fmt++
-			mod = int32(*(*Tuint8_t)(unsafe.Pointer(v18)))
+			mod = int32(*(*Tuint8_t)(unsafe.Pointer(v24)))
 		}
 		/* type */
-		v19 = fmt
+		v25 = fmt
 		fmt++
-		c = int32(*(*Tuint8_t)(unsafe.Pointer(v19)))
-		if q >= bp+uintptr(32)-uintptr(1) {
+		c = int32(*(*Tuint8_t)(unsafe.Pointer(v25)))
+		if q >= bp+48+uintptr(32)-uintptr(1) {
 			goto invalid
 		}
-		v20 = q
+		v26 = q
 		q++
-		*(*int8)(unsafe.Pointer(v20)) = int8(c)
+		*(*int8)(unsafe.Pointer(v26)) = int8(c)
 		*(*int8)(unsafe.Pointer(q)) = int8('\000')
 		switch c {
 		case int32('c'):
-			goto _21
-		case int32('X'):
-			goto _22
-		case int32('x'):
-			goto _23
-		case int32('u'):
-			goto _24
-		case int32('o'):
-			goto _25
-		case int32('i'):
-			goto _26
-		case int32('d'):
 			goto _27
-		case int32('s'):
+		case int32('X'):
 			goto _28
-		case int32('A'):
+		case int32('x'):
 			goto _29
-		case int32('G'):
+		case int32('u'):
 			goto _30
-		case int32('F'):
+		case int32('o'):
 			goto _31
-		case int32('E'):
+		case int32('i'):
 			goto _32
-		case int32('a'):
+		case int32('d'):
 			goto _33
-		case int32('g'):
+		case int32('s'):
 			goto _34
-		case int32('f'):
+		case int32('A'):
 			goto _35
-		case int32('e'):
+		case int32('G'):
 			goto _36
-		case int32('%'):
+		case int32('F'):
 			goto _37
-		default:
+		case int32('E'):
 			goto _38
+		case int32('a'):
+			goto _39
+		case int32('g'):
+			goto _40
+		case int32('f'):
+			goto _41
+		case int32('e'):
+			goto _42
+		case int32('%'):
+			goto _43
+		default:
+			goto _44
 		}
-		goto _39
-	_21:
+		goto _45
+	_27:
 		;
 		if i >= argc {
 			goto missing
 		}
-		v40 = *(*TJSValue)(unsafe.Pointer(argv + uintptr(i)*16))
-		v41 = libc.BoolInt32(int32(v40.Ftag) == int32(EJS_TAG_STRING) || int32(v40.Ftag) == int32(EJS_TAG_STRING_ROPE))
-		goto _42
-	_42:
-		if v41 != 0 {
-			v43 = i
+		v46 = *(*TJSValue)(unsafe.Pointer(argv + uintptr(i)*16))
+		v47 = libc.BoolInt32(int32(v46.Ftag) == int32(EJS_TAG_STRING) || int32(v46.Ftag) == int32(EJS_TAG_STRING_ROPE))
+		goto _48
+	_48:
+		if v47 != 0 {
+			v49 = i
 			i++
-			v44 = XJS_ToCStringLen2(tls, ctx3, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv + uintptr(v43)*16)), 0)
-			goto _45
-		_45:
-			string_arg = v44
+			v50 = XJS_ToCStringLen2(tls, ctx3, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv + uintptr(v49)*16)), 0)
+			goto _51
+		_51:
+			string_arg = v50
 			if !(string_arg != 0) {
 				goto fail
 			}
-			*(*Tint32_t)(unsafe.Pointer(bp + 112)) = Xunicode_from_utf8(tls, string_arg, int32(MUTF8_CHAR_LEN_MAX), bp+96)
+			*(*Tint32_t)(unsafe.Pointer(bp + 160)) = Xunicode_from_utf8(tls, string_arg, int32(MUTF8_CHAR_LEN_MAX), bp+144)
 			XJS_FreeCString(tls, ctx3, string_arg)
 		} else {
-			v46 = i
+			v52 = i
 			i++
-			if XJS_ToInt32(tls, ctx3, bp+112, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v46)*16))) != 0 {
+			if XJS_ToInt32(tls, ctx3, bp+160, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v52)*16))) != 0 {
 				goto fail
 			}
 		}
 		/* handle utf-8 encoding explicitly */
-		if uint32(*(*Tint32_t)(unsafe.Pointer(bp + 112))) > uint32(0x10FFFF) {
-			*(*Tint32_t)(unsafe.Pointer(bp + 112)) = int32(0xFFFD)
+		if uint32(*(*Tint32_t)(unsafe.Pointer(bp + 160))) > uint32(0x10FFFF) {
+			*(*Tint32_t)(unsafe.Pointer(bp + 160)) = int32(0xFFFD)
 		}
 		/* ignore conversion flags, width and precision */
-		len1 = Xunicode_to_utf8(tls, bp+35, uint32(*(*Tint32_t)(unsafe.Pointer(bp + 112))))
-		Xdbuf_put(tls, bp+48, bp+35, uint64(len1))
-		goto _39
-	_27:
-		;
-	_26:
-		;
-	_25:
-		;
-	_24:
-		;
-	_23:
-		;
-	_22:
-		;
-		if i >= argc {
-			goto missing
-		}
-		v47 = i
-		i++
-		if XJS_ToInt64Ext(tls, ctx3, bp+120, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v47)*16))) != 0 {
-			goto fail
-		}
-		if mod == int32('l') {
-			/* 64 bit number */
-			if q >= bp+uintptr(32)-uintptr(3) {
-				goto invalid
-			}
-			*(*int8)(unsafe.Pointer(q + 2)) = *(*int8)(unsafe.Pointer(q + uintptr(-libc.Int32FromInt32(1))))
-			*(*int8)(unsafe.Pointer(q + uintptr(-libc.Int32FromInt32(1)))) = int8('I')
-			*(*int8)(unsafe.Pointer(q)) = int8('6')
-			*(*int8)(unsafe.Pointer(q + 1)) = int8('4')
-			*(*int8)(unsafe.Pointer(q + 3)) = int8('\000')
-			(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+48, bp, libc.VaList(bp+144, *(*Tint64_t)(unsafe.Pointer(bp + 120))))
-		} else {
-			(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+48, bp, libc.VaList(bp+144, int32(*(*Tint64_t)(unsafe.Pointer(bp + 120)))))
-		}
-		goto _39
-	_28:
-		;
-		if i >= argc {
-			goto missing
-		}
-		/* XXX: handle strings containing null characters */
-		v48 = i
-		i++
-		v49 = XJS_ToCStringLen2(tls, ctx3, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv + uintptr(v48)*16)), 0)
-		goto _50
-	_50:
-		string_arg = v49
-		if !(string_arg != 0) {
-			goto fail
-		}
-		(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+48, bp, libc.VaList(bp+144, string_arg))
-		XJS_FreeCString(tls, ctx3, string_arg)
-		goto _39
-	_36:
-		;
-	_35:
-		;
-	_34:
-		;
+		len1 = Xunicode_to_utf8(tls, bp+84, uint32(*(*Tint32_t)(unsafe.Pointer(bp + 160))))
+		Xdbuf_put(tls, bp+96, bp+84, uint64(len1))
+		goto _45
 	_33:
 		;
 	_32:
@@ -216000,21 +216403,80 @@ func _js_printf_internal(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr, 
 		;
 	_29:
 		;
+	_28:
+		;
 		if i >= argc {
 			goto missing
 		}
-		v51 = i
+		v53 = i
 		i++
-		if XJS_ToFloat64(tls, ctx3, bp+128, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v51)*16))) != 0 {
+		if XJS_ToInt64Ext(tls, ctx3, bp+168, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v53)*16))) != 0 {
 			goto fail
 		}
-		(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+48, bp, libc.VaList(bp+144, *(*float64)(unsafe.Pointer(bp + 128))))
-		goto _39
+		if mod == int32('l') {
+			/* 64 bit number */
+			if q >= bp+48+uintptr(32)-uintptr(3) {
+				goto invalid
+			}
+			*(*int8)(unsafe.Pointer(q + 2)) = *(*int8)(unsafe.Pointer(q + uintptr(-libc.Int32FromInt32(1))))
+			*(*int8)(unsafe.Pointer(q + uintptr(-libc.Int32FromInt32(1)))) = int8('I')
+			*(*int8)(unsafe.Pointer(q)) = int8('6')
+			*(*int8)(unsafe.Pointer(q + 1)) = int8('4')
+			*(*int8)(unsafe.Pointer(q + 3)) = int8('\000')
+			(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+96, bp+48, libc.VaList(bp+192, *(*Tint64_t)(unsafe.Pointer(bp + 168))))
+		} else {
+			(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+96, bp+48, libc.VaList(bp+192, int32(*(*Tint64_t)(unsafe.Pointer(bp + 168)))))
+		}
+		goto _45
+	_34:
+		;
+		if i >= argc {
+			goto missing
+		}
+		/* XXX: handle strings containing null characters */
+		v54 = i
+		i++
+		v55 = XJS_ToCStringLen2(tls, ctx3, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv + uintptr(v54)*16)), 0)
+		goto _56
+	_56:
+		string_arg = v55
+		if !(string_arg != 0) {
+			goto fail
+		}
+		(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+96, bp+48, libc.VaList(bp+192, string_arg))
+		XJS_FreeCString(tls, ctx3, string_arg)
+		goto _45
+	_42:
+		;
+	_41:
+		;
+	_40:
+		;
+	_39:
+		;
+	_38:
+		;
 	_37:
 		;
-		Xdbuf_putc(tls, bp+48, uint8('%'))
-		goto _39
-	_38:
+	_36:
+		;
+	_35:
+		;
+		if i >= argc {
+			goto missing
+		}
+		v57 = i
+		i++
+		if XJS_ToFloat64(tls, ctx3, bp+176, *(*TJSValue)(unsafe.Pointer(argv + uintptr(v57)*16))) != 0 {
+			goto fail
+		}
+		(*(*func(*libc.TLS, uintptr, uintptr, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{dbuf_printf_fun})))(tls, bp+96, bp+48, libc.VaList(bp+192, *(*float64)(unsafe.Pointer(bp + 176))))
+		goto _45
+	_43:
+		;
+		Xdbuf_putc(tls, bp+96, uint8('%'))
+		goto _45
+	_44:
 		;
 		/* XXX: should support an extension mechanism */
 		goto invalid
@@ -216027,39 +216489,39 @@ func _js_printf_internal(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr, 
 		;
 		XJS_ThrowReferenceError(tls, ctx3, __ccgo_ts+15669, 0)
 		goto fail
-	_39:
+	_45:
 		;
 		goto _4
 	_3:
 		;
 		XJS_FreeCString(tls, ctx3, fmt_str)
 	}
-	if (*(*TDynBuf)(unsafe.Pointer(bp + 48))).Ferror1 != 0 {
+	if (*(*TDynBuf)(unsafe.Pointer(bp + 96))).Ferror1 != 0 {
 		res = XJS_ThrowOutOfMemory(tls, ctx3)
 	} else {
 		if fp != 0 {
-			len1 = int32(libc.Xfwrite(tls, (*(*TDynBuf)(unsafe.Pointer(bp + 48))).Fbuf, uint64(1), (*(*TDynBuf)(unsafe.Pointer(bp + 48))).Fsize, fp))
+			len1 = int32(libc.Xfwrite(tls, (*(*TDynBuf)(unsafe.Pointer(bp + 96))).Fbuf, uint64(1), (*(*TDynBuf)(unsafe.Pointer(bp + 96))).Fsize, fp))
 			_ = ctx3
-			v52 = TJSValue{
+			v58 = TJSValue{
 				Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 					f Tint32_t
 					_ [4]byte
 				}{f: len1})),
 			}
-			goto _53
-		_53:
-			res = v52
+			goto _59
+		_59:
+			res = v58
 		} else {
-			res = XJS_NewStringLen(tls, ctx3, (*(*TDynBuf)(unsafe.Pointer(bp + 48))).Fbuf, (*(*TDynBuf)(unsafe.Pointer(bp + 48))).Fsize)
+			res = XJS_NewStringLen(tls, ctx3, (*(*TDynBuf)(unsafe.Pointer(bp + 96))).Fbuf, (*(*TDynBuf)(unsafe.Pointer(bp + 96))).Fsize)
 		}
 	}
-	Xdbuf_free(tls, bp+48)
+	Xdbuf_free(tls, bp+96)
 	return res
 	goto fail
 fail:
 	;
 	XJS_FreeCString(tls, ctx3, fmt_str)
-	Xdbuf_free(tls, bp+48)
+	Xdbuf_free(tls, bp+96)
 	return TJSValue{
 		Fu:   TJSValueUnion{},
 		Ftag: int64(EJS_TAG_EXCEPTION),
@@ -221822,16 +222284,24 @@ func init() {
 }
 
 func _worker_func(tls *libc.TLS, opaque uintptr) (r uintptr) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var args, ctx1, p, rt, ts, v5 uintptr
-	var val, v3 TJSValue
-	var v1, v4 int32
-	_, _, _, _, _, _, _, _, _, _ = args, ctx1, p, rt, ts, val, v1, v3, v4, v5
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv t__builtin_va_list
+	var __retval, v5, v8 int32
+	var args, ctx1, p, rt, ts, v1, v3, v9 uintptr
+	var val, v7 TJSValue
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = __local_argv, __retval, args, ctx1, p, rt, ts, val, v1, v3, v5, v7, v8, v9
 	args = opaque
 	rt = XJS_NewRuntime(tls)
 	if rt == libc.UintptrFromInt32(0) {
-		libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+16551, 0)
+		v1 = __ccgo_ts + 16551
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
+		;
 		libc.Xexit(tls, int32(1))
 	}
 	XJS_SetStripInfo(tls, rt, (*TWorkerFuncArgs)(unsafe.Pointer(args)).Fstrip_flags)
@@ -221845,7 +222315,13 @@ func _worker_func(tls *libc.TLS, opaque uintptr) (r uintptr) {
 	   not needed */
 	ctx1 = (*(*func(*libc.TLS, uintptr) uintptr)(unsafe.Pointer(&struct{ uintptr }{_js_worker_new_context_func})))(tls, rt)
 	if ctx1 == libc.UintptrFromInt32(0) {
-		libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+16573, 0)
+		v3 = __ccgo_ts + 16573
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v3, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _4
+	_4:
 	}
 	XJS_SetCanBlock(tls, rt, int32(MTRUE))
 	Xjs_std_add_helpers(tls, ctx1, -int32(1), libc.UintptrFromInt32(0))
@@ -221854,21 +222330,21 @@ func _worker_func(tls *libc.TLS, opaque uintptr) (r uintptr) {
 	libc.Xfree(tls, (*TWorkerFuncArgs)(unsafe.Pointer(args)).Fbasename)
 	libc.Xfree(tls, args)
 	val = Xjs_std_await(tls, ctx1, val)
-	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
-	goto _2
-_2:
-	if v1 != 0 {
+	v5 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))), 0))
+	goto _6
+_6:
+	if v5 != 0 {
 		Xjs_std_dump_error(tls, ctx1)
 	}
-	v3 = val
-	*(*TJSValue)(unsafe.Pointer(bp)) = v3
-	if uint32(int32(v3.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = *(*uintptr)(unsafe.Pointer(bp))
-		v5 = p
-		*(*int32)(unsafe.Pointer(v5))--
-		v4 = *(*int32)(unsafe.Pointer(v5))
-		if v4 <= libc.Int32FromInt32(0) {
-			x__JS_FreeValue(tls, ctx1, v3)
+	v7 = val
+	*(*TJSValue)(unsafe.Pointer(bp + 32)) = v7
+	if uint32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp + 32))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9))--
+		v8 = *(*int32)(unsafe.Pointer(v9))
+		if v8 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v7)
 		}
 	}
 	Xjs_std_loop(tls, ctx1)
@@ -224011,37 +224487,46 @@ _12:
 }
 
 func Xjs_std_init_handlers(tls *libc.TLS, rt uintptr) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var ts, v1, v2, v3, v4 uintptr
-	var _ /* sf at bp+0 */ TJSSharedArrayBufferFunctions
-	_, _, _, _, _ = ts, v1, v2, v3, v4
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var ts, v1, v3, v4, v5, v6 uintptr
+	var _ /* sf at bp+16 */ TJSSharedArrayBufferFunctions
+	_, _, _, _, _, _, _, _ = __local_argv, __retval, ts, v1, v3, v4, v5, v6
 	ts = libc.Xmalloc(tls, uint64(88))
 	if !(ts != 0) {
-		libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+17149, 0)
+		v1 = __ccgo_ts + 17149
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
+		;
 		libc.Xexit(tls, int32(1))
 	}
 	libc.Xmemset(tls, ts, 0, uint64(88))
-	v1 = ts
-	(*Tlist_head)(unsafe.Pointer(v1)).Fprev = v1
-	(*Tlist_head)(unsafe.Pointer(v1)).Fnext = v1
-	v2 = ts + 16
-	(*Tlist_head)(unsafe.Pointer(v2)).Fprev = v2
-	(*Tlist_head)(unsafe.Pointer(v2)).Fnext = v2
-	v3 = ts + 32
+	v3 = ts
 	(*Tlist_head)(unsafe.Pointer(v3)).Fprev = v3
 	(*Tlist_head)(unsafe.Pointer(v3)).Fnext = v3
-	v4 = ts + 48
+	v4 = ts + 16
 	(*Tlist_head)(unsafe.Pointer(v4)).Fprev = v4
 	(*Tlist_head)(unsafe.Pointer(v4)).Fnext = v4
+	v5 = ts + 32
+	(*Tlist_head)(unsafe.Pointer(v5)).Fprev = v5
+	(*Tlist_head)(unsafe.Pointer(v5)).Fnext = v5
+	v6 = ts + 48
+	(*Tlist_head)(unsafe.Pointer(v6)).Fprev = v6
+	(*Tlist_head)(unsafe.Pointer(v6)).Fnext = v6
 	(*TJSThreadState)(unsafe.Pointer(ts)).Fnext_timer_id = int32(1)
 	XJS_SetRuntimeOpaque(tls, rt, ts)
 	/* set the SharedArrayBuffer memory handlers */
-	libc.Xmemset(tls, bp, 0, uint64(32))
-	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp))).Fsab_alloc = __ccgo_fp(_js_sab_alloc)
-	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp))).Fsab_free = __ccgo_fp(_js_sab_free)
-	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp))).Fsab_dup = __ccgo_fp(_js_sab_dup)
-	XJS_SetSharedArrayBufferFunctions(tls, rt, bp)
+	libc.Xmemset(tls, bp+16, 0, uint64(32))
+	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp + 16))).Fsab_alloc = __ccgo_fp(_js_sab_alloc)
+	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp + 16))).Fsab_free = __ccgo_fp(_js_sab_free)
+	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp + 16))).Fsab_dup = __ccgo_fp(_js_sab_dup)
+	XJS_SetSharedArrayBufferFunctions(tls, rt, bp+16)
 }
 
 func Xjs_std_free_handlers(tls *libc.TLS, rt uintptr) {
@@ -224098,19 +224583,35 @@ func Xjs_std_free_handlers(tls *libc.TLS, rt uintptr) {
 }
 
 func _js_dump_obj(tls *libc.TLS, ctx1 uintptr, f uintptr, val TJSValue) {
-	bp := tls.Alloc(16)
-	defer tls.Free(16)
-	var str, v1 uintptr
-	_, _ = str, v1
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var str, v1, v3, v5 uintptr
+	_, _, _, _, _, _ = __local_argv, __retval, str, v1, v3, v5
 	v1 = XJS_ToCStringLen2(tls, ctx1, libc.UintptrFromInt32(0), val, 0)
 	goto _2
 _2:
 	str = v1
 	if str != 0 {
-		libc.Xfprintf(tls, f, __ccgo_ts+17190, libc.VaList(bp+8, str))
+		v3 = __ccgo_ts + 17190
+		libc.VaList(bp, str)
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, f, v3, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _4
+	_4:
+		;
 		XJS_FreeCString(tls, ctx1, str)
 	} else {
-		libc.Xfprintf(tls, f, __ccgo_ts+17194, 0)
+		v5 = __ccgo_ts + 17194
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, f, v5, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _6
+	_6:
 	}
 }
 
@@ -224169,8 +224670,21 @@ func Xjs_std_dump_error(tls *libc.TLS, ctx1 uintptr) {
 }
 
 func Xjs_std_promise_rejection_tracker(tls *libc.TLS, ctx uintptr, promise TJSValue, reason TJSValue, is_handled TBOOL, opaque uintptr) {
+	bp := tls.Alloc(16)
+	defer tls.Free(16)
+	var __local_argv t__builtin_va_list
+	var __retval int32
+	var v1 uintptr
+	_, _, _ = __local_argv, __retval, v1
 	if !(is_handled != 0) {
-		libc.Xfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), __ccgo_ts+17213, 0)
+		v1 = __ccgo_ts + 17213
+		__local_argv = bp
+		__retval = libc.X__mingw_vfprintf(tls, libc.X__acrt_iob_func(tls, uint32(2)), v1, __local_argv)
+		_ = __local_argv
+		_ = __retval
+		goto _2
+	_2:
+		;
 		_js_std_dump_error1(tls, ctx, reason)
 		libc.Xexit(tls, int32(1))
 	}
