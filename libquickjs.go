@@ -8,7 +8,8 @@
 // the ECMA script 14 (ES2023) specification including modules, asynchronous
 // generators, proxies and BigInt.
 //
-// The idiomatic Go wrapper is available at [modernc.org/quickjs].
+// This package is the ccgo transpilation of [QuickJS]. The idiomatic Go
+// wrapper is available at [modernc.org/quickjs].
 //
 // # QuickJS Version
 //
@@ -22,6 +23,8 @@
 //	---------------
 //	darwin  amd64
 //	darwin  arm64
+//	freebsd amd64
+//	freebsd arm64
 //	linux   386
 //	linux   amd64
 //	linux   arm
@@ -30,15 +33,14 @@
 //	linux   ppc64le
 //	linux   riscv64
 //	linux   s390x
+//	windows amd64
+//	windows arm64
 //
 // # Builders
 //
-// Builder results available [here]:
+// Builder results are available [here]:
 //
-// # Known bugs or limitations
-//
-//   - The quickjs std package does not implement popen(), exec().
-//
+// [QuickJS]: https://bellard.org/quickjs/
 // [changelog]: https://bellard.org/quickjs/Changelog
 // [here]: https://modern-c.appspot.com/-/builder/?importpath=modernc.org%2flibquickjs
 // [modernc.org/quickjs]: https://pkg.go.dev/modernc.org/quickjs
