@@ -90,7 +90,83 @@ import (
 //	        bigint64_arith         50     65.93                bigint64_arith          5    445.02
 //	       bigint256_arith         10    202.26               bigint256_arith          5    712.35
 //	            sort_bench          1     24.21                    sort_bench          1     81.02
-//	                 total             11384.01                         total             44033.46
+//	                 total             11384.01                         total             44033.46		x 3.868
+
+// 2025-05-12 C						   Go
+//
+//                                                         goos: linux
+//                                                         goarch: amd64
+//                                                         pkg: modernc.org/libquickjs
+//                                                         cpu: AMD Ryzen 9 3900X 12-Core Processor            
+//                                                         BenchmarkMicro
+//	                  TEST          N TIME (ns)                          TEST          N TIME (ns)
+//	            empty_loop     200000     13.28                    empty_loop      50000     67.46
+//	       empty_down_loop     200000     18.61               empty_down_loop      20000    107.72
+//	      empty_down_loop2     100000     19.92              empty_down_loop2      20000    128.41
+//	         empty_do_loop     200000     18.00                 empty_do_loop      50000     97.61
+//	              date_now      50000     60.26                      date_now       5000    710.08
+//	            date_parse        500    865.53                    date_parse        200   2996.17
+//	             prop_read      50000     12.71                     prop_read      10000     93.58
+//	            prop_write      50000     13.46                    prop_write      10000     80.43
+//	           prop_update      50000     18.80                   prop_update       5000    133.23
+//	           prop_create       2000     67.17                   prop_create       1000    195.72
+//	            prop_clone       2000     81.42                    prop_clone        500    279.45
+//	           prop_delete       1000    122.26                   prop_delete        500    449.86
+//	            array_read      20000     10.99                    array_read       5000     62.27
+//	           array_write      50000      9.77                   array_write       5000     49.63
+//	     array_prop_create        200     19.49             array_prop_create         20    100.93
+//	           array_slice        200     19.69                   array_slice         20    144.29
+//	     array_length_decr         50     51.37             array_length_decr         10    335.49
+//	array_hole_length_decr         50     70.04        array_hole_length_decr         10    386.32
+//	            array_push        100     77.95                    array_push         10    476.14
+//	             array_pop         50     80.98                     array_pop         10    561.78
+//	      typed_array_read      20000     10.92              typed_array_read       5000     64.84
+//	     typed_array_write      20000     10.73             typed_array_write       5000     49.49
+//	           global_read      50000     11.65                   global_read      10000     95.14
+//	          global_write      50000     18.77                  global_write       5000     99.67
+//	   global_write_strict      50000     18.78           global_write_strict      10000     99.57
+//	        local_destruct       1000    220.81                local_destruct        500    782.51
+//	       global_destruct       5000    100.64               global_destruct        500    554.46
+//	global_destruct_strict       5000    100.40        global_destruct_strict        500    547.61
+//	      global_func_call      20000     31.97              global_func_call       5000    234.71
+//	             func_call      20000     26.39                     func_call       5000    177.92
+//	     func_closure_call      20000     27.63             func_closure_call       5000    180.20
+//	             int_arith        200     12.93                     int_arith         50     79.10
+//	           float_arith        200     15.76                   float_arith         50     95.56
+//	        map_set_string         10    285.29                map_set_string          2   1432.47
+//	           map_set_int         20    138.69                   map_set_int          5    734.57
+//	        map_set_bigint         20    196.84                map_set_bigint          2   1237.14
+//	            map_delete         10    314.30                    map_delete          2   1534.94
+//	          weak_map_set         20    120.36                  weak_map_set          2   1015.33
+//	       weak_map_delete         10    328.84               weak_map_delete          2   1619.16
+//	             array_for       2000     16.65                     array_for        500     84.23
+//	          array_for_in        500     79.74                  array_for_in        100    354.30
+//	          array_for_of       1000     26.60                  array_for_of        200    195.10
+//	              math_min         50     41.35                      math_min         10    292.18
+//	          regexp_ascii          5    752.10                  regexp_ascii          1   2260.99
+//	          regexp_utf16          5    769.51                  regexp_utf16          1   2275.36
+//	         string_build1        100     27.76                 string_build1         20    109.85
+//	        string_build1x        100     27.73                string_build1x         20    110.57
+//	        string_build2c        100     33.05                string_build2c         20    108.35
+//	         string_build2         50     56.08                 string_build2         10    248.11
+//	         string_build3         50     66.11                 string_build3         10    284.80
+//	         string_build4         50     61.40                 string_build4         10    285.09
+//	   string_build_large1          2     83.21           string_build_large1          1    295.68
+//	   string_build_large2          2     81.04           string_build_large2          1    328.25
+//	         int_to_string      10000     71.20                 int_to_string       5000    255.20
+//	          int_toString      10000     71.28                  int_toString       2000    367.02
+//	       float_to_string       2000    374.77               float_to_string       1000    721.29
+//	        float_toString       2000    382.30                float_toString       1000    819.43
+//	         float_toFixed       5000    175.94                 float_toFixed       2000    601.09
+//	     float_toPrecision       5000    192.85             float_toPrecision       2000    634.08
+//	   float_toExponential       5000    193.07           float_toExponential       2000    638.76
+//	         string_to_int      20000    116.75                 string_to_int      10000    366.87
+//	       string_to_float      20000    155.22               string_to_float       5000    446.63
+//	        bigint32_arith        100     27.27                bigint32_arith         10    217.79
+//	        bigint64_arith         50     50.71                bigint64_arith         10    311.35
+//	       bigint256_arith         20    153.42               bigint256_arith          5    508.80
+//	            sort_bench          1     17.23                    sort_bench          1     59.40
+//	                 total              7747.74                         total             31271.53		x 4.036
 
 func BenchmarkMicro(b *testing.B) {
 	buf, err := os.ReadFile(filepath.Join("testdata", "microbench.js"))
