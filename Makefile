@@ -2,7 +2,7 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-.PHONY:	all clean edit editor generate download dev test nuke shorttest w64 \
+.PHONY:	all bench clean edit editor generate download dev test nuke shorttest w64 \
 	dev-w64 grep ktest test2 test3
 
 # release 2025-04-26
@@ -18,6 +18,9 @@ GREP = 'TRC\|TODO\|ERRORF\|FAIL\|undefined:'
 all: editor
 	golint 2>&1
 	staticcheck 2>&1
+
+bench:
+	go test -v -timeout 24h -run @ -bench .
 
 clean:
 	rm -f log-* cpu.test mem.test *.out *.exe tmp_file.txt
