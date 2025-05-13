@@ -155,7 +155,7 @@ func Test3(t *testing.T) {
 
 var evalFN = [...]byte{'<', 'e', 'v', 'a', 'l', '>', 0}
 
-func evalFile(t *testing.T, fn string) (r string) {
+func evalFile(t testing.TB, fn string) (r string) {
 	b, err := os.ReadFile(filepath.FromSlash(fn))
 	if err != nil {
 		t.Fatalf("FAIL: err=%v", err)
@@ -164,7 +164,7 @@ func evalFile(t *testing.T, fn string) (r string) {
 	return eval(t, fn, string(b))
 }
 
-func eval0(t *testing.T, tls *libc.TLS, ctx uintptr, js string) (r TJSValue) {
+func eval0(t testing.TB, tls *libc.TLS, ctx uintptr, js string) (r TJSValue) {
 	cs, err := libc.CString(js)
 	if err != nil {
 		t.Fatalf("FAIL: err=%v", err)
@@ -175,11 +175,11 @@ func eval0(t *testing.T, tls *libc.TLS, ctx uintptr, js string) (r TJSValue) {
 	return XJS_Eval(tls, ctx, cs, Size_t(len(js)), uintptr(unsafe.Pointer(&evalFN)), MJS_EVAL_TYPE_GLOBAL)
 }
 
-func eval1(t *testing.T, tls *libc.TLS, ctx uintptr, js string) (r string) {
+func eval1(t testing.TB, tls *libc.TLS, ctx uintptr, js string) (r string) {
 	return toString(t, tls, ctx, eval0(t, tls, ctx, js))
 }
 
-func toString(t *testing.T, tls *libc.TLS, ctx uintptr, val TJSValue) (r string) {
+func toString(t testing.TB, tls *libc.TLS, ctx uintptr, val TJSValue) (r string) {
 	tv := tag(val)
 	if tv < 0 {
 		defer XFreeValue(tls, ctx, val)
@@ -215,7 +215,7 @@ func toString(t *testing.T, tls *libc.TLS, ctx uintptr, val TJSValue) (r string)
 	panic(todo(""))
 }
 
-func eval(t *testing.T, fn, js string) (r string) {
+func eval(t testing.TB, fn, js string) (r string) {
 	tls := libc.NewTLS()
 
 	defer tls.Close()

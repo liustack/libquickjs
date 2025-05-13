@@ -2,8 +2,8 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-.PHONY:	all clean edit editor generate download dev test nuke shorttest w64 \
-	dev-w64 grep ktest test2 test3
+.PHONY:	all bench clean cpu edit editor generate download dev test nuke shorttest \
+	w64 dev-w64 grep ktest test2 test3
 
 # release 2025-04-26
 QJS_ZIP = 19abf1888db5884a5758036ff6e7fa2b340acedc.zip
@@ -19,9 +19,16 @@ all: editor
 	golint 2>&1
 	staticcheck 2>&1
 
+bench:
+	go test -v -timeout 24h -run @ -bench .
+
 clean:
 	rm -f log-* cpu.test mem.test *.out *.exe tmp_file.txt
 	go clean
+
+cpu: clean
+	go test -run @ -bench . -cpuprofile cpu.out
+	go tool pprof -lines *.test cpu.out
 
 dev: download
 	echo -n > /tmp/ccgo.log

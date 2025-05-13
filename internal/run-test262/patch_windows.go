@@ -232,7 +232,7 @@ func _ftw(tls *libc.TLS, path uintptr, fn uintptr, fd_limit int32) (r int32) {
 	return int32(ftw(
 		libc.GoString(path),
 		func(path string, info os.FileInfo, typeflag int) int {
-			cs, _ := libc.CString(path)
+			cs, _ := libc.CString(filepath.ToSlash(path))
 
 			defer libc.Xfree(tls, cs)
 

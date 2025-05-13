@@ -194,7 +194,7 @@ index 8814222..bca6496 100644
  #undef js_force_inline
  
 diff --git a/run-test262.c b/run-test262.c
-index 4397a1d..969c5d3 100644
+index 4397a1d..7a3404a 100644
 --- a/run-test262.c
 +++ b/run-test262.c
 @@ -446,11 +446,29 @@ static void add_helpers(JSContext *ctx);
@@ -256,33 +256,7 @@ index 4397a1d..969c5d3 100644
  
  static JSValue js_new_agent(JSContext *ctx)
  {
-@@ -823,6 +856,14 @@ static char *load_file(const char *filename, size_t *lenp)
-     return buf;
- }
- 
-+static toSlash(char *p) {
-+	for (; *p; p++) {
-+		if (*p == '\\') {
-+			*p = '/';
-+		}
-+	}
-+}
-+
- static JSModuleDef *js_module_loader_test(JSContext *ctx,
-                                           const char *module_name, void *opaque)
- {
-@@ -832,6 +873,10 @@ static JSModuleDef *js_module_loader_test(JSContext *ctx,
-     JSValue func_val;
-     char *filename, *slash, path[1024];
- 
-+#if defined(_WIN32)
-+    toSlash(module_name);
-+#endif
-+
-     // interpret import("bar.js") from path/to/foo.js as
-     // import("path/to/bar.js") but leave import("./bar.js") untouched
-     filename = opaque;
-@@ -2038,6 +2083,13 @@ int main(int argc, char **argv)
+@@ -2038,6 +2071,13 @@ int main(int argc, char **argv)
      BOOL is_module = FALSE;
      clock_t clocks;
  
