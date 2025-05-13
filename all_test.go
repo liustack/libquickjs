@@ -51,10 +51,11 @@ func TestMain(m *testing.M) {
 
 func Test(t *testing.T) {
 	for _, v := range []string{
+		"test_bigint.js",
 		"test_closure.js",
 		"test_language.js",
 		"test_loop.js",
-		"test_bigint.js",
+		"test_std.js",
 	} {
 		if re != nil && !re.MatchString(v) {
 			continue
