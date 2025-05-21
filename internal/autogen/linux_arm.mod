@@ -5,7 +5,7 @@ go 1.23.0
 require (
 	modernc.org/ccgo/v4 v4.28.0
 	modernc.org/fileutil v1.3.1
-	modernc.org/libc v1.65.6
+	modernc.org/libc v1.65.7
 )
 
 require (
@@ -22,7 +22,7 @@ require (
 	modernc.org/cc/v4 v4.26.1 // indirect
 	modernc.org/gc/v2 v2.6.5 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
-	modernc.org/memory v1.10.0 // indirect
+	modernc.org/memory v1.11.0 // indirect
 	modernc.org/opt v0.1.4 // indirect
 	modernc.org/sortutil v1.2.1 // indirect
 	modernc.org/strutil v1.2.1 // indirect
