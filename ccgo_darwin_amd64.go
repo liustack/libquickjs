@@ -1061,6 +1061,7 @@ const MMAC_OS_VERSION_15_1 = 150100
 const MMAC_OS_VERSION_15_2 = 150200
 const MMAC_OS_VERSION_15_3 = 150300
 const MMAC_OS_VERSION_15_4 = 150400
+const MMAC_OS_VERSION_15_5 = 150500
 const MMAC_OS_X_VERSION_10_0 = 1000
 const MMAC_OS_X_VERSION_10_1 = 1010
 const MMAC_OS_X_VERSION_10_10 = 101000
@@ -1682,6 +1683,7 @@ const MTASK_SCHED_FIFO_INFO = 12
 const MTASK_SCHED_INFO = 14
 const MTASK_SCHED_RR_INFO = 11
 const MTASK_SCHED_TIMESHARE_INFO = 10
+const MTASK_SECURITY_CONFIG_INFO = 32
 const MTASK_SECURITY_TOKEN = 13
 const MTASK_SUPPRESSION_POLICY = 3
 const MTASK_THREAD_TIMES_INFO = 3
@@ -2093,6 +2095,7 @@ const M__BRIDGEOS_9_1 = 90100
 const M__BRIDGEOS_9_2 = 90200
 const M__BRIDGEOS_9_3 = 90300
 const M__BRIDGEOS_9_4 = 90400
+const M__BRIDGEOS_9_5 = 90500
 const M__BYTE_ORDER__ = 1234
 const M__CCGO__ = 1
 const M__CHAR_BIT__ = 8
@@ -2168,6 +2171,7 @@ const M__DRIVERKIT_24_1 = 240100
 const M__DRIVERKIT_24_2 = 240200
 const M__DRIVERKIT_24_3 = 240300
 const M__DRIVERKIT_24_4 = 240400
+const M__DRIVERKIT_24_5 = 240500
 const M__DYNAMIC__ = 1
 const M__ENABLE_LEGACY_MAC_AVAILABILITY = 1
 const M__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ = 150000
@@ -2366,6 +2370,7 @@ const M__IPHONE_18_1 = 180100
 const M__IPHONE_18_2 = 180200
 const M__IPHONE_18_3 = 180300
 const M__IPHONE_18_4 = 180400
+const M__IPHONE_18_5 = 180500
 const M__IPHONE_2_0 = 20000
 const M__IPHONE_2_1 = 20100
 const M__IPHONE_2_2 = 20200
@@ -2484,7 +2489,8 @@ const M__MAC_15_1 = 150100
 const M__MAC_15_2 = 150200
 const M__MAC_15_3 = 150300
 const M__MAC_15_4 = 150400
-const M__MAC_OS_X_VERSION_MAX_ALLOWED = 150400
+const M__MAC_15_5 = 150500
+const M__MAC_OS_X_VERSION_MAX_ALLOWED = 150500
 const M__MAC_OS_X_VERSION_MIN_REQUIRED = 150000
 const M__MEMORY_SCOPE_DEVICE = 1
 const M__MEMORY_SCOPE_SINGLE = 4
@@ -2637,6 +2643,7 @@ const M__TVOS_18_1 = 180100
 const M__TVOS_18_2 = 180200
 const M__TVOS_18_3 = 180300
 const M__TVOS_18_4 = 180400
+const M__TVOS_18_5 = 180500
 const M__TVOS_9_0 = 90000
 const M__TVOS_9_1 = 90100
 const M__TVOS_9_2 = 90200
@@ -2717,7 +2724,7 @@ const M__UINT_LEAST8_FMTu__ = "hhu"
 const M__UINT_LEAST8_FMTx__ = "hhx"
 const M__UINT_LEAST8_MAX__ = 255
 const M__USER_LABEL_PREFIX__ = 0
-const M__VERSION__ = "Apple LLVM 17.0.0 (clang-1700.0.13.3)"
+const M__VERSION__ = "Apple LLVM 17.0.0 (clang-1700.0.13.5)"
 const M__VISIONOS_1_0 = 10000
 const M__VISIONOS_1_1 = 10100
 const M__VISIONOS_1_2 = 10200
@@ -2727,6 +2734,7 @@ const M__VISIONOS_2_1 = 20100
 const M__VISIONOS_2_2 = 20200
 const M__VISIONOS_2_3 = 20300
 const M__VISIONOS_2_4 = 20400
+const M__VISIONOS_2_5 = 20500
 const M__VM_LEDGER_ACCOUNTING_POSTMARK = 2019032600
 const M__WATCHOS_10_0 = 100000
 const M__WATCHOS_10_1 = 100100
@@ -2741,6 +2749,7 @@ const M__WATCHOS_11_1 = 110100
 const M__WATCHOS_11_2 = 110200
 const M__WATCHOS_11_3 = 110300
 const M__WATCHOS_11_4 = 110400
+const M__WATCHOS_11_5 = 110500
 const M__WATCHOS_1_0 = 10000
 const M__WATCHOS_2_0 = 20000
 const M__WATCHOS_2_1 = 20100
@@ -2797,7 +2806,7 @@ const M__clang_literal_encoding__ = "UTF-8"
 const M__clang_major__ = 17
 const M__clang_minor__ = 0
 const M__clang_patchlevel__ = 0
-const M__clang_version__ = "17.0.0 (clang-1700.0.13.3)"
+const M__clang_version__ = "17.0.0 (clang-1700.0.13.5)"
 const M__clang_wide_literal_encoding__ = "UTF-32"
 const M__code_model_small__ = 1
 const M__const = 0
@@ -5062,6 +5071,8 @@ type Tupl_t = uint32
 
 type Tvm_named_entry_t = uint32
 
+type Tmach_vm_offset_list_t = uintptr
+
 type Tvm_object_offset_t = uint64
 
 type Tvm_object_size_t = uint64
@@ -6583,6 +6594,12 @@ type Ttask_flags_info_data_t = struct {
 }
 
 type Ttask_flags_info_t = uintptr
+
+type Ttask_security_config_info = struct {
+	Fconfig Tuint32_t
+}
+
+type Ttask_security_config_info_t = uintptr
 
 type Ttask_exc_guard_behavior_t = uint32
 
