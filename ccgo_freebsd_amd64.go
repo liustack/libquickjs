@@ -731,6 +731,7 @@ const M__DBL_MAX__ = 0
 const M__DBL_MIN_10_EXP__ = -307
 const M__DBL_MIN_EXP__ = -1021
 const M__DBL_MIN__ = 0
+const M__DBL_NORM_MAX__ = 0
 const M__DECIMAL_DIG__ = 17
 const M__ELF__ = 1
 const M__EXT1_VISIBLE = 1
@@ -750,6 +751,7 @@ const M__FLT16_MAX__ = 0
 const M__FLT16_MIN_10_EXP__ = -4
 const M__FLT16_MIN_EXP__ = -13
 const M__FLT16_MIN__ = 0
+const M__FLT16_NORM_MAX__ = 0
 const M__FLT_DECIMAL_DIG__ = 9
 const M__FLT_DENORM_MIN__ = 0
 const M__FLT_DIG__ = 6
@@ -764,6 +766,7 @@ const M__FLT_MAX__ = 0
 const M__FLT_MIN_10_EXP__ = -37
 const M__FLT_MIN_EXP__ = -125
 const M__FLT_MIN__ = 0
+const M__FLT_NORM_MAX__ = 0
 const M__FLT_RADIX__ = 2
 const M__FPCLASS_NEGINF = 4
 const M__FPCLASS_NEGNORMAL = 8
@@ -791,6 +794,8 @@ const M__GCC_ATOMIC_POINTER_LOCK_FREE = 2
 const M__GCC_ATOMIC_SHORT_LOCK_FREE = 2
 const M__GCC_ATOMIC_TEST_AND_SET_TRUEVAL = 1
 const M__GCC_ATOMIC_WCHAR_T_LOCK_FREE = 2
+const M__GCC_CONSTRUCTIVE_SIZE = 64
+const M__GCC_DESTRUCTIVE_SIZE = 64
 const M__GCC_HAVE_DWARF2_CFI_ASM = 1
 const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 = 1
 const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 = 1
@@ -876,7 +881,7 @@ const M__INT_MAX = 2147483647
 const M__INT_MAX__ = 2147483647
 const M__INT_MIN = -2147483648
 const M__INT_WIDTH__ = 32
-const M__ISO_C_VISIBLE = 2011
+const M__ISO_C_VISIBLE = 2023
 const M__KPRINTF_ATTRIBUTE__ = 1
 const M__LDBL_DECIMAL_DIG__ = 17
 const M__LDBL_DENORM_MIN__ = 0
@@ -892,6 +897,7 @@ const M__LDBL_MAX__ = 0
 const M__LDBL_MIN_10_EXP__ = -307
 const M__LDBL_MIN_EXP__ = -1021
 const M__LDBL_MIN__ = 0
+const M__LDBL_NORM_MAX__ = 0
 const M__LITTLE_ENDIAN__ = 1
 const M__LLONG_MAX = 9223372036854775807
 const M__LLONG_MIN = -9223372036854775808
@@ -925,7 +931,7 @@ const M__ORDER_BIG_ENDIAN__ = 4321
 const M__ORDER_LITTLE_ENDIAN__ = 1234
 const M__ORDER_PDP_ENDIAN__ = 3412
 const M__POINTER_WIDTH__ = 64
-const M__POSIX_VISIBLE = 200809
+const M__POSIX_VISIBLE = 202405
 const M__PRAGMA_REDEFINE_EXTNAME = 1
 const M__PRETTY_FUNCTION__ = 0
 const M__PRI64 = "l"
@@ -988,6 +994,9 @@ const M__SSE_MATH__ = 1
 const M__SSE__ = 1
 const M__SSIZE_MAX = 9223372036854775807
 const M__SSTR = 512
+const M__STDC_EMBED_EMPTY__ = 2
+const M__STDC_EMBED_FOUND__ = 1
+const M__STDC_EMBED_NOT_FOUND__ = 0
 const M__STDC_HOSTED__ = 1
 const M__STDC_MB_MIGHT_NEQ_WC__ = 1
 const M__STDC_UTF_16__ = 1
@@ -1077,7 +1086,7 @@ const M__ULLONG_MAX = 18446744073709551615
 const M__ULONG_MAX = 18446744073709551615
 const M__UQUAD_MAX = 18446744073709551615
 const M__USHRT_MAX = 65535
-const M__VERSION__ = "FreeBSD Clang 18.1.6 (https://github.com/llvm/llvm-project.git llvmorg-18.1.6-0-g1118c2e05e67)"
+const M__VERSION__ = "FreeBSD Clang 19.1.7 (https://github.com/llvm/llvm-project.git llvmorg-19.1.7-0-gcd708029e0b2)"
 const M__WCHAR_MAX = 2147483647
 const M__WCHAR_MAX__ = 2147483647
 const M__WCHAR_MIN = -2147483648
@@ -1088,15 +1097,15 @@ const M__WINT_TYPE__ = 0
 const M__WINT_WIDTH__ = 32
 const M__WORDSIZE = 64
 const M__WORD_BIT = 32
-const M__XSI_VISIBLE = 700
+const M__XSI_VISIBLE = 800
 const M__amd64 = 1
 const M__amd64__ = 1
 const M__clang__ = 1
 const M__clang_literal_encoding__ = "UTF-8"
-const M__clang_major__ = 18
+const M__clang_major__ = 19
 const M__clang_minor__ = 1
-const M__clang_patchlevel__ = 6
-const M__clang_version__ = "18.1.6 (https://github.com/llvm/llvm-project.git llvmorg-18.1.6-0-g1118c2e05e67)"
+const M__clang_patchlevel__ = 7
+const M__clang_version__ = "19.1.7 (https://github.com/llvm/llvm-project.git llvmorg-19.1.7-0-gcd708029e0b2)"
 const M__clang_wide_literal_encoding__ = "UTF-32"
 const M__code_model_small__ = 1
 const M__const = 0
@@ -154200,6 +154209,7 @@ const MF_ULOCK = 0
 const MF_UNLCK = 2
 const MF_UNLCKSYS = 4
 const MF_WRLCK = 3
+const MGETENTROPY_MAX = 256
 const MGID_MAX = 4294967295
 const MH4DISC = 7
 const MHUPCL = 16384
@@ -154393,6 +154403,7 @@ const MSEEK_HOLE = 4
 const MSEGV_ACCERR = 2
 const MSEGV_MAPERR = 1
 const MSEGV_PKUERR = 100
+const MSFBSD_NAMEDATTR = 1
 const MSF_APPEND = 262144
 const MSF_ARCHIVED = 65536
 const MSF_IMMUTABLE = 131072
@@ -155132,7 +155143,7 @@ type Tstat = struct {
 	Fst_ino      Tino_t
 	Fst_nlink    Tnlink_t
 	Fst_mode     Tmode_t
-	Fst_padding0 t__int16_t
+	Fst_bsdflags t__int16_t
 	Fst_uid      Tuid_t
 	Fst_gid      Tgid_t
 	Fst_padding1 t__int32_t
@@ -155146,7 +155157,8 @@ type Tstat = struct {
 	Fst_blksize  Tblksize_t
 	Fst_flags    Tfflags_t
 	Fst_gen      t__uint64_t
-	Fst_spare    [10]t__uint64_t
+	Fst_filerev  t__uint64_t
+	Fst_spare    [9]t__uint64_t
 }
 
 type Tdirent = struct {
@@ -156884,9 +156896,8 @@ func _js_std_file_clearerr(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc i
 
 func _js_std_file_fileno(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
 	var f uintptr
-	var v1 int32
-	var v2 TJSValue
-	_, _, _ = f, v1, v2
+	var v1 TJSValue
+	_, _ = f, v1
 	f = _js_std_file_get(tls, ctx1, this_val)
 	if !(f != 0) {
 		return TJSValue{
@@ -156894,21 +156905,16 @@ func _js_std_file_fileno(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc in
 			Ftag: int64(EJS_TAG_EXCEPTION),
 		}
 	}
-	if !(libc.X__isthreaded != 0) {
-		v1 = int32((*TFILE)(unsafe.Pointer(f)).F_file)
-	} else {
-		v1 = libc.Xfileno(tls, f)
-	}
 	_ = ctx1
-	v2 = TJSValue{
+	v1 = TJSValue{
 		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 			f Tint32_t
 			_ [4]byte
-		}{f: v1})),
+		}{f: libc.Xfileno(tls, f)})),
 	}
-	goto _3
-_3:
-	return v2
+	goto _2
+_2:
+	return v1
 }
 
 func _js_std_file_read_write(tls *libc.TLS, ctx3 uintptr, this_val TJSValue, argc int32, argv uintptr, magic int32) (r TJSValue) {
