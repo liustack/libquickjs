@@ -291,7 +291,12 @@ func Test262(t *testing.T) {
 		}()
 	}
 
-	shell(t, "unzip", "-q", zip262)
+	switch goos {
+	case "windows":
+		shell(t, "git-bash", "-c", fmt.Sprintf("unzip -q %s", zip262))
+	default:
+		shell(t, "unzip", "-q", zip262)
+	}
 	err := os.Rename("test262-"+hash262, dir)
 	if err != nil {
 		t.Fatal(err)
