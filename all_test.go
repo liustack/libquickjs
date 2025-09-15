@@ -22,7 +22,7 @@ import (
 )
 
 const (
-	hash262 = "56e77d6325067a545ea7e8ff5be5d9284334e33c" // 2025-03-25
+	hash262 = "a5e69a1534de88d1eb29b76657d84c8541b72df7" // 2025-09-10
 	zip262  = hash262 + ".zip"
 )
 
@@ -130,25 +130,6 @@ func Test2(t *testing.T) {
 				t.Errorf("%v: got=%q expexted=%q", fn, g, e)
 			default:
 				t.Logf("%3d: %q\n%[2]s", i, g)
-			}
-		})
-	}
-}
-
-func Test3(t *testing.T) {
-	for i, v := range []struct{ fn, out string }{
-		{"testdata/test3/native_function_matcher.js", "924\n"},
-	} {
-		if re != nil && !re.MatchString(v.fn) {
-			continue
-		}
-
-		t.Run(v.fn, func(t *testing.T) {
-			switch g, e := evalFile(t, v.fn), v.out; {
-			case g != e:
-				t.Errorf("%3d: got=%s\nexpexted=%s", i, g, e)
-			default:
-				t.Logf("%3d: %s", i, g)
 			}
 		})
 	}

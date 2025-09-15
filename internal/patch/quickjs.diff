@@ -20,7 +20,7 @@ index 3b1c745..c7a6297 100644
  CFLAGS+=$(DEFINES)
  CFLAGS_DEBUG=$(CFLAGS) -O0
 diff --git a/qjs.c b/qjs.c
-index 2eaa9ee..1eae4e5 100644
+index a88e39a..2b9f2ea 100644
 --- a/qjs.c
 +++ b/qjs.c
 @@ -309,6 +309,9 @@ void help(void)
@@ -34,10 +34,10 @@ index 2eaa9ee..1eae4e5 100644
      JSContext *ctx;
      struct trace_malloc_data trace_data = { NULL };
 diff --git a/quickjs-libc.c b/quickjs-libc.c
-index 0788d8c..2010127 100644
+index 54a7a15..70ee430 100644
 --- a/quickjs-libc.c
 +++ b/quickjs-libc.c
-@@ -2520,6 +2520,8 @@ static JSValue make_string_error(JSContext *ctx,
+@@ -2644,6 +2644,8 @@ static JSValue make_string_error(JSContext *ctx,
      return make_obj_error(ctx, JS_NewString(ctx, buf), err);
  }
  
@@ -46,7 +46,7 @@ index 0788d8c..2010127 100644
  /* return [cwd, errorcode] */
  static JSValue js_os_getcwd(JSContext *ctx, JSValueConst this_val,
                              int argc, JSValueConst *argv)
-@@ -2527,7 +2529,11 @@ static JSValue js_os_getcwd(JSContext *ctx, JSValueConst this_val,
+@@ -2651,7 +2653,11 @@ static JSValue js_os_getcwd(JSContext *ctx, JSValueConst this_val,
      char buf[PATH_MAX];
      int err;
  
@@ -58,7 +58,7 @@ index 0788d8c..2010127 100644
          buf[0] = '\0';
          err = errno;
      } else {
-@@ -2550,6 +2556,8 @@ static JSValue js_os_chdir(JSContext *ctx, JSValueConst this_val,
+@@ -2674,6 +2680,8 @@ static JSValue js_os_chdir(JSContext *ctx, JSValueConst this_val,
      return JS_NewInt32(ctx, err);
  }
  
@@ -67,7 +67,7 @@ index 0788d8c..2010127 100644
  static JSValue js_os_mkdir(JSContext *ctx, JSValueConst this_val,
                             int argc, JSValueConst *argv)
  {
-@@ -2566,8 +2574,12 @@ static JSValue js_os_mkdir(JSContext *ctx, JSValueConst this_val,
+@@ -2690,8 +2698,12 @@ static JSValue js_os_mkdir(JSContext *ctx, JSValueConst this_val,
      if (!path)
          return JS_EXCEPTION;
  #if defined(_WIN32)
@@ -81,7 +81,7 @@ index 0788d8c..2010127 100644
      ret = js_get_errno(mkdir(path, mode));
  #endif
 diff --git a/quickjs.c b/quickjs.c
-index adfd93e..c5ed698 100644
+index 0004383..4582e69 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -96,7 +96,7 @@ index adfd93e..c5ed698 100644
  
  #if defined(__APPLE__)
  #define MALLOC_OVERHEAD  0
-@@ -1521,10 +1517,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
+@@ -1580,10 +1576,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
  /* Note: OS and CPU dependent */
  static inline uintptr_t js_get_stack_pointer(void)
  {
@@ -115,7 +115,7 @@ index adfd93e..c5ed698 100644
  {
      uintptr_t sp;
      sp = js_get_stack_pointer() - alloca_size;
-@@ -39222,7 +39225,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
+@@ -40375,7 +40378,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
      return r;
  }
  
@@ -127,7 +127,7 @@ index adfd93e..c5ed698 100644
                             int argc, JSValueConst *argv)
  {
      JSValue obj, args[1];
-@@ -54167,8 +54173,13 @@ typedef struct JSAtomicsWaiter {
+@@ -55500,8 +55506,13 @@ typedef struct JSAtomicsWaiter {
  } JSAtomicsWaiter;
  
  static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -141,7 +141,7 @@ index adfd93e..c5ed698 100644
  
  static JSValue js_atomics_wait(JSContext *ctx,
                                 JSValueConst this_obj,
-@@ -54692,3 +54703,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
+@@ -56027,3 +56038,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
                                 countof(js_finrec_proto_funcs));
      JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
  }
@@ -178,14 +178,13 @@ index adfd93e..c5ed698 100644
 +}
 +#endif
 diff --git a/quickjs.h b/quickjs.h
-index 8814222..bca6496 100644
+index c8cd149..cbf98aa 100644
 --- a/quickjs.h
 +++ b/quickjs.h
-@@ -1114,6 +1114,11 @@ int JS_SetModuleExport(JSContext *ctx, JSModuleDef *m, const char *export_name,
- int JS_SetModuleExportList(JSContext *ctx, JSModuleDef *m,
-                            const JSCFunctionListEntry *tab, int len);
+@@ -1158,6 +1158,10 @@ void JS_PrintValueRT(JSRuntime *rt, JSPrintValueWrite *write_func, void *write_o
+ void JS_PrintValue(JSContext *ctx, JSPrintValueWrite *write_func, void *write_opaque,
+                    JSValueConst val, const JSPrintValueOptions *options);
  
-+
 +#ifdef __CCGO__
 +void init();
 +#endif
@@ -194,10 +193,10 @@ index 8814222..bca6496 100644
  #undef js_force_inline
  
 diff --git a/run-test262.c b/run-test262.c
-index 4397a1d..7a3404a 100644
+index 100ed13..6dc16eb 100644
 --- a/run-test262.c
 +++ b/run-test262.c
-@@ -446,11 +446,29 @@ static void add_helpers(JSContext *ctx);
+@@ -460,11 +460,29 @@ static void add_helpers(JSContext *ctx);
  static pthread_mutex_t agent_mutex = PTHREAD_MUTEX_INITIALIZER;
  static pthread_cond_t agent_cond = PTHREAD_COND_INITIALIZER;
  /* list of Test262Agent.link */
@@ -227,7 +226,7 @@ index 4397a1d..7a3404a 100644
  
  static void *agent_start(void *arg)
  {
-@@ -712,6 +730,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
+@@ -725,6 +743,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
      return JS_UNDEFINED;
  }
  
@@ -235,7 +234,7 @@ index 4397a1d..7a3404a 100644
  static const JSCFunctionListEntry js_agent_funcs[] = {
      /* only in main */
      JS_CFUNC_DEF("start", 1, js_agent_start ),
-@@ -725,6 +744,20 @@ static const JSCFunctionListEntry js_agent_funcs[] = {
+@@ -738,6 +757,20 @@ static const JSCFunctionListEntry js_agent_funcs[] = {
      JS_CFUNC_DEF("sleep", 1, js_agent_sleep ),
      JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow ),
  };
@@ -256,8 +255,8 @@ index 4397a1d..7a3404a 100644
  
  static JSValue js_new_agent(JSContext *ctx)
  {
-@@ -2038,6 +2071,13 @@ int main(int argc, char **argv)
-     BOOL is_module = FALSE;
+@@ -2079,6 +2112,13 @@ int main(int argc, char **argv)
+     BOOL count_skipped_features = FALSE;
      clock_t clocks;
  
 +#ifdef __CCGO__
@@ -270,23 +269,11 @@ index 4397a1d..7a3404a 100644
  #if !defined(_WIN32)
      compact = !isatty(STDERR_FILENO);
      /* Date tests assume California local time */
-diff --git a/test262_errors.txt b/test262_errors.txt
-index 206e03f..db796bd 100644
---- a/test262_errors.txt
-+++ b/test262_errors.txt
-@@ -1,3 +1,7 @@
-+test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values-__proto__.js:25: Test262Error: Object.setPrototypeOf(ObjProto, { __proto__: null }) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
-+test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values-__proto__.js:25: strict mode: Test262Error: Object.setPrototypeOf(ObjProto, { __proto__: null }) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
-+test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values.js:25: Test262Error: Object.setPrototypeOf(ObjProto, Object.create(null)) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
-+test262/test/built-ins/Object/prototype/setPrototypeOf-with-non-circular-values.js:25: strict mode: Test262Error: Object.setPrototypeOf(ObjProto, Object.create(null)) throws a TypeError Expected a TypeError to be thrown but no exception was thrown at all
- test262/test/language/module-code/top-level-await/module-graphs-does-not-hang.js:10: TypeError: $DONE() not called
- test262/test/staging/sm/Date/UTC-convert-all-arguments.js:75: Test262Error: index 1: expected 42, got Error: didn't throw Expected SameValue(«Error: didn't throw», «42») to be true
- test262/test/staging/sm/Date/constructor-convert-all-arguments.js:75: Test262Error: index undefined: expected 42, got Error: didn't throw Expected SameValue(«Error: didn't throw», «42») to be true
 diff --git a/tests/test_std.js b/tests/test_std.js
-index c844869..9d14939 100644
+index 3debe40..863fa3f 100644
 --- a/tests/test_std.js
 +++ b/tests/test_std.js
-@@ -298,9 +298,9 @@ test_printf();
+@@ -326,9 +326,9 @@ test_printf();
  test_file1();
  test_file2();
  test_getline();
