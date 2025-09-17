@@ -287,6 +287,7 @@ func Test262(t *testing.T) {
 	if !fileExists(cnf) {
 		cnf = filepath.Join("testdata", "test262.conf")
 	}
+	t.Logf("using %s", cnf)
 	copyFile(t, "test262.conf", cnf)
 	copyFile(t, filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"))
 	git(t, "-C", dir, "init")
