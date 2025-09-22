@@ -174425,8 +174425,7 @@ func _build_envp(tls *libc.TLS, ctx4 uintptr, obj TJSValue) (r uintptr) {
 	if !(envp != 0) {
 		goto fail
 	}
-	i = uint32(372,
-	)
+	i = uint32(372)
 	for {
 		if !(i < *(*Tuint32_t)(unsafe.Pointer(bp + 16))) {
 			break
