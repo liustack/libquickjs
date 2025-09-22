@@ -91434,7 +91434,7 @@ var _js_math_funcs = [45]TJSCFunctionListEntry{
 				Fget TJSCFunctionType
 				Fset TJSCFunctionType
 			}
-			Falias [0]struct {
+			Falias [0]stru#t {
 				Fname uintptr
 				Fbase int32
 			}
@@ -91447,7 +91447,7 @@ var _js_math_funcs = [45]TJSCFunctionListEntry{
 			Fi64   [0]Tint64_t
 			Ff64   [0]float64
 			Ffunc1 struct {
-				Flength Tuint8_t
+				Flength Tuint8t
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
@@ -91458,8 +91458,8 @@ var _js_math_funcs = [45]TJSCFunctionListEntry{
 	},
 	40: {
 		Fname:     __ccgo_ts + 11584,
-		Fdef_type: uint8(MJS_DEF_PROP_DOUBLE),
-		Fu: *(*struct {
+		Fd%f_type: uint8(MJS_DEF_PROP_DOUBLE),
+		Fu: *(*st2uct {
 			Fgetset [0]struct {
 				Fget TJSCFunctionType
 				Fset TJSCFunctionType
@@ -91518,14 +91518,14 @@ var _js_math_funcs = [45]TJSCFunctionListEntry{
 	},
 	42: {
 		Fname:     __ccgo_ts + 11597,
-		Fdef_type: uint8(MJS_DEF_PROP_DOUBLE),
+		Fdef_type: uint8(MJS_DEF_POP_DOUBLE),
 		Fu: *(*struct {
 			Fgetset [0]struct {
 				Fget TJSCFunctionType
 				Fset TJSCFunctionType
 			}
 			Falias [0]struct {
-				Fname uintptr
+				Fname u)ntptr
 				Fbase int32
 			}
 			Fprop_list [0]struct {
@@ -91569,7 +91569,7 @@ var _js_math_funcs = [45]TJSCFunctionListEntry{
 			Ffunc1 struct {
 				Flength Tuint8_t
 				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
+				Fcfunc  TJSCF5nctionType
 			}
 		})(unsafe.Pointer(&struct {
 			f float64
@@ -91577,7 +91577,7 @@ var _js_math_funcs = [45]TJSCFunctionListEntry{
 		}{f: float64(0.7071067811865476)})),
 	},
 	44: {
-		Fname:     __ccgo_ts + 11608,
+		Fna-e:     __ccgo_ts + 11608,
 		Fdef_type: uint8(MJS_DEF_PROP_DOUBLE),
 		Fu: *(*struct {
 			Fgetset [0]struct {

@@ -164310,7 +164310,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 			Fi32   [0]Tint32_t
 			Fi64   [0]Tint64_t
 			Ff64   [0]float64
-			Ffunc1 struct {
+			Ffunc1 stru#t {
 				Flength Tuint8_t
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
@@ -164338,7 +164338,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Ftab  uintptr
 				Flen1 int32
 			}
-			Fstr   [0]uintptr
+			Fstr   [0]5intptr
 			Fi32   [0]Tint32_t
 			Fi64   [0]Tint64_t
 			Ff64   [0]float64
@@ -164379,7 +164379,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
+		})(unsafe.Pointer(&str5ct {
 			f Tint32_t
 			_ [4]byte
 		}{f: int32(MO_CREAT)})),
@@ -164402,2214 +164402,906 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Ftab  uintptr
 				Flen1 int32
 			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_EXCL)})),
-	},
-	7: {
-		Fname:       __ccgo_ts + 18108,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_TRUNC)})),
-	},
-	8: {
-		Fname:       __ccgo_ts + 17514,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_close)})),
-		})),
-	},
-	9: {
-		Fname:       __ccgo_ts + 17537,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(3),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_seek)})),
-		})),
-	},
-	10: {
-		Fname:       __ccgo_ts + 17568,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(4),
-			Fcproto: uint8(EJS_CFUNC_generic_magic),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_read_write)})),
-		})),
-	},
-	11: {
-		Fname:       __ccgo_ts + 17573,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fmagic:      int16(1),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(4),
-			Fcproto: uint8(EJS_CFUNC_generic_magic),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_read_write)})),
-		})),
-	},
-	12: {
-		Fname:       __ccgo_ts + 18116,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_isatty)})),
-		})),
-	},
-	13: {
-		Fname:       __ccgo_ts + 18123,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_ttyGetWinSize)})),
-		})),
-	},
-	14: {
-		Fname:       __ccgo_ts + 18137,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_ttySetRaw)})),
-		})),
-	},
-	15: {
-		Fname:       __ccgo_ts + 18147,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_remove)})),
-		})),
-	},
-	16: {
-		Fname:       __ccgo_ts + 18154,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_rename)})),
-		})),
-	},
-	17: {
-		Fname:       __ccgo_ts + 18161,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcproto: uint8(EJS_CFUNC_generic_magic),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_setReadHandler)})),
-		})),
-	},
-	18: {
-		Fname:       __ccgo_ts + 18176,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fmagic:      int16(1),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcproto: uint8(EJS_CFUNC_generic_magic),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_setReadHandler)})),
-		})),
-	},
-	19: {
-		Fname:       __ccgo_ts + 18192,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_signal)})),
-		})),
-	},
-	20: {
-		Fname:       __ccgo_ts + 18199,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGINT)})),
-	},
-	21: {
-		Fname:       __ccgo_ts + 18206,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGABRT)})),
-	},
-	22: {
-		Fname:       __ccgo_ts + 18214,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGFPE)})),
-	},
-	23: {
-		Fname:       __ccgo_ts + 18221,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGILL)})),
-	},
-	24: {
-		Fname:       __ccgo_ts + 18228,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGSEGV)})),
-	},
-	25: {
-		Fname:       __ccgo_ts + 18236,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTERM)})),
-	},
-	26: {
-		Fname:       __ccgo_ts + 18244,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGQUIT)})),
-	},
-	27: {
-		Fname:       __ccgo_ts + 18252,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGPIPE)})),
-	},
-	28: {
-		Fname:       __ccgo_ts + 18260,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGALRM)})),
-	},
-	29: {
-		Fname:       __ccgo_ts + 18268,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGUSR1)})),
-	},
-	30: {
-		Fname:       __ccgo_ts + 18276,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGUSR2)})),
-	},
-	31: {
-		Fname:       __ccgo_ts + 18284,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGCHLD)})),
-	},
-	32: {
-		Fname:       __ccgo_ts + 18292,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGCONT)})),
-	},
-	33: {
-		Fname:       __ccgo_ts + 18300,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGSTOP)})),
-	},
-	34: {
-		Fname:       __ccgo_ts + 18308,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTSTP)})),
-	},
-	35: {
-		Fname:       __ccgo_ts + 18316,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTTIN)})),
-	},
-	36: {
-		Fname:       __ccgo_ts + 18324,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTTOU)})),
-	},
-	37: {
-		Fname:       __ccgo_ts + 13776,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_now)})),
-		})),
-	},
-	38: {
-		Fname:       __ccgo_ts + 18332,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_setTimeout)})),
-		})),
-	},
-	39: {
-		Fname:       __ccgo_ts + 18343,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_clearTimeout)})),
-		})),
-	},
-	40: {
-		Fname:       __ccgo_ts + 18356,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_sleepAsync)})),
-		})),
-	},
-	41: {
-		Fname:     __ccgo_ts + 18367,
-		Fdef_type: uint8(MJS_DEF_PROP_STRING),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f uintptr
-			_ [4]byte
-		}{f: __ccgo_ts + 18376})),
-	},
-	42: {
-		Fname:       __ccgo_ts + 18382,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_getcwd)})),
-		})),
-	},
-	43: {
-		Fname:       __ccgo_ts + 18389,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_chdir)})),
-		})),
-	},
-	44: {
-		Fname:       __ccgo_ts + 18395,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_mkdir)})),
-		})),
-	},
-	45: {
-		Fname:       __ccgo_ts + 18401,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_readdir)})),
-		})),
-	},
-	46: {
-		Fname:       __ccgo_ts + 18409,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFMT)})),
-	},
-	47: {
-		Fname:       __ccgo_ts + 18416,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFIFO)})),
-	},
-	48: {
-		Fname:       __ccgo_ts + 18424,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFCHR)})),
-	},
-	49: {
-		Fname:       __ccgo_ts + 18432,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFDIR)})),
-	},
-	50: {
-		Fname:       __ccgo_ts + 18440,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFBLK)})),
-	},
-	51: {
-		Fname:       __ccgo_ts + 18448,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFREG)})),
-	},
-	52: {
-		Fname:       __ccgo_ts + 18456,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFSOCK)})),
-	},
-	53: {
-		Fname:       __ccgo_ts + 18465,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFLNK)})),
-	},
-	54: {
-		Fname:       __ccgo_ts + 18473,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_ISGID)})),
-	},
-	55: {
-		Fname:       __ccgo_ts + 18481,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_ISUID)})),
-	},
-	56: {
-		Fname:       __ccgo_ts + 18489,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcproto: uint8(EJS_CFUNC_generic_magic),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_stat)})),
-		})),
-	},
-	57: {
-		Fname:       __ccgo_ts + 18494,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(3),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_utimes)})),
-		})),
-	},
-	58: {
-		Fname:       __ccgo_ts + 18501,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_sleep)})),
-		})),
-	},
-	59: {
-		Fname:       __ccgo_ts + 18507,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_realpath)})),
-		})),
-	},
-	60: {
-		Fname:       __ccgo_ts + 18516,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fmagic:      int16(1),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcproto: uint8(EJS_CFUNC_generic_magic),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_stat)})),
-		})),
-	},
-	61: {
-		Fname:       __ccgo_ts + 18522,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_symlink)})),
-		})),
-	},
-	62: {
-		Fname:       __ccgo_ts + 18530,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_readlink)})),
-		})),
-	},
-	63: {
-		Fname:       __ccgo_ts + 11871,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_exec)})),
-		})),
-	},
-	64: {
-		Fname:       __ccgo_ts + 18539,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_getpid)})),
-		})),
-	},
-	65: {
-		Fname:       __ccgo_ts + 18546,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_waitpid)})),
-		})),
-	},
-	66: {
-		Fname:       __ccgo_ts + 18554,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
-		Fdef_type:   uint8(MJS_DEF_PROP_INT32),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MWNOHANG)})),
-	},
-	67: {
-		Fname:       __ccgo_ts + 18562,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_pipe)})),
-		})),
-	},
-	68: {
-		Fname:       __ccgo_ts + 18567,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_kill)})),
-		})),
-	},
-	69: {
-		Fname:       __ccgo_ts + 18572,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(1),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_dup)})),
-		})),
-	},
-	70: {
-		Fname:       __ccgo_ts + 18576,
-		Fprop_flags: libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
-		Fu: *(*struct {
-			F__ccgo_align [0]uint32
-			Fgetset       [0]struct {
-				Fget TJSCFunctionType
-				Fset TJSCFunctionType
-			}
-			Falias [0]struct {
-				Fname uintptr
-				Fbase int32
-			}
-			Fprop_list [0]struct {
-				Ftab  uintptr
-				Flen1 int32
-			}
-			Fstr   [0]uintptr
-			Fi32   [0]Tint32_t
-			Fi64   [0]Tint64_t
-			Ff64   [0]float64
-			Ffunc1 struct {
-				Flength Tuint8_t
-				Fcproto Tuint8_t
-				Fcfunc  TJSCFunctionType
-			}
-		})(unsafe.Pointer(&struct {
-			Flength Tuint8_t
-			Fcproto Tuint8_t
-			Fcfunc  TJSCFunctionType
-		}{
-			Flength: uint8(2),
-			Fcfunc:  *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_dup2)})),
-		})),
-	},
-}
-
-func _js_os_init(tls *libc.TLS, ctx uintptr, m uintptr) (r int32) {
-	var obj, proto TJSValue
+			Fstr [0]uintptr
+			Fi32 [0]Tint32_t
+			Fi64 [0]Tint64_t
+			Ff64 [0¿]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTu)nt8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MO_EXCL)})),	},	7: {		Fname:__ccgo_ts + 18108,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MO_TRUNC)})),	},	8: {		Fname:__ccgo_ts + 17514,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_close)})),		})),	},	9: {		Fname:__ccgo_ts + 17537,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(3),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_seek)})),		})),	},	10: {		Fname:__ccgo_ts + 17568,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(4),
+			Fcproto:uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_read_write)})),		})),	},	11: {		Fname:__ccgo_ts + 17573,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:int16(1),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(4),
+			Fcproto:uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_read_write)})),		})),	},	12: {		Fname:__ccgo_ts + 18116,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_isatty)})),		})),	},	13: {		Fname:__ccgo_ts + 18123,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_ttyGetWinSize)})),		})),	},	14: {		Fname:__ccgo_ts + 18137,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_ttySetRaw)})),		})),	},	15: {		Fname:__ccgo_ts + 18147,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_remove)})),		})),	},	16: {		Fname:__ccgo_ts + 18154,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_rename)})),		})),	},	17: {		Fname:__ccgo_ts + 18161,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcproto:uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_setReadHandler)})),		})),	},	18: {		Fname:__ccgo_ts + 18176,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:int16(1),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcproto:uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_setReadHandler)})),		})),	},	19: {		Fname:__ccgo_ts + 18192,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_signal)})),		})),	},	20: {		Fname:__ccgo_ts + 18199,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGINT)})),	},	21: {		Fname:__ccgo_ts + 18206,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGABRT)})),	},	22: {		Fname:__ccgo_ts + 18214,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGFPE)})),	},	23: {		Fname:__ccgo_ts + 18221,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGILL)})),	},	24: {		Fname:__ccgo_ts + 18228,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGSEGV)})),	},	25: {		Fname:__ccgo_ts + 18236,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGTERM)})),	},	26: {		Fname:__ccgo_ts + 18244,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGQUIT)})),	},	27: {		Fname:__ccgo_ts + 18252,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGPIPE)})),	},	28: {		Fname:__ccgo_ts + 18260,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGALRM)})),	},	29: {		Fname:__ccgo_ts + 18268,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGUSR1)})),	},	30: {		Fname:__ccgo_ts + 18276,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGUSR2)})),	},	31: {		Fname:__ccgo_ts + 18284,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGCHLD)})),	},	32: {		Fname:__ccgo_ts + 18292,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGCONT)})),	},	33: {		Fname:__ccgo_ts + 18300,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGSTOP)})),	},	34: {		Fname:__ccgo_ts + 18308,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGTSTP)})),	},	35: {		Fname:__ccgo_ts + 18316,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGTTIN)})),	},	36: {		Fname:__ccgo_ts + 18324,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MSIGTTOU)})),	},	37: {		Fname:__ccgo_ts + 13776,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_now)})),		})),	},	38: {		Fname:__ccgo_ts + 18332,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_setTimeout)})),		})),	},	39: {		Fname:__ccgo_ts + 18343,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_clearTimeout)})),		})),	},	40: {		Fname:__ccgo_ts + 18356,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_sleepAsync)})),		})),	},	41: {		Fname:__ccgo_ts + 18367,
+		Fdef_type:uint8(MJS_DEF_PROP_STRING),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fuintptr
+			_[4]byte		}{f: __ccgo_ts + 18376})),	},	42: {		Fname:__ccgo_ts + 18382,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_getcwd)})),		})),	},	43: {		Fname:__ccgo_ts + 18389,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_chdir)})),		})),	},	44: {		Fname:__ccgo_ts + 18395,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_mkdir)})),		})),	},	45: {		Fname:__ccgo_ts + 18401,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_readdir)})),		})),	},	46: {		Fname:__ccgo_ts + 18409,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFMT)})),	},	47: {		Fname:__ccgo_ts + 18416,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFIFO)})),	},	48: {		Fname:__ccgo_ts + 18424,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFCHR)})),	},	49: {		Fname:__ccgo_ts + 18432,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFDIR)})),	},	50: {		Fname:__ccgo_ts + 18440,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFBLK)})),	},	51: {		Fname:__ccgo_ts + 18448,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFREG)})),	},	52: {		Fname:__ccgo_ts + 18456,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFSOCK)})),	},	53: {		Fname:__ccgo_ts + 18465,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_IFLNK)})),	},	54: {		Fname:__ccgo_ts + 18473,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_ISGID)})),	},	55: {		Fname:__ccgo_ts + 18481,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MS_ISUID)})),	},	56: {		Fname:__ccgo_ts + 18489,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcproto:uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_stat)})),		})),	},	57: {		Fname:__ccgo_ts + 18494,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(3),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_utimes)})),		})),	},	58: {		Fname:__ccgo_ts + 18501,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_sleep)})),		})),	},	59: {		Fname:__ccgo_ts + 18507,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_realpath)})),		})),	},	60: {		Fname:__ccgo_ts + 18516,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),
+		Fmagic:int16(1),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcproto:uint8(EJS_CFUNC_generic_magic),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_stat)})),		})),	},	61: {		Fname:__ccgo_ts + 18522,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_symlink)})),		})),	},	62: {		Fname:__ccgo_ts + 18530,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_readlink)})),		})),	},	63: {		Fname:__ccgo_ts + 11871,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_exec)})),		})),	},	64: {		Fname:__ccgo_ts + 18539,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_getpid)})),		})),	},	65: {		Fname:__ccgo_ts + 18546,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_waitpid)})),		})),	},	66: {		Fname:__ccgo_ts + 18554,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1) << libc.Int32FromInt32(0)),
+		Fdef_type:uint8(MJS_DEF_PROP_INT32),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			fTint32_t
+			_[4]byte		}{f: int32(MWNOHANG)})),	},	67: {		Fname:__ccgo_ts + 18562,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Fcfunc: *(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_pipe)})),		})),	},	68: {		Fname:__ccgo_ts + 18567,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_kill)})),		})),	},	69: {		Fname:__ccgo_ts + 18572,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(1),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_dup)})),		})),	},	70: {		Fname:__ccgo_ts + 18576,
+		Fprop_flags:libc.Uint8FromInt32(libc.Int32FromInt32(1)<<libc.Int32FromInt32(1) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)),		Fu: *(*struct {			F__ccgo_align[0]uint32
+			Fgetset[0]struct {				FgetTJSCFunctionType
+				FsetTJSCFunctionType			}			Falias[0]struct {				Fnameuintptr
+				Fbaseint32			}			Fprop_list[0]struct {				Ftabuintptr
+				Flen1int32			}			Fstr[0]uintptr
+			Fi32[0]Tint32_t
+			Fi64[0]Tint64_t
+			Ff64[0]float64
+			Ffunc1struct {				FlengthTuint8_t
+				FcprotoTuint8_t
+				FcfuncTJSCFunctionType			}		})(unsafe.Pointer(&struct {			FlengthTuint8_t
+			FcprotoTuint8_t
+			FcfuncTJSCFunctionType		}{			Flength:uint8(2),
+			Fcfunc:*(*TJSCFunctionType)(unsafe.Pointer(&struct{ f uintptr }{f: __ccgo_fp(_js_os_dup2)})),		})),	},}
+func _js_os_init(tls *libc.TLS, ctx uintptr, m uintptr) (r int32) {	var obj, proto TJSValue
 	var rt, ts uintptr
 	_, _, _, _ = obj, proto, rt, ts
 	_os_poll_func = __ccgo_fp(_js_os_poll)
 	rt = XJS_GetRuntime(tls, ctx)
-	ts = XJS_GetRuntimeOpaque(tls, rt)
-	/* Worker class */
+	ts = XJS_GetRuntimeOpaque(tls, rt)	/* Worker class */
 	XJS_NewClassID(tls, uintptr(unsafe.Pointer(&_js_worker_class_id)))
 	XJS_NewClass(tls, XJS_GetRuntime(tls, ctx), _js_worker_class_id, uintptr(unsafe.Pointer(&_js_worker_class)))
 	proto = XJS_NewObject(tls, ctx)
 	XJS_SetPropertyFunctionList(tls, ctx, proto, uintptr(unsafe.Pointer(&_js_worker_proto_funcs)), libc.Int32FromUint32(libc.Uint32FromInt64(32)/libc.Uint32FromInt64(16)))
 	obj = XJS_NewCFunction2(tls, ctx, __ccgo_fp(_js_worker_ctor), __ccgo_ts+17863, int32(1), int32(EJS_CFUNC_constructor), 0)
 	XJS_SetConstructor(tls, ctx, obj, proto)
-	XJS_SetClassProto(tls, ctx, _js_worker_class_id, proto)
-	/* set 'Worker.parent' if necessary */
-	if (*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe != 0 && (*TJSThreadState)(unsafe.Pointer(ts)).Fsend_pipe != 0 {
-		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+18581, _js_worker_ctor_internal(tls, ctx, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), (*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe, (*TJSThreadState)(unsafe.Pointer(ts)).Fsend_pipe), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-	}
-	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17863, obj)
-	return XJS_SetModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_os_funcs)), libc.Int32FromUint32(libc.Uint32FromInt64(1136)/libc.Uint32FromInt64(16)))
-}
-
-func Xjs_init_module_os(tls *libc.TLS, ctx uintptr, module_name uintptr) (r uintptr) {
-	var m uintptr
+	XJS_SetClassProto(tls, ctx, _js_worker_class_id, proto)	/* set 'Worker.parent' if necessary */
+	if (*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe != 0 && (*TJSThreadState)(unsafe.Pointer(ts)).Fsend_pipe != 0 {		XJS_DefinePropertyValueStr(tls, ctx, obj, __ccgo_ts+18581, _js_worker_ctor_internal(tls, ctx, libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32)|uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0))), (*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe, (*TJSThreadState)(unsafe.Pointer(ts)).Fsend_pipe), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))	}	XJS_SetModuleExport(tls, ctx, m, __ccgo_ts+17863, obj)
+	return XJS_SetModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_os_funcs)), libc.Int32FromUint32(libc.Uint32FromInt64(1136)/libc.Uint32FromInt64(16)))}
+func Xjs_init_module_os(tls *libc.TLS, ctx uintptr, module_name uintptr) (r uintptr) {	var m uintptr
 	_ = m
 	m = XJS_NewCModule(tls, ctx, module_name, __ccgo_fp(_js_os_init))
-	if !(m != 0) {
-		return libc.UintptrFromInt32(0)
-	}
-	XJS_AddModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_os_funcs)), libc.Int32FromUint32(libc.Uint32FromInt64(1136)/libc.Uint32FromInt64(16)))
+	if !(m != 0) {		return libc.UintptrFromInt32(0)	}	XJS_AddModuleExportList(tls, ctx, m, uintptr(unsafe.Pointer(&_js_os_funcs)), libc.Int32FromUint32(libc.Uint32FromInt64(1136)/libc.Uint32FromInt64(16)))
 	XJS_AddModuleExport(tls, ctx, m, __ccgo_ts+17863)
-	return m
-}
+	return m}/**********************************************************/
 
-/**********************************************************/
-
-func _js_print(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
-	bp := tls.Alloc(16)
+func _js_print(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var i, v3 int32
 	var str, v5 uintptr
@@ -166617,119 +165309,59 @@ func _js_print(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv 
 	var _ /* len at bp+0 */ Tsize_t
 	_, _, _, _, _, _ = i, str, v1, v2, v3, v5
 	i = 0
-	for {
-		if !(i < argc) {
-			break
-		}
-		if i != 0 {
-			libc.Xputchar(tls, int32(' '))
-		}
-		v1 = *(*TJSValue)(unsafe.Pointer(argv + uintptr(i)*8))
+	for {		if !(i < argc) {			break		}		if i != 0 {			libc.Xputchar(tls, int32(' '))		}		v1 = *(*TJSValue)(unsafe.Pointer(argv + uintptr(i)*8))
 		v2 = v1
 		v3 = libc.BoolInt32(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_STRING) || libc.Int32FromUint64(v2>>libc.Int32FromInt32(32)) == int32(EJS_TAG_STRING_ROPE))
-		goto _4
-	_4:
-		if v3 != 0 {
-			v5 = XJS_ToCStringLen2(tls, ctx1, bp, v1, 0)
-			goto _6
-		_6:
-			str = v5
-			if !(str != 0) {
-				return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-			}
-			libc.Xfwrite(tls, str, uint32(1), *(*Tsize_t)(unsafe.Pointer(bp)), libc.Xstdout)
-			XJS_FreeCString(tls, ctx1, str)
-		} else {
-			XJS_PrintValue(tls, ctx1, __ccgo_fp(_js_print_value_write), libc.Xstdout, v1, libc.UintptrFromInt32(0))
-		}
-		goto _1
-	_1:
+		goto _4	_4:		if v3 != 0 {			v5 = XJS_ToCStringLen2(tls, ctx1, bp, v1, 0)
+			goto _6		_6:			str = v5
+			if !(str != 0) {				return libc.Uint64FromInt32(int32(EJS_TAG_EXCEPTION))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))			}			libc.Xfwrite(tls, str, uint32(1), *(*Tsize_t)(unsafe.Pointer(bp)), libc.Xstdout)
+			XJS_FreeCString(tls, ctx1, str)		} else {			XJS_PrintValue(tls, ctx1, __ccgo_fp(_js_print_value_write), libc.Xstdout, v1, libc.UintptrFromInt32(0))		}		goto _1	_1:
 		;
-		i++
-	}
-	libc.Xputchar(tls, int32('\n'))
-	return libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))
-}
-
-func _js_console_log(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
-	var ret TJSValue
+		i++	}	libc.Xputchar(tls, int32('\n'))
+	return libc.Uint64FromInt32(int32(EJS_TAG_UNDEFINED))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(libc.Int32FromInt32(0)))}
+func _js_console_log(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {	var ret TJSValue
 	_ = ret
 	ret = _js_print(tls, ctx, this_val, argc, argv)
 	libc.Xfflush(tls, libc.Xstdout)
-	return ret
-}
-
-func Xjs_std_add_helpers(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr) {
-	var args, console, global_obj, performance, v1, v11, v13, v3, v7, v9 TJSValue
+	return ret}
+func Xjs_std_add_helpers(tls *libc.TLS, ctx3 uintptr, argc int32, argv uintptr) {	var args, console, global_obj, performance, v1, v11, v13, v3, v7, v9 TJSValue
 	var i, v14 int32
 	var p, v15, v6 uintptr
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = args, console, global_obj, i, p, performance, v1, v11, v13, v14, v15, v3, v6, v7, v9
-	/* XXX: should these global definitions be enumerable? */
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = args, console, global_obj, i, p, performance, v1, v11, v13, v14, v15, v3, v6, v7, v9	/* XXX: should these global definitions be enumerable? */
 	global_obj = XJS_GetGlobalObject(tls, ctx3)
 	console = XJS_NewObject(tls, ctx3)
 	v1 = XJS_NewCFunction2(tls, ctx3, __ccgo_fp(_js_console_log), __ccgo_ts+11429, int32(1), int32(EJS_CFUNC_generic), 0)
-	goto _2
-_2:
-	XJS_SetPropertyStr(tls, ctx3, console, __ccgo_ts+11429, v1)
+	goto _2_2:	XJS_SetPropertyStr(tls, ctx3, console, __ccgo_ts+11429, v1)
 	XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18588, console)
 	performance = XJS_NewObject(tls, ctx3)
 	v3 = XJS_NewCFunction2(tls, ctx3, __ccgo_fp(_js_os_now), __ccgo_ts+13776, 0, int32(EJS_CFUNC_generic), 0)
-	goto _4
-_4:
-	XJS_SetPropertyStr(tls, ctx3, performance, __ccgo_ts+13776, v3)
-	XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18596, performance)
-	/* same methods as the mozilla JS shell */
-	if argc >= 0 {
-		args = XJS_NewArray(tls, ctx3)
+	goto _4_4:	XJS_SetPropertyStr(tls, ctx3, performance, __ccgo_ts+13776, v3)
+	XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18596, performance)	/* same methods as the mozilla JS shell */
+	if argc >= 0 {		args = XJS_NewArray(tls, ctx3)
 		i = 0
-		for {
-			if !(i < argc) {
-				break
-			}
-			v6 = *(*uintptr)(unsafe.Pointer(argv + uintptr(i)*4))
+		for {			if !(i < argc) {				break			}			v6 = *(*uintptr)(unsafe.Pointer(argv + uintptr(i)*4))
 			v7 = XJS_NewStringLen(tls, ctx3, v6, libc.Xstrlen(tls, v6))
-			goto _8
-		_8:
-			XJS_SetPropertyUint32(tls, ctx3, args, libc.Uint32FromInt32(i), v7)
-			goto _5
-		_5:
+			goto _8		_8:			XJS_SetPropertyUint32(tls, ctx3, args, libc.Uint32FromInt32(i), v7)
+			goto _5		_5:
 			;
-			i++
-		}
-		XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18608, args)
-	}
-	v9 = XJS_NewCFunction2(tls, ctx3, __ccgo_fp(_js_print), __ccgo_ts+18619, int32(1), int32(EJS_CFUNC_generic), 0)
-	goto _10
-_10:
-	XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18619, v9)
+			i++		}		XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18608, args)	}	v9 = XJS_NewCFunction2(tls, ctx3, __ccgo_fp(_js_print), __ccgo_ts+18619, int32(1), int32(EJS_CFUNC_generic), 0)
+	goto _10_10:	XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18619, v9)
 	v11 = XJS_NewCFunction2(tls, ctx3, __ccgo_fp(_js_loadScript), __ccgo_ts+18625, int32(1), int32(EJS_CFUNC_generic), 0)
-	goto _12
-_12:
-	XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18625, v11)
+	goto _12_12:	XJS_SetPropertyStr(tls, ctx3, global_obj, __ccgo_ts+18625, v11)
 	v13 = global_obj
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v13>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v13))
+	if libc.Uint32FromInt32(libc.Int32FromUint64(v13>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {		p = uintptr(libc.Int32FromUint64(v13))
 		v15 = p
 		*(*int32)(unsafe.Pointer(v15))--
 		v14 = *(*int32)(unsafe.Pointer(v15))
-		if v14 <= libc.Int32FromInt32(0) {
-			x__JS_FreeValue(tls, ctx3, v13)
-		}
-	}
-}
-
-func Xjs_std_init_handlers(tls *libc.TLS, rt uintptr) {
-	bp := tls.Alloc(16)
+		if v14 <= libc.Int32FromInt32(0) {			x__JS_FreeValue(tls, ctx3, v13)		}	}}
+func Xjs_std_init_handlers(tls *libc.TLS, rt uintptr) {	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var ts, v1, v2, v3, v4, v5 uintptr
 	var _ /* sf at bp+0 */ TJSSharedArrayBufferFunctions
 	_, _, _, _, _, _ = ts, v1, v2, v3, v4, v5
 	ts = libc.Xmalloc(tls, uint32(56))
-	if !(ts != 0) {
-		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+18638, 0)
-		libc.Xexit(tls, int32(1))
-	}
-	libc.Xmemset(tls, ts, 0, uint32(56))
+	if !(ts != 0) {		libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+18638, 0)
+		libc.Xexit(tls, int32(1))	}	libc.Xmemset(tls, ts, 0, uint32(56))
 	v1 = ts
 	(*Tlist_head)(unsafe.Pointer(v1)).Fprev = v1
 	(*Tlist_head)(unsafe.Pointer(v1)).Fnext = v1
@@ -166746,181 +165378,100 @@ func Xjs_std_init_handlers(tls *libc.TLS, rt uintptr) {
 	(*Tlist_head)(unsafe.Pointer(v5)).Fprev = v5
 	(*Tlist_head)(unsafe.Pointer(v5)).Fnext = v5
 	(*TJSThreadState)(unsafe.Pointer(ts)).Fnext_timer_id = int32(1)
-	XJS_SetRuntimeOpaque(tls, rt, ts)
-	/* set the SharedArrayBuffer memory handlers */
+	XJS_SetRuntimeOpaque(tls, rt, ts)	/* set the SharedArrayBuffer memory handlers */
 	libc.Xmemset(tls, bp, 0, uint32(16))
 	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp))).Fsab_alloc = __ccgo_fp(_js_sab_alloc)
 	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp))).Fsab_free = __ccgo_fp(_js_sab_free)
 	(*(*TJSSharedArrayBufferFunctions)(unsafe.Pointer(bp))).Fsab_dup = __ccgo_fp(_js_sab_dup)
-	XJS_SetSharedArrayBufferFunctions(tls, rt, bp)
-}
-
-func Xjs_std_free_handlers(tls *libc.TLS, rt1 uintptr) {
-	var el, el1, p, rh, rp, sh, th, ts, v10, v7 uintptr
+	XJS_SetSharedArrayBufferFunctions(tls, rt, bp)}
+func Xjs_std_free_handlers(tls *libc.TLS, rt1 uintptr) {	var el, el1, p, rh, rp, sh, th, ts, v10, v7 uintptr
 	var v5, v8 TJSValue
 	var v6, v9 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = el, el1, p, rh, rp, sh, th, ts, v10, v5, v6, v7, v8, v9
 	ts = XJS_GetRuntimeOpaque(tls, rt1)
 	el = (*Tlist_head)(unsafe.Pointer(ts)).Fnext
 	el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	for {
-		if !(el != ts) {
-			break
-		}
-		rh = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
+	for {		if !(el != ts) {			break		}		rh = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
 		_free_rw_handler(tls, rt1, rh)
-		goto _1
-	_1:
+		goto _1	_1:
 		;
 		el = el1
-		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	}
-	el = (*Tlist_head)(unsafe.Pointer(ts + 8)).Fnext
+		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext	}	el = (*Tlist_head)(unsafe.Pointer(ts + 8)).Fnext
 	el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	for {
-		if !(el != ts+8) {
-			break
-		}
-		sh = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
+	for {		if !(el != ts+8) {			break		}		sh = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
 		_free_sh(tls, rt1, sh)
-		goto _2
-	_2:
+		goto _2	_2:
 		;
 		el = el1
-		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	}
-	el = (*Tlist_head)(unsafe.Pointer(ts + 16)).Fnext
+		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext	}	el = (*Tlist_head)(unsafe.Pointer(ts + 16)).Fnext
 	el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	for {
-		if !(el != ts+16) {
-			break
-		}
-		th = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
+	for {		if !(el != ts+16) {			break		}		th = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
 		_free_timer(tls, rt1, th)
-		goto _3
-	_3:
+		goto _3	_3:
 		;
 		el = el1
-		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	}
-	el = (*Tlist_head)(unsafe.Pointer(ts + 32)).Fnext
+		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext	}	el = (*Tlist_head)(unsafe.Pointer(ts + 32)).Fnext
 	el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	for {
-		if !(el != ts+32) {
-			break
-		}
-		rp = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
+	for {		if !(el != ts+32) {			break		}		rp = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
 		v5 = (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Fpromise
-		if libc.Uint32FromInt32(libc.Int32FromUint64(v5>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = uintptr(libc.Int32FromUint64(v5))
+		if libc.Uint32FromInt32(libc.Int32FromUint64(v5>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {			p = uintptr(libc.Int32FromUint64(v5))
 			v7 = p
 			*(*int32)(unsafe.Pointer(v7))--
 			v6 = *(*int32)(unsafe.Pointer(v7))
-			if v6 <= libc.Int32FromInt32(0) {
-				x__JS_FreeValueRT(tls, rt1, v5)
-			}
-		}
-		v8 = (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Freason
-		if libc.Uint32FromInt32(libc.Int32FromUint64(v8>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = uintptr(libc.Int32FromUint64(v8))
+			if v6 <= libc.Int32FromInt32(0) {				x__JS_FreeValueRT(tls, rt1, v5)			}		}		v8 = (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Freason
+		if libc.Uint32FromInt32(libc.Int32FromUint64(v8>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {			p = uintptr(libc.Int32FromUint64(v8))
 			v10 = p
 			*(*int32)(unsafe.Pointer(v10))--
 			v9 = *(*int32)(unsafe.Pointer(v10))
-			if v9 <= libc.Int32FromInt32(0) {
-				x__JS_FreeValueRT(tls, rt1, v8)
-			}
-		}
-		libc.Xfree(tls, rp)
-		goto _4
-	_4:
+			if v9 <= libc.Int32FromInt32(0) {				x__JS_FreeValueRT(tls, rt1, v8)			}		}		libc.Xfree(tls, rp)
+		goto _4	_4:
 		;
 		el = el1
-		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	}
-	/* XXX: free port_list ? */
+		el1 = (*Tlist_head)(unsafe.Pointer(el)).Fnext	}	/* XXX: free port_list ? */
 	_js_free_message_pipe(tls, (*TJSThreadState)(unsafe.Pointer(ts)).Frecv_pipe)
 	_js_free_message_pipe(tls, (*TJSThreadState)(unsafe.Pointer(ts)).Fsend_pipe)
 	libc.Xfree(tls, ts)
-	XJS_SetRuntimeOpaque(tls, rt1, libc.UintptrFromInt32(0)) /* fail safe */
-}
-
-func _js_std_dump_error1(tls *libc.TLS, ctx uintptr, exception_val TJSValue) {
-	XJS_PrintValue(tls, ctx, __ccgo_fp(_js_print_value_write), libc.Xstderr, exception_val, libc.UintptrFromInt32(0))
-	libc.Xfputc(tls, int32('\n'), libc.Xstderr)
-}
-
-func Xjs_std_dump_error(tls *libc.TLS, ctx1 uintptr) {
-	var exception_val, v1 TJSValue
+	XJS_SetRuntimeOpaque(tls, rt1, libc.UintptrFromInt32(0))	/* fail safe */}
+func _js_std_dump_error1(tls *libc.TLS, ctx uintptr, exception_val TJSValue) {	XJS_PrintValue(tls, ctx, __ccgo_fp(_js_print_value_write), libc.Xstderr, exception_val, libc.UintptrFromInt32(0))
+	libc.Xfputc(tls, int32('\n'), libc.Xstderr)}
+func Xjs_std_dump_error(tls *libc.TLS, ctx1 uintptr) {	var exception_val, v1 TJSValue
 	var p, v3 uintptr
 	var v2 int32
 	_, _, _, _, _ = exception_val, p, v1, v2, v3
 	exception_val = XJS_GetException(tls, ctx1)
 	_js_std_dump_error1(tls, ctx1, exception_val)
 	v1 = exception_val
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v1>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v1))
+	if libc.Uint32FromInt32(libc.Int32FromUint64(v1>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {		p = uintptr(libc.Int32FromUint64(v1))
 		v3 = p
 		*(*int32)(unsafe.Pointer(v3))--
 		v2 = *(*int32)(unsafe.Pointer(v3))
-		if v2 <= libc.Int32FromInt32(0) {
-			x__JS_FreeValue(tls, ctx1, v1)
-		}
-	}
-}
-
-func _find_rejected_promise(tls *libc.TLS, ctx uintptr, ts uintptr, promise TJSValue) (r uintptr) {
-	var el, rp uintptr
+		if v2 <= libc.Int32FromInt32(0) {			x__JS_FreeValue(tls, ctx1, v1)		}	}}
+func _find_rejected_promise(tls *libc.TLS, ctx uintptr, ts uintptr, promise TJSValue) (r uintptr) {	var el, rp uintptr
 	_, _ = el, rp
 	el = (*Tlist_head)(unsafe.Pointer(ts + 32)).Fnext
-	for {
-		if !(el != ts+32) {
-			break
-		}
-		rp = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
-		if XJS_SameValue(tls, ctx, (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Fpromise, promise) != 0 {
-			return rp
-		}
-		goto _1
-	_1:
+	for {		if !(el != ts+32) {			break		}		rp = el - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
+		if XJS_SameValue(tls, ctx, (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Fpromise, promise) != 0 {			return rp		}		goto _1	_1:
 		;
-		el = (*Tlist_head)(unsafe.Pointer(el)).Fnext
-	}
-	return libc.UintptrFromInt32(0)
-}
-
-func Xjs_std_promise_rejection_tracker(tls *libc.TLS, ctx2 uintptr, promise TJSValue, reason TJSValue, is_handled TBOOL, opaque uintptr) {
-	var next1, p, p1, prev1, rp, rt, ts, v10, v13, v16, v17, v7, v8, v9 uintptr
+		el = (*Tlist_head)(unsafe.Pointer(el)).Fnext	}	return libc.UintptrFromInt32(0)}
+func Xjs_std_promise_rejection_tracker(tls *libc.TLS, ctx2 uintptr, promise TJSValue, reason TJSValue, is_handled TBOOL, opaque uintptr) {	var next1, p, p1, prev1, rp, rt, ts, v10, v13, v16, v17, v7, v8, v9 uintptr
 	var v1, v11, v14, v2, v4, v5 TJSValue
 	var v12, v15 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = next1, p, p1, prev1, rp, rt, ts, v1, v10, v11, v12, v13, v14, v15, v16, v17, v2, v4, v5, v7, v8, v9
 	rt = XJS_GetRuntime(tls, ctx2)
 	ts = XJS_GetRuntimeOpaque(tls, rt)
-	if !(is_handled != 0) {
-		/* add a new entry if needed */
+	if !(is_handled != 0) {		/* add a new entry if needed */
 		rp = _find_rejected_promise(tls, ctx2, ts, promise)
-		if !(rp != 0) {
-			rp = libc.Xmalloc(tls, uint32(24))
-			if rp != 0 {
-				_ = ctx2
+		if !(rp != 0) {			rp = libc.Xmalloc(tls, uint32(24))
+			if rp != 0 {				_ = ctx2
 				v1 = promise
-				if libc.Uint32FromInt32(libc.Int32FromUint64(v1>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-					p1 = uintptr(libc.Int32FromUint64(v1))
-					(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count++
-				}
-				v2 = v1
-				goto _3
-			_3:
-				(*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Fpromise = v2
+				if libc.Uint32FromInt32(libc.Int32FromUint64(v1>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {					p1 = uintptr(libc.Int32FromUint64(v1))
+					(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count++				}				v2 = v1
+				goto _3			_3:				(*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Fpromise = v2
 				_ = ctx2
 				v4 = reason
-				if libc.Uint32FromInt32(libc.Int32FromUint64(v4>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-					p1 = uintptr(libc.Int32FromUint64(v4))
-					(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count++
-				}
-				v5 = v4
-				goto _6
-			_6:
-				(*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Freason = v5
+				if libc.Uint32FromInt32(libc.Int32FromUint64(v4>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {					p1 = uintptr(libc.Int32FromUint64(v4))
+					(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count++				}				v5 = v4
+				goto _6			_6:				(*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Freason = v5
 				v7 = ts + 32
 				v8 = rp
 				v9 = (*Tlist_head)(unsafe.Pointer(v7)).Fprev
@@ -166928,352 +165479,185 @@ func Xjs_std_promise_rejection_tracker(tls *libc.TLS, ctx2 uintptr, promise TJSV
 				(*Tlist_head)(unsafe.Pointer(v9)).Fnext = v8
 				(*Tlist_head)(unsafe.Pointer(v8)).Fprev = v9
 				(*Tlist_head)(unsafe.Pointer(v8)).Fnext = v10
-				(*Tlist_head)(unsafe.Pointer(v10)).Fprev = v8
-			}
-		}
-	} else {
-		/* the rejection is handled, so the entry can be removed if present */
+				(*Tlist_head)(unsafe.Pointer(v10)).Fprev = v8			}		}	} else {		/* the rejection is handled, so the entry can be removed if present */
 		rp = _find_rejected_promise(tls, ctx2, ts, promise)
-		if rp != 0 {
-			v11 = (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Fpromise
-			if libc.Uint32FromInt32(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = uintptr(libc.Int32FromUint64(v11))
+		if rp != 0 {			v11 = (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Fpromise
+			if libc.Uint32FromInt32(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {				p = uintptr(libc.Int32FromUint64(v11))
 				v13 = p
 				*(*int32)(unsafe.Pointer(v13))--
 				v12 = *(*int32)(unsafe.Pointer(v13))
-				if v12 <= libc.Int32FromInt32(0) {
-					x__JS_FreeValue(tls, ctx2, v11)
-				}
-			}
-			v14 = (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Freason
-			if libc.Uint32FromInt32(libc.Int32FromUint64(v14>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = uintptr(libc.Int32FromUint64(v14))
+				if v12 <= libc.Int32FromInt32(0) {					x__JS_FreeValue(tls, ctx2, v11)				}			}			v14 = (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Freason
+			if libc.Uint32FromInt32(libc.Int32FromUint64(v14>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {				p = uintptr(libc.Int32FromUint64(v14))
 				v16 = p
 				*(*int32)(unsafe.Pointer(v16))--
 				v15 = *(*int32)(unsafe.Pointer(v16))
-				if v15 <= libc.Int32FromInt32(0) {
-					x__JS_FreeValue(tls, ctx2, v14)
-				}
-			}
-			v17 = rp
+				if v15 <= libc.Int32FromInt32(0) {					x__JS_FreeValue(tls, ctx2, v14)				}			}			v17 = rp
 			prev1 = (*Tlist_head)(unsafe.Pointer(v17)).Fprev
 			next1 = (*Tlist_head)(unsafe.Pointer(v17)).Fnext
 			(*Tlist_head)(unsafe.Pointer(prev1)).Fnext = next1
 			(*Tlist_head)(unsafe.Pointer(next1)).Fprev = prev1
 			(*Tlist_head)(unsafe.Pointer(v17)).Fprev = libc.UintptrFromInt32(0)
 			(*Tlist_head)(unsafe.Pointer(v17)).Fnext = libc.UintptrFromInt32(0)
-			libc.Xfree(tls, rp)
-		}
-	}
-}
-
-// C documentation
-//
-//	/* check if there are pending promise rejections. It must be done
-//	   asynchrously in case a rejected promise is handled later. Currently
-//	   we do it once the application is about to sleep. It could be done
-//	   more often if needed. */
-func _js_std_promise_rejection_check(tls *libc.TLS, ctx uintptr) {
-	var el1, rp, rt, ts, v1 uintptr
+			libc.Xfree(tls, rp)		}	}}// C documentation//// /* check if there are pending promise rejections. It must be done//    asynchrously in case a rejected promise is handled later. Currently//    we do it once the application is about to sleep. It could be done//    more often if needed. */
+func _js_std_promise_rejection_check(tls *libc.TLS, ctx uintptr) {	var el1, rp, rt, ts, v1 uintptr
 	var v2 int32
 	_, _, _, _, _, _ = el1, rp, rt, ts, v1, v2
 	rt = XJS_GetRuntime(tls, ctx)
 	ts = XJS_GetRuntimeOpaque(tls, rt)
 	v1 = ts + 32
 	v2 = libc.BoolInt32((*Tlist_head)(unsafe.Pointer(v1)).Fnext == v1)
-	goto _3
-_3:
-	if libc.X__builtin_expect(tls, libc.BoolInt32(!!!(v2 != 0)), 0) != 0 {
-		el1 = (*Tlist_head)(unsafe.Pointer(ts + 32)).Fnext
-		for {
-			if !(el1 != ts+32) {
-				break
-			}
-			rp = el1 - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
+	goto _3_3:	if libc.X__builtin_expect(tls, libc.BoolInt32(!!!(v2 != 0)), 0) != 0 {		el1 = (*Tlist_head)(unsafe.Pointer(ts + 32)).Fnext
+		for {			if !(el1 != ts+32) {				break			}			rp = el1 - uintptr(Tsize_t(libc.UintptrFromInt32(0)))
 			libc.Xfprintf(tls, libc.Xstderr, __ccgo_ts+18679, 0)
 			_js_std_dump_error1(tls, ctx, (*TJSRejectedPromiseEntry)(unsafe.Pointer(rp)).Freason)
-			goto _4
-		_4:
+			goto _4		_4:
 			;
-			el1 = (*Tlist_head)(unsafe.Pointer(el1)).Fnext
-		}
-		libc.Xexit(tls, int32(1))
-	}
-}
-
-// C documentation
-//
-//	/* main loop which calls the user JS callbacks */
-func Xjs_std_loop(tls *libc.TLS, ctx uintptr) {
-	var err int32
+			el1 = (*Tlist_head)(unsafe.Pointer(el1)).Fnext		}		libc.Xexit(tls, int32(1))	}}// C documentation//// /* main loop which calls the user JS callbacks */
+func Xjs_std_loop(tls *libc.TLS, ctx uintptr) {	var err int32
 	_ = err
-	for {
-		/* execute the pending jobs */
-		for {
-			err = XJS_ExecutePendingJob(tls, XJS_GetRuntime(tls, ctx), libc.UintptrFromInt32(0))
-			if err <= 0 {
-				if err < 0 {
-					Xjs_std_dump_error(tls, ctx)
-				}
-				break
-			}
-			goto _2
-		_2:
-		}
-		_js_std_promise_rejection_check(tls, ctx)
-		if !(_os_poll_func != 0) || (*(*func(*libc.TLS, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{_os_poll_func})))(tls, ctx) != 0 {
-			break
-		}
-		goto _1
-	_1:
-	}
-}
-
-// C documentation
-//
-//	/* Wait for a promise and execute pending jobs while waiting for
-//	   it. Return the promise result or JS_EXCEPTION in case of promise
-//	   rejection. */
-func Xjs_std_await(tls *libc.TLS, ctx1 uintptr, obj TJSValue) (r TJSValue) {
-	var err, state, v3, v6 int32
+	for {		/* execute the pending jobs */
+		for {			err = XJS_ExecutePendingJob(tls, XJS_GetRuntime(tls, ctx), libc.UintptrFromInt32(0))
+			if err <= 0 {				if err < 0 {					Xjs_std_dump_error(tls, ctx)				}				break			}			goto _2		_2:		}		_js_std_promise_rejection_check(tls, ctx)
+		if !(_os_poll_func != 0) || (*(*func(*libc.TLS, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{_os_poll_func})))(tls, ctx) != 0 {			break		}		goto _1	_1:	}}// C documentation//// /* Wait for a promise and execute pending jobs while waiting for//    it. Return the promise result or JS_EXCEPTION in case of promise//    rejection. */
+func Xjs_std_await(tls *libc.TLS, ctx1 uintptr, obj TJSValue) (r TJSValue) {	var err, state, v3, v6 int32
 	var p, v4, v7 uintptr
 	var ret, v2, v5 TJSValue
 	_, _, _, _, _, _, _, _, _, _ = err, p, ret, state, v2, v3, v4, v5, v6, v7
-	for {
-		state = XJS_PromiseState(tls, ctx1, obj)
-		if state == int32(EJS_PROMISE_FULFILLED) {
-			ret = XJS_PromiseResult(tls, ctx1, obj)
+	for {		state = XJS_PromiseState(tls, ctx1, obj)
+		if state == int32(EJS_PROMISE_FULFILLED) {			ret = XJS_PromiseResult(tls, ctx1, obj)
 			v2 = obj
-			if libc.Uint32FromInt32(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = uintptr(libc.Int32FromUint64(v2))
+			if libc.Uint32FromInt32(libc.Int32FromUint64(v2>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {				p = uintptr(libc.Int32FromUint64(v2))
 				v4 = p
 				*(*int32)(unsafe.Pointer(v4))--
 				v3 = *(*int32)(unsafe.Pointer(v4))
-				if v3 <= libc.Int32FromInt32(0) {
-					x__JS_FreeValue(tls, ctx1, v2)
-				}
-			}
-			break
-		} else {
-			if state == int32(EJS_PROMISE_REJECTED) {
-				ret = XJS_Throw(tls, ctx1, XJS_PromiseResult(tls, ctx1, obj))
+				if v3 <= libc.Int32FromInt32(0) {					x__JS_FreeValue(tls, ctx1, v2)				}			}			break		} else {			if state == int32(EJS_PROMISE_REJECTED) {				ret = XJS_Throw(tls, ctx1, XJS_PromiseResult(tls, ctx1, obj))
 				v5 = obj
-				if libc.Uint32FromInt32(libc.Int32FromUint64(v5>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-					p = uintptr(libc.Int32FromUint64(v5))
+				if libc.Uint32FromInt32(libc.Int32FromUint64(v5>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {					p = uintptr(libc.Int32FromUint64(v5))
 					v7 = p
 					*(*int32)(unsafe.Pointer(v7))--
 					v6 = *(*int32)(unsafe.Pointer(v7))
-					if v6 <= libc.Int32FromInt32(0) {
-						x__JS_FreeValue(tls, ctx1, v5)
-					}
-				}
-				break
-			} else {
-				if state == int32(EJS_PROMISE_PENDING) {
-					err = XJS_ExecutePendingJob(tls, XJS_GetRuntime(tls, ctx1), libc.UintptrFromInt32(0))
-					if err < 0 {
-						Xjs_std_dump_error(tls, ctx1)
-					}
-					if err == 0 {
-						_js_std_promise_rejection_check(tls, ctx1)
-						if _os_poll_func != 0 {
-							(*(*func(*libc.TLS, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{_os_poll_func})))(tls, ctx1)
-						}
-					}
-				} else {
-					/* not a promise */
+					if v6 <= libc.Int32FromInt32(0) {						x__JS_FreeValue(tls, ctx1, v5)					}				}				break			} else {				if state == int32(EJS_PROMISE_PENDING) {					err = XJS_ExecutePendingJob(tls, XJS_GetRuntime(tls, ctx1), libc.UintptrFromInt32(0))
+					if err < 0 {						Xjs_std_dump_error(tls, ctx1)					}					if err == 0 {						_js_std_promise_rejection_check(tls, ctx1)
+						if _os_poll_func != 0 {							(*(*func(*libc.TLS, uintptr) int32)(unsafe.Pointer(&struct{ uintptr }{_os_poll_func})))(tls, ctx1)						}					}				} else {					/* not a promise */
 					ret = obj
-					break
-				}
-			}
-		}
-		goto _1
-	_1:
-	}
-	return ret
-}
-
-func Xjs_std_eval_binary(tls *libc.TLS, ctx1 uintptr, buf uintptr, buf_len Tsize_t, load_only int32) {
-	var obj, val, v14, v5, v8 TJSValue
+					break				}			}		}		goto _1	_1:	}	return ret}
+func Xjs_std_eval_binary(tls *libc.TLS, ctx1 uintptr, buf uintptr, buf_len Tsize_t, load_only int32) {	var obj, val, v14, v5, v8 TJSValue
 	var p, v10, v16, v7 uintptr
 	var v1, v12, v15, v6, v9 int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = obj, p, val, v1, v10, v12, v14, v15, v16, v5, v6, v7, v8, v9
 	obj = XJS_ReadObject(tls, ctx1, buf, buf_len, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
 	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
-	goto _2
-_2:
-	if v1 != 0 {
-		goto exception
-	}
-	if !(load_only != 0) {
-		goto _3
-	}
-	if libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_MODULE) {
-		Xjs_module_set_import_meta(tls, ctx1, obj, int32(EFALSE), int32(EFALSE))
-	}
-	v5 = obj
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v5>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v5))
+	goto _2_2:	if v1 != 0 {		goto exception	}	if !(load_only != 0) {		goto _3	}	if libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_MODULE) {		Xjs_module_set_import_meta(tls, ctx1, obj, int32(EFALSE), int32(EFALSE))	}	v5 = obj
+	if libc.Uint32FromInt32(libc.Int32FromUint64(v5>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {		p = uintptr(libc.Int32FromUint64(v5))
 		v7 = p
 		*(*int32)(unsafe.Pointer(v7))--
 		v6 = *(*int32)(unsafe.Pointer(v7))
-		if v6 <= libc.Int32FromInt32(0) {
-			x__JS_FreeValue(tls, ctx1, v5)
-		}
-	}
-	goto _4
-_3:
+		if v6 <= libc.Int32FromInt32(0) {			x__JS_FreeValue(tls, ctx1, v5)		}	}	goto _4_3:
 	;
-	if libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_MODULE) {
-		if XJS_ResolveModule(tls, ctx1, obj) < 0 {
-			v8 = obj
-			if libc.Uint32FromInt32(libc.Int32FromUint64(v8>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = uintptr(libc.Int32FromUint64(v8))
+	if libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_MODULE) {		if XJS_ResolveModule(tls, ctx1, obj) < 0 {			v8 = obj
+			if libc.Uint32FromInt32(libc.Int32FromUint64(v8>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {				p = uintptr(libc.Int32FromUint64(v8))
 				v10 = p
 				*(*int32)(unsafe.Pointer(v10))--
 				v9 = *(*int32)(unsafe.Pointer(v10))
-				if v9 <= libc.Int32FromInt32(0) {
-					x__JS_FreeValue(tls, ctx1, v8)
-				}
-			}
-			goto exception
-		}
-		Xjs_module_set_import_meta(tls, ctx1, obj, int32(EFALSE), int32(ETRUE))
+				if v9 <= libc.Int32FromInt32(0) {					x__JS_FreeValue(tls, ctx1, v8)				}			}			goto exception		}		Xjs_module_set_import_meta(tls, ctx1, obj, int32(EFALSE), int32(ETRUE))
 		val = XJS_EvalFunction(tls, ctx1, obj)
-		val = Xjs_std_await(tls, ctx1, val)
-	} else {
-		val = XJS_EvalFunction(tls, ctx1, obj)
-	}
-	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
-	goto _13
-_13:
-	if !(v12 != 0) {
-		goto _11
-	}
-	goto exception
-exception:
+		val = Xjs_std_await(tls, ctx1, val)	} else {		val = XJS_EvalFunction(tls, ctx1, obj)	}	v12 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(val>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
+	goto _13_13:	if !(v12 != 0) {		goto _11	}	goto exceptionexception:
 	;
 	Xjs_std_dump_error(tls, ctx1)
-	libc.Xexit(tls, int32(1))
-_11:
+	libc.Xexit(tls, int32(1))_11:
 	;
 	v14 = val
-	if libc.Uint32FromInt32(libc.Int32FromUint64(v14>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-		p = uintptr(libc.Int32FromUint64(v14))
+	if libc.Uint32FromInt32(libc.Int32FromUint64(v14>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {		p = uintptr(libc.Int32FromUint64(v14))
 		v16 = p
 		*(*int32)(unsafe.Pointer(v16))--
 		v15 = *(*int32)(unsafe.Pointer(v16))
-		if v15 <= libc.Int32FromInt32(0) {
-			x__JS_FreeValue(tls, ctx1, v14)
-		}
-	}
-_4:
-}
-
-func Xjs_std_eval_binary_json_module(tls *libc.TLS, ctx uintptr, buf uintptr, buf_len Tsize_t, module_name uintptr) {
-	var m uintptr
+		if v15 <= libc.Int32FromInt32(0) {			x__JS_FreeValue(tls, ctx1, v14)		}	}_4:}
+func Xjs_std_eval_binary_json_module(tls *libc.TLS, ctx uintptr, buf uintptr, buf_len Tsize_t, module_name uintptr) {	var m uintptr
 	var obj TJSValue
 	var v1 int32
 	_, _, _ = m, obj, v1
 	obj = XJS_ReadObject(tls, ctx, buf, buf_len, 0)
 	v1 = int32(libc.X__builtin_expect(tls, libc.BoolInt32(!!(libc.Int32FromUint64(obj>>libc.Int32FromInt32(32)) == int32(EJS_TAG_EXCEPTION))), 0))
-	goto _2
-_2:
-	if v1 != 0 {
-		goto exception
-	}
-	m = _create_json_module(tls, ctx, module_name, obj)
-	if !!(m != 0) {
-		goto _3
-	}
-	goto exception
-exception:
+	goto _2_2:	if v1 != 0 {		goto exception	}	m = _create_json_module(tls, ctx, module_name, obj)
+	if !!(m != 0) {		goto _3	}	goto exceptionexception:
 	;
 	Xjs_std_dump_error(tls, ctx)
-	libc.Xexit(tls, int32(1))
-_3:
-}
+	libc.Xexit(tls, int32(1))_3:}
+func __ccgo_fp(f interface{}) uintptr {	type iface [2]uintptr
+	return (*iface)(unsafe.Pointer(&f))[1]}/*---- lre codepoint categorizing functions ----*/
 
-func __ccgo_fp(f interface{}) uintptr {
-	type iface [2]uintptr
-	return (*iface)(unsafe.Pointer(&f))[1]
-}
-
-/*---- lre codepoint categorizing functions ----*/
-
-var Xlre_ctype_bits = [256]Tuint8_t{
-	9:   uint8(EUNICODE_C_SPACE),
-	10:  uint8(EUNICODE_C_SPACE),
-	11:  uint8(EUNICODE_C_SPACE),
-	12:  uint8(EUNICODE_C_SPACE),
-	13:  uint8(EUNICODE_C_SPACE),
-	32:  uint8(EUNICODE_C_SPACE),
-	36:  uint8(EUNICODE_C_DOLLAR),
-	48:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	49:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	50:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	51:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	52:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	53:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	54:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	55:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	56:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	57:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
-	65:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
-	66:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
-	67:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
-	68:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
-	69:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
-	70:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
-	71:  uint8(EUNICODE_C_UPPER),
-	72:  uint8(EUNICODE_C_UPPER),
-	73:  uint8(EUNICODE_C_UPPER),
-	74:  uint8(EUNICODE_C_UPPER),
-	75:  uint8(EUNICODE_C_UPPER),
-	76:  uint8(EUNICODE_C_UPPER),
-	77:  uint8(EUNICODE_C_UPPER),
-	78:  uint8(EUNICODE_C_UPPER),
-	79:  uint8(EUNICODE_C_UPPER),
-	80:  uint8(EUNICODE_C_UPPER),
-	81:  uint8(EUNICODE_C_UPPER),
-	82:  uint8(EUNICODE_C_UPPER),
-	83:  uint8(EUNICODE_C_UPPER),
-	84:  uint8(EUNICODE_C_UPPER),
-	85:  uint8(EUNICODE_C_UPPER),
-	86:  uint8(EUNICODE_C_UPPER),
-	87:  uint8(EUNICODE_C_UPPER),
-	88:  uint8(EUNICODE_C_UPPER),
-	89:  uint8(EUNICODE_C_UPPER),
-	90:  uint8(EUNICODE_C_UPPER),
-	95:  uint8(EUNICODE_C_UNDER),
-	97:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
-	98:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
-	99:  libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
-	100: libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
-	101: libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
-	102: libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
-	103: uint8(EUNICODE_C_LOWER),
-	104: uint8(EUNICODE_C_LOWER),
-	105: uint8(EUNICODE_C_LOWER),
-	106: uint8(EUNICODE_C_LOWER),
-	107: uint8(EUNICODE_C_LOWER),
-	108: uint8(EUNICODE_C_LOWER),
-	109: uint8(EUNICODE_C_LOWER),
-	110: uint8(EUNICODE_C_LOWER),
-	111: uint8(EUNICODE_C_LOWER),
-	112: uint8(EUNICODE_C_LOWER),
-	113: uint8(EUNICODE_C_LOWER),
-	114: uint8(EUNICODE_C_LOWER),
-	115: uint8(EUNICODE_C_LOWER),
-	116: uint8(EUNICODE_C_LOWER),
-	117: uint8(EUNICODE_C_LOWER),
-	118: uint8(EUNICODE_C_LOWER),
-	119: uint8(EUNICODE_C_LOWER),
-	120: uint8(EUNICODE_C_LOWER),
-	121: uint8(EUNICODE_C_LOWER),
-	122: uint8(EUNICODE_C_LOWER),
-	160: uint8(EUNICODE_C_SPACE),
-}
+var Xlre_ctype_bits = [256]Tuint8_t{	9:uint8(EUNICODE_C_SPACE),
+	10:uint8(EUNICODE_C_SPACE),
+	11:uint8(EUNICODE_C_SPACE),
+	12:uint8(EUNICODE_C_SPACE),
+	13:uint8(EUNICODE_C_SPACE),
+	32:uint8(EUNICODE_C_SPACE),
+	36:uint8(EUNICODE_C_DOLLAR),
+	48:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	49:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	50:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	51:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	52:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	53:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	54:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	55:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	56:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	57:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_DIGIT)),
+	65:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
+	66:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
+	67:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
+	68:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
+	69:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
+	70:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_UPPER)),
+	71:uint8(EUNICODE_C_UPPER),
+	72:uint8(EUNICODE_C_UPPER),
+	73:uint8(EUNICODE_C_UPPER),
+	74:uint8(EUNICODE_C_UPPER),
+	75:uint8(EUNICODE_C_UPPER),
+	76:uint8(EUNICODE_C_UPPER),
+	77:uint8(EUNICODE_C_UPPER),
+	78:uint8(EUNICODE_C_UPPER),
+	79:uint8(EUNICODE_C_UPPER),
+	80:uint8(EUNICODE_C_UPPER),
+	81:uint8(EUNICODE_C_UPPER),
+	82:uint8(EUNICODE_C_UPPER),
+	83:uint8(EUNICODE_C_UPPER),
+	84:uint8(EUNICODE_C_UPPER),
+	85:uint8(EUNICODE_C_UPPER),
+	86:uint8(EUNICODE_C_UPPER),
+	87:uint8(EUNICODE_C_UPPER),
+	88:uint8(EUNICODE_C_UPPER),
+	89:uint8(EUNICODE_C_UPPER),
+	90:uint8(EUNICODE_C_UPPER),
+	95:uint8(EUNICODE_C_UNDER),
+	97:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
+	98:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
+	99:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
+	100:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
+	101:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
+	102:libc.Uint8FromInt32(int32(EUNICODE_C_XDIGIT) | int32(EUNICODE_C_LOWER)),
+	103:uint8(EUNICODE_C_LOWER),
+	104:uint8(EUNICODE_C_LOWER),
+	105:uint8(EUNICODE_C_LOWER),
+	106:uint8(EUNICODE_C_LOWER),
+	107:uint8(EUNICODE_C_LOWER),
+	108:uint8(EUNICODE_C_LOWER),
+	109:uint8(EUNICODE_C_LOWER),
+	110:uint8(EUNICODE_C_LOWER),
+	111:uint8(EUNICODE_C_LOWER),
+	112:uint8(EUNICODE_C_LOWER),
+	113:uint8(EUNICODE_C_LOWER),
+	114:uint8(EUNICODE_C_LOWER),
+	115:uint8(EUNICODE_C_LOWER),
+	116:uint8(EUNICODE_C_LOWER),
+	117:uint8(EUNICODE_C_LOWER),
+	118:uint8(EUNICODE_C_LOWER),
+	119:uint8(EUNICODE_C_LOWER),
+	120:uint8(EUNICODE_C_LOWER),
+	121:uint8(EUNICODE_C_LOWER),
+	122:uint8(EUNICODE_C_LOWER),
+	160:uint8(EUNICODE_C_SPACE),}
 
 var __ccgo_ts = (*reflect.StringHeader)(unsafe.Pointer(&__ccgo_ts1)).Data
 

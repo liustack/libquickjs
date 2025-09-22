@@ -111961,7 +111961,876 @@ func _js_typed_array_fill(tls *libc.TLS, ctx2 uintptr, _this_val TJSValue, argc 
 			p = *(*uintptr)(unsafe.Pointer(bp + 8))
 			(*TJSRefCountHeader)(unsafe.Pointer(p)).Fref_count++
 		}
-		v2 = v1
+		v2 =
+
+			/* args at bp+16 */
+
+			/* __u at bp+0 */
+
+			/* __u at bp+8 */
+
+			/* buf1 at bp+72 */
+			/* k at bp+48 */
+			/* k1 at bp+64 */
+			/* u at bp+16 */
+
+			/* u at bp+24 */
+
+			/* v64 at bp+56 */
+
+			/* if the array was detached, no need to go further (but no
+			   exception is raised) */
+
+			/* "includes" scans all the properties, so "undefined" can match */
+
+			/* avoid warning */
+			/* avoid warning */
+
+			/* does not fit an int64 : cannot be found */
+
+			/* v < 0 */
+
+			/* OK */
+
+			/* 2^63 <= v <= 2^64-1 */
+
+			/* special case: indexOf returns -1, includes finds NaN */
+
+			// special case: includes also finds negative zero
+
+			/* special case: indexOf returns -1, includes finds NaN */
+
+			/* special case: indexOf returns -1, includes finds NaN */
+
+			/* b_s at bp+32 */
+			/* sep at bp+16 */
+
+			/* default separator */
+
+			/* XXX: optimize with direct access */
+
+			/* Can return undefined for example if the typed array is detached */
+
+			/* no overlap: can use memcpy */
+
+			/* otherwise the spec mandates byte copy */
+
+			/* args at bp+16 */
+			/* final at bp+52 */
+			/* start at bp+48 */
+
+			/* args at bp+16 */
+			/* final at bp+84 */
+			/* start at bp+80 */
+
+			/* Read byteOffset (ta->offset) even if detached */
+
+			/* TypedArray.prototype.sort */
+
+			/* __u at bp+0 */
+
+			/* u at bp+0 */
+
+			/* v at bp+0 */
+
+			/* u at bp+0 */
+
+			/* v at bp+8 */
+
+			/* v at bp+0 */
+
+			/* v at bp+0 */
+
+			/* argv at bp+16 */
+			/* res at bp+48 */
+			/* val at bp+64 */
+
+			/* Note: the typed array can be detached without causing an
+			   error */
+
+			/* make sort stable: compare array offsets */
+
+			/* tsc at bp+32 */
+
+			/* XXX: a stable sort would use less memory */
+
+			/* detached typed array during the sort: no error */
+
+			// C documentation
+			//
+			//	/* 'obj' must be an allocated typed array object */
+
+			/* done at bp+16 */
+
+			/* len at bp+32 */
+			/* len1 at bp+40 */
+
+			/* necessary because it could have been detached */
+
+			/* same type: copy the content */
+
+			/* len at bp+32 */
+			/* offset at bp+40 */
+
+			/* during the GC the finalizers are called in an arbitrary
+			   order so the ArrayBuffer finalizer may have been called */
+
+			/* l at bp+64 */
+			/* obj at bp+48 */
+			/* offset at bp+40 */
+
+			/* could have been detached in js_create_from_ctor() */
+
+			/* pos at bp+24 */
+			/* u at bp+0 */
+
+			/* u at bp+32 */
+
+			/* u at bp+40 */
+
+			/* v at bp+8 */
+
+			/* d at bp+32 */
+			/* pos at bp+24 */
+			/* u at bp+0 */
+
+			/* u at bp+40 */
+
+			/* u at bp+48 */
+			/* v at bp+16 */
+			/* v64 at bp+8 */
+
+			/* avoid warning */
+			/* avoid warning */
+
+			/* Atomics */
+
+			/* Atomics */
+
+			/* idx at bp+16 */
+
+			/* RevalidateAtomicAccess(): must test again detached after JS_ToIndex() */
+
+			/* if the array buffer is detached, p->u.array.count = 0 */
+
+			/* __atomic_compare_exchange_tmp at bp+100 */
+			/* __atomic_compare_exchange_tmp at bp+108 */
+			/* __atomic_compare_exchange_tmp at bp+120 */
+			/* __atomic_compare_exchange_tmp at bp+97 */
+			/* __atomic_exchange_tmp at bp+45 */
+			/* __atomic_exchange_tmp at bp+48 */
+			/* __atomic_exchange_tmp at bp+56 */
+			/* __atomic_exchange_tmp at bp+72 */
+			/* __atomic_exchange_val at bp+44 */
+			/* __atomic_exchange_val at bp+46 */
+			/* __atomic_exchange_val at bp+52 */
+			/* __atomic_exchange_val at bp+64 */
+			/* __atomic_load_tmp at bp+80 */
+			/* __atomic_load_tmp at bp+82 */
+			/* __atomic_load_tmp at bp+84 */
+			/* __atomic_load_tmp at bp+88 */
+			/* abuf at bp+24 */
+			/* class_id at bp+20 */
+			/* size_log2 at bp+16 */
+			/* v at bp+0 */
+			/* v1 at bp+104 */
+			/* v1 at bp+112 */
+			/* v1 at bp+96 */
+			/* v1 at bp+98 */
+			/* v32 at bp+40 */
+			/* v64 at bp+32 */
+
+			/* __atomic_store_tmp at bp+56 */
+			/* __atomic_store_tmp at bp+68 */
+			/* __atomic_store_tmp at bp+70 */
+			/* __atomic_store_tmp at bp+72 */
+			/* abuf at bp+40 */
+			/* size_log2 at bp+32 */
+			/* v at bp+64 */
+			/* v64 at bp+48 */
+
+			/* XXX: spec, would be simpler to return the written value */
+
+			/* v at bp+0 */
+
+			/* __u at bp+0 */
+
+			/* d at bp+128 */
+			/* size_log2 at bp+120 */
+			/* ts at bp+24 */
+			/* v at bp+8 */
+			/* v32 at bp+16 */
+			/* waiter_s at bp+40 */
+
+			/* must use INT64_MAX + 1 because INT64_MAX cannot be exactly represented as a double */
+
+			/* XXX: inefficient if large number of waiters, should hash on
+			   'ptr' value */
+			/* XXX: use Linux futexes when available ? */
+
+			/* XXX: use clock monotonic */
+
+			/* abuf at bp+24 */
+			/* count at bp+16 */
+			/* waiter_list at bp+0 */
+
+			/* add Atomics as autoinit object */
+
+			/* buf at bp+24 */
+			/* ft at bp+16 */
+
+			/* TypedArray.prototype.toString must be the same object as Array.prototype.toString */
+
+			/* XXX: should use alias method in JSCFunctionListEntry */ //@@@
+
+			/* Used to squelch a -Wcast-function-type warning. */
+
+			/* Used to squelch a -Wcast-function-type warning. */
+
+			/* DataView */
+
+			/* Atomics */
+
+			/* WeakRef */
+
+			/* args at bp+16 */
+
+			/* WeakRef */
+
+			/* FinalizationRegistry */
+
+			/*
+			   TODO:
+			   - test n_digits=101 instead of 100
+			   - simplify subnormal handling
+			   - reduce max memory usage
+			   - free format: could add shortcut if exact result
+			   - use 64 bit limb_t when possible
+			   - use another algorithm for free format dtoa in base 10 (ryu ?)
+			*/
+
+			/* use fast path to print small integers in free format */
+
+			// C documentation
+			//
+			//	/* the represented number is sum(i, tab[i]*2^(LIMB_BITS * i)) */
+
+			// C documentation
+			//
+			//	/* tabr[] = taba[] * b + l. Return the high carry */
+
+			// C documentation
+			//
+			//	/* WARNING: d must be >= 2^(LIMB_BITS-1) */
+
+			// C documentation
+			//
+			//	/* return the quotient and the remainder in '*pr'of 'a1*2^LIMB_BITS+a0
+			//	   / d' with 0 <= a1 < d. */
+
+			/* compute a - q * r and update q so that the remainder is between
+			   0 and d - 1 */
+
+			// C documentation
+			//
+			//	/* r = (a + high*B^n) >> shift. Return the remainder r (0 <= r < 2^shift).
+			//	   1 <= shift <= LIMB_BITS - 1 */
+
+			// C documentation
+			//
+			//	/* r = (a << shift) + low. 1 <= shift <= LIMB_BITS - 1, 0 <= low <
+			//	   2^shift. */
+
+			// C documentation
+			//
+			//	/* return a^b */
+
+			/* round to nearest, ties to even */
+
+			/* round to nearest, ties away from zero */
+
+			// C documentation
+			//
+			//	/* compute round(r / 2^shift). 'shift' can be negative */
+
+			/* bit2 = oring of all the bits after bit1 */
+
+			/* round to even */
+
+			// C documentation
+			//
+			//	/* return -1, 0 or 1 */
+
+			// C documentation
+			//
+			//	/* floor_log2() = position of the first non zero bit or -1 if zero. */
+
+			// C documentation
+			//
+			//	/* round((1 << MUL_LOG2_RADIX_BASE_LOG2)/log2(i + 2)) */
+
+			// C documentation
+			//
+			//	/* return floor(a / log2(radix)) for -2048 <= a <= 2047 */
+
+			/* if the radix is a power of two better to do it exactly */
+
+			// C documentation
+			//
+			//	/* for power of 2 radixes. len >= 1 */
+
+			// C documentation
+			//
+			//	/* len >= 1. 2 <= radix <= 36 */
+
+			/* specific case with constant divisor */
+
+			/* buf1 at bp+0 */
+
+			/* at most two digits */
+
+			// C documentation
+			//
+			//	/* XXX: only tested for 1 <= n < 2^53 */
+
+			/* buf1 at bp+0 */
+
+			// C documentation
+			//
+			//	/* XXX: remove the table ? */
+
+			// C documentation
+			//
+			//	/* we limit the maximum number of significant digits for atod to about
+			//	   128 bits of precision for non power of two bases. The only
+			//	   requirement for Javascript is at least 20 digits in base 10. For
+			//	   power of two bases, we do an exact rounding in all the cases. */
+
+			// C documentation
+			//
+			//	/* if abs(d) >= B^max_exponent, it is an overflow */
+
+			// C documentation
+			//
+			//	/* if abs(d) <= B^min_exponent, it is an underflow */
+
+			// C documentation
+			//
+			//	/* n_digits >= 1. 0 <= dot_pos <= n_digits. If dot_pos == n_digits,
+			//	   the dot is not displayed. 'a' is modified. */
+
+			/* radix = 2^radix_bits */
+
+			/* add the dot */
+
+			// C documentation
+			//
+			//	/* return (a, e_offset) such that a = a * (radix1*2^radix_shift)^f *
+			//	   2^-e_offset. 'f' can be negative. */
+
+			/* b_inv at bp+4 */
+			/* shift at bp+0 */
+
+			/* high bound for the number of limbs (XXX: make it better) */
+
+			/* at least 'e' bits are needed in the final result for rounding */
+
+			/* at least two extra bits are needed in the final result
+			   for rounding */
+
+			/* if the remainder is non zero, use it for rounding */
+
+			// C documentation
+			//
+			//	/* tmp1 = round(m*2^e*radix^f). 'tmp0' is a temporary storage */
+
+			// C documentation
+			//
+			//	/* return round(a*2^e_offset) rounded as a float64. 'a' is modified */
+
+			/* zero result */
+
+			/* don't care */
+
+			/* subnormal result or zero */
+
+			/* mantissa overflow due to rounding */
+
+			// C documentation
+			//
+			//	/* return (m, e) such that m*2^(e-53) = round(a * radix^f) with 2^52
+			//	   <= m < 2^53 or m = 0.
+			//	   'a' is modified. */
+
+			// C documentation
+			//
+			//	/* return a maximum bound of the string length. The bound depends on
+			//	   'd' only if format = JS_DTOA_FORMAT_FRAC or if JS_DTOA_EXP_DISABLED
+			//	   is enabled. */
+
+			/* u at bp+0 */
+
+			/* no exponential */
+
+			/* NaN, Infinity */
+
+			/* XXX: adjust */
+
+			/* extra: sign, 1 dot and exponent "e-1000" */
+
+			/* NaN, Infinity */
+
+			/* high bound for the integer part */
+
+			/* x < 2^(e + 1) */
+
+			/* sign, extra digit, 1 dot */
+
+			/* also include NaN and [-]Infinity */
+
+			// C documentation
+			//
+			//	/* return the length */
+
+			/* e1 at bp+16 */
+			/* mptr at bp+8 */
+			/* u at bp+0 */
+
+			/* "-0" is displayed as "0" if JS_DTOA_MINUS_ZERO is not present */
+
+			/* denormal number: convert to a normal number */
+
+			/* remove the bias */
+
+			/* d = 2^(e-53)*m */
+			//    printf("m=0x%016" PRIx64 " e=%d\n", m, e);
+
+			/* 'm' is never zero */
+
+			/* this choice of E implies F=round(x*B^(P-E) is such as:
+			   B^(P-1) <= F < 2.B^P. */
+
+			/* P_max is guarranteed to work by construction */
+
+			/* find the minimum number of digits by successive tries */
+			/* P_max is guarateed to work */
+
+			/* mant_max always fits on 64 bits */
+
+			/* compute the mantissa in base B */
+
+			/* XXX: add inexact flag */
+
+			/* at most one iteration is possible */
+
+			/* remove useless trailing zero digits */
+
+			/* garanteed to work for P = P_max */
+
+			/* convert back to base 2 */
+
+			//            printf("P=%2d: m=0x%016" PRIx64 " e=%d m1=0x%016" PRIx64 " e1=%d\n", P, m, e, m1, e1);
+			/* Note: (m, e) is never zero here, so the exponent for m1
+			   = 0 does not matter */
+
+			/* try lower exponent */
+
+			/* P = max_int(E, 1) + n_digits; */
+			/* frac is rounded using RNDNA */
+
+			/* we add one extra digit on the left and remove it if needed
+			   to avoid testing if the result is < radix^P */
+
+			/* mant_max = radix^P */
+
+			/* fixed and frac are rounded using RNDNA */
+
+			/* at most one iteration is possible */
+
+			// C documentation
+			//
+			//	/* r = r * radix_base + a. radix_base = 0 means radix_base = 2^32 */
+
+			// C documentation
+			//
+			//	/* XXX: add fast path for small integers */
+
+			/* e at bp+24 */
+			/* mptr at bp+8 */
+			/* p at bp+16 */
+			/* u at bp+0 */
+
+			/* optional separator between digits */
+
+			/* there must be a digit after the prefix */
+
+			/* radix = 2^radix_bits */
+
+			/* skip leading zeros */
+
+			/* XXX: could be faster when radix_bits != 0 */
+
+			/* Use the extra digits for rounding if the base is a power of
+			   two. Otherwise they are just truncated. */
+
+			/* parse the exponent, if any */
+
+			/* XXX: could stop before the exponent part */
+
+			/* if zero result, the exponent can be arbitrarily large */
+
+			/* infinity */
+
+			/* overflow */
+
+			/* underflow */
+			/* XXX: check rounding */
+
+			/* subnormal */
+
+			/*
+			   TODO:
+
+			   - Add a lock step execution mode (=linear time execution guaranteed)
+			     when the regular expression is "simple" i.e. no backreference nor
+			     complicated lookahead. The opcodes are designed for this execution
+			     model.
+			*/
+
+			/* must be large enough to have a negligible runtime cost and small
+			   enough to call the interrupt callback often. */
+
+			/* unicode code points */
+
+			// C documentation
+			//
+			//	/* insert 'len' bytes at position 'pos'. Return < 0 if error. */
+
+			/* not found */
+
+			/* increase the size of the hash table if needed */
+
+			// C documentation
+			//
+			//	/* return -1 if memory error, 0 if OK */
+
+			/* b_pt at bp+0 */
+
+			// C documentation
+			//
+			//	/* a = a op b */
+
+			/* remove it */
+
+			/* keep it */
+
+			/* a_s at bp+0 */
+
+			/* XXX: simplify */
+
+			// C documentation
+			//
+			//	/* code point ranges for Zs,Zl or Zp property */
+
+			// C documentation
+			//
+			//	/* return the offset of the u32 value */
+
+			// C documentation
+			//
+			//	/* If allow_overflow is false, return -1 in case of
+			//	   overflow. Otherwise return INT32_MAX. */
+
+			// C documentation
+			//
+			//	/* Parse an escape sequence, *pp points after the '\':
+			//	   allow_utf16 value:
+			//	   0 : no UTF-16 escapes allowed
+			//	   1 : UTF-16 escapes allowed
+			//	   2 : UTF-16 escapes allowed and escapes of surrogate pairs are
+			//	   converted to a unicode character (unicode regexp case).
+			//
+			//	   Return the unicode char and update *pp if recognized,
+			//	   return -1 if malformed escape,
+			//	   return -2 otherwise. */
+
+			/* convert an escaped surrogate pair into a
+			   unicode char */
+
+			/* only accept \0 not followed by digit */
+
+			// C documentation
+			//
+			//	/* XXX: we use the same chars for name and value */
+
+			// C documentation
+			//
+			//	/* XXX: memory error test */
+
+			/* cr_tmp at bp+128 */
+			/* name at bp+0 */
+			/* value at bp+64 */
+
+			//    printf("name=%s value=%s\n", name, value);
+
+			/* the ordering of case folding and inversion  differs with
+			   unicode_sets. 'unicode_sets' ordering is more consistent */
+			/* XXX: the spec seems incorrect, we do it as the other engines
+			   seem to do it. */
+
+			/* p at bp+8 */
+			/* str at bp+16 */
+
+			/* skip the '}' */
+
+			// C documentation
+			//
+			//	/* return -1 if error otherwise the character or a class range
+			//	   (CLASS_RANGE_BASE) if cr != NULL. In case of class range, 'cr' is
+			//	   initialized. Otherwise, it is ignored. */
+
+			/* p at bp+0 */
+
+			/* Annex B.1.4 */
+
+			/* otherwise return '\' and 'c' */
+
+			/* always valid to escape these characters */
+
+			/* just ignore the '\' */
+
+			/* fall thru */
+
+			/* forbidden double characters */
+
+			/* invalid characters in unicode sets */
+
+			/* normal char */
+
+			/* XXX: should handle non BMP-1 code points */
+
+			/* can use 16 bit ranges with the conversion that 0xffff =
+			   infinity */
+
+			//    re_string_list_dump("sl", sl);
+
+			/* simple case: only characters */
+
+			/* at least one string list is present : match the longest ones first */
+			/* XXX: add a new op_switch opcode to compile as a trie */
+
+			/* char range */
+
+			/* not used */
+
+			/* patch the 'goto match' */
+
+			/* b_pt at bp+0 */
+
+			/* create a range with a single character */
+
+			/* b_pt at bp+0 */
+			/* cr1_s at bp+16 */
+			/* cr2_s at bp+80 */
+			/* p at bp+8 */
+			/* p0 at bp+72 */
+
+			/* skip '[' */
+
+			/* handle unions */
+
+			/* first character class followed by '--' */
+
+			/* Annex B: match '-' character */
+
+			/* Annex B: match '-' character */
+
+			/* union operation */
+
+			/* handle '&&' */
+
+			/* handle '--' */
+
+			/* skip ']' */
+
+			/* XXX: add may_contain_string syntax check to be fully
+			   compliant. The test here accepts more input than the
+			   spec. */
+
+			/* cr_s at bp+0 */
+
+			// C documentation
+			//
+			//	/* Return:
+			//	   - true if the opcodes may not advance the char pointer
+			//	   - false if the opcodes always advance the char pointer
+			//	*/
+
+			/* no effect */
+
+			/* safe behavior: we cannot predict the outcome */
+
+			// C documentation
+			//
+			//	/* return -1 if a simple quantifier cannot be used. Otherwise return
+			//	   the number of characters in the atom. */
+
+			// C documentation
+			//
+			//	/* '*pp' is the first char after '<' */
+
+			/* p at bp+0 */
+			/* p1 at bp+8 */
+
+			// accept surrogate pairs
+
+			// C documentation
+			//
+			//	/* if capture_name = NULL: return the number of captures + 1.
+			//	   Otherwise, return the capture index corresponding to capture_name
+			//	   or -1 if none */
+
+			/* name at bp+8 */
+			/* p at bp+0 */
+
+			/* potential named capture */
+
+			/* cr_s at bp+8 */
+			/* dummy_res at bp+80 */
+			/* p at bp+0 */
+			/* p1 at bp+64 */
+			/* p1 at bp+72 */
+
+			/* Annex B: we accept '{' not followed by digits as a
+			   normal atom */
+
+			/* Annex B: error if it is like a repetition count */
+
+			/* fall thru */
+
+			/* lookahead */
+
+			/* Annex B allows lookahead to be used as an atom for
+			   the quantifiers */
+
+			/* jump after the 'match' after the lookahead is successful */
+
+			/* group name with a trailing zero */
+
+			/* capture without group name */
+
+			/* annex B: we tolerate invalid group names in non
+			   unicode mode if there is no named capture
+			   definition */
+
+			/* no capture name parsed before, try to look
+			   after (inefficient, but hopefully not common */
+
+			/* Annex B.1.4: accept legacy octal */
+
+			/* Annex B.1.4: accept legacy octal */
+
+			/* quantifier */
+
+			/* As an extension (see ES6 annex B), we accept '{' not
+			   followed by digits as a normal atom */
+
+			/* infinity */
+
+			/* Annex B: normal atom if invalid '{' syntax */
+
+			/* specific optimization for simple quantifiers */
+
+			/* the spec tells that if there is no advance when
+			   running the atom after the first quant_min times,
+			   then there is no match. We remove this test when we
+			   are sure the atom always advances the position. */
+
+			/* need to reset the capture in case the atom is
+			   not executed */
+
+			/* nothing to add */
+
+			/* copy the atom */
+
+			/* copy the atom */
+
+			/* reverse the order of the terms (XXX: inefficient, but
+			   speed is not really critical here) */
+
+			/* insert a split before the first alternative */
+
+			/* patch the goto */
+
+			// C documentation
+			//
+			//	/* the control flow is recursive so the analysis can be linear */
+
+			/* the bytecode cannot be larger than 2G. Leave some slack to
+			   avoid some overflows. */
+
+			// C documentation
+			//
+			//	/* 'buf' must be a zero terminated UTF-8 string of length buf_len.
+			//	   Return NULL if error and allocate an error message in *perror_msg,
+			//	   otherwise the compiled bytecode and its length in plen.
+			//	*/
+
+			/* s_s at bp+8 */
+
+			/* first element is the flags */
+			/* second element is the number of captures */
+			/* stack size */
+
+			/* bytecode length */
+
+			/* iterate thru all positions (about the same as .*?( ... ) )
+			   .  We do it without an explicit loop so that lock step
+			   thread execution will be possible in an optimized
+			   implementation */
+
+			/* add the named groups if needed */
+
+			/* reallocate the stack */
+
+			// C documentation
+			//
+			//	/* return 1 if match, 0 if not match or < 0 if error. */
+
+			//        printf("top=%p: pc=%d\n", th_list.top, (int)(pc - (bc_buf + RE_HEADER_LEN)));
+
+			/* go backward */
+
+			/* keep the capture in case of positive lookahead */
+
+			/* char before */
+
+			/* current char */
+
+			/* n must be >= 1 */
+
+			/* 0xffff in for last value means +infinity */
+
+			/* n must be >= 1 */
+
+			/* go to the previous char */
+
+			/* will examine all matches down to quant_min */
+
+			// C documentation
+			//
+			//	/* Return 1 if match, 0 if not match or < 0 if error (see LRE_RET_x). cindex is the
+			//	   starting position of the match and must be such as 0 <= cindex <=
+			//	   clen. */
+
+			/* s_s at bp+0 */
+
+			// C documentation
+			//
+			//	/* Return NULL if no group names. Otherwise, return a pointer to
+			//	   'capture_count - 1' zero terminated UTF-8 strings. */
+
+			EUNICODE_SCRIPT_Lydian
 		goto _3
 	_3:
 		if _JS_ToUint8ClampFree(tls, ctx2, bp+56, v2) != 0 {
@@ -112156,7 +113025,7 @@ func _js_typed_array_find(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc i
 	var dir, end, k, len1, v12, v17, v4, v6, v9 int32
 	var func1, index_val, res, this_arg, val1, v11, v14, v16, v2, v8 TJSValue
 	var p, v10, v13, v18 uintptr
-	var _ /* args at bp+16 */ [3]TJSValue
+	var _ [3]TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = dir, end, func1, index_val, k, len1, p, res, this_arg, val1, v10, v11, v12, v13, v14, v16, v17, v18, v2, v4, v6, v8, v9
 	val1 = TJSValue{
 		Fu:   TJSValueUnion{},
@@ -112302,26 +113171,26 @@ func _js_typed_array_indexOf(tls *libc.TLS, ctx2 uintptr, _this_val TJSValue, ar
 	var v3 bool
 	var v44 uint32
 	var v56, v58 TJSValue
-	var _ /* __u at bp+0 */ struct {
+	var _ struct {
 		F__i [0]uint32
 		F__f float32
 	}
-	var _ /* __u at bp+8 */ struct {
+	var _ struct {
 		F__i [0]uint64
 		F__f float64
 	}
-	var _ /* buf1 at bp+72 */ TJSBigIntBuf
-	var _ /* k at bp+48 */ int32
-	var _ /* k1 at bp+64 */ Tint64_t
-	var _ /* u at bp+16 */ struct {
+	var _ TJSBigIntBuf
+	var _ int32
+	var _ Tint64_t
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
-	var _ /* u at bp+24 */ struct {
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
-	var _ /* v64 at bp+56 */ Tint64_t
+	var _ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, addend, d1, d3, f, hf, inc, is_bigint, is_int, len1, p, p1, pp, pv, pv1, pv10, pv2, pv3, pv4, pv5, pv6, pv7, pv8, pv9, res, sgn, shift, stop, sz, tag, v1, v11, v5, v6, v7, v8, v12, v23, v26, v29, v3, v31, v33, v35, v36, v38, v41, v44, v46, v48, v51, v56, v58
 	res = -int32(1)
 	len1 = _js_typed_array_get_length_internal(tls, ctx2, *(*TJSValue)(unsafe.Pointer(bp + 32)))
@@ -112355,10 +113224,9 @@ func _js_typed_array_indexOf(tls *libc.TLS, ctx2 uintptr, _this_val TJSValue, ar
 		inc = int32(1)
 	}
 	p = *(*uintptr)(unsafe.Pointer(bp + 32))
-	/* if the array was detached, no need to go further (but no
-	   exception is raised) */
+
 	if _typed_array_is_detached(tls, ctx2, p) != 0 {
-		/* "includes" scans all the properties, so "undefined" can match */
+
 		if v3 = special == -int32(1); v3 {
 			v12 = libc.BoolInt32(int32((*(*TJSValue)(unsafe.Pointer(argv))).Ftag) == int32(EJS_TAG_UNDEFINED))
 			goto _2
@@ -112370,8 +113238,8 @@ func _js_typed_array_indexOf(tls *libc.TLS, ctx2 uintptr, _this_val TJSValue, ar
 		goto done
 	}
 	is_bigint = 0
-	is_int = 0                                /* avoid warning */
-	*(*Tint64_t)(unsafe.Pointer(bp + 56)) = 0 /* avoid warning */
+	is_int = 0
+	*(*Tint64_t)(unsafe.Pointer(bp + 56)) = 0
 	tag = int32((*(*TJSValue)(unsafe.Pointer(argv))).Ftag)
 	if tag == int32(EJS_TAG_INT) {
 		is_int = int32(1)
@@ -112395,17 +113263,17 @@ func _js_typed_array_indexOf(tls *libc.TLS, ctx2 uintptr, _this_val TJSValue, ar
 				if libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) == int32(EJS_CLASS_BIG_INT64_ARRAY) {
 					if (*TJSBigInt)(unsafe.Pointer(p1)).Flen1 > libc.Uint32FromInt32(sz) {
 						goto done
-					} /* does not fit an int64 : cannot be found */
+					}
 				} else {
 					if libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p), 6))) == int32(EJS_CLASS_BIG_UINT64_ARRAY) {
 						if _js_bigint_sign(tls, p1) != 0 {
 							goto done
-						} /* v < 0 */
+						}
 						if (*TJSBigInt)(unsafe.Pointer(p1)).Flen1 <= libc.Uint32FromInt32(sz) {
-							/* OK */
+
 						} else {
 							if (*TJSBigInt)(unsafe.Pointer(p1)).Flen1 == libc.Uint32FromInt32(sz+int32(1)) && *(*Tjs_limb_t)(unsafe.Pointer(p1 + 8 + uintptr(sz)*4)) == uint32(0) {
-								/* 2^63 <= v <= 2^64-1 */
+
 							} else {
 								goto done
 							}
@@ -112567,7 +113435,7 @@ _11:
 _24:
 	if libc.BoolInt32(v23&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) > libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0 {
 		pv3 = *(*uintptr)(unsafe.Pointer(p + 48 + 8))
-		/* special case: indexOf returns -1, includes finds NaN */
+
 		if special != -int32(1) {
 			goto done
 		}
@@ -112589,7 +113457,7 @@ _24:
 		}
 	} else {
 		if d3 == libc.Float64FromInt32(0) {
-			// special case: includes also finds negative zero
+
 			pv4 = *(*uintptr)(unsafe.Pointer(p + 48 + 8))
 			for {
 				if !(*(*int32)(unsafe.Pointer(bp + 48)) != stop) {
@@ -112683,7 +113551,7 @@ _12:
 _42:
 	if libc.BoolInt32(v41&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) > libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0 {
 		pv6 = *(*uintptr)(unsafe.Pointer(p + 48 + 8))
-		/* special case: indexOf returns -1, includes finds NaN */
+
 		if special != -int32(1) {
 			goto done
 		}
@@ -112736,7 +113604,7 @@ _13:
 _49:
 	if libc.BoolInt32(v48&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) > libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0 {
 		pv8 = *(*uintptr)(unsafe.Pointer(p + 48 + 8))
-		/* special case: indexOf returns -1, includes finds NaN */
+
 		if special != -int32(1) {
 			goto done
 		}
@@ -112852,8 +113720,8 @@ func _js_typed_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	var c, i, n, v1, v12, v15, v18, v4, v7, v9 int32
 	var el, v14, v17 TJSValue
 	var v11, v3 bool
-	var _ /* b_s at bp+32 */ TStringBuffer
-	var _ /* sep at bp+16 */ TJSValue
+	var _ TStringBuffer
+	var _ TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b, c, el, i, n, p, p1, v1, v11, v12, v14, v15, v16, v17, v18, v19, v3, v4, v7, v9
 	*(*TJSValue)(unsafe.Pointer(bp + 16)) = TJSValue{}
 	*(*TJSValue)(unsafe.Pointer(bp + 16)) = TJSValue{
@@ -112866,7 +113734,7 @@ func _js_typed_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 	if n < 0 {
 		goto exception
 	}
-	c = int32(',') /* default separator */
+	c = int32(',')
 	if v3 = !(toLocaleString != 0) && argc > 0; v3 {
 		v1 = libc.BoolInt32(int32((*(*TJSValue)(unsafe.Pointer(argv))).Ftag) == int32(EJS_TAG_UNDEFINED))
 		goto _2
@@ -112888,7 +113756,7 @@ func _js_typed_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 		}
 	}
 	_string_buffer_init(tls, ctx1, b, 0)
-	/* XXX: optimize with direct access */
+
 	i = 0
 	for {
 		if !(i < n) {
@@ -112906,7 +113774,7 @@ func _js_typed_array_join(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc i
 			}
 		}
 		el = XJS_GetPropertyUint32(tls, ctx1, this_val, libc.Uint32FromInt32(i))
-		/* Can return undefined for example if the typed array is detached */
+
 		v7 = libc.BoolInt32(int32(el.Ftag) == int32(EJS_TAG_NULL))
 		goto _8
 	_8:
@@ -113106,10 +113974,10 @@ func _slice_memcpy(tls *libc.TLS, dst uintptr, src uintptr, len1 Tsize_t) {
 	var v2, v3 uintptr
 	_, _, _ = v1, v2, v3
 	if dst+uintptr(len1) <= src || dst >= src+uintptr(len1) {
-		/* no overlap: can use memcpy */
+
 		libc.Xmemcpy(tls, dst, src, len1)
 	} else {
-		/* otherwise the spec mandates byte copy */
+
 		for {
 			v1 = len1
 			len1--
@@ -113131,9 +113999,9 @@ func _js_typed_array_slice(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc 
 	var arr, val1, v12, v16, v18, v7 TJSValue
 	var count, len1, n, shift, v1, v14, v19, v3, v4, v5, v9 int32
 	var p, p1, p11, v20 uintptr
-	var _ /* args at bp+16 */ [2]TJSValue
-	var _ /* final at bp+52 */ int32
-	var _ /* start at bp+48 */ int32
+	var _ [2]TJSValue
+	var _ int32
+	var _ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = arr, count, len1, n, p, p1, p11, shift, val1, v1, v12, v14, v16, v18, v19, v20, v3, v4, v5, v7, v9
 	arr = TJSValue{
 		Fu:   TJSValueUnion{},
@@ -113267,9 +114135,9 @@ func _js_typed_array_subarray(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, ar
 	var arr, ta_buffer, v11, v13, v9 TJSValue
 	var count, len1, offset, shift, v1, v14, v3, v4, v5, v7 int32
 	var p, p1, ta, v15 uintptr
-	var _ /* args at bp+16 */ [4]TJSValue
-	var _ /* final at bp+84 */ int32
-	var _ /* start at bp+80 */ int32
+	var _ [4]TJSValue
+	var _ int32
+	var _ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = arr, count, len1, offset, p, p1, shift, ta, ta_buffer, v1, v11, v13, v14, v15, v3, v4, v5, v7, v9
 	p1 = _get_typed_array(tls, ctx2, this_val, 0)
 	if !(p1 != 0) {
@@ -113303,7 +114171,7 @@ func _js_typed_array_subarray(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, ar
 	}
 	shift = libc.Int32FromUint8(_typed_array_size_log2[libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6)))-int32(EJS_CLASS_UINT8C_ARRAY)])
 	ta = *(*uintptr)(unsafe.Pointer(&(*TJSObject)(unsafe.Pointer(p1)).Fu))
-	/* Read byteOffset (ta->offset) even if detached */
+
 	offset = libc.Int32FromUint32((*TJSTypedArray)(unsafe.Pointer(ta)).Foffset + libc.Uint32FromInt32(*(*int32)(unsafe.Pointer(bp + 80))<<shift))
 	*(*int32)(unsafe.Pointer(bp + 84)) = len1
 	v1 = libc.BoolInt32(int32((*(*TJSValue)(unsafe.Pointer(argv + 1*16))).Ftag) == int32(EJS_TAG_UNDEFINED))
@@ -113380,14 +114248,12 @@ exception:
 	return r
 }
 
-/* TypedArray.prototype.sort */
-
 func _js_cmp_doubles(tls *libc.TLS, x float64, y float64) (r int32) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var v1, v11, v14, v4, v6, v8 uint64
 	var v10, v13, v3 int32
-	var _ /* __u at bp+0 */ struct {
+	var _ struct {
 		F__i [0]uint64
 		F__f float64
 	}
@@ -113508,7 +114374,7 @@ func _js_TA_cmp_float16(tls *libc.TLS, a uintptr, b uintptr, opaque uintptr) (r 
 	var d, v2, v4, v7, v9 float64
 	var v1 Tuint32_t
 	var v11, v6 Tuint16_t
-	var _ /* u at bp+0 */ struct {
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
@@ -113631,7 +114497,7 @@ func _js_TA_get_uint32(tls *libc.TLS, ctx3 uintptr, a uintptr) (r TJSValue) {
 	var v1, v3, v5, v7 TJSValue
 	var v11 uintptr
 	var v2 Tuint32_t
-	var _ /* v at bp+0 */ TJSValue
+	var _ TJSValue
 	_, _, _, _, _, _ = v1, v11, v2, v3, v5, v7
 	v11 = ctx3
 	v2 = *(*Tuint32_t)(unsafe.Pointer(a))
@@ -113676,11 +114542,11 @@ func _js_TA_get_float16(tls *libc.TLS, ctx1 uintptr, a uintptr) (r TJSValue) {
 	var v11 Tuint32_t
 	var v1 Tuint16_t
 	var v6 TJSValue
-	var _ /* u at bp+0 */ struct {
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
-	var _ /* v at bp+8 */ TJSValue
+	var _ TJSValue
 	_, _, _, _, _, _ = d, v11, v1, v2, v4, v6
 	v1 = *(*Tuint16_t)(unsafe.Pointer(a))
 	v11 = libc.Uint32FromInt32(libc.Int32FromUint16(v1) & int32(0x7fff))
@@ -113708,7 +114574,7 @@ func _js_TA_get_float32(tls *libc.TLS, ctx1 uintptr, a uintptr) (r TJSValue) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var v1 TJSValue
-	var _ /* v at bp+0 */ TJSValue
+	var _ TJSValue
 	_ = v1
 	_ = ctx1
 	(*(*TJSValue)(unsafe.Pointer(bp))).Ftag = int64(EJS_TAG_FLOAT64)
@@ -113723,7 +114589,7 @@ func _js_TA_get_float64(tls *libc.TLS, ctx1 uintptr, a uintptr) (r TJSValue) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var v1 TJSValue
-	var _ /* v at bp+0 */ TJSValue
+	var _ TJSValue
 	_ = v1
 	_ = ctx1
 	(*(*TJSValue)(unsafe.Pointer(bp))).Ftag = int64(EJS_TAG_FLOAT64)
@@ -113751,16 +114617,15 @@ func _js_TA_cmp_generic(tls *libc.TLS, a uintptr, b uintptr, opaque uintptr) (r 
 	var cmp, val, v1, v4, v7 int32
 	var ctx1, p, psc, v5, v8 uintptr
 	var v3, v6 TJSValue
-	var _ /* argv at bp+16 */ [2]TJSValue
-	var _ /* res at bp+48 */ TJSValue
-	var _ /* val at bp+64 */ float64
+	var _ [2]TJSValue
+	var _ TJSValue
+	var _ float64
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = a_idx, b_idx, cmp, ctx1, p, psc, val, v1, v3, v4, v5, v6, v7, v8
 	psc = opaque
 	ctx1 = (*TTA_sort_context)(unsafe.Pointer(psc)).Fctx
 	cmp = 0
 	if !((*TTA_sort_context)(unsafe.Pointer(psc)).Fexception != 0) {
-		/* Note: the typed array can be detached without causing an
-		   error */
+
 		a_idx = *(*Tuint32_t)(unsafe.Pointer(a))
 		b_idx = *(*Tuint32_t)(unsafe.Pointer(b))
 		(*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0] = (*(*func(*libc.TLS, uintptr, uintptr) TJSValue)(unsafe.Pointer(&struct{ uintptr }{(*TTA_sort_context)(unsafe.Pointer(psc)).Fgetfun})))(tls, ctx1, (*TTA_sort_context)(unsafe.Pointer(psc)).Farray_ptr+uintptr(uint64(a_idx)*libc.Uint64FromInt32((*TTA_sort_context)(unsafe.Pointer(psc)).Felt_size)))
@@ -113788,7 +114653,7 @@ func _js_TA_cmp_generic(tls *libc.TLS, a uintptr, b uintptr, opaque uintptr) (r 
 			}
 		}
 		if cmp == 0 {
-			/* make sort stable: compare array offsets */
+
 			cmp = libc.BoolInt32(a_idx > b_idx) - libc.BoolInt32(a_idx < b_idx)
 		}
 		if libc.X__builtin_expect(tls, libc.BoolInt64(!!(_typed_array_is_detached(tls, ctx1, *(*uintptr)(unsafe.Pointer(psc + 16))) != 0)), 0) != 0 {
@@ -113831,7 +114696,7 @@ func _js_typed_array_sort(tls *libc.TLS, ctx1 uintptr, _this_val TJSValue, argc 
 	var elt_size, i, j Tsize_t
 	var len1, v1, v3 int32
 	var v21, v22 TJSValue
-	var _ /* tsc at bp+32 */ TTA_sort_context
+	var _ TTA_sort_context
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = array_idx, array_ptr, array_tmp, cmpfun, elt_size, i, j, len1, p, p1, v1, v21, v22, v3
 	(*(*TTA_sort_context)(unsafe.Pointer(bp + 32))).Fctx = ctx1
 	(*(*TTA_sort_context)(unsafe.Pointer(bp + 32))).Fexception = 0
@@ -113901,7 +114766,7 @@ _2:
 		goto _4
 	_4:
 		if !(v3 != 0) {
-			/* XXX: a stable sort would use less memory */
+
 			array_idx = Xjs_malloc(tls, ctx1, libc.Uint64FromInt32(len1)*uint64(4))
 			if !(array_idx != 0) {
 				return TJSValue{
@@ -113929,7 +114794,7 @@ _2:
 			if (*(*TTA_sort_context)(unsafe.Pointer(bp + 32))).Fexception == int32(1) {
 				goto fail
 			}
-			/* detached typed array during the sort: no error */
+
 			goto _7
 		_6:
 			;
@@ -115456,9 +116321,6 @@ func _js_typed_array_base_constructor(tls *libc.TLS, ctx uintptr, this_val TJSVa
 	return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+14834, 0)
 }
 
-// C documentation
-//
-//	/* 'obj' must be an allocated typed array object */
 func _typed_array_init(tls *libc.TLS, ctx1 uintptr, _obj TJSValue, _buffer TJSValue, offset Tuint64_t, len1 Tuint64_t) (r int32) {
 	bp := tls.Alloc(48)
 	defer tls.Free(48)
@@ -115534,7 +116396,7 @@ func _js_array_from_iterator(tls *libc.TLS, ctx2 uintptr, plen uintptr, obj TJSV
 	var k Tuint32_t
 	var p, v15, v18, v21, v24, v27 uintptr
 	var v1, v11, v14, v17, v20, v23, v26, v3, v8 int32
-	var _ /* done at bp+16 */ TBOOL
+	var _ TBOOL
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = arr, iter, k, next_method, p, val, v1, v11, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v3, v5, v6, v8
 	next_method = TJSValue{
 		Fu:   TJSValueUnion{},
@@ -115659,8 +116521,8 @@ func _js_typed_array_constructor_obj(tls *libc.TLS, ctx3 uintptr, new_target TJS
 	var p, p1, v15, v28, v31, v34 uintptr
 	var size_log2, v1, v10, v14, v16, v21, v24, v27, v30, v33, v6, v8 int32
 	var v12 bool
-	var _ /* len at bp+32 */ Tint64_t
-	var _ /* len1 at bp+40 */ Tuint32_t
+	var _ Tint64_t
+	var _ Tuint32_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = arr, buffer, i, iter, p, p1, ret, size_log2, val, v1, v10, v12, v13, v14, v15, v16, v18, v19, v21, v24, v26, v27, v28, v29, v3, v30, v31, v32, v33, v34, v4, v6, v8
 	arr = TJSValue{
 		Fu:   TJSValueUnion{},
@@ -115867,7 +116729,7 @@ _4:
 	if v3 != 0 {
 		goto fail
 	}
-	/* necessary because it could have been detached */
+
 	if _typed_array_is_detached(tls, ctx1, p1) != 0 {
 		v5 = buffer
 		*(*TJSValue)(unsafe.Pointer(bp)) = v5
@@ -115888,7 +116750,7 @@ _4:
 		goto fail
 	}
 	if libc.Int32FromUint16(*(*Tuint16_t)(unsafe.Add(unsafe.Pointer(p1), 6))) == classid {
-		/* same type: copy the content */
+
 		libc.Xmemcpy(tls, (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdata, (*TJSArrayBuffer)(unsafe.Pointer(src_abuf)).Fdata+uintptr((*TJSTypedArray)(unsafe.Pointer(ta)).Foffset), libc.Uint64FromInt32((*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fbyte_length))
 	} else {
 		i = uint32(0)
@@ -115939,8 +116801,8 @@ func _js_typed_array_constructor(tls *libc.TLS, ctx2 uintptr, new_target TJSValu
 	var abuf, p, p1, p2, v15, v18 uintptr
 	var buffer, obj, v13, v16, v8, v9 TJSValue
 	var size_log2, v1, v11, v14, v17, v5 int32
-	var _ /* len at bp+32 */ Tuint64_t
-	var _ /* offset at bp+40 */ Tuint64_t
+	var _ Tuint64_t
+	var _ Tuint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = abuf, buffer, obj, p, p1, p2, size_log2, v1, v11, v13, v14, v15, v16, v17, v18, v5, v8, v9
 	size_log2 = libc.Int32FromUint8(_typed_array_size_log2[classid-int32(EJS_CLASS_UINT8C_ARRAY)])
 	if int32((*(*TJSValue)(unsafe.Pointer(argv))).Ftag) != int32(EJS_TAG_OBJECT) {
@@ -116084,8 +116946,7 @@ func _js_typed_array_finalizer(tls *libc.TLS, rt1 uintptr, _val TJSValue) {
 	p1 = *(*uintptr)(unsafe.Pointer(bp + 16))
 	ta = *(*uintptr)(unsafe.Pointer(&(*TJSObject)(unsafe.Pointer(p1)).Fu))
 	if ta != 0 {
-		/* during the GC the finalizers are called in an arbitrary
-		   order so the ArrayBuffer finalizer may have been called */
+
 		if (*TJSTypedArray)(unsafe.Pointer(ta)).Flink.Fnext != 0 {
 			v1 = ta
 			prev = (*Tlist_head)(unsafe.Pointer(v1)).Fprev
@@ -116137,9 +116998,9 @@ func _js_dataview_constructor(tls *libc.TLS, ctx2 uintptr, new_target TJSValue, 
 	var len1 Tuint32_t
 	var v1, v4, v8 int32
 	var v3 bool
-	var _ /* l at bp+64 */ Tuint64_t
-	var _ /* obj at bp+48 */ TJSValue
-	var _ /* offset at bp+40 */ Tuint64_t
+	var _ Tuint64_t
+	var _ TJSValue
+	var _ Tuint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = abuf, buffer, len1, p, p1, p2, ta, v1, v10, v11, v13, v14, v15, v16, v3, v4, v7, v8, v9
 	buffer = *(*TJSValue)(unsafe.Pointer(argv))
 	abuf = _js_get_array_buffer(tls, ctx2, buffer)
@@ -116193,7 +117054,7 @@ _5:
 		}
 	}
 	if (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdetached != 0 {
-		/* could have been detached in js_create_from_ctor() */
+
 		_JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx2)
 		goto fail
 	}
@@ -116260,20 +117121,20 @@ func _js_dataview_getValue(tls *libc.TLS, ctx3 uintptr, this_obj TJSValue, argc 
 	var v4, v1, v10, v17, v24, v3, v33, v35, v37, v59, v66, v73 TJSValue
 	var v6, v7, v39, v41, v42, v44, v46, v47, v68, v70, v711 Tuint64_t
 	var v8, v14, v15, v511, v52, v54, v71, v81 Tuint16_t
-	var _ /* pos at bp+24 */ Tuint64_t
-	var _ /* u at bp+0 */ struct {
+	var _ Tuint64_t
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
-	var _ /* u at bp+32 */ struct {
+	var _ struct {
 		Fi [0]Tuint32_t
 		Ff float32
 	}
-	var _ /* u at bp+40 */ struct {
+	var _ struct {
 		Fi [0]Tuint64_t
 		Ff float64
 	}
-	var _ /* v at bp+8 */ TJSValue
+	var _ TJSValue
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = abuf, d, is_swap, littleEndian, ptr, size, ta, v11, v4, v5, v6, v7, v8, v1, v10, v12, v14, v15, v17, v19, v21, v22, v24, v26, v28, v29, v3, v31, v32, v33, v35, v37, v39, v41, v42, v44, v46, v47, v49, v51, v511, v52, v54, v55, v57, v59, v61, v63, v64, v66, v68, v71, v70, v711, v73, v81
 	ta = XJS_GetOpaque2(tls, ctx3, this_obj, uint32(EJS_CLASS_DATAVIEW))
 	if !(ta != 0) {
@@ -116539,19 +117400,19 @@ func _js_dataview_setValue(tls *libc.TLS, ctx1 uintptr, this_obj TJSValue, argc 
 	var shift, size, v1 int32
 	var val4 TJSValue
 	var v5, v7, v8 Tuint16_t
-	var _ /* d at bp+32 */ float64
-	var _ /* pos at bp+24 */ Tuint64_t
-	var _ /* u at bp+0 */ struct {
+	var _ float64
+	var _ Tuint64_t
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
-	var _ /* u at bp+40 */ struct {
+	var _ struct {
 		Fi [0]Tuint32_t
 		Ff float32
 	}
-	var _ /* u at bp+48 */ TJSFloat64Union
-	var _ /* v at bp+16 */ Tuint32_t
-	var _ /* v64 at bp+8 */ Tuint64_t
+	var _ TJSFloat64Union
+	var _ Tuint32_t
+	var _ Tuint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a, abuf, addend, is_swap, littleEndian, ptr, sgn, shift, size, ta, v2, val4, v1, v10, v11, v13, v14, v3, v5, v7, v8
 	ta = XJS_GetOpaque2(tls, ctx1, this_obj, uint32(EJS_CLASS_DATAVIEW))
 	if !(ta != 0) {
@@ -116568,8 +117429,8 @@ func _js_dataview_setValue(tls *libc.TLS, ctx1 uintptr, this_obj TJSValue, argc 
 		}
 	}
 	val4 = *(*TJSValue)(unsafe.Pointer(argv + 1*16))
-	*(*Tuint32_t)(unsafe.Pointer(bp + 16)) = uint32(0) /* avoid warning */
-	*(*Tuint64_t)(unsafe.Pointer(bp + 8)) = uint64(0)  /* avoid warning */
+	*(*Tuint32_t)(unsafe.Pointer(bp + 16)) = uint32(0)
+	*(*Tuint64_t)(unsafe.Pointer(bp + 8)) = uint64(0)
 	if class_id <= int32(EJS_CLASS_UINT32_ARRAY) {
 		v1 = XJS_ToInt32(tls, ctx1, bp+16, val4)
 		goto _2
@@ -117630,11 +118491,7 @@ var _js_dataview_proto_funcs = [26]TJSCFunctionListEntry{
 	},
 }
 
-/* Atomics */
-
 type TAtomicsOpEnum = int32
-
-/* Atomics */
 
 type _AtomicsOpEnum = int32
 
@@ -117654,7 +118511,7 @@ func _js_atomics_get_ptr(tls *libc.TLS, ctx uintptr, pabuf uintptr, psize_log2 u
 	var abuf, p, ptr, ta uintptr
 	var err TBOOL
 	var size_log2 int32
-	var _ /* idx at bp+16 */ Tuint64_t
+	var _ Tuint64_t
 	_, _, _, _, _, _ = abuf, err, p, ptr, size_log2, ta
 	if int32((*(*TJSValue)(unsafe.Pointer(bp))).Ftag) != int32(EJS_TAG_OBJECT) {
 		goto fail
@@ -117690,12 +118547,12 @@ _1:
 	if XJS_ToIndex(tls, ctx, bp+16, idx_val) != 0 {
 		return libc.UintptrFromInt32(0)
 	}
-	/* RevalidateAtomicAccess(): must test again detached after JS_ToIndex() */
+
 	if (*TJSArrayBuffer)(unsafe.Pointer(abuf)).Fdetached != 0 {
 		_JS_ThrowTypeErrorDetachedArrayBuffer(tls, ctx)
 		return libc.UintptrFromInt32(0)
 	}
-	/* if the array buffer is detached, p->u.array.count = 0 */
+
 	if *(*Tuint64_t)(unsafe.Pointer(bp + 16)) >= uint64((*(*struct {
 		Fu1 struct {
 			Ftyped_array [0]uintptr
@@ -117746,32 +118603,32 @@ func _js_atomics_op(tls *libc.TLS, ctx4 uintptr, this_obj TJSValue, argc int32, 
 	var v10, v6 Tuint16_t
 	var v111, v30, v7 Tuint32_t
 	var v5, v9 Tuint8_t
-	var _ /* __atomic_compare_exchange_tmp at bp+100 */ Tuint16_t
-	var _ /* __atomic_compare_exchange_tmp at bp+108 */ Tuint32_t
-	var _ /* __atomic_compare_exchange_tmp at bp+120 */ Tuint64_t
-	var _ /* __atomic_compare_exchange_tmp at bp+97 */ Tuint8_t
-	var _ /* __atomic_exchange_tmp at bp+45 */ Tuint8_t
-	var _ /* __atomic_exchange_tmp at bp+48 */ Tuint16_t
-	var _ /* __atomic_exchange_tmp at bp+56 */ Tuint32_t
-	var _ /* __atomic_exchange_tmp at bp+72 */ Tuint64_t
-	var _ /* __atomic_exchange_val at bp+44 */ Tuint8_t
-	var _ /* __atomic_exchange_val at bp+46 */ Tuint16_t
-	var _ /* __atomic_exchange_val at bp+52 */ Tuint32_t
-	var _ /* __atomic_exchange_val at bp+64 */ Tuint64_t
-	var _ /* __atomic_load_tmp at bp+80 */ Tuint8_t
-	var _ /* __atomic_load_tmp at bp+82 */ Tuint16_t
-	var _ /* __atomic_load_tmp at bp+84 */ Tuint32_t
-	var _ /* __atomic_load_tmp at bp+88 */ Tuint64_t
-	var _ /* abuf at bp+24 */ uintptr
-	var _ /* class_id at bp+20 */ TJSClassID
-	var _ /* size_log2 at bp+16 */ int32
-	var _ /* v at bp+0 */ TJSValue
-	var _ /* v1 at bp+104 */ Tuint32_t
-	var _ /* v1 at bp+112 */ Tuint64_t
-	var _ /* v1 at bp+96 */ Tuint8_t
-	var _ /* v1 at bp+98 */ Tuint16_t
-	var _ /* v32 at bp+40 */ Tuint32_t
-	var _ /* v64 at bp+32 */ Tint64_t
+	var _ Tuint16_t
+	var _ Tuint32_t
+	var _ Tuint64_t
+	var _ Tuint8_t
+	var _ Tuint8_t
+	var _ Tuint16_t
+	var _ Tuint32_t
+	var _ Tuint64_t
+	var _ Tuint8_t
+	var _ Tuint16_t
+	var _ Tuint32_t
+	var _ Tuint64_t
+	var _ Tuint8_t
+	var _ Tuint16_t
+	var _ Tuint32_t
+	var _ Tuint64_t
+	var _ uintptr
+	var _ TJSClassID
+	var _ int32
+	var _ TJSValue
+	var _ Tuint32_t
+	var _ Tuint64_t
+	var _ Tuint8_t
+	var _ Tuint16_t
+	var _ Tuint32_t
+	var _ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __atomic_compare_exchange_ptr, __atomic_compare_exchange_ptr1, __atomic_compare_exchange_ptr2, __atomic_compare_exchange_ptr3, __atomic_exchange_ptr, __atomic_exchange_ptr1, __atomic_exchange_ptr2, __atomic_exchange_ptr3, __atomic_load_ptr, __atomic_load_ptr1, __atomic_load_ptr2, __atomic_load_ptr3, a, ptr, rep_val, ret, v1, v2, v11, v10, v111, v12, v13, v14, v15, v16, v27, v29, v3, v30, v31, v33, v35, v5, v6, v7, v8, v9
 	ptr = _js_atomics_get_ptr(tls, ctx4, bp+24, bp+16, bp+20, *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), 0)
 	if !(ptr != 0) {
@@ -118073,14 +118930,14 @@ func _js_atomics_store(tls *libc.TLS, ctx3 uintptr, this_obj TJSValue, argc int3
 	var __atomic_store_ptr, __atomic_store_ptr1, __atomic_store_ptr2, __atomic_store_ptr3, p, p1, ptr, v18, v8 uintptr
 	var ret, v1, v10, v16, v2, v6, v9 TJSValue
 	var v12, v14, v17, v4, v7 int32
-	var _ /* __atomic_store_tmp at bp+56 */ Tuint64_t
-	var _ /* __atomic_store_tmp at bp+68 */ Tuint8_t
-	var _ /* __atomic_store_tmp at bp+70 */ Tuint16_t
-	var _ /* __atomic_store_tmp at bp+72 */ Tuint32_t
-	var _ /* abuf at bp+40 */ uintptr
-	var _ /* size_log2 at bp+32 */ int32
-	var _ /* v at bp+64 */ Tuint32_t
-	var _ /* v64 at bp+48 */ Tint64_t
+	var _ Tuint64_t
+	var _ Tuint8_t
+	var _ Tuint16_t
+	var _ Tuint32_t
+	var _ uintptr
+	var _ int32
+	var _ Tuint32_t
+	var _ Tint64_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __atomic_store_ptr, __atomic_store_ptr1, __atomic_store_ptr2, __atomic_store_ptr3, p, p1, ptr, ret, v1, v10, v12, v14, v16, v17, v18, v2, v4, v6, v7, v8, v9
 	ptr = _js_atomics_get_ptr(tls, ctx3, bp+40, bp+32, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), 0)
 	if !(ptr != 0) {
@@ -118133,7 +118990,7 @@ func _js_atomics_store(tls *libc.TLS, ctx3 uintptr, this_obj TJSValue, argc int3
 			libc.X__atomic_storeUint64(tls, __atomic_store_ptr, bp+56, libc.Int32FromInt32(M__ATOMIC_SEQ_CST))
 		}
 	} else {
-		/* XXX: spec, would be simpler to return the written value */
+
 		_ = ctx3
 		v9 = *(*TJSValue)(unsafe.Pointer(argv + 2*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 16)) = v9
@@ -118205,7 +119062,7 @@ func _js_atomics_isLockFree(tls *libc.TLS, ctx1 uintptr, this_obj TJSValue, argc
 	defer tls.Free(16)
 	var ret int32
 	var v1 TJSValue
-	var _ /* v at bp+0 */ int32
+	var _ int32
 	_, _ = ret, v1
 	if XJS_ToInt32Sat(tls, ctx1, bp, *(*TJSValue)(unsafe.Pointer(argv))) != 0 {
 		return TJSValue{
@@ -118248,16 +119105,16 @@ func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32,
 	var res, ret int32
 	var timeout Tint64_t
 	var v1 uint64
-	var _ /* __u at bp+0 */ struct {
+	var _ struct {
 		F__i [0]uint64
 		F__f float64
 	}
-	var _ /* d at bp+128 */ float64
-	var _ /* size_log2 at bp+120 */ int32
-	var _ /* ts at bp+24 */ Ttimespec
-	var _ /* v at bp+8 */ Tint64_t
-	var _ /* v32 at bp+16 */ Tint32_t
-	var _ /* waiter_s at bp+40 */ TJSAtomicsWaiter
+	var _ float64
+	var _ int32
+	var _ Ttimespec
+	var _ Tint64_t
+	var _ Tint32_t
+	var _ TJSAtomicsWaiter
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = next1, prev1, ptr, res, ret, timeout, waiter, v1, v3, v4, v5, v6, v7
 	ptr = _js_atomics_get_ptr(tls, ctx, libc.UintptrFromInt32(0), bp+120, libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), int32(2))
 	if !(ptr != 0) {
@@ -118288,7 +119145,7 @@ func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32,
 			Ftag: int64(EJS_TAG_EXCEPTION),
 		}
 	}
-	/* must use INT64_MAX + 1 because INT64_MAX cannot be exactly represented as a double */
+
 	*(*float64)(unsafe.Pointer(bp)) = *(*float64)(unsafe.Pointer(bp + 128))
 	v1 = *(*uint64)(unsafe.Pointer(bp))
 	goto _2
@@ -118306,9 +119163,7 @@ _2:
 	if !(TBOOL(*(*uint8)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Frt + 368))&0xff>>0)<<24>>24 != 0) {
 		return XJS_ThrowTypeError(tls, ctx, __ccgo_ts+15241, 0)
 	}
-	/* XXX: inefficient if large number of waiters, should hash on
-	   'ptr' value */
-	/* XXX: use Linux futexes when available ? */
+
 	libc.Xpthread_mutex_lock(tls, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
 	if *(*int32)(unsafe.Pointer(bp + 120)) == int32(3) {
 		res = libc.BoolInt32(*(*Tint64_t)(unsafe.Pointer(ptr)) != *(*Tint64_t)(unsafe.Pointer(bp + 8)))
@@ -118335,7 +119190,7 @@ _2:
 		libc.Xpthread_cond_wait(tls, waiter+24, uintptr(unsafe.Pointer(&_js_atomics_mutex)))
 		ret = 0
 	} else {
-		/* XXX: use clock monotonic */
+
 		libc.Xclock_gettime(tls, MCLOCK_REALTIME, bp+24)
 		(*(*Ttimespec)(unsafe.Pointer(bp + 24))).Ftv_sec += timeout / int64(1000)
 		(*(*Ttimespec)(unsafe.Pointer(bp + 24))).Ftv_nsec += timeout % int64(1000) * int64(1000000)
@@ -118371,9 +119226,9 @@ func _js_atomics_notify(tls *libc.TLS, ctx1 uintptr, this_obj TJSValue, argc int
 	var n Tint32_t
 	var v1 int32
 	var v11 TJSValue
-	var _ /* abuf at bp+24 */ uintptr
-	var _ /* count at bp+16 */ Tint32_t
-	var _ /* waiter_list at bp+0 */ Tlist_head
+	var _ uintptr
+	var _ Tint32_t
+	var _ Tlist_head
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = el11, el3, n, next1, prev1, ptr, waiter, v1, v11, v3, v5, v6, v7, v8, v9
 	ptr = _js_atomics_get_ptr(tls, ctx1, bp+24, libc.UintptrFromInt32(0), libc.UintptrFromInt32(0), *(*TJSValue)(unsafe.Pointer(argv)), *(*TJSValue)(unsafe.Pointer(argv + 1*16)), int32(1))
 	if !(ptr != 0) {
@@ -118960,7 +119815,7 @@ var _js_atomics_obj = [1]TJSCFunctionListEntry{
 }
 
 func XJS_AddIntrinsicAtomics(tls *libc.TLS, ctx uintptr) {
-	/* add Atomics as autoinit object */
+
 	XJS_SetPropertyFunctionList(tls, ctx, (*TJSContext)(unsafe.Pointer(ctx)).Fglobal_obj, uintptr(unsafe.Pointer(&_js_atomics_obj)), libc.Int32FromUint64(libc.Uint64FromInt64(32)/libc.Uint64FromInt64(32)))
 }
 
@@ -118970,8 +119825,8 @@ func XJS_AddIntrinsicTypedArrays(tls *libc.TLS, ctx3 uintptr) {
 	var array_buffer_func, func_obj, obj, shared_array_buffer_func, typed_array_base_func, typed_array_base_proto, v1, v12, v2, v5, v7, v9 TJSValue
 	var i, v10, v13 int32
 	var name, p, v11, v14 uintptr
-	var _ /* buf at bp+24 */ [64]uint8
-	var _ /* ft at bp+16 */ TJSCFunctionType
+	var _ [64]uint8
+	var _ TJSCFunctionType
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = array_buffer_func, func_obj, i, name, obj, p, shared_array_buffer_func, typed_array_base_func, typed_array_base_proto, v1, v10, v11, v12, v13, v14, v2, v5, v7, v9
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Fclass_proto + uintptr(EJS_CLASS_ARRAY_BUFFER)*16)) = XJS_NewObject(tls, ctx3)
 	XJS_SetPropertyFunctionList(tls, ctx3, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Fclass_proto + uintptr(EJS_CLASS_ARRAY_BUFFER)*16)), uintptr(unsafe.Pointer(&_js_array_buffer_proto_funcs)), libc.Int32FromUint64(libc.Uint64FromInt64(96)/libc.Uint64FromInt64(32)))
@@ -118987,16 +119842,16 @@ func XJS_AddIntrinsicTypedArrays(tls *libc.TLS, ctx3 uintptr) {
 	v2 = XJS_GetPropertyInternal(tls, ctx3, v1, uint32(EJS_ATOM_toString), v1, 0)
 	goto _3
 _3:
-	/* TypedArray.prototype.toString must be the same object as Array.prototype.toString */
+
 	obj = v2
-	/* XXX: should use alias method in JSCFunctionListEntry */ //@@@
+
 	XJS_DefinePropertyValue(tls, ctx3, typed_array_base_proto, uint32(EJS_ATOM_toString), obj, libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
 	typed_array_base_func = XJS_NewCFunction2(tls, ctx3, __ccgo_fp(_js_typed_array_base_constructor), __ccgo_ts+14731, 0, int32(EJS_CFUNC_constructor_or_func), 0)
 	XJS_SetPropertyFunctionList(tls, ctx3, typed_array_base_func, uintptr(unsafe.Pointer(&_js_typed_array_base_funcs)), libc.Int32FromUint64(libc.Uint64FromInt64(96)/libc.Uint64FromInt64(32)))
 	XJS_SetConstructor(tls, ctx3, typed_array_base_func, typed_array_base_proto)
-	/* Used to squelch a -Wcast-function-type warning. */
+
 	*(*TJSCFunctionType)(unsafe.Pointer(bp + 16)) = TJSCFunctionType{}
-	/* Used to squelch a -Wcast-function-type warning. */
+
 	*(*uintptr)(unsafe.Pointer(bp + 16)) = __ccgo_fp(_js_typed_array_constructor)
 	i = int32(EJS_CLASS_UINT8C_ARRAY)
 	for {
@@ -119054,15 +119909,13 @@ _3:
 			x__JS_FreeValue(tls, ctx3, v12)
 		}
 	}
-	/* DataView */
+
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Fclass_proto + uintptr(EJS_CLASS_DATAVIEW)*16)) = XJS_NewObject(tls, ctx3)
 	XJS_SetPropertyFunctionList(tls, ctx3, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Fclass_proto + uintptr(EJS_CLASS_DATAVIEW)*16)), uintptr(unsafe.Pointer(&_js_dataview_proto_funcs)), libc.Int32FromUint64(libc.Uint64FromInt64(832)/libc.Uint64FromInt64(32)))
 	_JS_NewGlobalCConstructorOnly(tls, ctx3, __ccgo_ts+14722, __ccgo_fp(_js_dataview_constructor), int32(1), *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx3)).Fclass_proto + uintptr(EJS_CLASS_DATAVIEW)*16)))
-	/* Atomics */
+
 	XJS_AddIntrinsicAtomics(tls, ctx3)
 }
-
-/* WeakRef */
 
 type TJSWeakRefData = struct {
 	Fweakref_header TJSWeakRefHeader
@@ -119379,7 +120232,7 @@ func _finrec_delete_weakref(tls *libc.TLS, rt1 uintptr, wh uintptr) {
 	var el1, el11, frd, fre, next, p, prev, v4, v5 uintptr
 	var v2 TJSValue
 	var v3 int32
-	var _ /* args at bp+16 */ [2]TJSValue
+	var _ [2]TJSValue
 	_, _, _, _, _, _, _, _, _, _, _ = el1, el11, frd, fre, next, p, prev, v2, v3, v4, v5
 	frd = wh - uintptr(uint64(libc.UintptrFromInt32(0)))
 	el1 = (*Tlist_head)(unsafe.Pointer(frd + 24)).Fnext
@@ -119763,14 +120616,14 @@ func XJS_AddIntrinsicWeakRef(tls *libc.TLS, ctx uintptr) {
 	var rt uintptr
 	_ = rt
 	rt = (*TJSContext)(unsafe.Pointer(ctx)).Frt
-	/* WeakRef */
+
 	if !(XJS_IsRegisteredClass(tls, rt, uint32(EJS_CLASS_WEAK_REF)) != 0) {
 		_init_class_range(tls, rt, uintptr(unsafe.Pointer(&_js_weakref_class_def)), int32(EJS_CLASS_WEAK_REF), libc.Int32FromUint64(libc.Uint64FromInt64(24)/libc.Uint64FromInt64(24)))
 	}
 	*(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_WEAK_REF)*16)) = XJS_NewObject(tls, ctx)
 	XJS_SetPropertyFunctionList(tls, ctx, *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_WEAK_REF)*16)), uintptr(unsafe.Pointer(&_js_weakref_proto_funcs)), libc.Int32FromUint64(libc.Uint64FromInt64(64)/libc.Uint64FromInt64(32)))
 	_JS_NewGlobalCConstructor(tls, ctx, __ccgo_ts+15413, __ccgo_fp(_js_weakref_constructor), int32(1), *(*TJSValue)(unsafe.Pointer((*TJSContext)(unsafe.Pointer(ctx)).Fclass_proto + uintptr(EJS_CLASS_WEAK_REF)*16)))
-	/* FinalizationRegistry */
+
 	if !(XJS_IsRegisteredClass(tls, rt, uint32(EJS_CLASS_FINALIZATION_REGISTRY)) != 0) {
 		_init_class_range(tls, rt, uintptr(unsafe.Pointer(&_js_finrec_class_def)), int32(EJS_CLASS_FINALIZATION_REGISTRY), libc.Int32FromUint64(libc.Uint64FromInt64(24)/libc.Uint64FromInt64(24)))
 	}
@@ -119883,18 +120736,6 @@ type t__jmp_buf_tag = struct {
 
 type Tsigjmp_buf = [1]t__jmp_buf_tag
 
-/*
-   TODO:
-   - test n_digits=101 instead of 100
-   - simplify subnormal handling
-   - reduce max memory usage
-   - free format: could add shortcut if exact result
-   - use 64 bit limb_t when possible
-   - use another algorithm for free format dtoa in base 10 (ryu ?)
-*/
-
-/* use fast path to print small integers in free format */
-
 type Tslimb_t = int32
 
 type Tlimb_t = uint32
@@ -119903,9 +120744,6 @@ type Tdlimb_t = uint64
 
 type Tmp_size_t = int64
 
-// C documentation
-//
-//	/* the represented number is sum(i, tab[i]*2^(LIMB_BITS * i)) */
 type Tmpb_t = struct {
 	Flen1 int32
 }
@@ -119934,9 +120772,6 @@ func _mp_add_ui(tls *libc.TLS, tab uintptr, b Tlimb_t, n Tsize_t) (r Tlimb_t) {
 	return k
 }
 
-// C documentation
-//
-//	/* tabr[] = taba[] * b + l. Return the high carry */
 func _mp_mul11(tls *libc.TLS, tabr uintptr, taba uintptr, n Tlimb_t, b Tlimb_t, l Tlimb_t) (r Tlimb_t) {
 	var i Tlimb_t
 	var t Tdlimb_t
@@ -119957,9 +120792,6 @@ func _mp_mul11(tls *libc.TLS, tabr uintptr, taba uintptr, n Tlimb_t, b Tlimb_t, 
 	return l
 }
 
-// C documentation
-//
-//	/* WARNING: d must be >= 2^(LIMB_BITS-1) */
 func _udiv1norm_init1(tls *libc.TLS, d Tlimb_t) (r Tlimb_t) {
 	var a0, a1 Tlimb_t
 	_, _ = a0, a1
@@ -119968,10 +120800,6 @@ func _udiv1norm_init1(tls *libc.TLS, d Tlimb_t) (r Tlimb_t) {
 	return uint32((uint64(a1)<<(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)) | uint64(a0)) / uint64(d))
 }
 
-// C documentation
-//
-//	/* return the quotient and the remainder in '*pr'of 'a1*2^LIMB_BITS+a0
-//	   / d' with 0 <= a1 < d. */
 func _udiv1norm1(tls *libc.TLS, pr uintptr, a1 Tlimb_t, a0 Tlimb_t, d Tlimb_t, d_inv Tlimb_t) (r1 Tlimb_t) {
 	var a Tdlimb_t
 	var ah, n1m, n_adj, q, r Tlimb_t
@@ -119980,8 +120808,7 @@ func _udiv1norm1(tls *libc.TLS, pr uintptr, a1 Tlimb_t, a0 Tlimb_t, d Tlimb_t, d
 	n_adj = a0 + n1m&d
 	a = uint64(d_inv)*uint64(a1-n1m) + uint64(n_adj)
 	q = uint32(a>>(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)) + uint64(a1))
-	/* compute a - q * r and update q so that the remainder is between
-	   0 and d - 1 */
+
 	a = uint64(a1)<<(libc.Int32FromInt32(1)<<libc.Int32FromInt32(MLIMB_LOG2_BITS)) | uint64(a0)
 	a = a - uint64(q)*uint64(d) - uint64(d)
 	ah = uint32(a >> (libc.Int32FromInt32(1) << libc.Int32FromInt32(MLIMB_LOG2_BITS)))
@@ -120011,10 +120838,6 @@ func _mp_div11(tls *libc.TLS, tabr uintptr, taba uintptr, n Tlimb_t, b Tlimb_t, 
 	return r
 }
 
-// C documentation
-//
-//	/* r = (a + high*B^n) >> shift. Return the remainder r (0 <= r < 2^shift).
-//	   1 <= shift <= LIMB_BITS - 1 */
 func _mp_shr1(tls *libc.TLS, tab_r uintptr, tab uintptr, n Tmp_size_t, shift int32, high Tlimb_t) (r Tlimb_t) {
 	var a, l Tlimb_t
 	var i Tmp_size_t
@@ -120036,10 +120859,6 @@ func _mp_shr1(tls *libc.TLS, tab_r uintptr, tab uintptr, n Tmp_size_t, shift int
 	return l & (libc.Uint32FromInt32(1)<<shift - uint32(1))
 }
 
-// C documentation
-//
-//	/* r = (a << shift) + low. 1 <= shift <= LIMB_BITS - 1, 0 <= low <
-//	   2^shift. */
 func _mp_shl1(tls *libc.TLS, tab_r uintptr, tab uintptr, n Tmp_size_t, shift int32, low Tlimb_t) (r Tlimb_t) {
 	var a, l Tlimb_t
 	var i Tmp_size_t
@@ -120157,9 +120976,6 @@ var _pow5_inv_table = [13]Tuint32_t{
 	12: uint32(0xc25c2684),
 }
 
-// C documentation
-//
-//	/* return a^b */
 func _pow_ui(tls *libc.TLS, a1 Tuint32_t, b Tuint32_t) (r1 Tuint64_t) {
 	var i, n_bits, v1 int32
 	var r Tuint64_t
@@ -120229,10 +121045,8 @@ func _pow_ui_inv(tls *libc.TLS, pr_inv uintptr, pshift uintptr, a1 Tuint32_t, b 
 }
 
 const EJS_RNDN = 0
-const /* round to nearest, ties to even */
-EJS_RNDNA = 1
-const /* round to nearest, ties away from zero */
-EJS_RNDZ = 2
+const EJS_RNDNA = 1
+const EJS_RNDZ = 2
 
 func _mpb_get_bit(tls *libc.TLS, r uintptr, k int32) (r1 int32) {
 	var l int32
@@ -120247,9 +121061,6 @@ func _mpb_get_bit(tls *libc.TLS, r uintptr, k int32) (r1 int32) {
 	return r1
 }
 
-// C documentation
-//
-//	/* compute round(r / 2^shift). 'shift' can be negative */
 func _mpb_shr_round(tls *libc.TLS, r uintptr, shift int32, rnd_mode int32) {
 	var a1, bit1, bit2 Tlimb_t
 	var add_one, i, k, l, v4, v5, v6, v9 int32
@@ -120306,7 +121117,7 @@ func _mpb_shr_round(tls *libc.TLS, r uintptr, shift int32, rnd_mode int32) {
 				if rnd_mode == int32(EJS_RNDNA) {
 					bit2 = uint32(1)
 				} else {
-					/* bit2 = oring of all the bits after bit1 */
+
 					bit2 = uint32(0)
 					if shift >= int32(2) {
 						k = shift - int32(1)
@@ -120341,7 +121152,7 @@ func _mpb_shr_round(tls *libc.TLS, r uintptr, shift int32, rnd_mode int32) {
 				if bit2 != 0 {
 					add_one = int32(1)
 				} else {
-					/* round to even */
+
 					add_one = _mpb_get_bit(tls, r, shift)
 				}
 			} else {
@@ -120386,9 +121197,6 @@ func _mpb_shr_round(tls *libc.TLS, r uintptr, shift int32, rnd_mode int32) {
 	}
 }
 
-// C documentation
-//
-//	/* return -1, 0 or 1 */
 func _mpb_cmp(tls *libc.TLS, a uintptr, b uintptr) (r int32) {
 	var i Tmp_size_t
 	_ = i
@@ -120438,9 +121246,6 @@ func _mpb_get_u64(tls *libc.TLS, r uintptr) (r1 Tuint64_t) {
 	return r1
 }
 
-// C documentation
-//
-//	/* floor_log2() = position of the first non zero bit or -1 if zero. */
 func _mpb_floor_log2(tls *libc.TLS, a1 uintptr) (r int32) {
 	var v Tlimb_t
 	var v1 int32
@@ -120457,9 +121262,6 @@ func _mpb_floor_log2(tls *libc.TLS, a1 uintptr) (r int32) {
 	return r
 }
 
-// C documentation
-//
-//	/* round((1 << MUL_LOG2_RADIX_BASE_LOG2)/log2(i + 2)) */
 var _mul_log2_radix_table = [35]Tuint32_t{
 	1:  uint32(0xa1849d),
 	3:  uint32(0x6e40d2),
@@ -120493,14 +121295,11 @@ var _mul_log2_radix_table = [35]Tuint32_t{
 	34: uint32(0x318465),
 }
 
-// C documentation
-//
-//	/* return floor(a / log2(radix)) for -2048 <= a <= 2047 */
 func _mul_log2_radix(tls *libc.TLS, a1 int32, radix int32) (r int32) {
 	var mult, radix_bits, v1 int32
 	_, _, _ = mult, radix_bits, v1
 	if radix&(radix-int32(1)) == 0 {
-		/* if the radix is a power of two better to do it exactly */
+
 		v1 = libc.X__builtin_clz(tls, libc.Uint32FromInt32(radix))
 		goto _2
 	_2:
@@ -120534,9 +121333,6 @@ func _u32toa_len(tls *libc.TLS, buf uintptr, n Tuint32_t, len1 Tsize_t) {
 	}
 }
 
-// C documentation
-//
-//	/* for power of 2 radixes. len >= 1 */
 func _u64toa_bin_len(tls *libc.TLS, buf uintptr, n Tuint64_t, radix_bits uint32, len1 int32) {
 	var digit, i int32
 	var mask uint32
@@ -120562,14 +121358,11 @@ func _u64toa_bin_len(tls *libc.TLS, buf uintptr, n Tuint64_t, radix_bits uint32,
 	}
 }
 
-// C documentation
-//
-//	/* len >= 1. 2 <= radix <= 36 */
 func _limb_to_a1(tls *libc.TLS, buf uintptr, n Tlimb_t, radix uint32, len1 int32) {
 	var digit, i int32
 	_, _ = digit, i
 	if radix == uint32(10) {
-		/* specific case with constant divisor */
+
 		_u32toa_len(tls, buf, n, libc.Uint64FromInt32(len1))
 	} else {
 		i = len1 - int32(1)
@@ -120598,7 +121391,7 @@ func Xu32toa(tls *libc.TLS, buf uintptr, n Tuint32_t) (r Tsize_t) {
 	defer tls.Free(16)
 	var len1 Tsize_t
 	var q, v1 uintptr
-	var _ /* buf1 at bp+0 */ [10]uint8
+	var _ [10]uint8
 	_, _, _ = len1, q, v1
 	q = bp + uintptr(10)
 	for cond := true; cond; cond = n != uint32(0) {
@@ -120636,7 +121429,7 @@ func Xu64toa(tls *libc.TLS, buf uintptr, n Tuint64_t) (r Tsize_t) {
 		if n1 >= uint64(0x100000000) {
 			n2 = uint32(n1 / uint64(1000000000))
 			n1 = n1 % uint64(1000000000)
-			/* at most two digits */
+
 			if n2 >= uint32(10) {
 				v1 = q
 				q++
@@ -120668,16 +121461,13 @@ func Xi64toa(tls *libc.TLS, buf uintptr, n Tint64_t) (r Tsize_t) {
 	return r
 }
 
-// C documentation
-//
-//	/* XXX: only tested for 1 <= n < 2^53 */
 func Xu64toa_radix(tls *libc.TLS, buf uintptr, n Tuint64_t, radix uint32) (r Tsize_t) {
 	bp := tls.Alloc(48)
 	defer tls.Free(48)
 	var digit, l, radix_bits, v1, v3 int32
 	var len1 Tsize_t
 	var q, v5 uintptr
-	var _ /* buf1 at bp+0 */ [41]uint8
+	var _ [41]uint8
 	_, _, _, _, _, _, _, _ = digit, l, len1, q, radix_bits, v1, v3, v5
 	if libc.X__builtin_expect(tls, libc.BoolInt64(!!(radix == libc.Uint32FromInt32(10))), int64(1)) != 0 {
 		return Xu64toa(tls, buf, n)
@@ -120801,9 +121591,6 @@ var _radix_base_table1 = [35]Tuint32_t{
 	34: uint32(0x81bf1000),
 }
 
-// C documentation
-//
-//	/* XXX: remove the table ? */
 var _dtoa_max_digits_table = [35]Tuint8_t{
 	0:  uint8(54),
 	1:  uint8(35),
@@ -120842,12 +121629,6 @@ var _dtoa_max_digits_table = [35]Tuint8_t{
 	34: uint8(12),
 }
 
-// C documentation
-//
-//	/* we limit the maximum number of significant digits for atod to about
-//	   128 bits of precision for non power of two bases. The only
-//	   requirement for Javascript is at least 20 digits in base 10. For
-//	   power of two bases, we do an exact rounding in all the cases. */
 var _atod_max_digits_table = [35]Tuint8_t{
 	0:  uint8(64),
 	1:  uint8(80),
@@ -120886,9 +121667,6 @@ var _atod_max_digits_table = [35]Tuint8_t{
 	34: uint8(24),
 }
 
-// C documentation
-//
-//	/* if abs(d) >= B^max_exponent, it is an overflow */
 var _max_exponent = [35]Tint16_t{
 	0:  int16(1024),
 	1:  int16(647),
@@ -120927,9 +121705,6 @@ var _max_exponent = [35]Tint16_t{
 	34: int16(199),
 }
 
-// C documentation
-//
-//	/* if abs(d) <= B^min_exponent, it is an underflow */
 var _min_exponent = [35]Tint16_t{
 	0:  int16(-int32(1075)),
 	1:  int16(-int32(679)),
@@ -120968,17 +121743,13 @@ var _min_exponent = [35]Tint16_t{
 	34: int16(-int32(208)),
 }
 
-// C documentation
-//
-//	/* n_digits >= 1. 0 <= dot_pos <= n_digits. If dot_pos == n_digits,
-//	   the dot is not displayed. 'a' is modified. */
 func _output_digits(tls *libc.TLS, buf uintptr, a2 uintptr, radix int32, n_digits1 int32, dot_pos int32) (r1 int32) {
 	var digits_per_limb, len1, n, n_digits, radix_bits, v1, v10, v4, v5, v6, v8, v9 int32
 	var r Tlimb_t
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = digits_per_limb, len1, n, n_digits, r, radix_bits, v1, v10, v4, v5, v6, v8, v9
 	n_digits = n_digits1
 	if radix&(radix-int32(1)) == 0 {
-		/* radix = 2^radix_bits */
+
 		v1 = libc.X__builtin_clz(tls, libc.Uint32FromInt32(radix))
 		goto _2
 	_2:
@@ -121028,7 +121799,7 @@ func _output_digits(tls *libc.TLS, buf uintptr, a2 uintptr, radix int32, n_digit
 			_limb_to_a1(tls, buf+uintptr(n_digits), r, libc.Uint32FromInt32(radix), n)
 		}
 	}
-	/* add the dot */
+
 	len1 = n_digits1
 	if dot_pos != n_digits1 {
 		libc.Xmemmove(tls, buf+uintptr(dot_pos)+uintptr(1), buf+uintptr(dot_pos), libc.Uint64FromInt32(n_digits1-dot_pos))
@@ -121038,18 +121809,14 @@ func _output_digits(tls *libc.TLS, buf uintptr, a2 uintptr, radix int32, n_digit
 	return len1
 }
 
-// C documentation
-//
-//	/* return (a, e_offset) such that a = a * (radix1*2^radix_shift)^f *
-//	   2^-e_offset. 'f' can be negative. */
 func _mul_pow(tls *libc.TLS, a2 uintptr, radix1 int32, radix_shift int32, f int32, is_int TBOOL, e int32) (r1 int32) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var b2, b3, h, r, rem Tlimb_t
 	var d, e_offset, extra_bits, l, n, n0, v1, v11, v12, v13, v15, v16, v17, v2, v3, v5, v7, v8, v9 int32
 	var v6 uintptr
-	var _ /* b_inv at bp+4 */ Tlimb_t
-	var _ /* shift at bp+0 */ int32
+	var _ Tlimb_t
+	var _ int32
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = b2, b3, d, e_offset, extra_bits, h, l, n, n0, r, rem, v1, v11, v12, v13, v15, v16, v17, v2, v3, v5, v6, v7, v8, v9
 	e_offset = -f * radix_shift
 	if radix1 != int32(1) {
@@ -121084,10 +121851,10 @@ func _mul_pow(tls *libc.TLS, a2 uintptr, radix1 int32, radix_shift int32, f int3
 			}
 		} else {
 			f = -f
-			l = (f + d - int32(1)) / d /* high bound for the number of limbs (XXX: make it better) */
+			l = (f + d - int32(1)) / d
 			e_offset += l * (libc.Int32FromInt32(1) << libc.Int32FromInt32(MLIMB_LOG2_BITS))
 			if !(is_int != 0) {
-				/* at least 'e' bits are needed in the final result for rounding */
+
 				v7 = e - _mpb_floor_log2(tls, a2)
 				v8 = 0
 				if v7 > v8 {
@@ -121100,8 +121867,7 @@ func _mul_pow(tls *libc.TLS, a2 uintptr, radix1 int32, radix_shift int32, f int3
 			_10:
 				extra_bits = v9
 			} else {
-				/* at least two extra bits are needed in the final result
-				   for rounding */
+
 				v11 = int32(2) + e - e_offset
 				v12 = 0
 				if v11 > v12 {
@@ -121142,16 +121908,13 @@ func _mul_pow(tls *libc.TLS, a2 uintptr, radix1 int32, radix_shift int32, f int3
 				_mpb_renorm(tls, a2)
 				f -= n
 			}
-			/* if the remainder is non zero, use it for rounding */
+
 			*(*Tlimb_t)(unsafe.Pointer(a2 + 4)) |= libc.BoolUint32(rem != libc.Uint32FromInt32(0))
 		}
 	}
 	return e_offset
 }
 
-// C documentation
-//
-//	/* tmp1 = round(m*2^e*radix^f). 'tmp0' is a temporary storage */
 func _mul_pow_round(tls *libc.TLS, tmp1 uintptr, m Tuint64_t, e int32, radix1 int32, radix_shift int32, f int32, rnd_mode int32) {
 	var e_offset int32
 	_ = e_offset
@@ -121160,23 +121923,20 @@ func _mul_pow_round(tls *libc.TLS, tmp1 uintptr, m Tuint64_t, e int32, radix1 in
 	_mpb_shr_round(tls, tmp1, -e+e_offset, rnd_mode)
 }
 
-// C documentation
-//
-//	/* return round(a*2^e_offset) rounded as a float64. 'a' is modified */
 func _round_to_d(tls *libc.TLS, pe uintptr, a uintptr, e_offset int32, rnd_mode int32) (r Tuint64_t) {
 	var e, e_min, prec, prec1 int32
 	var m Tuint64_t
 	_, _, _, _, _ = e, e_min, m, prec, prec1
 	if *(*Tlimb_t)(unsafe.Pointer(a + 4)) == uint32(0) && (*Tmpb_t)(unsafe.Pointer(a)).Flen1 == int32(1) {
-		/* zero result */
+
 		m = uint64(0)
-		e = 0 /* don't care */
+		e = 0
 	} else {
 		e = _mpb_floor_log2(tls, a) + int32(1) - e_offset
 		prec1 = int32(53)
 		e_min = -int32(1021)
 		if e < e_min {
-			/* subnormal result or zero */
+
 			prec = prec1 - (e_min - e)
 		} else {
 			prec = prec1
@@ -121184,7 +121944,7 @@ func _round_to_d(tls *libc.TLS, pe uintptr, a uintptr, e_offset int32, rnd_mode 
 		_mpb_shr_round(tls, a, e+e_offset-prec, rnd_mode)
 		m = _mpb_get_u64(tls, a)
 		m <<= libc.Uint64FromInt32(libc.Int32FromInt32(53) - prec)
-		/* mantissa overflow due to rounding */
+
 		if m >= libc.Uint64FromInt32(1)<<libc.Int32FromInt32(53) {
 			m >>= uint64(1)
 			e++
@@ -121194,11 +121954,6 @@ func _round_to_d(tls *libc.TLS, pe uintptr, a uintptr, e_offset int32, rnd_mode 
 	return m
 }
 
-// C documentation
-//
-//	/* return (m, e) such that m*2^(e-53) = round(a * radix^f) with 2^52
-//	   <= m < 2^53 or m = 0.
-//	   'a' is modified. */
 func _mul_pow_round_to_d(tls *libc.TLS, pe uintptr, a uintptr, radix1 int32, radix_shift int32, f int32, rnd_mode int32) (r Tuint64_t) {
 	var e_offset int32
 	_ = e_offset
@@ -121206,17 +121961,12 @@ func _mul_pow_round_to_d(tls *libc.TLS, pe uintptr, a uintptr, radix1 int32, rad
 	return _round_to_d(tls, pe, a, e_offset, rnd_mode)
 }
 
-// C documentation
-//
-//	/* return a maximum bound of the string length. The bound depends on
-//	   'd' only if format = JS_DTOA_FORMAT_FRAC or if JS_DTOA_EXP_DISABLED
-//	   is enabled. */
 func Xjs_dtoa_max_len(tls *libc.TLS, d1 float64, radix int32, n_digits int32, flags int32) (r int32) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var a1, v1, v3 Tuint64_t
 	var e, fmt, n, v5, v6, v7 int32
-	var _ /* u at bp+0 */ struct {
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
@@ -121229,7 +121979,7 @@ func Xjs_dtoa_max_len(tls *libc.TLS, d1 float64, radix int32, n_digits int32, fl
 			n = n_digits
 		}
 		if flags&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(2)) == libc.Int32FromInt32(2)<<libc.Int32FromInt32(2) {
-			/* no exponential */
+
 			*(*float64)(unsafe.Pointer(bp)) = d1
 			v1 = *(*Tuint64_t)(unsafe.Pointer(bp))
 			goto _2
@@ -121237,15 +121987,15 @@ func Xjs_dtoa_max_len(tls *libc.TLS, d1 float64, radix int32, n_digits int32, fl
 			a1 = v1
 			e = libc.Int32FromUint64(a1 >> libc.Int32FromInt32(52) & uint64(0x7ff))
 			if e == int32(0x7ff) {
-				/* NaN, Infinity */
+
 				n = 0
 			} else {
 				e -= int32(1023)
-				/* XXX: adjust */
+
 				n += int32(10) + libc.Xabs(tls, _mul_log2_radix(tls, e-int32(1), radix))
 			}
 		} else {
-			/* extra: sign, 1 dot and exponent "e-1000" */
+
 			n += libc.Int32FromInt32(1) + libc.Int32FromInt32(1) + libc.Int32FromInt32(6)
 		}
 	} else {
@@ -121256,18 +122006,18 @@ func Xjs_dtoa_max_len(tls *libc.TLS, d1 float64, radix int32, n_digits int32, fl
 		a1 = v3
 		e = libc.Int32FromUint64(a1 >> libc.Int32FromInt32(52) & uint64(0x7ff))
 		if e == int32(0x7ff) {
-			/* NaN, Infinity */
+
 			n = 0
 		} else {
-			/* high bound for the integer part */
+
 			e -= int32(1023)
-			/* x < 2^(e + 1) */
+
 			if e < 0 {
 				n = int32(1)
 			} else {
 				n = int32(2) + _mul_log2_radix(tls, e-int32(1), radix)
 			}
-			/* sign, extra digit, 1 dot */
+
 			n += libc.Int32FromInt32(1) + libc.Int32FromInt32(1) + libc.Int32FromInt32(1) + n_digits
 		}
 	}
@@ -121281,7 +122031,7 @@ func Xjs_dtoa_max_len(tls *libc.TLS, d1 float64, radix int32, n_digits int32, fl
 		goto _8
 	}
 _8:
-	return v7 /* also include NaN and [-]Infinity */
+	return v7
 }
 
 func _dtoa_malloc(tls *libc.TLS, pptr uintptr, size Tsize_t) (r uintptr) {
@@ -121295,18 +122045,15 @@ func _dtoa_malloc(tls *libc.TLS, pptr uintptr, size Tsize_t) (r uintptr) {
 func _dtoa_free(tls *libc.TLS, ptr uintptr) {
 }
 
-// C documentation
-//
-//	/* return the length */
 func Xjs_dtoa(tls *libc.TLS, buf uintptr, d1 float64, radix int32, n_digits int32, flags int32, tmp_mem uintptr) (r int32) {
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
 	var E, E0, E_found, E_max, P, P_found, P_max, e, fmt, i, l, len1, pow_shift, radix1, radix_shift, sgn, v1, v16, v17, v18, v20, v21, v22, v34, v35, v36, v7 int32
 	var a4, m, m1, mant, mant_found, mant_max1, v3 Tuint64_t
 	var mant_max, q, tmp1, v25, v26, v27, v28, v29, v30, v31, v33, v39, v5, v6, v9 uintptr
-	var _ /* e1 at bp+16 */ int32
-	var _ /* mptr at bp+8 */ uintptr
-	var _ /* u at bp+0 */ struct {
+	var _ int32
+	var _ uintptr
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
@@ -121358,7 +122105,7 @@ _4:
 						P = n_digits
 					}
 				}
-				/* "-0" is displayed as "0" if JS_DTOA_MINUS_ZERO is not present */
+
 				if sgn != 0 && flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(4)) != 0 {
 					v6 = q
 					q++
@@ -121366,7 +122113,7 @@ _4:
 				}
 				goto output
 			}
-			/* denormal number: convert to a normal number */
+
 			v7 = libc.X__builtin_clzll(tls, m)
 			goto _8
 		_8:
@@ -121382,60 +122129,56 @@ _4:
 		q++
 		*(*uint8)(unsafe.Pointer(v9)) = uint8('-')
 	}
-	/* remove the bias */
+
 	e -= int32(1022)
-	/* d = 2^(e-53)*m */
-	//    printf("m=0x%016" PRIx64 " e=%d\n", m, e);
+
 	if fmt == libc.Int32FromInt32(0)<<libc.Int32FromInt32(0) && e >= int32(1) && e <= int32(53) && m&(libc.Uint64FromInt32(1)<<(libc.Int32FromInt32(53)-e)-uint64(1)) == uint64(0) && flags&(libc.Int32FromInt32(3)<<libc.Int32FromInt32(2)) != libc.Int32FromInt32(1)<<libc.Int32FromInt32(2) {
 		m >>= libc.Uint64FromInt32(int32(53) - e)
-		/* 'm' is never zero */
+
 		q += uintptr(Xu64toa_radix(tls, q, m, libc.Uint32FromInt32(radix)))
 		goto done
 	}
-	/* this choice of E implies F=round(x*B^(P-E) is such as:
-	   B^(P-1) <= F < 2.B^P. */
+
 	E = int32(1) + _mul_log2_radix(tls, e-int32(1), radix)
 	if fmt == libc.Int32FromInt32(0)<<libc.Int32FromInt32(0) {
-		/* P_max is guarranteed to work by construction */
+
 		P_max = libc.Int32FromUint8(_dtoa_max_digits_table[radix-int32(2)])
 		E0 = E
 		E_found = 0
 		P_found = 0
 		mant_found = uint64(0)
-		/* find the minimum number of digits by successive tries */
-		P = P_max /* P_max is guarateed to work */
+
+		P = P_max
 	_12:
 		;
-		/* mant_max always fits on 64 bits */
+
 		mant_max1 = _pow_ui(tls, libc.Uint32FromInt32(radix), libc.Uint32FromInt32(P))
-		/* compute the mantissa in base B */
+
 		E = E0
 		for {
-			/* XXX: add inexact flag */
+
 			_mul_pow_round(tls, tmp1, m, e-int32(53), radix1, radix_shift, P-E, int32(EJS_RNDN))
 			mant = _mpb_get_u64(tls, tmp1)
 			if mant < mant_max1 {
 				break
 			}
-			E++ /* at most one iteration is possible */
+			E++
 			goto _13
 		_13:
 		}
-		/* remove useless trailing zero digits */
+
 		for mant%libc.Uint64FromInt32(radix) == uint64(0) {
 			mant /= libc.Uint64FromInt32(radix)
 			P--
 		}
-		/* garanteed to work for P = P_max */
+
 		if P_found == 0 {
 			goto prec_found
 		}
-		/* convert back to base 2 */
+
 		_mpb_set_u64(tls, tmp1, mant)
 		m1 = _mul_pow_round_to_d(tls, bp+16, tmp1, radix1, radix_shift, E-P, int32(EJS_RNDN))
-		//            printf("P=%2d: m=0x%016" PRIx64 " e=%d m1=0x%016" PRIx64 " e1=%d\n", P, m, e, m1, e1);
-		/* Note: (m, e) is never zero here, so the exponent for m1
-		   = 0 does not matter */
+
 		if !(m1 == m && *(*int32)(unsafe.Pointer(bp + 16)) == e) {
 			goto _14
 		}
@@ -121448,7 +122191,7 @@ _4:
 		if P == int32(1) {
 			goto _10
 		}
-		P-- /* try lower exponent */
+		P--
 		goto _15
 	_14:
 		;
@@ -121467,11 +122210,9 @@ _4:
 		_mpb_set_u64(tls, tmp1, mant_found)
 	} else {
 		if fmt == libc.Int32FromInt32(2)<<libc.Int32FromInt32(0) {
-			/* P = max_int(E, 1) + n_digits; */
-			/* frac is rounded using RNDNA */
+
 			_mul_pow_round(tls, tmp1, m, e-int32(53), radix1, radix_shift, n_digits, int32(EJS_RNDNA))
-			/* we add one extra digit on the left and remove it if needed
-			   to avoid testing if the result is < radix^P */
+
 			v16 = E + int32(1)
 			v17 = int32(1)
 			if v16 > v17 {
@@ -121501,18 +122242,18 @@ _4:
 			goto done
 		} else {
 			P = n_digits
-			/* mant_max = radix^P */
+
 			(*Tmpb_t)(unsafe.Pointer(mant_max)).Flen1 = int32(1)
 			*(*Tlimb_t)(unsafe.Pointer(mant_max + 4)) = uint32(1)
 			pow_shift = _mul_pow(tls, mant_max, radix1, radix_shift, P, int32(EFALSE), 0)
 			_mpb_shr_round(tls, mant_max, pow_shift, int32(EJS_RNDZ))
 			for {
-				/* fixed and frac are rounded using RNDNA */
+
 				_mul_pow_round(tls, tmp1, m, e-int32(53), radix1, radix_shift, P-E, int32(EJS_RNDNA))
 				if _mpb_cmp(tls, tmp1, mant_max) < 0 {
 					break
 				}
-				E++ /* at most one iteration is possible */
+				E++
 				goto _24
 			_24:
 			}
@@ -121631,9 +122372,6 @@ func _to_digit1(tls *libc.TLS, c int32) (r int32) {
 	return r
 }
 
-// C documentation
-//
-//	/* r = r * radix_base + a. radix_base = 0 means radix_base = 2^32 */
 func _mpb_mul1_base(tls *libc.TLS, r uintptr, radix_base Tlimb_t, a Tlimb_t) {
 	var i int32
 	_ = i
@@ -121661,9 +122399,6 @@ func _mpb_mul1_base(tls *libc.TLS, r uintptr, radix_base Tlimb_t, a Tlimb_t) {
 	}
 }
 
-// C documentation
-//
-//	/* XXX: add fast path for small integers */
 func Xjs_atod(tls *libc.TLS, str uintptr, pnext uintptr, radix int32, flags int32, tmp_mem uintptr) (r float64) {
 	bp := tls.Alloc(32)
 	defer tls.Free(32)
@@ -121673,17 +122408,17 @@ func Xjs_atod(tls *libc.TLS, str uintptr, pnext uintptr, radix int32, flags int3
 	var dval, v14 float64
 	var exp_is_neg, expn_overflow, is_bin_exp, is_zero TBOOL
 	var p_start, tmp0 uintptr
-	var _ /* e at bp+24 */ int32
-	var _ /* mptr at bp+8 */ uintptr
-	var _ /* p at bp+16 */ uintptr
-	var _ /* u at bp+0 */ struct {
+	var _ int32
+	var _ uintptr
+	var _ uintptr
+	var _ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = a1, c, c1, cur_limb, digit_count, digits_per_limb, dot_pos, dval, exp_is_neg, expn, expn1, expn_offset, expn_overflow, extra_digits, i, is_bin_exp, is_neg, is_zero, limb_digit_count, m, max_digits, p_start, pos, radix1, radix_base, radix_bits, radix_shift, sep, sig_pos, tmp0, v1, v14, v3
 	*(*uintptr)(unsafe.Pointer(bp + 8)) = tmp_mem
 	tmp0 = _dtoa_malloc(tls, bp+8, libc.Uint64FromInt64(4)+libc.Uint64FromInt64(4)*libc.Uint64FromInt32(MDBIGNUM_LEN_MAX))
-	/* optional separator between digits */
+
 	if flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(3)) != 0 {
 		v1 = int32('_')
 	} else {
@@ -121741,7 +122476,7 @@ func Xjs_atod(tls *libc.TLS, str uintptr, pnext uintptr, radix int32, flags int3
 				}
 			}
 		}
-		/* there must be a digit after the prefix */
+
 		if _to_digit1(tls, libc.Int32FromUint8(*(*uint8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 16)))))) >= radix {
 			goto fail
 		}
@@ -121768,7 +122503,7 @@ _4:
 	radix_shift = v3
 	radix1 = radix >> radix_shift
 	if radix1 == int32(1) {
-		/* radix = 2^radix_bits */
+
 		radix_bits = radix_shift
 	} else {
 		radix_bits = 0
@@ -121778,7 +122513,7 @@ _4:
 	extra_digits = uint32(0)
 	pos = 0
 	dot_pos = -int32(1)
-	/* skip leading zeros */
+
 	for {
 		if libc.Int32FromUint8(*(*uint8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 16))))) == int32('.') && (*(*uintptr)(unsafe.Pointer(bp + 16)) > p_start || _to_digit1(tls, libc.Int32FromUint8(*(*uint8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 16)) + 1)))) < radix) && !(flags&(libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)) != 0) {
 			if libc.Int32FromUint8(*(*uint8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 16))))) == sep {
@@ -121823,7 +122558,7 @@ _4:
 		*(*uintptr)(unsafe.Pointer(bp + 16))++
 		pos++
 		if digit_count < max_digits {
-			/* XXX: could be faster when radix_bits != 0 */
+
 			cur_limb = cur_limb*libc.Uint32FromInt32(radix) + c
 			limb_digit_count++
 			if limb_digit_count == digits_per_limb {
@@ -121851,12 +122586,11 @@ _4:
 		}
 		expn_offset = sig_pos + digit_count - dot_pos
 	}
-	/* Use the extra digits for rounding if the base is a power of
-	   two. Otherwise they are just truncated. */
+
 	if radix_bits != 0 && extra_digits != uint32(0) {
 		*(*Tlimb_t)(unsafe.Pointer(tmp0 + 4)) |= uint32(1)
 	}
-	/* parse the exponent, if any */
+
 	expn = 0
 	expn_overflow = int32(EFALSE)
 	is_bin_exp = int32(EFALSE)
@@ -121875,7 +122609,7 @@ _4:
 		c1 = _to_digit1(tls, libc.Int32FromUint8(*(*uint8)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 16))))))
 		if c1 >= int32(10) {
 			goto fail
-		} /* XXX: could stop before the exponent part */
+		}
 		expn = c1
 		*(*uintptr)(unsafe.Pointer(bp + 16))++
 		for {
@@ -121900,13 +122634,13 @@ _4:
 		if exp_is_neg != 0 {
 			expn = -expn
 		}
-		/* if zero result, the exponent can be arbitrarily large */
+
 		if !(is_zero != 0) && expn_overflow != 0 {
 			if exp_is_neg != 0 {
 				a1 = uint64(0)
 			} else {
 				a1 = libc.Uint64FromInt32(0x7ff) << libc.Int32FromInt32(52)
-			} /* infinity */
+			}
 			goto done
 		}
 	}
@@ -121962,18 +122696,17 @@ _10:
 	goto overflow
 overflow:
 	;
-	/* overflow */
+
 	a1 = libc.Uint64FromInt32(0x7ff) << libc.Int32FromInt32(52)
 	goto _13
 _12:
 	;
 	if *(*int32)(unsafe.Pointer(bp + 24)) < -int32(1073) {
-		/* underflow */
-		/* XXX: check rounding */
+
 		a1 = uint64(0)
 	} else {
 		if *(*int32)(unsafe.Pointer(bp + 24)) < -int32(1021) {
-			/* subnormal */
+
 			a1 = m >> (-*(*int32)(unsafe.Pointer(bp + 24)) - int32(1021))
 		} else {
 			a1 = libc.Uint64FromInt32(*(*int32)(unsafe.Pointer(bp + 24))+libc.Int32FromInt32(1022))<<libc.Int32FromInt32(52) | m&(libc.Uint64FromInt32(1)<<libc.Int32FromInt32(52)-libc.Uint64FromInt32(1))
@@ -122021,15 +122754,6 @@ const MRE_HEADER_STACK_SIZE = 3
 const MSTACK_SIZE_MAX = 255
 const MTMP_BUF_SIZE = 128
 
-/*
-  TODO:
-
-  - Add a lock step execution mode (=linear time execution guaranteed)
-    when the regular expression is "simple" i.e. no backreference nor
-    complicated lookahead. The opcodes are designed for this execution
-    model.
-*/
-
 type TREOPCodeEnum = int32
 
 const EREOP_invalid = 0
@@ -122072,11 +122796,6 @@ const EREOP_check_advance = 36
 const EREOP_prev = 37
 const EREOP_simple_greedy_quant = 38
 const EREOP_COUNT = 39
-
-/* must be large enough to have a negligible runtime cost and small
-   enough to call the interrupt callback often. */
-
-/* unicode code points */
 
 type TREParseState = struct {
 	Fbyte_code           TDynBuf
@@ -122228,9 +122947,6 @@ func _is_digit1(tls *libc.TLS, c int32) (r int32) {
 	return libc.BoolInt32(c >= int32('0') && c <= int32('9'))
 }
 
-// C documentation
-//
-//	/* insert 'len' bytes at position 'pos'. Return < 0 if error. */
 func _dbuf_insert(tls *libc.TLS, s uintptr, pos int32, len1 int32) (r int32) {
 	if Xdbuf_realloc(tls, s, (*TDynBuf)(unsafe.Pointer(s)).Fsize+libc.Uint64FromInt32(len1)) != 0 {
 		return -int32(1)
@@ -122409,11 +123125,11 @@ func _re_string_find2(tls *libc.TLS, s uintptr, len1 int32, buf uintptr, h0 Tuin
 			p = (*TREString)(unsafe.Pointer(p)).Fnext
 		}
 	}
-	/* not found */
+
 	if !(add_flag != 0) {
 		return 0
 	}
-	/* increase the size of the hash table if needed */
+
 	if libc.X__builtin_expect(tls, libc.BoolInt64(!!((*TREStringList)(unsafe.Pointer(s)).Fn_strings+libc.Uint32FromInt32(1) > (*TREStringList)(unsafe.Pointer(s)).Fhash_size)), 0) != 0 {
 		v2 = (*TREStringList)(unsafe.Pointer(s)).Fhash_bits + int32(1)
 		v3 = int32(4)
@@ -122482,14 +123198,11 @@ func _re_string_find(tls *libc.TLS, s uintptr, len1 int32, buf uintptr, add_flag
 	return _re_string_find2(tls, s, len1, buf, h0, add_flag)
 }
 
-// C documentation
-//
-//	/* return -1 if memory error, 0 if OK */
 func _re_string_add(tls *libc.TLS, s uintptr, len1 int32, buf uintptr) (r int32) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var v1 int32
-	var _ /* b_pt at bp+0 */ [2]Tuint32_t
+	var _ [2]Tuint32_t
 	_ = v1
 	if len1 == int32(1) {
 		(*(*[2]Tuint32_t)(unsafe.Pointer(bp)))[0] = *(*Tuint32_t)(unsafe.Pointer(buf))
@@ -122505,9 +123218,6 @@ func _re_string_add(tls *libc.TLS, s uintptr, len1 int32, buf uintptr) (r int32)
 	return 0
 }
 
-// C documentation
-//
-//	/* a = a op b */
 func _re_string_list_op(tls *libc.TLS, a uintptr, b uintptr, op int32) (r int32) {
 	var i, ret int32
 	var p, pp uintptr
@@ -122575,12 +123285,12 @@ _10:
 			ret = libc.BoolInt32(!(ret != 0))
 		}
 		if !(ret != 0) {
-			/* remove it */
+
 			*(*uintptr)(unsafe.Pointer(pp)) = (*TREString)(unsafe.Pointer(p)).Fnext
 			(*TREStringList)(unsafe.Pointer(a)).Fn_strings--
 			Xlre_realloc(tls, (*TREStringList)(unsafe.Pointer(a)).Fcr.Fmem_opaque, p, uint64(0))
 		} else {
-			/* keep it */
+
 			pp = p
 		}
 		goto _11
@@ -122608,14 +123318,14 @@ func _re_string_list_canonicalize(tls *libc.TLS, s1 uintptr, s uintptr, is_unico
 	defer tls.Free(64)
 	var a, p uintptr
 	var i, j int32
-	var _ /* a_s at bp+0 */ TREStringList
+	var _ TREStringList
 	_, _, _, _ = a, i, j, p
 	if Xcr_regexp_canonicalize(tls, s, is_unicode) != 0 {
 		return -int32(1)
 	}
 	if (*TREStringList)(unsafe.Pointer(s)).Fn_strings != uint32(0) {
 		a = bp
-		/* XXX: simplify */
+
 		_re_string_list_init(tls, s1, a)
 		(*TREStringList)(unsafe.Pointer(a)).Fn_strings = (*TREStringList)(unsafe.Pointer(s)).Fn_strings
 		(*TREStringList)(unsafe.Pointer(a)).Fhash_size = (*TREStringList)(unsafe.Pointer(s)).Fhash_size
@@ -122671,9 +123381,6 @@ var _char_range_d = [3]Tuint16_t{
 	2: libc.Uint16FromInt32(libc.Int32FromInt32(0x0039) + libc.Int32FromInt32(1)),
 }
 
-// C documentation
-//
-//	/* code point ranges for Zs,Zl or Zp property */
 var _char_range_s = [21]Tuint16_t{
 	0:  uint16(10),
 	1:  uint16(0x0009),
@@ -122780,9 +123487,6 @@ func _re_emit_op(tls *libc.TLS, s uintptr, op int32) {
 	Xdbuf_putc(tls, s, libc.Uint8FromInt32(op))
 }
 
-// C documentation
-//
-//	/* return the offset of the u32 value */
 func _re_emit_op_u32(tls *libc.TLS, s1 uintptr, op int32, val1 Tuint32_t) (r int32) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
@@ -122848,10 +123552,6 @@ func _re_parse_out_of_memory(tls *libc.TLS, s uintptr) (r int32) {
 	return _re_parse_error(tls, s, __ccgo_ts+1112, 0)
 }
 
-// C documentation
-//
-//	/* If allow_overflow is false, return -1 in case of
-//	   overflow. Otherwise return INT32_MAX. */
 func _parse_digits(tls *libc.TLS, pp uintptr, allow_overflow TBOOL) (r int32) {
 	var c int32
 	var p uintptr
@@ -122894,18 +123594,6 @@ func _re_parse_expect(tls *libc.TLS, s uintptr, pp uintptr, c int32) (r int32) {
 	return 0
 }
 
-// C documentation
-//
-//	/* Parse an escape sequence, *pp points after the '\':
-//	   allow_utf16 value:
-//	   0 : no UTF-16 escapes allowed
-//	   1 : UTF-16 escapes allowed
-//	   2 : UTF-16 escapes allowed and escapes of surrogate pairs are
-//	   converted to a unicode character (unicode regexp case).
-//
-//	   Return the unicode char and update *pp if recognized,
-//	   return -1 if malformed escape,
-//	   return -2 otherwise. */
 func Xlre_parse_escape(tls *libc.TLS, pp uintptr, allow_utf16 int32) (r int32) {
 	var c11, c3, v, v21 Tuint32_t
 	var h, i, n, v10, v15, v16, v4, v5, v9 int32
@@ -123021,8 +123709,7 @@ func Xlre_parse_escape(tls *libc.TLS, pp uintptr, allow_utf16 int32) (r int32) {
 		_13:
 			;
 			if v12 != 0 && allow_utf16 == int32(2) && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(p))) == int32('\\') && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(p + 1))) == int32('u') {
-				/* convert an escaped surrogate pair into a
-				   unicode char */
+
 				c11 = uint32(0)
 				i = 0
 				for {
@@ -123089,7 +123776,7 @@ func Xlre_parse_escape(tls *libc.TLS, pp uintptr, allow_utf16 int32) (r int32) {
 	case uint32('7'):
 		c3 -= uint32('0')
 		if allow_utf16 == int32(2) {
-			/* only accept \0 not followed by digit */
+
 			if c3 != uint32(0) || _is_digit1(tls, libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(p)))) != 0 {
 				return -int32(1)
 			}
@@ -123117,16 +123804,10 @@ func Xlre_parse_escape(tls *libc.TLS, pp uintptr, allow_utf16 int32) (r int32) {
 	return libc.Int32FromUint32(c3)
 }
 
-// C documentation
-//
-//	/* XXX: we use the same chars for name and value */
 func _is_unicode_char(tls *libc.TLS, c int32) (r TBOOL) {
 	return libc.BoolInt32(c >= int32('0') && c <= int32('9') || c >= int32('A') && c <= int32('Z') || c >= int32('a') && c <= int32('z') || c == int32('_'))
 }
 
-// C documentation
-//
-//	/* XXX: memory error test */
 func _seq_prop_cb(tls *libc.TLS, opaque uintptr, seq uintptr, seq_len int32) {
 	var sl uintptr
 	_ = sl
@@ -123140,9 +123821,9 @@ func _parse_unicode_property(tls *libc.TLS, s uintptr, cr uintptr, pp uintptr, i
 	var p, q, v1, v2, v3, v4 uintptr
 	var ret int32
 	var script_ext TBOOL
-	var _ /* cr_tmp at bp+128 */ TCharRange
-	var _ /* name at bp+0 */ [64]uint8
-	var _ /* value at bp+64 */ [64]uint8
+	var _ TCharRange
+	var _ [64]uint8
+	var _ [64]uint8
 	_, _, _, _, _, _, _, _ = p, q, ret, script_ext, v1, v2, v3, v4
 	p = *(*uintptr)(unsafe.Pointer(pp))
 	if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(p))) != int32('{') {
@@ -123180,7 +123861,7 @@ func _parse_unicode_property(tls *libc.TLS, s uintptr, cr uintptr, pp uintptr, i
 		return _re_parse_error(tls, s, __ccgo_ts+15660, 0)
 	}
 	p++
-	//    printf("name=%s value=%s\n", name, value);
+
 	if !(!(libc.Xstrcmp(tls, bp, __ccgo_ts+15674) != 0) || !(libc.Xstrcmp(tls, bp, __ccgo_ts+15681) != 0)) {
 		goto _5
 	}
@@ -123268,10 +123949,7 @@ _8:
 	;
 _6:
 	;
-	/* the ordering of case folding and inversion  differs with
-	   unicode_sets. 'unicode_sets' ordering is more consistent */
-	/* XXX: the spec seems incorrect, we do it as the other engines
-	   seem to do it. */
+
 	if (*TREParseState)(unsafe.Pointer(s)).Fignore_case != 0 && (*TREParseState)(unsafe.Pointer(s)).Funicode_sets != 0 {
 		if _re_string_list_canonicalize(tls, s, cr, (*TREParseState)(unsafe.Pointer(s)).Fis_unicode) != 0 {
 			_re_string_list_free(tls, cr)
@@ -123304,8 +123982,8 @@ func _parse_class_string_disjunction(tls *libc.TLS, s1 uintptr, cr uintptr, pp u
 	defer tls.Free(64)
 	var c, v3 int32
 	var v2 Tuint32_t
-	var _ /* p at bp+8 */ uintptr
-	var _ /* str at bp+16 */ TDynBuf
+	var _ uintptr
+	var _ TDynBuf
 	_, _, _ = c, v2, v3
 	*(*uintptr)(unsafe.Pointer(bp + 8)) = *(*uintptr)(unsafe.Pointer(pp))
 	if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8))))) != int32('{') {
@@ -123347,7 +124025,7 @@ func _parse_class_string_disjunction(tls *libc.TLS, s1 uintptr, cr uintptr, pp u
 			goto fail
 		}
 	}
-	*(*uintptr)(unsafe.Pointer(bp + 8))++ /* skip the '}' */
+	*(*uintptr)(unsafe.Pointer(bp + 8))++
 	Xdbuf_free(tls, bp+16)
 	*(*uintptr)(unsafe.Pointer(pp)) = *(*uintptr)(unsafe.Pointer(bp + 8))
 	return 0
@@ -123359,18 +124037,13 @@ fail:
 	return -int32(1)
 }
 
-// C documentation
-//
-//	/* return -1 if error otherwise the character or a class range
-//	   (CLASS_RANGE_BASE) if cr != NULL. In case of class range, 'cr' is
-//	   initialized. Otherwise, it is ignored. */
 func _get_class_atom(tls *libc.TLS, s uintptr, cr uintptr, pp uintptr, inclass TBOOL) (r int32) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
 	var c Tuint32_t
 	var ret int32
 	var v33 uintptr
-	var _ /* p at bp+0 */ uintptr
+	var _ uintptr
 	_, _, _ = c, ret, v33
 	*(*uintptr)(unsafe.Pointer(bp)) = *(*uintptr)(unsafe.Pointer(pp))
 	c = uint32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))))
@@ -123542,14 +124215,14 @@ class_range:
 _40:
 	;
 	c = uint32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))))
-	if c >= uint32('a') && c <= uint32('z') || c >= uint32('A') && c <= uint32('Z') || (c >= uint32('0') && c <= uint32('9') || c == uint32('_')) && inclass != 0 && !((*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0) { /* Annex B.1.4 */
+	if c >= uint32('a') && c <= uint32('z') || c >= uint32('A') && c <= uint32('Z') || (c >= uint32('0') && c <= uint32('9') || c == uint32('_')) && inclass != 0 && !((*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0) {
 		c &= uint32(0x1f)
 		*(*uintptr)(unsafe.Pointer(bp))++
 	} else {
 		if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 {
 			goto invalid_escape
 		} else {
-			/* otherwise return '\' and 'c' */
+
 			*(*uintptr)(unsafe.Pointer(bp))--
 			c = uint32('\\')
 		}
@@ -123591,7 +124264,7 @@ _43:
 	;
 _42:
 	;
-	/* always valid to escape these characters */
+
 	goto _61
 _58:
 	;
@@ -123639,7 +124312,7 @@ invalid_escape:
 	goto _65
 _64:
 	;
-	/* just ignore the '\' */
+
 	goto normal_char
 _65:
 	;
@@ -123660,7 +124333,7 @@ unexpected_end:
 	return _re_parse_error(tls, s, __ccgo_ts+15881, 0)
 _66:
 	;
-	/* fall thru */
+
 	goto normal_char
 _21:
 	;
@@ -123701,7 +124374,7 @@ _4:
 _3:
 	;
 	if (*TREParseState)(unsafe.Pointer(s)).Funicode_sets != 0 && uint32(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 1))) == c {
-		/* forbidden double characters */
+
 		return _re_parse_error(tls, s, __ccgo_ts+15896, 0)
 	}
 	goto normal_char
@@ -123724,7 +124397,7 @@ _23:
 _22:
 	;
 	if (*TREParseState)(unsafe.Pointer(s)).Funicode_sets != 0 {
-		/* invalid characters in unicode sets */
+
 		return _re_parse_error(tls, s, __ccgo_ts+15946, 0)
 	}
 	goto normal_char
@@ -123733,11 +124406,11 @@ _31:
 	goto normal_char
 normal_char:
 	;
-	/* normal char */
+
 	if c >= uint32(128) {
 		c = libc.Uint32FromInt32(Xunicode_from_utf8(tls, *(*uintptr)(unsafe.Pointer(bp)), int32(MUTF8_CHAR_LEN_MAX), bp))
 		if c > uint32(0xffff) && !((*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0) {
-			/* XXX: should handle non BMP-1 code points */
+
 			return _re_parse_error(tls, s, __ccgo_ts+15995, 0)
 		}
 	} else {
@@ -123769,8 +124442,7 @@ func _re_emit_range(tls *libc.TLS, s2 uintptr, cr uintptr) (r int32) {
 			high = *(*Tuint32_t)(unsafe.Pointer((*TCharRange)(unsafe.Pointer(cr)).Fpoints + uintptr((*TCharRange)(unsafe.Pointer(cr)).Flen1-int32(2))*4))
 		}
 		if high <= uint32(0xffff) {
-			/* can use 16 bit ranges with the conversion that 0xffff =
-			   infinity */
+
 			if (*TREParseState)(unsafe.Pointer(s2)).Fignore_case != 0 {
 				v1 = int32(EREOP_range_i)
 			} else {
@@ -123871,15 +124543,14 @@ func _re_emit_string_list(tls *libc.TLS, s uintptr, sl uintptr) (r int32) {
 	var p, tab2 uintptr
 	var v6 Tuint32_t
 	_, _, _, _, _, _, _, _, _, _, _, _ = has_empty_string, i, is_last, j, last_match_pos, n, next_pos, p, split_pos, tab2, v3, v6
-	//    re_string_list_dump("sl", sl);
+
 	if (*TREStringList)(unsafe.Pointer(sl)).Fn_strings == uint32(0) {
-		/* simple case: only characters */
+
 		if _re_emit_range(tls, s, sl) != 0 {
 			return -int32(1)
 		}
 	} else {
-		/* at least one string list is present : match the longest ones first */
-		/* XXX: add a new op_switch opcode to compile as a trie */
+
 		tab2 = Xlre_realloc(tls, (*TREParseState)(unsafe.Pointer(s)).Fopaque, libc.UintptrFromInt32(0), uint64(8)*uint64((*TREStringList)(unsafe.Pointer(sl)).Fn_strings))
 		if !(tab2 != 0) {
 			_re_parse_out_of_memory(tls, s)
@@ -123949,13 +124620,13 @@ func _re_emit_string_list(tls *libc.TLS, s uintptr, sl uintptr) (r int32) {
 			i++
 		}
 		if (*TREStringList)(unsafe.Pointer(sl)).Fcr.Flen1 != 0 {
-			/* char range */
+
 			is_last = libc.BoolInt32(!(has_empty_string != 0))
 			if !(is_last != 0) {
 				split_pos = _re_emit_op_u32(tls, s, int32(EREOP_split_next_first), uint32(0))
 			} else {
 				split_pos = 0
-			} /* not used */
+			}
 			if _re_emit_range(tls, s, sl) != 0 {
 				Xlre_realloc(tls, (*TREParseState)(unsafe.Pointer(s)).Fopaque, tab2, uint64(0))
 				return -int32(1)
@@ -123964,7 +124635,7 @@ func _re_emit_string_list(tls *libc.TLS, s uintptr, sl uintptr) (r int32) {
 				(*Tpacked_u32)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fbuf + uintptr(split_pos))).Fv = uint32((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fsize - libc.Uint64FromInt32(split_pos+libc.Int32FromInt32(4)))
 			}
 		}
-		/* patch the 'goto match' */
+
 		for last_match_pos != -int32(1) {
 			v6 = (*Tpacked_u32)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fbuf + uintptr(last_match_pos))).Fv
 			goto _7
@@ -123983,7 +124654,7 @@ func _re_parse_class_set_operand(tls *libc.TLS, s uintptr, cr1 uintptr, pp uintp
 	defer tls.Free(16)
 	var c11, v1 int32
 	var p uintptr
-	var _ /* b_pt at bp+0 */ [2]Tuint32_t
+	var _ [2]Tuint32_t
 	_, _, _ = c11, p, v1
 	p = *(*uintptr)(unsafe.Pointer(pp))
 	if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(p))) == int32('[') {
@@ -123996,7 +124667,7 @@ func _re_parse_class_set_operand(tls *libc.TLS, s uintptr, cr1 uintptr, pp uintp
 			return -int32(1)
 		}
 		if c11 < int32(MCLASS_RANGE_BASE) {
-			/* create a range with a single character */
+
 			_re_string_list_init(tls, s, cr1)
 			if (*TREParseState)(unsafe.Pointer(s)).Fignore_case != 0 {
 				c11 = Xlre_canonicalize(tls, libc.Uint32FromInt32(c11), (*TREParseState)(unsafe.Pointer(s)).Fis_unicode)
@@ -124022,11 +124693,11 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 	var cr11, cr21, v11, v13, v7 uintptr
 	var invert, is_first TBOOL
 	var ret, v10, v12, v14, v18, v8 int32
-	var _ /* b_pt at bp+0 */ [2]Tuint32_t
-	var _ /* cr1_s at bp+16 */ TREStringList
-	var _ /* cr2_s at bp+80 */ TCharRange
-	var _ /* p at bp+8 */ uintptr
-	var _ /* p0 at bp+72 */ uintptr
+	var _ [2]Tuint32_t
+	var _ TREStringList
+	var _ TCharRange
+	var _ uintptr
+	var _ uintptr
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = c12, c22, cr11, cr21, invert, is_first, ret, v10, v11, v12, v13, v14, v18, v7, v8
 	cr11 = bp + 16
 	if Xlre_check_stack_overflow(tls, (*TREParseState)(unsafe.Pointer(s)).Fopaque, uint64(0)) != 0 {
@@ -124034,13 +124705,13 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 	}
 	_re_string_list_init(tls, s, cr2)
 	*(*uintptr)(unsafe.Pointer(bp + 8)) = *(*uintptr)(unsafe.Pointer(pp))
-	*(*uintptr)(unsafe.Pointer(bp + 8))++ /* skip '[' */
+	*(*uintptr)(unsafe.Pointer(bp + 8))++
 	invert = int32(EFALSE)
 	if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8))))) == int32('^') {
 		*(*uintptr)(unsafe.Pointer(bp + 8))++
 		invert = int32(ETRUE)
 	}
-	/* handle unions */
+
 	is_first = int32(ETRUE)
 	for {
 		if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8))))) == int32(']') {
@@ -124066,13 +124737,13 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 		*(*uintptr)(unsafe.Pointer(bp + 72)) = *(*uintptr)(unsafe.Pointer(bp + 8)) + uintptr(1)
 		if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 1))) == int32('-') && (*TREParseState)(unsafe.Pointer(s)).Funicode_sets != 0 && is_first != 0 {
 			goto class_atom
-		} /* first character class followed by '--' */
+		}
 		if c12 >= uint32(MCLASS_RANGE_BASE) {
 			if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 {
 				_re_string_list_free(tls, cr11)
 				goto invalid_class_range
 			}
-			/* Annex B: match '-' character */
+
 			goto class_atom
 		}
 		c22 = libc.Uint32FromInt32(_get_class_atom(tls, s, cr11, bp+72, int32(ETRUE)))
@@ -124084,7 +124755,7 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 			if (*TREParseState)(unsafe.Pointer(s)).Fis_unicode != 0 {
 				goto invalid_class_range
 			}
-			/* Annex B: match '-' character */
+
 			goto class_atom
 		}
 		*(*uintptr)(unsafe.Pointer(bp + 8)) = *(*uintptr)(unsafe.Pointer(bp + 72))
@@ -124135,7 +124806,7 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 				goto memory_error
 			}
 		}
-		is_first = int32(EFALSE) /* union operation */
+		is_first = int32(EFALSE)
 		goto _5
 	_4:
 		;
@@ -124177,7 +124848,7 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 			if !(libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8))))) == int32('&') && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 1))) == int32('&') && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 2))) != int32('&')) {
 				goto _20
 			}
-			/* handle '&&' */
+
 			for {
 				if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8))))) == int32(']') {
 					break
@@ -124205,7 +124876,7 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 			if !(libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8))))) == int32('-') && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8)) + 1))) == int32('-')) {
 				goto _23
 			}
-			/* handle '--' */
+
 		_26:
 			;
 			if !(libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 8))))) == int32(']')) {
@@ -124254,12 +124925,10 @@ func _re_parse_nested_class(tls *libc.TLS, s uintptr, cr2 uintptr, pp uintptr) (
 		goto _1
 	_1:
 	}
-	*(*uintptr)(unsafe.Pointer(bp + 8))++ /* skip ']' */
+	*(*uintptr)(unsafe.Pointer(bp + 8))++
 	*(*uintptr)(unsafe.Pointer(pp)) = *(*uintptr)(unsafe.Pointer(bp + 8))
 	if invert != 0 {
-		/* XXX: add may_contain_string syntax check to be fully
-		   compliant. The test here accepts more input than the
-		   spec. */
+
 		if (*TREStringList)(unsafe.Pointer(cr2)).Fn_strings != uint32(0) {
 			_re_parse_error(tls, s, __ccgo_ts+16094, 0)
 			goto fail
@@ -124284,7 +124953,7 @@ func _re_parse_char_class(tls *libc.TLS, s uintptr, pp uintptr) (r int32) {
 	bp := tls.Alloc(64)
 	defer tls.Free(64)
 	var cr uintptr
-	var _ /* cr_s at bp+0 */ TREStringList
+	var _ TREStringList
 	_ = cr
 	cr = bp
 	if _re_parse_nested_class(tls, s, cr, pp) != 0 {
@@ -124302,12 +124971,6 @@ fail:
 	return -int32(1)
 }
 
-// C documentation
-//
-//	/* Return:
-//	   - true if the opcodes may not advance the char pointer
-//	   - false if the opcodes always advance the char pointer
-//	*/
 func _re_need_check_advance(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (r TBOOL) {
 	var len1, opcode, pos int32
 	var ret TBOOL
@@ -124442,7 +125105,7 @@ func _re_need_check_advance(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (r 
 		;
 	_11:
 		;
-		/* no effect */
+
 		goto _31
 	_29:
 		;
@@ -124461,7 +125124,7 @@ func _re_need_check_advance(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (r 
 		goto _31
 	_30:
 		;
-		/* safe behavior: we cannot predict the outcome */
+
 		return int32(ETRUE)
 	_31:
 		;
@@ -124470,10 +125133,6 @@ func _re_need_check_advance(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (r 
 	return ret
 }
 
-// C documentation
-//
-//	/* return -1 if a simple quantifier cannot be used. Otherwise return
-//	   the number of characters in the atom. */
 func _re_is_simple_quantifier(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (r int32) {
 	var count, len1, opcode, pos int32
 	var val, v21, v23 Tuint32_t
@@ -124588,9 +125247,6 @@ func _re_is_simple_quantifier(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (
 	return count
 }
 
-// C documentation
-//
-//	/* '*pp' is the first char after '<' */
 func _re_parse_group_name(tls *libc.TLS, buf uintptr, buf_size int32, pp uintptr) (r int32) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
@@ -124598,8 +125254,8 @@ func _re_parse_group_name(tls *libc.TLS, buf uintptr, buf_size int32, pp uintptr
 	var q, v18 uintptr
 	var v11, v14, v16, v9 int32
 	var v2, v4 TBOOL
-	var _ /* p at bp+0 */ uintptr
-	var _ /* p1 at bp+8 */ uintptr
+	var _ uintptr
+	var _ uintptr
 	_, _, _, _, _, _, _, _, _, _, _, _, _ = c6, d, q, v11, v13, v14, v16, v18, v2, v4, v6, v8, v9
 	*(*uintptr)(unsafe.Pointer(bp)) = *(*uintptr)(unsafe.Pointer(pp))
 	q = buf
@@ -124610,7 +125266,7 @@ func _re_parse_group_name(tls *libc.TLS, buf uintptr, buf_size int32, pp uintptr
 			if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) != int32('u') {
 				return -int32(1)
 			}
-			c6 = libc.Uint32FromInt32(Xlre_parse_escape(tls, bp, int32(2))) // accept surrogate pairs
+			c6 = libc.Uint32FromInt32(Xlre_parse_escape(tls, bp, int32(2)))
 		} else {
 			if c6 == uint32('>') {
 				break
@@ -124700,17 +125356,12 @@ func _re_parse_group_name(tls *libc.TLS, buf uintptr, buf_size int32, pp uintptr
 	return 0
 }
 
-// C documentation
-//
-//	/* if capture_name = NULL: return the number of captures + 1.
-//	   Otherwise, return the capture index corresponding to capture_name
-//	   or -1 if none */
 func _re_parse_captures(tls *libc.TLS, s uintptr, phas_named_captures uintptr, capture_name uintptr) (r int32) {
 	bp := tls.Alloc(144)
 	defer tls.Free(144)
 	var capture_index int32
-	var _ /* name at bp+8 */ [128]uint8
-	var _ /* p at bp+0 */ uintptr
+	var _ [128]uint8
+	var _ uintptr
 	_ = capture_index
 	capture_index = int32(1)
 	*(*int32)(unsafe.Pointer(phas_named_captures)) = 0
@@ -124733,7 +125384,7 @@ func _re_parse_captures(tls *libc.TLS, s uintptr, phas_named_captures uintptr, c
 		if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 1))) == int32('?') {
 			if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 2))) == int32('<') && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 3))) != int32('=') && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 3))) != int32('!') {
 				*(*int32)(unsafe.Pointer(phas_named_captures)) = int32(1)
-				/* potential named capture */
+
 				if capture_name != 0 {
 					*(*uintptr)(unsafe.Pointer(bp)) += uintptr(3)
 					if _re_parse_group_name(tls, bp+8, int32(128), bp) == 0 {
@@ -124883,11 +125534,11 @@ func _re_parse_term(tls *libc.TLS, s1 uintptr, is_backward_dir TBOOL) (r int32) 
 	var add_mask, c, capture_index, last_atom_start, last_capture_count, len1, len11, pos, pos1, pos2, quant_max, quant_min, remove_mask, ret, v15, v16, v17, v26, v43, v44, v64, v67, v68, v69, v70, v71, v72 int32
 	var add_zero_advance_check, greedy, has_goto, is_backward_lookahead, is_neg, saved_dotall, saved_ignore_case, saved_multi_line, v24, v62, v65 TBOOL
 	var cr, p12, q, v27, v45, v46, v47, v48, v49, v50, v51 uintptr
-	var _ /* cr_s at bp+8 */ TREStringList
-	var _ /* dummy_res at bp+80 */ int32
-	var _ /* p at bp+0 */ uintptr
-	var _ /* p1 at bp+64 */ uintptr
-	var _ /* p1 at bp+72 */ uintptr
+	var _ TREStringList
+	var _ int32
+	var _ uintptr
+	var _ uintptr
+	var _ uintptr
 	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = add_mask, add_zero_advance_check, c, capture_index, cr, greedy, has_goto, is_backward_lookahead, is_neg, last_atom_start, last_capture_count, len1, len11, p12, pos, pos1, pos2, q, quant_max, quant_min, remove_mask, ret, saved_dotall, saved_ignore_case, saved_multi_line, v15, v16, v17, v24, v26, v27, v43, v44, v45, v46, v47, v48, v49, v50, v51, v62, v64, v65, v67, v68, v69, v70, v71, v72
 	cr = bp + 8
 	last_atom_start = -int32(1)
@@ -124967,12 +125618,11 @@ _4:
 		return _re_parse_error(tls, s1, __ccgo_ts+16197, 0)
 	} else {
 		if !(_is_digit1(tls, libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 1)))) != 0) {
-			/* Annex B: we accept '{' not followed by digits as a
-			   normal atom */
+
 			goto parse_class_atom
 		} else {
 			*(*uintptr)(unsafe.Pointer(bp + 64)) = *(*uintptr)(unsafe.Pointer(bp)) + uintptr(1)
-			/* Annex B: error if it is like a repetition count */
+
 			_parse_digits(tls, bp+64, int32(ETRUE))
 			if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 64))))) == int32(',') {
 				*(*uintptr)(unsafe.Pointer(bp + 64))++
@@ -124985,7 +125635,7 @@ _4:
 			}
 		}
 	}
-	/* fall thru */
+
 _7:
 	;
 _6:
@@ -125067,12 +125717,11 @@ _8:
 			is_neg = libc.BoolInt32(libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 3))) == libc.Int32FromUint8('!'))
 			is_backward_lookahead = int32(ETRUE)
 			*(*uintptr)(unsafe.Pointer(bp)) += uintptr(4)
-			/* lookahead */
+
 			goto lookahead
 		lookahead:
 			;
-			/* Annex B allows lookahead to be used as an atom for
-			   the quantifiers */
+
 			if !((*TREParseState)(unsafe.Pointer(s1)).Fis_unicode != 0) && !(is_backward_lookahead != 0) {
 				last_atom_start = libc.Int32FromUint64((*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fsize)
 				last_capture_count = (*TREParseState)(unsafe.Pointer(s1)).Fcapture_count
@@ -125087,7 +125736,7 @@ _8:
 				return -int32(1)
 			}
 			_re_emit_op(tls, s1, int32(EREOP_match))
-			/* jump after the 'match' after the lookahead is successful */
+
 			v24 = (*TDynBuf)(unsafe.Pointer(s1)).Ferror1
 			goto _25
 		_25:
@@ -125106,7 +125755,7 @@ _8:
 				if _find_group_name(tls, s1, s1+168) > 0 {
 					return _re_parse_error(tls, s1, __ccgo_ts+16265, 0)
 				}
-				/* group name with a trailing zero */
+
 				Xdbuf_put(tls, s1+120, s1+168, libc.Xstrlen(tls, s1+168)+uint64(1))
 				(*TREParseState)(unsafe.Pointer(s1)).Fhas_named_captures = int32(1)
 				goto parse_capture
@@ -125122,7 +125771,7 @@ _8:
 _18:
 	;
 	*(*uintptr)(unsafe.Pointer(bp))++
-	/* capture without group name */
+
 	Xdbuf_putc(tls, s1+120, uint8(0))
 	goto parse_capture
 parse_capture:
@@ -125207,9 +125856,7 @@ _30:
 	;
 	*(*uintptr)(unsafe.Pointer(bp + 72)) = *(*uintptr)(unsafe.Pointer(bp))
 	if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp + 72)) + 2))) != int32('<') {
-		/* annex B: we tolerate invalid group names in non
-		   unicode mode if there is no named capture
-		   definition */
+
 		if (*TREParseState)(unsafe.Pointer(s1)).Fis_unicode != 0 || _re_has_named_captures(tls, s1) != 0 {
 			return _re_parse_error(tls, s1, __ccgo_ts+16318, 0)
 		} else {
@@ -125226,8 +125873,7 @@ _30:
 	}
 	c = _find_group_name(tls, s1, s1+168)
 	if c < 0 {
-		/* no capture name parsed before, try to look
-		   after (inefficient, but hopefully not common */
+
 		c = _re_parse_captures(tls, s1, bp+80, s1+168)
 		if c < 0 {
 			if (*TREParseState)(unsafe.Pointer(s1)).Fis_unicode != 0 || _re_has_named_captures(tls, s1) != 0 {
@@ -125248,7 +125894,7 @@ _31:
 			return _re_parse_error(tls, s1, __ccgo_ts+16362, 0)
 		}
 	} else {
-		/* Annex B.1.4: accept legacy octal */
+
 		if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) >= int32('0') && libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) <= int32('7') {
 			v45 = *(*uintptr)(unsafe.Pointer(bp))
 			*(*uintptr)(unsafe.Pointer(bp))++
@@ -125285,7 +125931,7 @@ _32:
 	c = _parse_digits(tls, bp, int32(EFALSE))
 	if c < 0 || c >= (*TREParseState)(unsafe.Pointer(s1)).Fcapture_count && c >= _re_count_captures(tls, s1) {
 		if !((*TREParseState)(unsafe.Pointer(s1)).Fis_unicode != 0) {
-			/* Annex B.1.4: accept legacy octal */
+
 			*(*uintptr)(unsafe.Pointer(bp)) = q
 			if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) <= int32('7') {
 				c = 0
@@ -125383,7 +126029,7 @@ normal_char:
 	goto _14
 _14:
 	;
-	/* quantifier */
+
 	if last_atom_start >= 0 {
 		c = libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)))))
 		switch c {
@@ -125420,8 +126066,7 @@ _14:
 	_55:
 		;
 		p12 = *(*uintptr)(unsafe.Pointer(bp))
-		/* As an extension (see ES6 annex B), we accept '{' not
-		   followed by digits as a normal atom */
+
 		if !(_is_digit1(tls, libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp)) + 1)))) != 0) {
 			if (*TREParseState)(unsafe.Pointer(s1)).Fis_unicode != 0 {
 				goto invalid_quant_count
@@ -125451,13 +126096,13 @@ _14:
 		goto _60
 	_59:
 		;
-		quant_max = int32(MINT32_MAX) /* infinity */
+		quant_max = int32(MINT32_MAX)
 	_60:
 		;
 	_58:
 		;
 		if libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(bp))))) != int32('}') && !((*TREParseState)(unsafe.Pointer(s1)).Fis_unicode != 0) {
-			/* Annex B: normal atom if invalid '{' syntax */
+
 			*(*uintptr)(unsafe.Pointer(bp)) = p12
 			goto _57
 		}
@@ -125477,7 +126122,7 @@ _14:
 		}
 		if greedy != 0 {
 			if quant_max > 0 {
-				/* specific optimization for simple quantifiers */
+
 				v62 = (*TDynBuf)(unsafe.Pointer(s1)).Ferror1
 				goto _63
 			_63:
@@ -125512,15 +126157,11 @@ _14:
 				goto out_of_memory
 			}
 		}
-		/* the spec tells that if there is no advance when
-		   running the atom after the first quant_min times,
-		   then there is no match. We remove this test when we
-		   are sure the atom always advances the position. */
+
 		add_zero_advance_check = _re_need_check_advance(tls, (*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fbuf+uintptr(last_atom_start), libc.Int32FromUint64((*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fsize-libc.Uint64FromInt32(last_atom_start)))
 		len11 = libc.Int32FromUint64((*TREParseState)(unsafe.Pointer(s1)).Fbyte_code.Fsize - libc.Uint64FromInt32(last_atom_start))
 		if quant_min == 0 {
-			/* need to reset the capture in case the atom is
-			   not executed */
+
 			if last_capture_count != (*TREParseState)(unsafe.Pointer(s1)).Fcapture_count {
 				if _dbuf_insert(tls, s1, last_atom_start, int32(3)) != 0 {
 					goto out_of_memory
@@ -125582,7 +126223,7 @@ _14:
 				_re_emit_goto(tls, s1, int32(EREOP_split_next_first)-greedy, libc.Uint32FromInt32(last_atom_start))
 			} else {
 				if quant_min == int32(1) {
-					/* nothing to add */
+
 				} else {
 					if _dbuf_insert(tls, s1, last_atom_start, int32(5)) != 0 {
 						goto out_of_memory
@@ -125599,7 +126240,7 @@ _14:
 					if add_zero_advance_check != 0 {
 						_re_emit_op(tls, s1, int32(EREOP_push_char_pos))
 					}
-					/* copy the atom */
+
 					Xdbuf_put_self(tls, s1, libc.Uint64FromInt32(last_atom_start), libc.Uint64FromInt32(len11))
 					if add_zero_advance_check != 0 {
 						_re_emit_op(tls, s1, int32(EREOP_check_advance))
@@ -125613,7 +126254,7 @@ _14:
 						if add_zero_advance_check != 0 {
 							_re_emit_op(tls, s1, int32(EREOP_push_char_pos))
 						}
-						/* copy the atom */
+
 						Xdbuf_put_self(tls, s1, libc.Uint64FromInt32(last_atom_start), libc.Uint64FromInt32(len11))
 						if add_zero_advance_check != 0 {
 							_re_emit_op(tls, s1, int32(EREOP_check_advance))
@@ -125663,8 +126304,7 @@ func _re_parse_alternative(tls *libc.TLS, s uintptr, is_backward_dir TBOOL) (r i
 			return ret
 		}
 		if is_backward_dir != 0 {
-			/* reverse the order of the terms (XXX: inefficient, but
-			   speed is not really critical here) */
+
 			end = (*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fsize
 			term_size = end - term_start
 			if Xdbuf_realloc(tls, s, end+term_size) != 0 {
@@ -125692,7 +126332,7 @@ func _re_parse_disjunction(tls *libc.TLS, s uintptr, is_backward_dir TBOOL) (r i
 	for libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s)).Fbuf_ptr))) == int32('|') {
 		(*TREParseState)(unsafe.Pointer(s)).Fbuf_ptr++
 		len1 = libc.Int32FromUint64((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fsize - libc.Uint64FromInt32(start))
-		/* insert a split before the first alternative */
+
 		if _dbuf_insert(tls, s, start, int32(5)) != 0 {
 			return _re_parse_out_of_memory(tls, s)
 		}
@@ -125702,16 +126342,13 @@ func _re_parse_disjunction(tls *libc.TLS, s uintptr, is_backward_dir TBOOL) (r i
 		if _re_parse_alternative(tls, s, is_backward_dir) != 0 {
 			return -int32(1)
 		}
-		/* patch the goto */
+
 		len1 = libc.Int32FromUint64((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fsize - libc.Uint64FromInt32(pos+libc.Int32FromInt32(4)))
 		(*Tpacked_u32)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s)).Fbyte_code.Fbuf + uintptr(pos))).Fv = libc.Uint32FromInt32(len1)
 	}
 	return 0
 }
 
-// C documentation
-//
-//	/* the control flow is recursive so the analysis can be linear */
 func _compute_stack_size1(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (r int32) {
 	var len1, opcode, pos, stack_size, stack_size_max int32
 	var val, v1, v3 Tuint32_t
@@ -125764,8 +126401,7 @@ func _compute_stack_size1(tls *libc.TLS, bc_buf uintptr, bc_buf_len int32) (r in
 
 func _lre_bytecode_realloc(tls *libc.TLS, opaque uintptr, ptr uintptr, size Tsize_t) (r uintptr) {
 	if size > libc.Uint64FromInt32(libc.Int32FromInt32(MINT32_MAX)/libc.Int32FromInt32(2)) {
-		/* the bytecode cannot be larger than 2G. Leave some slack to
-		   avoid some overflows. */
+
 		return libc.UintptrFromInt32(0)
 	} else {
 		return Xlre_realloc(tls, opaque, ptr, size)
@@ -125773,12 +126409,6 @@ func _lre_bytecode_realloc(tls *libc.TLS, opaque uintptr, ptr uintptr, size Tsiz
 	return r
 }
 
-// C documentation
-//
-//	/* 'buf' must be a zero terminated UTF-8 string of length buf_len.
-//	   Return NULL if error and allocate an error message in *perror_msg,
-//	   otherwise the compiled bytecode and its length in plen.
-//	*/
 func Xlre_compile(tls *libc.TLS, plen uintptr, error_msg uintptr, error_msg_size int32, buf uintptr, buf_len Tsize_t, re_flags int32, opaque uintptr) (r uintptr) {
 	bp := tls.Alloc(304)
 	defer tls.Free(304)
@@ -125787,7 +126417,7 @@ func Xlre_compile(tls *libc.TLS, plen uintptr, error_msg uintptr, error_msg_size
 	var stack_size int32
 	var v1 Tuint16_t
 	var v3 Tuint32_t
-	var _ /* s_s at bp+8 */ TREParseState
+	var _ TREParseState
 	_, _, _, _, _, _ = is_sticky, s3, stack_size, v1, v3, v6
 	s3 = bp + 8
 	libc.Xmemset(tls, s3, 0, uint64(296))
@@ -125812,20 +126442,17 @@ func Xlre_compile(tls *libc.TLS, plen uintptr, error_msg uintptr, error_msg_size
 	_ = Xdbuf_put(tls, s3, bp, uint64(2))
 	goto _2
 _2:
-	;                             /* first element is the flags */
-	Xdbuf_putc(tls, s3, uint8(0)) /* second element is the number of captures */
-	Xdbuf_putc(tls, s3, uint8(0)) /* stack size */
+	;
+	Xdbuf_putc(tls, s3, uint8(0))
+	Xdbuf_putc(tls, s3, uint8(0))
 	v3 = uint32(0)
 	*(*Tuint32_t)(unsafe.Pointer(bp + 4)) = v3
 	_ = Xdbuf_put(tls, s3, bp+4, uint64(4))
 	goto _4
 _4:
-	; /* bytecode length */
+	;
 	if !(is_sticky != 0) {
-		/* iterate thru all positions (about the same as .*?( ... ) )
-		   .  We do it without an explicit loop so that lock step
-		   thread execution will be possible in an optimized
-		   implementation */
+
 		_re_emit_op_u32(tls, s3, int32(EREOP_split_goto_first), libc.Uint32FromInt32(libc.Int32FromInt32(1)+libc.Int32FromInt32(5)))
 		_re_emit_op(tls, s3, int32(EREOP_any))
 		_re_emit_op_u32(tls, s3, int32(EREOP_goto), libc.Uint32FromInt32(-(libc.Int32FromInt32(5) + libc.Int32FromInt32(1) + libc.Int32FromInt32(5))))
@@ -125865,7 +126492,7 @@ _7:
 	*(*Tuint8_t)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s3)).Fbyte_code.Fbuf + 2)) = libc.Uint8FromInt32((*TREParseState)(unsafe.Pointer(s3)).Fcapture_count)
 	*(*Tuint8_t)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s3)).Fbyte_code.Fbuf + 3)) = libc.Uint8FromInt32(stack_size)
 	(*Tpacked_u32)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s3)).Fbyte_code.Fbuf + uintptr(MRE_HEADER_BYTECODE_LEN))).Fv = uint32((*TREParseState)(unsafe.Pointer(s3)).Fbyte_code.Fsize - uint64(MRE_HEADER_LEN))
-	/* add the named groups if needed */
+
 	if (*TREParseState)(unsafe.Pointer(s3)).Fgroup_names.Fsize > libc.Uint64FromInt32((*TREParseState)(unsafe.Pointer(s3)).Fcapture_count-libc.Int32FromInt32(1)) {
 		Xdbuf_put(tls, s3, (*TREParseState)(unsafe.Pointer(s3)).Fgroup_names.Fbuf, (*TREParseState)(unsafe.Pointer(s3)).Fgroup_names.Fsize)
 		(*Tpacked_u16)(unsafe.Pointer((*TREParseState)(unsafe.Pointer(s3)).Fbyte_code.Fbuf + uintptr(MRE_HEADER_FLAGS))).Fv = libc.Uint16FromInt32(Xlre_get_flags(tls, (*TREParseState)(unsafe.Pointer(s3)).Fbyte_code.Fbuf) | libc.Int32FromInt32(1)<<libc.Int32FromInt32(7))
@@ -125921,7 +126548,7 @@ func _push_state(tls *libc.TLS, s uintptr, capture uintptr, stack uintptr, stack
 	var new_stack, rs, stack_buf uintptr
 	_, _, _, _, _, _ = i, n, new_size, new_stack, rs, stack_buf
 	if libc.X__builtin_expect(tls, libc.BoolInt64(!!((*TREExecContext)(unsafe.Pointer(s)).Fstate_stack_len+libc.Uint64FromInt32(1) > (*TREExecContext)(unsafe.Pointer(s)).Fstate_stack_size)), 0) != 0 {
-		/* reallocate the stack */
+
 		new_size = (*TREExecContext)(unsafe.Pointer(s)).Fstate_stack_size * uint64(3) / uint64(2)
 		if new_size < uint64(8) {
 			new_size = uint64(8)
@@ -125983,9 +126610,6 @@ func _lre_poll_timeout(tls *libc.TLS, s uintptr) (r int32) {
 	return 0
 }
 
-// C documentation
-//
-//	/* return 1 if match, 0 if not match or < 0 if error. */
 func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintptr, stack_len int32, pc uintptr, cptr uintptr, no_recurse TBOOL) (r Tintptr_t) {
 	var _end, _end1, _end2, _end3, _end4, _end5, _end6, _end7, _end8, _p, _p1, _p10, _p11, _p12, _p13, _p14, _p2, _p3, _p4, _p5, _p6, _p7, _p8, _p9, _start, _start1, _start2, _start3, _start4, _start5, cbuf_end, cptr1, cptr1_end, cptr1_start, pc1, pc11, rs, v100, v103, v104, v110, v113, v120, v128, v131, v139, v140, v141, v147, v150, v151, v157, v165, v173, v178, v179, v185, v198, v199, v21, v205, v61, v62, v68, v82, v85, v93, v94 uintptr
 	var c11, c2, c21, char_count, high, high1, i, idx, idx1, idx_max, idx_max1, idx_min, idx_min1, low, low1, next_pos, quant_max, quant_min, val, val2, v101, v111, v114, v117, v129, v137, v148, v158, v166, v174, v176, v186, v188, v190, v192, v194, v196, v206, v208, v210, v212, v214, v221, v223, v225, v47, v55, v57, v59, v69, v71, v73, v75, v83, v91 Tuint32_t
@@ -125999,7 +126623,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 	cbuf_type = (*TREExecContext)(unsafe.Pointer(s)).Fcbuf_type
 	cbuf_end = (*TREExecContext)(unsafe.Pointer(s)).Fcbuf_end
 	for {
-		//        printf("top=%p: pc=%d\n", th_list.top, (int)(pc - (bc_buf + RE_HEADER_LEN)));
+
 		v21 = pc
 		pc++
 		opcode = libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(v21)))
@@ -126140,7 +126764,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 					libc.Xmemcpy(tls, stack, rs+32+uintptr(int32(2)*(*TREExecContext)(unsafe.Pointer(s)).Fcapture_count)*8, libc.Uint64FromInt32(stack_len)*uint64(8))
 					pc = (*TREExecState)(unsafe.Pointer(rs)).Fpc
 					cptr = (*TREExecState)(unsafe.Pointer(rs)).Fcptr
-					/* go backward */
+
 					v47 = (*Tpacked_u32)(unsafe.Pointer(pc + uintptr(12))).Fv
 					goto _48
 				_48:
@@ -126190,7 +126814,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 			} else {
 				ret = libc.BoolInt32(TREExecStateEnum(*(*uint8)(unsafe.Pointer(rs + 0))&0xff>>0) == int32(ERE_EXEC_STATE_LOOKAHEAD) && ret != 0 || TREExecStateEnum(*(*uint8)(unsafe.Pointer(rs + 0))&0xff>>0) == int32(ERE_EXEC_STATE_NEGATIVE_LOOKAHEAD) && !(ret != 0))
 				if ret != 0 {
-					/* keep the capture in case of positive lookahead */
+
 					if TREExecStateEnum(*(*uint8)(unsafe.Pointer(rs + 0))&0xff>>0) == int32(ERE_EXEC_STATE_LOOKAHEAD) {
 						goto pop_state1
 					} else {
@@ -126546,7 +127170,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 		;
 		ignore_case = libc.BoolInt32(opcode == int32(EREOP_word_boundary_i) || opcode == int32(EREOP_not_word_boundary_i))
 		is_boundary = libc.BoolInt32(opcode == int32(EREOP_word_boundary) || opcode == int32(EREOP_word_boundary_i))
-		/* char before */
+
 		if cptr == (*TREExecContext)(unsafe.Pointer(s)).Fcbuf {
 			v1 = int32(EFALSE)
 		} else {
@@ -126581,7 +127205,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 			}
 			v1 = _is_word_char(tls, c2)
 		}
-		/* current char */
+
 		if cptr >= cbuf_end {
 			v2 = int32(EFALSE)
 		} else {
@@ -126794,7 +127418,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 		v176 = uint32((*Tpacked_u16)(unsafe.Pointer(pc)).Fv)
 		goto _177
 	_177:
-		n = libc.Int32FromUint32(v176) /* n must be >= 1 */
+		n = libc.Int32FromUint32(v176)
 		pc += uintptr(2)
 		if cptr >= cbuf_end {
 			goto no_match
@@ -126846,7 +127470,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 		goto _191
 	_191:
 		high = v190
-		/* 0xffff in for last value means +infinity */
+
 		if libc.X__builtin_expect(tls, libc.BoolInt64(!!(c2 >= libc.Uint32FromInt32(0xffff))), 0) != 0 && high == uint32(0xffff) {
 			goto range_match
 		}
@@ -126886,7 +127510,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 		v196 = uint32((*Tpacked_u16)(unsafe.Pointer(pc)).Fv)
 		goto _197
 	_197:
-		n1 = libc.Int32FromUint32(v196) /* n must be >= 1 */
+		n1 = libc.Int32FromUint32(v196)
 		pc += uintptr(2)
 		if cptr >= cbuf_end {
 			goto no_match
@@ -126969,7 +127593,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 		goto _42
 	_39:
 		;
-		/* go to the previous char */
+
 		if cptr == (*TREExecContext)(unsafe.Pointer(s)).Fcbuf {
 			goto no_match
 		}
@@ -127036,7 +127660,7 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 			goto no_match
 		}
 		if q > uint64(quant_min) {
-			/* will examine all matches down to quant_min */
+
 			ret = _push_state(tls, s, capture, stack, libc.Uint64FromInt32(stack_len), pc11-uintptr(16), cptr, int32(ERE_EXEC_STATE_GREEDY_QUANT), q-uint64(quant_min))
 			if ret < 0 {
 				return int64(-libc.Int32FromInt32(1))
@@ -127054,11 +127678,6 @@ func _lre_exec_backtrack(tls *libc.TLS, s uintptr, capture uintptr, stack uintpt
 	return r
 }
 
-// C documentation
-//
-//	/* Return 1 if match, 0 if not match or < 0 if error (see LRE_RET_x). cindex is the
-//	   starting position of the match and must be such as 0 <= cindex <=
-//	   clen. */
 func Xlre_exec(tls *libc.TLS, capture uintptr, bc_buf uintptr, cbuf uintptr, cindex int32, clen int32, cbuf_type int32, opaque uintptr) (r int32) {
 	bp := tls.Alloc(80)
 	defer tls.Free(80)
@@ -127066,7 +127685,7 @@ func Xlre_exec(tls *libc.TLS, capture uintptr, bc_buf uintptr, cbuf uintptr, cin
 	var cptr, p, s, stack_buf uintptr
 	var v2, v4 TBOOL
 	var v6 bool
-	var _ /* s_s at bp+0 */ TREExecContext
+	var _ TREExecContext
 	_, _, _, _, _, _, _, _, _, _, _ = alloca_size, cptr, i, p, re_flags, ret, s, stack_buf, v2, v4, v6
 	tls.AllocaEntry()
 	defer tls.AllocaExit()
@@ -127134,10 +127753,6 @@ _2:
 	return libc.Int32FromUint32(v1)
 }
 
-// C documentation
-//
-//	/* Return NULL if no group names. Otherwise, return a pointer to
-//	   'capture_count - 1' zero terminated UTF-8 strings. */
 func Xlre_get_groupnames(tls *libc.TLS, bc_buf uintptr) (r uintptr) {
 	var re_bytecode_len, v1 Tuint32_t
 	_, _ = re_bytecode_len, v1
