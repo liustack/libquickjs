@@ -97,7 +97,7 @@ import (
 //                                                         goos: linux
 //                                                         goarch: amd64
 //                                                         pkg: modernc.org/libquickjs
-//                                                         cpu: AMD Ryzen 9 3900X 12-Core Processor            
+//                                                         cpu: AMD Ryzen 9 3900X 12-Core Processor
 //                                                         BenchmarkMicro
 //	                  TEST          N TIME (ns)                          TEST          N TIME (ns)
 //	            empty_loop     200000     13.28                    empty_loop      50000     67.46

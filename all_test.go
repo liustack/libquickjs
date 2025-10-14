@@ -22,7 +22,7 @@ import (
 )
 
 const (
-	hash262 = "56e77d6325067a545ea7e8ff5be5d9284334e33c" // 2025-03-25
+	hash262 = "a5e69a1534de88d1eb29b76657d84c8541b72df7" // 2025-09-10
 	zip262  = hash262 + ".zip"
 )
 
@@ -130,25 +130,6 @@ func Test2(t *testing.T) {
 				t.Errorf("%v: got=%q expexted=%q", fn, g, e)
 			default:
 				t.Logf("%3d: %q\n%[2]s", i, g)
-			}
-		})
-	}
-}
-
-func Test3(t *testing.T) {
-	for i, v := range []struct{ fn, out string }{
-		{"testdata/test3/native_function_matcher.js", "924\n"},
-	} {
-		if re != nil && !re.MatchString(v.fn) {
-			continue
-		}
-
-		t.Run(v.fn, func(t *testing.T) {
-			switch g, e := evalFile(t, v.fn), v.out; {
-			case g != e:
-				t.Errorf("%3d: got=%s\nexpexted=%s", i, g, e)
-			default:
-				t.Logf("%3d: %s", i, g)
 			}
 		})
 	}
@@ -291,7 +272,12 @@ func Test262(t *testing.T) {
 		}()
 	}
 
-	shell(t, "unzip", "-q", zip262)
+	switch goos {
+	case "windows":
+		shell(t, "git-bash", "-c", fmt.Sprintf("unzip -q %s", zip262))
+	default:
+		shell(t, "unzip", "-q", zip262)
+	}
 	err := os.Rename("test262-"+hash262, dir)
 	if err != nil {
 		t.Fatal(err)
@@ -301,6 +287,7 @@ func Test262(t *testing.T) {
 	if !fileExists(cnf) {
 		cnf = filepath.Join("testdata", "test262.conf")
 	}
+	t.Logf("using %s", cnf)
 	copyFile(t, "test262.conf", cnf)
 	copyFile(t, filepath.Join(dir, "test262.diff"), filepath.Join("internal", "patch", "test262.diff"))
 	git(t, "-C", dir, "init")
@@ -336,38 +323,29 @@ func Test262(t *testing.T) {
 		s = s[:x]
 	}
 	resultLine := strings.TrimSpace(s)
-	t.Log(resultLine)
-	if _, _, _, _, _, new := parseResultLine(resultLine); new != 0 {
-		t.Fatalf("FAIL: new errors=%v", new)
+	switch newErrors, err := parseResultLine(resultLine); {
+	case err != nil:
+		t.Fatalf("FAIL: err=%v", err)
+	case newErrors != 0:
+		t.Fatalf("FAIL: new errors=%v", newErrors)
 	}
-
+	t.Log(resultLine)
 }
 
 // Example: "Result: 36/76685 errors, 1519 excluded, 8703 skipped, 2 fixed\n"
-func parseResultLine(s string) (errors, count, excluded, skipped, fixed, new int64) {
+func parseResultLine(s string) (newErrors int64, err error) {
 	s = strings.TrimSpace(s)
 	a := strings.Fields(s)
-	// ["Result:" "36/76685" "errors," "1519" "excluded," "8703" "skipped," "2" "fixed"]
+	// [0: "Result:" 1: "36/76685" 2: "errors," 3: "1519" 4: "excluded," 5: "8703" 6: "skipped," 7: "2" 8: "fixed"]
 	if len(a) < 7 {
-		return
+		return 0, fmt.Errorf("malformed result line: `%s`", s)
 	}
 
-	b := strings.Split(a[1], "/")
-	if len(b) != 2 {
-		return
-	}
-
-	errors, _ = strconv.ParseInt(b[0], 0, 64)
-	count, _ = strconv.ParseInt(b[1], 0, 64)
-	excluded, _ = strconv.ParseInt(a[3], 0, 64)
-	skipped, _ = strconv.ParseInt(a[5], 0, 64)
-	if len(a) == 9 {
+	if len(a) > 7 {
 		switch a[8] {
-		case "fixed":
-			fixed, _ = strconv.ParseInt(a[7], 0, 64)
 		case "new":
-			new, _ = strconv.ParseInt(a[7], 0, 64)
+			newErrors, err = strconv.ParseInt(a[7], 0, 64)
 		}
 	}
-	return
+	return newErrors, err
 }
