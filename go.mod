@@ -3,7 +3,7 @@ module modernc.org/libquickjs
 go 1.24.0
 
 require (
-	modernc.org/ccgo/v4 v4.30.0
+	modernc.org/ccgo/v4 v4.30.1
 	modernc.org/fileutil v1.3.40
 	modernc.org/libc v1.66.10
 )
@@ -20,7 +20,7 @@ require (
 	golang.org/x/sync v0.17.0 // indirect
 	golang.org/x/sys v0.36.0 // indirect
 	golang.org/x/tools v0.37.0 // indirect
-	modernc.org/cc/v4 v4.26.5 // indirect
+	modernc.org/cc/v4 v4.27.1 // indirect
 	modernc.org/gc/v2 v2.6.5 // indirect
 	modernc.org/gc/v3 v3.1.1 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
