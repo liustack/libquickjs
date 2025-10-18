@@ -16,3 +16,10 @@ func tag(v TJSValue) (r int32) {
 func u32FromInt32(n int32) uint32 {
 	return uint32(n)
 }
+
+// #define JS_FLOAT64_TAG_ADDEND (0x7ff80000 - JS_TAG_FIRST + 1) /* quiet NaN encoding */
+const _JS_FLOAT64_TAG_ADDEND = (0x7ff80000 - EJS_TAG_FIRST + 1)
+
+func jsvToFloat64(v TJSValue) (r float64) {
+	return math.Float64frombits(v + _JS_FLOAT64_TAG_ADDEND<<32)
+}

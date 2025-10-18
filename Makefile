@@ -3,7 +3,7 @@
 # license that can be found in the LICENSE file.
 
 .PHONY:	all bench clean cpu edit editor generate download dev test nuke shorttest \
-	w64 dev-w64 grep ktest test2 test3
+	w64 dev-w64 grep ktest test2 test3 dbg
 
 # release 2025-04-26
 # QJS_ZIP = 19abf1888db5884a5758036ff6e7fa2b340acedc.zip
@@ -100,3 +100,6 @@ w64: download
 	GOOS=windows GOARCH=amd64 go build -v -o /dev/null .
 	GOOS=windows GOARCH=amd64 go build -v -o /dev/null ./internal/run-test262
 	git status
+
+dbg:
+	go test -timeout 24h -run TestIssue6$$

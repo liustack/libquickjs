@@ -88,7 +88,7 @@ func Test2(t *testing.T) {
 		t.Run(fn, func(t *testing.T) {
 			switch g, e := eval(t, fn, v.in), v.out; {
 			case g != e:
-				t.Errorf("%v: got=%q expexted=%q", fn, g, e)
+				t.Errorf("%v: src=%s got=%q expected=%q", fn, v.in, g, e)
 			default:
 				t.Logf("%3d: %q\n%[2]s", i, g)
 			}
@@ -127,7 +127,7 @@ func Test2(t *testing.T) {
 		t.Run(fn, func(t *testing.T) {
 			switch g, e := eval(t, fn, v.in), v.out; {
 			case g != e:
-				t.Errorf("%v: got=%q expexted=%q", fn, g, e)
+				t.Errorf("%v: src=%s got=%q expected=%q", fn, v.in, g, e)
 			default:
 				t.Logf("%3d: %q\n%[2]s", i, g)
 			}
@@ -182,6 +182,8 @@ func toString(t testing.TB, tls *libc.TLS, ctx uintptr, val TJSValue) (r string)
 		return fmt.Sprintf("<exception=%s>", libc.GoString(p))
 	case EJS_TAG_INT:
 		return fmt.Sprint(*(*int32)(unsafe.Pointer(&val)))
+	case EJS_TAG_FLOAT64:
+		return fmt.Sprint(jsvToFloat64(val))
 	case
 		EJS_TAG_STRING_ROPE, // -6,
 		EJS_TAG_STRING:      // -7,
@@ -348,4 +350,28 @@ func parseResultLine(s string) (newErrors int64, err error) {
 		}
 	}
 	return newErrors, err
+}
+
+// https://gitlab.com/cznic/quickjs/-/issues/6
+func TestIssue6(t *testing.T) {
+	tests := []struct{ in, out string }{
+		{`100000000000000000000000.000000000000001`, "1.0000000000000001e+23"},              // https://gitlab.com/cznic/quickjs/-/issues/6
+		{`+"100000000000000000000000.000000000000001"`, "1.0000000000000001e+23"},           // https://gitlab.com/cznic/quickjs/-/issues/6
+		{`(100000000000000000000000.000000000000001).toString()`, "1.0000000000000001e+23"}, // https://gitlab.com/cznic/quickjs/-/issues/6
+	}
+	for i, v := range tests {
+		fn := fmt.Sprint(i)
+		if re != nil && !re.MatchString(fn) {
+			continue
+		}
+
+		t.Run(fn, func(t *testing.T) {
+			switch g, e := eval(t, fn, v.in), v.out; {
+			case g != e:
+				t.Errorf("%v: src=%s got=%q expected=%q", fn, v.in, g, e)
+			default:
+				t.Logf("%3d: %q\n%[2]s", i, g)
+			}
+		})
+	}
 }
