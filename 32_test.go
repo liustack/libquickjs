@@ -6,6 +6,10 @@
 
 package libquickjs // import "modernc.org/libquickjs"
 
+import (
+	"math"
+)
+
 func tag(v TJSValue) (r int32) {
 	if r = int32(v >> 32); uint32(r)-u32FromInt32(EJS_TAG_FIRST) >= EJS_TAG_FLOAT64-EJS_TAG_FIRST {
 		r = EJS_TAG_FLOAT64
