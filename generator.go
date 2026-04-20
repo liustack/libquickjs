@@ -130,7 +130,10 @@ func main() {
 	}
 
 	switch target {
-	case "darwin/arm64", "darwin/amd64":
+	case "darwin/arm64":
+		gsed = "gsed"
+		ccArgs = append(ccArgs, "-ignore-static-asserts")
+	case "darwin/amd64":
 		gsed = "gsed"
 	case "freebsd/arm64", "freebsd/amd64":
 		gmake = "gmake"
