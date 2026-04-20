@@ -1,4 +1,4 @@
-// Code generated for darwin/arm64 by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment --package-name libquickjs -o ccgo_darwin_arm64.go tmp/quickjs-fa628f8c523ecac8ce560c081411e91fcaba2d20/libquickjs.a', DO NOT EDIT.
+// Code generated for darwin/arm64 by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment -ignore-static-asserts --package-name libquickjs -o ccgo_darwin_arm64.go tmp/quickjs-fa628f8c523ecac8ce560c081411e91fcaba2d20/libquickjs.a', DO NOT EDIT.
 
 //go:build darwin && arm64
 
@@ -40,7 +40,7 @@ const MARM_SME_STATE = 28
 const MARM_SME_ZA_STATE1 = 32
 const MARM_SME_ZA_STATE10 = 41
 const MARM_SME_ZA_STATE11 = 42
-const MARM_SME_ZA_STATE12 = 42
+const MARM_SME_ZA_STATE12 = 43
 const MARM_SME_ZA_STATE13 = 44
 const MARM_SME_ZA_STATE14 = 45
 const MARM_SME_ZA_STATE15 = 46
@@ -138,6 +138,7 @@ const MCPUFAMILY_ARM_LIGHTNING_THUNDER = 1176831186
 const MCPUFAMILY_ARM_LOBOS = 1598941843
 const MCPUFAMILY_ARM_MONSOON_MISTRAL = 3894312694
 const MCPUFAMILY_ARM_PALMA = 1912690738
+const MCPUFAMILY_ARM_SOTRA = 4151073562
 const MCPUFAMILY_ARM_SWIFT = 506291073
 const MCPUFAMILY_ARM_TAHITI = 1976872121
 const MCPUFAMILY_ARM_THERA = 2872336137
@@ -727,6 +728,7 @@ const MKERN_INSUFFICIENT_BUFFER_SIZE = 52
 const MKERN_INVALID_ADDRESS = 1
 const MKERN_INVALID_ARGUMENT = 4
 const MKERN_INVALID_CAPABILITY = 20
+const MKERN_INVALID_GUARD_OBJECT_SLOT = 57
 const MKERN_INVALID_HOST = 22
 const MKERN_INVALID_KC = 55
 const MKERN_INVALID_LEDGER = 33
@@ -874,7 +876,6 @@ const MMACH_PORT_IMPORTANCE_RECEIVER = 5
 const MMACH_PORT_INFO_EXT = 7
 const MMACH_PORT_LIMITS_INFO = 1
 const MMACH_PORT_NULL = 0
-const MMACH_PORT_PROVISIONAL_REPLY_ENTITLEMENT = "com.apple.private.allow-weak-reply-port"
 const MMACH_PORT_QLIMIT_BASIC = 5
 const MMACH_PORT_QLIMIT_DEFAULT = 5
 const MMACH_PORT_QLIMIT_KERNEL = 65534
@@ -900,6 +901,7 @@ const MMACH_PORT_TEMPOWNER = 4
 const MMACH_PORT_TYPE_DNREQUEST = 2147483648
 const MMACH_PORT_TYPE_SPREQUEST = 1073741824
 const MMACH_PORT_TYPE_SPREQUEST_DELAYED = 536870912
+const MMACH_PORT_WEAK_REPLY_ENTITLEMENT = "com.apple.private.allow-weak-reply-port"
 const MMACH_RCV_BODY_ERROR = 268451852
 const MMACH_RCV_GUARDED_DESC = 4096
 const MMACH_RCV_HEADER_ERROR = 268451851
@@ -1033,6 +1035,8 @@ const MMAC_OS_VERSION_16_0 = 160000
 const MMAC_OS_VERSION_26_0 = 260000
 const MMAC_OS_VERSION_26_1 = 260100
 const MMAC_OS_VERSION_26_2 = 260200
+const MMAC_OS_VERSION_26_3 = 260300
+const MMAC_OS_VERSION_26_4 = 260400
 const MMAC_OS_X_VERSION_10_0 = 1000
 const MMAC_OS_X_VERSION_10_1 = 1010
 const MMAC_OS_X_VERSION_10_10 = 101000
@@ -1183,6 +1187,7 @@ const MMPO_IMPORTANCE_RECEIVER = 8
 const MMPO_INSERT_SEND_RIGHT = 16
 const MMPO_OPTIONS_MASK = 9215
 const MMPO_PORT_TYPE_MASK = 121856
+const MMPO_PROVISIONAL_REPLY_PORT = 0
 const MMPO_QLIMIT = 2
 const MMPO_STRICT = 32
 const MMPO_STRICT_SERVICE_PORT = 8192
@@ -1604,6 +1609,7 @@ const MTARGET_OS_OSX = 1
 const MTARGET_OS_RTKIT = 0
 const MTARGET_OS_SIMULATOR = 0
 const MTARGET_OS_TV = 0
+const MTARGET_OS_UEFI = 0
 const MTARGET_OS_UIKITFORMAC = 0
 const MTARGET_OS_UNIX = 0
 const MTARGET_OS_VISION = 0
@@ -1783,6 +1789,7 @@ const MVM_FLAGS_4GB_CHUNK = 4
 const MVM_FLAGS_ALIAS_MASK = 4278190080
 const MVM_FLAGS_ANYWHERE = 1
 const MVM_FLAGS_FIXED = 0
+const MVM_FLAGS_GUARD_OBJECT_OPTOUT = 4194304
 const MVM_FLAGS_HW = 12288
 const MVM_FLAGS_MTE = 8192
 const MVM_FLAGS_NO_CACHE = 16
@@ -1800,8 +1807,8 @@ const MVM_FLAGS_SUPERPAGE_SHIFT = 16
 const MVM_FLAGS_SUPERPAGE_SIZE_2MB = 131072
 const MVM_FLAGS_SUPERPAGE_SIZE_ANY = 65536
 const MVM_FLAGS_TPRO = 4096
-const MVM_FLAGS_USER_ALLOCATE = 4278677663
-const MVM_FLAGS_USER_MAP = 4288114847
+const MVM_FLAGS_USER_ALLOCATE = 4282871967
+const MVM_FLAGS_USER_MAP = 4292309151
 const MVM_FLAGS_USER_REMAP = 1065065
 const MVM_INHERIT_DEFAULT = "VM_INHERIT_COPY"
 const MVM_INHERIT_LAST_VALID = "VM_INHERIT_NONE"
@@ -1934,6 +1941,7 @@ const MVM_MEMORY_SWIFT_RUNTIME = 82
 const MVM_MEMORY_TCMALLOC = 53
 const MVM_MEMORY_UNSHARED_PMAP = 35
 const MVM_MEMORY_VIDEOBITSTREAM = 91
+const MVM_MEMORY_VM_RECLAIM = 22
 const MVM_MEMORY_WEBASSEMBLY = 63
 const MVM_MEMORY_WEBCORE_PURGEABLE_BUFFERS = 69
 const MVM_OFFSET_LIST_MAX = 1024
@@ -1975,6 +1983,8 @@ const MVM_PURGABLE_STATE_MASK = 3
 const MVM_PURGABLE_STATE_MAX = 3
 const MVM_PURGABLE_STATE_MIN = 0
 const MVM_PURGABLE_VOLATILE = 1
+const MVM_REALLOCATE_DEALLOCATE_SOURCE = 0
+const MVM_REALLOCATE_ZERO_FILL_SOURCE = 1
 const MVM_REGION_BASIC_INFO = 10
 const MVM_REGION_BASIC_INFO_64 = 9
 const MVM_REGION_EXTENDED_INFO = 13
@@ -2071,9 +2081,10 @@ const M__APPLE_CC__ = 6000
 const M__APPLE__ = 1
 const M__ARM64_ARCH_8__ = 1
 const M__ARM_64BIT_STATE = 1
-const M__ARM_ACLE = 200
+const M__ARM_ACLE = 202420
 const M__ARM_ALIGN_MAX_STACK_PWR = 4
 const M__ARM_ARCH = 8
+const M__ARM_ARCH_8_2__ = 1
 const M__ARM_ARCH_8_3__ = 1
 const M__ARM_ARCH_8_4__ = 1
 const M__ARM_ARCH_8_5__ = 1
@@ -2110,6 +2121,7 @@ const M__ARM_FP16_ARGS = 1
 const M__ARM_FP16_FORMAT_IEEE = 1
 const M__ARM_NEON = 1
 const M__ARM_NEON_FP = 14
+const M__ARM_NEON_SVE_BRIDGE = 1
 const M__ARM_NEON__ = 1
 const M__ARM_PCS_AAPCS64 = 1
 const M__ARM_SIZEOF_MINIMAL_ENUM = 4
@@ -2130,10 +2142,12 @@ const M__AVAILABILITY_VERSIONS_VERSION_STRING = "Local"
 const M__BIGGEST_ALIGNMENT__ = 8
 const M__BITINT_MAXWIDTH__ = 128
 const M__BLOCKS__ = 1
-const M__BOOL_WIDTH__ = 8
+const M__BOOL_WIDTH__ = 1
 const M__BRIDGEOS_10_0 = 100000
 const M__BRIDGEOS_10_1 = 100100
 const M__BRIDGEOS_10_2 = 100200
+const M__BRIDGEOS_10_3 = 100300
+const M__BRIDGEOS_10_4 = 100400
 const M__BRIDGEOS_2_0 = 20000
 const M__BRIDGEOS_3_0 = 30000
 const M__BRIDGEOS_3_1 = 30100
@@ -2247,6 +2261,8 @@ const M__DRIVERKIT_24_6 = 240600
 const M__DRIVERKIT_25_0 = 250000
 const M__DRIVERKIT_25_1 = 250100
 const M__DRIVERKIT_25_2 = 250200
+const M__DRIVERKIT_25_3 = 250300
+const M__DRIVERKIT_25_4 = 250400
 const M__DYNAMIC__ = 1
 const M__ENABLE_LEGACY_MAC_AVAILABILITY = 1
 const M__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ = 260000
@@ -2295,6 +2311,7 @@ const M__FPCLASS_QNAN = 2
 const M__FPCLASS_SNAN = 1
 const M__FP_FAST_FMA = 1
 const M__FP_FAST_FMAF = 1
+const M__FUNCTION_MULTI_VERSIONING_SUPPORT_LEVEL = 202430
 const M__FUNCTION__ = 0
 const M__GCC_ASM_FLAG_OUTPUTS__ = 1
 const M__GCC_ATOMIC_BOOL_LOCK_FREE = 2
@@ -2309,7 +2326,7 @@ const M__GCC_ATOMIC_SHORT_LOCK_FREE = 2
 const M__GCC_ATOMIC_TEST_AND_SET_TRUEVAL = 1
 const M__GCC_ATOMIC_WCHAR_T_LOCK_FREE = 2
 const M__GCC_CONSTRUCTIVE_SIZE = 64
-const M__GCC_DESTRUCTIVE_SIZE = 64
+const M__GCC_DESTRUCTIVE_SIZE = 256
 const M__GCC_HAVE_DWARF2_CFI_ASM = 1
 const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 = 1
 const M__GCC_HAVE_SYNC_COMPARE_AND_SWAP_16 = 1
@@ -2452,6 +2469,8 @@ const M__IPHONE_19_0 = 190000
 const M__IPHONE_26_0 = 260000
 const M__IPHONE_26_1 = 260100
 const M__IPHONE_26_2 = 260200
+const M__IPHONE_26_3 = 260300
+const M__IPHONE_26_4 = 260400
 const M__IPHONE_2_0 = 20000
 const M__IPHONE_2_1 = 20100
 const M__IPHONE_2_2 = 20200
@@ -2574,6 +2593,8 @@ const M__MAC_16_0 = 160000
 const M__MAC_26_0 = 260000
 const M__MAC_26_1 = 260100
 const M__MAC_26_2 = 260200
+const M__MAC_26_3 = 260300
+const M__MAC_26_4 = 260400
 const M__MEMORY_SCOPE_DEVICE = 1
 const M__MEMORY_SCOPE_SINGLE = 4
 const M__MEMORY_SCOPE_SYSTEM = 0
@@ -2720,6 +2741,8 @@ const M__TVOS_19_0 = 190000
 const M__TVOS_26_0 = 260000
 const M__TVOS_26_1 = 260100
 const M__TVOS_26_2 = 260200
+const M__TVOS_26_3 = 260300
+const M__TVOS_26_4 = 260400
 const M__TVOS_9_0 = 90000
 const M__TVOS_9_1 = 90100
 const M__TVOS_9_2 = 90200
@@ -2800,7 +2823,7 @@ const M__UINT_LEAST8_FMTu__ = "hhu"
 const M__UINT_LEAST8_FMTx__ = "hhx"
 const M__UINT_LEAST8_MAX__ = 255
 const M__USER_LABEL_PREFIX__ = 0
-const M__VERSION__ = "Apple LLVM 17.0.0 (clang-1700.6.4.2)"
+const M__VERSION__ = "Apple LLVM 21.0.0 (clang-2100.0.123.102)"
 const M__VISIONOS_1_0 = 10000
 const M__VISIONOS_1_1 = 10100
 const M__VISIONOS_1_2 = 10200
@@ -2808,6 +2831,8 @@ const M__VISIONOS_1_3 = 10300
 const M__VISIONOS_26_0 = 260000
 const M__VISIONOS_26_1 = 260100
 const M__VISIONOS_26_2 = 260200
+const M__VISIONOS_26_3 = 260300
+const M__VISIONOS_26_4 = 260400
 const M__VISIONOS_2_0 = 20000
 const M__VISIONOS_2_1 = 20100
 const M__VISIONOS_2_2 = 20200
@@ -2837,6 +2862,8 @@ const M__WATCHOS_1_0 = 10000
 const M__WATCHOS_26_0 = 260000
 const M__WATCHOS_26_1 = 260100
 const M__WATCHOS_26_2 = 260200
+const M__WATCHOS_26_3 = 260300
+const M__WATCHOS_26_4 = 260400
 const M__WATCHOS_2_0 = 20000
 const M__WATCHOS_2_1 = 20100
 const M__WATCHOS_2_2 = 20200
@@ -2884,16 +2911,16 @@ const M__WINT_MAX__ = 2147483647
 const M__WINT_TYPE__ = 0
 const M__WINT_WIDTH__ = 32
 const M__aarch64__ = 1
-const M__apple_build_version__ = 17000604
+const M__apple_build_version__ = 21000099
 const M__arm64 = 1
 const M__arm64__ = 1
 const M__bool_true_false_are_defined = 1
 const M__clang__ = 1
 const M__clang_literal_encoding__ = "UTF-8"
-const M__clang_major__ = 17
+const M__clang_major__ = 21
 const M__clang_minor__ = 0
 const M__clang_patchlevel__ = 0
-const M__clang_version__ = "17.0.0 (clang-1700.6.4.2)"
+const M__clang_version__ = "21.0.0 (clang-2100.0.123.102)"
 const M__clang_wide_literal_encoding__ = "UTF-32"
 const M__const = 0
 const M__exported_hidden = 0
@@ -2927,9 +2954,13 @@ const Matomic_init = 0
 const Matomic_load_explicit = 0
 const Matomic_store_explicit = 0
 const Mbool = 0
+const Mcode_emask = 16383
+const Merr_max_system = 63
 const Merrno = 0
 const Mfalse = 0
+const MkGUARD_EXC_MOVE_PROVISIONAL_REPLY_PORT = 0
 const MkGUARD_EXC_MTE_SOFT_MODE = 1048576
+const MkGUARD_EXC_PROVISIONAL_REPLY_PORT = 0
 const Mmach_msg_kind_t = 0
 const Mmath_errhandling = 0
 const Mmsgh_kind = 0
@@ -2951,6 +2982,7 @@ const Mstatic_assert = 0
 const Mstderr = 0
 const Mstdin = 0
 const Mstdout = 0
+const Msub_emask = 67092480
 const Msv_onstack = 0
 const Mtrue = 1
 
@@ -4129,7 +4161,8 @@ const EMPO_PORT = 0
 const EMPO_SERVICE_PORT = 1024
 const EMPO_CONNECTION_PORT = 2048
 const EMPO_REPLY_PORT = 4096
-const EMPO_PROVISIONAL_REPLY_PORT = 16384
+const EMPO_WEAK_REPLY_PORT = 16384
+const EMPO_NOTIFICATION_PORT = 17408
 const EMPO_EXCEPTION_PORT = 32768
 const EMPO_CONNECTION_PORT_WITH_PORT_ARRAY = 65536
 
@@ -4182,9 +4215,12 @@ const EkGUARD_EXC_SEND_INVALID_RIGHT = 262144
 const EkGUARD_EXC_RCV_INVALID_NAME = 524288
 const EkGUARD_EXC_RCV_GUARDED_DESC = 1048576
 const EkGUARD_EXC_SERVICE_PORT_VIOLATION_NON_FATAL = 1048577
-const EkGUARD_EXC_PROVISIONAL_REPLY_PORT = 1048578
+const EkGUARD_EXC_INVALID_NOTIFICATION_PORT = 1048582
+const EkGUARD_EXC_MACH_EXC_THREAD_SET_STATE = 1048583
+const EkGUARD_EXC_CV_NOTIFICATION_PORT_REQ = 1048584
+const EkGUARD_EXC_WEAK_REPLY_PORT = 1048578
 const EkGUARD_EXC_OOL_PORT_ARRAY_CREATION = 1048579
-const EkGUARD_EXC_MOVE_PROVISIONAL_REPLY_PORT = 1048580
+const EkGUARD_EXC_MOVE_WEAK_REPLY_PORT = 1048580
 const EkGUARD_EXC_REPLY_PORT_SINGLE_SO_RIGHT = 1048581
 const EkGUARD_EXC_MOD_REFS_NON_FATAL = 2097152
 const EkGUARD_EXC_IMMOVABLE_NON_FATAL = 4194304
@@ -4544,6 +4580,8 @@ type Tvm_purgeable_info = struct {
 
 type Tvm_purgeable_info_t = uintptr
 
+type Tvm_page_disposition_t = int32
+
 type Tvirtual_memory_guard_exception_code_t = uint32
 
 const EkGUARD_EXC_DEALLOC_GAP = 1
@@ -4554,6 +4592,7 @@ const EkGUARD_EXC_RECLAIM_ACCOUNTING_FAILURE = 9
 const EkGUARD_EXC_SEC_IOPL_ON_EXEC_PAGE = 10
 const EkGUARD_EXC_SEC_EXEC_ON_IOPL_PAGE = 11
 const EkGUARD_EXC_SEC_UPL_WRITE_ON_EXEC_REGION = 12
+const EkGUARD_EXC_LARGE_ALLOCATION_TELEMETRY = 13
 const EkGUARD_EXC_SEC_ACCESS_FAULT = 98
 const EkGUARD_EXC_SEC_ASYNC_ACCESS_FAULT = 99
 const EkGUARD_EXC_SEC_COPY_DENIED = 100
@@ -4561,6 +4600,8 @@ const EkGUARD_EXC_SEC_SHARING_DENIED = 101
 const EkGUARD_EXC_MTE_SYNC_FAULT = 200
 const EkGUARD_EXC_MTE_ASYNC_USER_FAULT = 201
 const EkGUARD_EXC_MTE_ASYNC_KERN_FAULT = 202
+const EkGUARD_EXC_GUARD_OBJECT_ASYNC_USER_FAULT = 203
+const EkGUARD_EXC_GUARD_OBJECT_ASYNC_KERN_FAULT = 204
 
 type Tcpu_type_t = int32
 
@@ -4729,6 +4770,10 @@ type Thost_preferred_user_arch_t = uintptr
 type Tvm_prot_t = int32
 
 type Tvm_sync_t = uint32
+
+type Tmach_error_t = int32
+
+type Tmach_error_fn_t = uintptr
 
 type Tpointer_t = uint64
 
@@ -5089,6 +5134,7 @@ const EIPC_OTYPE_TASK_ID_TOKEN = 50
 const EIPC_OTYPE_TASK_FATAL = 51
 const EIPC_OTYPE_KCDATA = 52
 const EIPC_OTYPE_EXCLAVES_RESOURCE = 53
+const EIPC_OTYPE_THREAD_RESUME = 54
 const EIPC_OTYPE_UNKNOWN = 4294967295
 
 type Tipc_info_space_t = struct {
@@ -6681,6 +6727,8 @@ type Tthread_inspect_t = uint32
 
 type Tthread_read_t = uint32
 
+type Tthread_suspension_token_t = uint32
+
 type Tipc_space_t = uint32
 
 type Tipc_space_read_t = uint32
@@ -6821,6 +6869,8 @@ type Tmach_task_flavor_t = uint32
 type Tmach_thread_flavor_t = uint32
 
 type Tledger_item_t = uint32
+
+type Tledger_entry_id_t = uint32
 
 type Tledger_amount_t = int64
 
@@ -167718,8 +167768,8 @@ type Tdirent = struct {
 
 type TDIR = struct {
 	F__dd_fd    int32
-	F__dd_loc   int64
-	F__dd_size  int64
+	F__dd_loc   Tsize_t
+	F__dd_size  Tsize_t
 	F__dd_buf   uintptr
 	F__dd_len   int32
 	F__dd_seek  int64
