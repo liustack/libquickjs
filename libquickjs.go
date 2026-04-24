@@ -13,7 +13,7 @@
 //
 // # QuickJS Version
 //
-// Release 2025-04-26, [changelog].
+// Release 2025-09-13, [changelog].
 //
 // # Supported platforms and architectures
 //

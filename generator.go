@@ -21,11 +21,11 @@ import (
 )
 
 const (
-	qjsCommit     = "fa628f8c523ecac8ce560c081411e91fcaba2d20" // release 2025-09-13
+	qjsCommit     = "d7ae12ae71dfd6ab2997527d295014a8996fa0f9" // tip 2026-03-23
 	qjsDiff       = "quickjs.diff"
 	qjsUnzip      = "quickjs-" + qjsCommit
 	qjsZip        = qjsCommit + ".zip"
-	test262Commit = "a5e69a1534de88d1eb29b76657d84c8541b72df7" // 2025-09-10
+	test262Commit = "5c8206929d81b2d3d727ca6aac56c18358c8d790" // 2026-03-20
 	test262Diff   = "test262.diff"
 	test262Dir    = "test262"
 	test262Unzip  = "test262-" + test262Commit
@@ -35,7 +35,6 @@ const (
 
 var (
 	ccArgs = []string{
-		"--hot-switch=^JS_CallInternal$",
 		"--prefix-enumerator=E",
 		"--prefix-external=x_",
 		"--prefix-field=F",
@@ -131,7 +130,10 @@ func main() {
 	}
 
 	switch target {
-	case "darwin/arm64", "darwin/amd64":
+	case "darwin/arm64":
+		gsed = "gsed"
+		ccArgs = append(ccArgs, "-ignore-static-asserts")
+	case "darwin/amd64":
 		gsed = "gsed"
 	case "freebsd/arm64", "freebsd/amd64":
 		gmake = "gmake"

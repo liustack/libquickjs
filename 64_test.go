@@ -6,6 +6,14 @@
 
 package libquickjs // import "modernc.org/libquickjs"
 
+import (
+	"unsafe"
+)
+
 func tag(v TJSValue) int32 {
 	return int32(v.Ftag)
+}
+
+func jsvToFloat64(v TJSValue) (r float64) {
+	return *(*float64)(unsafe.Pointer(&v))
 }
