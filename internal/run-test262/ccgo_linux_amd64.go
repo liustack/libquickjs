@@ -69866,6 +69866,17 @@ done:
 		(*(*[3]TJSValue)(unsafe.Pointer(bp + 64)))[0] = ret
 		res = x_JS_Invoke(tls, ctx5, arr, uint32(EJS_ATOM_set), int32(1), bp+64)
 		if _check_exception_free(tls, ctx5, res) != 0 {
+			v11 = arr
+			*(*TJSValue)(unsafe.Pointer(bp + 16)) = v11
+			if libc.Uint32FromInt32(int32(v11.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = *(*uintptr)(unsafe.Pointer(bp + 16))
+				v4 = p
+				*(*int32)(unsafe.Pointer(v4)) = *(*int32)(unsafe.Pointer(v4)) - 1
+				v12 = *(*int32)(unsafe.Pointer(v4))
+				if v12 <= libc.Int32FromInt32(0) {
+					x___JS_FreeValue(tls, ctx5, v11)
+				}
+			}
 			goto exception
 		}
 		v11 = ret
