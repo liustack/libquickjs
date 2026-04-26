@@ -118273,10 +118273,12 @@ type TJSAtomicsWaiter = struct {
 }
 
 var _js_atomics_mutex = Tpthread_mutex_t{}
-var _js_atomics_waiter_list Tlist_head
-var _js_atomics_waiter_list0 = Tlist_head{
-	Fprev: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
-	Fnext: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
+var _js_atomics_waiter_list = Tlist_head{}
+
+func init() {
+	p := unsafe.Pointer(&_js_atomics_waiter_list)
+	*(*uintptr)(unsafe.Add(p, 0)) = uintptr(unsafe.Pointer(&_js_atomics_waiter_list))
+	*(*uintptr)(unsafe.Add(p, 8)) = uintptr(unsafe.Pointer(&_js_atomics_waiter_list))
 }
 
 func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
@@ -119818,7 +119820,7 @@ func XJS_AddIntrinsicWeakRef(tls *libc.TLS, ctx uintptr) {
 }
 
 func Xinit(tls *libc.TLS) {
-	_js_atomics_waiter_list = _js_atomics_waiter_list0
+	// nop
 }
 
 func XDupValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) (r TJSValue) {
