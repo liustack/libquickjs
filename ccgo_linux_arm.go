@@ -1,4 +1,4 @@
-// Code generated for linux/arm by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment --package-name libquickjs -o ccgo_linux_arm.go tmp/quickjs-fa628f8c523ecac8ce560c081411e91fcaba2d20/libquickjs.a', DO NOT EDIT.
+// Code generated for linux/arm by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment --package-name libquickjs -o ccgo_linux_arm.go tmp/quickjs-de4d3927b8edff5fbfee1f69cfeef840844259e9/libquickjs.a', DO NOT EDIT.
 
 //go:build linux && arm
 
@@ -68948,6 +68948,16 @@ done:
 		(*(*[3]TJSValue)(unsafe.Pointer(bp + 16)))[0] = ret
 		res = XJS_Invoke(tls, ctx5, arr, uint32(EJS_ATOM_set), int32(1), bp+16)
 		if _check_exception_free(tls, ctx5, res) != 0 {
+			v11 = arr
+			if libc.Uint32FromInt32(libc.Int32FromUint64(v11>>libc.Int32FromInt32(32))) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = uintptr(libc.Int32FromUint64(v11))
+				v4 = p
+				*(*int32)(unsafe.Pointer(v4)) = *(*int32)(unsafe.Pointer(v4)) - 1
+				v12 = *(*int32)(unsafe.Pointer(v4))
+				if v12 <= libc.Int32FromInt32(0) {
+					x__JS_FreeValue(tls, ctx5, v11)
+				}
+			}
 			goto exception
 		}
 		v11 = ret
@@ -112830,10 +112840,12 @@ type TJSAtomicsWaiter = struct {
 }
 
 var _js_atomics_mutex = Tpthread_mutex_t{}
-var _js_atomics_waiter_list Tlist_head
-var _js_atomics_waiter_list0 = Tlist_head{
-	Fprev: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
-	Fnext: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
+var _js_atomics_waiter_list = Tlist_head{}
+
+func init() {
+	p := unsafe.Pointer(&_js_atomics_waiter_list)
+	*(*uintptr)(unsafe.Add(p, 0)) = uintptr(unsafe.Pointer(&_js_atomics_waiter_list))
+	*(*uintptr)(unsafe.Add(p, 4)) = uintptr(unsafe.Pointer(&_js_atomics_waiter_list))
 }
 
 func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
@@ -114297,7 +114309,7 @@ func XJS_AddIntrinsicWeakRef(tls *libc.TLS, ctx uintptr) {
 }
 
 func Xinit(tls *libc.TLS) {
-	_js_atomics_waiter_list = _js_atomics_waiter_list0
+	// nop
 }
 
 func XDupValue(tls *libc.TLS, ctx1 uintptr, v1 TJSValue) (r TJSValue) {
