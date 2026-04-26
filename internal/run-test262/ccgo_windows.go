@@ -869,14 +869,12 @@ var _agent_cond = int64(-libc.Int32FromInt32(1))
 // C documentation
 //
 //	/* list of Test262Agent.link */
-var _agent_list Tlist_head
-var _agent_list0 = Tlist_head{
-	Fprev: uintptr(unsafe.Pointer(&_agent_list)),
-	Fnext: uintptr(unsafe.Pointer(&_agent_list)),
-}
+var _agent_list = Tlist_head{}
 
-func _init_agent_list(tls *libc.TLS) {
-	_agent_list = _agent_list0
+func init() {
+	p := unsafe.Pointer(&_agent_list)
+	*(*uintptr)(unsafe.Add(p, 0)) = uintptr(unsafe.Pointer(&_agent_list))
+	*(*uintptr)(unsafe.Add(p, 8)) = uintptr(unsafe.Pointer(&_agent_list))
 }
 
 var _report_mutex = int64(-libc.Int32FromInt32(1))
@@ -884,14 +882,12 @@ var _report_mutex = int64(-libc.Int32FromInt32(1))
 // C documentation
 //
 //	/* list of AgentReport.link */
-var _report_list Tlist_head
-var _report_list0 = Tlist_head{
-	Fprev: uintptr(unsafe.Pointer(&_report_list)),
-	Fnext: uintptr(unsafe.Pointer(&_report_list)),
-}
+var _report_list = Tlist_head{}
 
-func _init_report_list(tls *libc.TLS) {
-	_report_list = _report_list0
+func init() {
+	p := unsafe.Pointer(&_report_list)
+	*(*uintptr)(unsafe.Add(p, 0)) = uintptr(unsafe.Pointer(&_report_list))
+	*(*uintptr)(unsafe.Add(p, 8)) = uintptr(unsafe.Pointer(&_report_list))
 }
 
 func _agent_start(tls *libc.TLS, arg uintptr) (r uintptr) {
@@ -3471,8 +3467,8 @@ func x_main(tls *libc.TLS, argc int32, argv uintptr) (r int32) {
 	is_module = int32(EFALSE)
 	count_skipped_features = int32(EFALSE)
 	x_init(tls)
-	_init_agent_list(tls)
-	_init_report_list(tls)
+	// ccgo/v4@v4.34.0 can now handle initialization cycles
+	// but only direct ones.
 	_init_js_agent_funcs(tls)
 	optind = int32(1)
 	for optind < argc {
@@ -70027,6 +70023,17 @@ done:
 		(*(*[3]TJSValue)(unsafe.Pointer(bp + 64)))[0] = ret
 		res = x_JS_Invoke(tls, ctx5, arr, uint32(EJS_ATOM_set), int32(1), bp+64)
 		if _check_exception_free(tls, ctx5, res) != 0 {
+			v11 = arr
+			*(*TJSValue)(unsafe.Pointer(bp + 16)) = v11
+			if uint32(int32(v11.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = *(*uintptr)(unsafe.Pointer(bp + 16))
+				v4 = p
+				*(*int32)(unsafe.Pointer(v4)) = *(*int32)(unsafe.Pointer(v4)) - 1
+				v12 = *(*int32)(unsafe.Pointer(v4))
+				if v12 <= libc.Int32FromInt32(0) {
+					x___JS_FreeValue(tls, ctx5, v11)
+				}
+			}
 			goto exception
 		}
 		v11 = ret
@@ -116429,10 +116436,12 @@ type TJSAtomicsWaiter = struct {
 }
 
 var _js_atomics_mutex = int64(-libc.Int32FromInt32(1))
-var _js_atomics_waiter_list Tlist_head
-var _js_atomics_waiter_list0 = Tlist_head{
-	Fprev: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
-	Fnext: uintptr(unsafe.Pointer(&_js_atomics_waiter_list)),
+var _js_atomics_waiter_list = Tlist_head{}
+
+func init() {
+	p := unsafe.Pointer(&_js_atomics_waiter_list)
+	*(*uintptr)(unsafe.Add(p, 0)) = uintptr(unsafe.Pointer(&_js_atomics_waiter_list))
+	*(*uintptr)(unsafe.Add(p, 8)) = uintptr(unsafe.Pointer(&_js_atomics_waiter_list))
 }
 
 func _js_atomics_wait(tls *libc.TLS, ctx uintptr, this_obj TJSValue, argc int32, argv uintptr) (r TJSValue) {
@@ -117982,7 +117991,7 @@ func x_JS_AddIntrinsicWeakRef(tls *libc.TLS, ctx uintptr) {
 }
 
 func x_init(tls *libc.TLS) {
-	_js_atomics_waiter_list = _js_atomics_waiter_list0
+	// nop
 }
 
 const MDBIGNUM_LEN_MAX = 52
