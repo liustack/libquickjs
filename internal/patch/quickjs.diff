@@ -81,7 +81,7 @@ index 54a7a15..70ee430 100644
      ret = js_get_errno(mkdir(path, mode));
  #endif
 diff --git a/quickjs.c b/quickjs.c
-index 9b997f6..203204e 100644
+index baf2826..de7a575 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -127,7 +127,7 @@ index 9b997f6..203204e 100644
                             int argc, JSValueConst *argv)
  {
      JSValue obj, args[1];
-@@ -56029,3 +56035,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
+@@ -56619,3 +56625,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
                                 countof(js_finrec_proto_funcs));
      JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
  }
