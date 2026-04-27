@@ -81,7 +81,7 @@ index 54a7a15..70ee430 100644
      ret = js_get_errno(mkdir(path, mode));
  #endif
 diff --git a/quickjs.c b/quickjs.c
-index 0004383..4582e69 100644
+index 9b997f6..203204e 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -127,28 +127,14 @@ index 0004383..4582e69 100644
                             int argc, JSValueConst *argv)
  {
      JSValue obj, args[1];
-@@ -55500,8 +55506,13 @@ typedef struct JSAtomicsWaiter {
- } JSAtomicsWaiter;
- 
- static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
-+#ifndef __CCGO__
- static struct list_head js_atomics_waiter_list =
-     LIST_HEAD_INIT(js_atomics_waiter_list);
-+#else
-+static struct list_head js_atomics_waiter_list;
-+static struct list_head js_atomics_waiter_list0 = LIST_HEAD_INIT(js_atomics_waiter_list);
-+#endif
- 
- static JSValue js_atomics_wait(JSContext *ctx,
-                                JSValueConst this_obj,
-@@ -56027,3 +56038,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
+@@ -56029,3 +56035,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
                                 countof(js_finrec_proto_funcs));
      JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
  }
 +
 +#ifdef __CCGO__
 +void init() {
-+	js_atomics_waiter_list = js_atomics_waiter_list0;
++	// nop
 +}
 +
 +JSValue DupValue(JSContext *ctx, JSValueConst v) {
@@ -193,40 +179,10 @@ index c8cd149..cbf98aa 100644
  #undef js_force_inline
  
 diff --git a/run-test262.c b/run-test262.c
-index 100ed13..6dc16eb 100644
+index 100ed13..fb52965 100644
 --- a/run-test262.c
 +++ b/run-test262.c
-@@ -460,11 +460,29 @@ static void add_helpers(JSContext *ctx);
- static pthread_mutex_t agent_mutex = PTHREAD_MUTEX_INITIALIZER;
- static pthread_cond_t agent_cond = PTHREAD_COND_INITIALIZER;
- /* list of Test262Agent.link */
-+#ifndef __CCGO__
- static struct list_head agent_list = LIST_HEAD_INIT(agent_list);
-+#else
-+static struct list_head agent_list;
-+static struct list_head agent_list0 = LIST_HEAD_INIT(agent_list);
-+
-+static void init_agent_list() {
-+    agent_list = agent_list0;
-+}
-+#endif
- 
- static pthread_mutex_t report_mutex = PTHREAD_MUTEX_INITIALIZER;
- /* list of AgentReport.link */
-+#ifndef __CCGO__
- static struct list_head report_list = LIST_HEAD_INIT(report_list);
-+#else
-+static struct list_head report_list;
-+static struct list_head report_list0 = LIST_HEAD_INIT(report_list);
-+
-+static void init_report_list() {
-+    report_list = report_list0;
-+}
-+#endif
- 
- static void *agent_start(void *arg)
- {
-@@ -725,6 +743,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
+@@ -725,6 +725,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
      return JS_UNDEFINED;
  }
  
@@ -234,7 +190,7 @@ index 100ed13..6dc16eb 100644
  static const JSCFunctionListEntry js_agent_funcs[] = {
      /* only in main */
      JS_CFUNC_DEF("start", 1, js_agent_start ),
-@@ -738,6 +757,20 @@ static const JSCFunctionListEntry js_agent_funcs[] = {
+@@ -738,6 +739,20 @@ static const JSCFunctionListEntry js_agent_funcs[] = {
      JS_CFUNC_DEF("sleep", 1, js_agent_sleep ),
      JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow ),
  };
@@ -255,14 +211,14 @@ index 100ed13..6dc16eb 100644
  
  static JSValue js_new_agent(JSContext *ctx)
  {
-@@ -2079,6 +2112,13 @@ int main(int argc, char **argv)
+@@ -2079,6 +2094,13 @@ int main(int argc, char **argv)
      BOOL count_skipped_features = FALSE;
      clock_t clocks;
  
 +#ifdef __CCGO__
 +    init();
-+    init_agent_list();
-+    init_report_list();
++    // ccgo/v4@v4.34.0 can now handle initialization cycles
++    // but only direct ones.
 +    init_js_agent_funcs();
 +#endif
 +

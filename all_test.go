@@ -338,43 +338,19 @@ func Test262(t *testing.T) {
 func parseResultLine(s string) (newErrors int64, err error) {
 	s = strings.TrimSpace(s)
 	a := strings.Fields(s)
-	// [0: "Result:" 1: "36/76685" 2: "errors," 3: "1519" 4: "excluded," 5: "8703" 6: "skipped," 7: "2" 8: "fixed"]
-	if len(a) < 7 {
+	// Result: 36/76685 errors, 1519 excluded, 8703 skipped, 2 fixed
+	// [0: "Result:" 1: "36/76685"  2: "errors," 3: "1519" 4: "excluded," 5: "8703" 6: "skipped," 7: "2"   8: "fixed"]
+	// Result: 189/82123 errors, 1609 excluded, 5461 skipped, 144 new, 8 changed
+	// [0: "Result:" 1: "189/82123" 2: "errors," 3: "1609" 4: "excluded," 5: "5461" 6: "skipped," 7: "144" 8: "new," 9: "8" 10: "changed"]
+	if len(a) == 0 || a[0] != "Result:" {
 		return 0, fmt.Errorf("malformed result line: `%s`", s)
 	}
 
-	if len(a) > 7 {
-		switch a[8] {
-		case "new":
-			newErrors, err = strconv.ParseInt(a[7], 0, 64)
+	for i, v := range a {
+		if v == "new" {
+			return strconv.ParseInt(a[i-1], 0, 64)
 		}
 	}
-	return newErrors, err
-}
 
-// https://gitlab.com/cznic/quickjs/-/issues/6
-//
-// Turns out it's not bug in this package, see https://gitlab.com/cznic/quickjs/-/issues/6#note_2830309150
-//
-// func TestIssue6(t *testing.T) {
-// 	tests := []struct{ in, out string }{
-// 		{`100000000000000000000000.000000000000001`, "1.0000000000000001e+23"},              // https://gitlab.com/cznic/quickjs/-/issues/6
-// 		{`+"100000000000000000000000.000000000000001"`, "1.0000000000000001e+23"},           // https://gitlab.com/cznic/quickjs/-/issues/6
-// 		{`(100000000000000000000000.000000000000001).toString()`, "1.0000000000000001e+23"}, // https://gitlab.com/cznic/quickjs/-/issues/6
-// 	}
-// 	for i, v := range tests {
-// 		fn := fmt.Sprint(i)
-// 		if re != nil && !re.MatchString(fn) {
-// 			continue
-// 		}
-//
-// 		t.Run(fn, func(t *testing.T) {
-// 			switch g, e := eval(t, fn, v.in), v.out; {
-// 			case g != e:
-// 				t.Errorf("%v: src=%s got=%q expected=%q", fn, v.in, g, e)
-// 			default:
-// 				t.Logf("%3d: %q\n%[2]s", i, g)
-// 			}
-// 		})
-// 	}
-// }
+	return 0, nil
+}

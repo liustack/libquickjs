@@ -21,11 +21,11 @@ import (
 )
 
 const (
-	qjsCommit     = "d7ae12ae71dfd6ab2997527d295014a8996fa0f9" // tip 2026-03-23
+	qjsCommit     = "de4d3927b8edff5fbfee1f69cfeef840844259e9"
 	qjsDiff       = "quickjs.diff"
 	qjsUnzip      = "quickjs-" + qjsCommit
 	qjsZip        = qjsCommit + ".zip"
-	test262Commit = "5c8206929d81b2d3d727ca6aac56c18358c8d790" // 2026-03-20
+	test262Commit = "a5e69a1534de88d1eb29b76657d84c8541b72df7"
 	test262Diff   = "test262.diff"
 	test262Dir    = "test262"
 	test262Unzip  = "test262-" + test262Commit
