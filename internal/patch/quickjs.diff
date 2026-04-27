@@ -1,8 +1,8 @@
 diff --git a/Makefile b/Makefile
-index 3b1c745..c7a6297 100644
+index 9dab23a..8ed43ae 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -151,11 +151,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
+@@ -155,11 +155,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
  ifdef CONFIG_WIN32
  DEFINES+=-D__USE_MINGW_ANSI_STDIO # for standard snprintf behavior
  endif
