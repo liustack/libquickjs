@@ -3823,6 +3823,9 @@ const MPROP_TYPE_STAR = 4
 const MPROP_TYPE_VAR = 1
 const MRE_FLAG_COUNT = 8
 const MROPE_N_BUCKETS = 44
+const MSP_LIMB_BITS = 56
+const MSUM_PRECISE_ACC_LEN = 39
+const MSUM_PRECISE_COUNTER_INIT = 250
 const MUDIV1NORM_THRESHOLD = 3
 const Mspecial_TA = 8
 const Mspecial_every = 0
@@ -86172,48 +86175,80 @@ _6:
 	return v5
 }
 
-/* we add one extra limb to avoid having to test for overflows during the sum */
-
 type TSumPreciseStateEnum = int32
 
-const ESUM_PRECISE_STATE_MINUS_ZERO = 0
-const ESUM_PRECISE_STATE_FINITE = 1
-const ESUM_PRECISE_STATE_INFINITY = 2
-const ESUM_PRECISE_STATE_MINUS_INFINITY = 3
+const ESUM_PRECISE_STATE_FINITE = 0
+const ESUM_PRECISE_STATE_INFINITY = 1
+const ESUM_PRECISE_STATE_MINUS_INFINITY = 2
 const /* must be after SUM_PRECISE_STATE_INFINITY */
-ESUM_PRECISE_STATE_NAN = 4
+ESUM_PRECISE_STATE_NAN = 3
+
+/* we add one extra limb to avoid having to test for overflows during the sum */
 
 type TSumPreciseState = struct {
-	Facc     [34]Tuint64_t
-	Fn_limbs int32
 	Fstate   TSumPreciseStateEnum
+	Fcounter Tuint32_t
+	Fn_limbs int32
+	Facc     [39]Tint64_t
 }
 
 func _sum_precise_init(tls *libc.TLS, s uintptr) {
-	(*TSumPreciseState)(unsafe.Pointer(s)).Fstate = int32(ESUM_PRECISE_STATE_MINUS_ZERO)
-	*(*Tuint64_t)(unsafe.Pointer(s)) = uint64(0)
-	(*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs = int32(1)
+	libc.Xmemset(tls, s+16, 0, uint64(312))
+	(*TSumPreciseState)(unsafe.Pointer(s)).Fstate = int32(ESUM_PRECISE_STATE_FINITE)
+	(*TSumPreciseState)(unsafe.Pointer(s)).Fcounter = uint32(MSUM_PRECISE_COUNTER_INIT)
+	(*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs = 0
+}
+
+func _sum_precise_renorm(tls *libc.TLS, s uintptr) {
+	var carry, v Tint64_t
+	var i, v2 int32
+	var v3 uintptr
+	_, _, _, _, _ = carry, i, v, v2, v3
+	carry = 0
+	i = 0
+	for {
+		if !(i < (*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs) {
+			break
+		}
+		v = *(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(i)*8)) + carry
+		*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(i)*8)) = int64(uint64(v) & (libc.Uint64FromInt32(1)<<libc.Int32FromInt32(MSP_LIMB_BITS) - libc.Uint64FromInt32(1)))
+		carry = v >> int32(MSP_LIMB_BITS)
+		goto _1
+	_1:
+		;
+		i = i + 1
+	}
+	/* we add a failsafe but it should be never reached in a
+	   reasonnable amount of time */
+	if carry != 0 && (*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs < int32(MSUM_PRECISE_ACC_LEN) {
+		v3 = s + 8
+		v2 = *(*int32)(unsafe.Pointer(v3))
+		*(*int32)(unsafe.Pointer(v3)) = *(*int32)(unsafe.Pointer(v3)) + 1
+		*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(v2)*8)) = carry
+	}
 }
 
 func _sum_precise_add(tls *libc.TLS, s uintptr, d1 float64) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
-	var __a, __a1, __a2, __k, __k1, __k11, __k12, __k13, __k2, __v, __v1, __v2, a, a0, a_sign, acc_sign, carry, m, v1 Tuint64_t
-	var e, i, n, p, sgn, v7 int32
+	var a0, a1, a11, m, v1 Tuint64_t
+	var e, p, sgn, v10, v11, v9 int32
 	var shift uint32
+	var v13 Tuint32_t
+	var v5 uintptr
 	var _ /* u at bp+0 */ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __a, __a1, __a2, __k, __k1, __k11, __k12, __k13, __k2, __v, __v1, __v2, a, a0, a_sign, acc_sign, carry, e, i, m, n, p, sgn, shift, v1, v7
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = a0, a1, a11, e, m, p, sgn, shift, v1, v10, v11, v13, v5, v9
 	*(*float64)(unsafe.Pointer(bp)) = d1
 	v1 = *(*Tuint64_t)(unsafe.Pointer(bp))
 	goto _2
 _2:
-	a = v1
-	sgn = int32(a >> int32(63))
-	e = int32(a >> libc.Int32FromInt32(52) & uint64(libc.Int32FromInt32(1)<<libc.Int32FromInt32(11)-libc.Int32FromInt32(1)))
-	m = a & (libc.Uint64FromInt32(1)<<libc.Int32FromInt32(52) - libc.Uint64FromInt32(1))
+	a1 = v1
+	sgn = int32(a1 >> int32(63))
+	e = int32(a1 >> libc.Int32FromInt32(52) & uint64(libc.Int32FromInt32(1)<<libc.Int32FromInt32(11)-libc.Int32FromInt32(1)))
+	m = a1 & (libc.Uint64FromInt32(1)<<libc.Int32FromInt32(52) - libc.Uint64FromInt32(1))
 	if libc.BoolInt32(!!(e == libc.Int32FromInt32(2047))) != 0 {
 		if m == uint64(0) {
 			/* +/- infinity */
@@ -86232,8 +86267,8 @@ _2:
 		}
 		if libc.BoolInt32(!!(m == libc.Uint64FromInt32(0))) != 0 {
 			/* zero */
-			if (*TSumPreciseState)(unsafe.Pointer(s)).Fstate == int32(ESUM_PRECISE_STATE_MINUS_ZERO) && !(sgn != 0) {
-				(*TSumPreciseState)(unsafe.Pointer(s)).Fstate = int32(ESUM_PRECISE_STATE_FINITE)
+			if (*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs == 0 && !(sgn != 0) {
+				(*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs = int32(1)
 			}
 		} else {
 			/* subnormal */
@@ -86244,96 +86279,48 @@ _2:
 		goto _4
 	_3:
 		;
+		/* Note: we sum even if state != SUM_PRECISE_STATE_FINITE to
+		   avoid tests */
 		m = m | libc.Uint64FromInt32(1)<<libc.Int32FromInt32(52)
 		shift = uint32(e - int32(1))
-		p = int32(shift / uint32(64))
-		/* 'p' is the position of a0 in acc */
-		shift = shift % uint32(64)
+		/* 'p' is the position of a0 in acc. The division is normally
+		   implementation as a multiplication by the compiler. */
+		p = int32(shift / uint32(MSP_LIMB_BITS))
+		shift = shift % uint32(MSP_LIMB_BITS)
 		goto add
 	add:
 		;
-		if (*TSumPreciseState)(unsafe.Pointer(s)).Fstate >= int32(ESUM_PRECISE_STATE_INFINITY) {
-			return
-		}
-		(*TSumPreciseState)(unsafe.Pointer(s)).Fstate = int32(ESUM_PRECISE_STATE_FINITE)
-		n = (*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs
-		acc_sign = uint64(int64(*(*Tuint64_t)(unsafe.Pointer(s + uintptr(n-int32(1))*8))) >> int32(63))
-		/* sign extend acc */
-		i = n
-		for {
-			if !(i <= p) {
-				break
-			}
-			*(*Tuint64_t)(unsafe.Pointer(s + uintptr(i)*8)) = acc_sign
-			goto _5
-		_5:
-			;
-			i = i + 1
-		}
-		carry = uint64(sgn)
-		a_sign = uint64(-sgn)
-		a0 = m << shift
-		__v = *(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8))
-		__a = __v + (a0 ^ a_sign)
-		__k11 = libc.BoolUint64(__a < __v)
-		__k = carry
-		__a = __a + __k
-		carry = libc.BoolUint64(__a < __k) | __k11
-		*(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8)) = __a
-		if shift >= uint32(12) {
-			p = p + 1
-			if p >= n {
-				*(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8)) = acc_sign
-			}
-			a0 = m >> (uint32(64) - shift)
-			__v1 = *(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8))
-			__a1 = __v1 + (a0 ^ a_sign)
-			__k12 = libc.BoolUint64(__a1 < __v1)
-			__k1 = carry
-			__a1 = __a1 + __k1
-			carry = libc.BoolUint64(__a1 < __k1) | __k12
-			*(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8)) = __a1
-		}
-		p = p + 1
-		if p >= n {
-			n = p
+		a0 = m << shift & (libc.Uint64FromInt32(1)<<libc.Int32FromInt32(MSP_LIMB_BITS) - libc.Uint64FromInt32(1))
+		a11 = m >> (uint32(MSP_LIMB_BITS) - shift)
+		if !(sgn != 0) {
+			v5 = s + 16 + uintptr(p)*8
+			*(*Tint64_t)(unsafe.Pointer(v5)) = Tint64_t(uint64(*(*Tint64_t)(unsafe.Pointer(v5))) + a0)
+			v5 = s + 16 + uintptr(p+int32(1))*8
+			*(*Tint64_t)(unsafe.Pointer(v5)) = Tint64_t(uint64(*(*Tint64_t)(unsafe.Pointer(v5))) + a11)
 		} else {
-			/* carry */
-			i = p
-			for {
-				if !(i < n) {
-					break
-				}
-				/* if 'a' positive: stop condition: carry = 0.
-				   if 'a' negative: stop condition: carry = 1. */
-				if carry == uint64(sgn) {
-					goto done
-				}
-				__v2 = *(*Tuint64_t)(unsafe.Pointer(s + uintptr(i)*8))
-				__a2 = __v2 + a_sign
-				__k13 = libc.BoolUint64(__a2 < __v2)
-				__k2 = carry
-				__a2 = __a2 + __k2
-				carry = libc.BoolUint64(__a2 < __k2) | __k13
-				*(*Tuint64_t)(unsafe.Pointer(s + uintptr(i)*8)) = __a2
-				goto _6
-			_6:
-				;
-				i = i + 1
-			}
+			v5 = s + 16 + uintptr(p)*8
+			*(*Tint64_t)(unsafe.Pointer(v5)) = Tint64_t(uint64(*(*Tint64_t)(unsafe.Pointer(v5))) - a0)
+			v5 = s + 16 + uintptr(p+int32(1))*8
+			*(*Tint64_t)(unsafe.Pointer(v5)) = Tint64_t(uint64(*(*Tint64_t)(unsafe.Pointer(v5))) - a11)
 		}
-		/* extend the accumulator if needed */
-		a0 = carry + acc_sign + a_sign
-		/* -1 <= a0 <= 1 (if both acc and a are negative, carry is set) */
-		if a0 != uint64(int64(*(*Tuint64_t)(unsafe.Pointer(s + uintptr(n-int32(1))*8)))>>libc.Int32FromInt32(63)) {
-			v7 = n
-			n = n + 1
-			*(*Tuint64_t)(unsafe.Pointer(s + uintptr(v7)*8)) = a0
+		v9 = (*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs
+		v10 = p + int32(2)
+		if v9 > v10 {
+			v11 = v9
+			goto _12
+		} else {
+			v11 = v10
+			goto _12
 		}
-		goto done
-	done:
-		;
-		(*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs = n
+	_12:
+		(*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs = v11
+		v5 = s + 4
+		*(*Tuint32_t)(unsafe.Pointer(v5)) = *(*Tuint32_t)(unsafe.Pointer(v5)) - 1
+		v13 = *(*Tuint32_t)(unsafe.Pointer(v5))
+		if libc.BoolInt32(!!(v13 == libc.Uint32FromInt32(0))) != 0 {
+			(*TSumPreciseState)(unsafe.Pointer(s)).Fcounter = uint32(MSUM_PRECISE_COUNTER_INIT)
+			_sum_precise_renorm(tls, s)
+		}
 	_4:
 	}
 }
@@ -86341,20 +86328,18 @@ _2:
 func _sum_precise_get_result(tls *libc.TLS, s uintptr) (r float64) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
-	var __a, __k, __k1, __v, addend, carry, m, nz Tuint64_t
+	var addend, carry, m, nz, v Tuint64_t
 	var e, i, is_neg, n, p, shift, shift1, v4 int32
 	var v2 float64
 	var _ /* u at bp+0 */ struct {
 		Fu64 [0]Tuint64_t
 		Fd   float64
 	}
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = __a, __k, __k1, __v, addend, carry, e, i, is_neg, m, n, nz, p, shift, shift1, v2, v4
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _ = addend, carry, e, i, is_neg, m, n, nz, p, shift, shift1, v, v2, v4
 	if (*TSumPreciseState)(unsafe.Pointer(s)).Fstate != int32(ESUM_PRECISE_STATE_FINITE) {
 		switch (*TSumPreciseState)(unsafe.Pointer(s)).Fstate {
 		default:
 			fallthrough
-		case int32(ESUM_PRECISE_STATE_MINUS_ZERO):
-			return -libc.Float64FromFloat64(0)
 		case int32(ESUM_PRECISE_STATE_INFINITY):
 			return float64(libc.X__builtin_inff(tls))
 		case int32(ESUM_PRECISE_STATE_MINUS_INFINITY):
@@ -86363,79 +86348,85 @@ func _sum_precise_get_result(tls *libc.TLS, s uintptr) (r float64) {
 			return float64(libc.X__builtin_nanf(tls, __ccgo_ts+838))
 		}
 	}
+	_sum_precise_renorm(tls, s)
 	/* extract the sign and absolute value */
 	n = (*TSumPreciseState)(unsafe.Pointer(s)).Fn_limbs
-	is_neg = int32(*(*Tuint64_t)(unsafe.Pointer(s + uintptr(n-int32(1))*8)) >> int32(63))
-	if is_neg != 0 {
-		/* acc = -acc */
-		carry = uint64(1)
-		i = 0
-		for {
-			if !(i < n) {
-				break
-			}
-			__v = ^*(*Tuint64_t)(unsafe.Pointer(s + uintptr(i)*8))
-			__a = __v + uint64(libc.Int32FromInt32(0))
-			__k1 = libc.BoolUint64(__a < __v)
-			__k = carry
-			__a = __a + __k
-			carry = libc.BoolUint64(__a < __k) | __k1
-			*(*Tuint64_t)(unsafe.Pointer(s + uintptr(i)*8)) = __a
-			goto _1
-		_1:
-			;
-			i = i + 1
-		}
+	/* minus zero result */
+	if n == 0 {
+		return -libc.Float64FromFloat64(0)
 	}
 	/* normalize */
-	for n > 0 && *(*Tuint64_t)(unsafe.Pointer(s + uintptr(n-int32(1))*8)) == uint64(0) {
+	for n > 0 && *(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(n-int32(1))*8)) == 0 {
 		n = n - 1
 	}
 	/* zero result. The spec tells it is always positive in the finite case */
 	if n == 0 {
 		return float64(0)
 	}
+	is_neg = libc.BoolInt32(*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(n-int32(1))*8)) < 0)
+	if is_neg != 0 {
+		/* negate */
+		/* XXX: do it only when needed */
+		carry = uint64(1)
+		i = 0
+		for {
+			if !(i < n-int32(1)) {
+				break
+			}
+			v = libc.Uint64FromInt32(1)<<libc.Int32FromInt32(MSP_LIMB_BITS) - libc.Uint64FromInt32(1) - uint64(*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(i)*8))) + carry
+			carry = v >> int32(MSP_LIMB_BITS)
+			*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(i)*8)) = int64(v & (libc.Uint64FromInt32(1)<<libc.Int32FromInt32(MSP_LIMB_BITS) - libc.Uint64FromInt32(1)))
+			goto _1
+		_1:
+			;
+			i = i + 1
+		}
+		*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(n-int32(1))*8)) = int64(uint64(-*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(n-int32(1))*8))) + carry - uint64(1))
+		for n > int32(1) && *(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(n-int32(1))*8)) == 0 {
+			n = n - 1
+		}
+	}
 	/* subnormal case */
-	if n == int32(1) && *(*Tuint64_t)(unsafe.Pointer(s)) < libc.Uint64FromInt32(1)<<libc.Int32FromInt32(52) {
-		*(*Tuint64_t)(unsafe.Pointer(bp)) = uint64(is_neg)<<libc.Int32FromInt32(63) | *(*Tuint64_t)(unsafe.Pointer(s))
+	if n == int32(1) && uint64(*(*Tint64_t)(unsafe.Pointer(s + 16))) < libc.Uint64FromInt32(1)<<libc.Int32FromInt32(52) {
+		*(*Tuint64_t)(unsafe.Pointer(bp)) = uint64(is_neg)<<libc.Int32FromInt32(63) | uint64(*(*Tint64_t)(unsafe.Pointer(s + 16)))
 		v2 = *(*float64)(unsafe.Pointer(bp))
 		goto _3
 	_3:
 		return v2
 	}
 	/* normal case */
-	e = n * int32(64)
+	e = n * int32(MSP_LIMB_BITS)
 	p = n - int32(1)
-	m = *(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8))
+	m = uint64(*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(p)*8)))
 	v4 = libc.X__builtin_clzll(tls, m)
 	goto _5
 _5:
-	shift = v4
+	shift = v4 - (libc.Int32FromInt32(64) - libc.Int32FromInt32(MSP_LIMB_BITS))
 	e = e - shift - int32(52)
 	if shift != 0 {
 		m = m << uint64(shift)
 		if p > 0 {
 			p = p - 1
-			shift1 = int32(64) - shift
-			nz = *(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8)) & (libc.Uint64FromInt32(1)<<shift1 - uint64(1))
-			m = m | *(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8))>>shift1 | libc.BoolUint64(nz != libc.Uint64FromInt32(0))
+			shift1 = int32(MSP_LIMB_BITS) - shift
+			nz = uint64(*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(p)*8))) & (libc.Uint64FromInt32(1)<<shift1 - uint64(1))
+			m = m | uint64(*(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(p)*8))>>shift1) | libc.BoolUint64(nz != libc.Uint64FromInt32(0))
 		}
 	}
-	if m&uint64(libc.Int32FromInt32(1)<<libc.Int32FromInt32(10)-libc.Int32FromInt32(1)) == uint64(0) {
+	if m&uint64(libc.Int32FromInt32(1)<<(libc.Int32FromInt32(MSP_LIMB_BITS)-libc.Int32FromInt32(53))-libc.Int32FromInt32(1)) == uint64(libc.Int32FromInt32(1)<<(libc.Int32FromInt32(MSP_LIMB_BITS)-libc.Int32FromInt32(53)-libc.Int32FromInt32(1))) {
 		/* see if the LSB part is non zero for the final rounding  */
 		for p > 0 {
 			p = p - 1
-			if *(*Tuint64_t)(unsafe.Pointer(s + uintptr(p)*8)) != uint64(0) {
+			if *(*Tint64_t)(unsafe.Pointer(s + 16 + uintptr(p)*8)) != 0 {
 				m = m | uint64(1)
 				break
 			}
 		}
 	}
 	/* rounding to nearest with ties to even */
-	addend = uint64(libc.Int32FromInt32(1)<<libc.Int32FromInt32(10)-libc.Int32FromInt32(1)) + m>>libc.Int32FromInt32(11)&uint64(1)
-	m = (m + addend) >> int32(11)
+	addend = uint64(libc.Int32FromInt32(1)<<(libc.Int32FromInt32(MSP_LIMB_BITS)-libc.Int32FromInt32(53)-libc.Int32FromInt32(1))-libc.Int32FromInt32(1)) + m>>(libc.Int32FromInt32(MSP_LIMB_BITS)-libc.Int32FromInt32(53))&uint64(1)
+	m = (m + addend) >> (libc.Int32FromInt32(MSP_LIMB_BITS) - libc.Int32FromInt32(53))
 	/* handle overflow in the rounding */
-	if m == uint64(0) {
+	if m == libc.Uint64FromInt32(1)<<libc.Int32FromInt32(53) {
 		e = e + 1
 	}
 	if libc.BoolInt32(!!(e >= libc.Int32FromInt32(2047))) != 0 {
@@ -86457,8 +86448,8 @@ _5:
 }
 
 func _js_math_sumPrecise(tls *libc.TLS, ctx3 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
-	bp := tls.Alloc(336)
-	defer tls.Free(336)
+	bp := tls.Alloc(384)
+	defer tls.Free(384)
 	var d1 float64
 	var iter, next, ret, v3, v4 TJSValue
 	var p, s, v13 uintptr
