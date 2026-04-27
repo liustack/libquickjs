@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index 9dab23a..8ed43ae 100644
+index 0ddb759..49c95a5 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -155,11 +155,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
