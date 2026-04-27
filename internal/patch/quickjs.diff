@@ -81,7 +81,7 @@ index 54a7a15..70ee430 100644
      ret = js_get_errno(mkdir(path, mode));
  #endif
 diff --git a/quickjs.c b/quickjs.c
-index baf2826..de7a575 100644
+index b0f9f00..477a034 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -96,7 +96,7 @@ index baf2826..de7a575 100644
  
  #if defined(__APPLE__)
  #define MALLOC_OVERHEAD  0
-@@ -1580,10 +1576,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
+@@ -1600,10 +1596,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
  /* Note: OS and CPU dependent */
  static inline uintptr_t js_get_stack_pointer(void)
  {
@@ -115,7 +115,7 @@ index baf2826..de7a575 100644
  {
      uintptr_t sp;
      sp = js_get_stack_pointer() - alloca_size;
-@@ -40375,7 +40378,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
+@@ -40435,7 +40438,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
      return r;
  }
  
@@ -127,7 +127,7 @@ index baf2826..de7a575 100644
                             int argc, JSValueConst *argv)
  {
      JSValue obj, args[1];
-@@ -56619,3 +56625,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
+@@ -57970,3 +57976,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
                                 countof(js_finrec_proto_funcs));
      JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
  }
