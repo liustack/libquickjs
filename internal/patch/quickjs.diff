@@ -1,8 +1,8 @@
 diff --git a/Makefile b/Makefile
-index 3b1c745..c7a6297 100644
+index ba64923..d86ed62 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -151,11 +151,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
+@@ -155,11 +155,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
  ifdef CONFIG_WIN32
  DEFINES+=-D__USE_MINGW_ANSI_STDIO # for standard snprintf behavior
  endif
@@ -20,10 +20,10 @@ index 3b1c745..c7a6297 100644
  CFLAGS+=$(DEFINES)
  CFLAGS_DEBUG=$(CFLAGS) -O0
 diff --git a/qjs.c b/qjs.c
-index a88e39a..2b9f2ea 100644
+index 0224f7c..e1cfae6 100644
 --- a/qjs.c
 +++ b/qjs.c
-@@ -309,6 +309,9 @@ void help(void)
+@@ -313,6 +313,9 @@ void help(void)
  
  int main(int argc, char **argv)
  {
@@ -81,7 +81,7 @@ index 54a7a15..70ee430 100644
      ret = js_get_errno(mkdir(path, mode));
  #endif
 diff --git a/quickjs.c b/quickjs.c
-index 9b997f6..203204e 100644
+index 66880f1..ec4f288 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -96,7 +96,7 @@ index 9b997f6..203204e 100644
  
  #if defined(__APPLE__)
  #define MALLOC_OVERHEAD  0
-@@ -1580,10 +1576,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
+@@ -1635,10 +1631,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
  /* Note: OS and CPU dependent */
  static inline uintptr_t js_get_stack_pointer(void)
  {
@@ -115,7 +115,7 @@ index 9b997f6..203204e 100644
  {
      uintptr_t sp;
      sp = js_get_stack_pointer() - alloca_size;
-@@ -40375,7 +40378,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
+@@ -40914,7 +40917,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
      return r;
  }
  
@@ -127,9 +127,29 @@ index 9b997f6..203204e 100644
                             int argc, JSValueConst *argv)
  {
      JSValue obj, args[1];
-@@ -56029,3 +56035,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
-                                countof(js_finrec_proto_funcs));
-     JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
+@@ -58331,6 +58337,11 @@ static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
+ static struct list_head js_atomics_waiter_list =
+     LIST_HEAD_INIT(js_atomics_waiter_list);
+ 
++#ifdef __CCGO__
++static inline void cpu_pause(void)
++{
++}
++#else
+ #if defined(__aarch64__)
+ static inline void cpu_pause(void)
+ {
+@@ -58346,6 +58357,7 @@ static inline void cpu_pause(void)
+ {
+ }
+ #endif
++#endif
+ 
+ // no-op: Atomics.pause() is not allowed to block or yield to another
+ // thread, only to hint the CPU that it should back off for a bit;
+@@ -58914,3 +58926,35 @@ int JS_AddIntrinsicWeakRef(JSContext *ctx)
+     JS_FreeValue(ctx, obj);
+     return 0;
  }
 +
 +#ifdef __CCGO__
@@ -164,10 +184,10 @@ index 9b997f6..203204e 100644
 +}
 +#endif
 diff --git a/quickjs.h b/quickjs.h
-index c8cd149..cbf98aa 100644
+index 92cc000..91ccf97 100644
 --- a/quickjs.h
 +++ b/quickjs.h
-@@ -1158,6 +1158,10 @@ void JS_PrintValueRT(JSRuntime *rt, JSPrintValueWrite *write_func, void *write_o
+@@ -1161,6 +1161,10 @@ void JS_PrintValueRT(JSRuntime *rt, JSPrintValueWrite *write_func, void *write_o
  void JS_PrintValue(JSContext *ctx, JSPrintValueWrite *write_func, void *write_opaque,
                     JSValueConst val, const JSPrintValueOptions *options);
  
@@ -179,7 +199,7 @@ index c8cd149..cbf98aa 100644
  #undef js_force_inline
  
 diff --git a/run-test262.c b/run-test262.c
-index 100ed13..fb52965 100644
+index 100ed13..b5f3e82 100644
 --- a/run-test262.c
 +++ b/run-test262.c
 @@ -725,6 +725,7 @@ static JSValue js_agent_report(JSContext *ctx, JSValue this_val,
@@ -206,7 +226,7 @@ index 100ed13..fb52965 100644
 +    js_agent_funcs[5] = (JSCFunctionListEntry)JS_CFUNC_DEF("receiveBroadcast", 1, js_agent_receiveBroadcast );
 +    js_agent_funcs[6] = (JSCFunctionListEntry)JS_CFUNC_DEF("sleep", 1, js_agent_sleep );
 +    js_agent_funcs[7] = (JSCFunctionListEntry)JS_CFUNC_DEF("monotonicNow", 0, js_agent_monotonicNow );
-+}
++};
 +#endif
  
  static JSValue js_new_agent(JSContext *ctx)
@@ -226,7 +246,7 @@ index 100ed13..fb52965 100644
      compact = !isatty(STDERR_FILENO);
      /* Date tests assume California local time */
 diff --git a/tests/test_std.js b/tests/test_std.js
-index 3debe40..863fa3f 100644
+index 3debe40..d78e687 100644
 --- a/tests/test_std.js
 +++ b/tests/test_std.js
 @@ -326,9 +326,9 @@ test_printf();
@@ -236,9 +256,9 @@ index 3debe40..863fa3f 100644
 -test_popen();
 -test_os();
 -test_os_exec();
-+//TODO test_popen();
-+//TODO test_os();
-+//TODO test_os_exec();
++// test_popen();
++// test_os();
++// test_os_exec();
  test_timer();
  test_ext_json();
  test_async_gc();

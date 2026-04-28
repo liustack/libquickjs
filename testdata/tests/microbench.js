@@ -375,6 +375,28 @@ function array_write(n)
     return len * n;
 }
 
+function array_update(n)
+{
+    var tab, len, i, j;
+    tab = [];
+    len = 10;
+    for(i = 0; i < len; i++)
+        tab[i] = i;
+    for(j = 0; j < n; j++) {
+        tab[0] += j;
+        tab[1] += j;
+        tab[2] += j;
+        tab[3] += j;
+        tab[4] += j;
+        tab[5] += j;
+        tab[6] += j;
+        tab[7] += j;
+        tab[8] += j;
+        tab[9] += j;
+    }
+    return len * n;
+}
+
 function array_prop_create(n)
 {
     var tab, i, j, len;
@@ -401,6 +423,21 @@ function array_slice(n)
         global_res = a;
     }
     return len * n;
+}
+
+function array_length_read(n)
+{
+    var tab, sum, j;
+    tab = [1, 2, 3];
+    sum = 0;
+    for(j = 0; j < n; j++) {
+        sum += tab.length;
+        sum += tab.length;
+        sum += tab.length;
+        sum += tab.length;
+    }
+    global_res = sum;
+    return n * 4;
 }
 
 function array_length_decr(n)
@@ -527,22 +564,21 @@ function global_read(n)
     return n * 4;
 }
 
-// non strict version
-var global_write =
-    (1, eval)(`(function global_write(n)
-           {
-               var j;
-               for(j = 0; j < n; j++) {
-                   global_var0 = j;
-                   global_var0 = j;
-                   global_var0 = j;
-                   global_var0 = j;
-               }
-               return n * 4;
-           })`);
+function global_write(n)
+{
+    var j;
+    for(j = 0; j < n; j++) {
+        global_var0 = j;
+        global_var0 = j;
+        global_var0 = j;
+        global_var0 = j;
+    }
+    return n * 4;
+}
 
 function global_write_strict(n)
 {
+    "use strict";
     var j;
     for(j = 0; j < n; j++) {
         global_var0 = j;
@@ -570,23 +606,22 @@ function local_destruct(n)
 var global_v1, global_v2, global_v3, global_v4;
 var global_a, global_b, global_c, global_d;
 
-// non strict version
-var global_destruct =
-    (1, eval)(`(function global_destruct(n)
-           {
-               var j, v1, v2, v3, v4;
-               var array = [ 1, 2, 3, 4, 5 ];
-               var o = { a:1, b:2, c:3, d:4 };
-               var a, b, c, d;
-               for(j = 0; j < n; j++) {
-                   [ global_v1, global_v2,, global_v3, ...global_v4] = array;
-                   ({ a: global_a, b: global_b, c: global_c, d: global_d } = o);
-               }
-               return n * 8;
-          })`);
+function global_destruct(n)
+{
+    var j, v1, v2, v3, v4;
+    var array = [ 1, 2, 3, 4, 5 ];
+    var o = { a:1, b:2, c:3, d:4 };
+    var a, b, c, d;
+    for(j = 0; j < n; j++) {
+        [ global_v1, global_v2,, global_v3, ...global_v4] = array;
+        ({ a: global_a, b: global_b, c: global_c, d: global_d } = o);
+    }
+    return n * 8;
+}
 
 function global_destruct_strict(n)
 {
+    "use strict";
     var j, v1, v2, v3, v4;
     var array = [ 1, 2, 3, 4, 5 ];
     var o = { a:1, b:2, c:3, d:4 };
@@ -909,6 +944,21 @@ function regexp_utf16(n)
     return n * 1000;
 }
 
+function string_length(n)
+{
+    var str, sum, j;
+    str = "abcde";
+    sum = 0;
+    for(j = 0; j < n; j++) {
+        sum += str.length;
+        sum += str.length;
+        sum += str.length;
+        sum += str.length;
+    }
+    global_res = sum;
+    return n * 4;
+}
+
 /* incremental string contruction as local var */
 function string_build1(n)
 {
@@ -1156,17 +1206,6 @@ sort_bench.verbose = false;
 
 function int_to_string(n)
 {
-    var s, j;
-    for(j = 0; j < n; j++) {
-        s = (j % 1000).toString();
-        s = (1234000 + j % 1000).toString();
-    }
-    global_res = s;
-    return n * 2;
-}
-
-function int_to_string(n)
-{
     var s, r, j;
     r = 0;
     for(j = 0; j < n; j++) {
@@ -1359,8 +1398,10 @@ function main(argc, argv, g)
         prop_delete,
         array_read,
         array_write,
+        array_update,
         array_prop_create,
         array_slice,
+        array_length_read,
         array_length_decr,
         array_hole_length_decr,
         array_push,
@@ -1390,6 +1431,7 @@ function main(argc, argv, g)
         math_min,
         regexp_ascii,
         regexp_utf16,
+        string_length,
         string_build1,
         string_build1x,
         string_build2c,
