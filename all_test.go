@@ -22,7 +22,7 @@ import (
 )
 
 const (
-	hash262 = "d0994d64b07cb6c164dd9f345c94ed797a53d69f"
+	hash262 = "5c8206929d81b2d3d727ca6aac56c18358c8d790"
 	zip262  = hash262 + ".zip"
 )
 

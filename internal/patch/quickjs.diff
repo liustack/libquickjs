@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index dcbbf7e..ab02f3b 100644
+index 2182368..cc16321 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -155,11 +155,11 @@ DEFINES:=-D_GNU_SOURCE -DCONFIG_VERSION=\"$(shell cat VERSION)\"
@@ -81,7 +81,7 @@ index c24b6d5..188a7f9 100644
      ret = js_get_errno(mkdir(path, mode));
  #endif
 diff --git a/quickjs.c b/quickjs.c
-index 6f461d6..167f81a 100644
+index 2b33bfa..8bd8e1a 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -96,7 +96,7 @@ index 6f461d6..167f81a 100644
  
  #if defined(__APPLE__)
  #define MALLOC_OVERHEAD  0
-@@ -1631,10 +1627,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
+@@ -1633,10 +1629,17 @@ static inline BOOL js_check_stack_overflow(JSRuntime *rt, size_t alloca_size)
  /* Note: OS and CPU dependent */
  static inline uintptr_t js_get_stack_pointer(void)
  {
@@ -115,7 +115,7 @@ index 6f461d6..167f81a 100644
  {
      uintptr_t sp;
      sp = js_get_stack_pointer() - alloca_size;
-@@ -41192,7 +41195,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
+@@ -41230,7 +41233,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
      return r;
  }
  
@@ -127,7 +127,7 @@ index 6f461d6..167f81a 100644
                             int argc, JSValueConst *argv)
  {
      JSValue obj, args[1];
-@@ -58939,6 +58945,11 @@ static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
+@@ -59313,6 +59319,11 @@ static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
  static struct list_head js_atomics_waiter_list =
      LIST_HEAD_INIT(js_atomics_waiter_list);
  
@@ -139,7 +139,7 @@ index 6f461d6..167f81a 100644
  #if defined(__aarch64__)
  static inline void cpu_pause(void)
  {
-@@ -58954,6 +58965,7 @@ static inline void cpu_pause(void)
+@@ -59328,6 +59339,7 @@ static inline void cpu_pause(void)
  {
  }
  #endif
@@ -147,7 +147,7 @@ index 6f461d6..167f81a 100644
  
  // no-op: Atomics.pause() is not allowed to block or yield to another
  // thread, only to hint the CPU that it should back off for a bit;
-@@ -59522,3 +59534,35 @@ int JS_AddIntrinsicWeakRef(JSContext *ctx)
+@@ -59901,3 +59913,35 @@ int JS_AddIntrinsicWeakRef(JSContext *ctx)
      JS_FreeValue(ctx, obj);
      return 0;
  }
