@@ -5,10 +5,10 @@
 .PHONY:	all bench clean cpu edit editor generate download dev test nuke shorttest \
 	w64 dev-w64 grep ktest test2 test3 dbg
 
-QJS_ZIP = d7ae12ae71dfd6ab2997527d295014a8996fa0f9.zip
+QJS_ZIP = 31663a930d2d17b92d562cd3e8a1d4792be4d145.zip
 QJS_URL = https://github.com/bellard/quickjs/archive/$(QJS_ZIP)
 
-TEST262_ZIP = 5c8206929d81b2d3d727ca6aac56c18358c8d790.zip
+TEST262_ZIP = 06dfddc4ebd21c39e1ce44f3e13b56b0dfda28e3.zip
 TEST262_URL = https://github.com/tc39/test262/archive/$(TEST262_ZIP)
 
 GREP = 'TRC\|TODO\|ERRORF\|FAIL\|undefined:'
