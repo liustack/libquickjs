@@ -21,7 +21,7 @@ import (
 )
 
 const (
-	qjsCommit     = "f1253f2ab53d3adbe918fe1d68710269f0c2335e"
+	qjsCommit     = "f4951efd94344985cf47bfedf10e8b2c43d3cd21"
 	qjsDiff       = "quickjs.diff"
 	qjsUnzip      = "quickjs-" + qjsCommit
 	qjsZip        = qjsCommit + ".zip"

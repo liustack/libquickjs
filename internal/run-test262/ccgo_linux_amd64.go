@@ -17572,6 +17572,215 @@ _2:
 	return *(*TJSValue)(unsafe.Pointer(bp + 16))
 }
 
+func _js_create_array(tls *libc.TLS, ctx3 uintptr, len1 int32, tab uintptr) (r TJSValue) {
+	bp := tls.Alloc(48)
+	defer tls.Free(48)
+	var i, v1 int32
+	var p, p1, p2, v5 uintptr
+	var v3, v7 TJSValue
+	var _ /* obj at bp+32 */ TJSValue
+	_, _, _, _, _, _, _, _ = i, p, p1, p2, v1, v3, v5, v7
+	*(*TJSValue)(unsafe.Pointer(bp + 32)) = x_JS_NewArray(tls, ctx3)
+	v1 = int32(libc.BoolInt64(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 32))).Ftag) == int32(EJS_TAG_EXCEPTION))))
+	goto _2
+_2:
+	if v1 != 0 {
+		return TJSValue{
+			Fu:   TJSValueUnion{},
+			Ftag: int64(EJS_TAG_EXCEPTION),
+		}
+	}
+	if len1 > 0 {
+		p2 = *(*uintptr)(unsafe.Pointer(bp + 32))
+		if _expand_fast_array(tls, ctx3, p2, libc.Uint32FromInt32(len1)) < 0 {
+			v3 = *(*TJSValue)(unsafe.Pointer(bp + 32))
+			*(*TJSValue)(unsafe.Pointer(bp)) = v3
+			if libc.Uint32FromInt32(int32(v3.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p = *(*uintptr)(unsafe.Pointer(bp))
+				v5 = p
+				*(*int32)(unsafe.Pointer(v5)) = *(*int32)(unsafe.Pointer(v5)) - 1
+				v1 = *(*int32)(unsafe.Pointer(v5))
+				if v1 <= libc.Int32FromInt32(0) {
+					x___JS_FreeValue(tls, ctx3, v3)
+				}
+			}
+			return TJSValue{
+				Fu:   TJSValueUnion{},
+				Ftag: int64(EJS_TAG_EXCEPTION),
+			}
+		}
+		(*(*struct {
+			Fu1 struct {
+				Ftyped_array [0]uintptr
+				Fsize        Tuint32_t
+				F__ccgo_pad2 [4]byte
+			}
+			Fu struct {
+				Fptr        [0]uintptr
+				Fint8_ptr   [0]uintptr
+				Fuint8_ptr  [0]uintptr
+				Fint16_ptr  [0]uintptr
+				Fuint16_ptr [0]uintptr
+				Fint32_ptr  [0]uintptr
+				Fuint32_ptr [0]uintptr
+				Fint64_ptr  [0]uintptr
+				Fuint64_ptr [0]uintptr
+				Ffp16_ptr   [0]uintptr
+				Ffloat_ptr  [0]uintptr
+				Fdouble_ptr [0]uintptr
+				Fvalues     uintptr
+			}
+			Fcount Tuint32_t
+		})(unsafe.Pointer(p2 + 48))).Fcount = libc.Uint32FromInt32(len1)
+		i = 0
+		for {
+			if !(i < len1) {
+				break
+			}
+			_ = ctx3
+			v3 = *(*TJSValue)(unsafe.Pointer(tab + uintptr(i)*16))
+			*(*TJSValue)(unsafe.Pointer(bp + 16)) = v3
+			if libc.Uint32FromInt32(int32(v3.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+				p1 = *(*uintptr)(unsafe.Pointer(bp + 16))
+				(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
+			}
+			v7 = v3
+			goto _9
+		_9:
+			*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(p2 + 48 + 8)) + uintptr(i)*16)) = v7
+			goto _6
+		_6:
+			;
+			i = i + 1
+		}
+		/* update the 'length' field */
+		_ = ctx3
+		v3 = TJSValue{
+			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+				f Tint32_t
+				_ [4]byte
+			}{f: len1})),
+		}
+		goto _11
+	_11:
+		_set_value(tls, ctx3, (*TJSObject)(unsafe.Pointer(p2)).Fprop, v3)
+	}
+	return *(*TJSValue)(unsafe.Pointer(bp + 32))
+}
+
+func _js_create_array_free(tls *libc.TLS, ctx2 uintptr, len1 int32, tab uintptr) (r TJSValue) {
+	bp := tls.Alloc(32)
+	defer tls.Free(32)
+	var i, v1 int32
+	var p, p1, v7 uintptr
+	var v5 TJSValue
+	var _ /* obj at bp+16 */ TJSValue
+	_, _, _, _, _, _ = i, p, p1, v1, v5, v7
+	*(*TJSValue)(unsafe.Pointer(bp + 16)) = x_JS_NewArray(tls, ctx2)
+	v1 = int32(libc.BoolInt64(!!(int32((*(*TJSValue)(unsafe.Pointer(bp + 16))).Ftag) == int32(EJS_TAG_EXCEPTION))))
+	goto _2
+_2:
+	if v1 != 0 {
+		goto fail
+	}
+	if !(len1 > 0) {
+		goto _3
+	}
+	p1 = *(*uintptr)(unsafe.Pointer(bp + 16))
+	if !(_expand_fast_array(tls, ctx2, p1, libc.Uint32FromInt32(len1)) < 0) {
+		goto _4
+	}
+	v5 = *(*TJSValue)(unsafe.Pointer(bp + 16))
+	*(*TJSValue)(unsafe.Pointer(bp)) = v5
+	if libc.Uint32FromInt32(int32(v5.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v7 = p
+		*(*int32)(unsafe.Pointer(v7)) = *(*int32)(unsafe.Pointer(v7)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v7))
+		if v1 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx2, v5)
+		}
+	}
+	goto fail
+fail:
+	;
+	i = 0
+	for {
+		if !(i < len1) {
+			break
+		}
+		v5 = *(*TJSValue)(unsafe.Pointer(tab + uintptr(i)*16))
+		*(*TJSValue)(unsafe.Pointer(bp)) = v5
+		if libc.Uint32FromInt32(int32(v5.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+			p = *(*uintptr)(unsafe.Pointer(bp))
+			v7 = p
+			*(*int32)(unsafe.Pointer(v7)) = *(*int32)(unsafe.Pointer(v7)) - 1
+			v1 = *(*int32)(unsafe.Pointer(v7))
+			if v1 <= libc.Int32FromInt32(0) {
+				x___JS_FreeValue(tls, ctx2, v5)
+			}
+		}
+		goto _8
+	_8:
+		;
+		i = i + 1
+	}
+	return TJSValue{
+		Fu:   TJSValueUnion{},
+		Ftag: int64(EJS_TAG_EXCEPTION),
+	}
+_4:
+	;
+	(*(*struct {
+		Fu1 struct {
+			Ftyped_array [0]uintptr
+			Fsize        Tuint32_t
+			F__ccgo_pad2 [4]byte
+		}
+		Fu struct {
+			Fptr        [0]uintptr
+			Fint8_ptr   [0]uintptr
+			Fuint8_ptr  [0]uintptr
+			Fint16_ptr  [0]uintptr
+			Fuint16_ptr [0]uintptr
+			Fint32_ptr  [0]uintptr
+			Fuint32_ptr [0]uintptr
+			Fint64_ptr  [0]uintptr
+			Fuint64_ptr [0]uintptr
+			Ffp16_ptr   [0]uintptr
+			Ffloat_ptr  [0]uintptr
+			Fdouble_ptr [0]uintptr
+			Fvalues     uintptr
+		}
+		Fcount Tuint32_t
+	})(unsafe.Pointer(p1 + 48))).Fcount = libc.Uint32FromInt32(len1)
+	i = 0
+	for {
+		if !(i < len1) {
+			break
+		}
+		*(*TJSValue)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(p1 + 48 + 8)) + uintptr(i)*16)) = *(*TJSValue)(unsafe.Pointer(tab + uintptr(i)*16))
+		goto _12
+	_12:
+		;
+		i = i + 1
+	}
+	/* update the 'length' field */
+	_ = ctx2
+	v5 = TJSValue{
+		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
+			f Tint32_t
+			_ [4]byte
+		}{f: len1})),
+	}
+	goto _14
+_14:
+	_set_value(tls, ctx2, (*TJSObject)(unsafe.Pointer(p1)).Fprop, v5)
+_3:
+	;
+	return *(*TJSValue)(unsafe.Pointer(bp + 16))
+}
+
 func _js_free_desc(tls *libc.TLS, ctx1 uintptr, desc uintptr) {
 	bp := tls.Alloc(16)
 	defer tls.Free(16)
@@ -29857,61 +30066,6 @@ fail:
 	}
 }
 
-func _js_build_rest(tls *libc.TLS, ctx2 uintptr, first int32, argc int32, argv uintptr) (r TJSValue) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var i, ret, v1 int32
-	var p, p1, v9 uintptr
-	var val, v4, v5 TJSValue
-	_, _, _, _, _, _, _, _, _ = i, p, p1, ret, val, v1, v4, v5, v9
-	val = x_JS_NewArray(tls, ctx2)
-	v1 = int32(libc.BoolInt64(!!(int32(val.Ftag) == int32(EJS_TAG_EXCEPTION))))
-	goto _2
-_2:
-	if v1 != 0 {
-		return val
-	}
-	i = first
-	for {
-		if !(i < argc) {
-			break
-		}
-		_ = ctx2
-		v4 = *(*TJSValue)(unsafe.Pointer(argv + uintptr(i)*16))
-		*(*TJSValue)(unsafe.Pointer(bp + 16)) = v4
-		if libc.Uint32FromInt32(int32(v4.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p1 = *(*uintptr)(unsafe.Pointer(bp + 16))
-			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
-		}
-		v5 = v4
-		goto _6
-	_6:
-		ret = x_JS_DefinePropertyValueUint32(tls, ctx2, val, libc.Uint32FromInt32(i-first), v5, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-		if ret < 0 {
-			v4 = val
-			*(*TJSValue)(unsafe.Pointer(bp)) = v4
-			if libc.Uint32FromInt32(int32(v4.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = *(*uintptr)(unsafe.Pointer(bp))
-				v9 = p
-				*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-				v1 = *(*int32)(unsafe.Pointer(v9))
-				if v1 <= libc.Int32FromInt32(0) {
-					x___JS_FreeValue(tls, ctx2, v4)
-				}
-			}
-			return TJSValue{
-				Fu:   TJSValueUnion{},
-				Ftag: int64(EJS_TAG_EXCEPTION),
-			}
-		}
-		goto _3
-	_3:
-		;
-		i = i + 1
-	}
-	return val
-}
-
 func _build_for_in_iterator(tls *libc.TLS, ctx1 uintptr, _obj TJSValue) (r TJSValue) {
 	bp := tls.Alloc(64)
 	defer tls.Free(64)
@@ -32494,10 +32648,10 @@ func _JS_CallInternal(tls *libc.TLS, caller_ctx uintptr, _func_obj TJSValue, thi
 	defer tls.Free(1072)
 	*(*TJSValue)(unsafe.Pointer(bp + 80)) = _func_obj
 	var alloca_size Tsize_t
-	var arg, arg_allocated_size, call_argc, class_flags, first, flags1, flags2, flags3, flags4, flags5, i, i1, idx, idx1, idx10, idx11, idx12, idx13, idx14, idx15, idx16, idx17, idx18, idx19, idx2, idx20, idx21, idx3, idx4, idx5, idx6, idx7, idx8, idx9, is_with, magic, mask, n, offset, op_flags, opcode, pos1, r4, res, res1, res2, res3, res4, ret, ret10, ret11, ret12, ret13, ret14, ret15, ret16, ret17, ret18, ret19, ret2, ret20, ret21, ret3, ret4, ret5, ret8, ret9, scope_idx, scope_idx1, type1, v12, v13, v22, v23, val20, val21, val22, val23, val24, v5, v6, v7 int32
+	var arg, arg_allocated_size, call_argc, class_flags, first, flags1, flags2, flags3, flags4, flags5, i, idx, idx1, idx10, idx11, idx12, idx13, idx14, idx15, idx16, idx17, idx18, idx19, idx2, idx20, idx21, idx3, idx4, idx5, idx6, idx7, idx8, idx9, is_with, magic, mask, n, offset, op_flags, opcode, pos1, r4, res, res1, res2, res3, res4, ret1, ret10, ret11, ret12, ret13, ret14, ret15, ret16, ret17, ret18, ret19, ret2, ret20, ret3, ret4, ret7, ret8, ret9, scope_idx, scope_idx1, type1, v12, v13, v22, v23, val20, val21, val22, val23, val24, v5, v6, v7 int32
 	var arg_buf, b1, call_argv, call_func, ctx10, local_buf, p, p1, p11, p2, pc, pr, pv, pval, rt, s, sf, sp, stack_buf, tab4, var_buf, var_ref, var_refs, v1, v4 uintptr
 	var atom, atom1, atom10, atom11, atom12, atom13, atom14, atom15, atom16, atom17, atom18, atom19, atom2, atom20, atom21, atom22, atom23, atom24, atom3, atom4, atom5, atom6, atom7, atom8, atom9 TJSAtom
-	var bfunc, getter, method, obj, obj1, obj2, obj3, op111, op132, proto, proto1, ret1, ret6, ret7, ret_val, ret_val1, setter, super, tmp, tmp1, tmp11, tmp2, tmp21, tmp3, tmp4, tmp5, tmp6, tmp7, v2, val10, val11, val12, val13, val14, val15, val16, val17, val18, val19, val25, val5, val6, val7, val8, val9, value, v10, v111, v271 TJSValue
+	var bfunc, getter, method, obj, obj1, obj2, obj3, op111, op132, proto, proto1, ret, ret5, ret6, ret_val, ret_val1, setter, super, tmp, tmp1, tmp11, tmp2, tmp21, tmp3, tmp4, tmp5, tmp6, tmp7, v2, val10, val11, val12, val13, val14, val15, val16, val17, val18, val19, val25, val5, val6, val7, val8, val9, value, v10, v111, v271 TJSValue
 	var d3, d4, v1009 float64
 	var diff, diff1, diff2, v11, v21, val4, v288 Tint32_t
 	var is_computed, ret_flag TBOOL
@@ -32569,7 +32723,7 @@ func _JS_CallInternal(tls *libc.TLS, caller_ctx uintptr, _func_obj TJSValue, thi
 	var _ /* v at bp+0 */ TJSValue
 	var _ /* v at bp+16 */ TJSValue
 	var _ /* val at bp+1032 */ TJSValue
-	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = alloca_size, arg, arg_allocated_size, arg_buf, atom, atom1, atom10, atom11, atom12, atom13, atom14, atom15, atom16, atom17, atom18, atom19, atom2, atom20, atom21, atom22, atom23, atom24, atom3, atom4, atom5, atom6, atom7, atom8, atom9, b1, bfunc, call_argc, call_argv, call_func, class_flags, ctx10, d3, d4, diff, diff1, diff2, first, flags1, flags2, flags3, flags4, flags5, getter, i, i1, idx, idx1, idx10, idx11, idx12, idx13, idx14, idx15, idx16, idx17, idx18, idx19, idx2, idx20, idx21, idx3, idx4, idx5, idx6, idx7, idx8, idx9, is_computed, is_with, local_buf, magic, mask, method, n, obj, obj1, obj2, obj3, offset, op111, op132, op_flags, opcode, p, p1, p11, p2, pc, pos, pos1, pr, proto, proto1, pv, pval, r, r1, r2, r3, r4, res, res1, res2, res3, res4, ret, ret1, ret10, ret11, ret12, ret13, ret14, ret15, ret16, ret17, ret18, ret19, ret2, ret20, ret21, ret3, ret4, ret5, ret6, ret7, ret8, ret9, ret_flag, ret_val, ret_val1, rt, s, scope_idx, scope_idx1, setter, sf, sp, stack_buf, super, tab4, tag, tag1, tag2, tmp, tmp1, tmp11, tmp2, tmp21, tmp3, tmp4, tmp5, tmp6, tmp7, type1, v11, v12, v13, v14, v2, v21, v22, v23, v24, v25, v26, val10, val11, val12, val13, val14, val15, val16, val17, val18, val19, val20, val21, val22, val23, val24, val25, val4, val5, val6, val7, val8, val9, value, var_buf, var_ref, var_refs, v1, v10, v1009, v111, v269, v271, v288, v4, v5, v6, v7, v807
+	_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = alloca_size, arg, arg_allocated_size, arg_buf, atom, atom1, atom10, atom11, atom12, atom13, atom14, atom15, atom16, atom17, atom18, atom19, atom2, atom20, atom21, atom22, atom23, atom24, atom3, atom4, atom5, atom6, atom7, atom8, atom9, b1, bfunc, call_argc, call_argv, call_func, class_flags, ctx10, d3, d4, diff, diff1, diff2, first, flags1, flags2, flags3, flags4, flags5, getter, i, idx, idx1, idx10, idx11, idx12, idx13, idx14, idx15, idx16, idx17, idx18, idx19, idx2, idx20, idx21, idx3, idx4, idx5, idx6, idx7, idx8, idx9, is_computed, is_with, local_buf, magic, mask, method, n, obj, obj1, obj2, obj3, offset, op111, op132, op_flags, opcode, p, p1, p11, p2, pc, pos, pos1, pr, proto, proto1, pv, pval, r, r1, r2, r3, r4, res, res1, res2, res3, res4, ret, ret1, ret10, ret11, ret12, ret13, ret14, ret15, ret16, ret17, ret18, ret19, ret2, ret20, ret3, ret4, ret5, ret6, ret7, ret8, ret9, ret_flag, ret_val, ret_val1, rt, s, scope_idx, scope_idx1, setter, sf, sp, stack_buf, super, tab4, tag, tag1, tag2, tmp, tmp1, tmp11, tmp2, tmp21, tmp3, tmp4, tmp5, tmp6, tmp7, type1, v11, v12, v13, v14, v2, v21, v22, v23, v24, v25, v26, val10, val11, val12, val13, val14, val15, val16, val17, val18, val19, val20, val21, val22, val23, val24, val25, val4, val5, val6, val7, val8, val9, value, var_buf, var_ref, var_refs, v1, v10, v1009, v111, v269, v271, v288, v4, v5, v6, v7, v807
 	tls.AllocaEntry()
 	defer tls.AllocaExit()
 	rt = (*TJSContext)(unsafe.Pointer(caller_ctx)).Frt
@@ -33685,12 +33839,23 @@ restart:
 	_370:
 		first = libc.Int32FromUint32(v269)
 		pc = pc + uintptr(2)
+		v5 = first
+		v6 = argc
+		if v5 < v6 {
+			v7 = v5
+			goto _374
+		} else {
+			v7 = v6
+			goto _374
+		}
+	_374:
+		first = v7
 		v1 = sp
 		sp += 16
-		*(*TJSValue)(unsafe.Pointer(v1)) = _js_build_rest(tls, ctx10, first, argc, argv)
+		*(*TJSValue)(unsafe.Pointer(v1)) = _js_create_array(tls, ctx10, argc-first, argv+uintptr(first)*16)
 		v5 = int32(libc.BoolInt64(!!(int32((*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))).Ftag) == int32(EJS_TAG_EXCEPTION))))
-		goto _373
-	_373:
+		goto _377
+	_377:
 		if libc.BoolInt64(!!(v5 != 0)) != 0 {
 			goto exception
 		}
@@ -33753,8 +33918,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _385
-	_385:
+		goto _389
+	_389:
 		*(*TJSValue)(unsafe.Pointer(sp)) = v111
 		sp += 16
 		goto _267
@@ -33768,8 +33933,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _388
-	_388:
+		goto _392
+	_392:
 		*(*TJSValue)(unsafe.Pointer(sp)) = v111
 		_ = ctx10
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))
@@ -33779,8 +33944,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _391
-	_391:
+		goto _395
+	_395:
 		*(*TJSValue)(unsafe.Pointer(sp + 1*16)) = v111
 		sp = sp + uintptr(2)*16
 		goto _267
@@ -33794,8 +33959,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _394
-	_394:
+		goto _398
+	_398:
 		*(*TJSValue)(unsafe.Pointer(sp)) = v111
 		_ = ctx10
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16))
@@ -33805,8 +33970,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _397
-	_397:
+		goto _401
+	_401:
 		*(*TJSValue)(unsafe.Pointer(sp + 1*16)) = v111
 		_ = ctx10
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))
@@ -33816,8 +33981,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _400
-	_400:
+		goto _404
+	_404:
 		*(*TJSValue)(unsafe.Pointer(sp + 2*16)) = v111
 		sp = sp + uintptr(3)*16
 		goto _267
@@ -33832,8 +33997,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _403
-	_403:
+		goto _407
+	_407:
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)) = v111
 		sp += 16
 		goto _267
@@ -33849,8 +34014,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _406
-	_406:
+		goto _410
+	_410:
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)) = v111
 		sp += 16
 		goto _267
@@ -33867,8 +34032,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _409
-	_409:
+		goto _413
+	_413:
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)) = v111
 		sp += 16
 		goto _267
@@ -33886,8 +34051,8 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _412
-	_412:
+		goto _416
+	_416:
 		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)) = v111
 		sp += 16
 		goto _267
@@ -33961,8 +34126,8 @@ restart:
 	_64:
 		;
 		v269 = (*Tpacked_u32)(unsafe.Pointer(pc)).Fv
-		goto _414
-	_414:
+		goto _418
+	_418:
 		_ = ctx10
 		v10 = *(*TJSValue)(unsafe.Pointer((*TJSFunctionBytecode)(unsafe.Pointer(b1)).Fcpool + uintptr(v269)*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 64)) = v10
@@ -33971,16 +34136,16 @@ restart:
 			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
 		}
 		v111 = v10
-		goto _417
-	_417:
+		goto _421
+	_421:
 		bfunc = v111
 		pc = pc + uintptr(4)
 		v1 = sp
 		sp += 16
 		*(*TJSValue)(unsafe.Pointer(v1)) = _js_closure(tls, ctx10, bfunc, var_refs, sf)
 		v5 = int32(libc.BoolInt64(!!(int32((*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))).Ftag) == int32(EJS_TAG_EXCEPTION))))
-		goto _420
-	_420:
+		goto _424
+	_424:
 		if libc.BoolInt64(!!(v5 != 0)) != 0 {
 			goto exception
 		}
@@ -34000,8 +34165,8 @@ restart:
 	_69:
 		;
 		v269 = uint32((*Tpacked_u16)(unsafe.Pointer(pc)).Fv)
-		goto _422
-	_422:
+		goto _426
+	_426:
 		call_argc = libc.Int32FromUint32(v269)
 		pc = pc + uintptr(2)
 		goto has_call_argc
@@ -34018,8 +34183,8 @@ restart:
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}, call_argc, call_argv, 0)
 		v5 = int32(libc.BoolInt64(!!(int32(ret_val.Ftag) == int32(EJS_TAG_EXCEPTION))))
-		goto _424
-	_424:
+		goto _428
+	_428:
 		if libc.BoolInt64(!!(v5 != 0)) != 0 {
 			goto exception
 		}
@@ -34042,8 +34207,8 @@ restart:
 					x___JS_FreeValue(tls, ctx10, v10)
 				}
 			}
-			goto _425
-		_425:
+			goto _429
+		_429:
 			;
 			i = i + 1
 		}
@@ -34055,16 +34220,16 @@ restart:
 	_71:
 		;
 		v269 = uint32((*Tpacked_u16)(unsafe.Pointer(pc)).Fv)
-		goto _431
-	_431:
+		goto _435
+	_435:
 		call_argc = libc.Int32FromUint32(v269)
 		pc = pc + uintptr(2)
 		call_argv = sp - uintptr(call_argc)*16
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
 		ret_val = _JS_CallConstructorInternal(tls, ctx10, *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(-libc.Int32FromInt32(1))*16)), call_argc, call_argv, 0)
 		v5 = int32(libc.BoolInt64(!!(int32(ret_val.Ftag) == int32(EJS_TAG_EXCEPTION))))
-		goto _433
-	_433:
+		goto _437
+	_437:
 		if libc.BoolInt64(!!(v5 != 0)) != 0 {
 			goto exception
 		}
@@ -34084,8 +34249,8 @@ restart:
 					x___JS_FreeValue(tls, ctx10, v10)
 				}
 			}
-			goto _434
-		_434:
+			goto _438
+		_438:
 			;
 			i = i + 1
 		}
@@ -34099,8 +34264,8 @@ restart:
 	_72:
 		;
 		v269 = uint32((*Tpacked_u16)(unsafe.Pointer(pc)).Fv)
-		goto _440
-	_440:
+		goto _444
+	_444:
 		call_argc = libc.Int32FromUint32(v269)
 		pc = pc + uintptr(2)
 		call_argv = sp - uintptr(call_argc)*16
@@ -34110,8 +34275,8 @@ restart:
 			Ftag: int64(EJS_TAG_UNDEFINED),
 		}, call_argc, call_argv, 0)
 		v5 = int32(libc.BoolInt64(!!(int32(ret_val.Ftag) == int32(EJS_TAG_EXCEPTION))))
-		goto _442
-	_442:
+		goto _446
+	_446:
 		if libc.BoolInt64(!!(v5 != 0)) != 0 {
 			goto exception
 		}
@@ -34134,8 +34299,8 @@ restart:
 					x___JS_FreeValue(tls, ctx10, v10)
 				}
 			}
-			goto _443
-		_443:
+			goto _447
+		_447:
 			;
 			i = i + 1
 		}
@@ -34147,48 +34312,18 @@ restart:
 	_74:
 		;
 		v269 = uint32((*Tpacked_u16)(unsafe.Pointer(pc)).Fv)
-		goto _449
-	_449:
+		goto _453
+	_453:
 		call_argc = libc.Int32FromUint32(v269)
 		pc = pc + uintptr(2)
-		ret_val = x_JS_NewArray(tls, ctx10)
+		ret_val = _js_create_array_free(tls, ctx10, call_argc, sp-uintptr(call_argc)*16)
+		sp = sp - uintptr(call_argc)*16
 		v5 = int32(libc.BoolInt64(!!(int32(ret_val.Ftag) == int32(EJS_TAG_EXCEPTION))))
-		goto _451
-	_451:
+		goto _455
+	_455:
 		if libc.BoolInt64(!!(v5 != 0)) != 0 {
 			goto exception
 		}
-		call_argv = sp - uintptr(call_argc)*16
-		i1 = 0
-		for {
-			if !(i1 < call_argc) {
-				break
-			}
-			ret = x_JS_DefinePropertyValue(tls, ctx10, ret_val, ___JS_AtomFromUInt32(tls, libc.Uint32FromInt32(i1)), *(*TJSValue)(unsafe.Pointer(call_argv + uintptr(i1)*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
-			*(*TJSValue)(unsafe.Pointer(call_argv + uintptr(i1)*16)) = TJSValue{
-				Fu:   TJSValueUnion{},
-				Ftag: int64(EJS_TAG_UNDEFINED),
-			}
-			if ret < 0 {
-				v10 = ret_val
-				*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
-				if libc.Uint32FromInt32(int32(v10.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-					p = *(*uintptr)(unsafe.Pointer(bp + 48))
-					v1 = p
-					*(*int32)(unsafe.Pointer(v1)) = *(*int32)(unsafe.Pointer(v1)) - 1
-					v5 = *(*int32)(unsafe.Pointer(v1))
-					if v5 <= libc.Int32FromInt32(0) {
-						x___JS_FreeValue(tls, ctx10, v10)
-					}
-				}
-				goto exception
-			}
-			goto _452
-		_452:
-			;
-			i1 = i1 + 1
-		}
-		sp = sp - uintptr(call_argc)*16
 		v1 = sp
 		sp += 16
 		*(*TJSValue)(unsafe.Pointer(v1)) = ret_val
@@ -34320,7 +34455,7 @@ restart:
 		if v5 != 0 {
 			goto exception
 		}
-		ret1 = x_JS_CallConstructor2(tls, ctx10, super, new_target, argc, argv)
+		ret = x_JS_CallConstructor2(tls, ctx10, super, new_target, argc, argv)
 		v10 = super
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
 		if libc.Uint32FromInt32(int32(v10.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -34332,7 +34467,7 @@ restart:
 				x___JS_FreeValue(tls, ctx10, v10)
 			}
 		}
-		v5 = int32(libc.BoolInt64(!!(int32(ret1.Ftag) == int32(EJS_TAG_EXCEPTION))))
+		v5 = int32(libc.BoolInt64(!!(int32(ret.Ftag) == int32(EJS_TAG_EXCEPTION))))
 		goto _487
 	_487:
 		if v5 != 0 {
@@ -34340,15 +34475,15 @@ restart:
 		}
 		v1 = sp
 		sp += 16
-		*(*TJSValue)(unsafe.Pointer(v1)) = ret1
+		*(*TJSValue)(unsafe.Pointer(v1)) = ret
 		goto _267
 	_81:
 		;
-		ret2 = _JS_CheckBrand(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)))
-		if ret2 < 0 {
+		ret1 = _JS_CheckBrand(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)))
+		if ret1 < 0 {
 			goto exception
 		}
-		if !(ret2 != 0) {
+		if !(ret1 != 0) {
 			x_JS_ThrowTypeError(tls, ctx10, __ccgo_ts+6525, 0)
 			goto exception
 		}
@@ -34625,8 +34760,8 @@ restart:
 		atom1 = v269
 		pc = pc + uintptr(4)
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
-		ret3 = _JS_CheckGlobalVar(tls, ctx10, atom1)
-		if ret3 < 0 {
+		ret2 = _JS_CheckGlobalVar(tls, ctx10, atom1)
+		if ret2 < 0 {
 			goto exception
 		}
 		v1 = sp
@@ -34636,7 +34771,7 @@ restart:
 			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 				f Tint32_t
 				_ [4]byte
-			}{f: libc.BoolInt32(ret3 != libc.Int32FromInt32(0))})),
+			}{f: libc.BoolInt32(ret2 != libc.Int32FromInt32(0))})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 		goto _537
@@ -34674,9 +34809,9 @@ restart:
 		atom3 = v269
 		pc = pc + uintptr(4)
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
-		ret4 = _JS_SetGlobalVar(tls, ctx10, atom3, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), opcode-int32(EOP_put_var))
+		ret3 = _JS_SetGlobalVar(tls, ctx10, atom3, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), opcode-int32(EOP_put_var))
 		sp -= 16
-		if libc.BoolInt64(!!(ret4 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret3 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -34693,9 +34828,9 @@ restart:
 			_JS_ThrowReferenceErrorNotDefined(tls, ctx10, atom4)
 			goto exception
 		}
-		ret5 = _JS_SetGlobalVar(tls, ctx10, atom4, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), int32(2))
+		ret4 = _JS_SetGlobalVar(tls, ctx10, atom4, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), int32(2))
 		sp = sp - uintptr(2)*16
-		if libc.BoolInt64(!!(ret5 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret4 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -35937,8 +36072,8 @@ restart:
 		;
 		/* stack: iter_obj next catch_offset val */
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
-		ret6 = x_JS_Call(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), int32(1), sp-libc.UintptrFromInt32(1)*16)
-		v5 = int32(libc.BoolInt64(!!(int32(ret6.Ftag) == int32(EJS_TAG_EXCEPTION))))
+		ret5 = x_JS_Call(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), int32(1), sp-libc.UintptrFromInt32(1)*16)
+		v5 = int32(libc.BoolInt64(!!(int32(ret5.Ftag) == int32(EJS_TAG_EXCEPTION))))
 		goto _792
 	_792:
 		if v5 != 0 {
@@ -35955,7 +36090,7 @@ restart:
 				x___JS_FreeValue(tls, ctx10, v10)
 			}
 		}
-		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)) = ret6
+		*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)) = ret5
 		goto _267
 	_181:
 		;
@@ -35994,11 +36129,11 @@ restart:
 		} else {
 			if flags4&int32(2) != 0 {
 				/* no argument */
-				ret7 = _JS_CallFree(tls, ctx10, method, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), 0, libc.UintptrFromInt32(0))
+				ret6 = _JS_CallFree(tls, ctx10, method, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), 0, libc.UintptrFromInt32(0))
 			} else {
-				ret7 = _JS_CallFree(tls, ctx10, method, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), int32(1), sp-libc.UintptrFromInt32(1)*16)
+				ret6 = _JS_CallFree(tls, ctx10, method, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), int32(1), sp-libc.UintptrFromInt32(1)*16)
 			}
-			v5 = int32(libc.BoolInt64(!!(int32(ret7.Ftag) == int32(EJS_TAG_EXCEPTION))))
+			v5 = int32(libc.BoolInt64(!!(int32(ret6.Ftag) == int32(EJS_TAG_EXCEPTION))))
 			goto _809
 		_809:
 			if v5 != 0 {
@@ -36015,7 +36150,7 @@ restart:
 					x___JS_FreeValue(tls, ctx10, v10)
 				}
 			}
-			*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)) = ret7
+			*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)) = ret6
 			ret_flag = int32(EFALSE)
 		}
 		_ = ctx10
@@ -36114,7 +36249,7 @@ restart:
 		atom12 = v269
 		pc = pc + uintptr(4)
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
-		ret8 = x_JS_SetPropertyInternal(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), atom12, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
+		ret7 = x_JS_SetPropertyInternal(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), atom12, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
 		if libc.Uint32FromInt32(int32(v10.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -36127,7 +36262,7 @@ restart:
 			}
 		}
 		sp = sp - uintptr(2)*16
-		if libc.BoolInt64(!!(ret8 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret7 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -36185,7 +36320,7 @@ restart:
 		goto _267
 	_188:
 		;
-		ret9 = _JS_SetPrivateField(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)))
+		ret8 = _JS_SetPrivateField(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)))
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
 		if libc.Uint32FromInt32(int32(v10.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -36209,13 +36344,13 @@ restart:
 			}
 		}
 		sp = sp - uintptr(3)*16
-		if libc.BoolInt64(!!(ret9 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret8 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
 	_189:
 		;
-		ret10 = _JS_DefinePrivateField(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)))
+		ret9 = _JS_DefinePrivateField(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)))
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
 		if libc.Uint32FromInt32(int32(v10.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -36228,7 +36363,7 @@ restart:
 			}
 		}
 		sp = sp - uintptr(2)*16
-		if libc.BoolInt64(!!(ret10 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret9 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -36239,9 +36374,9 @@ restart:
 	_863:
 		atom14 = v269
 		pc = pc + uintptr(4)
-		ret11 = x_JS_DefinePropertyValue(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), atom14, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
+		ret10 = x_JS_DefinePropertyValue(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), atom14, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
 		sp -= 16
-		if libc.BoolInt64(!!(ret11 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret10 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -36252,15 +36387,15 @@ restart:
 	_865:
 		atom15 = v269
 		pc = pc + uintptr(4)
-		ret12 = _JS_DefineObjectName(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), atom15, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
-		if libc.BoolInt64(!!(ret12 < libc.Int32FromInt32(0))) != 0 {
+		ret11 = _JS_DefineObjectName(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), atom15, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
+		if libc.BoolInt64(!!(ret11 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
 	_192:
 		;
-		ret13 = _JS_DefineObjectNameComputed(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
-		if libc.BoolInt64(!!(ret13 < libc.Int32FromInt32(0))) != 0 {
+		ret12 = _JS_DefineObjectNameComputed(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0))
+		if libc.BoolInt64(!!(ret12 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -36350,9 +36485,9 @@ restart:
 				flags5 = flags5 | libc.Int32FromInt32(1)<<libc.Int32FromInt32(12)
 			}
 		}
-		ret14 = _js_method_set_properties(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), atom16, flags5, obj2)
-		if ret14 >= 0 {
-			ret14 = x_JS_DefineProperty(tls, ctx10, obj2, atom16, value, getter, setter, flags5)
+		ret13 = _js_method_set_properties(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), atom16, flags5, obj2)
+		if ret13 >= 0 {
+			ret13 = x_JS_DefineProperty(tls, ctx10, obj2, atom16, value, getter, setter, flags5)
 		}
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
@@ -36380,7 +36515,7 @@ restart:
 			}
 		}
 		sp = sp - uintptr(int32(1)+is_computed)*16
-		if libc.BoolInt64(!!(ret14 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret13 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -36517,9 +36652,9 @@ restart:
 			x_JS_FreeAtom(tls, ctx10, atom18)
 			goto exception
 		}
-		ret15 = x_JS_HasProperty(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), atom18)
-		if libc.BoolInt64(!!(ret15 <= libc.Int32FromInt32(0))) != 0 {
-			if ret15 < 0 {
+		ret14 = x_JS_HasProperty(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), atom18)
+		if libc.BoolInt64(!!(ret14 <= libc.Int32FromInt32(0))) != 0 {
+			if ret14 < 0 {
 				x_JS_FreeAtom(tls, ctx10, atom18)
 				goto exception
 			}
@@ -36603,7 +36738,7 @@ restart:
 	_204:
 		;
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
-		ret16 = _JS_SetPropertyValue(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
+		ret15 = _JS_SetPropertyValue(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
 		if libc.Uint32FromInt32(int32(v10.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -36616,7 +36751,7 @@ restart:
 			}
 		}
 		sp = sp - uintptr(3)*16
-		if libc.BoolInt64(!!(ret16 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret15 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -36649,9 +36784,9 @@ restart:
 				*(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)) = v111
 			}
 		}
-		ret17 = x_JS_HasProperty(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), atom20)
-		if libc.BoolInt64(!!(ret17 <= libc.Int32FromInt32(0))) != 0 {
-			if libc.BoolInt64(!!(ret17 < libc.Int32FromInt32(0))) != 0 {
+		ret16 = x_JS_HasProperty(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), atom20)
+		if libc.BoolInt64(!!(ret16 <= libc.Int32FromInt32(0))) != 0 {
+			if libc.BoolInt64(!!(ret16 < libc.Int32FromInt32(0))) != 0 {
 				x_JS_FreeAtom(tls, ctx10, atom20)
 				goto exception
 			}
@@ -36661,7 +36796,7 @@ restart:
 				goto exception
 			}
 		}
-		ret17 = x_JS_SetPropertyInternal(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), atom20, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
+		ret16 = x_JS_SetPropertyInternal(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), atom20, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
 		x_JS_FreeAtom(tls, ctx10, atom20)
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
@@ -36686,7 +36821,7 @@ restart:
 			}
 		}
 		sp = sp - uintptr(3)*16
-		if libc.BoolInt64(!!(ret17 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret16 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -36701,7 +36836,7 @@ restart:
 		if libc.BoolInt64(!!(atom21 == libc.Uint32FromInt32(MJS_ATOM_NULL))) != 0 {
 			goto exception
 		}
-		ret18 = x_JS_SetPropertyInternal(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), atom21, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
+		ret17 = x_JS_SetPropertyInternal(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), atom21, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
 		x_JS_FreeAtom(tls, ctx10, atom21)
 		v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(4))*16))
 		*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
@@ -36737,7 +36872,7 @@ restart:
 			}
 		}
 		sp = sp - uintptr(4)*16
-		if ret18 < 0 {
+		if ret17 < 0 {
 			goto exception
 		}
 		goto _267
@@ -36753,9 +36888,9 @@ restart:
 		v111 = v10
 		goto _951
 	_951:
-		ret19 = x_JS_DefinePropertyValueValue(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), v111, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
+		ret18 = x_JS_DefinePropertyValueValue(tls, ctx10, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(3))*16)), v111, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16)), libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(14))
 		sp = sp - uintptr(1)*16
-		if libc.BoolInt64(!!(ret19 < libc.Int32FromInt32(0))) != 0 {
+		if libc.BoolInt64(!!(ret18 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		goto _267
@@ -37834,8 +37969,8 @@ restart:
 		atom23 = v269
 		pc = pc + uintptr(4)
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
-		ret20 = _JS_DeleteGlobalVar(tls, ctx10, atom23)
-		if libc.BoolInt64(!!(ret20 < libc.Int32FromInt32(0))) != 0 {
+		ret19 = _JS_DeleteGlobalVar(tls, ctx10, atom23)
+		if libc.BoolInt64(!!(ret19 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
 		v1 = sp
@@ -37845,7 +37980,7 @@ restart:
 			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 				f Tint32_t
 				_ [4]byte
-			}{f: libc.BoolInt32(ret20 != libc.Int32FromInt32(0))})),
+			}{f: libc.BoolInt32(ret19 != libc.Int32FromInt32(0))})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 		goto _1089
@@ -37931,28 +38066,28 @@ restart:
 		pc = pc + uintptr(9)
 		(*TJSStackFrame)(unsafe.Pointer(sf)).Fcur_pc = pc
 		obj3 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))
-		ret21 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
-		if libc.BoolInt64(!!(ret21 < libc.Int32FromInt32(0))) != 0 {
+		ret20 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
+		if libc.BoolInt64(!!(ret20 < libc.Int32FromInt32(0))) != 0 {
 			goto exception
 		}
-		if !(ret21 != 0) {
+		if !(ret20 != 0) {
 			goto _1104
 		}
 		if is_with != 0 {
-			ret21 = _js_has_unscopable(tls, ctx10, obj3, atom24)
-			if libc.BoolInt64(!!(ret21 < libc.Int32FromInt32(0))) != 0 {
+			ret20 = _js_has_unscopable(tls, ctx10, obj3, atom24)
+			if libc.BoolInt64(!!(ret20 < libc.Int32FromInt32(0))) != 0 {
 				goto exception
 			}
-			if ret21 != 0 {
+			if ret20 != 0 {
 				goto no_with
 			}
 		}
 		switch opcode {
 		case int32(EOP_with_get_var):
 			/* in Object Environment Records, GetBindingValue() calls HasProperty() */
-			ret21 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
-			if libc.BoolInt64(!!(ret21 <= libc.Int32FromInt32(0))) != 0 {
-				if ret21 < 0 {
+			ret20 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
+			if libc.BoolInt64(!!(ret20 <= libc.Int32FromInt32(0))) != 0 {
+				if ret20 < 0 {
 					goto exception
 				}
 				if _is_strict_mode(tls, ctx10) != 0 {
@@ -37979,9 +38114,9 @@ restart:
 			_set_value(tls, ctx10, sp+uintptr(-libc.Int32FromInt32(1))*16, val25)
 		case int32(EOP_with_put_var): /* used e.g. in for in/of */
 			/* in Object Environment Records, SetMutableBinding() calls HasProperty() */
-			ret21 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
-			if libc.BoolInt64(!!(ret21 <= libc.Int32FromInt32(0))) != 0 {
-				if ret21 < 0 {
+			ret20 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
+			if libc.BoolInt64(!!(ret20 <= libc.Int32FromInt32(0))) != 0 {
+				if ret20 < 0 {
 					goto exception
 				}
 				if _is_strict_mode(tls, ctx10) != 0 {
@@ -37989,7 +38124,7 @@ restart:
 					goto exception
 				}
 			}
-			ret21 = x_JS_SetPropertyInternal(tls, ctx10, obj3, atom24, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), obj3, libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
+			ret20 = x_JS_SetPropertyInternal(tls, ctx10, obj3, atom24, *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(2))*16)), obj3, libc.Int32FromInt32(1)<<libc.Int32FromInt32(15))
 			v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))
 			*(*TJSValue)(unsafe.Pointer(bp + 48)) = v10
 			if libc.Uint32FromInt32(int32(v10.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
@@ -38002,12 +38137,12 @@ restart:
 				}
 			}
 			sp = sp - uintptr(2)*16
-			if libc.BoolInt64(!!(ret21 < libc.Int32FromInt32(0))) != 0 {
+			if libc.BoolInt64(!!(ret20 < libc.Int32FromInt32(0))) != 0 {
 				goto exception
 			}
 		case int32(EOP_with_delete_var):
-			ret21 = x_JS_DeleteProperty(tls, ctx10, obj3, atom24, 0)
-			if libc.BoolInt64(!!(ret21 < libc.Int32FromInt32(0))) != 0 {
+			ret20 = x_JS_DeleteProperty(tls, ctx10, obj3, atom24, 0)
+			if libc.BoolInt64(!!(ret20 < libc.Int32FromInt32(0))) != 0 {
 				goto exception
 			}
 			v10 = *(*TJSValue)(unsafe.Pointer(sp + uintptr(-libc.Int32FromInt32(1))*16))
@@ -38026,7 +38161,7 @@ restart:
 				Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
 					f Tint32_t
 					_ [4]byte
-				}{f: libc.BoolInt32(ret21 != libc.Int32FromInt32(0))})),
+				}{f: libc.BoolInt32(ret20 != libc.Int32FromInt32(0))})),
 				Ftag: int64(EJS_TAG_BOOL),
 			}
 			goto _1118
@@ -38040,11 +38175,11 @@ restart:
 		case int32(EOP_with_get_ref):
 			/* produce a pair object/method on the stack */
 			/* in Object Environment Records, GetBindingValue() calls HasProperty() */
-			ret21 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
-			if libc.BoolInt64(!!(ret21 < libc.Int32FromInt32(0))) != 0 {
+			ret20 = x_JS_HasProperty(tls, ctx10, obj3, atom24)
+			if libc.BoolInt64(!!(ret20 < libc.Int32FromInt32(0))) != 0 {
 				goto exception
 			}
-			if !(ret21 != 0) {
+			if !(ret20 != 0) {
 				val25 = TJSValue{
 					Fu:   TJSValueUnion{},
 					Ftag: int64(EJS_TAG_UNDEFINED),
@@ -73397,63 +73532,6 @@ func _js_array_iterator_mark(tls *libc.TLS, rt uintptr, _val TJSValue, __ccgo_fp
 	if it != 0 {
 		x_JS_MarkValue(tls, rt, (*TJSArrayIteratorData)(unsafe.Pointer(it)).Fobj, __ccgo_fp_mark_func)
 	}
-}
-
-func _js_create_array(tls *libc.TLS, ctx2 uintptr, len1 int32, tab uintptr) (r TJSValue) {
-	bp := tls.Alloc(32)
-	defer tls.Free(32)
-	var i, v1 int32
-	var obj, v4, v5, v7 TJSValue
-	var p, p1, v9 uintptr
-	_, _, _, _, _, _, _, _, _ = i, obj, p, p1, v1, v4, v5, v7, v9
-	obj = x_JS_NewArray(tls, ctx2)
-	v1 = int32(libc.BoolInt64(!!(int32(obj.Ftag) == int32(EJS_TAG_EXCEPTION))))
-	goto _2
-_2:
-	if v1 != 0 {
-		return TJSValue{
-			Fu:   TJSValueUnion{},
-			Ftag: int64(EJS_TAG_EXCEPTION),
-		}
-	}
-	i = 0
-	for {
-		if !(i < len1) {
-			break
-		}
-		_ = ctx2
-		v4 = *(*TJSValue)(unsafe.Pointer(tab + uintptr(i)*16))
-		*(*TJSValue)(unsafe.Pointer(bp + 16)) = v4
-		if libc.Uint32FromInt32(int32(v4.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p1 = *(*uintptr)(unsafe.Pointer(bp + 16))
-			(*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count = (*TJSRefCountHeader)(unsafe.Pointer(p1)).Fref_count + 1
-		}
-		v5 = v4
-		goto _6
-	_6:
-		if _JS_CreateDataPropertyUint32(tls, ctx2, obj, int64(i), v5, 0) < 0 {
-			v7 = obj
-			*(*TJSValue)(unsafe.Pointer(bp)) = v7
-			if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-				p = *(*uintptr)(unsafe.Pointer(bp))
-				v9 = p
-				*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-				v1 = *(*int32)(unsafe.Pointer(v9))
-				if v1 <= libc.Int32FromInt32(0) {
-					x___JS_FreeValue(tls, ctx2, v7)
-				}
-			}
-			return TJSValue{
-				Fu:   TJSValueUnion{},
-				Ftag: int64(EJS_TAG_EXCEPTION),
-			}
-		}
-		goto _3
-	_3:
-		;
-		i = i + 1
-	}
-	return obj
 }
 
 func _js_create_array_iterator(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv uintptr, magic int32) (r TJSValue) {
