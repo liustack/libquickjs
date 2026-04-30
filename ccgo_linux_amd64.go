@@ -1,4 +1,4 @@
-// Code generated for linux/amd64 by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment -mlong-double-64 --package-name libquickjs -o ccgo_linux_amd64.go tmp/quickjs-31663a930d2d17b92d562cd3e8a1d4792be4d145/libquickjs.a', DO NOT EDIT.
+// Code generated for linux/amd64 by 'ccgo --prefix-enumerator=E --prefix-external=x_ --prefix-field=F --prefix-macro=M --prefix-static-internal=_ --prefix-static-none=_ --prefix-tagged-enum=_ --prefix-tagged-struct=T --prefix-tagged-union=T --prefix-typename=T --prefix-undefined=_ -DNDEBUG -UHAVE_CLOSEFROM -U__SIZEOF_INT128__ -eval-all-macros -extended-errors -hide js_check_stack_overflow -ignore-link-errors -ignore-unsupported-alignment -mlong-double-64 --package-name libquickjs -o ccgo_linux_amd64.go tmp/quickjs-f1253f2ab53d3adbe918fe1d68710269f0c2335e/libquickjs.a', DO NOT EDIT.
 
 //go:build linux && amd64
 
@@ -661,8 +661,25 @@ const M__ATOMIC_HLE_RELEASE = 131072
 const M__ATOMIC_RELAXED = 0
 const M__ATOMIC_RELEASE = 3
 const M__ATOMIC_SEQ_CST = 5
+const M__BFLT16_DECIMAL_DIG__ = 4
+const M__BFLT16_DENORM_MIN__ = 0
+const M__BFLT16_DIG__ = 2
+const M__BFLT16_EPSILON__ = 0
+const M__BFLT16_HAS_DENORM__ = 1
+const M__BFLT16_HAS_INFINITY__ = 1
+const M__BFLT16_HAS_QUIET_NAN__ = 1
+const M__BFLT16_IS_IEC_60559__ = 0
+const M__BFLT16_MANT_DIG__ = 8
+const M__BFLT16_MAX_10_EXP__ = 38
+const M__BFLT16_MAX_EXP__ = 128
+const M__BFLT16_MAX__ = 0
+const M__BFLT16_MIN_10_EXP__ = -37
+const M__BFLT16_MIN_EXP__ = -125
+const M__BFLT16_MIN__ = 0
+const M__BFLT16_NORM_MAX__ = 0
 const M__BIGGEST_ALIGNMENT__ = 16
 const M__BIG_ENDIAN = 4321
+const M__BITINT_MAXWIDTH__ = 65535
 const M__BYTE_ORDER = 1234
 const M__BYTE_ORDER__ = 1234
 const M__CCGO__ = 1
@@ -672,7 +689,7 @@ const M__DBL_DIG__ = 15
 const M__DBL_HAS_DENORM__ = 1
 const M__DBL_HAS_INFINITY__ = 1
 const M__DBL_HAS_QUIET_NAN__ = 1
-const M__DBL_IS_IEC_60559__ = 2
+const M__DBL_IS_IEC_60559__ = 1
 const M__DBL_MANT_DIG__ = 53
 const M__DBL_MAX_10_EXP__ = 308
 const M__DBL_MAX_EXP__ = 1024
@@ -713,7 +730,7 @@ const M__FLT128_EPSILON__ = 0
 const M__FLT128_HAS_DENORM__ = 1
 const M__FLT128_HAS_INFINITY__ = 1
 const M__FLT128_HAS_QUIET_NAN__ = 1
-const M__FLT128_IS_IEC_60559__ = 2
+const M__FLT128_IS_IEC_60559__ = 1
 const M__FLT128_MANT_DIG__ = 113
 const M__FLT128_MAX_10_EXP__ = 4932
 const M__FLT128_MAX_EXP__ = 16384
@@ -729,7 +746,7 @@ const M__FLT16_EPSILON__ = 0
 const M__FLT16_HAS_DENORM__ = 1
 const M__FLT16_HAS_INFINITY__ = 1
 const M__FLT16_HAS_QUIET_NAN__ = 1
-const M__FLT16_IS_IEC_60559__ = 2
+const M__FLT16_IS_IEC_60559__ = 1
 const M__FLT16_MANT_DIG__ = 11
 const M__FLT16_MAX_10_EXP__ = 4
 const M__FLT16_MAX_EXP__ = 16
@@ -745,7 +762,7 @@ const M__FLT32X_EPSILON__ = 0
 const M__FLT32X_HAS_DENORM__ = 1
 const M__FLT32X_HAS_INFINITY__ = 1
 const M__FLT32X_HAS_QUIET_NAN__ = 1
-const M__FLT32X_IS_IEC_60559__ = 2
+const M__FLT32X_IS_IEC_60559__ = 1
 const M__FLT32X_MANT_DIG__ = 53
 const M__FLT32X_MAX_10_EXP__ = 308
 const M__FLT32X_MAX_EXP__ = 1024
@@ -761,7 +778,7 @@ const M__FLT32_EPSILON__ = 0
 const M__FLT32_HAS_DENORM__ = 1
 const M__FLT32_HAS_INFINITY__ = 1
 const M__FLT32_HAS_QUIET_NAN__ = 1
-const M__FLT32_IS_IEC_60559__ = 2
+const M__FLT32_IS_IEC_60559__ = 1
 const M__FLT32_MANT_DIG__ = 24
 const M__FLT32_MAX_10_EXP__ = 38
 const M__FLT32_MAX_EXP__ = 128
@@ -777,7 +794,7 @@ const M__FLT64X_EPSILON__ = 0
 const M__FLT64X_HAS_DENORM__ = 1
 const M__FLT64X_HAS_INFINITY__ = 1
 const M__FLT64X_HAS_QUIET_NAN__ = 1
-const M__FLT64X_IS_IEC_60559__ = 2
+const M__FLT64X_IS_IEC_60559__ = 1
 const M__FLT64X_MANT_DIG__ = 113
 const M__FLT64X_MAX_10_EXP__ = 4932
 const M__FLT64X_MAX_EXP__ = 16384
@@ -793,7 +810,7 @@ const M__FLT64_EPSILON__ = 0
 const M__FLT64_HAS_DENORM__ = 1
 const M__FLT64_HAS_INFINITY__ = 1
 const M__FLT64_HAS_QUIET_NAN__ = 1
-const M__FLT64_IS_IEC_60559__ = 2
+const M__FLT64_IS_IEC_60559__ = 1
 const M__FLT64_MANT_DIG__ = 53
 const M__FLT64_MAX_10_EXP__ = 308
 const M__FLT64_MAX_EXP__ = 1024
@@ -811,7 +828,7 @@ const M__FLT_EVAL_METHOD__ = 0
 const M__FLT_HAS_DENORM__ = 1
 const M__FLT_HAS_INFINITY__ = 1
 const M__FLT_HAS_QUIET_NAN__ = 1
-const M__FLT_IS_IEC_60559__ = 2
+const M__FLT_IS_IEC_60559__ = 1
 const M__FLT_MANT_DIG__ = 24
 const M__FLT_MAX_10_EXP__ = 38
 const M__FLT_MAX_EXP__ = 128
@@ -849,8 +866,8 @@ const M__GNUC_MINOR__ = 2
 const M__GNUC_PATCHLEVEL__ = 0
 const M__GNUC_STDC_INLINE__ = 1
 const M__GNUC_WIDE_EXECUTION_CHARSET_NAME = "UTF-32LE"
-const M__GNUC__ = 12
-const M__GXX_ABI_VERSION = 1017
+const M__GNUC__ = 14
+const M__GXX_ABI_VERSION = 1019
 const M__HAVE_SPECULATION_SAFE_VALUE = 1
 const M__INT16_MAX__ = 32767
 const M__INT32_MAX__ = 2147483647
@@ -887,7 +904,7 @@ const M__LDBL_EPSILON__ = 0
 const M__LDBL_HAS_DENORM__ = 1
 const M__LDBL_HAS_INFINITY__ = 1
 const M__LDBL_HAS_QUIET_NAN__ = 1
-const M__LDBL_IS_IEC_60559__ = 2
+const M__LDBL_IS_IEC_60559__ = 1
 const M__LDBL_MANT_DIG__ = 53
 const M__LDBL_MAX_10_EXP__ = 308
 const M__LDBL_MAX_EXP__ = 1024
@@ -973,7 +990,7 @@ const M__UINT_LEAST32_MAX__ = 4294967295
 const M__UINT_LEAST64_MAX__ = 18446744073709551615
 const M__UINT_LEAST8_MAX__ = 255
 const M__USE_TIME_BITS64 = 1
-const M__VERSION__ = "12.2.0"
+const M__VERSION__ = "14.2.0"
 const M__WCHAR_MAX__ = 2147483647
 const M__WCHAR_MIN__ = -2147483648
 const M__WCHAR_TYPE__ = 0
@@ -106708,9 +106725,9 @@ func _js_promise_withResolvers(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, a
 	defer tls.Free(48)
 	var obj, result_promise, v7 TJSValue
 	var p, v9 uintptr
-	var v1, v3 int32
+	var v1 int32
 	var _ /* resolving_funcs at bp+16 */ [2]TJSValue
-	_, _, _, _, _, _, _ = obj, p, result_promise, v1, v3, v7, v9
+	_, _, _, _, _, _ = obj, p, result_promise, v1, v7, v9
 	v1 = libc.BoolInt32(int32(this_val.Ftag) == int32(EJS_TAG_OBJECT))
 	goto _2
 _2:
@@ -106729,48 +106746,77 @@ _4:
 	goto _6
 _6:
 	if v1 != 0 {
-		v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0]
-		*(*TJSValue)(unsafe.Pointer(bp)) = v7
-		if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
-			v9 = p
-			*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-			v3 = *(*int32)(unsafe.Pointer(v9))
-			if v3 <= libc.Int32FromInt32(0) {
-				x__JS_FreeValue(tls, ctx1, v7)
-			}
-		}
-		v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)]
-		*(*TJSValue)(unsafe.Pointer(bp)) = v7
-		if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
-			v9 = p
-			*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-			v1 = *(*int32)(unsafe.Pointer(v9))
-			if v1 <= libc.Int32FromInt32(0) {
-				x__JS_FreeValue(tls, ctx1, v7)
-			}
-		}
-		v7 = result_promise
-		*(*TJSValue)(unsafe.Pointer(bp)) = v7
-		if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
-			v9 = p
-			*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-			v1 = *(*int32)(unsafe.Pointer(v9))
-			if v1 <= libc.Int32FromInt32(0) {
-				x__JS_FreeValue(tls, ctx1, v7)
-			}
-		}
-		return TJSValue{
-			Fu:   TJSValueUnion{},
-			Ftag: int64(EJS_TAG_EXCEPTION),
+		goto exception
+	}
+	if XJS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_promise), result_promise, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) < 0 {
+		goto exception
+	}
+	result_promise = TJSValue{
+		Fu:   TJSValueUnion{},
+		Ftag: int64(EJS_TAG_UNDEFINED),
+	}
+	if XJS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_resolve), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) < 0 {
+		goto exception
+	}
+	(*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0] = TJSValue{
+		Fu:   TJSValueUnion{},
+		Ftag: int64(EJS_TAG_UNDEFINED),
+	}
+	if XJS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_reject), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) < 0 {
+		goto exception
+	}
+	return obj
+	goto exception
+exception:
+	;
+	v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0]
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v7)
 		}
 	}
-	XJS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_promise), result_promise, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-	XJS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_resolve), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-	XJS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_reject), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-	return obj
+	v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)]
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v7)
+		}
+	}
+	v7 = result_promise
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v7)
+		}
+	}
+	v7 = obj
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x__JS_FreeValue(tls, ctx1, v7)
+		}
+	}
+	return TJSValue{
+		Fu:   TJSValueUnion{},
+		Ftag: int64(EJS_TAG_EXCEPTION),
+	}
 }
 
 func _js_promise_try(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {

@@ -104626,9 +104626,9 @@ func _js_promise_withResolvers(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, a
 	defer tls.Free(48)
 	var obj, result_promise, v7 TJSValue
 	var p, v9 uintptr
-	var v1, v3 int32
+	var v1 int32
 	var _ /* resolving_funcs at bp+16 */ [2]TJSValue
-	_, _, _, _, _, _, _ = obj, p, result_promise, v1, v3, v7, v9
+	_, _, _, _, _, _ = obj, p, result_promise, v1, v7, v9
 	v1 = libc.BoolInt32(int32(this_val.Ftag) == int32(EJS_TAG_OBJECT))
 	goto _2
 _2:
@@ -104647,48 +104647,77 @@ _4:
 	goto _6
 _6:
 	if v1 != 0 {
-		v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0]
-		*(*TJSValue)(unsafe.Pointer(bp)) = v7
-		if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
-			v9 = p
-			*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-			v3 = *(*int32)(unsafe.Pointer(v9))
-			if v3 <= libc.Int32FromInt32(0) {
-				x___JS_FreeValue(tls, ctx1, v7)
-			}
-		}
-		v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)]
-		*(*TJSValue)(unsafe.Pointer(bp)) = v7
-		if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
-			v9 = p
-			*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-			v1 = *(*int32)(unsafe.Pointer(v9))
-			if v1 <= libc.Int32FromInt32(0) {
-				x___JS_FreeValue(tls, ctx1, v7)
-			}
-		}
-		v7 = result_promise
-		*(*TJSValue)(unsafe.Pointer(bp)) = v7
-		if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
-			p = *(*uintptr)(unsafe.Pointer(bp))
-			v9 = p
-			*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
-			v1 = *(*int32)(unsafe.Pointer(v9))
-			if v1 <= libc.Int32FromInt32(0) {
-				x___JS_FreeValue(tls, ctx1, v7)
-			}
-		}
-		return TJSValue{
-			Fu:   TJSValueUnion{},
-			Ftag: int64(EJS_TAG_EXCEPTION),
+		goto exception
+	}
+	if x_JS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_promise), result_promise, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) < 0 {
+		goto exception
+	}
+	result_promise = TJSValue{
+		Fu:   TJSValueUnion{},
+		Ftag: int64(EJS_TAG_UNDEFINED),
+	}
+	if x_JS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_resolve), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) < 0 {
+		goto exception
+	}
+	(*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0] = TJSValue{
+		Fu:   TJSValueUnion{},
+		Ftag: int64(EJS_TAG_UNDEFINED),
+	}
+	if x_JS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_reject), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2)) < 0 {
+		goto exception
+	}
+	return obj
+	goto exception
+exception:
+	;
+	v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0]
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx1, v7)
 		}
 	}
-	x_JS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_promise), result_promise, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-	x_JS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_resolve), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[0], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-	x_JS_DefinePropertyValue(tls, ctx1, obj, uint32(EJS_ATOM_reject), (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)], libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
-	return obj
+	v7 = (*(*[2]TJSValue)(unsafe.Pointer(bp + 16)))[int32(1)]
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx1, v7)
+		}
+	}
+	v7 = result_promise
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx1, v7)
+		}
+	}
+	v7 = obj
+	*(*TJSValue)(unsafe.Pointer(bp)) = v7
+	if libc.Uint32FromInt32(int32(v7.Ftag)) >= libc.Uint32FromInt32(EJS_TAG_FIRST) {
+		p = *(*uintptr)(unsafe.Pointer(bp))
+		v9 = p
+		*(*int32)(unsafe.Pointer(v9)) = *(*int32)(unsafe.Pointer(v9)) - 1
+		v1 = *(*int32)(unsafe.Pointer(v9))
+		if v1 <= libc.Int32FromInt32(0) {
+			x___JS_FreeValue(tls, ctx1, v7)
+		}
+	}
+	return TJSValue{
+		Fu:   TJSValueUnion{},
+		Ftag: int64(EJS_TAG_EXCEPTION),
+	}
 }
 
 func _js_promise_try(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32, argv uintptr) (r TJSValue) {
