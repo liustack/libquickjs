@@ -5,7 +5,7 @@
 .PHONY:	all bench clean cpu edit editor generate download dev test nuke shorttest \
 	w64 dev-w64 grep ktest test2 test3 dbg
 
-QJS_ZIP = 31663a930d2d17b92d562cd3e8a1d4792be4d145.zip
+QJS_ZIP = 2c90110287ac2646d74d39d231c261a6fcd8d4df.zip
 QJS_URL = https://github.com/bellard/quickjs/archive/$(QJS_ZIP)
 
 TEST262_ZIP = 06dfddc4ebd21c39e1ce44f3e13b56b0dfda28e3.zip

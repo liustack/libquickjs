@@ -3,7 +3,7 @@
 	"autoupdate": ".",
 	"autotag": ".",
 	"download": [
-		{"re": "darwin/(amd64|arm64)|freebsd/(amd64|arm64)|linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x|riscv64)|windows/(amd64|arm64)", "files": ["https://github.com/bellard/quickjs/archive/31663a930d2d17b92d562cd3e8a1d4792be4d145.zip"]},
+		{"re": "darwin/(amd64|arm64)|freebsd/(amd64|arm64)|linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x|riscv64)|windows/(amd64|arm64)", "files": ["https://github.com/bellard/quickjs/archive/2c90110287ac2646d74d39d231c261a6fcd8d4df.zip"]},
 		{"re": "darwin/(amd64|arm64)|freebsd/(amd64|arm64)|linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x|riscv64)|windows/(amd64|arm64)", "files": ["https://github.com/tc39/test262/archive/06dfddc4ebd21c39e1ce44f3e13b56b0dfda28e3.zip"]}
 	],
 	"test": "darwin/(amd64|arm64)|freebsd/(amd64|arm64)|linux/(386|amd64|arm$|arm64|loong64|ppc64le|s390x|riscv64)|windows/(amd64|arm64)"
