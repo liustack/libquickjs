@@ -81,7 +81,7 @@ index 54a7a15..70ee430 100644
      ret = js_get_errno(mkdir(path, mode));
  #endif
 diff --git a/quickjs.c b/quickjs.c
-index f0f155d..c1272bc 100644
+index 9c04108..e8173a1 100644
 --- a/quickjs.c
 +++ b/quickjs.c
 @@ -49,11 +49,7 @@
@@ -115,7 +115,7 @@ index f0f155d..c1272bc 100644
  {
      uintptr_t sp;
      sp = js_get_stack_pointer() - alloca_size;
-@@ -40435,7 +40438,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
+@@ -40474,7 +40477,10 @@ static JSValue js_array_from(JSContext *ctx, JSValueConst this_val,
      return r;
  }
  
@@ -127,7 +127,7 @@ index f0f155d..c1272bc 100644
                             int argc, JSValueConst *argv)
  {
      JSValue obj, args[1];
-@@ -57760,6 +57766,11 @@ static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
+@@ -57795,6 +57801,11 @@ static pthread_mutex_t js_atomics_mutex = PTHREAD_MUTEX_INITIALIZER;
  static struct list_head js_atomics_waiter_list =
      LIST_HEAD_INIT(js_atomics_waiter_list);
  
@@ -139,7 +139,7 @@ index f0f155d..c1272bc 100644
  #if defined(__aarch64__)
  static inline void cpu_pause(void)
  {
-@@ -57775,6 +57786,7 @@ static inline void cpu_pause(void)
+@@ -57810,6 +57821,7 @@ static inline void cpu_pause(void)
  {
  }
  #endif
@@ -147,7 +147,7 @@ index f0f155d..c1272bc 100644
  
  // no-op: Atomics.pause() is not allowed to block or yield to another
  // thread, only to hint the CPU that it should back off for a bit;
-@@ -58324,3 +58336,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
+@@ -58359,3 +58371,35 @@ void JS_AddIntrinsicWeakRef(JSContext *ctx)
                                 countof(js_finrec_proto_funcs));
      JS_NewGlobalCConstructor(ctx, "FinalizationRegistry", js_finrec_constructor, 1, ctx->class_proto[JS_CLASS_FINALIZATION_REGISTRY]);
  }
