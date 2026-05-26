@@ -5,12 +5,14 @@
 package main
 
 import (
+	"math"
 	"reflect"
 	"unsafe"
 
 	"modernc.org/libc"
 )
 
+var _ = math.Pi
 var _ reflect.Type
 var _ unsafe.Pointer
 
@@ -22831,7 +22833,7 @@ _2:
 			ret = v3
 		} else {
 			/* convert -0 to +0 */
-			d2 = libc.X__builtin_trunc(tls, d2) + float64(0)
+			d2 = math.Trunc(d2) + float64(0)
 			v5 = d2
 			if v5 >= float64(-libc.Int32FromInt32(1)-libc.Int32FromInt32(0x7fffffff)) && v5 <= float64(libc.Int32FromInt32(MINT32_MAX)) {
 				*(*float64)(unsafe.Pointer(bp + 24)) = v5
@@ -64241,7 +64243,7 @@ _12:
 				if libc.BoolInt32(v30&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) > libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0 {
 					d2 = float64(0)
 				} else {
-					d2 = libc.X__builtin_trunc(tls, d2)
+					d2 = math.Trunc(d2)
 					if d2 <= float64(arg_count) {
 						d2 = float64(0)
 					} else {
@@ -103159,7 +103161,7 @@ _2:
 
 func _time_clip(tls *libc.TLS, t float64) (r float64) {
 	if t >= -libc.Float64FromFloat64(8.64e+15) && t <= float64(8.64e+15) {
-		return libc.X__builtin_trunc(tls, t) + float64(0)
+		return math.Trunc(t) + float64(0)
 	} else {
 		return float64(libc.X__builtin_nanf(tls, __ccgo_ts+838))
 	}
@@ -103370,7 +103372,7 @@ _4:
 		if !(libc.BoolInt32(v6&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) < libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0) {
 			res = int32(EFALSE)
 		}
-		(**(**[9]float64)(__ccgo_up(bp + 8)))[first_field+i] = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 80)))
+		(**(**[9]float64)(__ccgo_up(bp + 8)))[first_field+i] = math.Trunc(**(**float64)(__ccgo_up(bp + 80)))
 		goto _5
 	_5:
 		;
@@ -103614,7 +103616,7 @@ _2:
 				if !(libc.BoolInt32(v15&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) < libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0) {
 					break
 				}
-				(**(**[7]float64)(__ccgo_up(bp + 56)))[i] = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 32)))
+				(**(**[7]float64)(__ccgo_up(bp + 56)))[i] = math.Trunc(**(**float64)(__ccgo_up(bp + 32)))
 				if i == 0 && (**(**[7]float64)(__ccgo_up(bp + 56)))[0] >= libc.Float64FromInt32(0) && (**(**[7]float64)(__ccgo_up(bp + 56)))[0] < libc.Float64FromInt32(100) {
 					**(**float64)(__ccgo_up(bp + 56)) += libc.Float64FromInt32(1900)
 				}
@@ -103743,7 +103745,7 @@ func _js_Date_UTC(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32, ar
 		if !(libc.BoolInt32(v2&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) < libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0) {
 			return libc.Uint64FromInt64(0x7ff8000000000000) - libc.Uint64FromInt32(libc.Int32FromInt32(0x7ff80000)-int32(EJS_TAG_FIRST)+libc.Int32FromInt32(1))<<libc.Int32FromInt32(32)
 		}
-		(**(**[7]float64)(__ccgo_up(bp + 32)))[i] = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 88)))
+		(**(**[7]float64)(__ccgo_up(bp + 32)))[i] = math.Trunc(**(**float64)(__ccgo_up(bp + 88)))
 		if i == 0 && (**(**[7]float64)(__ccgo_up(bp + 32)))[0] >= libc.Float64FromInt32(0) && (**(**[7]float64)(__ccgo_up(bp + 32)))[0] < libc.Float64FromInt32(100) {
 			**(**float64)(__ccgo_up(bp + 32)) += libc.Float64FromInt32(1900)
 		}
@@ -104644,7 +104646,7 @@ _2:
 	} else {
 		/* assuming -8.64e15 <= v <= -8.64e15 */
 		v3 = ctx3
-		v4 = int64(_getTimezoneOffset(tls, int64(libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 16))))))
+		v4 = int64(_getTimezoneOffset(tls, int64(math.Trunc(**(**float64)(__ccgo_up(bp + 16))))))
 		if v4 == int64(int32(v4)) {
 			_ = v3
 			v5 = libc.Uint64FromInt32(int32(EJS_TAG_INT))<<libc.Int32FromInt32(32) | uint64(libc.Uint32FromInt32(int32(v4)))
@@ -104766,7 +104768,7 @@ func _js_date_setYear(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32
 	goto _2
 _2:
 	if libc.BoolInt32(v1&(-libc.Uint64FromUint64(1)>>libc.Int32FromInt32(1)) < libc.Uint64FromUint64(0x7ff)<<libc.Int32FromInt32(52)) != 0 {
-		**(**float64)(__ccgo_up(bp + 32)) = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 32)))
+		**(**float64)(__ccgo_up(bp + 32)) = math.Trunc(**(**float64)(__ccgo_up(bp + 32)))
 		if **(**float64)(__ccgo_up(bp + 32)) >= libc.Float64FromInt32(0) && **(**float64)(__ccgo_up(bp + 32)) < libc.Float64FromInt32(100) {
 			**(**float64)(__ccgo_up(bp + 32)) = **(**float64)(__ccgo_up(bp + 32)) + libc.Float64FromInt32(1900)
 		}
