@@ -5,12 +5,14 @@
 package libquickjs
 
 import (
+	"math"
 	"reflect"
 	"unsafe"
 
 	"modernc.org/libc"
 )
 
+var _ = math.Pi
 var _ reflect.Type
 var _ unsafe.Pointer
 
@@ -28980,7 +28982,7 @@ redo:
 			ret = v1
 		} else {
 			/* convert -0 to +0 */
-			d2 = libc.X__builtin_trunc(tls, d2) + float64(0)
+			d2 = math.Trunc(d2) + float64(0)
 			v3 = d2
 			if v3 >= float64(-libc.Int32FromInt32(2147483647)-libc.Int32FromInt32(1)) && v3 <= libc.Float64FromInt32(2147483647) {
 				*(*float64)(unsafe.Pointer(bp + 16)) = v3
@@ -75753,7 +75755,7 @@ _12:
 				if v1 != 0 {
 					d2 = float64(0)
 				} else {
-					d2 = libc.X__builtin_trunc(tls, d2)
+					d2 = math.Trunc(d2)
 					if d2 <= float64(arg_count) {
 						d2 = float64(0)
 					} else {
@@ -117652,7 +117654,7 @@ _3:
 
 func _time_clip(tls *libc.TLS, t float64) (r float64) {
 	if t >= -libc.Float64FromFloat64(8.64e+15) && t <= float64(8.64e+15) {
-		return libc.X__builtin_trunc(tls, t) + float64(0)
+		return math.Trunc(t) + float64(0)
 	} else {
 		return float64(libc.X__builtin_nanf(tls, __ccgo_ts+135))
 	}
@@ -117861,7 +117863,7 @@ _4:
 		if !(v1 != 0) {
 			res = MFALSE
 		}
-		(**(**[9]float64)(__ccgo_up(bp)))[first_field+i] = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 72)))
+		(**(**[9]float64)(__ccgo_up(bp)))[first_field+i] = math.Trunc(**(**float64)(__ccgo_up(bp + 72)))
 		goto _5
 	_5:
 		;
@@ -118122,7 +118124,7 @@ _2:
 				if !(v1 != 0) {
 					break
 				}
-				(**(**[7]float64)(__ccgo_up(bp + 80)))[i] = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 48)))
+				(**(**[7]float64)(__ccgo_up(bp + 80)))[i] = math.Trunc(**(**float64)(__ccgo_up(bp + 48)))
 				if i == 0 && (**(**[7]float64)(__ccgo_up(bp + 80)))[0] >= libc.Float64FromInt32(0) && (**(**[7]float64)(__ccgo_up(bp + 80)))[0] < libc.Float64FromInt32(100) {
 					**(**float64)(__ccgo_up(bp + 80)) += libc.Float64FromInt32(1900)
 				}
@@ -118254,7 +118256,7 @@ func _js_Date_UTC(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32, ar
 				Ftag: int64(EJS_TAG_FLOAT64),
 			}
 		}
-		(**(**[7]float64)(__ccgo_up(bp + 32)))[i] = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 88)))
+		(**(**[7]float64)(__ccgo_up(bp + 32)))[i] = math.Trunc(**(**float64)(__ccgo_up(bp + 88)))
 		if i == 0 && (**(**[7]float64)(__ccgo_up(bp + 32)))[0] >= libc.Float64FromInt32(0) && (**(**[7]float64)(__ccgo_up(bp + 32)))[0] < libc.Float64FromInt32(100) {
 			**(**float64)(__ccgo_up(bp + 32)) += libc.Float64FromInt32(1900)
 		}
@@ -119163,7 +119165,7 @@ _3:
 	} else {
 		/* assuming -8.64e15 <= v <= -8.64e15 */
 		v4 = ctx3
-		v5 = int64(_getTimezoneOffset(tls, int64(libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 16))))))
+		v5 = int64(_getTimezoneOffset(tls, int64(math.Trunc(**(**float64)(__ccgo_up(bp + 16))))))
 		if v5 == int64(int32(v5)) {
 			_ = v4
 			v6 = TJSValue{
@@ -119286,7 +119288,7 @@ func _js_date_setYear(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc int32
 	goto _3
 _3:
 	if v2 != 0 {
-		**(**float64)(__ccgo_up(bp + 32)) = libc.X__builtin_trunc(tls, **(**float64)(__ccgo_up(bp + 32)))
+		**(**float64)(__ccgo_up(bp + 32)) = math.Trunc(**(**float64)(__ccgo_up(bp + 32)))
 		if **(**float64)(__ccgo_up(bp + 32)) >= libc.Float64FromInt32(0) && **(**float64)(__ccgo_up(bp + 32)) < libc.Float64FromInt32(100) {
 			**(**float64)(__ccgo_up(bp + 32)) = **(**float64)(__ccgo_up(bp + 32)) + libc.Float64FromInt32(1900)
 		}
