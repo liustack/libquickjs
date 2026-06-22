@@ -500,7 +500,7 @@ const MHOST_USER_NOTIFICATION_PORT = 10
 const MHOST_VM_INFO = 2
 const MHOST_VM_INFO64 = 4
 const MHOST_VM_INFO64_LATEST_COUNT = "HOST_VM_INFO64_COUNT"
-const MHOST_VM_INFO64_REV2_COUNT = "HOST_VM_INFO64_COUNT"
+const MHOST_VM_INFO64_REV3_COUNT = "HOST_VM_INFO64_COUNT"
 const MHOST_VM_INFO_LATEST_COUNT = "HOST_VM_INFO_COUNT"
 const MHOST_VM_INFO_REV2_COUNT = "HOST_VM_INFO_LATEST_COUNT"
 const MHOST_VM_PURGABLE = 9
@@ -1039,6 +1039,7 @@ const MMAC_OS_VERSION_26_1 = 260100
 const MMAC_OS_VERSION_26_2 = 260200
 const MMAC_OS_VERSION_26_3 = 260300
 const MMAC_OS_VERSION_26_4 = 260400
+const MMAC_OS_VERSION_26_5 = 260500
 const MMAC_OS_X_VERSION_10_0 = 1000
 const MMAC_OS_X_VERSION_10_1 = 1010
 const MMAC_OS_X_VERSION_10_10 = 101000
@@ -2154,6 +2155,7 @@ const M__BRIDGEOS_10_1 = 100100
 const M__BRIDGEOS_10_2 = 100200
 const M__BRIDGEOS_10_3 = 100300
 const M__BRIDGEOS_10_4 = 100400
+const M__BRIDGEOS_26_5 = 260500
 const M__BRIDGEOS_2_0 = 20000
 const M__BRIDGEOS_3_0 = 30000
 const M__BRIDGEOS_3_1 = 30100
@@ -2269,6 +2271,7 @@ const M__DRIVERKIT_25_1 = 250100
 const M__DRIVERKIT_25_2 = 250200
 const M__DRIVERKIT_25_3 = 250300
 const M__DRIVERKIT_25_4 = 250400
+const M__DRIVERKIT_25_5 = 250500
 const M__DYNAMIC__ = 1
 const M__ENABLE_LEGACY_MAC_AVAILABILITY = 1
 const M__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ = 260000
@@ -2477,6 +2480,7 @@ const M__IPHONE_26_1 = 260100
 const M__IPHONE_26_2 = 260200
 const M__IPHONE_26_3 = 260300
 const M__IPHONE_26_4 = 260400
+const M__IPHONE_26_5 = 260500
 const M__IPHONE_2_0 = 20000
 const M__IPHONE_2_1 = 20100
 const M__IPHONE_2_2 = 20200
@@ -2601,6 +2605,7 @@ const M__MAC_26_1 = 260100
 const M__MAC_26_2 = 260200
 const M__MAC_26_3 = 260300
 const M__MAC_26_4 = 260400
+const M__MAC_26_5 = 260500
 const M__MEMORY_SCOPE_DEVICE = 1
 const M__MEMORY_SCOPE_SINGLE = 4
 const M__MEMORY_SCOPE_SYSTEM = 0
@@ -2749,6 +2754,7 @@ const M__TVOS_26_1 = 260100
 const M__TVOS_26_2 = 260200
 const M__TVOS_26_3 = 260300
 const M__TVOS_26_4 = 260400
+const M__TVOS_26_5 = 260500
 const M__TVOS_9_0 = 90000
 const M__TVOS_9_1 = 90100
 const M__TVOS_9_2 = 90200
@@ -2829,7 +2835,7 @@ const M__UINT_LEAST8_FMTu__ = "hhu"
 const M__UINT_LEAST8_FMTx__ = "hhx"
 const M__UINT_LEAST8_MAX__ = 255
 const M__USER_LABEL_PREFIX__ = 0
-const M__VERSION__ = "Apple LLVM 21.0.0 (clang-2100.0.123.102)"
+const M__VERSION__ = "Apple LLVM 21.0.0 (clang-2100.1.1.101)"
 const M__VISIONOS_1_0 = 10000
 const M__VISIONOS_1_1 = 10100
 const M__VISIONOS_1_2 = 10200
@@ -2839,6 +2845,7 @@ const M__VISIONOS_26_1 = 260100
 const M__VISIONOS_26_2 = 260200
 const M__VISIONOS_26_3 = 260300
 const M__VISIONOS_26_4 = 260400
+const M__VISIONOS_26_5 = 260500
 const M__VISIONOS_2_0 = 20000
 const M__VISIONOS_2_1 = 20100
 const M__VISIONOS_2_2 = 20200
@@ -2870,6 +2877,7 @@ const M__WATCHOS_26_1 = 260100
 const M__WATCHOS_26_2 = 260200
 const M__WATCHOS_26_3 = 260300
 const M__WATCHOS_26_4 = 260400
+const M__WATCHOS_26_5 = 260500
 const M__WATCHOS_2_0 = 20000
 const M__WATCHOS_2_1 = 20100
 const M__WATCHOS_2_2 = 20200
@@ -2917,7 +2925,7 @@ const M__WINT_MAX__ = 2147483647
 const M__WINT_TYPE__ = 0
 const M__WINT_WIDTH__ = 32
 const M__aarch64__ = 1
-const M__apple_build_version__ = 21000099
+const M__apple_build_version__ = 21000101
 const M__arm64 = 1
 const M__arm64__ = 1
 const M__bool_true_false_are_defined = 1
@@ -2926,7 +2934,7 @@ const M__clang_literal_encoding__ = "UTF-8"
 const M__clang_major__ = 21
 const M__clang_minor__ = 0
 const M__clang_patchlevel__ = 0
-const M__clang_version__ = "21.0.0 (clang-2100.0.123.102)"
+const M__clang_version__ = "21.0.0 (clang-2100.1.1.101)"
 const M__clang_wide_literal_encoding__ = "UTF-32"
 const M__const = 0
 const M__exported_hidden = 0
@@ -4519,6 +4527,17 @@ type Tvm_statistics64 = struct {
 	Finternal_page_count                    Tnatural_t
 	Ftotal_uncompressed_pages_in_compressor Tuint64_t
 	Fswapped_count                          Tuint64_t
+	Ftotal_tag_storage_pages                Tuint64_t
+	Fnontag_pageable_tag_storage_pages      Tuint64_t
+	Fnontag_wired_tag_storage_pages         Tuint64_t
+	Ffree_tag_storage_pages                 Tuint64_t
+	Ftag_storing_tag_storage_pages          Tuint64_t
+	Ftotal_tagged_pages                     Tuint64_t
+	Fresident_tagged_pages                  Tuint64_t
+	Fcompressed_tagged_pages                Tuint64_t
+	Ftagged_compressions                    Tuint64_t
+	Ftagged_decompressions                  Tuint64_t
+	Fcompressed_tag_storage_bytes           Tuint64_t
 }
 
 type Tvm_statistics64_t = uintptr
@@ -4549,6 +4568,17 @@ type Tvm_statistics64_data_t = struct {
 	Finternal_page_count                    Tnatural_t
 	Ftotal_uncompressed_pages_in_compressor Tuint64_t
 	Fswapped_count                          Tuint64_t
+	Ftotal_tag_storage_pages                Tuint64_t
+	Fnontag_pageable_tag_storage_pages      Tuint64_t
+	Fnontag_wired_tag_storage_pages         Tuint64_t
+	Ffree_tag_storage_pages                 Tuint64_t
+	Ftag_storing_tag_storage_pages          Tuint64_t
+	Ftotal_tagged_pages                     Tuint64_t
+	Fresident_tagged_pages                  Tuint64_t
+	Fcompressed_tagged_pages                Tuint64_t
+	Ftagged_compressions                    Tuint64_t
+	Ftagged_decompressions                  Tuint64_t
+	Fcompressed_tag_storage_bytes           Tuint64_t
 }
 
 type Tvm_extmod_statistics = struct {
