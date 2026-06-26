@@ -59899,7 +59899,7 @@ func _is_be(tls *libc.TLS) (r TBOOL) {
 	u = *(*struct {
 		Fb [0]Tuint8_t
 		Fa Tuint16_t
-	})(unsafe.Pointer(&struct{ f uint16 }{f: uint16(0x100)}))
+	})(unsafe.Pointer(&[1]uint16{0x100}))
 	return libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(&u)))
 }
 
@@ -75436,7 +75436,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(1.7976931348623157e+308)})),
+		})(unsafe.Pointer(&[1]uint64{0x7fefffffffffffff})),
 	},
 	7: {
 		Fname:     __ccgo_ts + 13753,
@@ -75464,7 +75464,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(5e-324)})),
+		})(unsafe.Pointer(&[1]uint64{0x1})),
 	},
 	8: {
 		Fname:     __ccgo_ts + 7531,
@@ -75576,7 +75576,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(2.220446049250313e-16)})),
+		})(unsafe.Pointer(&[1]uint64{0x3cb0000000000000})),
 	},
 	12: {
 		Fname:     __ccgo_ts + 13807,
@@ -75604,7 +75604,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(9.007199254740991e+15)})),
+		})(unsafe.Pointer(&[1]uint64{0x433fffffffffffff})),
 	},
 	13: {
 		Fname:     __ccgo_ts + 13824,
@@ -83961,7 +83961,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(2.718281828459045)})),
+		})(unsafe.Pointer(&[1]uint64{0x4005bf0a8b145769})),
 	},
 	39: {
 		Fname:     __ccgo_ts + 14783,
@@ -83989,7 +83989,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(2.302585092994046)})),
+		})(unsafe.Pointer(&[1]uint64{0x40026bb1bbb55516})),
 	},
 	40: {
 		Fname:     __ccgo_ts + 14788,
@@ -84017,7 +84017,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(0.6931471805599453)})),
+		})(unsafe.Pointer(&[1]uint64{0x3fe62e42fefa39ef})),
 	},
 	41: {
 		Fname:     __ccgo_ts + 14792,
@@ -84045,7 +84045,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(1.4426950408889634)})),
+		})(unsafe.Pointer(&[1]uint64{0x3ff71547652b82fe})),
 	},
 	42: {
 		Fname:     __ccgo_ts + 14798,
@@ -84073,7 +84073,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(0.4342944819032518)})),
+		})(unsafe.Pointer(&[1]uint64{0x3fdbcb7b1526e50e})),
 	},
 	43: {
 		Fname:     __ccgo_ts + 14805,
@@ -84101,7 +84101,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(3.141592653589793)})),
+		})(unsafe.Pointer(&[1]uint64{0x400921fb54442d18})),
 	},
 	44: {
 		Fname:     __ccgo_ts + 14808,
@@ -84129,7 +84129,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(0.7071067811865476)})),
+		})(unsafe.Pointer(&[1]uint64{0x3fe6a09e667f3bcd})),
 	},
 	45: {
 		Fname:     __ccgo_ts + 14816,
@@ -84157,7 +84157,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(1.4142135623730951)})),
+		})(unsafe.Pointer(&[1]uint64{0x3ff6a09e667f3bcd})),
 	},
 }
 
@@ -103477,7 +103477,7 @@ var _js_global_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: libc.Float64FromFloat64(1) / libc.Float64FromFloat64(0)})),
+		})(unsafe.Pointer(&[1]uint64{0x7ff0000000000000})),
 	},
 	11: {
 		Fname:     __ccgo_ts + 7531,
