@@ -58701,7 +58701,7 @@ func _is_be(tls *libc.TLS) (r TBOOL) {
 	u = *(*struct {
 		Fb [0]Tuint8_t
 		Fa Tuint16_t
-	})(unsafe.Pointer(&struct{ f uint16 }{f: uint16(0x100)}))
+	})(unsafe.Pointer(&[1]uint16{0x100}))
 	return libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(&u)))
 }
 
@@ -77068,7 +77068,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(1.7976931348623157e+308)})),
+		})(unsafe.Pointer(&[2]uint32{0xffffffff, 0x7fefffff})),
 	},
 	7: {
 		Fname:     __ccgo_ts + 10799,
@@ -77095,7 +77095,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(5e-324)})),
+		})(unsafe.Pointer(&[2]uint32{0x1, 0x0})),
 	},
 	8: {
 		Fname:     __ccgo_ts + 4551,
@@ -77203,7 +77203,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(2.220446049250313e-16)})),
+		})(unsafe.Pointer(&[2]uint32{0x0, 0x3cb00000})),
 	},
 	12: {
 		Fname:     __ccgo_ts + 10853,
@@ -77230,7 +77230,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(9.007199254740991e+15)})),
+		})(unsafe.Pointer(&[2]uint32{0xffffffff, 0x433fffff})),
 	},
 	13: {
 		Fname:     __ccgo_ts + 10870,
@@ -85461,7 +85461,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(2.718281828459045)})),
+		})(unsafe.Pointer(&[2]uint32{0x8b145769, 0x4005bf0a})),
 	},
 	39: {
 		Fname:     __ccgo_ts + 11833,
@@ -85488,7 +85488,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(2.302585092994046)})),
+		})(unsafe.Pointer(&[2]uint32{0xbbb55516, 0x40026bb1})),
 	},
 	40: {
 		Fname:     __ccgo_ts + 11838,
@@ -85515,7 +85515,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(0.6931471805599453)})),
+		})(unsafe.Pointer(&[2]uint32{0xfefa39ef, 0x3fe62e42})),
 	},
 	41: {
 		Fname:     __ccgo_ts + 11842,
@@ -85542,7 +85542,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(1.4426950408889634)})),
+		})(unsafe.Pointer(&[2]uint32{0x652b82fe, 0x3ff71547})),
 	},
 	42: {
 		Fname:     __ccgo_ts + 11848,
@@ -85569,7 +85569,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(0.4342944819032518)})),
+		})(unsafe.Pointer(&[2]uint32{0x1526e50e, 0x3fdbcb7b})),
 	},
 	43: {
 		Fname:     __ccgo_ts + 11855,
@@ -85596,7 +85596,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(3.141592653589793)})),
+		})(unsafe.Pointer(&[2]uint32{0x54442d18, 0x400921fb})),
 	},
 	44: {
 		Fname:     __ccgo_ts + 11858,
@@ -85623,7 +85623,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(0.7071067811865476)})),
+		})(unsafe.Pointer(&[2]uint32{0x667f3bcd, 0x3fe6a09e})),
 	},
 	45: {
 		Fname:     __ccgo_ts + 11866,
@@ -85650,7 +85650,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: float64(1.4142135623730951)})),
+		})(unsafe.Pointer(&[2]uint32{0x667f3bcd, 0x3ff6a09e})),
 	},
 }
 
@@ -104809,7 +104809,7 @@ var _js_global_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct{ f float64 }{f: libc.Float64FromFloat64(1) / libc.Float64FromFloat64(0)})),
+		})(unsafe.Pointer(&[2]uint32{0x0, 0x7ff00000})),
 	},
 	11: {
 		Fname:     __ccgo_ts + 4551,
@@ -165407,10 +165407,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEINVAL)})),
+		})(unsafe.Pointer(&[2]uint32{0x16, 0x0})),
 	},
 	1: {
 		Fname:       __ccgo_ts + 18272,
@@ -165438,10 +165435,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEIO)})),
+		})(unsafe.Pointer(&[2]uint32{0x5, 0x0})),
 	},
 	2: {
 		Fname:       __ccgo_ts + 18276,
@@ -165469,10 +165463,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEACCES)})),
+		})(unsafe.Pointer(&[2]uint32{0xd, 0x0})),
 	},
 	3: {
 		Fname:       __ccgo_ts + 18283,
@@ -165500,10 +165491,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEEXIST)})),
+		})(unsafe.Pointer(&[2]uint32{0x11, 0x0})),
 	},
 	4: {
 		Fname:       __ccgo_ts + 18290,
@@ -165531,10 +165519,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MENOSPC)})),
+		})(unsafe.Pointer(&[2]uint32{0x1c, 0x0})),
 	},
 	5: {
 		Fname:       __ccgo_ts + 18297,
@@ -165562,10 +165547,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MENOSYS)})),
+		})(unsafe.Pointer(&[2]uint32{0x26, 0x0})),
 	},
 	6: {
 		Fname:       __ccgo_ts + 18304,
@@ -165593,10 +165575,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEBUSY)})),
+		})(unsafe.Pointer(&[2]uint32{0x10, 0x0})),
 	},
 	7: {
 		Fname:       __ccgo_ts + 18310,
@@ -165624,10 +165603,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MENOENT)})),
+		})(unsafe.Pointer(&[2]uint32{0x2, 0x0})),
 	},
 	8: {
 		Fname:       __ccgo_ts + 18317,
@@ -165655,10 +165631,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEPERM)})),
+		})(unsafe.Pointer(&[2]uint32{0x1, 0x0})),
 	},
 	9: {
 		Fname:       __ccgo_ts + 18323,
@@ -165686,10 +165659,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEPIPE)})),
+		})(unsafe.Pointer(&[2]uint32{0x20, 0x0})),
 	},
 	10: {
 		Fname:       __ccgo_ts + 18329,
@@ -165717,10 +165687,7 @@ var _js_std_error_props = [11]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MEBADF)})),
+		})(unsafe.Pointer(&[2]uint32{0x9, 0x0})),
 	},
 }
 
@@ -166401,10 +166368,7 @@ var _js_std_funcs = [24]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(1)})),
+		})(unsafe.Pointer(&[2]uint32{0x1, 0x0})),
 	},
 	21: {
 		Fname:       __ccgo_ts + 18498,
@@ -166432,10 +166396,7 @@ var _js_std_funcs = [24]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(2)})),
+		})(unsafe.Pointer(&[2]uint32{0x2, 0x0})),
 	},
 	22: {
 		Fname:       __ccgo_ts + 2589,
@@ -170673,10 +170634,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_WRONLY)})),
+		})(unsafe.Pointer(&[2]uint32{0x1, 0x0})),
 	},
 	3: {
 		Fname:       __ccgo_ts + 19084,
@@ -170704,10 +170662,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_RDWR)})),
+		})(unsafe.Pointer(&[2]uint32{0x2, 0x0})),
 	},
 	4: {
 		Fname:       __ccgo_ts + 19091,
@@ -170735,10 +170690,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_APPEND)})),
+		})(unsafe.Pointer(&[2]uint32{0x400, 0x0})),
 	},
 	5: {
 		Fname:       __ccgo_ts + 19100,
@@ -170766,10 +170718,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_CREAT)})),
+		})(unsafe.Pointer(&[2]uint32{0x40, 0x0})),
 	},
 	6: {
 		Fname:       __ccgo_ts + 19108,
@@ -170797,10 +170746,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_EXCL)})),
+		})(unsafe.Pointer(&[2]uint32{0x80, 0x0})),
 	},
 	7: {
 		Fname:       __ccgo_ts + 19115,
@@ -170828,10 +170774,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MO_TRUNC)})),
+		})(unsafe.Pointer(&[2]uint32{0x200, 0x0})),
 	},
 	8: {
 		Fname:       __ccgo_ts + 18521,
@@ -171273,10 +171216,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGINT)})),
+		})(unsafe.Pointer(&[2]uint32{0x2, 0x0})),
 	},
 	21: {
 		Fname:       __ccgo_ts + 19213,
@@ -171304,10 +171244,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGABRT)})),
+		})(unsafe.Pointer(&[2]uint32{0x6, 0x0})),
 	},
 	22: {
 		Fname:       __ccgo_ts + 19221,
@@ -171335,10 +171272,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGFPE)})),
+		})(unsafe.Pointer(&[2]uint32{0x8, 0x0})),
 	},
 	23: {
 		Fname:       __ccgo_ts + 19228,
@@ -171366,10 +171300,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGILL)})),
+		})(unsafe.Pointer(&[2]uint32{0x4, 0x0})),
 	},
 	24: {
 		Fname:       __ccgo_ts + 19235,
@@ -171397,10 +171328,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGSEGV)})),
+		})(unsafe.Pointer(&[2]uint32{0xb, 0x0})),
 	},
 	25: {
 		Fname:       __ccgo_ts + 19243,
@@ -171428,10 +171356,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTERM)})),
+		})(unsafe.Pointer(&[2]uint32{0xf, 0x0})),
 	},
 	26: {
 		Fname:       __ccgo_ts + 19251,
@@ -171459,10 +171384,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGQUIT)})),
+		})(unsafe.Pointer(&[2]uint32{0x3, 0x0})),
 	},
 	27: {
 		Fname:       __ccgo_ts + 19259,
@@ -171490,10 +171412,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGPIPE)})),
+		})(unsafe.Pointer(&[2]uint32{0xd, 0x0})),
 	},
 	28: {
 		Fname:       __ccgo_ts + 19267,
@@ -171521,10 +171440,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGALRM)})),
+		})(unsafe.Pointer(&[2]uint32{0xe, 0x0})),
 	},
 	29: {
 		Fname:       __ccgo_ts + 19275,
@@ -171552,10 +171468,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGUSR1)})),
+		})(unsafe.Pointer(&[2]uint32{0xa, 0x0})),
 	},
 	30: {
 		Fname:       __ccgo_ts + 19283,
@@ -171583,10 +171496,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGUSR2)})),
+		})(unsafe.Pointer(&[2]uint32{0xc, 0x0})),
 	},
 	31: {
 		Fname:       __ccgo_ts + 19291,
@@ -171614,10 +171524,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGCHLD)})),
+		})(unsafe.Pointer(&[2]uint32{0x11, 0x0})),
 	},
 	32: {
 		Fname:       __ccgo_ts + 19299,
@@ -171645,10 +171552,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGCONT)})),
+		})(unsafe.Pointer(&[2]uint32{0x12, 0x0})),
 	},
 	33: {
 		Fname:       __ccgo_ts + 19307,
@@ -171676,10 +171580,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGSTOP)})),
+		})(unsafe.Pointer(&[2]uint32{0x13, 0x0})),
 	},
 	34: {
 		Fname:       __ccgo_ts + 19315,
@@ -171707,10 +171608,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTSTP)})),
+		})(unsafe.Pointer(&[2]uint32{0x14, 0x0})),
 	},
 	35: {
 		Fname:       __ccgo_ts + 19323,
@@ -171738,10 +171636,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTTIN)})),
+		})(unsafe.Pointer(&[2]uint32{0x15, 0x0})),
 	},
 	36: {
 		Fname:       __ccgo_ts + 19331,
@@ -171769,10 +171664,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MSIGTTOU)})),
+		})(unsafe.Pointer(&[2]uint32{0x16, 0x0})),
 	},
 	37: {
 		Fname:       __ccgo_ts + 14322,
@@ -172099,10 +171991,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFMT)})),
+		})(unsafe.Pointer(&[2]uint32{0xf000, 0x0})),
 	},
 	47: {
 		Fname:       __ccgo_ts + 19423,
@@ -172130,10 +172019,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFIFO)})),
+		})(unsafe.Pointer(&[2]uint32{0x1000, 0x0})),
 	},
 	48: {
 		Fname:       __ccgo_ts + 19431,
@@ -172161,10 +172047,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFCHR)})),
+		})(unsafe.Pointer(&[2]uint32{0x2000, 0x0})),
 	},
 	49: {
 		Fname:       __ccgo_ts + 19439,
@@ -172192,10 +172075,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFDIR)})),
+		})(unsafe.Pointer(&[2]uint32{0x4000, 0x0})),
 	},
 	50: {
 		Fname:       __ccgo_ts + 19447,
@@ -172223,10 +172103,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFBLK)})),
+		})(unsafe.Pointer(&[2]uint32{0x6000, 0x0})),
 	},
 	51: {
 		Fname:       __ccgo_ts + 19455,
@@ -172254,10 +172131,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFREG)})),
+		})(unsafe.Pointer(&[2]uint32{0x8000, 0x0})),
 	},
 	52: {
 		Fname:       __ccgo_ts + 19463,
@@ -172285,10 +172159,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFSOCK)})),
+		})(unsafe.Pointer(&[2]uint32{0xc000, 0x0})),
 	},
 	53: {
 		Fname:       __ccgo_ts + 19472,
@@ -172316,10 +172187,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_IFLNK)})),
+		})(unsafe.Pointer(&[2]uint32{0xa000, 0x0})),
 	},
 	54: {
 		Fname:       __ccgo_ts + 19480,
@@ -172347,10 +172215,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_ISGID)})),
+		})(unsafe.Pointer(&[2]uint32{0x400, 0x0})),
 	},
 	55: {
 		Fname:       __ccgo_ts + 19488,
@@ -172378,10 +172243,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MS_ISUID)})),
+		})(unsafe.Pointer(&[2]uint32{0x800, 0x0})),
 	},
 	56: {
 		Fname:       __ccgo_ts + 19496,
@@ -172751,10 +172613,7 @@ var _js_os_funcs = [71]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: int32(MWNOHANG)})),
+		})(unsafe.Pointer(&[2]uint32{0x1, 0x0})),
 	},
 	67: {
 		Fname:       __ccgo_ts + 19569,
