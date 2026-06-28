@@ -30526,10 +30526,7 @@ done:
 		Ftag: int64(EJS_TAG_UNDEFINED),
 	}
 	**(**TJSValue)(__ccgo_up(sp + 1*16)) = TJSValue{
-		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: libc.Int32FromInt32(1)})),
+		Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 		Ftag: int64(EJS_TAG_BOOL),
 	}
 	return 0
@@ -33722,10 +33719,7 @@ restart:
 		v1 = sp
 		sp += 16
 		**(**TJSValue)(__ccgo_up(v1)) = TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 		goto _265
@@ -34440,10 +34434,7 @@ restart:
 				goto exception
 			}
 			**(**TJSValue)(__ccgo_up(sp)) = TJSValue{
-				Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-					f Tint32_t
-					_ [4]byte
-				}{f: libc.Int32FromInt32(1)})),
+				Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 				Ftag: int64(EJS_TAG_BOOL),
 			}
 		} else {
@@ -38465,10 +38456,7 @@ restart:
 	set_true:
 		;
 		**(**TJSValue)(__ccgo_up(sp + uintptr(-libc.Int32FromInt32(1))*16)) = TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 		goto _265
@@ -53733,10 +53721,7 @@ func _js_inner_module_linking(tls *libc.TLS, ctx1 uintptr, m uintptr, pstack_top
 		}
 		/* initialize the global variables */
 		ret_val = x_JS_Call(tls, ctx1, (*TJSModuleDef)(unsafe.Pointer(m)).Ffunc_obj, TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}, 0, libc.UintptrFromInt32(0))
 		v2 = int32(libc.BoolInt64(!!(int32(ret_val.Ftag) == int32(EJS_TAG_EXCEPTION))))
@@ -62266,7 +62251,7 @@ func _is_be(tls *libc.TLS) (r TBOOL) {
 	u = *(*struct {
 		Fb [0]Tuint8_t
 		Fa Tuint16_t
-	})(unsafe.Pointer(&struct{ f uint16 }{f: uint16(0x100)}))
+	})(unsafe.Pointer(&[1]uint16{0x100}))
 	return libc.Int32FromUint8(*(*Tuint8_t)(unsafe.Pointer(&u)))
 }
 
@@ -64620,10 +64605,7 @@ func _js_object_isSealed(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc in
 _2:
 	if !(v1 != 0) {
 		return TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 	}
@@ -69903,10 +69885,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 		fallthrough
 	case libc.Int32FromInt32(Mspecial_every) | libc.Int32FromInt32(Mspecial_TA):
 		ret = TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 	case int32(Mspecial_some):
@@ -70090,10 +70069,7 @@ func _js_array_every(tls *libc.TLS, ctx5 uintptr, this_val TJSValue, argc int32,
 			case libc.Int32FromInt32(Mspecial_some) | libc.Int32FromInt32(Mspecial_TA):
 				if _JS_ToBoolFree(tls, ctx5, res) != 0 {
 					ret = TJSValue{
-						Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-							f Tint32_t
-							_ [4]byte
-						}{f: libc.Int32FromInt32(1)})),
+						Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 						Ftag: int64(EJS_TAG_BOOL),
 					}
 					goto done
@@ -74610,10 +74586,7 @@ _10:
 	switch magic {
 	case int32(EJS_ITERATOR_HELPER_KIND_EVERY):
 		r = TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 		idx = 0
@@ -75028,10 +75001,7 @@ _10:
 					}
 				} else {
 					r = TJSValue{
-						Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-							f Tint32_t
-							_ [4]byte
-						}{f: libc.Int32FromInt32(1)})),
+						Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 						Ftag: int64(EJS_TAG_BOOL),
 					}
 				}
@@ -78985,10 +78955,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(1.7976931348623157e+308)})),
+		})(unsafe.Pointer(&[2]uint64{0x7fefffffffffffff, 0x0})),
 	},
 	7: {
 		Fname:     __ccgo_ts + 13729,
@@ -79015,10 +78982,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(5e-324)})),
+		})(unsafe.Pointer(&[2]uint64{0x1, 0x0})),
 	},
 	8: {
 		Fname:     __ccgo_ts + 7508,
@@ -79135,10 +79099,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(2.220446049250313e-16)})),
+		})(unsafe.Pointer(&[2]uint64{0x3cb0000000000000, 0x0})),
 	},
 	12: {
 		Fname:     __ccgo_ts + 13783,
@@ -79165,10 +79126,7 @@ var _js_number_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(9.007199254740991e+15)})),
+		})(unsafe.Pointer(&[2]uint64{0x433fffffffffffff, 0x0})),
 	},
 	13: {
 		Fname:     __ccgo_ts + 13800,
@@ -87824,10 +87782,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(2.718281828459045)})),
+		})(unsafe.Pointer(&[2]uint64{0x4005bf0a8b145769, 0x0})),
 	},
 	39: {
 		Fname:     __ccgo_ts + 14759,
@@ -87854,10 +87809,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(2.302585092994046)})),
+		})(unsafe.Pointer(&[2]uint64{0x40026bb1bbb55516, 0x0})),
 	},
 	40: {
 		Fname:     __ccgo_ts + 14764,
@@ -87884,10 +87836,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(0.6931471805599453)})),
+		})(unsafe.Pointer(&[2]uint64{0x3fe62e42fefa39ef, 0x0})),
 	},
 	41: {
 		Fname:     __ccgo_ts + 14768,
@@ -87914,10 +87863,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(1.4426950408889634)})),
+		})(unsafe.Pointer(&[2]uint64{0x3ff71547652b82fe, 0x0})),
 	},
 	42: {
 		Fname:     __ccgo_ts + 14774,
@@ -87944,10 +87890,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(0.4342944819032518)})),
+		})(unsafe.Pointer(&[2]uint64{0x3fdbcb7b1526e50e, 0x0})),
 	},
 	43: {
 		Fname:     __ccgo_ts + 14781,
@@ -87974,10 +87917,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(3.141592653589793)})),
+		})(unsafe.Pointer(&[2]uint64{0x400921fb54442d18, 0x0})),
 	},
 	44: {
 		Fname:     __ccgo_ts + 14784,
@@ -88004,10 +87944,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(0.7071067811865476)})),
+		})(unsafe.Pointer(&[2]uint64{0x3fe6a09e667f3bcd, 0x0})),
 	},
 	45: {
 		Fname:     __ccgo_ts + 14792,
@@ -88034,10 +87971,7 @@ var _js_math_funcs = [46]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: float64(1.4142135623730951)})),
+		})(unsafe.Pointer(&[2]uint64{0x3ff6a09e667f3bcd, 0x0})),
 	},
 }
 
@@ -99074,10 +99008,7 @@ func _map_delete_record(tls *libc.TLS, ctx uintptr, s uintptr, key TJSValue) (r 
 	**(**uintptr)(__ccgo_up(pmr)) = (*TJSMapRecord)(unsafe.Pointer(mr)).Fhash_next
 	_map_delete_record_internal(tls, (*TJSContext)(unsafe.Pointer(ctx)).Frt, s, mr)
 	return TJSValue{
-		Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-			f Tint32_t
-			_ [4]byte
-		}{f: libc.Int32FromInt32(1)})),
+		Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 		Ftag: int64(EJS_TAG_BOOL),
 	}
 }
@@ -100454,10 +100385,7 @@ func _js_set_isDisjointFrom(tls *libc.TLS, ctx2 uintptr, this_val TJSValue, argc
 	}
 	if !(found != 0) {
 		v5 = TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 	} else {
@@ -100598,10 +100526,7 @@ fini:
 	;
 	if found != 0 {
 		v5 = TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 	} else {
@@ -100754,10 +100679,7 @@ fini:
 	;
 	if found != 0 {
 		v3 = TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}
 	} else {
@@ -108815,10 +108737,7 @@ var _js_global_funcs = [14]TJSCFunctionListEntry{
 				Fcproto Tuint8_t
 				Fcfunc  TJSCFunctionType
 			}
-		})(unsafe.Pointer(&struct {
-			f float64
-			_ [8]byte
-		}{f: libc.Float64FromFloat64(1) / libc.Float64FromFloat64(0)})),
+		})(unsafe.Pointer(&[2]uint64{0x7ff0000000000000, 0x0})),
 	},
 	11: {
 		Fname:     __ccgo_ts + 7508,
@@ -113462,10 +113381,7 @@ _22:
 			break
 		}
 		x_JS_DefinePropertyValueStr(tls, ctx7, obj1, p2, TJSValue{
-			Fu: *(*TJSValueUnion)(unsafe.Pointer(&struct {
-				f Tint32_t
-				_ [4]byte
-			}{f: libc.Int32FromInt32(1)})),
+			Fu:   *(*TJSValueUnion)(unsafe.Pointer(&[1]uint64{0x100000000})),
 			Ftag: int64(EJS_TAG_BOOL),
 		}, libc.Int32FromInt32(1)<<libc.Int32FromInt32(0)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(1)|libc.Int32FromInt32(1)<<libc.Int32FromInt32(2))
 		goto _23
