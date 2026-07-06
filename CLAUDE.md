@@ -11,8 +11,8 @@ almost all of the code is machine-generated. This package exposes the raw,
 low-level C ABI. The idiomatic Go wrapper lives in a separate repo,
 [`modernc.org/quickjs`](https://pkg.go.dev/modernc.org/quickjs).
 
-Pinned upstream: QuickJS commit `57f8ec0…` (release 2025-09-13), test262 commit
-`06dfddc…`. Both hashes appear in `generator.go`, `Makefile`, and `builder.json`
+Pinned upstream: QuickJS commit `3d5e064…` (release 2026-06-04), test262 commit
+`5c82069…`. Both hashes appear in `generator.go`, `Makefile`, and `builder.json`
 and must stay in sync when bumping versions.
 
 ## Commands

@@ -375,6 +375,28 @@ function array_write(n)
     return len * n;
 }
 
+function array_update(n)
+{
+    var tab, len, i, j;
+    tab = [];
+    len = 10;
+    for(i = 0; i < len; i++)
+        tab[i] = i;
+    for(j = 0; j < n; j++) {
+        tab[0] += j;
+        tab[1] += j;
+        tab[2] += j;
+        tab[3] += j;
+        tab[4] += j;
+        tab[5] += j;
+        tab[6] += j;
+        tab[7] += j;
+        tab[8] += j;
+        tab[9] += j;
+    }
+    return len * n;
+}
+
 function array_prop_create(n)
 {
     var tab, i, j, len;
@@ -401,6 +423,21 @@ function array_slice(n)
         global_res = a;
     }
     return len * n;
+}
+
+function array_length_read(n)
+{
+    var tab, sum, j;
+    tab = [1, 2, 3];
+    sum = 0;
+    for(j = 0; j < n; j++) {
+        sum += tab.length;
+        sum += tab.length;
+        sum += tab.length;
+        sum += tab.length;
+    }
+    global_res = sum;
+    return n * 4;
 }
 
 function array_length_decr(n)
@@ -508,6 +545,43 @@ function typed_array_write(n)
         tab[9] = j;
     }
     return len * n;
+}
+
+function arguments_test()
+{
+    return arguments[0] + arguments[1] + arguments[2];
+}
+
+function arguments_read(n)
+{
+    sum = 0;
+    for(j = 0; j < n; j++) {
+        sum += arguments_test(j, j, j);
+        sum += arguments_test(j, j, j);
+        sum += arguments_test(j, j, j);
+        sum += arguments_test(j, j, j);
+    }
+    global_res = sum;
+    return n * 4;
+}
+
+function arguments_strict_test()
+{
+    "use strict";
+    return arguments[0] + arguments[1] + arguments[2];
+}
+
+function arguments_strict_read(n)
+{
+    sum = 0;
+    for(j = 0; j < n; j++) {
+        sum += arguments_strict_test(j, j, j);
+        sum += arguments_strict_test(j, j, j);
+        sum += arguments_strict_test(j, j, j);
+        sum += arguments_strict_test(j, j, j);
+    }
+    global_res = sum;
+    return n * 4;
 }
 
 var global_var0;
@@ -907,6 +981,33 @@ function regexp_utf16(n)
     return n * 1000;
 }
 
+function regexp_replace(n)
+{
+    var i, j, r, s;
+    s = "the quick abc brown fox jumped abc over the lazy dog"
+    for(j = 0; j < n; j++) {
+        for(i = 0; i < 1000; i++)
+            r = s.replace(/abc /g, "-");
+        global_res = r;
+    }
+    return n * 1000;
+}
+
+function string_length(n)
+{
+    var str, sum, j;
+    str = "abcde";
+    sum = 0;
+    for(j = 0; j < n; j++) {
+        sum += str.length;
+        sum += str.length;
+        sum += str.length;
+        sum += str.length;
+    }
+    global_res = sum;
+    return n * 4;
+}
+
 /* incremental string contruction as local var */
 function string_build1(n)
 {
@@ -1154,17 +1255,6 @@ sort_bench.verbose = false;
 
 function int_to_string(n)
 {
-    var s, j;
-    for(j = 0; j < n; j++) {
-        s = (j % 1000).toString();
-        s = (1234000 + j % 1000).toString();
-    }
-    global_res = s;
-    return n * 2;
-}
-
-function int_to_string(n)
-{
     var s, r, j;
     r = 0;
     for(j = 0; j < n; j++) {
@@ -1357,14 +1447,18 @@ function main(argc, argv, g)
         prop_delete,
         array_read,
         array_write,
+        array_update,
         array_prop_create,
         array_slice,
+        array_length_read,
         array_length_decr,
         array_hole_length_decr,
         array_push,
         array_pop,
         typed_array_read,
         typed_array_write,
+        arguments_read,
+        arguments_strict_read,
         global_read,
         global_write,
         global_write_strict,
@@ -1388,6 +1482,8 @@ function main(argc, argv, g)
         math_min,
         regexp_ascii,
         regexp_utf16,
+        regexp_replace,
+        string_length,
         string_build1,
         string_build1x,
         string_build2c,
@@ -1481,8 +1577,14 @@ function main(argc, argv, g)
 }
 
 if (typeof scriptArgs === "undefined") {
-    scriptArgs = [];
-    if (typeof process.argv === "object")
+    if (typeof process !== "undefined" && typeof process.argv === "object") {
+        /* node case */
         scriptArgs = process.argv.slice(1);
+    } else if (typeof arguments !== "undefined") {
+        /* d8 case */
+        scriptArgs = arguments;
+    } else {
+        scriptArgs = [];
+    }
 }
 main(scriptArgs.length, scriptArgs, this);
