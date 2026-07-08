@@ -307,8 +307,15 @@ func Test262(t *testing.T) {
 	default:
 		args = append(args, "-a")
 	}
-	if fn := filepath.Join("testdata", fmt.Sprintf("test262_exclude_%s_%s", goos, goarch)); fileExists(fn) {
-		args = append(args, "-x", fn)
+	// Copy any curated per-target exclude file into the cwd and pass it by bare
+	// basename: run-test262 resolves namelist entries relative to the file's
+	// directory, so a "testdata/" prefix would be prepended to every entry and
+	// nothing would match. This file holds tests that fail only in the Go build
+	// (Go/libc discrepancies not seen by the native C reference, e.g.
+	// Math/sinh-approx.js on darwin/arm64).
+	if xbase := fmt.Sprintf("test262_exclude_%s_%s", goos, goarch); fileExists(filepath.Join("testdata", xbase)) {
+		copyFile(t, xbase, filepath.Join("testdata", xbase))
+		args = append(args, "-x", xbase)
 	}
 	out, err = shell(nil, bin, args...)
 	if err != nil {
