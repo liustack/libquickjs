@@ -181,7 +181,7 @@ func toString(t testing.TB, tls *libc.TLS, ctx uintptr, val TJSValue) (r string)
 
 		return fmt.Sprintf("<exception=%s>", libc.GoString(p))
 	case EJS_TAG_INT:
-		return fmt.Sprint(*(*int32)(unsafe.Pointer(&val)))
+		return fmt.Sprint(jsvToInt32(val))
 	case EJS_TAG_FLOAT64:
 		return fmt.Sprint(jsvToFloat64(val))
 	case

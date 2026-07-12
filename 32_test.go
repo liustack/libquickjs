@@ -27,3 +27,9 @@ const _JS_FLOAT64_TAG_ADDEND = (0x7ff80000 - EJS_TAG_FIRST + 1)
 func jsvToFloat64(v TJSValue) (r float64) {
 	return math.Float64frombits(v + _JS_FLOAT64_TAG_ADDEND<<32)
 }
+
+// jsvToInt32 extracts a JS_TAG_INT payload. On 32-bit (NaN-boxing) TJSValue is
+// a uint64 with the int value in its low 32 bits (JS_VALUE_GET_INT is (int)v).
+func jsvToInt32(v TJSValue) int32 {
+	return int32(v)
+}
