@@ -18,10 +18,13 @@ func jsvToFloat64(v TJSValue) (r float64) {
 	return *(*float64)(unsafe.Pointer(&v))
 }
 
-// jsvToInt32 extracts a JS_TAG_INT payload. On 64-bit the value union is backed
-// by a uint64 word (TJSValueUnion.Fuint641); the int is stored in its low 32
-// bits, so read that field directly rather than reinterpreting the struct's
-// first 4 bytes, which would pick the wrong half on big-endian (e.g. s390x).
+// jsvToInt32 extracts a JS_TAG_INT payload. On every 64-bit target the value
+// union is the first 8 bytes of TJSValue and QuickJS keeps the int in the low
+// 32 value-bits (JS_VALUE_GET_INT reads u.int32). Read the whole union as a
+// native uint64 and truncate: this reconstructs the stored value on both little-
+// and big-endian (e.g. s390x) without naming the ccgo-generated union field,
+// whose name is not portable -- ccgo backs the union with a uint64 word
+// (Fuint641) on most targets but an int32+pad (Fint321) on windows.
 func jsvToInt32(v TJSValue) int32 {
-	return int32(v.Fu.Fuint641)
+	return int32(*(*uint64)(unsafe.Pointer(&v)))
 }
