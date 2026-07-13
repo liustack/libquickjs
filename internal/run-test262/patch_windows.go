@@ -10,6 +10,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"runtime"
 	gotime "time"
 	"unsafe"
 
@@ -65,6 +66,30 @@ func _pthread_attr_setdetachstate(*libc.TLS, uintptr, int32) {
 
 func _mkdir0(*libc.TLS, uintptr, uint16) int32 {
 	panic(todo(""))
+}
+
+// Newer llvm-mingw (UCRT) headers emit the time64 spellings; forward them to
+// libc so the windows cross-build stays toolchain-version independent.
+func _clock_gettime64(tls *libc.TLS, clkID int32, tp uintptr) int32 {
+	return libc.Xclock_gettime(tls, clkID, tp)
+}
+
+func _pthread_cond_timedwait64(tls *libc.TLS, cond, mutex, abstime uintptr) int32 {
+	return libc.Xpthread_cond_timedwait(tls, cond, mutex, abstime)
+}
+
+// _GetProcessAffinityMask is used only by run-test262's _cpu_count to size its
+// worker pool. libc does not export it, so report every logical CPU as
+// available (DWORD_PTR is 64-bit on the windows/{amd64,arm64} targets this file
+// serves).
+func _GetProcessAffinityMask(tls *libc.TLS, proc, procMask, sysMask uintptr) int32 {
+	mask := ^uint64(0)
+	if n := runtime.NumCPU(); n < 64 {
+		mask = uint64(1)<<uint(n) - 1
+	}
+	*(*uint64)(unsafe.Pointer(procMask)) = mask
+	*(*uint64)(unsafe.Pointer(sysMask)) = mask
+	return 1
 }
 
 const CLOCKS_PER_SEC = 1000

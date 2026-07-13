@@ -81,6 +81,44 @@ func fail(rc int, msg string, args ...any) {
 	panic(rc)
 }
 
+// w64gcc resolves the llvm-mingw x86_64 Windows cross toolchain (gcc and ar) in
+// a version-agnostic way, so that relocating the install directory - which is
+// exactly what silently broke windows cross-generation once (llvm/bin ->
+// llvm-mingw-<date>/bin) - cannot recur. Resolution order: $LLVM_MINGW_BIN, the
+// newest $HOME/bin/llvm-mingw-*/bin, then $PATH. llvm-mingw (clang) is the
+// canonical toolchain for this target; GNU mingw is intentionally not used.
+func w64gcc() (gcc, ar string) {
+	try := func(dir string) bool {
+		g := filepath.Join(dir, "x86_64-w64-mingw32-gcc")
+		if _, err := os.Stat(g); err != nil {
+			return false
+		}
+		gcc = g
+		ar = filepath.Join(dir, "x86_64-w64-mingw32-ar")
+		return true
+	}
+	if d := os.Getenv("LLVM_MINGW_BIN"); d != "" {
+		if try(d) {
+			return gcc, ar
+		}
+		fail(1, "LLVM_MINGW_BIN=%q has no x86_64-w64-mingw32-gcc", d)
+	}
+	dirs, _ := filepath.Glob(filepath.Join(os.Getenv("HOME"), "bin", "llvm-mingw-*", "bin"))
+	sort.Strings(dirs)
+	for i := len(dirs) - 1; i >= 0; i-- { // newest first
+		if try(dirs[i]) {
+			return gcc, ar
+		}
+	}
+	if g, err := exec.LookPath("x86_64-w64-mingw32-gcc"); err == nil {
+		if a, err := exec.LookPath("x86_64-w64-mingw32-ar"); err == nil {
+			return g, a
+		}
+	}
+	fail(1, "no llvm-mingw x86_64-w64-mingw32-gcc found; set LLVM_MINGW_BIN")
+	return "", ""
+}
+
 func main() {
 	if ccgo.IsExecEnv() {
 		if err := ccgo.NewTask(goos, goarch, os.Args, os.Stdout, os.Stderr, nil).Main(); err != nil {
@@ -98,13 +136,27 @@ func main() {
 		fail(1, "%v", err)
 	}
 
+	// ccgo_windows.go serves windows/{amd64,arm64} but has no native builder, so
+	// nothing regenerates it on a QuickJS bump unless it is folded into the
+	// linux/amd64 autogen run - which is what caused it to go ~9 months stale.
+	// Cross-generate it here (via `make w64`) and snapshot the go.mod for both
+	// windows arches. Set GO_GENERATE_NOWIN=1 to skip on hosts without an
+	// llvm-mingw toolchain.
+	if !w64 && target == "linux/amd64" && os.Getenv("GO_GENERATE_NOWIN") == "" {
+		defer func() {
+			shell(gmake, "w64")
+			copyFile("internal/autogen/windows_amd64.mod", "go.mod")
+			copyFile("internal/autogen/windows_arm64.mod", "go.mod")
+		}()
+	}
+
 	switch {
 	case w64:
 		goos = "windows"
 		goarch = "amd64"
 		os.Setenv("TARGET_GOOS", goos)
 		os.Setenv("TARGET_GOARCH", goarch)
-		xgcc := "/home/jnml/bin/llvm/bin/x86_64-w64-mingw32-gcc"
+		xgcc, xar := w64gcc()
 		os.Setenv("CC", xgcc)
 		os.Setenv("CCGO_CC", xgcc)
 		os.Setenv("CCGO_GCC", xgcc)
@@ -118,7 +170,7 @@ func main() {
 			"-D_FILE_OFFSET_BITS",
 			"-D_FILE_OFFSET_BITS=64",
 			"-build-lines", "//go:build windows && (amd64 || arm64)\n",
-			"-map", "gcc=/home/jnml/bin/llvm/bin/x86_64-w64-mingw32-gcc,ar=/home/jnml/bin/llvm/bin/x86_64-w64-mingw32-ar",
+			"-map", "gcc="+xgcc+",ar="+xar,
 		)
 	}
 	if s := cc.LongDouble64Flag(goos, goarch); s != "" {
@@ -201,9 +253,21 @@ func main() {
 	shell(gsed, "-i", `s/\<T__\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/t__\1/g`, result)
 	shell(gsed, "-i", `s/\<x_\([a-zA-Z0-9_][a-zA-Z0-9_]\+\)/X\1/g`, result)
 	shell(gsed, "-i", `s/\<X__JS_\([a-zA-Z0-9][a-zA-Z0-9_]\+\)/x__JS_\1/g`, result)
+	// llvm-mingw (clang) constant-folds some JSValue sentinels to
+	// uint32(-int32(1)), which the Go compiler rejects as an overflowing
+	// constant conversion; rewrite to the identical unsigned literal. Applied to
+	// both the engine and the run-test262 copy below.
+	fixW64Overflow := func(path string) {
+		shell(gsed, "-i", `s/uint32(-int32(1))/uint32(0xffffffff)/g`, path)
+	}
+	if w64 {
+		fixW64Overflow(result)
+	}
 	switch {
 	case w64:
-		copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.exe.go"))
+		rt := filepath.Join("internal", "run-test262", result)
+		copyFile(rt, filepath.Join(quickjs, "run-test262.exe.go"))
+		fixW64Overflow(rt)
 	default:
 		copyFile(filepath.Join("internal", "run-test262", result), filepath.Join(quickjs, "run-test262.go"))
 	}
