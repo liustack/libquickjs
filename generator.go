@@ -84,38 +84,48 @@ func fail(rc int, msg string, args ...any) {
 // w64gcc resolves the llvm-mingw x86_64 Windows cross toolchain (gcc and ar) in
 // a version-agnostic way, so that relocating the install directory - which is
 // exactly what silently broke windows cross-generation once (llvm/bin ->
-// llvm-mingw-<date>/bin) - cannot recur. Resolution order: $LLVM_MINGW_BIN, the
-// newest $HOME/bin/llvm-mingw-*/bin, then $PATH. llvm-mingw (clang) is the
-// canonical toolchain for this target; GNU mingw is intentionally not used.
+// llvm-mingw-<date>/bin) - cannot recur. It MUST be llvm-mingw (clang): GNU
+// mingw's <_mingw.h> uses __int128 in a way ccgo cannot type-check, so a GNU
+// x86_64-w64-mingw32-gcc found on $PATH is rejected rather than used. Candidates
+// are tried in order: $LLVM_MINGW_BIN, $HOME/bin/llvm/bin (the canonical
+// location on the builder), the newest $HOME/bin/llvm-mingw-*/bin, then $PATH;
+// the first whose gcc reports "clang" wins.
 func w64gcc() (gcc, ar string) {
+	isClang := func(g string) bool {
+		out, err := exec.Command(g, "--version").Output()
+		return err == nil && strings.Contains(string(out), "clang")
+	}
 	try := func(dir string) bool {
+		if dir == "" {
+			return false
+		}
 		g := filepath.Join(dir, "x86_64-w64-mingw32-gcc")
-		if _, err := os.Stat(g); err != nil {
+		if _, err := os.Stat(g); err != nil || !isClang(g) {
 			return false
 		}
 		gcc = g
 		ar = filepath.Join(dir, "x86_64-w64-mingw32-ar")
 		return true
 	}
-	if d := os.Getenv("LLVM_MINGW_BIN"); d != "" {
+	home := os.Getenv("HOME")
+	cands := []string{
+		os.Getenv("LLVM_MINGW_BIN"),
+		filepath.Join(home, "bin", "llvm", "bin"),
+	}
+	globs, _ := filepath.Glob(filepath.Join(home, "bin", "llvm-mingw-*", "bin"))
+	sort.Strings(globs)
+	for i := len(globs) - 1; i >= 0; i-- { // newest first
+		cands = append(cands, globs[i])
+	}
+	if p, err := exec.LookPath("x86_64-w64-mingw32-gcc"); err == nil {
+		cands = append(cands, filepath.Dir(p))
+	}
+	for _, d := range cands {
 		if try(d) {
 			return gcc, ar
 		}
-		fail(1, "LLVM_MINGW_BIN=%q has no x86_64-w64-mingw32-gcc", d)
 	}
-	dirs, _ := filepath.Glob(filepath.Join(os.Getenv("HOME"), "bin", "llvm-mingw-*", "bin"))
-	sort.Strings(dirs)
-	for i := len(dirs) - 1; i >= 0; i-- { // newest first
-		if try(dirs[i]) {
-			return gcc, ar
-		}
-	}
-	if g, err := exec.LookPath("x86_64-w64-mingw32-gcc"); err == nil {
-		if a, err := exec.LookPath("x86_64-w64-mingw32-ar"); err == nil {
-			return g, a
-		}
-	}
-	fail(1, "no llvm-mingw x86_64-w64-mingw32-gcc found; set LLVM_MINGW_BIN")
+	fail(1, "no llvm-mingw (clang) x86_64-w64-mingw32-gcc found; set LLVM_MINGW_BIN")
 	return "", ""
 }
 
