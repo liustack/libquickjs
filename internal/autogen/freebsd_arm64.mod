@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	modernc.org/ccgo/v4 v4.34.6
 	modernc.org/fileutil v1.4.0
-	modernc.org/libc v1.74.1
+	modernc.org/libc v1.74.2
 )
 
 require (
@@ -19,7 +19,7 @@ require (
 	golang.org/x/sync v0.21.0 // indirect
 	golang.org/x/sys v0.46.0 // indirect
 	golang.org/x/tools v0.47.0 // indirect
-	modernc.org/cc/v4 v4.29.0 // indirect
+	modernc.org/cc/v4 v4.29.1 // indirect
 	modernc.org/gc/v2 v2.6.5 // indirect
 	modernc.org/gc/v3 v3.1.5 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
