@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	modernc.org/ccgo/v4 v4.35.0
 	modernc.org/fileutil v1.4.0
-	modernc.org/libc v1.75.5
+	modernc.org/libc v1.75.6
 )
 
 require (
