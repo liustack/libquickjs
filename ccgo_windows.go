@@ -249857,7 +249857,7 @@ func _js_std_file_eof(tls *libc.TLS, ctx1 uintptr, this_val TJSValue, argc int32
 	}
 	_ = ctx1
 	v1 = TJSValue{
-		Fu:   *(*TJSValueUnion)(unsafe.Pointer(&struct{ f Tuint64_t }{f: uint64(libc.BoolUint32(_feof(tls, f) != libc.Int32FromInt32(0)))})),
+		Fu:   *(*TJSValueUnion)(unsafe.Pointer(&struct{ f Tuint64_t }{f: uint64(libc.BoolUint32(libc.Xfeof(tls, f) != libc.Int32FromInt32(0)))})),
 		Ftag: int64(EJS_TAG_BOOL),
 	}
 	goto _2
@@ -249896,7 +249896,7 @@ func _js_std_file_clearerr(tls *libc.TLS, ctx uintptr, this_val TJSValue, argc i
 			Ftag: int64(EJS_TAG_EXCEPTION),
 		}
 	}
-	_clearerr(tls, f)
+	libc.Xclearerr(tls, f)
 	return TJSValue{
 		Fu:   TJSValueUnion{},
 		Ftag: int64(EJS_TAG_UNDEFINED),
