@@ -2152,7 +2152,7 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 	var lineno, section int32
 	var _ /* buf at bp+0 */ [1024]uint8
 	_, _, _, _, _, _, _, _, _ = base_name, f, lineno, p, path, q, section, testdir, v1
-	section = 0
+	section = int32(0)
 	lineno = 0
 	f = libc.Xfopen(tls, filename, __ccgo_ts+14)
 	if !(f != 0) {
@@ -2170,18 +2170,18 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 			p = p + 1
 			**(**uint8)(__ccgo_up(p + uintptr(libc.Xstrcspn(tls, p, __ccgo_ts+515)))) = uint8('\000')
 			if _str_equal(tls, p, __ccgo_ts+517) != 0 {
-				section = 1
+				section = int32(1)
 			} else {
 				if _str_equal(tls, p, __ccgo_ts+524) != 0 {
-					section = 2
+					section = int32(2)
 				} else {
 					if _str_equal(tls, p, __ccgo_ts+532) != 0 {
-						section = 3
+						section = int32(3)
 					} else {
 						if _str_equal(tls, p, __ccgo_ts+541) != 0 {
-							section = 4
+							section = int32(4)
 						} else {
-							section = 0
+							section = int32(0)
 						}
 					}
 				}
@@ -2197,7 +2197,7 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 			q = x_str_strip(tls, q)
 		}
 		switch section {
-		case 1:
+		case int32(1):
 			if !(q != 0) {
 				libc.Xprintf(tls, __ccgo_ts+547, libc.VaList(bp+1032, filename, lineno))
 				continue
@@ -2295,15 +2295,15 @@ func x_load_config(tls *libc.TLS, filename uintptr, ignore uintptr) {
 				continue
 			}
 			fallthrough
-		case 2:
+		case int32(2):
 			x_namelist_add(tls, uintptr(unsafe.Pointer(&x_exclude_list)), base_name, p)
-		case 3:
+		case int32(3):
 			if !(q != 0) || _str_equal(tls, q, __ccgo_ts+749) != 0 {
 				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_features)), __ccgo_ts+635, p)
 			} else {
 				x_str_append(tls, uintptr(unsafe.Pointer(&x_harness_skip_features)), __ccgo_ts+635, p)
 			}
-		case 4:
+		case int32(4):
 			x_namelist_add(tls, uintptr(unsafe.Pointer(&x_test_list)), base_name, p)
 		default:
 			/* ignore settings in other sections */
